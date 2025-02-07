@@ -2,6 +2,7 @@
     "name": "Nome da Empresa",
     "cnpj": "000000000",
     "email": "email@empresa.com",
+    "cep": "89711226",
     "address": "Rua Exemplo, 123",
     "number": "123",
     "number_of_rooms": 10,

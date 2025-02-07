@@ -138,3 +138,41 @@
 #46 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
 #47 {main}
 "} 
+[2025-02-07 16:59:12] local.ERROR: No arguments expected for "migrate" command, got "status". {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): No arguments expected for \"migrate\" command, got \"status\". at C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Input\\ArgvInput.php:199)
+[stacktrace]
+#0 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Input\\ArgvInput.php(92): Symfony\\Component\\Console\\Input\\ArgvInput->parseArgument()
+#1 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Input\\ArgvInput.php(77): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#2 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Input\\Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#3 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Command\\Command.php(238): Symfony\\Component\\Console\\Input\\Input->bind()
+#4 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#5 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#6 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#7 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#8 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#9 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#11 {main}
+"} 
+[2025-02-07 16:59:24] local.ERROR: Command "migrate:" is ambiguous.
+Did you mean one of these?
+    migrate:fresh    Drop all tables and re-run all migrations
+    migrate:install  Create the migration repository
+    migrate:refresh  Reset and re-run all migrations
+    migrate:reset    Rollback all database migrations
+    migrate:rollback Rollback the last database migration
+    migrate:status   Show the status of each migration. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"migrate:\" is ambiguous.
+Did you mean one of these?
+    migrate:fresh    Drop all tables and re-run all migrations
+    migrate:install  Create the migration repository
+    migrate:refresh  Reset and re-run all migrations
+    migrate:reset    Rollback all database migrations
+    migrate:rollback Rollback the last database migration
+    migrate:status   Show the status of each migration. at C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Application.php:767)
+[stacktrace]
+#0 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Application.php(284): Symfony\\Component\\Console\\Application->find()
+#1 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#2 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#3 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 C:\\Gabriel\\Codes\\Hotel\\apiHotel\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#5 {main}
+"} 

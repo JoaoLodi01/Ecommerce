@@ -11,15 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('consumers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 120);
+        Schema::table('users', function (Blueprint $table) {
             $table->string('cnpj', 14)->nullable()->unique();
             $table->string('cpf', 11)->nullable()->unique();
-            $table->string('email', 255)->unique();
-            $table->string('phone', 15)->unique();
-            $table->boolean('active')->default(1);
-            $table->timestamps();
         });
     }
     /**
