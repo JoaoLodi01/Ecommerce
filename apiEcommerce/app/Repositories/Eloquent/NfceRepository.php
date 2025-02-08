@@ -3,9 +3,9 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Nfce;
-use App\Repositories\Contracts\Base;
+use App\Repositories\Contracts\BaseInterface;
 
-class NfceRepository extends BaseRepository implements Base
+class NfceRepository implements BaseInterface
 {
     public function getAll(int $active){
         return Nfce::where('active', $active)->get();

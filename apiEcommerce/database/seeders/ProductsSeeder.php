@@ -51,6 +51,7 @@ class ProductsSeeder extends Seeder
 
         foreach($products as $product){
             Products::create($product);
+            
         }
     }
 }
