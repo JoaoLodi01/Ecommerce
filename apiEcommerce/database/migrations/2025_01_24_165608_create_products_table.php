@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('preco_custo', 16,2);
             $table->decimal('preco_venda', 16,2);
             $table->decimal('perc_lucro', 16,2);
+            $table->string('gtin', 13);
             $table->integer('NCM', 8);
             $table->integer('CEST', 7);
             $table->integer('CSOSN', 3);
