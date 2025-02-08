@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('config_hotels', function (Blueprint $table) {
             $table->id();
             $table->boolean('permite_reserva', 1);
-            
             $table->timestamps();
         });
     }
