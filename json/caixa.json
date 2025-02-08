@@ -1,0 +1,27 @@
+{
+    "name": "Sucursal Instore",
+    "business_hours": {
+      "monday": [
+        {
+          "open": "08:00",
+          "close": "12:00"
+        }
+      ],
+      "tuesday": [
+        {
+          "open": "09:00",
+          "close": "18:00"
+        }
+      ]
+    },
+    "external_id": "SUC001",
+    "location": {
+      "street_number": "0123",
+      "street_name": "Example Street Name.",
+      "city_name": "City name.",
+      "state_name": "State name.",
+      "latitude": 27.175193925922862,
+      "longitude": 78.04213533235064,
+      "reference": "Near to Mercado Pago"
+    }
+}

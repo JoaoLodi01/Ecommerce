@@ -1,0 +1,11 @@
+{
+    "name": "Nome da Empresa",
+    "cnpj": "000000000",
+    "email": "email@empresa.com",
+    "address": "Rua Exemplo, 123",
+    "number": "123",
+    "number_of_rooms": 10,
+    "number_of_employees": 10
+    
+  }
+  
