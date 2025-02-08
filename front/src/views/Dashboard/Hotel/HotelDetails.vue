@@ -33,8 +33,9 @@
             console.log(response.data.all.hotel)
             
           }
+          
 
-          //console.log(response.data)
+          console.log(response.data)
 
         } catch (error) {
           console.error('Erro ao carregar o hotel', error.response.data)
