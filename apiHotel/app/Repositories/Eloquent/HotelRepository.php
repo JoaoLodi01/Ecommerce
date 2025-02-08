@@ -15,11 +15,30 @@ class HotelRepository implements HotelDetailContract
 {
     public function all(int $active)
     {
-        //return HotelDetail::where('active', $active)->first();
         $hotel = HotelDetail::where('active', $active)->first();
-        //return $hotel;
-        return $this->checkAddress($hotel);
-    
+        
+        if(!empty($hotel) && $hotel->cep)
+        {
+            Log::info('Chamou o checkAddress com, hotel: ' . $hotel);
+            return $this->checkAddress($hotel);
+        } else if (empty($hotel)) {
+            Log::info("Hotel não encontrado");
+
+            return array(
+                'success' => false,
+                'message' => 'Hotel não encontrado'
+                
+            );
+            
+        } else if (!$hotel->cep) {
+            Log::info("CEP do Hotel não encontrado ou não informado");
+
+            return array(
+                'success' => false,
+                'message' => 'CEP do Hotel não encontrado ou não informado'
+                
+            );
+        }
     }
 
     public function checkAddress(object $hotel)
@@ -46,7 +65,9 @@ class HotelRepository implements HotelDetailContract
 
         $response = json_decode($data, true);
         curl_close($ch);
+
         Log::info('Terminou e encerrou a consulta, vai comparar o endereço do CEP');
+        Log::info('Endereço ' . $response['logradouro'] . "rota: https://viacep.com.br/ws/$hotel->cep/json/");
 
         if($hotel->address != $response['logradouro'])
         {
@@ -57,12 +78,21 @@ class HotelRepository implements HotelDetailContract
 
             $hotel->save();
 
-            return $hotel;
+            return array(
+                'success' => true,
+                'hotel' => $hotel,
+                'a' => 1
+            
+            );
 
             Log::info('Fim do bloco, linha 62');
         }
 
-        return $hotel;
+        return array(
+            'success' => true,
+            'hotel' => $hotel
+        
+        );
         Log::info('Não vai alterar o endereço');
         Log::info('Fim do bloco, linha 66');
     }

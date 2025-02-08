@@ -1,0 +1,133 @@
+<template>
+    <form @submit.prevent="createHotel">
+        <input
+            type="text"
+            placeholder="Nome do Hotel"
+            v-model="form.name"
+
+        >
+
+        <input
+            type="text"
+            maxlength="14"
+            placeholder="CNPJ do Hotel"
+            v-model="form.cnpj"
+            
+        >
+
+        <input
+            type="text"
+            placeholder="E-mail do Hotel"
+            v-model="form.email"
+            
+        >
+
+        <input
+            type="text"
+            maxlength="8"
+            placeholder="CEP do Hotel"
+            v-model="form.cep"
+            @input="getAddress"
+        >
+
+        <input
+            type="text"
+            placeholder="Endereço do Hotel"
+            v-model="form.address"
+            
+        >
+
+        <input
+            type="text"
+            placeholder="Número do endereço"
+            v-model="form.number"
+            
+        >
+
+        <input
+            type="text"
+            placeholder="Número do quartos"
+            v-model="form.number_of_rooms"
+            
+        >
+
+        <input
+            type="text"
+            placeholder="Número de funcionário"
+            v-model="form.number_of_employees"
+            
+        >
+
+        <button>Enviar</button>
+    </form> 
+</template>
+
+<script>
+import api from '@/services/api';
+import axios from 'axios';
+
+    export default {
+        data(){
+            return {
+                form: {
+                    name: '',
+                    cnpj: '',
+                    email: '',
+                    cep: '',
+                    address: '',
+                    number: '',
+                    number_of_rooms: '',
+                    number_of_employees: '',
+
+                },
+                api_hotel: process.env.VUE_APP_API_URL_HOTEL,
+                api_viaCEP: process.env.VUE_APP_VIACEP
+
+            }
+        },
+
+        methods: {
+            async createHotel()
+            {
+                try {
+                    const form = new FormData();
+                    form.append("name", this.form.name);
+                    form.append("cnpj", this.form.cnpj);
+                    form.append("email", this.form.email);
+                    form.append("cep", this.form.cep);
+                    form.append("address", this.form.address);
+                    form.append("number", this.form.number);
+                    form.append("number_of_rooms", this.form.number_of_rooms);
+                    form.append("number_of_employees", this.form.number_of_employees);
+
+                    const response = await axios.post(`${this.api_hotel}/hotel/create`, form)
+                    
+                    if (response.data.success === true) {
+                        this.$router.push('/hotel')
+                    }
+
+                } catch (error) {
+                    console.error('Erro ao criar o Hotel', error)
+                }
+            },
+            async getAddress(){
+                try {                
+                    console.log(this.form.cep)
+                    if(this.form.cep.length === 8)
+                    {
+                        console.log(`${this.api_viaCEP}/${this.form.cep}/json/`)
+                        
+                        const response = await axios.get(`${this.api_viaCEP}/${this.form.cep}/json/`)
+                        this.form.address = response.data.logradouro
+                        console.log(response.data);
+                        console.log(this.form.address);
+                    }
+                    
+                } catch (error) {
+                    console.error('Erro ao consultar o CEP', error)
+
+                }
+            }
+        }
+    }
+</script>

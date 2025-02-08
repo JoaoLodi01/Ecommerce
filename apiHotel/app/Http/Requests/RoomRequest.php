@@ -63,6 +63,9 @@ class RoomRequest extends FormRequest
                 {
                     $fail("Esse usuário já está associado ao quarto");
 
+                } elseif ($room->reserved == 1){
+                    $fail("Esse quarto já está reservado");
+
                 }
             }],
         ];

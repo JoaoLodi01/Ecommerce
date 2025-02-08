@@ -14,7 +14,8 @@ class Room extends Model
         'number_room',
         'start_period',
         'end_period',
-        'active'
+        'active',
+        'reserved'
 
     ];
 

@@ -16,18 +16,29 @@ class HotelService
     public function all(int $active)
     {
         try {
+            $hotel = $this->hotelRepository->all($active);
+            if($hotel['success'] == true)
+            {
+                return response()->json([
+                    'success' => true,
+                    'all' => $this->hotelRepository->all($active)
+
+                ], 200);
+
+            }
             
             return response()->json([
-                'success' => true,
-                'all' => $this->hotelRepository->all($active)
+                'success' => false,
+                'message' => $hotel['message']
 
-            ], 200);
+            ], 400);
 
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,
                 'message' => $th->getMessage(),
-                'line' => $th->getLine()
+                'line' => $th->getLine(),
+                'file' => $th->getFile()
 
             ]);
         }

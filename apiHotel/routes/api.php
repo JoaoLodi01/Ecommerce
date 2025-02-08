@@ -15,7 +15,7 @@ Route::post('/', function (){
     
 });
 
-Route::prefix('v1')->group( function (){
+Route::prefix('v1-hotel')->group( function (){
     Route::prefix('hotel')->group( function (){
         Route::get('/all', [HotelController::class, 'allHotel']);
         Route::get('/find', [HotelController::class, 'findHotel']);

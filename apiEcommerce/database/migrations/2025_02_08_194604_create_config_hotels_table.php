@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('cnpj', 14)->nullable()->unique();
-            $table->string('cpf', 11)->nullable()->unique();
+        Schema::create('config_hotels', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('consumers');
+        Schema::dropIfExists('config_hotels');
     }
 };
