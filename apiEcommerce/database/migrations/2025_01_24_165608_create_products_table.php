@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('produto', 255);
+            $table->unsignedBigInteger('grupo_id');
+            $table->foreign('grupo_id')->references('id')->on('grupos')->onDelete('cascade');
             $table->string('grupo', 255);
             $table->integer('quantidade');
             $table->decimal('preco_custo', 16,2);

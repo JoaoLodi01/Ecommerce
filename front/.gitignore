@@ -13,13 +13,10 @@ dist
 dist-ssr
 coverage
 *.local
-<<<<<<< HEAD
 .env
 .env.local
 .env.*
 .*
-=======
->>>>>>> origin_lodi/Lodi
 
 /cypress/videos/
 /cypress/screenshots/
