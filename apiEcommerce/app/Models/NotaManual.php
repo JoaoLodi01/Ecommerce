@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Model
+class NotaManual extends Model
 {
-    protected $table = 'payments';
+    protected $table = 'nota_manuais';
 
     protected $fillable = [
         'descricao',
-        'tipolancamento',
-        'active',
+        'valor_bruto',
+        'valor_liquido',
+        'valor_desconto',
+        'forma_pagamento',
     ];
 
     protected $hidden = [

@@ -2,13 +2,9 @@
 
 namespace App\Http\Requests;
 
-<<<<<<< HEAD
-use Illuminate\Foundation\Http\FormRequest;
-=======
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
->>>>>>> 96658b47bb8627f52fbbf805dfd9c6069f9312d0
 
 class CashRegisterRequest extends FormRequest
 {
@@ -17,11 +13,7 @@ class CashRegisterRequest extends FormRequest
      */
     public function authorize(): bool
     {
-<<<<<<< HEAD
-        return false;
-=======
         return true;
->>>>>>> 96658b47bb8627f52fbbf805dfd9c6069f9312d0
     }
 
     /**
@@ -31,10 +23,6 @@ class CashRegisterRequest extends FormRequest
      */
     public function rules(): array
     {
-<<<<<<< HEAD
-        return [
-            //
-=======
         $required = $this->isMethod('post') ? 'required' : 'sometimes';
 
         return [
@@ -51,7 +39,6 @@ class CashRegisterRequest extends FormRequest
             'description.required' => 'A descrição é obrigatória.',
             'valor_entrada.required' => 'Valor de entrada é requerido quando não tiver valor de saída',
             'valor_saida.required' => 'Valor de saída é requerido quando não tiver valor de entrada',
->>>>>>> 96658b47bb8627f52fbbf805dfd9c6069f9312d0
         ];
     }
 }

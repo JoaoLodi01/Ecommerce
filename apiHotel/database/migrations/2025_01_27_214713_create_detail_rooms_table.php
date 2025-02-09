@@ -18,7 +18,9 @@ return new class extends Migration
             $table->boolean('busy', 1)->default(0);
             $table->unsignedBigInteger('hotel_id');
             $table->foreign('hotel_id')->references('id')->on('hotel_details')->onDelete('cascade');
+
             $table->string('number_room', 30);
+
             $table->timestamps();
         });
     }

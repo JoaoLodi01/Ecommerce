@@ -11,11 +11,7 @@ class ConsumerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-<<<<<<< HEAD
-        return false;
-=======
         return true;
->>>>>>> 96658b47bb8627f52fbbf805dfd9c6069f9312d0
     }
 
     /**
@@ -25,12 +21,6 @@ class ConsumerRequest extends FormRequest
      */
     public function rules(): array
     {
-<<<<<<< HEAD
-        return [
-            //
-        ];
-    }
-=======
         $required = $this->isMethod('post') ? 'required' : 'sometimes';
 
         return [
@@ -55,5 +45,4 @@ class ConsumerRequest extends FormRequest
             'email.email' => 'O email fornecido não é válido.',
             'email.unique' => 'O email fornecido já está cadastrado.',   
         ];}
->>>>>>> 96658b47bb8627f52fbbf805dfd9c6069f9312d0
 }

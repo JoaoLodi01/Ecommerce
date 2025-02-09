@@ -11,20 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('consumers', function (Blueprint $table) {
             $table->id();
-            $table->string('descricao', 100);
-            $table->string('tipolancamento');
+            $table->string('name', 120);
+            $table->string('cnpj', 14)->nullable()->unique();
+            $table->string('cpf', 11)->nullable()->unique();
+            $table->string('email', 255)->unique();
+            $table->string('phone', 15)->unique();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('consumers');
     }
 };

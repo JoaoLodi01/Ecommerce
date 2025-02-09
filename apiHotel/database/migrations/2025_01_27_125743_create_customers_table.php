@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hotel_details', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('name', 120);
-            $table->string('cnpj', 14)->unique();
-            $table->string('email', 170)->unique();
-            $table->string('cep', 8)->unique();
+            $table->string('cnpj', 14)->nullable()->unique();
+            $table->string('cpf', 11)->nullable()->unique();
             $table->string('address', 120);
             $table->integer('number', false, 20);
-            $table->integer('number_of_rooms', false, 20);
-            $table->integer('number_of_employees', false, 20);
+            $table->string('account', 120)->unique();
+            $table->string('password', 120);    
             $table->boolean('active', 1)->default(1);
-            $table->boolean('reserved', 1)->default(0);
-            $table->string('total_busy_rooms', 120)->default(0);
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hotel_details');
+        Schema::dropIfExists('customers');
     }
 };
