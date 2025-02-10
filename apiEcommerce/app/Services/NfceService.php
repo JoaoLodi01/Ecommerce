@@ -34,8 +34,14 @@ class NfceService{
 
     public function store(array $data){
         try {
+            $total = $this->calculateTotal($data);
+            $data['valor_liquido'] = $total;
+
             $this->nfceRepository->store($data);
-            return response()->json(true);
+            return response()->json([
+                'success' => true,
+                'message' => 'Venda realizada com sucesso!',
+            ]);
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
@@ -60,6 +66,15 @@ class NfceService{
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
+    }
+
+    public function calculateTotal(array $data){
+        $total = 0;
+
+        foreach ($data as $item){
+            $total += $item['preco_unitario'] * $item['qtde'];
+        }
+        return $total;
     }
 
     public function returnResponse($th){

@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('produto', 255)->unique();
+            $table->string('produto', 255);
+            $table->string('grupo', 255);
             $table->integer('quantidade');
             $table->decimal('preco_custo', 16,2);
             $table->decimal('preco_venda', 16,2);
             $table->decimal('perc_lucro', 16,2);
-            $table->integer('NCM', 8);
-            $table->integer('CEST', 7);
-            $table->integer('CSOSN', 3);
-            $table->integer('CFOP', 4);
+            $table->string('NCM', 8);
+            $table->string('CEST', 7);
+            $table->string('CSOSN', 3);
+            $table->string('CFOP', 4);
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

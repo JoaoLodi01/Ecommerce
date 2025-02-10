@@ -2,38 +2,37 @@
     <div class="nfce-container">
         <h1 class="title">Estoque:</h1>
 
-        <!-- Adicionar produto -->
-        <div class="add-product">
+        <form @submit.prevent="submitForm">
 
             <label for="name">Produto:</label>
-            <input v-model="product.name" type="text" id="name" placeholder="Inserir..." />
+            <input v-model="product.name" type="text" placeholder="Inserir..." />
 
             <label for="quantity">Quantidade:</label>
-            <input v-model="product.quantity" type="number" id="quantity" placeholder="Inserir..." />
+            <input v-model="product.quantity" type="number"placeholder="Inserir..." />
 
             <label for="cost">Preço de custo:</label>
-            <input v-model="product.cost" type="number" id="cost" placeholder="Inserir..." />
+            <input v-model="product.cost" type="number" placeholder="Inserir..." />
 
             <label for="sale">Preço de venda:</label>
-            <input v-model="product.sale" type="number" id="sale" placeholder="Inserir..." />
+            <input v-model="product.sale" type="number" placeholder="Inserir..." />
 
             <label for="profit">% de lucro:</label>
-            <input v-model="product.profit" type="number" id="profit" placeholder="Inserir..." />
+            <input v-model="product.profit" type="number" placeholder="Inserir..." />
 
             <label for="ncm">NCM:</label>
-            <input v-model="product.ncm" type="number" id="ncm" placeholder="Inserir..." />
+            <input v-model="product.ncm" type="number" placeholder="Inserir..." />
 
             <label for="cest">CEST:</label>
-            <input v-model="product.cest" type="number" id="cest" placeholder="Inserir..." />
+            <input v-model="product.cest" type="number" placeholder="Inserir..." />
 
             <label for="csosn">CSOSN:</label>
-            <input v-model="product.csosn" type="number" id="csosn" placeholder="Inserir..." />
+            <input v-model="product.csosn" type="number" placeholder="Inserir..." />
 
             <label for="cfop">CFOP:</label>
-            <input v-model="product.cfop" type="number" id="cfop" placeholder="Inserir..." />
+            <input v-model="product.cfop" type="number" placeholder="Inserir..." />
 
             <button @click="addProduct">Cadastrar Produto</button>
-        </div>
+        </form>
 
         <!-- Lista de Produtos -->
          <div class="product-list">

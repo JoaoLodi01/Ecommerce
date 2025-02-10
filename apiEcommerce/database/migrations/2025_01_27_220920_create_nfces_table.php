@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('nfces', function (Blueprint $table) {
             $table->id();
-            $table->string('descricao', 255)->default('VENDA REFERENTE A NFCE Nº');
+            $table->string('descricao', 255)->default('VENDA REFERENTE A NFCE');
             $table->decimal('preco_bruto', 16,2);
             $table->decimal('preco_liquido', 16,2);
             $table->decimal('preco_desconto', 16,2);

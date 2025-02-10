@@ -8,11 +8,6 @@ use App\Http\Controllers\{
     UserController,
     NfceController
 };
-
-Route::get('/teste', function (){
-    return view('NFCeView');
-});
-
 Route::get('/', function () {
     return response()->json(['message' => 'API funcionando!']);
 });
