@@ -9,6 +9,7 @@ class ConfigHotel extends Model
     protected $table = 'config_hotels';
     protected $fillable = [
         'address_by_cep',
-        'room_service_limit'  
+        'room_service_limit',
+        'active'
     ];
 }

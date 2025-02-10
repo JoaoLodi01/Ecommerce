@@ -12,7 +12,7 @@
             maxlength="14"
             placeholder="CNPJ do Hotel"
             v-model="form.cnpj"
-            
+            @input="getCNPJData"
         >
 
         <input
@@ -81,7 +81,8 @@ import axios from 'axios';
 
                 },
                 api_hotel: process.env.VUE_APP_API_URL_HOTEL,
-                api_viaCEP: process.env.VUE_APP_VIACEP
+                api_viaCEP: process.env.VUE_APP_VIACEP,
+                api_CNPJ: process.env.VUE_APP_CNPJA
 
             }
         },
@@ -125,6 +126,26 @@ import axios from 'axios';
                     
                 } catch (error) {
                     console.error('Erro ao consultar o CEP', error)
+
+                }
+            },
+
+            async getCNPJData(){
+                try {
+                    console.log(this.form.cnpj)
+                    if(this.form.cnpj.length === 14)
+                    {
+                        const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
+                        this.form.name = response.data.company.name	
+                        this.form.cep = response.data.address.zip
+                        this.form.address = response.data.address.street
+                        this.form.number = response.data.address.number
+                        this.form.email = response.data.emails[0].address
+                        console.log(response.data)
+
+                    }
+                } catch (error) {
+                    console.error('Erro ao consultar o CNPJ', error)
 
                 }
             }

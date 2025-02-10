@@ -5,7 +5,8 @@ namespace App\Repositories\Eloquent;
 use App\Models\{
     DetailRooms,
     HotelDetail,
-    Capacity
+    Capacity,
+    ConfigHotel
 };
 
 use App\Repositories\Interface\HotelDetailContract;
@@ -16,29 +17,40 @@ class HotelRepository implements HotelDetailContract
     public function all(int $active)
     {
         $hotel = HotelDetail::where('active', $active)->first();
+        $config = ConfigHotel::where('active', $active)->first();
         
-        if(!empty($hotel) && $hotel->cep)
+        if(!empty($hotel))
         {
-            Log::info('Chamou o checkAddress com, hotel: ' . $hotel);
-            return $this->checkAddress($hotel);
-        } else if (empty($hotel)) {
-            Log::info("Hotel não encontrado");
+            Log::info("O hotel foi encontrado");
+            Log::info("Vai conferir as configurações de CEP");
+            if($config && $config->address_by_cep == 1)
+            {
+                Log::info('Opção ativa vai alterar o endereço');
+                Log::info('Chamou o checkAddress com, hotel: ' . $hotel);
+                return $this->checkAddress($hotel);
 
-            return array(
-                'success' => false,
-                'message' => 'Hotel não encontrado'
-                
-            );
+            } else {
+                return array(
+                    'success' => false,
+                    'message' => 'Configurações não encontradas, por favor confira as mesmas!'
+                    
+                );                
+            }
             
-        } else if (!$hotel->cep) {
-            Log::info("CEP do Hotel não encontrado ou não informado");
-
+            Log::info("Opção desativada, não vai alterar o endereço");
             return array(
-                'success' => false,
-                'message' => 'CEP do Hotel não encontrado ou não informado'
+                'success' => true,
+                'hotel' => $hotel,
                 
             );
         }
+        
+        Log::info("O hotel não foi encontrado");
+        return array(
+            'success' => false,
+            'hotel' => $hotel,
+            'message' => 'Hotel não encontrado'
+        );
     }
 
     public function checkAddress(object $hotel)

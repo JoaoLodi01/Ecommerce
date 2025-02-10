@@ -22,8 +22,6 @@ return new class extends Migration
             $table->integer('number_of_rooms', false, 20);
             $table->integer('number_of_employees', false, 20);
             $table->boolean('active', 1)->default(1);
-            $table->boolean('reserved', 1)->default(0);
-            $table->string('total_busy_rooms', 120)->default(0);
             $table->timestamps();
         });
     }
