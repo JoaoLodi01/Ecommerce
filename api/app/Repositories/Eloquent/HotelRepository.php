@@ -23,6 +23,7 @@ class HotelRepository implements HotelDetailContract
         {
             Log::info("O hotel foi encontrado");
             Log::info("Vai conferir as configurações de CEP");
+            
             if($config && $config->address_by_cep == 1)
             {
                 Log::info('Opção ativa vai alterar o endereço');
@@ -46,10 +47,11 @@ class HotelRepository implements HotelDetailContract
         }
         
         Log::info("O hotel não foi encontrado");
+        
         return array(
             'success' => false,
-            'hotel' => $hotel,
             'message' => 'Hotel não encontrado'
+
         );
     }
 
@@ -93,7 +95,6 @@ class HotelRepository implements HotelDetailContract
             return array(
                 'success' => true,
                 'hotel' => $hotel,
-                'a' => 1
             
             );
 

@@ -7,7 +7,7 @@
     
     </div>
     <div class="m-2 pb-2">
-      <h3 class="ml-2">Contamos com um total de: {{ 30 }} quartos </h3>
+      <h3 class="ml-2">Contamos com um total de: {{ hotel.number_of_rooms }} quartos </h3>
     </div>
   </header>
 </template>
@@ -18,6 +18,7 @@
   export default {
     data(){
       return {
+        hotel: {},
         api_hotel: process.env.VUE_APP_API_URL_HOTEL
 
       }
@@ -30,17 +31,14 @@
           if(response.data.success === true)
           {
             console.log('Sucesso')
-            console.log(response.data.all.hotel)
+            console.log(response.data.all.hotel.number_of_rooms)
+            this.hotel = response.data.all.hotel
             
           }
-          
-
-          console.log(response.data)
 
         } catch (error) {
           console.error('Erro ao carregar o hotel', error.response.data)
           alert(error.response.data.message)
-          
           
         }
 

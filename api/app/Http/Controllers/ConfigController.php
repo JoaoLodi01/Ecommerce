@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ConfigHotelRequest;
 use App\Service\ConfigHotelService;
 
-class ConfigHotelController extends Controller
+class ConfigController extends Controller
 {
     public function __construct(
         protected ConfigHotelService $configService

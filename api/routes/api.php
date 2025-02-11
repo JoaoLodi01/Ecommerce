@@ -6,7 +6,10 @@ use App\Http\Controllers\{
     ConsumerController,
     CashRegisterController,
     UserController,
-    NfceController
+    NfceController,
+    ConfigController,
+    HotelController,
+    RoomController
 };
 
 Route::get('/teste', function (){
@@ -70,4 +73,27 @@ Route::prefix('nfce')->group( function(){
     Route::get('/{id}', [NfceController::class, 'findByID']);
     Route::put('/{id}', [NfceController::class, 'update']);
     Route::delete('/{id}/deactivate', [NfceController::class, 'delete']);
+});
+
+
+Route::prefix('v1')->group( function (){
+    Route::prefix('hotel')->group( function (){
+        Route::get('/all', [HotelController::class, 'allHotel']);
+        Route::get('/find', [HotelController::class, 'findHotel']);
+        Route::post('/create', [HotelController::class, 'create']);
+        Route::get('/room', [RoomController::class, 'find']);
+    });
+
+    Route::prefix('stay')->group(function () {
+        Route::get('/rooms', [RoomController::class, 'allRooms']);
+        Route::post('/room', [RoomController::class, 'create']);
+        Route::put('/check-in', [RoomController::class, 'checkIn']);
+
+    });
+
+    Route::post('/get-ip', []);
+});
+
+Route::prefix('config-hotel')->group( function () {
+    Route::post('/set-config', [ConfigController::class, 'create']);
 });
