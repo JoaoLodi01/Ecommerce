@@ -73,7 +73,6 @@ export default {
         discount: 0,
         addition: 0,
       },
-      api: import.meta.env.VITE_API_URL,
       searchResults: [],
       products: [],
     };
@@ -90,7 +89,7 @@ export default {
         return;
       }
       try {
-        const response = await axios.get(`${this.api}/products/search`, {
+        const response = await axios.get("http://127.0.0.1:8000/api/products/search", {
           params: { query: this.newProduct.name },
         });
         this.searchResults = response.data;
@@ -123,7 +122,7 @@ export default {
 
     async emitNfce() {
       try {
-        const response = await axios.post(`${this.api}/nfce/create`, {
+        const response = await axios.post("http://127.0.0.1:8000/api/nfce/create", {
           products: this.products,
           total: this.total,
         });

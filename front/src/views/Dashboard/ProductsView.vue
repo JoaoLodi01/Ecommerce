@@ -5,33 +5,33 @@
         <form @submit.prevent="submitForm">
 
             <label for="name">Produto:</label>
-            <input v-model="product.name" type="text" placeholder="Inserir..." />
+            <input v-model="product.name" type="text" id="name" placeholder="Inserir..." />
 
             <label for="quantity">Quantidade:</label>
-            <input v-model="product.quantity" type="number"placeholder="Inserir..." />
+            <input v-model="product.quantity" type="number" id="quantity" placeholder="Inserir..." />
 
             <label for="cost">Preço de custo:</label>
-            <input v-model="product.cost" type="number" placeholder="Inserir..." />
+            <input v-model="product.cost" type="number" id="cost" placeholder="Inserir..." />
 
             <label for="sale">Preço de venda:</label>
-            <input v-model="product.sale" type="number" placeholder="Inserir..." />
+            <input v-model="product.sale" type="number" id="sale" placeholder="Inserir..." />
 
             <label for="profit">% de lucro:</label>
-            <input v-model="product.profit" type="number" placeholder="Inserir..." />
+            <input v-model="product.profit" type="number" id="profit" placeholder="Inserir..." />
 
             <label for="ncm">NCM:</label>
-            <input v-model="product.ncm" type="number" placeholder="Inserir..." />
+            <input v-model="product.ncm" type="number" id="ncm" placeholder="Inserir..." />
 
             <label for="cest">CEST:</label>
-            <input v-model="product.cest" type="number" placeholder="Inserir..." />
+            <input v-model="product.cest" type="number" id="cest" placeholder="Inserir..." />
 
             <label for="csosn">CSOSN:</label>
-            <input v-model="product.csosn" type="number" placeholder="Inserir..." />
+            <input v-model="product.csosn" type="number" id="csosn" placeholder="Inserir..." />
 
             <label for="cfop">CFOP:</label>
-            <input v-model="product.cfop" type="number" placeholder="Inserir..." />
+            <input v-model="product.cfop" type="number" id="cfop" placeholder="Inserir..." />
 
-            <button @click="addProduct">Cadastrar Produto</button>
+            <button @click="addProduct">Cadastrar</button>
         </form>
 
         <!-- Lista de Produtos -->
@@ -87,8 +87,8 @@ export default {
 
     methods: {
         addProduct() {
-        if (!this.product.name && !this.product.quantity){
-          alert("Preencha as informações!");
+        if (!this.product.name || !this.product.quantity || !this.product.cost || !this.product.sale || !this.product.profit){
+          alert("Nome, quantidade, preço custo, preço venda, perc lucro são obrigatórios!");
           return;
         }
 
