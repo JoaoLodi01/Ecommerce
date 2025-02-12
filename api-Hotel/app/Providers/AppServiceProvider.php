@@ -2,7 +2,16 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Vite;
+use App\Repositories\Eloquent\{
+    HotelRepository,
+    RoomRepository
+};
+
+use App\Repositories\Interface\{
+    RoomContract,
+    HotelDetailContract
+};
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -12,7 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(HotelDetailContract::class, HotelRepository::class);
+        $this->app->bind(RoomContract::class, RoomRepository::class);
     }
 
     /**
@@ -20,6 +30,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Vite::prefetch(concurrency: 3);
+     
     }
 }

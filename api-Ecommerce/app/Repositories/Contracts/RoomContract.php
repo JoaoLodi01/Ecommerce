@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Interface;
 
-interface RoomContract extends BaseInterface
+interface RoomContract
 {
     
 }

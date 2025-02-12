@@ -12,4 +12,10 @@ class ConfigHotelRepository
 
     }
 
+    public function update(array $data, int $id)
+    {
+        return ConfigHotel::where('id', $id)->update($data);
+
+    }
+
 }
