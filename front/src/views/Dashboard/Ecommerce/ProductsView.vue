@@ -17,7 +17,7 @@
                     <td>{{ product.id }}</td>
                     <td>{{ product.name }}</td>
                     <td>{{ product.quantity }}</td>
-                    <td>{{ product.sale.toFixed(2) }}</td>
+                    <td>{{ Number(product.sale).toFixed(2) || '0.00' }}</td>
                     <td>
                         <button @click="editProduct(product)">Editar</button>
                         <button @click="deleteProduct(product.id)">Excluir</button>
@@ -55,13 +55,12 @@
             <label for="cfop">CFOP:</label>
             <input v-model="product.cfop" type="number" id="cfop" placeholder="Inserir..." />
 
-            <button @click="addProduct">Cadastrar</button>
+            <button @submit.prevent="addProduct">Cadastrar</button>
         </form>
     </div>
 </template>
 
 <script>
-
 import axios from 'axios';
 
 export default {
@@ -77,20 +76,45 @@ export default {
                 cest: '',
                 csosn: '',
                 cfop: '',
-            }
-        }
+            },
+            products: [],
+        api: process.env.VUE_APP_API_URL_ECOMMERCE
+        };
     },
 
     methods: {
-        addProduct() {
-        if (!this.product.name || !this.product.quantity || !this.product.cost || !this.product.sale || !this.product.profit){
-          alert("Nome, quantidade, preço custo, preço venda, perc lucro são obrigatórios!");
-          return;
+        async addProduct() {
+        try {
+            if (!this.product.name || !this.product.quantity || !this.product.cost || !this.product.sale || !this.product.profit){
+                alert("Nome, quantidade, preço custo, preço venda, perc lucro são obrigatórios!");
+                return;
+            }
+
+            const response = await axios.post(`${this.api}/products/create`, this.product,{
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+
+            this.products.push({ ...this.product});
+            this.products = {
+                name: '',
+                quantity: '',
+                cost: '',
+                sale: '',
+                profit: '',
+                ncm: '',
+                cest: '',
+                csosn: '',
+                cfop: '',
+            }
+
+            console.log("Resposota da API:", response.data);
+            alert("Cadastro realizado com sucesso!");
+        } catch (error) {
+            console.log("Erro ao cadastrar:", error);
+            alert("Erro ao cadastrar!");
         }
-
-        this.products.push({ ...this.newProduct });
-
-        this.newProduct = { name: '', price: 0, quantity: 1, discount: 0, addition: 0, csosn: ''}
       },
 
       removeProduct(index) {
