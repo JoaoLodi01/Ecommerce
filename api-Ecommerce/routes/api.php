@@ -9,6 +9,7 @@ use App\Http\Controllers\{
     NfceController,
     ConfigController,
     HotelController,
+    IPController,
     RoomController
 };
 Route::get('/', function () {
@@ -86,7 +87,7 @@ Route::prefix('v1')->group( function (){
 
     });
 
-    Route::post('/get-ip', []);
+    Route::post('/get-ip', [IPController::class]);
 });
 
 Route::prefix('config-hotel')->group( function () {
