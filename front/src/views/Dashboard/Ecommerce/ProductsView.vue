@@ -1,6 +1,30 @@
 <template>
-    <div class="nfce-container">
+    <div class="estoque-container">
         <h1 class="title">Estoque:</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Preço de Venda</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="product in products" :key="product.id">
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.sale.toFixed(2) }}</td>
+                    <td>
+                        <button @click="editProduct(product)">Editar</button>
+                        <button @click="deleteProduct(product.id)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
         <form @submit.prevent="submitForm">
 
@@ -33,34 +57,6 @@
 
             <button @click="addProduct">Cadastrar</button>
         </form>
-
-        <!-- Lista de Produtos -->
-         <div class="product-list">
-            <h2>Produtos Adicionados:</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Preço de Venda</th>
-                        <th>CFOP</th>
-                        <th>CSOSN</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(product, index) in products" :key="index">
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.quantity }}</td>
-                        <td>R$ {{ product.cost.toFixed(2) }}</td>
-                        <td>R$ {{ product.sale.toFixed(2) }}</td>
-                        <td>R$ {{ product.cfop }}</td>
-                        <td>R$ {{ product.csosn }}</td>
-                        <td><button @click="removeProduct(index)">Remover</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </template>
 
