@@ -28,6 +28,7 @@ class HotelRepository implements HotelDetailContract
             {
                 Log::info('Opção ativa vai alterar o endereço');
                 Log::info('Chamou o checkAddress com, hotel: ' . $hotel);
+                $this->checkStatusCNPJ($hotel->cnpj);
                 return $this->checkAddress($hotel);
 
             } else {
@@ -108,6 +109,30 @@ class HotelRepository implements HotelDetailContract
         );
         Log::info('Não vai alterar o endereço');
         Log::info('Fim do bloco, linha 66');
+    }
+
+    public function checkStatusCNPJ(string $cnpj)
+    {
+        Log::info("Vai checar o status do CNPJ $cnpj");
+        $ch = curl_init();
+
+        curl_setopt_array($ch, [
+            CURLOPT_URL => env("CNPJA/$cnpj"),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 10
+        ]);
+
+        $data = curl_exec($ch);
+        if(curl_errno($ch))
+        {
+            return "Erro CURL: " . curl_error($ch) . ' rota: ' . env("CNPJA");
+
+        }
+        $response = json_decode($data, true);
+        curl_close($ch);
+
+        return $response;
+
     }
 
     public function create(array $data)
