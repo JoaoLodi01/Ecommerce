@@ -1,9 +1,9 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
   <main>
-    <TheWelcome />
+    <ComponetEstoque />
   </main>
 </template>
+
+<script setup>
+  import ComponetEstoque from '@/components/ComponetEstoque.vue';
+</script>

@@ -1,4 +1,7 @@
 <template>
+    <ComponetEstoque
+        :module="this.$route.name"
+    />
     <form @submit.prevent="createHotel">
         <input
             type="text"
@@ -65,6 +68,7 @@
 <script>
 import api from '@/services/api';
 import axios from 'axios';
+import ComponetEstoque from '@/components/ComponetEstoque.vue';
 
     export default {
         data(){
@@ -87,6 +91,10 @@ import axios from 'axios';
             }
         },
 
+        components: {
+            ComponetEstoque
+
+        },
         methods: {
             async createHotel()
             {
@@ -149,6 +157,9 @@ import axios from 'axios';
 
                 }
             }
+        },
+        mounted(){
+            console.log(this.$route.name)
         }
     }
 </script>
