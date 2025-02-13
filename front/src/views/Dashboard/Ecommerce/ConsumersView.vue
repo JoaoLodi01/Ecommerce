@@ -39,6 +39,7 @@
           email: "",
           phone: "",
         },
+        api: process.env.VUE_APP_API_URL_ECOMMERCE,
         successMessage: null,
         errorMessage: null,
       };
@@ -46,7 +47,7 @@
     methods: {
       async submitForm() {
         try {
-          const response = await axios.post("http://127.0.0.1:8000/api/consumers/create", this.form);
+          const response = await axios.post(`${this.api}/consumers/create`, this.form);
           this.successMessage = response.data.message;
           this.errorMessage = null;
           this.form = { cliente: "", cpf: "", cnpj: "", email: "", phone: "" };
