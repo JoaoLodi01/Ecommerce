@@ -9,7 +9,7 @@ use App\Models\{
     Config
 };
 
-use App\Repositories\Interface\HotelDetailContract;
+use App\Repositories\Contracts\HotelDetailContract;
 use Illuminate\Support\Facades\Log;
 
 class HotelRepository implements HotelDetailContract

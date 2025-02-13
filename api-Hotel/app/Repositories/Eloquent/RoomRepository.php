@@ -9,7 +9,7 @@ use App\Models\{
     Capacity
 };
 
-use App\Repositories\Interface\RoomContract;
+use App\Repositories\Contracts\RoomContract;
 use Illuminate\Support\Facades\Log;
 
 class RoomRepository implements RoomContract

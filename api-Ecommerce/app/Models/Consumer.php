@@ -13,8 +13,8 @@ class Consumer extends Model
         'CPF',
         'CNPJ',
         'email',
-        'active',
         'phone',
+        'active',
     ];
 
     protected $hidden = [

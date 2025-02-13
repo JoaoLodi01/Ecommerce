@@ -7,7 +7,7 @@ use App\Repositories\Eloquent\{
     RoomRepository
 };
 
-use App\Repositories\Interface\{
+use App\Repositories\Contracts\{
     RoomContract,
     HotelDetailContract
 };

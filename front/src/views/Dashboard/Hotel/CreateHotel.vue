@@ -1,7 +1,4 @@
 <template>
-    <ComponetEstoque
-        :module="this.$route.name"
-    />
     <form @submit.prevent="createHotel">
         <input
             type="text"
@@ -66,9 +63,8 @@
 </template>
 
 <script>
-import api from '@/services/api';
 import axios from 'axios';
-import ComponetEstoque from '@/components/ComponetEstoque.vue';
+
 
     export default {
         data(){
@@ -91,10 +87,6 @@ import ComponetEstoque from '@/components/ComponetEstoque.vue';
             }
         },
 
-        components: {
-            ComponetEstoque
-
-        },
         methods: {
             async createHotel()
             {
@@ -141,6 +133,7 @@ import ComponetEstoque from '@/components/ComponetEstoque.vue';
             async getCNPJData(){
                 try {
                     console.log(this.form.cnpj)
+                    console.log(this.api_CNPJ)
                     if(this.form.cnpj.length === 14)
                     {
                         const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
@@ -153,7 +146,8 @@ import ComponetEstoque from '@/components/ComponetEstoque.vue';
 
                     }
                 } catch (error) {
-                    console.error('Erro ao consultar o CNPJ', error)
+                    console.error('Erro ao consultar o CNPJ', error.response)
+                    console.error(`${this.api_CNPJ}/${this.form.cnpj}`)
 
                 }
             }
