@@ -72,6 +72,6 @@ Route::prefix('nfce')->group( function(){
 });
 
 
-Route::prefix('config-hotel')->group( function () {
+/*Route::prefix('config-hotel')->group( function () {
     Route::post('/set-config', [ConfigController::class, 'create']);
-});
+});*/

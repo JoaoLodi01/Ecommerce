@@ -4,7 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BaseRepository
+/*class BaseRepository
 {
     protected $model;
     public function __construct(Model $model)
@@ -37,4 +37,4 @@ class BaseRepository
         ]);
     }
 
-}
+}/*/

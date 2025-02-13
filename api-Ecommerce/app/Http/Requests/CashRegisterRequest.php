@@ -28,8 +28,8 @@ class CashRegisterRequest extends FormRequest
         return [
             'description' => "$required|string|max:255",
             'valor_entrada' => "nullable|numeric|min:0|required_without:valor_saida",
-            'valor_saida' => "nullable|numeric|min:0|required_without:valor_entrada",
-            'saldo_real' => "nullable|numeric|min:0",
+            'valor_saida' => "nullable|numeric|min:0|required_without:valor_entrada"
+
         ];
     }
 
@@ -37,8 +37,8 @@ class CashRegisterRequest extends FormRequest
 
         return[
             'description.required' => 'A descrição é obrigatória.',
-            'valor_entrada.required' => 'Valor de entrada é requerido quando não tiver valor de saída',
-            'valor_saida.required' => 'Valor de saída é requerido quando não tiver valor de entrada',
+            'valor_entrada.required_without:valor_saida' => 'Valor de entrada é requerido quando não tiver valor de saída',
+            'valor_saida.required_without:valor_entrada' => 'Valor de saída é requerido quando não tiver valor de entrada',
         ];
     }
 }
