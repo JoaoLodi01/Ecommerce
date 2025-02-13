@@ -53,13 +53,12 @@
     <div class="sale-summary">
       <h2>Valores:</h2>
       <p><strong>Total:</strong> R$ {{ total.toFixed(2) }}</p>
-      <button @click="emitNfce">Emitir NFC-e</button>
+      <button @click="emitNfce">Finalizar</button>
     </div>
   </div>
 </template>
 
 <script>
-import { ref, computed } from "vue";
 import axios from "axios";
 
 export default {
@@ -73,6 +72,7 @@ export default {
         discount: 0,
         addition: 0,
       },
+      api: process.env.VUE_APP_API_URL_ECOMMERCE,
       searchResults: [],
       products: [],
     };
@@ -89,7 +89,7 @@ export default {
         return;
       }
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/products/search", {
+        const response = await axios.get(`${this.api}/products/search`, {
           params: { query: this.newProduct.name },
         });
         this.searchResults = response.data;
@@ -122,10 +122,9 @@ export default {
 
     async emitNfce() {
       try {
-        const response = await axios.post("http://127.0.0.1:8000/api/nfce/create", {
-          products: this.products,
-          total: this.total,
-        });
+
+
+        this.$routes.push({ name: "PaymentsForm" });
         console.log("Dados enviados!", response.data);
       } catch (error) {
         console.error("Erro ao enviar dados!", error);

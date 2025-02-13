@@ -26,12 +26,13 @@ export default {
                 address_by_cep: false,
                 room_service_limit: 0,
             },
+            api: process.env.VUE_APP_API_URL_ECOMMERCE
         };
     },
     methods: {
         async submitForm(){
             try {
-                const response = await axios.post("http://127.0.0.1:8000/api/create", this.form, {
+                const response = await axios.post(`${this.api}/api/create`, this.form, {
                     headers: {
                         "Content-Type": "application/json",
                     },
