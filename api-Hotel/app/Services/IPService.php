@@ -1,23 +1,26 @@
 <?php
 
-namespace App\Service;
+namespace App\Services;
+
+use App\Repositories\Eloquent\IPRepository;
+use Illuminate\Support\Facades\Log;
 
 class IPService
 {
     public function __construct(
-        
-        
+        protected IPRepository $ipRepository
     ){
-        
-
+        $this->ipRepository = $ipRepository;
     }
 
-    public function create(array $data)
+    public function create(string $ip = '')
     {
+        Log::info("Chamou o IPService");
         try {
+            $ip = $this->ipRepository->create($ip);
             return response()->json([
                 'success' => true,
-                'message' => 'IP gravado com sucesso'
+                'ip' => $ip
 
             ]);
 

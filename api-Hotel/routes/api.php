@@ -27,7 +27,7 @@ Route::prefix('v1')->group( function (){
 
     });
 
-    Route::post('/get-ip', [IPController::class]);
+    Route::get('/get-ip', [IPController::class, 'create']);
 });
 
 Route::prefix('config-hotel')->group( function () {

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ConfigHotelRequest;
-use App\Service\ConfigHotelService;
+use App\Services\ConfigService as ConfigHotelService;
 
 class ConfigController extends Controller
 {

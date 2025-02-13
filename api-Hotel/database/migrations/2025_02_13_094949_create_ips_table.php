@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('config_hotels', function (Blueprint $table) {
+        Schema::create('ips', function (Blueprint $table) {
             $table->id();
-            $table->boolean('address_by_cep', 1)->default(1);
-            $table->float('room_service_limit', 16, 2)->default(0);
-            $table->boolean('active', 1)->default(1);
+            $table->string('ip', 15)->unique();
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('config_hotels');
+        Schema::dropIfExists('i_p_s');
     }
 };

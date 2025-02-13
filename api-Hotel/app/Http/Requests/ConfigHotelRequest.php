@@ -24,8 +24,19 @@ class ConfigHotelRequest extends FormRequest
         $required = $this->isMethod('post') ? 'required' : 'sometimes';
 
         return [
-            'addres_by_cep' => [$required, 'boolean'],
+            'addres_by_cep' => [$required],
             'room_service_limit' => [$required],
+            'partial_registration' => [$required],
+            
+        ];
+
+    }
+    public function messages(): array
+    {
+        return [
+            'addres_by_cep.required' => 'Por favor confirme a opção endereço por CEP.',
+            'room_service_limit.required' => 'Por favor informe um limite para o serviço de quarto.',
+            'partial_registration' => 'Por favor confirme a opção endereço cadastro parcial.',
             
         ];
     }

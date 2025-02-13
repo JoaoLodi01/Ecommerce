@@ -16,8 +16,8 @@ class RoomRepository implements RoomContract
 {
     public function all(int $active)
     {
-        Log::info("Vai buscar todos os quartos do hotel table = Rooms");
-        return Room::all();
+        Log::info("Vai buscar todos os quartos ativos do hotel table = Rooms");
+        return Room::where('active', $active)->get();
 
     }
 

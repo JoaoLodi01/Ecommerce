@@ -2,19 +2,21 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Models\ConfigHotel;
+use App\Models\Config;
 
-class ConfigHotelRepository
+class ConfigRepository
 {
     public function create(array $data)
     {
-        return ConfigHotel::create($data);
+
+        //Cria config
+        return Config::create($data);
 
     }
 
     public function update(array $data, int $id)
     {
-        return ConfigHotel::where('id', $id)->update($data);
+        return Config::where('id', $id)->update($data);
 
     }
 
