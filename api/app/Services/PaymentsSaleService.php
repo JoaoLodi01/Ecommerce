@@ -2,19 +2,19 @@
 
 namespace App\Services;
 
-use App\Repositories\Eloquent\PaymentRepository;
+use App\Repositories\Eloquent\PaymentsSaleRepository;
 
-class PaymentService{
+class PaymentsSaleService{
     
-    protected $paymentRepository;
+    protected $paymentsSaleRepository;
 
-    public function __construct(PaymentRepository $paymentRepository){
-        $this->paymentRepository = $paymentRepository;
+    public function __construct(PaymentsSaleRepository $paymentsSaleRepository){
+        $this->paymentsSaleRepository = $paymentsSaleRepository;
     }
 
     public function getAll(){
         try {
-            return $this->paymentRepository->getAll(1);
+            return $this->paymentsSaleRepository->getAll(1);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
@@ -24,7 +24,7 @@ class PaymentService{
         try {
             return response()->json([
                 'success' => true,
-                'especie' => $this->paymentRepository->findById($id)
+                'especie' => $this->paymentsSaleRepository->findById($id)
             ]);
 
         } catch (\Throwable $th) {
@@ -34,7 +34,7 @@ class PaymentService{
 
     public function store(array $data){
         try {
-            $this->paymentRepository->store($data);
+            $this->paymentsSaleRepository->store($data);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -44,7 +44,7 @@ class PaymentService{
 
     public function update(array $data, int $id){
         try {
-            $this->paymentRepository->update($data, $id);
+            $this->paymentsSaleRepository->update($data, $id);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -54,7 +54,7 @@ class PaymentService{
 
     public function delete(int $id){
         try {
-            $this->paymentRepository->delete($id);
+            $this->paymentsSaleRepository->delete($id);
             return response()->json(true);
 
         } catch (\Throwable $th) {

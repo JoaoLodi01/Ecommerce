@@ -2,13 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import LoginView from '@/views/Auth/LoginView.vue';
 import RegisterView from '@/views/Auth/RegisterView.vue';
-import HomeView from '@/views/Dashboard/HomeView.vue';
-import AboutView from '@/views/Dashboard/AboutView.vue';
+import HomeView from '@/views/Dashboard/Ecommerce/HomeView.vue';
+import AboutView from '@/views/Dashboard/Ecommerce/AboutView.vue';
 import SettingsView from '@/views/Dashboard/Ecommerce/SettingsView.vue';
 import NFCeView from '@/views/Dashboard/Ecommerce/NFCeView.vue';
 import ConsumersView from '@/views/Dashboard/Ecommerce/ConsumersView.vue';
 import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
 import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
+import PaymentsForm from '@/views/Dashboard/Ecommerce/Components/PaymentsForm.vue';
 
 const routes = [
   {
@@ -45,6 +46,11 @@ const routes = [
     path: '/nfce',
     name: 'nfce',
     component: NFCeView,
+  },
+  {
+    path: '/payments',
+    name: 'payments',
+    component: PaymentsForm,
   },
 
   // Hotel
