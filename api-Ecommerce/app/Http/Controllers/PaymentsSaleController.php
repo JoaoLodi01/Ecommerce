@@ -14,7 +14,7 @@ class PaymentsSaleController extends Controller
     }
 
     public function getAll(){
-        return $this->cashRegisterService->getAll();
+        return $this->paymentsSaleService->getAll();
     }
 
     public function store(Request $request){

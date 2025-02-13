@@ -2,26 +2,32 @@
     <div class="payments-container">
         <h1>Formas de Pagamento</h1>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Formas de pagamento</th>
-                    <th>Valores</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(payment, index) in payments" :key="payment.id">
-                    <td>{{ payment.descricao }}</td>
-                    <td><input
-                        type="number"
-                        v-model="paymentValues[index]"
-                        placeholder="0.00"/>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <form @submit.prevent="finalizeSale">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Formas de pagamento</th>
+                        <th>Valores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(payment, index) in payments" :key="payment.id">
+                        <td>{{ payment.descricao }}</td>
+                        <td>
+                            <input
+                                type="number"
+                                v-model="paymentsValues[index]"
+                                @input="finalizeSale(payment.id)"
+                                placeholder="0.00"
+                                step="0.01"
+                            />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <button @click="finalizeSale">Emitir Venda</button>
+            <button type="submit">Emitir Venda</button>
+        </form>
     </div>
 </template>
 
@@ -33,6 +39,9 @@ export default {
         return {
             payments: [],
             paymentsValues: [],
+            valorVenda: 0,
+            valorPago: 0,
+            api: process.env.VUE_APP_API_URL_ECOMMERCE,
         };
     },
     mounted(){
@@ -41,20 +50,52 @@ export default {
     methods: {
         async getPayments() {
             try {
-                const response = await axios.get(`${this.api}/payments/all`);
+                const response = await axios.get(`http://192.168.98.32:8001/api/payments/all`);
                 this.payments = response.data;
             } catch (error) {
 
             }
         },
 
-        async finalizeSale() {
-            try {
-               const response = await axios.post(`${this.api}/nfce/create`)
-            } catch (error) {
-                
+        async finalizeSale(id) {
+            console.log('ID forma pagamento:', id)
+            
+            for (let index = 0; index < this.paymentsValues.length; index++) {
+                const element = this.paymentsValues[index];
+                console.log(element)
             }
+            
         }
     }
 }
 </script>
+<style>
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+</style>

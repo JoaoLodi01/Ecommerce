@@ -8,9 +8,15 @@ use App\Http\Controllers\{
     UserController,
     NfceController,
     ConfigController,
+<<<<<<< HEAD:api-Ecommerce/routes/api.php
     
     IPController,
     
+=======
+    HotelController,
+    PaymentsSaleController,
+    RoomController
+>>>>>>> 14736831620f1b2d81056910ebea64b9fcb3eb9e:api/routes/api.php
 };
 Route::get('/', function () {
     return response()->json(['message' => 'API funcionando!']);
