@@ -1,7 +1,7 @@
 <template>
-  <header class="bg-gray-600 text-white text-sm">
+  <header class="bg-gray-700 text-white text-sm">
     
-    <div class="flex justify-between p-2">
+    <div class="flex justify-between items-center p-2">
       <h1 class="ml-2">Bem vindo a sua área do Hotel!</h1>
       <h3 class="ml-2">Acesse sua conta</h3> 
     
@@ -9,7 +9,6 @@
     <div class="m-2 pb-2">
       <h3 class="ml-2">Contamos com um total de: {{ hotel.number_of_rooms }} quartos </h3>
     </div>
-    <a href="aa">aaaaaa</a>
   </header>
 </template>
 
