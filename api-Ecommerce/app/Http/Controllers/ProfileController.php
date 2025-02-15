@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\EcommerceController;
+namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

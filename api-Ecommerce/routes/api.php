@@ -1,18 +1,17 @@
  <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EcommerceController\{
-    CashRegisterController,
+use App\Http\Controllers\{
     ProductsController,
     ConsumerController,
+    CashRegisterController,
     UserController,
     NfceController,
-    PaymentsSaleController
-
+    ConfigController,
+    PaymentsSaleController,
+    IPController,
+    
 };
-
-use App\Http\Controllers\ConfigController;
-
 Route::get('/', function () {
     return response()->json(['message' => 'API funcionando!']);
 });
@@ -42,6 +41,7 @@ Route::prefix('consumers')->group( function(){
 
 // CashRegister routes
 Route::prefix('cashRegister')->group( function(){
+
     Route::get('/all', [CashRegisterController::class, 'getAll']);
     Route::post('/create', [CashRegisterController::class, 'store']);
     Route::get('/{id}', [CashRegisterController::class, 'findByID']);
@@ -52,6 +52,7 @@ Route::prefix('cashRegister')->group( function(){
 
 // User routes
 Route::prefix('users')->group( function(){
+
     Route::get('/all', [UserController::class, 'getAll']);
     Route::post('/create', [UserController::class, 'store']);
     Route::get('/{id}', [UserController::class, 'findByID']);
@@ -68,7 +69,6 @@ Route::prefix('nfce')->group( function(){
     Route::get('/{id}', [NfceController::class, 'findByID']);
     Route::put('/{id}', [NfceController::class, 'update']);
     Route::delete('/{id}/deactivate', [NfceController::class, 'delete']);
-
 });
 
 Route::prefix('payments')->group( function(){
@@ -82,6 +82,6 @@ Route::prefix('payments')->group( function(){
 });
 
 
-Route::prefix('config-hotel')->group( function () {
+/*Route::prefix('config-hotel')->group( function () {
     Route::post('/set-config', [ConfigController::class, 'create']);
-});
+});*/

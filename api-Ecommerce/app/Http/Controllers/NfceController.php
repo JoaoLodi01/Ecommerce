@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\EcommerceController;
+namespace App\Http\Controllers;
 
 use App\Http\Requests\NfceRequest;
 use App\Services\NfceService;

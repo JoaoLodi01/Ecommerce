@@ -20,7 +20,12 @@ class Room extends Model
     ];
 
     protected $hidden = [
-        
         'room_id',
     ];
+
+    public function checkAllActive()
+    {
+        return $this->where('active', 1)->get();
+
+    }
 }
