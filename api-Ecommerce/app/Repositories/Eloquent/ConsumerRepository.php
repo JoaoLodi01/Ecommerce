@@ -5,7 +5,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\Consumer;
 use App\Repositories\Contracts\Base;
 
-class ConsumerRepository extends BaseRepository implements Base
+class ConsumerRepository 
 {
     public function getAll(int $active){ 
         return Consumer::where('active', $active)->get();

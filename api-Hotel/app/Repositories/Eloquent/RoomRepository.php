@@ -129,6 +129,8 @@ class RoomRepository implements RoomContract
 
     public function reservation()
     {
+        $url = env('ECOMMERCE_URL');
+        echo "rota: $url/api/consumers/{id}";
         
     }
 

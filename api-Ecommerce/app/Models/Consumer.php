@@ -10,8 +10,8 @@ class Consumer extends Model
 
     protected $fillable = [
         'cliente',
-        'CPF',
-        'CNPJ',
+        'cpf',
+        'cnpj',
         'email',
         'phone',
         'active',
