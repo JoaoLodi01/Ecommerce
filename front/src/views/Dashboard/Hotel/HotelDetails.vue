@@ -37,8 +37,16 @@
           }
 
         } catch (error) {
-          console.error('Erro ao carregar o hotel', error.response.data)
-          alert(error.response.data.message)
+          if(error.response.data.message === 'Hotel não encontrado')
+          {
+            alert(error.response.data.message)
+            alert('Por favor faça o cadastro do mesmo')
+            this.$router.push('/hotel/create')
+
+          }
+
+          console.error('Erro ao carregar o hotel', error.response)
+
           
         }
 

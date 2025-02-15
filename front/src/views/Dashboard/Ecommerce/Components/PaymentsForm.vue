@@ -50,7 +50,7 @@ export default {
     methods: {
         async getPayments() {
             try {
-                const response = await axios.get(`${this.api}/payments/all`);
+                const response = await axios.get(`http://192.168.98.32:8001/api/payments/all`);
                 this.payments = response.data;
             } catch (error) {
 
@@ -60,16 +60,11 @@ export default {
         async finalizeSale(id) {
             console.log('ID forma pagamento:', id)
             
-            this.paymentsValues.forEach(value => {
-                let valor = 0 
-                valor += value
-                return valor
-            });
-            /*try {
-               const response = await axios.post(`${this.api}/nfce/create`)
-            } catch (error) {
-                
-            }*/
+            for (let index = 0; index < this.paymentsValues.length; index++) {
+                const element = this.paymentsValues[index];
+                console.log(element)
+            }
+            
         }
     }
 }

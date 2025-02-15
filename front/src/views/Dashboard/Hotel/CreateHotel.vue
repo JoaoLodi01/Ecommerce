@@ -63,8 +63,8 @@
 </template>
 
 <script>
-import api from '@/services/api';
 import axios from 'axios';
+
 
     export default {
         data(){
@@ -133,6 +133,7 @@ import axios from 'axios';
             async getCNPJData(){
                 try {
                     console.log(this.form.cnpj)
+                    console.log(this.api_CNPJ)
                     if(this.form.cnpj.length === 14)
                     {
                         const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
@@ -145,10 +146,14 @@ import axios from 'axios';
 
                     }
                 } catch (error) {
-                    console.error('Erro ao consultar o CNPJ', error)
+                    console.error('Erro ao consultar o CNPJ', error.response)
+                    console.error(`${this.api_CNPJ}/${this.form.cnpj}`)
 
                 }
             }
+        },
+        mounted(){
+            console.log(this.$route.name)
         }
     }
 </script>
