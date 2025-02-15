@@ -45,12 +45,9 @@
           }
 
           console.error('Erro ao carregar o hotel', error.response)
-
-          
+ 
         }
-
       }
-
     },
 
     mounted(){
