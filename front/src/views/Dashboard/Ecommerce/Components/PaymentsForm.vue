@@ -2,27 +2,32 @@
     <div class="payments-container">
         <h1>Formas de Pagamento</h1>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Formas de pagamento</th>
-                    <th>Valores</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(payment, index) in payments" :key="payment.id">
-                    <td>{{ payment.descricao }}</td>
-                    <td><input
-                        type="number"
-                        v-model="paymentsValues[index]"
-                        @input="finalizeSale(payment.id)"
-                        placeholder="0.00"/>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <form @submit.prevent="finalizeSale">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Formas de pagamento</th>
+                        <th>Valores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(payment, index) in payments" :key="payment.id">
+                        <td>{{ payment.descricao }}</td>
+                        <td>
+                            <input
+                                type="number"
+                                v-model="paymentsValues[index]"
+                                @input="finalizeSale(payment.id)"
+                                placeholder="0.00"
+                                step="0.01"
+                            />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <button @click="finalizeSale">Emitir Venda</button>
+            <button type="submit">Emitir Venda</button>
+        </form>
     </div>
 </template>
 
@@ -34,6 +39,8 @@ export default {
         return {
             payments: [],
             paymentsValues: [],
+            valorVenda: 0,
+            valorPago: 0,
             api: process.env.VUE_APP_API_URL_ECOMMERCE,
         };
     },
@@ -52,7 +59,12 @@ export default {
 
         async finalizeSale(id) {
             console.log('ID forma pagamento:', id)
-            console.log(this.paymentsValues)
+            
+            this.paymentsValues.forEach(value => {
+                let valor = 0 
+                valor += value
+                return valor
+            });
             /*try {
                const response = await axios.post(`${this.api}/nfce/create`)
             } catch (error) {
