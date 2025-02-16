@@ -24,7 +24,7 @@ Route::prefix('v1')->group( function (){
         Route::get('/rooms', [RoomController::class, 'allRooms']);
         Route::post('/room', [RoomController::class, 'create']);
         Route::put('/check-in', [RoomController::class, 'checkIn']);
-
+        Route::post('/reservation', [RoomController::class, 'reservation']);
     });
 
     Route::get('/get-ip', [IPController::class, 'create']);

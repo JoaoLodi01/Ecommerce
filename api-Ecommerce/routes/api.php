@@ -7,11 +7,9 @@ use App\Http\Controllers\{
     CashRegisterController,
     UserController,
     NfceController,
-    ConfigController,
     PaymentsSaleController,
-    IPController,
-    
 };
+
 Route::get('/', function () {
     return response()->json(['message' => 'API funcionando!']);
 });

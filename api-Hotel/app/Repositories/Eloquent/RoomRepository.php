@@ -130,7 +130,19 @@ class RoomRepository implements RoomContract
     public function reservation()
     {
         $url = env('ECOMMERCE_URL');
-        echo "rota: $url/api/consumers/{id}";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL . "/" . 1, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        if(curl_errno($ch))
+        {
+            return "Erro: " . curl_error($ch);
+        }
+
+        $response = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+
+        return $response;
         
     }
 
