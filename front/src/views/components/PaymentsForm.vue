@@ -49,6 +49,12 @@ export default {
         show: {
             type: Boolean,
             required: true
+            
+        },
+        total: {
+            type: Number,
+            required: true
+
         }
     },
     

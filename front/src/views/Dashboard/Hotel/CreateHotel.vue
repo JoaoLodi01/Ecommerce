@@ -104,6 +104,7 @@ import axios from 'axios';
                     const response = await axios.post(`${this.api_hotel}/hotel/create`, form)
                     
                     if (response.data.success === true) {
+                        console.log(response)
                         this.$router.push('/hotel')
                     }
 
