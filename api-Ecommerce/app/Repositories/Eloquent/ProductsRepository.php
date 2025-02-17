@@ -20,8 +20,13 @@ class ProductsRepository
                        ->paginate(10);
     }
 
-    public function findByID(string $params){
-        return Products::where('id', $params)->first();
+    public function findByID(string|int $data){
+        return Products::where('active', 1)
+                       ->where(function ($query) use ($data) {
+                           $query->where('name', 'like', '%' . $data['name'] . '%')
+                                 ->orWhere('id', $data['id']);
+                       })
+                       ->paginate(10);
     }
 
     public function store(array $data){

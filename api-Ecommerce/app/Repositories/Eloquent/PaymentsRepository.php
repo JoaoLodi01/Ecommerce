@@ -4,7 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Payment;
 
-class PaymentsSaleRepository
+class PaymentsRepository
 {
     public function getAll(int $active){
         return Payment::where('active', $active)->get();

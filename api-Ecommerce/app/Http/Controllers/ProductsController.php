@@ -28,8 +28,8 @@ class ProductsController extends Controller
         return $this->productsService->store($request->all());
     }
 
-    public function findByID(int $id){
-        return $this->productsService->findByID($id);
+    public function findByID(Request $request){
+        return $this->productsService->findByID($request->input('params'));
     }
 
     public function update(ProductsRequest $request, int $id){

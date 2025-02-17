@@ -6,10 +6,11 @@ import AboutView from '@/views/Dashboard/Ecommerce/AboutView.vue';
 import SettingsView from '@/views/Dashboard/Ecommerce/SettingsView.vue';
 import NFCeView from '@/views/Dashboard/Ecommerce/NFCeView.vue';
 import ConsumersView from '@/views/Dashboard/Ecommerce/ConsumersView.vue';
-import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
-import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
 import HomeView from '@/views/Dashboard/HomeView.vue';
 import PaymentsForm from '@/views/components/PaymentsForm.vue';
+import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
+import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
+import RoomDetails from '@/views/Dashboard/Hotel/RoomDetails.vue';
 
 const routes = [
   {
@@ -56,14 +57,20 @@ const routes = [
   // Hotel
   {
     path: '/hotel',
-    name: 'hotel',
+    name: 'HotelDetails',
     component: HotelDetails
 
   },
   {
     path: '/hotel/create',
-    name: 'hotelCreate',
+    name: 'CreateHotel',
     component: CreateHotel
+
+  },
+  {
+    path: '/hotel/rooms',
+    name: 'RoomDetails',
+    component: RoomDetails
 
   }
 ]

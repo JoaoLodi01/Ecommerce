@@ -44,9 +44,15 @@ export default {
             api: process.env.VUE_APP_API_URL_ECOMMERCE,
         };
     },
-    mounted(){
-        this.getPayments();
+
+    props: {
+        show: {
+            type: Boolean,
+            required: true
+        }
+        
     },
+    
     methods: {
         async getPayments() {
             try {
@@ -66,6 +72,9 @@ export default {
             }
             
         }
-    }
+    },
+    mounted(){
+        this.getPayments();
+    },
 }
 </script>

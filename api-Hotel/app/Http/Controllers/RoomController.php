@@ -39,6 +39,7 @@ class RoomController extends Controller
 
     public function reservation()
     {
+        return $this->roomService->reservation();
         
     }
 }   

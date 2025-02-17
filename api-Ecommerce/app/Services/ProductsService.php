@@ -30,7 +30,7 @@ class ProductsService{
         }
     }
 
-    public function findByID(int $id){
+    public function findByID(string|int $id){
         try {
             return response()->json([
                 'success' => true,
