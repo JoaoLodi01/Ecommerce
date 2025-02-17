@@ -2,16 +2,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import LoginView from '@/views/Auth/LoginView.vue';
 import RegisterView from '@/views/Auth/RegisterView.vue';
-//import HomeView from '@/views/Dashboard/Ecommerce/HomeView.vue';
-
 import AboutView from '@/views/Dashboard/Ecommerce/AboutView.vue';
 import SettingsView from '@/views/Dashboard/Ecommerce/SettingsView.vue';
 import NFCeView from '@/views/Dashboard/Ecommerce/NFCeView.vue';
 import ConsumersView from '@/views/Dashboard/Ecommerce/ConsumersView.vue';
+import HomeView from '@/views/Dashboard/HomeView.vue';
+import PaymentsForm from '@/views/components/PaymentsForm.vue';
+
 import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
 import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
-import HomeView from '@/views/HomeView.vue';
-import PaymentsForm from '@/components/PaymentsForm.vue';
+import RoomDetails from '@/views/Dashboard/Hotel/RoomDetails.vue';
+
 
 const routes = [
   {
@@ -58,14 +59,20 @@ const routes = [
   // Hotel
   {
     path: '/hotel',
-    name: 'hotel',
+    name: 'HotelDetails',
     component: HotelDetails
 
   },
   {
     path: '/hotel/create',
-    name: 'hotelCreate',
+    name: 'CreateHotel',
     component: CreateHotel
+
+  },
+  {
+    path: '/hotel/rooms',
+    name: 'RoomDetails',
+    component: RoomDetails
 
   }
 ]

@@ -129,9 +129,15 @@ class RoomRepository implements RoomContract
 
     public function reservation()
     {
+
+
+    }
+
+    public function payMent()
+    {
         $url = env('ECOMMERCE_URL');
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL . "/" . 1, $url);
+        curl_setopt($ch, CURLOPT_URL, $url . "/products/all");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         if(curl_errno($ch))
