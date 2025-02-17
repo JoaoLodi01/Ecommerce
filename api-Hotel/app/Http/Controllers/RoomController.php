@@ -31,31 +31,14 @@ class RoomController extends Controller
         return $this->roomService->find($request->input('id'));
     }
 
-    public function checkIn(/*CheckInRequest $request*/)
+    public function checkIn(CheckInRequest $request)
     {
-        $data = array(
-            'a' => 1, 'b' => 2
-        );
-        $ch = curl_init();
+        $data = $request->validated();
+        return $this->roomService->checkIn($data);        
+    }
 
-        curl_setopt($ch, CURLOPT_URL, env('ECOMMERCE_URL') . '/api/consumers/create');
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
-
-        $response = curl_exec($ch);
-        if(curl_errno($ch))
-        {
-            return response()->json(curl_error($ch));
-
-        }
-
-        curl_close($ch);
-
-        //return response()->json($response);
+    public function reservation()
+    {
         
-        /*$data = $request->validated();
-        return $this->roomService->checkIn($data);*/
-        return response()->json($response);
     }
 }   

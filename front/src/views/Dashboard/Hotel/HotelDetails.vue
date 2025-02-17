@@ -1,7 +1,6 @@
 <template>
-  <header class=" bg-gray-700 text-white text-sm">
-    
-    <div class="flex justify-between items-center p-2">
+  <header class="bg-gray-700 text-white text-sm">    
+    <div class="bg-gray-700 flex justify-between items-center p-2">
       <h1 class="ml-2">Bem vindo a sua área do Hotel!</h1>
       <h3 class="ml-2">Acesse sua conta</h3> 
     
@@ -46,12 +45,9 @@
           }
 
           console.error('Erro ao carregar o hotel', error.response)
-
-          
+ 
         }
-
       }
-
     },
 
     mounted(){

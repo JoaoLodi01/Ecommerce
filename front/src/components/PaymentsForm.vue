@@ -69,33 +69,3 @@ export default {
     }
 }
 </script>
-<style>
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 16px;
-    text-align: left;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-
-</style>
