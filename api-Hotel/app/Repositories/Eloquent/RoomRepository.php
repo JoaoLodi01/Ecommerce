@@ -129,7 +129,7 @@ class RoomRepository implements RoomContract
 
     public function reservation()
     {
-
+        $this->payMent();
 
     }
 
