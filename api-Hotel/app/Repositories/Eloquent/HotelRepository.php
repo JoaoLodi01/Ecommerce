@@ -139,12 +139,12 @@ class HotelRepository implements HotelDetailContract
     {
         $hotel = HotelDetail::create($data);
         
-        for ($number = 1; $number <= $hotel->number_of_rooms; $number++)
+        for ($n = 1; $n <= $hotel->number_of_rooms; $n++)
         {
             $detailRoom = DetailRooms::create([
                 'capacity' => rand(2, 5),
                 'price_for_night' => rand(20, 45),
-                'number_room' => $number,
+                'number_room' => $n,
                 'hotel_id' => $hotel->id,
                 
             ]);
