@@ -17,7 +17,7 @@
                             <input
                                 type="number"
                                 v-model="paymentsValues[index]"
-                                @input="finalizeSale(payment.id)"
+                                @input="getValues(payment.id)"
                                 placeholder="0.00"
                                 step="0.01"
                             />
@@ -51,30 +51,34 @@ export default {
             required: true
             
         },
-        total: {
-            type: Number,
-            required: true
-
-        }
+        
     },
     
     methods: {
         async getPayments() {
             try {
-                const response = await axios.get(`http://192.168.98.32:8001/api/payments/all`);
+                const response = await axios.get(`${this.api}/payments/all`);
                 this.payments = response.data;
             } catch (error) {
-
+                console.error('Erro no getPayments', error)
             }
         },
-
-        async finalizeSale(id) {
-            console.log('ID forma pagamento:', id)
+        getValues(id){
+            console.log(`ID da forma de pagamento ${id}, valor pago: R$ ${this.paymentsValues}`)
             
-            for (let index = 0; index < this.paymentsValues.length; index++) {
-                const element = this.paymentsValues[index];
-                console.log(element)
+            
+
+            console.log('Total pago', this.valorPago)
+            for (let i = 0; i < this.paymentsValues.length; i++) {
+                const element = this.paymentsValues[i];
+                
+                
             }
+        },
+        async finalizeSale() {
+            console.log('ID forma pagamento:')
+            
+            
             
         }
     },
