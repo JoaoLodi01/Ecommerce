@@ -149,7 +149,6 @@ class RoomRepository implements RoomContract
         curl_close($ch);
 
         return $response;
-        
     }
 
     public function countActive(object $room, int $room_id)
