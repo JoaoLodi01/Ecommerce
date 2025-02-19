@@ -7,6 +7,7 @@
     </div>
     <div class="m-2 pb-2">
       <h3 class="ml-2">Contamos com um total de: {{ hotel.number_of_rooms }} quartos </h3>
+
     </div>
   </header>
 </template>
@@ -33,6 +34,11 @@
             console.log(response.data.all.hotel.number_of_rooms)
             this.hotel = response.data.all.hotel
             
+          }
+
+          if(response.data.success === false){
+            console.log(response.data)
+
           }
 
         } catch (error) {

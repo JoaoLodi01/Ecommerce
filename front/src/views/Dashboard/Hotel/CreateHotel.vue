@@ -1,70 +1,78 @@
 <template>
-    <form @submit.prevent="createHotel">
-        <input
-            type="text"
-            placeholder="Nome do Hotel"
-            v-model="form.name"
+    <div class="" v-if="showForm">
+        <form @submit.prevent="createHotel">
+            <input
+                type="text"
+                placeholder="Nome do Hotel"
+                v-model="form.name"
 
-        >
+            >
 
-        <input
-            type="text"
-            maxlength="14"
-            placeholder="CNPJ do Hotel"
-            v-model="form.cnpj"
-            @input="getCNPJData"
-        >
+            <input
+                type="text"
+                maxlength="14"
+                placeholder="CNPJ do Hotel"
+                v-model="form.cnpj"
+                @input="getCNPJData"
+            >
 
-        <input
-            type="text"
-            placeholder="E-mail do Hotel"
-            v-model="form.email"
-            
-        >
+            <input
+                type="email"
+                placeholder="E-mail do Hotel"
+                v-model="form.email"
+                
+            >
 
-        <input
-            type="text"
-            maxlength="8"
-            placeholder="CEP do Hotel"
-            v-model="form.cep"
-            @input="getAddress"
-        >
+            <input
+                type="text"
+                maxlength="8"
+                placeholder="CEP do Hotel"
+                v-model="form.cep"
+                @input="getAddress"
+            >
 
-        <input
-            type="text"
-            placeholder="Endereço do Hotel"
-            v-model="form.address"
-            
-        >
+            <input
+                type="text"
+                placeholder="Endereço do Hotel"
+                v-model="form.address"
+                
+            >
 
-        <input
-            type="text"
-            placeholder="Número do endereço"
-            v-model="form.number"
-            
-        >
+            <input
+                type="text"
+                placeholder="Número do endereço"
+                v-model="form.number"
+                
+            >
 
-        <input
-            type="text"
-            placeholder="Número do quartos"
-            v-model="form.number_of_rooms"
-            
-        >
+            <input
+                type="text"
+                placeholder="Número do quartos"
+                v-model="form.number_of_rooms"
+                
+            >
 
-        <input
-            type="text"
-            placeholder="Número de funcionário"
-            v-model="form.number_of_employees"
-            
-        >
+            <input
+                type="text"
+                placeholder="Número de funcionário"
+                v-model="form.number_of_employees"
+                
+            >
 
-        <button>Enviar</button>
-    </form> 
+            <button>Enviar</button>
+        </form> 
+    </div>
+
+    <ConfigHotel
+        v-if="show"
+        :show="this.show"
+    />
+
 </template>
 
 <script>
-import axios from 'axios';
-
+    import ConfigHotel from '@/views/components/ConfigHotel.vue';
+    import axios from 'axios';
 
     export default {
         data(){
@@ -82,7 +90,9 @@ import axios from 'axios';
                 },
                 api_hotel: process.env.VUE_APP_API_URL_HOTEL,
                 api_viaCEP: process.env.VUE_APP_VIACEP,
-                api_CNPJ: process.env.VUE_APP_CNPJA
+                api_CNPJ: process.env.VUE_APP_CNPJA,
+                showForm: true,
+                show: false
 
             }
         },
@@ -105,11 +115,34 @@ import axios from 'axios';
                     
                     if (response.data.success === true) {
                         console.log(response)
-                        this.$router.push('/hotel')
+                        //this.$router.push('/hotel')
+                        this.showForm = false
+                        this.show = true
+                        
                     }
 
+                    if (response.data.success !== true)
+                    {
+                        switch (response.data.code) {
+                            case '23000':
+                                alert('Esse CNPJ já foi cadastro na base de dados!');
+                                this.form.cnpj = ''
+                                break;
+                            
+                        
+                            default:
+                                alert('Esse CNPJ já foi cadastro na base de dados! 2');
+                                break;
+                        }
+
+                    }
+                    
                 } catch (error) {
-                    console.error('Erro ao criar o Hotel', error)
+                    console.error('Erro ao criar o Hotel', error.response)
+                    if(error.response)
+                    {
+                        alert(error.response.data.message ? error.response.data.message : "Erro detecado")
+                    }
                 }
             },
             async getAddress(){
@@ -152,6 +185,11 @@ import axios from 'axios';
 
                 }
             }
+        },
+
+        components: {
+            ConfigHotel
+
         },
         mounted(){
             console.log(this.$route.name)

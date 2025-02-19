@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Config extends Model
 {
-    protected $table = 'config_hotels';
+    protected $table = 'config';
     protected $fillable = [
         'address_by_cep',
         'room_service_limit',

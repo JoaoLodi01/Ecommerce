@@ -6,7 +6,7 @@ use App\Models\{
     DetailRooms,
     HotelDetail,
     Capacity,
-    Config
+    Config as ConfigHotel
 };
 
 use App\Repositories\Contracts\HotelDetailContract;
@@ -16,25 +16,32 @@ class HotelRepository implements HotelDetailContract
 {
     public function all(int $active)
     {
+        Log::info('Vai buscar o hotel e as configurações');
         $hotel = HotelDetail::where('active', $active)->first();
-        $config = Config::where('active', $active)->first();
+        Log::info("Hotel $hotel");
+
+        $config = ConfigHotel::where('active', $active)->first();
+        Log::info("Config $config");
         
         if(!empty($hotel))
         {
             Log::info("O hotel foi encontrado");
             Log::info("Vai conferir as configurações de CEP");
             
-            if($config && $config->address_by_cep == 1)
+            if($config)
             {
-                Log::info('Opção ativa vai alterar o endereço');
-                Log::info('Chamou o checkAddress com, hotel: ' . $hotel);
-                $this->checkStatusCNPJ($hotel->cnpj);
-                return $this->checkAddress($hotel);
+                if($config->address_by_cep == 1){
+                    Log::info('Opção ativa vai alterar o endereço');
+                    Log::info('Chamou o checkAddress com, hotel: ' . $hotel);
+                    $this->checkStatusCNPJ($hotel->cnpj);
+                    return $this->checkAddress($hotel);
+
+                }
 
             } else {
                 return array(
                     'success' => false,
-                    'message' => 'Configurações não encontradas, por favor confira as mesmas!'
+                    'message' => 'Configurações não encontradas, por favor, confirme as mesmas!'
                     
                 );                
             }
@@ -155,6 +162,8 @@ class HotelRepository implements HotelDetailContract
             ]);
             
         }
+
+        ConfigHotel::create();
 
         return $hotel;        
     }

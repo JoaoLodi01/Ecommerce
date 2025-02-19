@@ -13,10 +13,10 @@ class ConfigService
         $this->configHotelRepository = $configHotelRepository;
         
     }
-    public function create(array $data)
+    public function update(array $data)
     {
         try {
-            $config = $this->configHotelRepository->create($data);
+            $config = $this->configHotelRepository->update($data, 1);
             return response()->json([
                 'success' => true,
                 'message' => 'Configuração criada com sucesso!',

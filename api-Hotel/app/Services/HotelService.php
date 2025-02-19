@@ -59,7 +59,8 @@ class HotelService
             return response()->json([
                 'success' => false,
                 'message' => $th->getMessage(),
-                'line' => $th->getLine()
+                'line' => $th->getLine(),
+                'code' => $th->getCode()
 
             ]);
         }
