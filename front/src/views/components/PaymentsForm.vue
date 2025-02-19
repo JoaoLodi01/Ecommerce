@@ -50,13 +50,17 @@ export default {
             type: Boolean,
             required: true
         }
+
+        typeOperation: {
+            type: Number,
+        }
         
     },
     
     methods: {
         async getPayments() {
             try {
-                const response = await axios.get(`http://192.168.98.32:8001/api/payments/all`);
+                const response = await axios.get(`${this.api}/payments/all`);
                 this.payments = response.data;
             } catch (error) {
 
@@ -69,6 +73,13 @@ export default {
             for (let index = 0; index < this.paymentsValues.length; index++) {
                 const element = this.paymentsValues[index];
                 console.log(element)
+            }
+
+            try {
+                const response = await axios.post(`${this.api}/nfce/create`);
+                this.
+            } catch (error) {
+                
             }
             
         }

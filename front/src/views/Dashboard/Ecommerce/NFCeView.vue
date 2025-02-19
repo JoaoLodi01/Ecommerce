@@ -52,12 +52,15 @@
     <!-- Resumo da venda -->
     <div class="sale-summary">
       <h2>Valores:</h2>
+
       <p><strong>Total:</strong> R$ {{ total }}</p>
       <button @click="showPayment">Finalizar</button>
+
       <PaymentsForm
           v-if="show"
           :show="this.show"
       />
+
     </div>
   </div>
 </template>
@@ -76,11 +79,11 @@ export default {
         quantity: 1,
         discount: 0,
         addition: 0,
-        total: 0
       },
       api: process.env.VUE_APP_API_URL_ECOMMERCE,
       searchResults: [],
       products: [],
+      total: 0,
       show: false
     };
   },
@@ -91,15 +94,12 @@ export default {
 
   methods: {
     async searchProduct() {
-      /*if (!this.newProduct.name) {
-        this.searchResults = [];
-        return;
-      }*/
       try {
         const response = await axios.get(`${this.api}/products/search`, {
           params: this.newProduct.name});
-          console.log('Teste kochem', response.data)
+          console.log('Consultando...', response.data)
         this.searchResults = response.data;
+
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
       }
@@ -114,6 +114,7 @@ export default {
       if (!this.newProduct.name) {
         alert("Selecione um produto!");
         return;
+
       }
       this.products.push({ ...this.newProduct });
       this.newProduct = { name: "", csosn: "", price: 0, quantity: 1, discount: 0, addition: 0 };
@@ -129,7 +130,6 @@ export default {
 
     showPayment(){
       this.show = !this.show
-
     },
 
     async emitNfce(){
@@ -138,6 +138,7 @@ export default {
           const response = await axios.post(`${this.api}/nfce/create`)
         }
         alert("Venda finalizada!")
+
       } catch (error) {
         response.message(error)
         alert("Erro ao emitir venda!")
