@@ -30,7 +30,7 @@ import axios from 'axios';
         },
         components: {
             PaymentsForm
-            
+
         },
         methods: {
             async getRooms() {
@@ -54,6 +54,5 @@ import axios from 'axios';
             this.getRooms()
 
         }
-        
     }
 </script>
