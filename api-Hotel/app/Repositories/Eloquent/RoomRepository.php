@@ -129,13 +129,13 @@ class RoomRepository implements RoomContract
 
     public function reservation()
     {
-        $this->payMent();
+        /*$this->payMent();*/
 
     }
 
     public function payMent()
     {
-        $url = env('ECOMMERCE_URL');
+        /*$url = env('ECOMMERCE_URL');
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url . "/products/all");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -148,7 +148,7 @@ class RoomRepository implements RoomContract
         $response = json_decode(curl_exec($ch), true);
         curl_close($ch);
 
-        return $response;
+        return $response;*/
     }
 
     public function countActive(object $room, int $room_id)

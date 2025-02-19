@@ -34,8 +34,9 @@
 </template>
 
 <script>
-import axios from 'axios';
-
+    import axios from 'axios';
+    import { toRaw } from 'vue';
+    
     export default {
         name: "ConfigHotel",
         data(){
@@ -46,19 +47,28 @@ import axios from 'axios';
                     partial_registration: false,
 
                 },
+                configs: [],
                 api_Hotel: process.env.VUE_APP_API_URL_HOTEL
             }
         },
         methods: {
             async saveConfig(){
                 const form = new FormData;
+                const rawForm = toRaw(this.form)
 
                 form.append("address_by_cep", this.form.address_by_cep)
                 form.append("room_service_limit", this.form.room_service_limit)
                 form.append("partial_registration", this.form.partial_registration)
-                console.log('Dados envio', this.form)
-                const response = await axios.put(`${this.api_Hotel}/config-hotel/set-config`, form);
+              
+                const response = await axios.put(`${this.api_Hotel}/config-hotel/set-config`, rawForm)
+
                 console.log(response)
+
+                if(response.data.success === true)
+                {
+                    alert('Configurações gravadas com sucesso!')
+                    this.$router.push('/hotel')
+                }
             }
         },
 

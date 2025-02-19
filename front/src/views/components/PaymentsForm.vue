@@ -51,7 +51,12 @@ export default {
             required: true
             
         },
-        
+
+        typeOperation: {
+            type: Number,
+            required: true
+
+        }
     },
     
     methods: {
@@ -64,6 +69,7 @@ export default {
                 
             }
         },
+        
         getValues(id){
             console.log(`ID da forma de pagamento ${id}, valor pago: R$ ${this.paymentsValues}`)
             console.log('Total pago', this.valorPago)

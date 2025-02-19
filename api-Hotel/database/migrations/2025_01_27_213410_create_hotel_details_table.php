@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('number_of_rooms', false, 20);
             $table->integer('number_of_employees', false, 20);
             $table->boolean('active', 1)->default(1);
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }

@@ -36,7 +36,7 @@ import axios from 'axios';
             async getRooms() {
                 try {
                     const response = await axios.get(`${this.api}/stay/rooms`)
-                    console.log(response.data.all)
+                    console.log(response.data.all ? response.data.all : response.data)
                     
                 } catch (error) {
                     console.error('Erro no getRooms', error)   

@@ -30,8 +30,6 @@
           const response = await axios.get(`${this.api_hotel}/hotel/all`)
           if(response.data.success === true)
           {
-            console.log('Sucesso')
-            console.log(response.data.all.hotel.number_of_rooms)
             this.hotel = response.data.all.hotel
             
           }

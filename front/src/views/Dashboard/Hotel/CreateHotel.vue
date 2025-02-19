@@ -91,7 +91,8 @@
                 api_hotel: process.env.VUE_APP_API_URL_HOTEL,
                 api_viaCEP: process.env.VUE_APP_VIACEP,
                 api_CNPJ: process.env.VUE_APP_CNPJA,
-                showForm: true,
+                
+                showForm: true,                
                 show: false
 
             }

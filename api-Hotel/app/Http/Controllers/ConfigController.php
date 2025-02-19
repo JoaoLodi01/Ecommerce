@@ -18,8 +18,9 @@ class ConfigController extends Controller
 
     public function update(Request $request)
     {
-        return response()->json($request->all());
-        //return $this->configService->update($data);
+        $data = $request->all();
 
+        return $this->configService->update($data);
+ 
     }
 }

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('config', function (Blueprint $table) {
+        Schema::create('configs', function (Blueprint $table) {
             $table->id();
             $table->boolean('address_by_cep', 1)->default(0);
             $table->boolean('partial_registration', 1)->default(0);
