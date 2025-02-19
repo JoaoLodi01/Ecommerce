@@ -18,10 +18,7 @@ class HotelRepository implements HotelDetailContract
     {
         Log::info('Vai buscar o hotel e as configurações');
         $hotel = HotelDetail::where('active', $active)->first();
-        Log::info("Hotel $hotel");
-
         $config = ConfigHotel::where('active', $active)->first();
-        Log::info("Config $config");
         
         if(!empty($hotel))
         {

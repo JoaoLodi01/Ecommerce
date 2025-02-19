@@ -51,6 +51,7 @@
           }
 
           console.error('Erro ao carregar o hotel', error.response)
+          console.error('rota', this.api_hotel)
  
         }
       }

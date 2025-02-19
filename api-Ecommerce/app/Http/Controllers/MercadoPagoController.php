@@ -9,7 +9,7 @@ use MercadoPago\Client\Payment\PaymentClient;
 use MercadoPago\Exceptions\MPApiException;
 use MercadoPago\MercadoPagoConfig;*/
 
-class PayMentController extends Controller
+class MercadoPagoController extends Controller
 {
     /*public function payMentMercadoPago(PayMentMethodRequest $request)
     {

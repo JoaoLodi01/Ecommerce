@@ -2,19 +2,19 @@
 
 namespace App\Services;
 
-use App\Repositories\Eloquent\PaymentsSaleRepository;
+use App\Repositories\Eloquent\PaymentsRepository;
 
-class PaymentsSaleService{
+class PaymentsService{
     
-    protected $paymentsSaleRepository;
+    protected $paymentsRepository;
 
-    public function __construct(PaymentsSaleRepository $paymentsSaleRepository){
-        $this->paymentsSaleRepository = $paymentsSaleRepository;
+    public function __construct(PaymentsRepository $paymentsRepository){
+        $this->paymentsRepository = $paymentsRepository;
     }
 
     public function getAll(){
         try {
-            return $this->paymentsSaleRepository->getAll(1);
+            return $this->paymentsRepository->getAll(1);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
@@ -24,7 +24,7 @@ class PaymentsSaleService{
         try {
             return response()->json([
                 'success' => true,
-                'especie' => $this->paymentsSaleRepository->findById($id)
+                'especie' => $this->paymentsRepository->findById($id)
             ]);
 
         } catch (\Throwable $th) {
@@ -34,7 +34,7 @@ class PaymentsSaleService{
 
     public function store(array $data){
         try {
-            $this->paymentsSaleRepository->store($data);
+            $this->paymentsRepository->store($data);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -44,7 +44,7 @@ class PaymentsSaleService{
 
     public function update(array $data, int $id){
         try {
-            $this->paymentsSaleRepository->update($data, $id);
+            $this->paymentsRepository->update($data, $id);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -54,7 +54,7 @@ class PaymentsSaleService{
 
     public function delete(int $id){
         try {
-            $this->paymentsSaleRepository->delete($id);
+            $this->paymentsRepository->delete($id);
             return response()->json(true);
 
         } catch (\Throwable $th) {
