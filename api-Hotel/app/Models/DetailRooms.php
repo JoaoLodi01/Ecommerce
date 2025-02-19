@@ -18,6 +18,7 @@ class DetailRooms extends Model
         'busy',
         'hotel_id',
         'number_room',
+        'active'
 
     ];
 

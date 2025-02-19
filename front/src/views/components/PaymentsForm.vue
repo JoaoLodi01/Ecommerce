@@ -17,7 +17,7 @@
                             <input
                                 type="number"
                                 v-model="paymentsValues[index]"
-                                @input="finalizeSale(payment.id)"
+                                @input="getValues(payment.id)"
                                 placeholder="0.00"
                                 step="0.01"
                             />
@@ -49,10 +49,11 @@ export default {
         show: {
             type: Boolean,
             required: true
-        }
+        },
 
         typeOperation: {
             type: Number,
+            required: true
         }
         
     },
@@ -63,24 +64,23 @@ export default {
                 const response = await axios.get(`${this.api}/payments/all`);
                 this.payments = response.data;
             } catch (error) {
-
-            }
-        },
-
-        async finalizeSale(id) {
-            console.log('ID forma pagamento:', id)
-            
-            for (let index = 0; index < this.paymentsValues.length; index++) {
-                const element = this.paymentsValues[index];
-                console.log(element)
-            }
-
-            try {
-                const response = await axios.post(`${this.api}/nfce/create`);
-                this.
-            } catch (error) {
+                console.error('Erro no getPayments', error)
                 
             }
+        },
+        
+        getValues(id){
+            console.log(`ID da forma de pagamento ${id}, valor pago: R$ ${this.paymentsValues}`)
+            console.log('Total pago', this.valorPago)
+
+            for (let i = 0; i < this.paymentsValues.length; i++) {
+                const element = this.paymentsValues[i];
+                return element
+
+            }
+        },  
+        async finalizeSale() {
+            console.log('ID forma pagamento:')    
             
         }
     },

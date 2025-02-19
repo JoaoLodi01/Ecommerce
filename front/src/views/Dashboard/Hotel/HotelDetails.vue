@@ -29,10 +29,13 @@
           const response = await axios.get(`${this.api_hotel}/hotel/all`)
           if(response.data.success === true)
           {
-            console.log('Sucesso')
-            console.log(response.data.all.hotel.number_of_rooms)
             this.hotel = response.data.all.hotel
             
+          }
+
+          if(response.data.success === false){
+            console.log(response.data)
+
           }
 
         } catch (error) {
@@ -45,6 +48,7 @@
           }
 
           console.error('Erro ao carregar o hotel', error.response)
+          console.error('rota', this.api_hotel)
  
         }
       }

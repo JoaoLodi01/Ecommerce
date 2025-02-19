@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ConfigHotelRequest extends FormRequest
+class ConfigRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,12 +21,10 @@ class ConfigHotelRequest extends FormRequest
      */
     public function rules(): array
     {
-        $required = $this->isMethod('post') ? 'required' : 'sometimes';
-
         return [
-            'addres_by_cep' => [$required],
-            'room_service_limit' => [$required],
-            'partial_registration' => [$required],
+            'addres_by_cep' => ['required'],
+            'room_service_limit' => ['required', 'number'],
+            'partial_registration' => ['required'],
             
         ];
 
@@ -36,6 +34,7 @@ class ConfigHotelRequest extends FormRequest
         return [
             'addres_by_cep.required' => 'Por favor confirme a opção endereço por CEP.',
             'room_service_limit.required' => 'Por favor informe um limite para o serviço de quarto.',
+            'room_service_limit.number' => 'Por favor informe um número de limite válido.',
             'partial_registration' => 'Por favor confirme a opção endereço cadastro parcial.',
             
         ];

@@ -47,10 +47,11 @@ class HotelService
     public function create(array $data)
     {
         try {
-            $this->hotelRepository->create($data);
+            $hotel = $this->hotelRepository->create($data);
             
             return response()->json([
-               'success' => true
+               'success' => true,
+               'hotel' => $hotel
 
             ], 201);
 
@@ -58,7 +59,8 @@ class HotelService
             return response()->json([
                 'success' => false,
                 'message' => $th->getMessage(),
-                'line' => $th->getLine()
+                'line' => $th->getLine(),
+                'code' => $th->getCode()
 
             ]);
         }

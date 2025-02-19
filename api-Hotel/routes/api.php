@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    ConfigController,
+    ConfigController as ConfigHotel,
     HotelController,
     IPController,
     RoomController
@@ -29,8 +29,11 @@ Route::prefix('v1')->group( function (){
     });
 
     Route::get('/get-ip', [IPController::class, 'create']);
+
+    Route::prefix('config-hotel')->group( function () {
+        Route::put('/set-config', [ConfigHotel::class, 'update']);
+    
+    
+    });
 });
 
-Route::prefix('config-hotel')->group( function () {
-    Route::post('/set-config', [ConfigController::class, 'create']);
-});

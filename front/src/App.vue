@@ -1,5 +1,5 @@
 <template>
-  <router-link></router-link>
+  <router-link to="/"></router-link>
   <router-view></router-view>
   
 </template>

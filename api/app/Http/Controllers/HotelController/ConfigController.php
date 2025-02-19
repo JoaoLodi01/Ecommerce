@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ConfigHotelRequest;
 use App\Services\ConfigService as ConfigHotelService;
+use Illuminate\Support\Facades\Request;
 
 class ConfigController extends Controller
 {
@@ -16,10 +16,9 @@ class ConfigController extends Controller
 
     }
 
-    public function create(ConfigHotelRequest $request)
+    public function update(Request $request)
     {
-        $data = $request->validated();
-        return $this->configService->create($data);
+        return $this->configService->update($data);
 
     }
 }
