@@ -61,24 +61,21 @@ export default {
                 this.payments = response.data;
             } catch (error) {
                 console.error('Erro no getPayments', error)
+                
             }
         },
         getValues(id){
             console.log(`ID da forma de pagamento ${id}, valor pago: R$ ${this.paymentsValues}`)
-            
-            
-
             console.log('Total pago', this.valorPago)
+
             for (let i = 0; i < this.paymentsValues.length; i++) {
                 const element = this.paymentsValues[i];
-                
-                
+                return element
+
             }
-        },
+        },  
         async finalizeSale() {
-            console.log('ID forma pagamento:')
-            
-            
+            console.log('ID forma pagamento:')    
             
         }
     },

@@ -1097,3 +1097,7 @@
 [2025-02-18 09:25:57] local.INFO: Vai buscar todos os quartos ativos do hotel table = Rooms  
 [2025-02-18 09:26:14] local.INFO: Vai buscar todos os quartos ativos do hotel table = Rooms  
 [2025-02-18 09:34:38] local.INFO: Vai buscar todos os quartos ativos do hotel table = Rooms  
+[2025-02-19 08:50:06] local.INFO: O hotel não foi encontrado  
+[2025-02-19 08:52:04] local.INFO: O hotel não foi encontrado  
+[2025-02-19 08:52:52] local.INFO: O hotel foi encontrado  
+[2025-02-19 08:52:52] local.INFO: Vai conferir as configurações de CEP  

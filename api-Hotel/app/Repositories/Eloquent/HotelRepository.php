@@ -6,7 +6,7 @@ use App\Models\{
     DetailRooms,
     HotelDetail,
     Capacity,
-    Config
+    Config as ConfigHotel
 };
 
 use App\Repositories\Contracts\HotelDetailContract;
@@ -17,7 +17,7 @@ class HotelRepository implements HotelDetailContract
     public function all(int $active)
     {
         $hotel = HotelDetail::where('active', $active)->first();
-        $config = Config::where('active', $active)->first();
+        $config = ConfigHotel::where('active', $active)->first();
         
         if(!empty($hotel))
         {
