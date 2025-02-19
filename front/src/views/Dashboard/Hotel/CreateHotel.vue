@@ -63,7 +63,7 @@
         </form> 
     </div>
 
-    <ConfigHotel
+    <Config
         v-if="show"
         :show="this.show"
     />
@@ -71,7 +71,7 @@
 </template>
 
 <script>
-    import ConfigHotel from '@/views/components/ConfigHotel.vue';
+    import Config from '@/views/components/Config.vue';
     import axios from 'axios';
 
     export default {
@@ -189,7 +189,7 @@
         },
 
         components: {
-            ConfigHotel
+            Config
 
         },
         mounted(){

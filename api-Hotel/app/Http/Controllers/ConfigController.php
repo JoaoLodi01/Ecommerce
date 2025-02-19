@@ -16,6 +16,11 @@ class ConfigController extends Controller
 
     }
 
+    public function getConfigs()
+    {
+        return $this->configService->getConfigs();
+    }
+
     public function update(Request $request)
     {
         $data = $request->all();

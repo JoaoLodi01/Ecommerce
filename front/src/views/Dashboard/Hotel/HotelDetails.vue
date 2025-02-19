@@ -1,24 +1,35 @@
 <template>
   <header class="bg-gray-700 text-white text-sm">    
-    <div class="bg-gray-700 flex justify-between items-center p-2">
+    <div class="flex justify-between p-2">
       <h1 class="ml-2">Bem vindo a sua área do Hotel!</h1>
-      <h3 class="ml-2">Acesse sua conta</h3> 
-    
+      <div class="flex">
+          <h3 class="ml-2">Acesse sua conta</h3> 
+          <h3 class="ml-2"><button @click="showConfig">Configurações</button></h3> 
+      </div>
+      
     </div>
+
     <div class="m-2 pb-2">
       <h3 class="ml-2">Contamos com um total de: {{ hotel.number_of_rooms || 0 }} quartos </h3>
     </div>
   </header>
+  <Config
+    v-if="show"
+    @close="show = false"
+    
+  />
 </template>
 
 <script>
   import axios from 'axios';
+  import Config from '@/views/components/Config.vue';
 
   export default {
     data(){
       return {
         hotel: {},
-        api_hotel: process.env.VUE_APP_API_URL_HOTEL
+        api_hotel: process.env.VUE_APP_API_URL_HOTEL,
+        show: false
 
       }
     },
@@ -51,9 +62,16 @@
           console.error('rota', this.api_hotel)
  
         }
+      },
+      showConfig(){
+        console.log('Abriu')
+        this.show = true
       }
     },
 
+    components: {
+      Config
+    },
     mounted(){
       this.getHotel()
     }
