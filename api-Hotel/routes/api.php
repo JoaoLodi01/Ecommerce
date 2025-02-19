@@ -32,7 +32,7 @@ Route::prefix('v1')->group( function (){
 
     Route::prefix('config-hotel')->group( function () {
         Route::put('/set-config', [ConfigHotel::class, 'update']);
-    
+        Route::get('/get-config', [ConfigHotel::class, 'getConfigs']);
     
     });
 });
