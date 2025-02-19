@@ -26,7 +26,7 @@
   import Config from '@/views/components/Config.vue';
 
   export default {
-    data(){
+    data(){1
       return {
         hotel: {},
         api_hotel: process.env.VUE_APP_API_URL_HOTEL,
