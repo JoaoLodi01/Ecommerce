@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\HotelEloquent;
 
-use App\Models\{
+use App\Models\HotelModels\{
     DetailRooms,
     HotelDetail,
-    Capacity,
-    Config as ConfigHotel
+    Capacity
 };
 
-use App\Repositories\Contracts\HotelDetailContract;
+use App\Models\Config as ConfigHotel;
+use App\Repositories\Contracts\HotelContract\HotelDetailContract;
 use Illuminate\Support\Facades\Log;
 
 class HotelRepository implements HotelDetailContract

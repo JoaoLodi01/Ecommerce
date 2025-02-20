@@ -5,7 +5,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class UserRepository extends BaseRepository
+class UserRepository
 {
     
     protected $userModel;

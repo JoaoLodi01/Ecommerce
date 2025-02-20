@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\EcommerceController;
 
 use Illuminate\Http\Request;
-use App\Services\PaymentsSaleService;
+use App\Services\EcommerceService\PaymentsService;
+use App\Http\Controllers\Controller;
 
 class PaymentsSaleController extends Controller
 {
     protected $paymentsSaleService;
 
-    public function __construct(PaymentsSaleService $paymentsSaleService){
+    public function __construct(PaymentsService $paymentsSaleService){
         $this->paymentsSaleService = $paymentsSaleService;
     }
 

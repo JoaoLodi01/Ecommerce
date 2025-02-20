@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\Consumer;
-use App\Repositories\Contracts\Base;
+use App\Models\EcommerceModels\Consumer;
 
 class ConsumerRepository 
 {

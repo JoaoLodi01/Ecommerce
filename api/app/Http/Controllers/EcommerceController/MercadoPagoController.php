@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Requests\PayMentMethodRequest;
+use App\Http\Controllers\Controller;
 /*use Illuminate\Http\Client\Request;
 use MercadoPago\Client\Common\RequestOptions;
 use MercadoPago\Client\Payment\PaymentClient;

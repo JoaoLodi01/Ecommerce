@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\HotelService;
+namespace App\Services\HotelServices;
 
 use App\Repositories\Eloquent\ConsumerRepository;
 

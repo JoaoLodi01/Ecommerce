@@ -4,8 +4,8 @@ namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductsRequest;
-use App\Services\ProductsService;
 use Illuminate\Http\Request;
+use App\Services\EcommerceService\ProductsService;
 
 class ProductsController extends Controller
 {

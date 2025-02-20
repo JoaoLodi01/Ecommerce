@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Requests\NfceRequest;
-use App\Services\NfceService;
+use App\Services\EcommerceService\NfceService;
 use App\Http\Controllers\Controller;
 
 class NfceController extends Controller

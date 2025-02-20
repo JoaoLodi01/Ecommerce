@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\Nfce;
-use App\Repositories\Contracts\Base;
+use App\Models\EcommerceModels\Nfce;
 
-class NfceRepository extends BaseRepository implements Base
+class NfceRepository
 {
     public function getAll(int $active){
         return Nfce::where('active', $active)->get();

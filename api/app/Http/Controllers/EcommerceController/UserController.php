@@ -4,7 +4,7 @@ namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Services\UserService;
+use App\Services\EcommerceService\UserService;
 
 class UserController extends Controller
 {

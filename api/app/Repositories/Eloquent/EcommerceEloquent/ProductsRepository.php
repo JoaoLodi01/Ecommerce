@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\Products;
-use App\Repositories\Contracts\Base;
+use App\Models\EcommerceModels\Products;
 
 class ProductsRepository
 {

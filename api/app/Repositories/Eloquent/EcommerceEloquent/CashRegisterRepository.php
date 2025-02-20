@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\CashRegister;
-use App\Repositories\Contracts\Base;
+use App\Models\EcommerceModels\CashRegister;
 
 class CashRegisterRepository
 {

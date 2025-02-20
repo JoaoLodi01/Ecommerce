@@ -39,6 +39,7 @@
 
     methods: {
       async getHotel(){
+        console.log(this.api)
         try {
           const response = await axios.get(`${this.api}/hotel/all`)
           if(response.data.success === true)

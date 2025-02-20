@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\HotelService;
+namespace App\Services\HotelServices;
 
-use App\Repositories\Eloquent\HotelRepository;
+use App\Repositories\Eloquent\HotelEloquent\HotelRepository;
 
 class HotelService
 {

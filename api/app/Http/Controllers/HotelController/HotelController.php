@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\HotelController;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\HotelDetailRequest;
-use App\Services\HotelService;
 use Illuminate\Http\Request;
+
+use App\Http\Requests\HotelDetailRequest;
+use App\Services\HotelServices\HotelService;
 
 class HotelController extends Controller
 {

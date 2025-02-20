@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\Payment;
+use App\Models\EcommerceModels\Payment;
 
 class PaymentsSaleRepository
 {

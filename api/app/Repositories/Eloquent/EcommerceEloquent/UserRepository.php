@@ -1,21 +1,12 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\User;
+use App\Models\EcommerceModels\User;
 use Illuminate\Support\Facades\Hash;
 
-class UserRepository extends BaseRepository
+class UserRepository
 {
-    
-    protected $userModel;
-    protected $baseRepository;
-    public function __construct(User $userModel, BaseRepository $baseRepository)
-    {
-        $this->userModel = $userModel;
-        $this->baseRepository = $baseRepository;
-
-    }
     public function getAll(int $active)
     {
         return User::where('active', $active)->get();
