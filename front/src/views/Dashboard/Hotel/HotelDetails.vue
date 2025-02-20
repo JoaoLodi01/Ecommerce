@@ -10,7 +10,8 @@
     </div>
 
     <div class="m-2 pb-2">
-      <h3 class="ml-2">Contamos com um total de: {{ hotel.number_of_rooms }} quartos </h3>
+      <h3 class="ml-2" v-if="isLoanding">Carregando...</h3>
+      <h3 class="ml-2" v-if="!isLoanding">Contamos com um total de: {{ hotel.number_of_rooms }} quartos </h3>
 
     </div>
   </header>
@@ -26,11 +27,12 @@
   import Config from '@/views/components/Config.vue';
 
   export default {
-    data(){1
+    data(){
       return {
         hotel: {},
         api_hotel: process.env.VUE_APP_API_URL_HOTEL,
-        show: false
+        show: false,
+        isLoanding: true,
 
       }
     },
@@ -42,6 +44,7 @@
           if(response.data.success === true)
           {
             this.hotel = response.data.all.hotel
+            this.isLoanding = false
             
           }
 
@@ -58,15 +61,11 @@
             this.$router.push('/hotel/create')
 
           }
-
-          console.error('Erro ao carregar o hotel', error.response)
-          console.error('rota', this.api_hotel)
- 
         }
       },
       showConfig(){
-        console.log('Abriu')
         this.show = true
+
       }
     },
 

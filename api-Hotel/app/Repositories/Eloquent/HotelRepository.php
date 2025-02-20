@@ -35,13 +35,7 @@ class HotelRepository implements HotelDetailContract
 
                 }
 
-            } else {
-                return array(
-                    'success' => false,
-                    'message' => 'Configurações não encontradas, por favor, confirme as mesmas!'
-                    
-                );                
-            }
+            } 
             
             Log::info("Opção desativada, não vai alterar o endereço");
             return array(
