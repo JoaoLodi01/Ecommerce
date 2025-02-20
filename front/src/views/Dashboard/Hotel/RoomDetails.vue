@@ -35,7 +35,7 @@ import axios from 'axios';
         methods: {
             async getRooms() {
                 try {
-                    const response = await axios.get(`${this.api}/stay/rooms`)
+                    const response = await axios.get(`${this.api}/hotel/stay/rooms`)
                     console.log(response.data.all ? response.data.all : response.data)
                     this.rooms = response.data.all
                     

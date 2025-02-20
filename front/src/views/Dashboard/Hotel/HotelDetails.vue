@@ -5,20 +5,19 @@
       <div class="flex">
           <h3 class="ml-2">Acesse sua conta</h3> 
           <h3 class="ml-2"><button @click="showConfig">Configurações</button></h3> 
+          <h3 class="ml-2"><button><a href="/">Voltar</a></button></h3>
           
       </div>
     </div>
 
     <div class="m-2 pb-2">
-<<<<<<< HEAD
       <h3 class="ml-2" v-if="isLoanding">Carregando...</h3>
       <h3 class="ml-2" v-if="!isLoanding">Contamos com um total de: {{ hotel.number_of_rooms }} quartos </h3>
 
-=======
-      <h3 class="ml-2">Contamos com um total de: {{ hotel.number_of_rooms || 0 }} quartos </h3>
->>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
     </div>
   </header>
+
+  <button><a href="/hotel/rooms">Conferir quartos</a></button>
   <Config
     v-if="show"
     @close="show = false"

@@ -3,7 +3,7 @@
         <h1>Formas de Pagamento</h1>
 
         <form @submit.prevent="finalizeSale">
-            <table>
+            <table class="border-spacing-1 bg-black">
                 <thead>
                     <tr>
                         <th>Formas de pagamento</th>
@@ -60,7 +60,7 @@ export default {
     methods: {
         async getPayments() {
             try {
-                const response = await axios.get(`${this.api}/payments/all`);
+                const response = await axios.get(`${this.api}/ecommerce/payments/all`);
                 this.payments = response.data;
             } catch (error) {
                 console.error('Erro no getPayments', error)

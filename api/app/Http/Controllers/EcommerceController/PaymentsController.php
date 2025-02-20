@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\EcommerceService\PaymentsService;
 use App\Http\Controllers\Controller;
 
-class PaymentsSaleController extends Controller
+class PaymentsController extends Controller
 {
     protected $paymentsSaleService;
 

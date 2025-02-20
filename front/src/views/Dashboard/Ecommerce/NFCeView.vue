@@ -52,23 +52,11 @@
     <!-- Resumo da venda -->
     <div class="sale-summary">
       <h2>Valores:</h2>
-<<<<<<< HEAD
       <p><strong>Total:</strong> R$ {{ total.toFixed(2) }}</p>
       <button @click="emitNfce">Finalizar</button>
       <PaymentsForm
         v-if = "show"
       />
-=======
-
-      <p><strong>Total:</strong> R$ {{ total }}</p>
-      <button @click="showPayment">Finalizar</button>
-
-      <PaymentsForm
-          v-if="show"
-          :show="this.show"
-      />
-
->>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
     </div>
   </div>
 </template>
@@ -96,7 +84,6 @@ export default {
       show: false
     };
   },
-<<<<<<< HEAD
   components: {
     PaymentsForm,
   },
@@ -104,11 +91,6 @@ export default {
     total() {
       return this.products.reduce((acc, product) => acc + this.calculateTotal(product), 0);
     },
-=======
-
-  components: {
-    PaymentsForm
->>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
   },
 
   methods: {
@@ -153,17 +135,9 @@ export default {
 
     async emitNfce(){
       try {
-<<<<<<< HEAD
         this.show = !this.show;
         this.$routes.push({ name: "PaymentsForm" });
         console.log("Dados enviados!", response.data);
-=======
-        if(this.products && this.total > 0) {
-          const response = await axios.post(`${this.api}/nfce/create`)
-        }
-        alert("Venda finalizada!")
-
->>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
       } catch (error) {
         response.message(error)
         alert("Erro ao emitir venda!")
