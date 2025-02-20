@@ -63,11 +63,6 @@
         </form> 
     </div>
 
-    <Config
-        v-if="show"
-        :show="this.show"
-    />
-
 </template>
 
 <script>
@@ -92,9 +87,6 @@
                 api_viaCEP: process.env.VUE_APP_VIACEP,
                 api_CNPJ: process.env.VUE_APP_CNPJA,
                 
-                showForm: true,                
-                show: false
-
             }
         },
 
@@ -116,9 +108,7 @@
                     
                     if (response.data.success === true) {
                         console.log(response)
-                        //this.$router.push('/hotel')
-                        this.showForm = false
-                        this.show = true
+                        this.$router.push('/hotel')
                         
                     }
 

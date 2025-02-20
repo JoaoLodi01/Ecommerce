@@ -2,7 +2,7 @@
 
 namespace App\Services\HotelServices;
 
-use App\Repositories\Eloquent\RoomRepository;
+use App\Repositories\Eloquent\HotelEloquent\RoomRepository;
 
 class RoomService
 {
@@ -19,7 +19,7 @@ class RoomService
         try {
             return response()->json([
                 'success' => true,
-                'all' => $this->roomRepository->all($active)
+                'all' => $this->roomRepository->allRooms($active)
                 
             ]);
 

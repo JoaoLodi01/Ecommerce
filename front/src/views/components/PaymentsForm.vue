@@ -62,6 +62,7 @@ export default {
             try {
                 const response = await axios.get(`${this.api}/ecommerce/payments/all`);
                 this.payments = response.data;
+                
             } catch (error) {
                 console.error('Erro no getPayments', error)
                 

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Consumer;
+use App\Models\EcommerceModels\Consumer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
