@@ -5,6 +5,7 @@
       <div class="flex">
           <h3 class="ml-2">Acesse sua conta</h3> 
           <h3 class="ml-2"><button @click="showConfig">Configurações</button></h3> 
+          <h3 class="ml-2"><button><a href="/">Voltar</a></button></h3>
           
       </div>
     </div>
@@ -15,6 +16,8 @@
 
     </div>
   </header>
+
+  <button><a href="/hotel/rooms">Conferir quartos</a></button>
   <Config
     v-if="show"
     @close="show = false"
