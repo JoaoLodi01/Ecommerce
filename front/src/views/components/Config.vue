@@ -63,7 +63,7 @@
         methods: {
             async getConfig(){
                 try {
-                    const response = await axios.get(`${this.api}/config-hotel/get-config`);
+                    const response = await axios.get(`${this.api}/config/config-hotel/get-config`);
                     const config = response.data.config
                     
                     this.form = {
@@ -86,7 +86,7 @@
 
                     };
                 
-                    const response = await axios.put(`${this.api}/config-hotel/set-config`, configs)
+                    const response = await axios.put(`${this.api}/config/config-hotel/set-config`, configs)
 
                     console.log(response)
 

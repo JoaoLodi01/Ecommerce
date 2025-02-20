@@ -2,17 +2,18 @@
 
 namespace App\Services;
 
-use App\Repositories\Eloquent\ConfigRepository as ConfigHotelRepository;
+use App\Repositories\Eloquent\ConfigRepository;
 
 class ConfigService
 {
     public function __construct(
-        protected ConfigHotelRepository $configHotelRepository
+        protected ConfigRepository $configHotelRepository
     )
     {
         $this->configHotelRepository = $configHotelRepository;
         
     }
+
     public function update(array $data)
     {
         try {
@@ -40,6 +41,7 @@ class ConfigService
                 'success' => true,
                 'config' => $configs[0]
             ]);
+            
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,
