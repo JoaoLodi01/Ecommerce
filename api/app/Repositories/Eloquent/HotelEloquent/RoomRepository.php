@@ -1,19 +1,28 @@
 <?php
-namespace App\Repositories\Eloquent;
 
-use App\Models\{
-    Customer,
+namespace App\Repositories\Eloquent\HotelEloquent;
+
+use App\Models\HotelModels\{
     DetailRooms,
     HotelDetail,
     Room,
     Capacity
 };
 
+use App\Models\EcommerceModels\User as Customer;
+
 use App\Repositories\Contracts\HotelContract\RoomContract;
 use Illuminate\Support\Facades\Log;
 
 class RoomRepository implements RoomContract
 {
+    public function allRooms(int $active)
+    {
+        Log::info("Vai buscar todos os quartos ativos do hotel table = DetailRooms");
+        return DetailRooms::where('active', $active)->get();
+
+    }
+    
     public function all(int $active)
     {
         Log::info("Vai buscar todos os quartos ativos do hotel table = Rooms");

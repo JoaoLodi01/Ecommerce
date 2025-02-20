@@ -2,7 +2,7 @@
 
 namespace App\Services\EcommerceService;
 
-use App\Repositories\Eloquent\PaymentsRepository;
+use App\Repositories\Eloquent\EcommerceEloquent\PaymentsRepository;
 
 class PaymentsService{
     
