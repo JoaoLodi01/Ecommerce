@@ -2,32 +2,31 @@
 
 namespace App\Services\EcommerceService;
 
-use App\Repositories\Eloquent\CashRegisterRepository;
+use App\Repositories\Eloquent\PaymentsRepository;
 
-class CashRegisterService 
-{
-    protected $cashRegisterRepository;
+class PaymentsService{
+    
+    protected $paymentsRepository;
 
-    public function __construct(CashRegisterRepository $cashRegisterRepository)
-    {
-        $this->cashRegisterRepository = $cashRegisterRepository;
+    public function __construct(PaymentsRepository $paymentsRepository){
+        $this->paymentsRepository = $paymentsRepository;
     }
 
     public function getAll(){
         try {
-            return $this->cashRegisterRepository->getAll(1);
+            return $this->paymentsRepository->getAll(1);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
     }
 
-    public function findByID(int $id){
+    public function findById(int $id){
         try {
             return response()->json([
                 'success' => true,
-                'cash' => $this->cashRegisterRepository->findByID($id)
+                'especie' => $this->paymentsRepository->findById($id)
             ]);
-            
+
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
@@ -35,7 +34,7 @@ class CashRegisterService
 
     public function store(array $data){
         try {
-            $this->cashRegisterRepository->store($data);
+            $this->paymentsRepository->store($data);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -45,7 +44,7 @@ class CashRegisterService
 
     public function update(array $data, int $id){
         try {
-            $this->cashRegisterRepository->update($data, $id);
+            $this->paymentsRepository->update($data, $id);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -55,7 +54,7 @@ class CashRegisterService
 
     public function delete(int $id){
         try {
-            $this->cashRegisterRepository->delete($id);
+            $this->paymentsRepository->delete($id);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -67,7 +66,7 @@ class CashRegisterService
         return response()->json([
             'success' => false,
             'th' => $th->getMessage(),
-            'line' => $th->getLine(),
+            'line' => $th->getLise(),
             'file' => $th->getFile(),
         ]);
     }

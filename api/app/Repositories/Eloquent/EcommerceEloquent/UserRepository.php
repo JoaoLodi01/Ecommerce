@@ -16,12 +16,10 @@ class UserRepository extends BaseRepository
         $this->baseRepository = $baseRepository;
 
     }
-    public function getAll(int $active){
-
+    public function getAll(int $active)
+    {
+        return User::where('active', $active)->get();
         
-        //return User::where('active', $active)->get();
-        return $this->baseRepository->getAll($active);
-
     }
 
     public function findByID(string $params){

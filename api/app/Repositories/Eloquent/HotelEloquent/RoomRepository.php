@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Log;
 
 class RoomRepository implements RoomContract
 {
-    
     public function all(int $active)
     {
         Log::info("Vai buscar todos os quartos ativos do hotel table = Rooms");
@@ -77,7 +76,8 @@ class RoomRepository implements RoomContract
         $capacity = Capacity::where('id', $data['room_id'])->first(); // Pega a quantia anterior
         $rooms = $this->findByRoomID($data['room_id']);
         $customer = $this->findByCustomerID($data['customer_id']);
-        //$detailRooms = DetailRooms::where('id', $data['room_id'])->first();
+        Log::info("Cliente encontrado $customer");
+        
         $detailRooms = $this->find($data['room_id']);
         
         Log::info('Dados de entrada:' . $data['room_id']);
@@ -91,13 +91,13 @@ class RoomRepository implements RoomContract
 
             ]);
 
+            Log::info("Retornou a quantia - 1");
             $detailRooms->update([
                 'capacity' => $capacity->capacity - 1
 
             ]);
             
             $detailRooms->save();
-            Log::info("Vai colocar a capacidade do quarto - 1");
             Log::info($detailRooms);
 
             $customer->save();
@@ -125,6 +125,30 @@ class RoomRepository implements RoomContract
         }
         
         return $room;
+    }
+
+    public function reservation()
+    {
+        /*$this->payMent();*/
+
+    }
+
+    public function payMent()
+    {
+        /*$url = env('ECOMMERCE_URL');
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url . "/products/all");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        if(curl_errno($ch))
+        {
+            return "Erro: " . curl_error($ch);
+        }
+
+        $response = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+
+        return $response;*/
     }
 
     public function countActive(object $room, int $room_id)

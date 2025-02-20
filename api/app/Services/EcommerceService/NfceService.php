@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\NfceRepository;
 

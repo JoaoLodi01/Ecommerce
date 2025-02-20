@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\HotelService;
 
 use App\Repositories\Eloquent\RoomRepository;
 
@@ -89,6 +89,22 @@ class RoomService
                 'chek-in' => $this->roomRepository->checkIn($data)
 
             ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'th' => $th->getMessage(),
+                'file' => $th->getFile(),
+                'line' => $th->getLine()
+
+            ], 400);
+        }
+    }
+
+    public function reservation()
+    {
+        try {
+            return response()->json($this->roomRepository->payMent());
+            
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,

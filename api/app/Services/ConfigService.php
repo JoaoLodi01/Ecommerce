@@ -19,7 +19,7 @@ class ConfigService
             $config = $this->configHotelRepository->update($data);
             return response()->json([
                 'success' => true,
-                'message' => 'Configuração criada com sucesso!',
+                'message' => 'Configuração gravadas com sucesso!',
                 'config' => $config
 
             ], 201);
@@ -30,6 +30,22 @@ class ConfigService
                 'th' => $th->getMessage()
             ]);
         }
+    }
 
+    public function getConfigs()
+    {
+        try {
+            $configs = $this->configHotelRepository->getConfigs();
+            return response()->json([
+                'success' => true,
+                'config' => $configs[0]
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Um erro ocorreu durante a gravação das configurações',
+                'th' => $th->getMessage()
+            ]);
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\HotelModels;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,6 +18,7 @@ class DetailRooms extends Model
         'busy',
         'hotel_id',
         'number_room',
+        'active'
 
     ];
 

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Requests\NfceRequest;
 use App\Services\NfceService;
+use App\Http\Controllers\Controller;
 
 class NfceController extends Controller
 {

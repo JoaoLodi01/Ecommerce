@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\HotelModels;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,7 +23,7 @@ class HotelDetail extends Model
         'number_of_employees',
         'total_busy_rooms',
         'active',
-        'reserved'
+        'end_date'
         
     ];
 }

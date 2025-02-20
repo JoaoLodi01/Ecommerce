@@ -26,7 +26,7 @@ export default {
                 address_by_cep: false,
                 room_service_limit: 0,
             },
-            api: process.env.VUE_APP_API_URL_ECOMMERCE
+            api: process.env.VUE_APP_API_URL
         };
     },
     methods: {

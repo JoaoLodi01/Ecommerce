@@ -41,7 +41,7 @@ export default {
             paymentsValues: [],
             valorVenda: 0,
             valorPago: 0,
-            api: process.env.VUE_APP_API_URL_ECOMMERCE,
+            api: process.env.VUE_APP_API_URL,
         };
     },
 

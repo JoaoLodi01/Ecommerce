@@ -6,7 +6,7 @@ use App\Models\{
     DetailRooms,
     HotelDetail,
     Capacity,
-    Config
+    Config as ConfigHotel
 };
 
 use App\Repositories\Contracts\HotelDetailContract;
@@ -16,28 +16,26 @@ class HotelRepository implements HotelDetailContract
 {
     public function all(int $active)
     {
+        Log::info("Vai buscar o hotel e as configurações");
         $hotel = HotelDetail::where('active', $active)->first();
-        $config = Config::where('active', $active)->first();
-        
-        if(!empty($hotel))
-        {
-            Log::info("O hotel foi encontrado");
-            Log::info("Vai conferir as configurações de CEP");
-            
-            if($config && $config->address_by_cep == 1)
-            {
-                Log::info('Opção ativa vai alterar o endereço');
-                Log::info('Chamou o checkAddress com, hotel: ' . $hotel);
-                $this->checkStatusCNPJ($hotel->cnpj);
-                return $this->checkAddress($hotel);
+        $config = ConfigHotel::where('active', $active)->first();
 
-            } else {
-                return array(
-                    'success' => false,
-                    'message' => 'Configurações não encontradas, por favor confira as mesmas!'
-                    
-                );                
-            }
+        if(!empty($hotel))
+        {  
+            Log::info("O hotel foi encontrado");
+            Log::info("Vai conferir as configurações ( se houver ) de CEP");
+            
+            if($config)
+            {
+                if($config->address_by_cep === 1){
+                    Log::info('Opção ativa vai alterar o endereço');
+                    Log::info('Chamou o checkAddress com, hotel: ' . $hotel);
+                    $this->checkStatusCNPJ($hotel->cnpj);
+                    return $this->checkAddress($hotel);
+
+                }
+
+            } 
             
             Log::info("Opção desativada, não vai alterar o endereço");
             return array(
@@ -45,15 +43,16 @@ class HotelRepository implements HotelDetailContract
                 'hotel' => $hotel,
                 
             );
-        }
+        } else {
+            Log::info("O hotel não foi encontrado");
         
-        Log::info("O hotel não foi encontrado");
-        
-        return array(
-            'success' => false,
-            'message' => 'Hotel não encontrado'
+            return array(
+                'success' => false,
+                'message' => 'Hotel não encontrado'
 
-        );
+            );
+
+        }
     }
 
     public function checkAddress(object $hotel)
@@ -132,22 +131,25 @@ class HotelRepository implements HotelDetailContract
         curl_close($ch);
 
         return $response;
-
+        
     }
 
     public function create(array $data)
     {
         $hotel = HotelDetail::create($data);
-        
-        for ($number = 1; $number <= $hotel->number_of_rooms; $number++)
+    
+        Log::info("Vai começar a criar os quartos");
+        for ($n = 1; $n <= $hotel->number_of_rooms; $n++)
         {
             $detailRoom = DetailRooms::create([
                 'capacity' => rand(2, 5),
                 'price_for_night' => rand(20, 45),
-                'number_room' => $number,
+                'number_room' => $n,
                 'hotel_id' => $hotel->id,
                 
             ]);
+
+            Log::info("Quartos: $detailRoom");
 
             Capacity::create([
                 'room_id' => $detailRoom->id,
@@ -155,6 +157,8 @@ class HotelRepository implements HotelDetailContract
             ]);
             
         }
+        Log::info("Vai criar as configs");
+        ConfigHotel::create();
 
         return $hotel;        
     }
@@ -176,10 +180,27 @@ class HotelRepository implements HotelDetailContract
 
     public function delete(int $id) // fechar a empresa na prática kkkk
     {
-        return HotelDetail::where('id', $id)->update([
+        $hotel = HotelDetail::where('id', $id)->update([
+            'active' => 0,
+            
+        ]);
+
+        $hotel->update([
+            'cnpj' => '---',
+            'end_date' => $hotel->update_at
+        ]);
+
+        $hotel->save();
+
+        $rooms = DetailRooms::where('hotel_id', $hotel->id)->update([
             'active' => 0
             
         ]);
+
+        $rooms->save();
+
+        return $hotel;
         
     }
+
 }

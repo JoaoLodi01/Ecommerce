@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\EcommerceModels;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,8 @@ class Products extends Model
     protected $fillable = [
         'produto',
         'quantidade',
+        'grupo_id',
+        'grupo',
         'preco_custo',
         'preco_venda',
         'NCM',

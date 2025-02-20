@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Requests\PayMentMethodRequest;
-use Illuminate\Http\Client\Request;
+/*use Illuminate\Http\Client\Request;
 use MercadoPago\Client\Common\RequestOptions;
 use MercadoPago\Client\Payment\PaymentClient;
 use MercadoPago\Exceptions\MPApiException;
-use MercadoPago\MercadoPagoConfig;
+use MercadoPago\MercadoPagoConfig;*/
 
-class PayMentController extends Controller
+class MercadoPagoController extends Controller
 {
-    public function payMentMercadoPago(PayMentMethodRequest $request)
+    /*public function payMentMercadoPago(PayMentMethodRequest $request)
     {
         try {
             //MercadoPagoConfig::setAccessToken(env('MERCADO_PAGO_ACCESS_TOKEN'));
@@ -46,7 +46,7 @@ class PayMentController extends Controller
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
-    }
+    }*/
 
     public function payMent(PayMentMethodRequest $request)
     {

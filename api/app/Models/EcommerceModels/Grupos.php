@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\EcommerceModels;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Grupos extends Model
 {
-    protected $table = 'payments';
+    protected $table = 'grupos';
 
     protected $fillable = [
-        'descricao',
-        'tipolancamento',
-        'active',
+        'grupo'
     ];
 
     protected $hidden = [

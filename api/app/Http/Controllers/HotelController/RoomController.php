@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\HotelController;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckInRequest;
@@ -34,6 +34,12 @@ class RoomController extends Controller
     public function checkIn(CheckInRequest $request)
     {
         $data = $request->validated();
-        return $this->roomService->checkIn($data);
+        return $this->roomService->checkIn($data);        
+    }
+
+    public function reservation()
+    {
+        return $this->roomService->reservation();
+        
     }
 }   

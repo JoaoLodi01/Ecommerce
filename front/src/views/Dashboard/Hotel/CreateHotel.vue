@@ -88,7 +88,7 @@
                     number_of_employees: '',
 
                 },
-                api_hotel: process.env.VUE_APP_API_URL_HOTEL,
+                api: process.env.VUE_APP_API_URL,
                 api_viaCEP: process.env.VUE_APP_VIACEP,
                 api_CNPJ: process.env.VUE_APP_CNPJA,
                 
@@ -112,7 +112,7 @@
                     form.append("number_of_rooms", this.form.number_of_rooms);
                     form.append("number_of_employees", this.form.number_of_employees);
 
-                    const response = await axios.post(`${this.api_hotel}/hotel/create`, form)
+                    const response = await axios.post(`${this.api}/hotel/create`, form)
                     
                     if (response.data.success === true) {
                         console.log(response)

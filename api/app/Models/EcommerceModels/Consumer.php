@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\EcommerceModels;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,8 +10,8 @@ class Consumer extends Model
 
     protected $fillable = [
         'cliente',
-        'CPF',
-        'CNPJ',
+        'cpf',
+        'cnpj',
         'email',
         'phone',
         'active',

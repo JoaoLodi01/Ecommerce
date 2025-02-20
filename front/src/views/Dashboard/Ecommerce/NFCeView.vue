@@ -72,7 +72,7 @@ export default {
         discount: 0,
         addition: 0,
       },
-      api: process.env.VUE_APP_API_URL_ECOMMERCE,
+      api: process.env.VUE_APP_API_URL,
       searchResults: [],
       products: [],
     };

@@ -10,7 +10,7 @@
   export default {
     data(){
       return {
-        api: process.env.VUE_APP_API_URL_HOTEL
+        api: process.env.VUE_APP_API_URL
         
       }
     },

@@ -6,10 +6,22 @@ use App\Models\Config;
 
 class ConfigRepository
 {
-    public function update(array $data, int $id)
+    public function getConfigs()
     {
-        return Config::where('id', $id)->update($data);
+        return Config::all();
+        
+    }
 
+    public function update(array $data)
+    {
+        $configUpdate = Config::where('active', 1)->update([
+            'address_by_cep' => $data['address_by_cep'],
+            'room_service_limit' => (float) $data['room_service_limit'],
+            'partial_registration' => $data['partial_registration']
+        
+        ]);
+
+        return Config::all();
     }
 
 }

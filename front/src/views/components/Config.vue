@@ -56,14 +56,14 @@
                     partial_registration: false,
 
                 },
-                api_Hotel: process.env.VUE_APP_API_URL_HOTEL
+                api: process.env.VUE_APP_API_URL
             }
         },
         
         methods: {
             async getConfig(){
                 try {
-                    const response = await axios.get(`${this.api_Hotel}/config-hotel/get-config`);
+                    const response = await axios.get(`${this.api}/config-hotel/get-config`);
                     const config = response.data.config
                     
                     this.form = {
@@ -86,7 +86,7 @@
 
                     };
                 
-                    const response = await axios.put(`${this.api_Hotel}/config-hotel/set-config`, configs)
+                    const response = await axios.put(`${this.api}/config-hotel/set-config`, configs)
 
                     console.log(response)
 

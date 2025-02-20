@@ -30,7 +30,7 @@
     data(){
       return {
         hotel: {},
-        api_hotel: process.env.VUE_APP_API_URL_HOTEL,
+        api: process.env.VUE_APP_API_URL,
         show: false,
         isLoanding: true,
 
@@ -40,7 +40,7 @@
     methods: {
       async getHotel(){
         try {
-          const response = await axios.get(`${this.api_hotel}/hotel/all`)
+          const response = await axios.get(`${this.api}/hotel/all`)
           if(response.data.success === true)
           {
             this.hotel = response.data.all.hotel
