@@ -53,9 +53,12 @@ export default {
         },
 
         typeOperation: {
-            type: Number,
+            type: String,
             required: true
-
+    
+        },
+        idRoom: {  
+            type: Number
         }
     },
     
@@ -88,6 +91,7 @@ export default {
     },
     mounted(){
         this.getPayments();
+        
     },
 }
 </script>

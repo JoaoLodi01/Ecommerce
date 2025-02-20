@@ -19,6 +19,8 @@
     <PaymentsForm
         v-if="show"
         :show="this.show"
+        :type-operation="'reservation'"
+        
     />
 </template>
 
