@@ -39,10 +39,10 @@
             <td>{{ product.name }}</td>
             <td>{{ product.csosn || '---' }}</td>
             <td>{{ product.quantity }}</td>
-            <td>R$ {{ product.discount ? product.discount.toFixed(2) : '0.00' }}</td>
-            <td>R$ {{ product.addition ? product.addition.toFixed(2) : '0.00' }}</td>
-            <td>R$ {{ product.price ? product.price.toFixed(2) : '0.00' }}</td>
-            <td>R$ {{ calculateTotal(product).toFixed(2) }}</td>
+            <td>R$ {{ product.discount ? product.discount : '0.00' }}</td>
+            <td>R$ {{ product.addition ? product.addition : '0.00' }}</td>
+            <td>R$ {{ product.price ? product.price : '0.00' }}</td>
+            <td>R$ {{ calculateTotal(product) }}</td>
             <td><button @click="removeProduct(index)">Remover</button></td>
           </tr>
         </tbody>
@@ -52,11 +52,23 @@
     <!-- Resumo da venda -->
     <div class="sale-summary">
       <h2>Valores:</h2>
+<<<<<<< HEAD
       <p><strong>Total:</strong> R$ {{ total.toFixed(2) }}</p>
       <button @click="emitNfce">Finalizar</button>
       <PaymentsForm
         v-if = "show"
       />
+=======
+
+      <p><strong>Total:</strong> R$ {{ total }}</p>
+      <button @click="showPayment">Finalizar</button>
+
+      <PaymentsForm
+          v-if="show"
+          :show="this.show"
+      />
+
+>>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
     </div>
   </div>
 </template>
@@ -80,8 +92,11 @@ export default {
       api: process.env.VUE_APP_API_URL,
       searchResults: [],
       products: [],
+      total: 0,
+      show: false
     };
   },
+<<<<<<< HEAD
   components: {
     PaymentsForm,
   },
@@ -89,18 +104,21 @@ export default {
     total() {
       return this.products.reduce((acc, product) => acc + this.calculateTotal(product), 0);
     },
+=======
+
+  components: {
+    PaymentsForm
+>>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
   },
+
   methods: {
     async searchProduct() {
-      if (!this.newProduct.name) {
-        this.searchResults = [];
-        return;
-      }
       try {
         const response = await axios.get(`${this.api}/products/search`, {
-          params: { query: this.newProduct.name },
-        });
+          params: this.newProduct.name});
+          console.log('Consultando...', response.data)
         this.searchResults = response.data;
+
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
       }
@@ -115,6 +133,7 @@ export default {
       if (!this.newProduct.name) {
         alert("Selecione um produto!");
         return;
+
       }
       this.products.push({ ...this.newProduct });
       this.newProduct = { name: "", csosn: "", price: 0, quantity: 1, discount: 0, addition: 0 };
@@ -125,18 +144,31 @@ export default {
     },
 
     calculateTotal(product) {
-      return product.quantity * product.price - product.discount + product.addition;
+      this.total += product.quantity * product.price - product.discount + product.addition;
     },
 
-    async emitNfce() {
+    showPayment(){
+      this.show = !this.show
+    },
+
+    async emitNfce(){
       try {
+<<<<<<< HEAD
         this.show = !this.show;
         this.$routes.push({ name: "PaymentsForm" });
         console.log("Dados enviados!", response.data);
+=======
+        if(this.products && this.total > 0) {
+          const response = await axios.post(`${this.api}/nfce/create`)
+        }
+        alert("Venda finalizada!")
+
+>>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
       } catch (error) {
-        console.error("Erro ao enviar dados!", error);
+        response.message(error)
+        alert("Erro ao emitir venda!")
       }
-    },
+    }
   },
 };
 </script>

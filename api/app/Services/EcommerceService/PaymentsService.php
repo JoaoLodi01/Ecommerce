@@ -2,7 +2,7 @@
 
 namespace App\Services\EcommerceService;
 
-use App\Repositories\Eloquent\PaymentsRepository;
+use App\Repositories\Eloquent\EcommerceEloquent\PaymentsRepository;
 
 class PaymentsService{
     
@@ -66,7 +66,7 @@ class PaymentsService{
         return response()->json([
             'success' => false,
             'th' => $th->getMessage(),
-            'line' => $th->getLise(),
+            'line' => $th->getLine(),
             'file' => $th->getFile(),
         ]);
     }

@@ -39,18 +39,21 @@
           email: "",
           phone: "",
         },
+<<<<<<< HEAD
         api: process.env.VUE_APP_API_URL,
         successMessage: null,
         errorMessage: null,
+=======
+        api: process.env.VUE_APP_API_URL_ECOMMERCE,
+>>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
       };
     },
     methods: {
       async submitForm() {
         try {
           const response = await axios.post(`${this.api}/consumers/create`, this.form);
-          this.successMessage = response.data.message;
-          this.errorMessage = null;
           this.form = { cliente: "", cpf: "", cnpj: "", email: "", phone: "" };
+          
         } catch (error) {
           this.successMessage = null;
           if (error.response && error.response.data.errors) {

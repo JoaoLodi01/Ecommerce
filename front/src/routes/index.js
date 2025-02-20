@@ -8,11 +8,9 @@ import NFCeView from '@/views/Dashboard/Ecommerce/NFCeView.vue';
 import ConsumersView from '@/views/Dashboard/Ecommerce/ConsumersView.vue';
 import HomeView from '@/views/Dashboard/HomeView.vue';
 import PaymentsForm from '@/views/components/PaymentsForm.vue';
-
 import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
 import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
 import RoomDetails from '@/views/Dashboard/Hotel/RoomDetails.vue';
-
 
 const routes = [
   {

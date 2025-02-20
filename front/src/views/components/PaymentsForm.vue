@@ -53,8 +53,8 @@ export default {
         typeOperation: {
             type: Number,
             required: true
-
         }
+        
     },
     
     methods: {

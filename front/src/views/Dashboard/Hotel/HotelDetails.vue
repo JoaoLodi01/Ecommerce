@@ -10,9 +10,13 @@
     </div>
 
     <div class="m-2 pb-2">
+<<<<<<< HEAD
       <h3 class="ml-2" v-if="isLoanding">Carregando...</h3>
       <h3 class="ml-2" v-if="!isLoanding">Contamos com um total de: {{ hotel.number_of_rooms }} quartos </h3>
 
+=======
+      <h3 class="ml-2">Contamos com um total de: {{ hotel.number_of_rooms || 0 }} quartos </h3>
+>>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
     </div>
   </header>
   <Config
