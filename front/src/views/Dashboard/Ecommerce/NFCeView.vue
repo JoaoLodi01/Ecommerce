@@ -54,11 +54,15 @@
       <h2>Valores:</h2>
       <p><strong>Total:</strong> R$ {{ total.toFixed(2) }}</p>
       <button @click="emitNfce">Finalizar</button>
+      <PaymentsForm
+        v-if = "show"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import PaymentsForm from "@/views/components/PaymentsForm.vue";
 import axios from "axios";
 
 export default {
@@ -72,10 +76,14 @@ export default {
         discount: 0,
         addition: 0,
       },
+      show: false,
       api: process.env.VUE_APP_API_URL,
       searchResults: [],
       products: [],
     };
+  },
+  components: {
+    PaymentsForm,
   },
   computed: {
     total() {
@@ -122,8 +130,7 @@ export default {
 
     async emitNfce() {
       try {
-
-
+        this.show = !this.show;
         this.$routes.push({ name: "PaymentsForm" });
         console.log("Dados enviados!", response.data);
       } catch (error) {
