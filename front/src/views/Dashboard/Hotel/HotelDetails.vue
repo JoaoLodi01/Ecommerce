@@ -5,8 +5,8 @@
       <div class="flex">
           <h3 class="ml-2">Acesse sua conta</h3> 
           <h3 class="ml-2"><button @click="showConfig">Configurações</button></h3> 
+          
       </div>
-      
     </div>
 
     <div class="m-2 pb-2">
