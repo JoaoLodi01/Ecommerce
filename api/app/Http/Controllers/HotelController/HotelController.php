@@ -5,7 +5,7 @@ namespace App\Http\Controllers\HotelController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\HotelDetailRequest;
+use App\Http\Requests\HotelRequest\HotelDetailRequest;
 use App\Services\HotelServices\HotelService;
 
 class HotelController extends Controller

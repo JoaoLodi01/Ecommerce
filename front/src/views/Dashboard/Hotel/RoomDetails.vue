@@ -20,6 +20,7 @@
         v-if="show"
         :show="this.show"
         :type-operation="'reservation'"
+        :idRoom="idRoom"
         
     />
 </template>
@@ -34,6 +35,7 @@
                 rooms: [],
                 show: false,
                 showRooms: true,
+                idRoom: null,
                 api: process.env.VUE_APP_API_URL
             }
         },
@@ -54,7 +56,8 @@
                 }
             },
 
-            showPayMent(){
+            showPayMent(id){
+                this.idRoom = id + 1
                 this.show = !this.show
                 this.showRooms = false
 

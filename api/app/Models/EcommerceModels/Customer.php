@@ -18,7 +18,7 @@ class Customer extends Model
         'cpf',
         'address',
         'number',
-        'account',
+        'email',
         'password',
         'active',
     ];

@@ -10,6 +10,7 @@ class Nfce extends Model
 
     protected $fillable = [
         'descricao',
+        'documento',
         'valor_bruto',
         'valor_liquido',
         'valor_desconto',

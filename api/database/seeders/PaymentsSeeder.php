@@ -32,7 +32,7 @@ class PaymentsSeeder extends Seeder
             ],
             [
                 "descricao" => "Cartão de Débito",
-                "tipolancamento" => "Caixa",
+                "tipolancamento" => "Receber",
             ],
             
         ];
