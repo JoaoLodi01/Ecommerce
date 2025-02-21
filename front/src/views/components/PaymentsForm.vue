@@ -17,7 +17,6 @@
                             <input
                                 type="number"
                                 v-model="paymentsValues[index]"
-                                @input="getValues(payment.id)"
                                 placeholder="0.00"
                                 step="0.01"
                             />
@@ -57,8 +56,10 @@ export default {
             type: String,
             required: true
     
-        }
-        
+        },
+        idRoom: {
+            type: Number
+        }        
     },
     
     methods: {
@@ -73,18 +74,36 @@ export default {
             }
         },
         
-        async getValues(id){
-            //this.valorPago += this.paymentsValues;
-            const response = await axios.post(`${this.api}/hotel/stay/reservation`, this.paymentsValues);
-            console.log('Total pago', response)
-
-        },  
         async finalizeSale() {
-            console.log('ID forma pagamento:')    
+            switch (this.typeOperation) {
+                case 'reservation':
+                    console.log('Começou reserva')
+                    const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
+                        paymentsValues: this.paymentsValues,
+                        roomID: this.idRoom
+
+                    });
+                    
+                    console.log('Retorno response', response)
+
+                    break;
+            
+                case 'saleNFCe':
+                    console.log('Começou venda NFCe')
+                    break
+
+                case 'saleNFCe':
+                    console.log('Começou venda NM')
+                    break
+                default:
+                    console.log('Operation not defined')
+                    break;
+            }
             
         }
     },
     mounted(){
+        console.log('Quarto reservado', this.idRoom)
         this.getPayments();
         
     },

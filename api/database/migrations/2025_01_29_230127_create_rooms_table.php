@@ -23,7 +23,6 @@ return new class extends Migration
             $table->date('start_period');
             $table->date('end_period');
             $table->boolean('active', 1)->default(1);
-            $table->boolean('reserved', 1)->default(0);
             $table->timestamps();
         });
     }

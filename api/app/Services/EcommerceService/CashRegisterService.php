@@ -2,7 +2,7 @@
 
 namespace App\Services\EcommerceService;
 
-use App\Repositories\Eloquent\CashRegisterRepository;
+use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
 
 class CashRegisterService 
 {
@@ -36,7 +36,9 @@ class CashRegisterService
     public function store(array $data){
         try {
             $this->cashRegisterRepository->store($data);
-            return response()->json(true);
+            return response()->json([
+                'success' => true
+            ], 201);
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
@@ -46,7 +48,9 @@ class CashRegisterService
     public function update(array $data, int $id){
         try {
             $this->cashRegisterRepository->update($data, $id);
-            return response()->json(true);
+            return response()->json([
+                'success' => true
+            ], 200);
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
@@ -56,7 +60,9 @@ class CashRegisterService
     public function delete(int $id){
         try {
             $this->cashRegisterRepository->delete($id);
-            return response()->json(true);
+            return response()->json([
+                'success' => true
+            ]);
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);

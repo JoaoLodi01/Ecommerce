@@ -10,8 +10,7 @@ class Reservation extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'room_id',
-        'room_number',
+        'room_id'
         
     ];
 }

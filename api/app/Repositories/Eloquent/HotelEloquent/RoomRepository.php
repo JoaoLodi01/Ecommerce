@@ -6,7 +6,9 @@ use App\Models\HotelModels\{
     DetailRooms,
     HotelDetail,
     Room,
-    Capacity
+    Capacity,
+    Reservation
+
 };
 
 use App\Models\EcommerceModels\User as Customer;
@@ -42,7 +44,7 @@ class RoomRepository implements RoomContract
 
     public function create(array $data)
     {
-        $customer = Customer::where('id', $data['customer_id'])->first();
+        $customer = $this->findCustomer($data['uesr_id']);
         $detailRoom = DetailRooms::where('id', $data['room_id'])->first();
         
         $hotel = HotelDetail::where('id', $detailRoom->hotel_id)->first();
@@ -146,18 +148,48 @@ class RoomRepository implements RoomContract
         return $room;
     }
 
-    public function reservation(array $formas, float $total)
+    public function reservation(array $formas, float $total, int $roomID)
     {
+        $room = $this->find($roomID);
+        $customer = $this->findCustomer(1);
+        Reservation::create([
+            'user_id' => $customer->id,
+            'name' => $customer->name,
+            'room_id' => $room->number_room
+            
+        ]);
+
+        Log::info('Vai procurar o quarto');
+        
+        if($room)
+        {
+            Log::info('Quarto encontrado' . $room);
+            $room->update([
+                'reserved' => 1
+    
+            ]);
+
+        }
+
         $forms = $this->paymentsRepository->findByID($formas);
-        //return $forms; // vai retornar todas as formas de pagamento usadas
+        return $forms; // vai retornar todas as formas de pagamento usadas
         if($forms)
         {
             $cashRegister = array(
                 'description' => 'Reserva de Hotel',
                 'valor_entrada' => $total,
                 'valor_saida' => 0
+
             );
-            return $this->cashRegisterRepository->store($cashRegister);
+            
+            $this->cashRegisterRepository->store($cashRegister);
+
+            return array(
+                'formas' => $forms,
+                'total' => $total,
+                'cashRegister' => $cashRegister
+            );
+            //return 
         }
     }
 
@@ -182,8 +214,8 @@ class RoomRepository implements RoomContract
     public function findByRoomID(string $id)
     {
         Log::info("Vai procurar o quarto pelo número dele");
-        return Room::where('room_id', $id)
-                        ->get();
+        //->get();
+        return Room::where('room_id', $id)->first();
 
     }
 
@@ -193,17 +225,21 @@ class RoomRepository implements RoomContract
 
     }
 
+    public function findCustomer(int $id)
+    {
+        return Customer::where('id', $id)           
+                            ->first();
+    }
+
     public function update(array $data, int $id)
     {
         return DetailRooms::where('id', $id)->update($data);
-
     }
 
     public function delete(int $id)
     {
         return DetailRooms::where('id', $id)->update([
             'active' => 0
-        ]);
-        // Desativa o quarto
+        ]); // Desativa o quarto
     }
 }

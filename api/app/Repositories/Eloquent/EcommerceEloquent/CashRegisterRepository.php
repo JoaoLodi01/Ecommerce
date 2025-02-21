@@ -22,12 +22,11 @@ class CashRegisterRepository
             
         ]);
 
-        $cashRegister->where('active', 1)->latest()->first();
         $cashRegister->update([
             'saldo_real' => $cashRegister->valor_entrada - $cashRegister->valor_saida
 
         ]);
-        $cashRegister->save();
+        
         return $cashRegister;
         
     }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('hotel_id');
             $table->foreign('hotel_id')->references('id')->on('hotel_details')->onDelete('cascade');
             $table->string('number_room', 30);
+            $table->boolean('reserved', 1)->default(0);
             $table->boolean('active', 1)->default(1);
             $table->timestamps();
         });
