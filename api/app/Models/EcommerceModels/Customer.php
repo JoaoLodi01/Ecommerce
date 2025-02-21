@@ -16,10 +16,12 @@ class Customer extends Model
         'name',
         'cnpj',
         'cpf',
+        'cep',
         'address',
         'number',
         'email',
         'password',
+        'phone',
         'active',
     ];
 }

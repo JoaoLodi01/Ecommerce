@@ -19,7 +19,7 @@
     <PaymentsForm
         v-if="show"
         :show="this.show"
-        :type-operation="'reservation'"
+        type-operation="'reservation'"
         :idRoom="idRoom"
         
     />
