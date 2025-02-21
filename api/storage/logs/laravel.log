@@ -480,3 +480,4 @@ Did you mean one of these?
 #4 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
 #5 {main}
 "} 
+[2025-02-21 11:34:32] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  

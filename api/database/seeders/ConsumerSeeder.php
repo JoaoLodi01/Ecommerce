@@ -31,7 +31,7 @@ class ConsumerSeeder extends Seeder
         ];
 
         foreach ($consumers as $consumer) {
-            Consumer::create($consumer);
+            Costumer::create($consumer);
         }
     }
 }
