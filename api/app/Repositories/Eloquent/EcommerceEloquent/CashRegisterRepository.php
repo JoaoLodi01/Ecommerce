@@ -19,6 +19,7 @@ class CashRegisterRepository
             'description' => $data['description'],
             'valor_entrada' => $data['valor_entrada'] ?? null,
             'valor_saida' => $data['valor_saida'] ?? null,
+            'origem' => $data['origem']
             
         ]);
 

@@ -11,16 +11,17 @@
                 Preço por noite: {{ room.price_for_night }} |
                 Capacidade do quarto: {{ room.capacity }} | 
                 Número do quarto: {{ room.number_room }} |
-                <button @click="showPayMent(id)">Reservar</button>
+                <button @click="showPayMent(id, room.price_for_night)">Reservar</button>
             </div>
         </div>
     </div>
 
     <PaymentsForm
         v-if="show"
-        :show="this.show"
-        type-operation="'reservation'"
+        @close="show = false"
+        type-operation="reservation"
         :idRoom="idRoom"
+        :totalOperation="totalOperation"
         
     />
 </template>
@@ -36,6 +37,7 @@
                 show: false,
                 showRooms: true,
                 idRoom: null,
+                totalOperation: 0,
                 api: process.env.VUE_APP_API_URL
             }
         },
@@ -43,6 +45,7 @@
             PaymentsForm
 
         },
+
         methods: {
             async getRooms() {
                 try {
@@ -56,8 +59,9 @@
                 }
             },
 
-            showPayMent(id){
+            showPayMent(id, price_for_night){
                 this.idRoom = id + 1
+                this.totalOperation = price_for_night
                 this.show = !this.show
                 this.showRooms = false
 
@@ -66,6 +70,7 @@
 
         mounted() {
             this.getRooms()
+            console.log('Show', this.show)
 
         }
     }

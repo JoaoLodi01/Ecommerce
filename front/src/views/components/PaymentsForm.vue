@@ -26,7 +26,13 @@
                 </table>
 
                 <button type="submit">Emitir Venda</button>
+                <button @click="cancelOperation()">Cancelar</button>
             </form>
+            <h3>Total: R$ {{ totalOperation }}</h3>
+
+            <div class="" v-if="errorMessage">
+                {{ errorMessage }}
+            </div>
             
         </div>
     </div>
@@ -40,8 +46,7 @@ export default {
         return {
             payments: [],
             paymentsValues: [],
-            valorVenda: 0,
-            valorPago: 0,
+            errorMessage: null,
             api: process.env.VUE_APP_API_URL,
 
         };
@@ -61,7 +66,12 @@ export default {
         },
         idRoom: {
             type: Number
-        }        
+        },
+
+        totalOperation: {
+            type: Number,
+            required: true
+        }
     },
     
     methods: {
@@ -85,6 +95,7 @@ export default {
                         roomID: this.idRoom
 
                     });
+                    this.errorMessage = response.data.message ? response.data.message : null
                     
                     console.log('Retorno response', response)
 
@@ -94,18 +105,21 @@ export default {
                     console.log('Começou venda NFCe')
                     break
 
-                case 'saleNFCe':
+                case 'saleNM':
                     console.log('Começou venda NM')
                     break
+
                 default:
-                    console.log('Operation not defined')
+                    console.log('Operation not defined',  this.typeOperation)
                     break;
             }
             
+        },
+        cancelOperation(){
+            this.$emit("close")
         }
     },
     mounted(){
-        console.log('Quarto reservado', this.idRoom)
         this.getPayments();
         
     },

@@ -11,8 +11,6 @@ use App\Models\HotelModels\{
 
 };
 
-use App\Models\EcommerceModels\User as Customer;
-
 use App\Repositories\Contracts\HotelContract\RoomContract;
 use App\Repositories\Eloquent\EcommerceEloquent\{
     PaymentsRepository,
@@ -20,6 +18,7 @@ use App\Repositories\Eloquent\EcommerceEloquent\{
     
 };
 
+use App\Models\Customer;
 use Illuminate\Support\Facades\Log;
 
 class RoomRepository implements RoomContract
@@ -156,46 +155,53 @@ class RoomRepository implements RoomContract
     {
         $room = $this->find($roomID);
         $customer = $this->findCustomer(1);
-        Reservation::create([
-            'user_id' => $customer->id,
-            'name' => $customer->name,
-            'room_id' => $room->number_room
-            
-        ]);
-
-        Log::info('Vai procurar o quarto');
-        
-        if($room)
+        if($total >= $room->price_for_night)
         {
-            Log::info('Quarto encontrado' . $room);
-            $room->update([
-                'reserved' => 1
-    
+            Reservation::create([
+                'user_id' => $customer->id,
+                'name' => $customer->name,
+                'room_id' => $room->number_room
+                
             ]);
-
-        }
-
-        $forms = $this->paymentsRepository->findByID($formas);
-        return $forms; // vai retornar todas as formas de pagamento usadas
-        if($forms)
-        {
-            $cashRegister = array(
-                'description' => 'Reserva de Hotel',
-                'valor_entrada' => $total,
-                'valor_saida' => 0
-
-            );
+    
+            Log::info('Vai procurar o quarto');
             
-            $cash = $this->cashRegisterRepository->store($cashRegister);
-
-            return array(
-                'formas' => $forms,
-                'total' => $total,
-                'cashRegister' => $cashRegister,
-                'cash' => $cash
-            );
-            //return 
+            if($room)
+            {
+                Log::info('Quarto encontrado' . $room);
+                $room->update([
+                    'reserved' => 1
+        
+                ]);
+    
+            }
+    
+            $forms = $this->paymentsRepository->findByID($formas);
+            //return $forms; // vai retornar todas as formas de pagamento usadas
+            if($forms)
+            {
+                $cashRegister = array(
+                    'description' => 'Reserva de Hotel',
+                    'valor_entrada' => $total,
+                    'valor_saida' => 0,
+                    'origem' => 'Reserva Hotel'
+    
+                );
+                
+                $this->cashRegisterRepository->store($cashRegister);
+    
+                return array(
+                    'success' => true,
+                    'message' => 'Reserva concluida'
+                );
+                
+            }
         }
+
+        return array(
+            'success' => false,
+            'message' => 'O valor pago é menor que o valor do quarto'
+        );
     }
 
     public function countActive(object $room, int $room_id)

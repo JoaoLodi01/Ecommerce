@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('cep', 8);
             $table->string('address', 120);
             $table->string('number', 120);
-            $table->string('email', 120)->unique();
+            $table->string('email', 100)->unique();
             $table->string('password', 120);
+            $table->string('phone', 50);
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

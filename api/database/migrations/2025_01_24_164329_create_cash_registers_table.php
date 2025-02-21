@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('valor_entrada', 16,2)->nullable();
             $table->decimal('valor_saida', 16,2)->nullable();
             $table->decimal('saldo_real', 16,2)->nullable();
+            $table->string('origem', 100);
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
