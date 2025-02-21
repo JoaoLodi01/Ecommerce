@@ -12,10 +12,20 @@ use App\Models\HotelModels\{
 use App\Models\EcommerceModels\User as Customer;
 
 use App\Repositories\Contracts\HotelContract\RoomContract;
+use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
+use App\Repositories\Eloquent\EcommerceEloquent\PaymentsRepository;
 use Illuminate\Support\Facades\Log;
 
 class RoomRepository implements RoomContract
 {
+    public function __construct(
+        protected PaymentsRepository $paymentsRepository,
+        protected CashRegisterRepository $cashRegisterRepository
+    )
+    {
+        $this->paymentsRepository = $paymentsRepository;
+        $this->paymentsRepository = $paymentsRepository;
+    }
     public function allRooms(int $active)
     {
         Log::info("Vai buscar todos os quartos ativos do hotel table = DetailRooms");
@@ -136,28 +146,19 @@ class RoomRepository implements RoomContract
         return $room;
     }
 
-    public function reservation()
+    public function reservation(array $formas, float $total)
     {
-        /*$this->payMent();*/
-
-    }
-
-    public function payMent()
-    {
-        /*$url = env('ECOMMERCE_URL');
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url . "/products/all");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        if(curl_errno($ch))
+        $forms = $this->paymentsRepository->findByID($formas);
+        //return $forms; // vai retornar todas as formas de pagamento usadas
+        if($forms)
         {
-            return "Erro: " . curl_error($ch);
+            $cashRegister = array(
+                'description' => 'Reserva de Hotel',
+                'valor_entrada' => $total,
+                'valor_saida' => 0
+            );
+            return $this->cashRegisterRepository->store($cashRegister);
         }
-
-        $response = json_decode(curl_exec($ch), true);
-        curl_close($ch);
-
-        return $response;*/
     }
 
     public function countActive(object $room, int $room_id)

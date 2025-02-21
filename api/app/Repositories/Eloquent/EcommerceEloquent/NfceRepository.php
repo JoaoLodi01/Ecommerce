@@ -2,10 +2,22 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
+use App\Models\EcommerceModels\Consumer;
+use App\Models\EcommerceModels\Customer;
 use App\Models\EcommerceModels\Nfce;
+use Illuminate\Support\Facades\Log;
 
 class NfceRepository
 {
+    public function __construct(
+        protected ConsumerRepository $consumerRepository,
+        protected CashRegisterRepository $cashRegisterRepository,
+    )
+    {
+        $this->consumerRepository = $consumerRepository;
+        $this->cashRegisterRepository = $cashRegisterRepository;
+    }
+
     public function getAll(int $active){
         return Nfce::where('active', $active)->get();
     }
@@ -17,6 +29,10 @@ class NfceRepository
     }
 
     public function store(array $data){
+        $consumer = Customer::where('id', $data['id'])-first();
+        $user = User
+        $payments
+
         return Nfce::create($data);
     }
 

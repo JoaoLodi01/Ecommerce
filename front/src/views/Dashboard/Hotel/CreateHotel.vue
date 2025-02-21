@@ -1,5 +1,5 @@
 <template>
-    <div class="" v-if="showForm">
+    <div class="">
         <form @submit.prevent="createHotel">
             <input
                 type="text"
@@ -117,7 +117,7 @@
                         switch (response.data.code) {
                             case '23000':
                                 alert('Esse CNPJ já foi cadastro na base de dados!');
-                                this.form.cnpj = ''
+                                //this.form.cnpj = ''
                                 break;
                             
                         
@@ -156,23 +156,19 @@
             },
 
             async getCNPJData(){
-                try {
-                    console.log(this.form.cnpj)
-                    console.log(this.api_CNPJ)
-                    if(this.form.cnpj.length === 14)
-                    {
-                        const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
-                        this.form.name = response.data.company.name	
-                        this.form.cep = response.data.address.zip
-                        this.form.address = response.data.address.street
-                        this.form.number = response.data.address.number
-                        this.form.email = response.data.emails[0].address
-                        console.log(response.data)
-
+                if(this.form.cnpj.length === 14)
+                {
+                    const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
+                    this.form = {
+                        name: response.data.company.name,
+                        cep: response.data.address.zip,
+                        address: response.data.address.street,
+                        number: response.data.address.number,
+                        email: response.data.emails[0].address,
+                        cnpj: response.data.taxId
                     }
-                } catch (error) {
-                    console.error('Erro ao consultar o CNPJ', error.response)
-                    console.error(`${this.api_CNPJ}/${this.form.cnpj}`)
+                    
+                    console.log(response.data)
 
                 }
             }
