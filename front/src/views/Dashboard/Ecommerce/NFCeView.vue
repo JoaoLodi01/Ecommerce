@@ -139,7 +139,6 @@ export default {
         this.$routes.push({ name: "PaymentsForm" });
         console.log("Dados enviados!", response.data);
       } catch (error) {
-        response.message(error)
         alert("Erro ao emitir venda!")
       }
     }

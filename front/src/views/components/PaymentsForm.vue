@@ -1,9 +1,9 @@
 <template>
-    <div class="payments-container bg-slate-600 text-white">
+    <div class="payments-container bg-slate-600">
         <h1>Formas de Pagamento</h1>
 
         <form @submit.prevent="finalizeSale">
-            <table class="border-spacing-1 bg-black">
+            <table class="border border-red-500"">
                 <thead>
                     <tr>
                         <th>Formas de pagamento</th>

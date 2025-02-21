@@ -20,9 +20,6 @@
         <input type="number" v-model="form.phone" id="phone" placeholder="Inserir..."/>
 
       </form>
-  
-      <p v-if="successMessage" class="mt-4 text-green-600">{{ successMessage }}</p>
-      <p v-if="errorMessage" class="mt-4 text-red-600">{{ errorMessage }}</p>
     </div>
   </template>
   
@@ -39,13 +36,7 @@
           email: "",
           phone: "",
         },
-<<<<<<< HEAD
-        api: process.env.VUE_APP_API_URL,
-        successMessage: null,
-        errorMessage: null,
-=======
         api: process.env.VUE_APP_API_URL_ECOMMERCE,
->>>>>>> ed74b4d82398334675d78bbebc8bf89143368377
       };
     },
     methods: {
@@ -53,14 +44,9 @@
         try {
           const response = await axios.post(`${this.api}/consumers/create`, this.form);
           this.form = { cliente: "", cpf: "", cnpj: "", email: "", phone: "" };
-          
+        
         } catch (error) {
-          this.successMessage = null;
-          if (error.response && error.response.data.errors) {
-            this.errorMessage = Object.values(error.response.data.errors).flat().join(", ");
-          } else {
-            this.errorMessage = "Ocorreu um erro ao cadastrar o cliente.";
-          }
+            alert("Ocorreu um erro ao cadastrar o cliente.");
         }
       },
     },
