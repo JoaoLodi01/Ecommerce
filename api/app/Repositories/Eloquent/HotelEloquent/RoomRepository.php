@@ -14,8 +14,12 @@ use App\Models\HotelModels\{
 use App\Models\EcommerceModels\User as Customer;
 
 use App\Repositories\Contracts\HotelContract\RoomContract;
-use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-use App\Repositories\Eloquent\EcommerceEloquent\PaymentsRepository;
+use App\Repositories\Eloquent\EcommerceEloquent\{
+    PaymentsRepository,
+    CashRegisterRepository
+    
+};
+
 use Illuminate\Support\Facades\Log;
 
 class RoomRepository implements RoomContract
@@ -182,12 +186,13 @@ class RoomRepository implements RoomContract
 
             );
             
-            $this->cashRegisterRepository->store($cashRegister);
+            $cash = $this->cashRegisterRepository->store($cashRegister);
 
             return array(
                 'formas' => $forms,
                 'total' => $total,
-                'cashRegister' => $cashRegister
+                'cashRegister' => $cashRegister,
+                'cash' => $cash
             );
             //return 
         }

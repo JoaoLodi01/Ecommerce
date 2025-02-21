@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 120);
             $table->string('cnpj', 14)->nullable()->unique();
             $table->string('cpf', 11)->nullable()->unique();
+            $table->string('cep', 8);
             $table->string('address', 120);
             $table->string('number', 120);
             $table->string('email', 120)->unique();

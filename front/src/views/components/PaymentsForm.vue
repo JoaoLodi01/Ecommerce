@@ -1,32 +1,34 @@
 <template>
     <div class="payments-container">
         <h1>Formas de Pagamento</h1>
+        <div>
+            <form @submit.prevent="finalizeSale">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Formas de pagamento</th>
+                            <th>Valores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(payment, index) in payments" :key="payment.id">
+                            <td>{{ payment.descricao }}</td>
+                            <td>
+                                <input
+                                    type="number"
+                                    v-model="paymentsValues[index]"
+                                    placeholder="0.00"
+                                    step="0.01"
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-        <form @submit.prevent="finalizeSale">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Formas de pagamento</th>
-                        <th>Valores</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(payment, index) in payments" :key="payment.id">
-                        <td>{{ payment.descricao }}</td>
-                        <td>
-                            <input
-                                type="number"
-                                v-model="paymentsValues[index]"
-                                placeholder="0.00"
-                                step="0.01"
-                            />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <button type="submit">Emitir Venda</button>
-        </form>
+                <button type="submit">Emitir Venda</button>
+            </form>
+            
+        </div>
     </div>
 </template>
 

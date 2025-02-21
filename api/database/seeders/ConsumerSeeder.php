@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\EcommerceModels\Consumer;
+use App\Models\EcommerceModels\Customer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +18,7 @@ class ConsumerSeeder extends Seeder
                 'cliente' => 'Teste 1',
                 'cpf' => '12345678910',
                 'cnpj' => null,
+                'cep' => '89711226',
                 'email' => 'teste1@teste.com',
                 'phone' => '+55 4244-4444'
             ],
@@ -31,7 +32,7 @@ class ConsumerSeeder extends Seeder
         ];
 
         foreach ($consumers as $consumer) {
-            Costumer::create($consumer);
+            Customer::create($consumer);
         }
     }
 }
