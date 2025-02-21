@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckInRequest;
 use App\Http\Requests\RoomRequest;
 use App\Services\HotelServices\RoomService;
+use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
@@ -37,9 +38,9 @@ class RoomController extends Controller
         return $this->roomService->checkIn($data);        
     }
 
-    public function reservation()
+    public function reservation(Request $request)
     {
-        return $this->roomService->reservation();
+        return $this->roomService->reservation($request->all());
         
     }
 }   

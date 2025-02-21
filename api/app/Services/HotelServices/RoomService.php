@@ -100,10 +100,33 @@ class RoomService
         }
     }
 
-    public function reservation()
+    public function reservation(array $data)
     {
         try {
-            return response()->json($this->roomRepository->payMent());
+            $result = 0;
+            $formas = [];
+
+            foreach ($data as $value) {
+                $result += $value;
+                
+            }
+
+            for ($i=0; $i < count($data); $i++) { 
+                if($data[$i] > 0)
+                {
+                    $formas[] = $i + 1;
+                }
+            }    
+        
+            return $this->roomRepository->reservation($formas, $result);
+
+            return response()->json([
+                "totalPago" => $result,
+                "ids_formas_de_pagamento" => $formas
+
+            ]);
+
+            
             
         } catch (\Throwable $th) {
             return response()->json([

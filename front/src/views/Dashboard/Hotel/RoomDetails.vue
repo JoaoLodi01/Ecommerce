@@ -7,18 +7,20 @@
     
     <div>
         <div v-for="(room, id) in rooms" :key="id">
-            Preço por noite: {{ room.price_for_night }} |
-            Capacidade do quarto: {{ room.capacity }} | 
-            Número do quarto: {{ room.number_room }} |
-            <button @click="showPayMent()">Reservar</button>
-
+            <div v-if="showRooms">
+                Preço por noite: {{ room.price_for_night }} |
+                Capacidade do quarto: {{ room.capacity }} | 
+                Número do quarto: {{ room.number_room }} |
+                <button @click="showPayMent(id)">Reservar</button>
+            </div>
         </div>
-        
     </div>
 
     <PaymentsForm
         v-if="show"
         :show="this.show"
+        :type-operation="'reservation'"
+        
     />
 </template>
 
@@ -31,6 +33,7 @@
             return {
                 rooms: [],
                 show: false,
+                showRooms: true,
                 api: process.env.VUE_APP_API_URL
             }
         },
@@ -53,6 +56,7 @@
 
             showPayMent(){
                 this.show = !this.show
+                this.showRooms = false
 
             }
         },

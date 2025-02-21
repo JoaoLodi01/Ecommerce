@@ -42,6 +42,7 @@ export default {
             valorVenda: 0,
             valorPago: 0,
             api: process.env.VUE_APP_API_URL,
+
         };
     },
 
@@ -53,10 +54,11 @@ export default {
         },
 
         typeOperation: {
-            type: Number,
+            type: String,
             required: true
-
+    
         }
+        
     },
     
     methods: {
@@ -71,15 +73,11 @@ export default {
             }
         },
         
-        getValues(id){
-            console.log(`ID da forma de pagamento ${id}, valor pago: R$ ${this.paymentsValues}`)
-            console.log('Total pago', this.valorPago)
+        async getValues(id){
+            //this.valorPago += this.paymentsValues;
+            const response = await axios.post(`${this.api}/hotel/stay/reservation`, this.paymentsValues);
+            console.log('Total pago', response)
 
-            for (let i = 0; i < this.paymentsValues.length; i++) {
-                const element = this.paymentsValues[i];
-                return element
-
-            }
         },  
         async finalizeSale() {
             console.log('ID forma pagamento:')    
@@ -88,6 +86,7 @@ export default {
     },
     mounted(){
         this.getPayments();
+        
     },
 }
 </script>
