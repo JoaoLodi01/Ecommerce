@@ -1,5 +1,5 @@
 <template>
-    <div class="" v-if="showForm">
+    <div class="">        
         <form @submit.prevent="createHotel">
             <input
                 type="text"

@@ -10,19 +10,20 @@
   export default {
     data(){
       return {
-        api: process.env.VUE_APP_API_URL
-        
+        api: process.env.VUE_APP_API_URL,
+        aaaaa: process.env.VUE_APP_API_URL
       }
     },
     methods: {
       async getIP()
-      {
+      {      
         try {
           const response = await axios.get(`${this.api}/get-ip`);
 
-          console.log(response)
+          console.log('Aqui', response)
+          
         } catch (error) {
-          console.error('Erro no getIP', error)
+          console.error('Erro no getIP', this.api)
           
         }
       }
