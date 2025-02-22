@@ -165,7 +165,7 @@ class RoomRepository implements RoomContract
         if($total >= $room->price_for_night && $customer && $forms)
         {
             Reservation::create([
-                'user_id' => $customer->id,
+                'customer_id' => $customer->id,
                 'name' => $customer->name,
                 'room_id' => $room->number_room
                 

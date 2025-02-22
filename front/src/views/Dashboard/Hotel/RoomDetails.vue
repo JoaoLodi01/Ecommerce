@@ -81,12 +81,22 @@
                 }
             },
 
-            showPayMent(id, price_for_night){
-                this.idRoom = id
-                this.totalOperation = price_for_night
-                this.show = !this.show
-                this.showRooms = false
+            async showPayMent(id, price_for_night){
+                try {
+                    const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
+                        customer_id: 2
 
+                    });
+                    console.log(response)
+                    this.idRoom = id + 1
+                    this.totalOperation = price_for_night
+                    this.show = !this.show
+                    this.showRooms = false
+
+                } catch (error) {
+                    alert(error.response.data.message ?? error.response.data)
+                    
+                } 
             },
             cancelOperation(){
                 this.show = false;
