@@ -25,15 +25,22 @@
                     </tbody>
                 </table>
 
-                <button type="submit">Emitir Venda</button>
-                <button @click="cancelOperation()">Cancelar</button>
+                <button type="submit"> {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Emitir Venda" }} </button>
+                
             </form>
+            <button @click="cancelOperation()">Cancelar</button>
             <h3>Total: R$ {{ totalOperation }}</h3>
 
+            <div class="" v-if="isLoanding">
+                <h2>Carregando...</h2>
+            </div>    
+
             <div class="" v-if="errorMessage">
-                {{ errorMessage }}
+                {{ errorMessage.message }} <br>
+                Valor pago: R$ {{ errorMessage.amount_paid }} <br>
+                Total faltante: R$ {{ errorMessage.remaining }}
+
             </div>
-            
         </div>
     </div>
 </template>
@@ -47,6 +54,7 @@ export default {
             payments: [],
             paymentsValues: [],
             errorMessage: null,
+            isLoanding: false,
             api: process.env.VUE_APP_API_URL,
 
         };
@@ -87,6 +95,8 @@ export default {
         },
         
         async finalizeSale() {
+            this.isLoanding = true
+            this.errorMessage = null
             switch (this.typeOperation) {
                 case 'reservation':
                     console.log('Começou reserva')
@@ -95,8 +105,8 @@ export default {
                         roomID: this.idRoom
 
                     });
-                    this.errorMessage = response.data.message ? response.data.message : null
-                    
+                    this.errorMessage = response.data
+                    this.isLoanding = !this.isLoanding
                     console.log('Retorno response', response)
 
                     break;
@@ -117,6 +127,7 @@ export default {
         },
         cancelOperation(){
             this.$emit("close")
+
         }
     },
     mounted(){

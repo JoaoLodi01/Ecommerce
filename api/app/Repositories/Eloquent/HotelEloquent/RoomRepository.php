@@ -200,7 +200,9 @@ class RoomRepository implements RoomContract
 
         return array(
             'success' => false,
-            'message' => 'O valor pago é menor que o valor do quarto'
+            'message' => 'O valor pago é menor que o valor do quarto',
+            'amount_paid' => $total,
+            'remaining' => $room->price_for_night - $total
         );
     }
 

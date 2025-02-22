@@ -11,17 +11,18 @@
                 Preço por noite: {{ room.price_for_night }} |
                 Capacidade do quarto: {{ room.capacity }} | 
                 Número do quarto: {{ room.number_room }} |
-                <button @click="showPayMent(id, room.price_for_night)">Reservar</button>
+                <button @click="showPayMent(room.id, room.price_for_night)">Reservar</button>
             </div>
         </div>
     </div>
 
     <PaymentsForm
         v-if="show"
-        @close="show = false"
+        :show="show"
         type-operation="reservation"
         :idRoom="idRoom"
         :totalOperation="totalOperation"
+        @close="cancelOperation"
         
     />
 </template>
@@ -60,12 +61,17 @@
             },
 
             showPayMent(id, price_for_night){
-                this.idRoom = id + 1
+                this.idRoom = id
                 this.totalOperation = price_for_night
                 this.show = !this.show
                 this.showRooms = false
 
-            }
+            },
+            cancelOperation(){
+                this.show = false;
+                this.showRooms = true;
+
+            }   
         },
 
         mounted() {
