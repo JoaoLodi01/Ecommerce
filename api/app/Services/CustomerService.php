@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Services\HotelServices;
+namespace App\Services;
 
-use App\Repositories\Eloquent\ConsumerRepository;
+use App\Repositories\Eloquent\CustomerRepository;
 
-class ConsumerService{
-
-    protected $consumerRepository;
-
-    public function __construct(ConsumerRepository $consumerRepository)
+class CustomerService
+{
+    public function __construct(
+        protected CustomerRepository $customerRepository
+    )
     {
-        $this->consumerRepository = $consumerRepository;
+        $this->customerRepository = $customerRepository;
     }
 
     public function getAll(){
         try {
-            return $this->consumerRepository->getAll(1);
+            return $this->customerRepository->getAll(1);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
@@ -25,7 +25,7 @@ class ConsumerService{
         try {
             return response()->json([
                 'success' => true,
-                'product' => $this->consumerRepository->findByID($id)
+                'customer' => $this->customerRepository->findByID($id)
             ]);
             
         } catch (\Throwable $th) {
@@ -35,7 +35,7 @@ class ConsumerService{
 
     public function store(array $data){
         try {
-            $this->consumerRepository->store($data);
+            $this->customerRepository->store($data);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -45,7 +45,7 @@ class ConsumerService{
 
     public function update(array $data, int $id){
         try {
-            $this->consumerRepository->update($data, $id);
+            $this->customerRepository->update($data, $id);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -55,7 +55,7 @@ class ConsumerService{
 
     public function delete($id){
         try {
-            $this->consumerRepository->delete($id);
+            $this->customerRepository->delete($id);
             return response()->json(true);
 
         } catch (\Throwable $th) {

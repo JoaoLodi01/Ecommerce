@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EcommerceController\{
     ProductsController,
-    ConsumerController,
     CashRegisterController,
     UserController,
     NfceController,
@@ -13,13 +12,14 @@ use App\Http\Controllers\EcommerceController\{
 
 use App\Http\Controllers\HotelController\{
     HotelController,
-    RoomController
+    RoomController,
 
 };
 
 use App\Http\Controllers\{
     IPController,
-    ConfigController
+    ConfigController,
+    CustomerController
 
 };
 
@@ -44,11 +44,11 @@ Route::prefix('v1')->group( function (){
         // Consumer routes
         Route::prefix('consumers')->group( function(){
             
-            Route::get('/all', [ConsumerController::class, 'getAll']);
-            Route::post('/create', [ConsumerController::class, 'store']);
-            Route::get('/{id}', [ConsumerController::class, 'findByID']);
-            Route::put('/{id}', [ConsumerController::class, 'update']);
-            Route::delete('/{id}/deactivate', [ConsumerController::class, 'delete']);
+            Route::get('/all', [UserController::class, 'getAll']);
+            Route::post('/create', [UserController::class, 'store']);
+            Route::get('/{id}', [UserController::class, 'findByID']);
+            Route::put('/{id}', [UserController::class, 'update']);
+            Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
             
         });
 
@@ -65,14 +65,13 @@ Route::prefix('v1')->group( function (){
 
         // User routes
         Route::prefix('users')->group( function(){
-
             Route::get('/all', [UserController::class, 'getAll']);
             Route::post('/create', [UserController::class, 'store']);
             Route::get('/{id}', [UserController::class, 'findByID']);
             Route::put('/{id}', [UserController::class, 'update']);
             Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
             
-        });
+        });        
 
         // NFC-e routes
         Route::prefix('nfce')->group( function(){
@@ -105,6 +104,7 @@ Route::prefix('v1')->group( function (){
             Route::post('/room', [RoomController::class, 'create']);
             Route::put('/check-in', [RoomController::class, 'checkIn']);
             Route::post('/reservation', [RoomController::class, 'reservation']);
+            Route::post('/check-reservation', [RoomController::class, 'checkReservation']);
     
         });
 
@@ -117,6 +117,15 @@ Route::prefix('v1')->group( function (){
 
         });
     });
+
+    Route::prefix('customers')->group( function(){
+        Route::get('/all', [CustomerController::class, 'getAll']);
+        Route::post('/create', [CustomerController::class, 'store']);
+        Route::get('/{id}', [CustomerController::class, 'findByID']);
+        Route::put('/{id}', [CustomerController::class, 'update']);
+        Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']);
+        
+});
     
     Route::get('/get-ip', [IPController::class, 'create']);
 });

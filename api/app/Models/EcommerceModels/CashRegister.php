@@ -13,6 +13,7 @@ class CashRegister extends Model
         'valor_entrada',
         'valor_saida',
         'saldo_real',
+        'origem',
         'active',
     ];
 

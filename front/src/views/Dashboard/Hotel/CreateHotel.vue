@@ -129,7 +129,7 @@
                     }
                     
                 } catch (error) {
-                    console.error('Erro ao criar o Hotel', error.response)
+                    console.error('Erro ao criar o Hotel', error)
                     if(error.response)
                     {
                         alert(error.response.data.message ? error.response.data.message : "Erro detecado")

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\HotelRequest;
 
-use App\Repositories\Eloquent\RoomRepository;
+use App\Repositories\Eloquent\HotelEloquent\RoomRepository;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RoomRequest extends FormRequest

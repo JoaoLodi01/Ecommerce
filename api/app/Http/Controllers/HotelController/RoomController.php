@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\HotelController;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CheckInRequest;
-use App\Http\Requests\RoomRequest;
+use App\Http\Requests\HotelRequest\{
+    RoomRequest,
+    CheckInRequest
+    
+};
+
 use App\Services\HotelServices\RoomService;
 use Illuminate\Http\Request;
 
@@ -38,9 +42,14 @@ class RoomController extends Controller
         return $this->roomService->checkIn($data);        
     }
 
-    public function reservation(Request $request)
+    public function reservation()
     {
-        return $this->roomService->reservation($request->all());
+        return $this->roomService->reservation(request('payments_values'), request('room_id'));
         
     }
-}   
+    
+    public function checkReservation()
+    {
+        return $this->roomService->checkReservation(request('customer_id'));
+    }
+}

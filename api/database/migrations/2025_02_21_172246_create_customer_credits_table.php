@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments_sales', function (Blueprint $table) {
+        Schema::create('customer_credits', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->string('name', 120);
+            $table->float('current_credit', 16, 2);
+            $table->date('validate');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments_sales');
+        Schema::dropIfExists('customer_credits');
     }
 };

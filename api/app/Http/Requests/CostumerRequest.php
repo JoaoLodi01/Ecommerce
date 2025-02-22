@@ -4,11 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class CostumerRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
@@ -21,12 +18,8 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        $required = $this->isMethod('post') ? 'required' : 'sometimes';
-
         return [
-            'name' => "$required|string|max:255",
-            'email' => "$required|email|max:255|unique:users,email",
-            'password' => "$required|min:0",
+            //
         ];
     }
 }
