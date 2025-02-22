@@ -24,9 +24,11 @@
                 Capacidade do quarto: {{ room.capacity }} 
                 Número do quarto: {{ room.number_room }} 
                 Status do quarto: {{ room.reserved ? 'Quarto reservado.' : 'Quarto disponível' }}
+                
+                
                 <div v-if="room.reserved">
                 </div>
-                <div v-else>
+                <div v-if="!reserved">
                     <button 
                         @click="showPayMent(room.id, room.price_for_night)"
                         class="bg-indigo-700 text-white rounded-lg p-1 hover:bg-indigo-500"
@@ -34,6 +36,7 @@
                         Reservar
                     </button>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -42,7 +45,7 @@
         v-if="show"
         :show="show"
         type-operation="reservation"
-        :idRoom="idRoom"
+        :room_id="room_id"
         :totalOperation="totalOperation"
         @close="cancelOperation"
         
@@ -59,8 +62,9 @@
                 rooms: [],
                 show: false,
                 showRooms: true,
-                idRoom: null,
+                room_id: null,
                 totalOperation: 0,
+                reserved: null,
                 api: process.env.VUE_APP_API_URL
             }
         },
@@ -81,26 +85,26 @@
                 }
             },
 
-            async showPayMent(id, price_for_night){
-                try {
-                    const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
-                        paymentsValues: 0,
-                        room_id: 0,
-                        customer_id: 2
+            async checkReserved(){
+                const response = await axios.post(`${this.api}/hotel/stay/check-reservation`, {
+                    customer_id: 2
+                });
 
-                    });
-                    
-                    console.log(response)
-                    this.idRoom = id + 1
-                    this.totalOperation = price_for_night
-                    this.show = !this.show
-                    this.showRooms = false
-
-                } catch (error) {
-                    alert(error.response.data.message ?? error.response.data)
-                    
-                } 
+                if(response.data.customer !== null)
+                {
+                    alert('Vaga ativa')
+                    this.reserved = true
+                }
             },
+
+            showPayMent(room_id, price_for_night){
+                this.room_id = room_id
+                this.totalOperation = price_for_night
+                this.show = !this.show
+                this.showRooms = false
+
+            },
+
             cancelOperation(){
                 this.show = false;
                 this.showRooms = true;
@@ -111,8 +115,9 @@
             }
         },
 
-        mounted() {
+        mounted() {            
             this.getRooms()
+            this.checkReserved()
 
         }
     }

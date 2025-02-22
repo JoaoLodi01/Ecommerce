@@ -35,12 +35,17 @@
                 <h2>Carregando...</h2>
             </div>    
 
-            <div class="" v-if="errorMessage">
-                {{ errorMessage.message }} <br>
-                Valor pago: R$ {{ errorMessage.amount_paid }} <br>
-                Total faltante: R$ {{ errorMessage.remaining }}
+            <div class="" v-if="message">
+                {{ message }} <br>
+
+                
 
             </div>
+            <div v-if="message.errorMessage">
+                Valor pago: R$ {{ message.errorMessage }} <br>
+                Total faltante: R$ {{ message.errorMessage }}
+            </div>
+
         </div>
     </div>
 </template>
@@ -53,7 +58,7 @@ export default {
         return {
             payments: [],
             paymentsValues: [],
-            errorMessage: null,
+            message: null,
             isLoanding: false,
             api: process.env.VUE_APP_API_URL,
 
@@ -72,7 +77,7 @@ export default {
             required: true
     
         },
-        idRoom: {
+        room_id: {
             type: Number
         },
 
@@ -100,13 +105,21 @@ export default {
             switch (this.typeOperation) {
                 case 'reservation':
                     console.log('Começou reserva')
+                    console.log('Dados de envio', {
+                        customer_id: 1,
+                        payments_values: this.paymentsValues,
+                        room_id: this.room_id,
+                        
+                    })
+
                     const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
+                        customer_id: 1,
                         payments_values: this.paymentsValues,
                         room_id: this.room_id
 
                     });
 
-                    this.errorMessage = response.data
+                    this.message = response.data.message ? response.data.message : response.data.errorMessage
                     
                     this.isLoanding = !this.isLoanding
 

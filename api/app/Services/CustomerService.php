@@ -4,18 +4,18 @@ namespace App\Services;
 
 use App\Repositories\Eloquent\CustomerRepository;
 
-class CostumerService
+class CustomerService
 {
     public function __construct(
-        protected CustomerRepository $costumerRepository
+        protected CustomerRepository $customerRepository
     )
     {
-        $this->costumerRepository = $costumerRepository;
+        $this->customerRepository = $customerRepository;
     }
 
     public function getAll(){
         try {
-            return $this->costumerRepository->getAll(1);
+            return $this->customerRepository->getAll(1);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
@@ -25,7 +25,7 @@ class CostumerService
         try {
             return response()->json([
                 'success' => true,
-                'product' => $this->costumerRepository->findByID($id)
+                'customer' => $this->customerRepository->findByID($id)
             ]);
             
         } catch (\Throwable $th) {
@@ -35,7 +35,7 @@ class CostumerService
 
     public function store(array $data){
         try {
-            $this->costumerRepository->store($data);
+            $this->customerRepository->store($data);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -45,7 +45,7 @@ class CostumerService
 
     public function update(array $data, int $id){
         try {
-            $this->costumerRepository->update($data, $id);
+            $this->customerRepository->update($data, $id);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -55,7 +55,7 @@ class CostumerService
 
     public function delete($id){
         try {
-            $this->costumerRepository->delete($id);
+            $this->customerRepository->delete($id);
             return response()->json(true);
 
         } catch (\Throwable $th) {

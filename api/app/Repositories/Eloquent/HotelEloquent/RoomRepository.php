@@ -7,22 +7,25 @@ use App\Models\HotelModels\{
     HotelDetail,
     Room,
     Capacity,
-    Reservation,
-    CustomerCredit
-
+    Reservation
 };
 
-use App\Repositories\Contracts\HotelContract\RoomContract;
 use App\Repositories\Eloquent\EcommerceEloquent\{
     PaymentsRepository,
     CashRegisterRepository
     
 };
 
-use App\Models\Customer;
+use App\Models\{
+    Customer,
+    CustomerCredit
+    
+};
+
+use App\Repositories\Contracts\HotelContract\RoomContract;
+
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
-
 class RoomRepository implements RoomContract
 {
     public function __construct(
@@ -161,8 +164,44 @@ class RoomRepository implements RoomContract
         $customer = $this->findCustomer(1);
         Log::info('Vai procurar a(s) formas de pagamento');
         $forms = $this->paymentsRepository->findByID($formas);
+
+        if($total > $room->price_for_night && $customer && $forms)
+        {
+            Log::info("Valor informado maior: R$ $total, maior que o total: $room->price_for_night");
+            /*Reservation::create([
+                'customer_id' => $customer->id,
+                'name' => $customer->name,
+                'room_id' => $room->number_room
+                
+            ]);
+    
+            Log::info('Quarto encontrado' . $room);
+            $room->update([
+                'reserved' => 1
         
-        if($total >= $room->price_for_night && $customer && $forms)
+            ]);
+    
+            $cashRegister = array(
+                'description' => 'Reserva de Hotel',
+                'valor_entrada' => $total,
+                'valor_saida' => 0,
+                'origem' => 'Reserva Hotel'
+
+            );
+            
+            $this->cashRegisterRepository->store($cashRegister);*/
+
+            return array(
+                'success' => true,
+                'message' => 'Reserva concluida',
+                'bigger' => true,
+                'extra_amount' => (float) $total - $room->price_for_night
+            
+            );
+
+        }
+        
+        if($total === $room->price_for_night && $customer && $forms)
         {
             Reservation::create([
                 'customer_id' => $customer->id,
@@ -190,13 +229,14 @@ class RoomRepository implements RoomContract
             return array(
                 'success' => true,
                 'message' => 'Reserva concluida',
+                'bigger' => false
             
             );
         }
 
         return array(
             'success' => false,
-            'message' => 'O valor pago é menor que o valor do quarto',
+            'errorMessage' => 'O valor pago é menor que o valor do quarto',
             'amount_paid' => $total,
             'remaining' => $room->price_for_night - $total,
             
@@ -261,5 +301,11 @@ class RoomRepository implements RoomContract
         return DetailRooms::where('id', $id)->update([
             'active' => 0
         ]); // Desativa o quarto
+    }
+
+    public function checkReservation(int $customer_id)
+    {
+        return Reservation::where('customer_id', $customer_id)->first();
+
     }
 }

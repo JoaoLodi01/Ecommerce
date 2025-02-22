@@ -130,4 +130,11 @@ class RoomService
             ], 400);
         }
     }
+
+    public function checkReservation(int $customer_id)
+    {
+        return response()->json([
+            'customer' => $this->roomRepository->checkReservation($customer_id) ? $this->roomRepository->checkReservation($customer_id) : null
+        ]);
+    }
 }

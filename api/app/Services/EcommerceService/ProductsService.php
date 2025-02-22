@@ -2,7 +2,7 @@
 
 namespace App\Services\EcommerceService;
 
-use App\Repositories\Eloquent\ProductsRepository;
+use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
 use Illuminate\Support\Facades\Log;
 
 class ProductsService{

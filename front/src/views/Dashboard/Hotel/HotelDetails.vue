@@ -3,8 +3,8 @@
     <div class="flex justify-between p-2">
       <h1 class="ml-2">Bem vindo a sua área do Hotel!</h1>
       <div class="flex">
-          <h3 class="ml-2">Acesse sua conta</h3> 
-          <h3 class="ml-2"><button @click="showConfig">Configurações</button></h3> 
+          <h3 class="ml-2"><button><a href="/hotel/user-area">Acesse sua conta</a></button></h3> 
+          
           <h3 class="ml-2"><button><a href="/">Voltar</a></button></h3>
           
       </div>
@@ -18,17 +18,10 @@
   </header>
 
   <button><a href="/hotel/rooms">Conferir quartos</a></button>
-  <Config
-    v-if="show"
-    @close="show = false"
-    
-  />
 </template>
 
 <script>
   import axios from 'axios';
-  import Config from '@/views/components/Config.vue';
-
   export default {
     data(){
       return {
@@ -66,15 +59,9 @@
           }
         }
       },
-      showConfig(){
-        this.show = true
 
-      }
     },
 
-    components: {
-      Config
-    },
     mounted(){
       this.getHotel()
     }

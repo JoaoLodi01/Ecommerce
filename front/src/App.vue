@@ -17,15 +17,7 @@
     methods: {
       async getIP()
       {      
-        try {
-          const response = await axios.get(`${this.api}/get-ip`);
-
-          console.log('Aqui', response)
-          
-        } catch (error) {
-          console.error('Erro no getIP', this.api)
-          
-        }
+        const response = await axios.get(`${this.api}/get-ip`);
       }
     },
     mounted(){ 

@@ -8,7 +8,7 @@ use App\Http\Requests\HotelRequest\{
     CheckInRequest
     
 };
-use App\Http\Requests\HotelRequest\ReservationRequest;
+
 use App\Services\HotelServices\RoomService;
 use Illuminate\Http\Request;
 
@@ -42,12 +42,14 @@ class RoomController extends Controller
         return $this->roomService->checkIn($data);        
     }
 
-    public function reservation(ReservationRequest $request)
+    public function reservation()
     {
-        $data = $request->validated();
-        return response()->json($data);
         return $this->roomService->reservation(request('payments_values'), request('room_id'));
         
     }
     
-}   
+    public function checkReservation()
+    {
+        return $this->roomService->checkReservation(request('customer_id'));
+    }
+}
