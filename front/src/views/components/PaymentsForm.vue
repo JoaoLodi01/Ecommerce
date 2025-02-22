@@ -101,8 +101,8 @@ export default {
                 case 'reservation':
                     console.log('Começou reserva')
                     const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
-                        paymentsValues: this.paymentsValues,
-                        roomID: this.idRoom
+                        payments_values: this.paymentsValues,
+                        room_id: this.room_id
 
                     });
 

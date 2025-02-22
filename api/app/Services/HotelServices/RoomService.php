@@ -100,7 +100,7 @@ class RoomService
         }
     }
 
-    public function reservation(array $data, int $roomID)
+    public function reservation(array $data, int $room_id)
     {
         try {
             $result = 0;
@@ -118,7 +118,7 @@ class RoomService
                 }
             }    
         
-            return response()->json($this->roomRepository->reservation($formas, $result, $roomID));
+            return response()->json($this->roomRepository->reservation($formas, $result, $room_id));
             
         } catch (\Throwable $th) {
             return response()->json([
