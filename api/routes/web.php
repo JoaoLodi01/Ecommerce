@@ -1,5 +1,5 @@
 <?php
-
+/*
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -8,6 +8,14 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
+=======
+
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
+
+use Inertia\Inertia;
+>>>>>>> 154e4af3df38832173add8d8e14ad0f29aaae777
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -29,3 +37,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+*/
