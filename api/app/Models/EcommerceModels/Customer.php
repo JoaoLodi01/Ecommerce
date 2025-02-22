@@ -20,7 +20,6 @@ class Customer extends Model
         'address',
         'number',
         'email',
-        'password',
         'phone',
         'active',
     ];

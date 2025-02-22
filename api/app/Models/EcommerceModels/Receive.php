@@ -1,23 +1,26 @@
 <?php
 
-namespace App\Models\EcommerceModels;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CashRegister extends Model
+class Receive extends Model
 {
-    protected $table = 'cash_registers';
+    protected $table = 'receives';
 
     protected $fillable = [
-        'description',
+        'descricao',
         'cliente_id',
         'cliente',
         'especie_id',
         'especie',
-        'data_hora_cadastro',
-        'valor_entrada',
-        'valor_saida',
-        'saldo_real',
+        'data_vencimento',
+        'qtde_parcela',
+        'numero_parcela',
+        'valor_parcela',
+        'tipo_juros',
+        'valor_juros',
+        'valor_total',
         'origem',
         'cancelada',
         'user_id',
