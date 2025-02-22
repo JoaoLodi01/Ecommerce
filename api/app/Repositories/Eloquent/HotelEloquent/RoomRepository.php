@@ -235,7 +235,6 @@ class RoomRepository implements RoomContract
     public function findByRoomID(string $id)
     {
         Log::info("Vai procurar o quarto pelo número dele");
-        //->get();
         return Room::where('room_id', $id)->first();
 
     }
