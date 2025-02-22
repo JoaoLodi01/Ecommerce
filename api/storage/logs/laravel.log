@@ -1219,3 +1219,75 @@ Did you mean one of these?
 [2025-02-22 00:55:02] local.INFO: Vai procurar o quarto  
 [2025-02-22 00:55:02] local.INFO: Quarto encontrado{"id":1,"capacity":"2","price_for_night":32,"busy":0,"number_room":"1","reserved":0,"active":1,"created_at":"2025-02-22T00:22:38.000000Z","updated_at":"2025-02-22T00:22:38.000000Z"}  
 [2025-02-22 00:56:33] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 00:59:10] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 00:59:18] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 00:59:19] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:00:41] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:00:47] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:00:48] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:01:48] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:02:30] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:02:44] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:02:51] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:02:54] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:03:39] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:04:03] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:04:25] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:04:33] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:04:43] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:04:54] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:05:06] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:05:13] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:05:24] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:05:53] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:05:54] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:06:06] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:06:09] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:06:09] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:06:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-02-22 01:06:13] local.INFO: O hotel foi encontrado  
+[2025-02-22 01:06:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-02-22 01:06:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-02-22 01:06:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-02-22 01:06:13] local.INFO: O hotel foi encontrado  
+[2025-02-22 01:06:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-02-22 01:06:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-02-22 01:06:16] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:07:13] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:07:15] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:07:23] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:07:29] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:07:36] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:07:40] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:07:53] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:08:01] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:08:02] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:08:07] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:08:13] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:08:16] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:08:26] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:08:40] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:08:45] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:08:50] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:09:05] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:09:21] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:09:21] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:09:33] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:09:37] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:09:40] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:09:43] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:09:49] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:09:56] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:10:02] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:10:10] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:10:13] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:10:18] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:10:24] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:10:27] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:10:33] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:10:50] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:10:56] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:11:11] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:35:40] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:57:07] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-22 01:57:16] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  

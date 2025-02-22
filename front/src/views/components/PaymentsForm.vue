@@ -105,8 +105,11 @@ export default {
                         roomID: this.idRoom
 
                     });
+
                     this.errorMessage = response.data
+                    
                     this.isLoanding = !this.isLoanding
+
                     console.log('Retorno response', response)
 
                     break;
@@ -125,6 +128,7 @@ export default {
             }
             
         },
+
         cancelOperation(){
             this.$emit("close")
 
