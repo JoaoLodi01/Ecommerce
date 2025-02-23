@@ -21,7 +21,7 @@ class CashRegister extends Model
         'origem',
         'cancelada',
         'user_id',
-        'user',
+        'seller',
         'active',
     ];
 

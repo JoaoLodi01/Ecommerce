@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('receives', function (Blueprint $table) {
             $table->id();
-            $table->string('descricao', 255);
+            $table->string('descricao', 200);
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->string('cliente', 255);
+            $table->string('cliente', 120);
             $table->unsignedBigInteger('especie_id');
-            $table->foreign('especie_id')->on('payments')->onDelte('cascade');
-            $table->string('especie', 255);
+            $table->foreign('especie_id')->references('id')->on('payments')->onDelte('cascade');
+            $table->string('especie', 120);
             $table->date('data_vencimento');
             $table->integer('qtde_parcela');
             $table->integer('numero_parcela');
@@ -27,10 +27,10 @@ return new class extends Migration
             $table->boolean('tipo_juros', 16,2);
             $table->decimal('valor_juros', 16,2);
             $table->decimal('valor_total');
-            $table->string('origem', 255);
-            $table->string('cancelada', 255);
+            $table->string('origem', 120);
+            $table->boolean('cancelada', 1);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('user');
             $table->boolean('active')->default(1);
             $table->timestamps();

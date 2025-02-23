@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('nota_manuals', function (Blueprint $table) {
             $table->id();
-            $table->string('descricao', 255)->default('VENDA REFERENTE A NOTA MANUAL');
+            $table->string('descricao', 120)->default('VENDA REFERENTE A NOTA MANUAL');
             $table->decimal('preco_bruto', 16,2);
             $table->decimal('preco_liquido', 16,2);
             $table->decimal('preco_desconto', 16,2);
-            $table->string('forma_pagamento', 255);
+            $table->string('forma_pagamento', 120);
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

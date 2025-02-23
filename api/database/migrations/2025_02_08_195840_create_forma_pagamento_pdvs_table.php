@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forma_pagamento_nfces', function (Blueprint $table) {
+        Schema::create('forma_pagamento_pdvs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('nfce_id');
-            $table->foreign('nfce_id')->references('id')->on('nfces')->onDelete('cascade');
+            $table->foreign('nfce_id')->references('id')->on('pdvs')->onDelete('cascade');
             $table->unsignedBigInteger('especie_id');
             $table->foreign('especie_id')->references('id')->on('payments')->onDelete('cascade');
             $table->decimal('valor_pago', 16,2);
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('forma_pagamento_nfces');
+        Schema::dropIfExists('forma_pagamento_pdvs');
     }
 };
