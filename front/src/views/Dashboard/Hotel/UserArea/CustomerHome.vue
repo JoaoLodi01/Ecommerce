@@ -35,9 +35,7 @@
                 form: {
                     address_by_cep: false,
                     room_service_limit: 0,
-                    partial_registration: false,
-
-                    
+                    partial_registration: false,                
 
                 },
                 api: process.env.VUE_APP_API_URL,
@@ -66,8 +64,8 @@
             async getCustomerDetails()
             {
                 try {
-                    //const response 
-                    
+                    const response = await axios.get(`${this.api}/customers/1`);
+                    console.log(response)
                 } catch (error) {
                     
                 }

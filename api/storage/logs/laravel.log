@@ -2134,3 +2134,111 @@ Did you mean one of these?
 #40 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
 #41 {main}
 "} 
+[2025-02-23 05:32:29] local.ERROR: include(D:\SGBR\Projeto_3_Hotel\api\vendor\composer/../../app/Http/Controllers/Controller.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer/../../app/Http/Controllers/Controller.php): Failed to open stream: No such file or directory at D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}()
+#2 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(576): include('...')
+#3 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#4 D:\\SGBR\\Projeto_3_Hotel\\api\\app\\Http\\Controllers\\CustomerController.php(9): Composer\\Autoload\\ClassLoader->loadClass()
+#5 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(576): include('...')
+#6 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#7 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#8 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1117): is_a()
+#9 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1054): Illuminate\\Routing\\Route->controllerMiddleware()
+#10 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(820): Illuminate\\Routing\\Route->gatherMiddleware()
+#11 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(802): Illuminate\\Routing\\Router->gatherRouteMiddleware()
+#12 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#13 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#14 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#15 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#16 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#17 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#18 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#19 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#20 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#22 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#23 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#25 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#27 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#29 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#31 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#33 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#35 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#36 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#37 D:\\SGBR\\Projeto_3_Hotel\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#38 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#39 {main}
+"} 
+[2025-02-23 05:32:34] local.ERROR: Maximum execution time of 30 seconds exceeded {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Maximum execution time of 30 seconds exceeded at D:\\SGBR\\Projeto_3_Hotel\\api\\storage\\framework\\views\\c167ac0d3e79d913005a6be482c0b08b.php:1)
+[stacktrace]
+#0 {main}
+"} 
+[2025-02-23 05:32:49] local.ERROR: include(D:\SGBR\Projeto_3_Hotel\api\vendor\composer/../../app/Http/Controllers/Controller.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer/../../app/Http/Controllers/Controller.php): Failed to open stream: No such file or directory at D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}()
+#2 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(576): include('...')
+#3 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#4 D:\\SGBR\\Projeto_3_Hotel\\api\\app\\Http\\Controllers\\CustomerController.php(9): Composer\\Autoload\\ClassLoader->loadClass()
+#5 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(576): include('...')
+#6 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#7 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#8 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1117): is_a()
+#9 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1054): Illuminate\\Routing\\Route->controllerMiddleware()
+#10 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(820): Illuminate\\Routing\\Route->gatherMiddleware()
+#11 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(802): Illuminate\\Routing\\Router->gatherRouteMiddleware()
+#12 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#13 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#14 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#15 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#16 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#17 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#18 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#19 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#20 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#22 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#23 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#25 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#27 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#29 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#31 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#33 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#35 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#36 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#37 D:\\SGBR\\Projeto_3_Hotel\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#38 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#39 {main}
+"} 
+[2025-02-23 05:53:26] local.INFO: Chamou o IPController  
+[2025-02-23 05:53:26] local.INFO: Chamou o IPService  
+[2025-02-23 05:53:30] local.INFO: Chamou o IPController  
+[2025-02-23 05:53:30] local.INFO: Chamou o IPService  
+[2025-02-23 05:53:32] local.INFO: Chamou o IPController  
+[2025-02-23 05:53:32] local.INFO: Chamou o IPService  
+[2025-02-23 05:53:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-02-23 05:53:33] local.INFO: O hotel foi encontrado  
+[2025-02-23 05:53:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-02-23 05:53:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-02-23 05:53:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-02-23 05:53:33] local.INFO: O hotel foi encontrado  
+[2025-02-23 05:53:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-02-23 05:53:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-02-23 05:53:34] local.INFO: Chamou o IPController  
+[2025-02-23 05:53:34] local.INFO: Chamou o IPService  
+[2025-02-23 05:54:20] local.INFO: Chamou o IPController  
+[2025-02-23 05:54:20] local.INFO: Chamou o IPService  
