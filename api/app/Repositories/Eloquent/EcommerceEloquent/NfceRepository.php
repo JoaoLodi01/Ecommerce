@@ -2,12 +2,18 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\EcommerceModels\Customer;
-use App\Models\EcommerceModels\FormaPagamentoNfce;
-use App\Models\EcommerceModels\Nfce;
-use App\Models\EcommerceModels\Payment;
-use App\Models\EcommerceModels\User;
+use App\Models\Customer;
+use App\Models\EcommerceModels\{
+    Nfce,
+    FormaPagamentoNfce,
+    Payment,
+    User,
+    CashRegister,
+    Receive
+};
+
 use Illuminate\Support\Facades\Log;
+
 
 class NfceRepository
 {
