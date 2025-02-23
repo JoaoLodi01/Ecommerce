@@ -7,11 +7,13 @@ use App\Models\EcommerceModels\Customer;
 
 class ConsumerRepository 
 {
-    public function getAll(int $active){ 
+    public function getAll(int $active){
+        Log::info("Buscando todos os clientes");
         return Customer::where('active', $active)->get();
     }
 
     public function findByID(string $params){
+        Log::info("Buscando cliente por ID.");
         return Customer::where('id', $params)->first();
     }
 
@@ -32,6 +34,11 @@ class ConsumerRepository
                 'phone' => $data['phone'],
                 'active' => 1,
             ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Cliente criado com sucesso!',
+            ], 201);
         } else {
             Log::info("Dados insuficientes");
             return response()->json([
@@ -42,10 +49,10 @@ class ConsumerRepository
 
     public function update(array $data, int $id){
 
-        Log::info("Caiu no update");
-        $customerId = Customer::where('id', $id)->update($data);
+        Log::info("Buscando cliente por ID");
+        $customerID = Customer::where('id', $id)->update($data);
 
-        if ($customerId){
+        if ($customerID){
             Log::info("Cliente atualizado com sucesso!");
             return response()->json([
                 'success' => true,
@@ -61,9 +68,23 @@ class ConsumerRepository
     }
 
     public function delete(int $id){
-        Log::info("Caiu no delete");
-        return Customer::where('id', $id)->update([
-            'active' => 0,
-        ]);
+        Log::info("Iniciando exclusão do cliente");
+        $customer = Customer::find($id);
+
+        if (!$customer) {
+            Log::info("Cliente não encontrado.");
+            return response()->json([
+                'success' => false,
+                'error' => 'Cliente não encontrado.',
+            ], 404);
+        }
+
+        $customer->update(['active' => 0]);
+
+        Log::info("Cliente desativado com sucesso!");
+        return response()->json([
+            'success' => true,
+            'message' => 'Cliente deletado com sucesso!',
+        ], 200);
     }
 }
