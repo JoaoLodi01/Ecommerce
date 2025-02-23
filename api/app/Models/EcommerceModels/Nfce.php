@@ -10,10 +10,15 @@ class Nfce extends Model
 
     protected $fillable = [
         'descricao',
+        'cliente_id',
+        'cliente',
         'valor_bruto',
         'valor_liquido',
         'valor_desconto',
-        'forma_pagamento',
+        'user_id',
+        'user',
+        'cancelada',
+        'is_nfce_nm',
     ];
 
     protected $hidden = [

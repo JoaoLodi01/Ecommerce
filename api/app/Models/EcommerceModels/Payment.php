@@ -9,8 +9,8 @@ class Payment extends Model
     protected $table = 'payments';
 
     protected $fillable = [
-        'descricao',
-        'tipolancamento',
+        'especie',
+        'tipo_lancamento',
         'active',
     ];
 
