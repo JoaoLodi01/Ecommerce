@@ -10,8 +10,10 @@
   "dependencies": {
     "axios": "^1.7.9",
     "core-js": "^3.8.3",
+    "crypto-browserify": "^3.12.1",
     "path": "^0.12.7",
     "tailwindcss": "^3",
+    "url": "^0.11.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
@@ -41,7 +43,8 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {},
+    "type": "module"
   },
   "browserslist": [
     "> 1%",

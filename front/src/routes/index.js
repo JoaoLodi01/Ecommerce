@@ -13,6 +13,7 @@ import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
 import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
 import RoomDetails from '@/views/Dashboard/Hotel/RoomDetails.vue';
 import CustomerHome from '@/views/Dashboard/Hotel/UserArea/CustomerHome.vue';
+import WhatsAppConection from '@/views/Dashboard/WhatsAppConection.vue';
 
 
 const routes = [
@@ -80,6 +81,11 @@ const routes = [
     name: 'CreateHotel',
     component: CreateHotel
 
+  },
+
+  {
+    path: '/wa',
+    component: WhatsAppConection
   }
 ]
 
