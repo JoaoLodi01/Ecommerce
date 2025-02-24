@@ -3,7 +3,7 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use Illuminate\Support\Facades\Log;
-use App\Models\EcommerceModels\Customer;
+use App\Models\Customer;
 
 class ConsumerRepository 
 {

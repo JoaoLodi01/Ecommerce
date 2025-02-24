@@ -2,10 +2,11 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\EcommerceModels\Customer;
+use App\Models\Customer;
 use App\Models\EcommerceModels\FormaPagamentoNfce;
-use App\Models\EcommerceModels\Nfce;
+use App\Models\EcommerceModels\FormaPagamentoPDV;
 use App\Models\EcommerceModels\Payment;
+use App\Models\EcommerceModels\PDV;
 use App\Models\EcommerceModels\User;
 use Illuminate\Support\Facades\Log;
 
@@ -22,7 +23,7 @@ class NfceRepository
 
     public function getAll(int $active){
         Log::info("Vai buscar todas as NFC-e ativas da table = nfce");
-        return Nfce::where('active', $active)->get();
+        return PDV::where('active', $active)->get();
     }
 
     public function store(array $data){
@@ -33,22 +34,22 @@ class NfceRepository
         $user = User::where('id', $data['id'])->first();
 
         Log::info("Buscando espécie utilizada.");
-        $paymentForm = FormaPagamentoNfce::where('id', $data['id'])->first();
+        $species = FormaPagamentoPDV::where('id', $data['id'])->first();
 
-        if($customer && $user && $paymentForm){
+        if($customer && $user && $species){
 
             Log::info("Vai criar NFC-e.");
-            $nfce = Nfce::create([
-                'valor_bruto' => $paymentForm->valor_bruto,
-                'valor_liquido' => $paymentForm->valor_liquido,
-                'valor_desconto' => $paymentForm->valor_desconto,
-                'especie' => $paymentForm->especie,
+            $nfce = PDV::create([
+                'valor_bruto' => $species->valor_bruto,
+                'valor_liquido' => $species->valor_liquido,
+                'valor_desconto' => $species->valor_desconto,
+                'especie' => $species->especie,
             ]);
 
             Log::info("Vai criar a forma de pagamento.");
-            $payment = FormaPagamentoNfce::create([
-                'cod_especie' => $paymentForm->id,
-                'espécie' => $paymentForm->descricao,
+            $payment = FormaPagamentoPDV::create([
+                'cod_especie' => $species->id,
+                'espécie' => $species->descricao,
                 'valor_bruto' => $nfce->valor_bruto,
                 'valor_liquido' => $nfce->valor_liquido,
                 'valor_desconto' => $nfce->valor_desconto,
@@ -73,7 +74,7 @@ class NfceRepository
             return array('message' => 'Cliente não encontrado!');
         } else if (!$user){
             return array('message' => 'Usuário não encontrado!');
-        } else if (!$paymentForm){
+        } else if (!$species){
             return array('message' => 'Forma de pagamento não encontrada!');
         }
 
@@ -81,12 +82,12 @@ class NfceRepository
 
     public function update(array $data, int $id){
         Log::info("Caiu no update.");
-        return Nfce::where('id', $id)->update($data, $id);
+        return PDV::where('id', $id)->update($data, $id);
     }
 
     public function delete(int $id){
         Log::info("Caiu no delete");
-        return Nfce::where('id', $id)->update([
+        return PDV::where('id', $id)->update([
             'active' => 0,
         ]);
     }
