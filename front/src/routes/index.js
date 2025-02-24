@@ -12,7 +12,7 @@ import PaymentsForm from '@/views/components/PaymentsForm.vue';
 import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
 import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
 import RoomDetails from '@/views/Dashboard/Hotel/RoomDetails.vue';
-import CustomerHome from '@/views/Dashboard/Hotel/UserArea/CustomerHome.vue';
+import CustomerHome from '@/views/Dashboard/UserArea/CustomerHome.vue';
 
 const routes = [
   {
@@ -56,17 +56,19 @@ const routes = [
     component: PaymentsForm,
   },
 
+  {
+    path: '/user-area',
+    name: 'UserArea',
+    component: CustomerHome
+    
+  },
+
   // Hotel routes
   {
     path: '/hotel',
     name: 'HotelDetails',
     component: HotelDetails
 
-  },
-  {
-    path: '/hotel/user-area',
-    name: 'UserArea',
-    component: CustomerHome
   },
   {
     path: '/hotel/rooms',

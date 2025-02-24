@@ -15,24 +15,24 @@ class PaymentsSeeder extends Seeder
     {
         $payments = [
             [
-                "descricao" => "Dinheiro",
-                "tipolancamento" => "Caixa",
+                "especie" => "Dinheiro",
+                "tipo_lancamento" => "Caixa",
             ],
             [
-                "descricao" => "PIX",
-                "tipolancamento" => "Caixa",
+                "especie" => "PIX",
+                "tipo_lancamento" => "Caixa",
             ],
             [
-                "descricao" => "Boleto",
-                "tipolancamento" => "Receber",
+                "especie" => "Boleto",
+                "tipo_lancamento" => "Receber",
             ],
             [
-                "descricao" => "Cartão de Crédito",
-                "tipolancamento" => "Caixa",
+                "especie" => "Cartão de Crédito",
+                "tipo_lancamento" => "Caixa",
             ],
             [
-                "descricao" => "Cartão de Débito",
-                "tipolancamento" => "Receber",
+                "especie" => "Cartão de Débito",
+                "tipo_lancamento" => "Receber",
             ],
             
         ];

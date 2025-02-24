@@ -15,15 +15,14 @@ class CustomerRepository
     }
 
     public function findByID(int $id){
-        /*return CustomerCredit::join('customers', 'customers.id', 'customer_credits.customer_id')
-                        ->where('customer_id', $id)
-                        ->first();*/
-
-        return Customer::join('customer_credits', 'customer_credits.customer_id', 'customers.id')
-                        ->where('customers.id', $id)
+        return Customer::with('joinCredit')
+                        ->where('id', $id)
                         ->first();
     }
-
+    /*return CustomerCredit::join('customers', 'customers.id', 'customer_credits.customer_id')
+                    ->where('customer_id', $id)
+                    ->first();*/
+    
     public function store(array $data){
         return Customer::create([
             'name' => $data['name'],

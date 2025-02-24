@@ -6,12 +6,12 @@
 
     <div class="">
         <h3>
-            Total de crédito disponível: R$ {{ 30 }}
-
+            Total de crédito disponível: R$ {{ customer.current_credit }}
+            Validade: {{ customer.validate }}
         </h3>
 
         <h3>
-            Limite de gastos no serviço de quarto: R$ {{ form.room_service_limit }}
+            Limite de gastos no serviço de quarto: R$ {{ configs.room_service_limit }}
         </h3>
     </div>
 
@@ -32,11 +32,15 @@
 
         data(){
             return {
-                form: {
+                configs: {
                     address_by_cep: false,
                     room_service_limit: 0,
-                    partial_registration: false,                
+                    partial_registration: false
 
+                },
+                customer: {
+                    current_credit: 0,
+                    validate: null,  
                 },
                 api: process.env.VUE_APP_API_URL,
                 show: false
@@ -49,15 +53,18 @@
                     const response = await axios.get(`${this.api}/config/config-hotel/get-config`);
                     const config = response.data.config
                     
-                    this.form = {
-                        address_by_cep: !!config.address_by_cep,
-                        room_service_limit: Number(config.room_service_limit),
-                        partial_registration: !!config.partial_registration
+                    config.forEach(element => {
+                        this.configs = {
+                            address_by_cep: !!element.address_by_cep,
+                            room_service_limit: Number(element.room_service_limit),
+                            partial_registration: !!element.partial_registration
 
-                    }
+                        }
 
+                    });
+                    
                 } catch (error) {
-                    console.log('Erro no getConfig()', error)
+                    console.error('Erro no getConfig()', error)
                 }
             },
 
@@ -65,8 +72,16 @@
             {
                 try {
                     const response = await axios.get(`${this.api}/customers/1`);
-                    console.log(response)
+                    const credit = response.data.customer.join_credit
+                    credit.forEach(element => {
+                        this.customer = {
+                            current_credit: Number(element.current_credit),
+                            validate: Date(element.validate)
+                        }
+                    })
+                    console.log(this.customer)
                 } catch (error) {
+                    console.error('Erro no getCustomerDetails', error)
                     
                 }
 

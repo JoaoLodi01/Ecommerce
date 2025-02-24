@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('forma_pagamento_pdvs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('nfce_id');
-            $table->foreign('nfce_id')->references('id')->on('pdvs')->onDelete('cascade');
+            $table->unsignedBigInteger('pdvs_id');
+            $table->foreign('pdvs_id')->references('id')->on('pdvs')->onDelete('cascade');
             $table->unsignedBigInteger('especie_id');
             $table->foreign('especie_id')->references('id')->on('payments')->onDelete('cascade');
             $table->decimal('valor_pago', 16,2);

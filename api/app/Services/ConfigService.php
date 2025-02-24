@@ -28,7 +28,8 @@ class ConfigService
             return response()->json([
                 'success' => false,
                 'message' => 'Um erro ocorreu durante a gravação das configurações',
-                'th' => $th->getMessage()
+                'th' => $th->getMessage(),
+                'line' => $th->getLine()
             ]);
         }
     }
@@ -39,14 +40,15 @@ class ConfigService
             $configs = $this->configHotelRepository->getConfigs();
             return response()->json([
                 'success' => true,
-                'config' => $configs[0]
+                'config' => $configs
             ]);
             
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,
                 'message' => 'Um erro ocorreu durante a gravação das configurações',
-                'th' => $th->getMessage()
+                'th' => $th->getMessage(),
+                'line' => $th->getLine()
             ]);
         }
     }

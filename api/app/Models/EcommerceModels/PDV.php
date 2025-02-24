@@ -4,9 +4,9 @@ namespace App\Models\EcommerceModels;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nfce extends Model
+class PDV extends Model
 {
-    protected $table = 'nfces';
+    protected $table = 'pdvs';
 
     protected $fillable = [
         'descricao',
@@ -15,8 +15,9 @@ class Nfce extends Model
         'valor_bruto',
         'valor_liquido',
         'valor_desconto',
+        'valor_acrescimo',
         'user_id',
-        'user',
+        'seller',
         'cancelada',
         'is_nfce_nm',
     ];

@@ -157,8 +157,10 @@ class HotelRepository implements HotelDetailContract
             ]);
             
         }
+
         Log::info("Vai criar as configs");
-        ConfigHotel::create();
+        $configs = ConfigHotel::create();
+        Log::info("Configurações: $configs");
 
         return $hotel;        
     }

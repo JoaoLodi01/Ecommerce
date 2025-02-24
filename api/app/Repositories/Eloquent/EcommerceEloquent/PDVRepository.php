@@ -4,31 +4,32 @@ namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\Customer;
 use App\Models\EcommerceModels\{
-    Nfce,
-    FormaPagamentoNfce,
+    PDV,
+    FormaPagamentoPDV,
     Payment,
     User,
-    CashRegister,
     Receive
 };
 
+use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
+use App\Repositories\Eloquent\CustomerRepository;
+
 use Illuminate\Support\Facades\Log;
 
-
-class NfceRepository
+class PDVRepository
 {
     public function __construct(
-        protected ConsumerRepository $consumerRepository,
+        protected CustomerRepository $customerRepository,
         protected CashRegisterRepository $cashRegisterRepository,
     )
     {
-        $this->consumerRepository = $consumerRepository;
+        $this->customerRepository = $customerRepository;
         $this->cashRegisterRepository = $cashRegisterRepository;
     }
 
     public function getAll(int $active){
-        Log::info("Vai buscar todas as NFC-e ativas da table = nfce");
-        return Nfce::where('active', $active)->get();
+        Log::info("Vai buscar todas as NFC-e ativas da table = PDV");
+        return PDV::where('active', $active)->get();
     }
 
     public function store(array $data){
@@ -44,7 +45,7 @@ class NfceRepository
         if($customer && $user && $paymentForm){
 
             Log::info("Vai criar NFC-e.");
-            $nfce = Nfce::create([
+            $pdv = PDV::create([
                 'cliente_id' => $customer->id,
                 'cliente' => $customer->name,
                 'valor_bruto' => $paymentForm->valor_bruto,
@@ -55,18 +56,18 @@ class NfceRepository
             ]);
 
             Log::info("Vai criar a forma de pagamento.");
-            $payment = FormaPagamentoNfce::create([
+            $payment = FormaPagamentoPDV::create([
                 'cod_especie' => $paymentForm->id,
                 'espécie' => $paymentForm->descricao,
-                'valor_bruto' => $nfce->valor_bruto,
-                'valor_liquido' => $nfce->valor_liquido,
-                'valor_desconto' => $nfce->valor_desconto,
+                'valor_bruto' => $pdv->valor_bruto,
+                'valor_liquido' => $pdv->valor_liquido,
+                'valor_desconto' => $pdv->valor_desconto,
             ]);
 
             Log::info("Update do Nº documento venda.");
-            $nfce->update([
-                'documento' => $nfce->documento + 1,
-                'descricao' => "VENDA NFC-E: $nfce->id",
+            $pdv->update([
+                'documento' => $pdv->documento + 1,
+                'descricao' => "VENDA NFC-E: $pdv->id",
             ]);
 
             Log::info("Update do Nº documento forma pagamento.");
@@ -75,7 +76,7 @@ class NfceRepository
             ]);
 
             Log::info("Vai salvar!");
-            $nfce->save();
+            $pdv->save();
             $payment->save();
 
         } else if (!$customer){
@@ -87,19 +88,18 @@ class NfceRepository
         }
 
         if ($paymentForm->tipolancamento === 'CAIXA'){
-
             Log::info("Vai criar registro no caixa");
-            $CashBox = CashRegister::create([
+            $cashBox = $this->cashRegisterRepository->create([
                 'cliente_id' => $customer->id,
                 'cliente' => $customer->name,
                 'especie_id' => $paymentForm->id,
                 'especie' => $paymentForm->descricao,
-                'valor_entrada' => $nfce->valor_liquido,
+                'valor_entrada' => $pdv->valor_liquido,
                 'valor_saída' => 0,
-                'cancelada' => 'NÃO',
                 'user_id' => $user->id,
                 'user' => $user->name,
             ], 201);
+            
         } else if ($paymentForm->tipolancamento === 'RECEBER'){
 
             Log::info("Vai criar registro no receber");
@@ -108,38 +108,43 @@ class NfceRepository
                 'cliente' => $customer->name,
                 'especie_id' => $paymentForm->id,
                 'especie' => $paymentForm->descricao,
-                'valor_parcela' => $nfce->valor_liquido,
-                'cancelada' => 'NÃO',
+                'valor_parcela' => $pdv->valor_liquido,
                 'user_id' => $user->id,
                 'user' => $user->name,
+
             ], 201);
         }
 
-        $CashBox?->update([
-            'saldo_real' => + $nfce->valor_liquido,
-        ]);
-        $CashBox->save();
+        if(isset($cashBox))
+        {
+            $cashBox?->update([
+                'saldo_real' => $cashBox->valor_entrda - $cashBox->valor_saida
+                
+            ]);
+
+            $cashBox->save();
+        }
 
         Log::info("Update origem NFC-e ou NOTA MANUAL");
-        if ($nfce->is_nfce_nm === 1){
-            $nfce->update([
+        if ($pdv->is_nfce_nm === 1){
+            $pdv->update([
                 'origem' => 'NFC-e',
             ], 200);
-        } else if ($nfce->is_nfce_nm === 0){
-            $nfce->update([
+        } else if ($pdv->is_nfce_nm === 0){
+            $pdv->update([
                 'origem' => 'NOTA MANUAL',
             ], 200);
         }
 
         Log::info("Vai salvar!");
-        $nfce->save();
+        $pdv->save();
     }
 
     public function update(array $data, int $id){
         Log::info("Buscando registro por ID");
-        $nfceID = Nfce::where('id', $id)->update($data, $id);
+        $pdv_id = PDV::where('id', $id)->update($data, $id);
 
-        if ($nfceID){
+        if ($pdv_id){
             Log::info("Registro atualizado com sucesso!");
             return response()->json([
                 'success' => true,
@@ -156,9 +161,9 @@ class NfceRepository
 
     public function delete(int $id){
         Log::info("Iniciando exclusão do registro");
-        $nfce = Nfce::find($id);
+        $pdv = PDV::find($id);
 
-        if (!$nfce){
+        if (!$pdv){
             Log::info("Registro não encontrado.");
             return response()->json([
                 'success' => false,
@@ -166,7 +171,7 @@ class NfceRepository
             ], 404);
         }
 
-        $nfce->update(['active' => 0]);
+        $pdv->update(['active' => 0]);
 
         Log::info("Registro desativado!");
         return response()->json([
