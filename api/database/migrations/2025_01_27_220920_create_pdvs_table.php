@@ -11,24 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cash_registers', function (Blueprint $table) {
+        Schema::create('pdvs', function (Blueprint $table) {
             $table->id();
-            $table->string('description', 200);
+            $table->string('descricao', 120);
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('cliente', 120);
-            $table->unsignedBigInteger('especie_id');
-            $table->foreign('especie_id')->references('id')->on('payments')->onDelete('cascade');;
-            $table->string('especie', 120);
-            $table->date('data_hora_cadastro');
-            $table->decimal('valor_entrada', 16,2)->nullable();
-            $table->decimal('valor_saida', 16,2)->nullable();
-            $table->decimal('saldo_real', 16,2)->nullable();
-            $table->string('origem', 120);
-            $table->boolean('cancelada', 1);
+            $table->decimal('valor_bruto', 16,2);
+            $table->decimal('valor_liquido', 16,2);
+            $table->decimal('valor_desconto', 16,2)->nullable();
+            $table->decimal('valor_acrescimo', 16,2)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('seller', 120);
+            $table->boolean('cancelada', 1)->default(0);
+            $table->boolean('is_nfce_nm', 1);
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
@@ -39,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cash_registers');
+        Schema::dropIfExists('pdvs');
     }
 };

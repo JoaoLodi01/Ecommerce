@@ -65,12 +65,16 @@
                 try {
                     const response = await axios.get(`${this.api}/config/config-hotel/get-config`);
                     const config = response.data.config
-                    
-                    this.form = {
-                        address_by_cep: !!config.address_by_cep,
-                        room_service_limit: Number(config.room_service_limit),
-                        partial_registration: !!config.partial_registration
-                    }
+    
+                    config.forEach(element => {
+                        this.form = {
+                            address_by_cep: !!element.address_by_cep,
+                            room_service_limit: Number(element.room_service_limit),
+                            partial_registration: !!element.partial_registration
+
+                        }
+
+                    });
 
                 } catch (error) {
                     console.log('Erro no getConfig()', error)

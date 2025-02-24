@@ -4,7 +4,8 @@ namespace App\Models\EcommerceModels;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ItensNfce extends Model
+class ItensPDV extends Model
 {
-    //
+    protected $table = '';
+    
 }

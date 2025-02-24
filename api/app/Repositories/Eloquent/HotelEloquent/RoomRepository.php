@@ -224,7 +224,7 @@ class RoomRepository implements RoomContract
 
             );
             
-            $this->cashRegisterRepository->store($cashRegister);
+            $this->cashRegisterRepository->create($cashRegister);
 
             return array(
                 'success' => true,

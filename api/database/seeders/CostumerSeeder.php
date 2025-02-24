@@ -3,17 +3,20 @@
 namespace Database\Seeders;
 
 use App\Models\Customer;
+use App\Models\CustomerCredit;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class ConsumerSeeder extends Seeder
+class CostumerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
+        $current = new Carbon();
         $consumers = [
             [
                 'name' => 'Teste 1',
@@ -40,7 +43,15 @@ class ConsumerSeeder extends Seeder
         ];
 
         foreach ($consumers as $consumer) {
-            Customer::create($consumer);
-        }
+            $customer = Customer::create($consumer);
+            
+            CustomerCredit::create([
+                'customer_id' => $customer->id,
+                'name' => $customer->name,
+                'current_credit' => 0,
+                'validate' => $current->addDays(30)
+
+            ]);
+        }        
     }
 }

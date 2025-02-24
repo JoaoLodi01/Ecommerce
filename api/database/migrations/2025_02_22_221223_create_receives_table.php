@@ -11,24 +11,27 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cash_registers', function (Blueprint $table) {
+        Schema::create('receives', function (Blueprint $table) {
             $table->id();
-            $table->string('description', 200);
+            $table->string('descricao', 200);
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('cliente', 120);
             $table->unsignedBigInteger('especie_id');
-            $table->foreign('especie_id')->references('id')->on('payments')->onDelete('cascade');;
+            $table->foreign('especie_id')->references('id')->on('payments')->onDelte('cascade');
             $table->string('especie', 120);
-            $table->date('data_hora_cadastro');
-            $table->decimal('valor_entrada', 16,2)->nullable();
-            $table->decimal('valor_saida', 16,2)->nullable();
-            $table->decimal('saldo_real', 16,2)->nullable();
+            $table->date('data_vencimento');
+            $table->integer('qtde_parcela');
+            $table->integer('numero_parcela');
+            $table->decimal('valor_parcela', 16,2);
+            $table->boolean('tipo_juros', 16,2);
+            $table->decimal('valor_juros', 16,2);
+            $table->decimal('valor_total');
             $table->string('origem', 120);
             $table->boolean('cancelada', 1);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('seller', 120);
+            $table->string('user');
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
@@ -39,6 +42,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cash_registers');
+        Schema::dropIfExists('receives');
     }
 };

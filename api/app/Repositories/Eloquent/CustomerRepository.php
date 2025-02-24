@@ -9,14 +9,20 @@ use Illuminate\Support\Facades\Hash;
 class CustomerRepository
 {
     public function getAll(int $active){
-        return Customer::where('active', $active)->get();
+        return Customer::where('active', $active)
+                        ->get();
 
     }
 
     public function findByID(int $id){
-        return CustomerCredit::join('customers', 'customers.id', 'customer_credits.customer_id')->where('customer_id', $id)->first();
+        return Customer::with('joinCredit')
+                        ->where('id', $id)
+                        ->first();
     }
-
+    /*return CustomerCredit::join('customers', 'customers.id', 'customer_credits.customer_id')
+                    ->where('customer_id', $id)
+                    ->first();*/
+    
     public function store(array $data){
         return Customer::create([
             'name' => $data['name'],
@@ -26,7 +32,8 @@ class CustomerRepository
     }
 
     public function update(array $data, int $id){
-        return Customer::where('id', $id)->update($data, $id);
+        return Customer::where('id', $id)
+                        ->update($data, $id);
     }
 
     public function delete(int $id){
