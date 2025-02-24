@@ -25,7 +25,7 @@ return new class extends Migration
             $table->decimal('valor_saida', 16,2)->nullable();
             $table->decimal('saldo_real', 16,2)->nullable();
             $table->string('origem', 120);
-            $table->boolean('cancelada', 1);
+            $table->boolean('cancelada', 1)->default(1);
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('seller', 120)->nullable();
