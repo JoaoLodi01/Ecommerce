@@ -2004,3 +2004,5 @@ Did you mean one of these?
 [2025-02-22 22:08:42] local.INFO: Chamou o IPController  
 [2025-02-22 22:08:42] local.INFO: Chamou o IPService  
 [2025-02-22 22:08:43] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-24 00:31:03] local.INFO: Chamou o IPController  
+[2025-02-24 00:31:03] local.INFO: Chamou o IPService  
