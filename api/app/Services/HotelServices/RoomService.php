@@ -102,6 +102,9 @@ class RoomService
 
     public function reservation(array $data, int $room_id)
     {
+        // Vai ser necessário conferir aqui se teve mais deu ma forma de pagamento
+        // Mas passando do mesmo modo uma array
+
         try {
             $result = 0;
             $formas = [];
@@ -118,7 +121,9 @@ class RoomService
                 }
             }    
         
-            return response()->json($this->roomRepository->reservation($formas, $result, $room_id));
+            return response()->json(
+                $this->roomRepository->reservation($formas, $result, $room_id)
+            );
             
         } catch (\Throwable $th) {
             return response()->json([

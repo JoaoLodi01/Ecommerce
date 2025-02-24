@@ -12,7 +12,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(payment, index) in payments" :key="payment.id">
-                            <td>{{ payment.descricao }}</td>
+                            <td>{{ payment.especie }}</td>
                             <td>
                                 <input
                                     type="number"
@@ -38,13 +38,8 @@
             <div class="" v-if="message">
                 {{ message }} <br>
 
-                
-
             </div>
-            <div v-if="message.errorMessage">
-                Valor pago: R$ {{ message.errorMessage }} <br>
-                Total faltante: R$ {{ message.errorMessage }}
-            </div>
+          
 
         </div>
     </div>
@@ -91,6 +86,7 @@ export default {
         async getPayments() {
             try {
                 const response = await axios.get(`${this.api}/ecommerce/payments/all`);
+                console.log(response.data)
                 this.payments = response.data;
                 
             } catch (error) {
@@ -101,7 +97,6 @@ export default {
         
         async finalizeSale() {
             this.isLoanding = true
-            this.errorMessage = null
             switch (this.typeOperation) {
                 case 'reservation':
                     console.log('Começou reserva')

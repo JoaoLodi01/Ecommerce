@@ -79,12 +79,11 @@
                             validate: Date(element.validate)
                         }
                     })
-                    console.log(this.customer)
+                    
                 } catch (error) {
                     console.error('Erro no getCustomerDetails', error)
                     
                 }
-
             },
 
             showConfig(){
@@ -95,7 +94,7 @@
         },
         
         components: {
-        Config
+            Config
         },
 
         mounted(){

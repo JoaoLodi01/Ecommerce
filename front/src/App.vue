@@ -15,13 +15,11 @@
       }
     },
     methods: {
-      async getIP()
-      {      
-        const response = await axios.get(`${this.api}/get-ip`);
-      }
+    
     },
     mounted(){ 
-      this.getIP()
+      const response = axios.get(`${this.api}/get-ip`);
+
     }
   }
 </script>
