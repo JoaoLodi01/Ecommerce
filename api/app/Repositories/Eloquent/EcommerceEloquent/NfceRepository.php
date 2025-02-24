@@ -29,13 +29,13 @@ class NfceRepository
 
     public function store(array $data){
         Log::info("Buscando cliente da venda.");
-        $customer = Customer::where('id', $data['id'])->first();
+        $customer = Customer::where('id', $data['customer_id'])->first();
 
         Log::info("Buscando usuário logado.");
-        $user = User::where('id', $data['id'])->first();
+        $user = User::where('id', $data['user_id'])->first();
 
         Log::info("Buscando espécie utilizada.");
-        $species = FormaPagamentoPDV::where('id', $data['id'])->first();
+        $species = FormaPagamentoPDV::where('id', $data['species_id'])->first();
 
         if($customer && $user && $species){
 
