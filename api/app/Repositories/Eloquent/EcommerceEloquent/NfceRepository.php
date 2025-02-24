@@ -8,6 +8,7 @@ use App\Models\EcommerceModels\FormaPagamentoPDV;
 use App\Models\EcommerceModels\Payment;
 use App\Models\EcommerceModels\PDV;
 use App\Models\EcommerceModels\User;
+use App\Repositories\Contracts\Nfce;
 use Illuminate\Support\Facades\Log;
 
 class NfceRepository
@@ -71,25 +72,51 @@ class NfceRepository
             $payment->save();
 
         } else if (!$customer){
-            return array('message' => 'Cliente não encontrado!');
+            return array('error' => 'Cliente não encontrado!');
         } else if (!$user){
-            return array('message' => 'Usuário não encontrado!');
+            return array('error' => 'Usuário não encontrado!');
         } else if (!$species){
-            return array('message' => 'Forma de pagamento não encontrada!');
+            return array('error' => 'Forma de pagamento não encontrada!');
         }
 
     }
 
     public function update(array $data, int $id){
-        Log::info("Caiu no update.");
-        return PDV::where('id', $id)->update($data, $id);
+        Log::info("Buscando por ID do registro.");
+        $nfceID = PDV::where('id', $id)->update($data);
+
+        if ($nfceID) {
+            Log::info("Registro atualizado com sucesso!");
+            return response()->json([
+                'success' => true,
+                'message' => 'Registro atualizado com sucesso!',
+            ], 200);
+        } else {
+            Log::info("Registro não encontrado.");
+            return response()->json([
+                'success' => false,
+                'error' => 'Registro não encontrado!',
+            ], 404);
+        }
     }
 
     public function delete(int $id){
-        Log::info("Caiu no delete");
-        return PDV::where('id', $id)->update([
-            'active' => 0,
-        ]);
+        Log::info("Iniciando exclusão do registro");
+        $nfceID = PDV::find($id);
+
+        if ($nfceID) {
+            Log::info("Registro desativado com sucesso!");
+            return response()->json([
+                'sucess' => true,
+                'message' => 'Registro atualizado com sucesso!',
+            ], 200);
+        } else {
+            Log::info("Registro não encontrado.");
+            return response()->json([
+                'success' => false,
+                'error' => 'Registro não encontrado!',
+            ], 404);
+        }
     }
 
 }
