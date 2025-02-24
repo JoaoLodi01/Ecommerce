@@ -14,21 +14,9 @@ class CashRegisterRepository
         return CashRegister::where('id', $params)->first();
     }
 
-    public function store(array $data){
-        $cashRegister = CashRegister::create([
-            'description' => $data['description'],
-            'valor_entrada' => $data['valor_entrada'] ?? null,
-            'valor_saida' => $data['valor_saida'] ?? null,
-            
-        ]);
-
-        $cashRegister->update([
-            'saldo_real' => $cashRegister->valor_entrada - $cashRegister->valor_saida
-
-        ]);
-        
-        return $cashRegister;
-        
+    public function create(array $data){
+        $cashRegister = CashRegister::create($data);
+        return $cashRegister;        
     }
 
     public function update(array $data, int $id){

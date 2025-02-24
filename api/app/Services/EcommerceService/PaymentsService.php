@@ -20,7 +20,7 @@ class PaymentsService{
         }
     }
 
-    public function findById(int $id){
+    public function findById(array $id){
         try {
             return response()->json([
                 'success' => true,

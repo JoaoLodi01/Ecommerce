@@ -11,6 +11,10 @@ import PaymentsForm from '@/views/components/PaymentsForm.vue';
 import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
 import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
 import RoomDetails from '@/views/Dashboard/Hotel/RoomDetails.vue';
+<<<<<<< HEAD
+=======
+import CustomerHome from '@/views/Dashboard/UserArea/CustomerHome.vue';
+>>>>>>> 802d3bb03fc86b4e442dcac5d0aa85d99a734f11
 
 const routes = [
   {
@@ -54,11 +58,24 @@ const routes = [
     component: PaymentsForm,
   },
 
-  // Hotel
+  {
+    path: '/user-area',
+    name: 'UserArea',
+    component: CustomerHome
+    
+  },
+
+  // Hotel routes
   {
     path: '/hotel',
     name: 'HotelDetails',
     component: HotelDetails
+
+  },
+  {
+    path: '/hotel/rooms',
+    name: 'RoomDetails',
+    component: RoomDetails
 
   },
   {
@@ -67,12 +84,6 @@ const routes = [
     component: CreateHotel
 
   },
-  {
-    path: '/hotel/rooms',
-    name: 'RoomDetails',
-    component: RoomDetails
-
-  }
 ]
 
 const router = createRouter({

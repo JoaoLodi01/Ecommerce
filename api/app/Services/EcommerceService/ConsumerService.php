@@ -4,7 +4,7 @@ namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\ConsumerRepository;
 
-class ConsumerService{
+class CostumerService{
 
     protected $consumerRepository;
 

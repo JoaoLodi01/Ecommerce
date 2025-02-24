@@ -8,25 +8,35 @@ use App\Models\HotelModels\{
     Room,
     Capacity,
     Reservation
-
 };
 
-use App\Models\EcommerceModels\User as Customer;
+use App\Repositories\Eloquent\EcommerceEloquent\{
+    PaymentsRepository,
+    CashRegisterRepository
+    
+};
+
+use App\Models\{
+    Customer,
+    CustomerCredit
+    
+};
 
 use App\Repositories\Contracts\HotelContract\RoomContract;
-use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-use App\Repositories\Eloquent\EcommerceEloquent\PaymentsRepository;
-use Illuminate\Support\Facades\Log;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 class RoomRepository implements RoomContract
 {
     public function __construct(
         protected PaymentsRepository $paymentsRepository,
-        protected CashRegisterRepository $cashRegisterRepository
+        protected CashRegisterRepository $cashRegisterRepository,
+        protected HotelRepository $hotelRepository
     )
     {
         $this->paymentsRepository = $paymentsRepository;
         $this->paymentsRepository = $paymentsRepository;
+        $this->hotelRepository = $hotelRepository;
     }
     public function allRooms(int $active)
     {
@@ -150,54 +160,135 @@ class RoomRepository implements RoomContract
 
     public function reservation(array $formas, float $total, int $roomID)
     {
-        $room = $this->find($roomID);
-        $customer = $this->findCustomer(1);
-        Reservation::create([
-            'user_id' => $customer->id,
-            'name' => $customer->name,
-            'room_id' => $room->number_room
-            
-        ]);
-
-        Log::info('Vai procurar o quarto');
         
-        if($room)
+        Log::info('Vai procurar o quarto');
+        $room = $this->find($roomID);
+
+        Log::info('Vai procurar o cliente');
+        $customer = $this->findCustomer(1);
+
+        Log::info('Vai procurar a(s) formas de pagamento');
+        $forms = $this->paymentsRepository->findByID($formas);
+
+        Log::info('Vai buscar o hotel');
+        $hotel = $this->hotelRepository->find(1);
+
+        if(
+            $total > $room->price_for_night 
+            && $customer 
+            && $forms
+            && $hotel
+
+        )
         {
+            Log::info("Valor informado: R$ $total, maior que o valor do quarto: $room->price_for_night");
+            Reservation::create([
+                'customer_id' => $customer->id,
+                'name' => $customer->name,
+                'room_id' => $room->number_room
+                
+            ]);
+            
+            $room->update([
+                'reserved' => 1
+        
+            ]);
+            
+            if(count($forms) > 1)
+            {
+                Log::info('Teve mais de uma especie informada');
+                Log::info('Quantia ' . count($forms));
+                for ($i= 0; $i < count($forms); $i++) { 
+                    Log::info('Contador for ' . $i);
+                    $cashRegister = array(
+                        'description' => 'Reserva de Hotel',
+                        'cliente_id' => $customer->id,
+                        'cliente' => $customer->name,
+                        'especie_id' => $i,
+                        'especie' => $forms[$i]->especie,
+                        'valor_entrada' => $total,
+                        'valor_saida' => 0,
+                        'origem' => 'Reserva Hotel'
+        
+                    );
+                }
+                return $cashRegister;
+
+            }
+            
+            $this->cashRegisterRepository->create($cashRegister);
+
+            return array(
+                'success' => true,
+                'message' => 'Reserva concluida',
+                'bigger' => true,
+                'extra_amount' => (float) $total - $room->price_for_night
+            
+            );
+
+        }
+        
+        if($total === $room->price_for_night && $customer && $forms)
+        {
+            Reservation::create([
+                'customer_id' => $customer->id,
+                'name' => $customer->name,
+                '' => $room->number_room
+                
+            ]);
+    
             Log::info('Quarto encontrado' . $room);
             $room->update([
                 'reserved' => 1
-    
+        
             ]);
-
-        }
-
-        $forms = $this->paymentsRepository->findByID($formas);
-        return $forms; // vai retornar todas as formas de pagamento usadas
-        if($forms)
-        {
+    
             $cashRegister = array(
                 'description' => 'Reserva de Hotel',
+                'cliente_id' => $customer->id,
+                'cliente' => $customer->name,
+                'especie_id' => 1,
                 'valor_entrada' => $total,
-                'valor_saida' => 0
+                'valor_saida' => 0,
+                'origem' => 'Reserva Hotel'
 
             );
             
-            $this->cashRegisterRepository->store($cashRegister);
+            $this->cashRegisterRepository->create($cashRegister);
 
             return array(
-                'formas' => $forms,
-                'total' => $total,
-                'cashRegister' => $cashRegister
+                'success' => true,
+                'message' => 'Reserva concluida',
+                'bigger' => false
+            
             );
-            //return 
         }
+
+        return array(
+            'success' => false,
+            'errorMessage' => 'O valor pago é menor que o valor do quarto',
+            'amount_paid' => $total,
+            'remaining' => $room->price_for_night - $total,
+            
+        );
     }
 
-    public function countActive(object $room, int $room_id)
+    public function createCredit(object $customer, float $credit) {
+        $current = new Carbon();
+        $credit = CustomerCredit::create([
+            'customer_id' => $customer->id,
+            'name' => $customer->name,
+            'current_credit' => $credit,
+            'validate' => $current->addDays(30)
+
+        ]);
+    }
+
+    public function countActive(object $room, int $roomID)
     {
         Log::info("Chamou o countActive");
         return $room->where('active', 1)
-                    ->where('room_id', $room_id)
+                    ->where('room_id', $roomID)
                     ->count('active');
         
     }
@@ -214,7 +305,6 @@ class RoomRepository implements RoomContract
     public function findByRoomID(string $id)
     {
         Log::info("Vai procurar o quarto pelo número dele");
-        //->get();
         return Room::where('room_id', $id)->first();
 
     }
@@ -241,5 +331,11 @@ class RoomRepository implements RoomContract
         return DetailRooms::where('id', $id)->update([
             'active' => 0
         ]); // Desativa o quarto
+    }
+
+    public function checkReservation(int $customerID)
+    {
+        return Reservation::where('customer_id', $customerID)->first();
+
     }
 }

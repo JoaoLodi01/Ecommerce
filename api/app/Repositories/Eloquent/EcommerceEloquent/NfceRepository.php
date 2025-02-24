@@ -80,10 +80,12 @@ class NfceRepository
     }
 
     public function update(array $data, int $id){
+        Log::info("Caiu no update.");
         return Nfce::where('id', $id)->update($data, $id);
     }
 
     public function delete(int $id){
+        Log::info("Caiu no delete");
         return Nfce::where('id', $id)->update([
             'active' => 0,
         ]);

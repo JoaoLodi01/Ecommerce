@@ -100,8 +100,11 @@ class RoomService
         }
     }
 
-    public function reservation(array $data, int $roomID)
+    public function reservation(array $data, int $room_id)
     {
+        // Vai ser necessário conferir aqui se teve mais deu ma forma de pagamento
+        // Mas passando do mesmo modo uma array
+
         try {
             $result = 0;
             $formas = [];
@@ -118,7 +121,9 @@ class RoomService
                 }
             }    
         
-            return response()->json($this->roomRepository->reservation($formas, $result, $roomID));
+            return response()->json(
+                $this->roomRepository->reservation($formas, $result, $room_id)
+            );
             
         } catch (\Throwable $th) {
             return response()->json([
@@ -129,5 +134,12 @@ class RoomService
 
             ], 400);
         }
+    }
+
+    public function checkReservation(int $customer_id)
+    {
+        return response()->json([
+            'customer' => $this->roomRepository->checkReservation($customer_id) ? $this->roomRepository->checkReservation($customer_id) : null
+        ]);
     }
 }
