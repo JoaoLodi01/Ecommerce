@@ -19,10 +19,10 @@ class CashRegister extends Model
         'valor_saida',
         'saldo_real',
         'origem',
-        'cancelada',
         'user_id',
         'seller',
-        'active',
+        'canceled',
+        
     ];
 
     protected $hidden = [
