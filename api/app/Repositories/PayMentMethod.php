@@ -3,8 +3,8 @@
 namespace App\Repositories;
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class PayMentMethod
 {
@@ -14,33 +14,26 @@ class PayMentMethod
     {
         $this->cashRegisterRepository = $cashRegisterRepository;
     }
-
-    public function payment(
-        array $formsPayment, 
-        array $payment,
-        object $customer, 
-        string $description,
-        string $origem
-    )
+    public function payment(array $formsPayment, array $payment, object $customer)
     {
         $currantDate = new Carbon();
-        Log::info('-- Inicio do registro no caixa, PayMentMethod.php, linha 27 --');
+        Log::info('-- Inicio do registro no caixa, PayMentMethod.php, linha 15 --');
         Log::info('Possui mais de uma espécie informada: ' . count($formsPayment));
         $cashRegisters = [];
-        for ($i=0; $i < count($formsPayment); $i++)
+        for ($i=0; $i < count($payment); $i++)
         { // Percore todo o array enviado de valores
-            Log::info('$payment[$i] linha - 32: i = ' . $i);
-            
+            Log::info('$payment[$i] linha - 204: i = ' . $i);
+            Log::info($payment[$i]);
             if($payment[$i] > 0)
             {
                 foreach ($formsPayment as $form) 
                 {
                     Log::info('Vai pegar as posições maiores que zero, vezes: ' . $i);
-                    Log::info('formsPayment linha - 36: ');
-                    Log::info('ID linha - 40: ' . $form);
+                    Log::info('formsPayment linha 26 - : ');
+                    Log::info('ID linha 27 - : ' . $form);
 
                     $cashRegisters[] = array(
-                        'description' => $description,
+                        'description' => 'Reserva de Hotel',
                         'cliente_id' => $customer->id,
                         'cliente' => $customer->name,
                         'especie_id' => $form->id,
@@ -51,16 +44,16 @@ class PayMentMethod
                         'saldo_real' => 0,
                         'user_id' => 1,
                         'seller' => 'aa',
-                        'origem' => $origem
+                        'origem' => 'Reserva Hotel'
                     
-                    );     
-                }                
+                    );  
+                }
             }                         
+            Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 52 --');
+          
         }    
-        Log::info('Dados de envio: ');
-        Log::info($cashRegisters);
-        $this->cashRegisterRepository->create($cashRegisters);
-        
-        Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 63 --');
+        $this->cashRegisterRepository->create($cashRegisters);        
     }
+    
+    
 }

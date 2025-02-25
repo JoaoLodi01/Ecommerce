@@ -40,7 +40,6 @@ class RoomRepository implements RoomContract
         $this->paymentsRepository = $paymentsRepository;
         $this->hotelRepository = $hotelRepository;
     }
-    
     public function allRooms(int $active)
     {
         Log::info("Vai buscar todos os quartos ativos do hotel table = DetailRooms");
@@ -200,8 +199,8 @@ class RoomRepository implements RoomContract
             
             if(count($formsPayment) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $formsPayment
             {
-                $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'reserva hotel');
-                Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 236 --');
+                $this->payMentMethod->payment($formsPayment, $payment, $customer);
+                Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 203 --');
             }
 
             $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'reserva hotel');
