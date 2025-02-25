@@ -1,0 +1,6 @@
+[2025-02-25 01:59:10] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-25 01:59:10] local.INFO: Chamou o IPController  
+[2025-02-25 01:59:10] local.INFO: Chamou o IPService  
+[2025-02-25 01:59:19] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-25 01:59:20] local.INFO: Chamou o IPController  
+[2025-02-25 01:59:20] local.INFO: Chamou o IPService  
