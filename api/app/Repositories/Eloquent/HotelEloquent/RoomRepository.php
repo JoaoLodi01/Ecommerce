@@ -23,15 +23,17 @@ use App\Models\{
 };
 
 use App\Repositories\Contracts\HotelContract\RoomContract;
-
+use App\Repositories\PayMentMethod;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+
 class RoomRepository implements RoomContract
 {
     public function __construct(
         protected PaymentsRepository $paymentsRepository,
         protected CashRegisterRepository $cashRegisterRepository,
-        protected HotelRepository $hotelRepository
+        protected HotelRepository $hotelRepository,
+        protected PayMentMethod $payMentMethod
     )
     {
         $this->paymentsRepository = $paymentsRepository;
@@ -197,17 +199,19 @@ class RoomRepository implements RoomContract
             
             if(count($formsPayment) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $formsPayment
             {
+                /*Log::info('-- Inicio do registro no caixa, RoomRepository.php, linha 200 --');
                 Log::info('Possui mais de uma espécie informada: ' . count($formsPayment));
                 $cashRegisters = [];
-                for ($i=0; $i < count($payment); $i++) { // Percore todo o array enviado de valores
-                    Log::info('$payment[$i] linha - 203: i = ' . $i);
+                for ($i=1; $i < count($payment); $i++) { // Percore todo o array enviado de valores
+                    Log::info('$payment[$i] linha - 204: i = ' . $i);
                     Log::info($payment[$i]);
                     if($payment[$i] > 0)
-                        Log::info('Vai pegar as posições maiores que zero');
-                        foreach ($formsPayment as $form) {
+                    {
+                        foreach ($formsPayment as $form) 
                         {
-                            Log::info('formsPayment linha 210 - : ');
-                            Log::info('ID linha 211 - : ' . $form);
+                            Log::info('Vai pegar as posições maiores que zero, vezes: ' . $i);
+                            Log::info('formsPayment linha 211 - : ');
+                            Log::info('ID linha 212 - : ' . $form);
                         
                             $cashRegisters[] = array(
                                 'description' => 'Reserva de Hotel',
@@ -223,13 +227,15 @@ class RoomRepository implements RoomContract
                                 'seller' => 'aa',
                                 'origem' => 'Reserva Hotel'
                     
-                            );               
-                            $this->cashRegisterRepository->create($cashRegisters);
-                            
+                            );                 
                         }
                     }                         
-                }
+                }*/
+                //$this->cashRegisterRepository->create($cashRegisters);
+                $this->payMentMethod->payment($formsPayment, $payment, $customer);
+                Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 233 --');
             }
+
             return array(
                 'success' => true,
                 'message' => 'Reserva concluida',

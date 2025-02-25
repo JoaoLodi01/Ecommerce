@@ -1,0 +1,99 @@
+[2025-02-25 17:27:57] local.INFO: Vai procurar o quarto  
+[2025-02-25 17:27:57] local.INFO: Vai procurar o cliente  
+[2025-02-25 17:27:57] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-25 17:27:57] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-25 17:27:57] local.INFO: Vai buscar o hotel  
+[2025-02-25 17:27:57] local.INFO: Valor informado: R$ 47, maior que o valor do quarto: 33  
+[2025-02-25 17:27:57] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-25 17:27:57] local.INFO: Possui mais de uma espécie informada: 2  
+[2025-02-25 17:27:57] local.INFO: $payment[$i] linha - 204: i = 0  
+[2025-02-25 17:27:57] local.INFO: 34  
+[2025-02-25 17:27:57] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-25 17:27:57] local.INFO: formsPayment linha 26 - :   
+[2025-02-25 17:27:57] local.INFO: ID linha 27 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-25 17:27:57] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-25 17:27:57] local.INFO: formsPayment linha 26 - :   
+[2025-02-25 17:27:57] local.INFO: ID linha 27 - : {"id":5,"especie":"Cart\u00e3o de D\u00e9bito","tipo_lancamento":"Receber","active":1}  
+[2025-02-25 17:27:57] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 52 --  
+[2025-02-25 17:27:57] local.INFO: $payment[$i] linha - 204: i = 1  
+[2025-02-25 17:27:57] local.INFO:   
+[2025-02-25 17:27:57] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 52 --  
+[2025-02-25 17:27:57] local.INFO: $payment[$i] linha - 204: i = 2  
+[2025-02-25 17:27:57] local.INFO:   
+[2025-02-25 17:27:57] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 52 --  
+[2025-02-25 17:27:57] local.INFO: $payment[$i] linha - 204: i = 3  
+[2025-02-25 17:27:57] local.INFO:   
+[2025-02-25 17:27:57] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 52 --  
+[2025-02-25 17:27:57] local.INFO: $payment[$i] linha - 204: i = 4  
+[2025-02-25 17:27:57] local.INFO: 13  
+[2025-02-25 17:27:57] local.INFO: Vai pegar as posições maiores que zero, vezes: 4  
+[2025-02-25 17:27:57] local.INFO: formsPayment linha 26 - :   
+[2025-02-25 17:27:57] local.INFO: ID linha 27 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-25 17:27:57] local.INFO: Vai pegar as posições maiores que zero, vezes: 4  
+[2025-02-25 17:27:57] local.INFO: formsPayment linha 26 - :   
+[2025-02-25 17:27:57] local.INFO: ID linha 27 - : {"id":5,"especie":"Cart\u00e3o de D\u00e9bito","tipo_lancamento":"Receber","active":1}  
+[2025-02-25 17:27:57] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 52 --  
+[2025-02-25 17:27:57] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-25 17:27:57] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-25',
+    'valor_entrada' => 34,
+    'valor_saida' => 0,
+    'saldo_real' => 0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+  1 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 5,
+    'especie' => 'Cartão de Débito',
+    'data_hora_cadastro' => '2025-02-25',
+    'valor_entrada' => 13,
+    'valor_saida' => 0,
+    'saldo_real' => 0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+  2 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-25',
+    'valor_entrada' => 34,
+    'valor_saida' => 0,
+    'saldo_real' => 0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+  3 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 5,
+    'especie' => 'Cartão de Débito',
+    'data_hora_cadastro' => '2025-02-25',
+    'valor_entrada' => 13,
+    'valor_saida' => 0,
+    'saldo_real' => 0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-25 17:27:57] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 233 --  
