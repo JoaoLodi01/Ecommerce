@@ -170,7 +170,7 @@ class RoomRepository implements RoomContract
         Log::info('Vai procurar a(s) formas de pagamento');
         $formsPayment = $this->paymentsRepository->findByID($forms);
         // formsPayment - apenas as espécies
-        return $formsPayment;
+
         Log::info('Vai buscar o hotel');
         $hotel = $this->hotelRepository->find(1);
         $currantDate = new Carbon();
@@ -195,47 +195,41 @@ class RoomRepository implements RoomContract
         
             ]);
             
-            if(count($forms) >= 2)
+            if(count($formsPayment) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $formsPayment
             {
+                Log::info('Possui mais de uma espécie informada: ' . count($formsPayment));
                 $cashRegisters = [];
-                Log::info('Teve mais de uma especie informada');
-                Log::info('Quantia formsPayment: ' . count($formsPayment));
-                for ($i= 0; $i < count($forms); $i++) {
-                    Log::info('Contador for i: ' . $i);
-                    Log::info($formsPayment);
-                    Log::info('ID: ' . $formsPayment[$i]['id']);
-                    for ($t=0; $t < count($payment); $t++) { 
-                        Log::info('Contador for t: ' . $t);
-                        if($payment[$t] > 0)
+                for ($i=0; $i < count($payment); $i++) { // Percore todo o array enviado de valores
+                    Log::info('$payment[$i] linha - 203: i = ' . $i);
+                    Log::info($payment[$i]);
+                    if($payment[$i] > 0)
+                        Log::info('Vai pegar as posições maiores que zero');
+                        foreach ($formsPayment as $form) {
                         {
-                            Log::info('payment ' . $payment[$t]);
+                            Log::info('formsPayment linha 210 - : ');
+                            Log::info('ID linha 211 - : ' . $form);
+                        
                             $cashRegisters[] = array(
                                 'description' => 'Reserva de Hotel',
                                 'cliente_id' => $customer->id,
                                 'cliente' => $customer->name,
-                                'especie_id' => $formsPayment[$t]['id'],
-                                'especie' => $formsPayment[$t]['especie'],
+                                'especie_id' => $form->id,
+                                'especie' => $form->especie,
                                 'data_hora_cadastro' => $currantDate->format('Y-m-d'),
-                                'valor_entrada' => $payment[$t],
+                                'valor_entrada' => $payment[$form->id - 1],
                                 'valor_saida' => 0,
                                 'saldo_real' => 0,
                                 'user_id' => 1,
                                 'seller' => 'aa',
                                 'origem' => 'Reserva Hotel'
-                
-                            );    
-
-                            Log::info('Dados: ');
-                            Log::info($cashRegisters);
+                    
+                            );               
+                            $this->cashRegisterRepository->create($cashRegisters);
                             
                         }
-                    }
+                    }                         
                 }
             }
-            
-            return $cashRegisters;
-            $this->cashRegisterRepository->create($cashRegisters);
-
             return array(
                 'success' => true,
                 'message' => 'Reserva concluida',
@@ -243,7 +237,6 @@ class RoomRepository implements RoomContract
                 'extra_amount' => (float) $total - $room->price_for_night
             
             );
-
         }
         
         if(
