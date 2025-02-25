@@ -30,7 +30,7 @@ class PayMentMethod
         for ($i=0; $i < count($formsPayment); $i++)
         { // Percore todo o array enviado de valores
             Log::info('$payment[$i] linha - 32: i = ' . $i);
-            Log::info($payment[$i]);
+            
             if($payment[$i] > 0)
             {
                 foreach ($formsPayment as $form) 
@@ -59,7 +59,8 @@ class PayMentMethod
         }    
         Log::info('Dados de envio: ');
         Log::info($cashRegisters);
-        $this->cashRegisterRepository->create($cashRegisters);    
+        $this->cashRegisterRepository->create($cashRegisters);
+        
         Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 63 --');
     }
 }

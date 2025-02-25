@@ -1,0 +1,175 @@
+[2025-02-25 23:51:08] local.INFO: Vai procurar o quarto  
+[2025-02-25 23:51:08] local.INFO: Vai procurar o cliente  
+[2025-02-25 23:51:08] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-25 23:51:08] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-25 23:51:08] local.INFO: Vai buscar o hotel  
+[2025-02-25 23:51:08] local.INFO: Valor informado: R$ 40, maior que o valor do quarto: 28  
+[2025-02-25 23:51:08] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 27 --  
+[2025-02-25 23:51:08] local.INFO: Possui mais de uma espécie informada: 2  
+[2025-02-25 23:51:08] local.INFO: $payment[$i] linha - 32: i = 0  
+[2025-02-25 23:51:08] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-25 23:51:08] local.INFO: formsPayment linha - 36:   
+[2025-02-25 23:51:08] local.INFO: ID linha - 40: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-25 23:51:08] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-25 23:51:08] local.INFO: formsPayment linha - 36:   
+[2025-02-25 23:51:08] local.INFO: ID linha - 40: {"id":5,"especie":"Cart\u00e3o de D\u00e9bito","tipo_lancamento":"Receber","active":1}  
+[2025-02-25 23:51:08] local.INFO: $payment[$i] linha - 32: i = 1  
+[2025-02-25 23:51:08] local.INFO: Dados de envio:   
+[2025-02-25 23:51:08] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-25',
+    'valor_entrada' => 28,
+    'valor_saida' => 0,
+    'saldo_real' => 0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'reserva hotel',
+  ),
+  1 => 
+  array (
+    'description' => 'Reserva hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 5,
+    'especie' => 'Cartão de Débito',
+    'data_hora_cadastro' => '2025-02-25',
+    'valor_entrada' => 12,
+    'valor_saida' => 0,
+    'saldo_real' => 0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'reserva hotel',
+  ),
+)  
+[2025-02-25 23:51:08] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-25 23:51:08] local.INFO: Quantia de dados: 2  
+[2025-02-25 23:51:08] local.INFO: Dados linha 24  
+[2025-02-25 23:51:08] local.INFO: array (
+  'description' => 'Reserva hotel',
+  'cliente_id' => 1,
+  'cliente' => 'Teste 1',
+  'especie_id' => 1,
+  'especie' => 'Dinheiro',
+  'data_hora_cadastro' => '2025-02-25',
+  'valor_entrada' => 28,
+  'valor_saida' => 0,
+  'saldo_real' => 0,
+  'user_id' => 1,
+  'seller' => 'aa',
+  'origem' => 'reserva hotel',
+)  
+[2025-02-25 23:51:08] local.INFO: cashBox  
+[2025-02-25 23:51:08] local.INFO: {"description":"Reserva hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-25","valor_entrada":28,"valor_saida":0,"saldo_real":0,"user_id":1,"seller":"aa","origem":"reserva hotel","id":1}  
+[2025-02-25 23:51:08] local.INFO: O valor total vai ser alterado  
+[2025-02-25 23:51:08] local.INFO: cashBox: {"description":"Reserva hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-25","valor_entrada":28,"valor_saida":0,"saldo_real":0,"user_id":1,"seller":"aa","origem":"reserva hotel","id":1}ID: 1  
+[2025-02-25 23:51:08] local.INFO: Dados linha 24  
+[2025-02-25 23:51:08] local.INFO: array (
+  'description' => 'Reserva hotel',
+  'cliente_id' => 1,
+  'cliente' => 'Teste 1',
+  'especie_id' => 5,
+  'especie' => 'Cartão de Débito',
+  'data_hora_cadastro' => '2025-02-25',
+  'valor_entrada' => 12,
+  'valor_saida' => 0,
+  'saldo_real' => 0,
+  'user_id' => 1,
+  'seller' => 'aa',
+  'origem' => 'reserva hotel',
+)  
+[2025-02-25 23:51:08] local.INFO: cashBox  
+[2025-02-25 23:51:08] local.INFO: {"description":"Reserva hotel","cliente_id":1,"cliente":"Teste 1","especie_id":5,"especie":"Cart\u00e3o de D\u00e9bito","data_hora_cadastro":"2025-02-25","valor_entrada":12,"valor_saida":0,"saldo_real":0,"user_id":1,"seller":"aa","origem":"reserva hotel","id":2}  
+[2025-02-25 23:51:08] local.INFO: O valor total vai ser alterado  
+[2025-02-25 23:51:08] local.INFO: cashBox: {"description":"Reserva hotel","cliente_id":1,"cliente":"Teste 1","especie_id":5,"especie":"Cart\u00e3o de D\u00e9bito","data_hora_cadastro":"2025-02-25","valor_entrada":12,"valor_saida":0,"saldo_real":0,"user_id":1,"seller":"aa","origem":"reserva hotel","id":2}ID: 2  
+[2025-02-25 23:51:08] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 63 --  
+[2025-02-25 23:51:08] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 236 --  
+[2025-02-25 23:51:08] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 27 --  
+[2025-02-25 23:51:08] local.INFO: Possui mais de uma espécie informada: 2  
+[2025-02-25 23:51:08] local.INFO: $payment[$i] linha - 32: i = 0  
+[2025-02-25 23:51:08] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-25 23:51:08] local.INFO: formsPayment linha - 36:   
+[2025-02-25 23:51:08] local.INFO: ID linha - 40: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-25 23:51:08] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-25 23:51:08] local.INFO: formsPayment linha - 36:   
+[2025-02-25 23:51:08] local.INFO: ID linha - 40: {"id":5,"especie":"Cart\u00e3o de D\u00e9bito","tipo_lancamento":"Receber","active":1}  
+[2025-02-25 23:51:08] local.INFO: $payment[$i] linha - 32: i = 1  
+[2025-02-25 23:51:08] local.INFO: Dados de envio:   
+[2025-02-25 23:51:08] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-25',
+    'valor_entrada' => 28,
+    'valor_saida' => 0,
+    'saldo_real' => 0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'reserva hotel',
+  ),
+  1 => 
+  array (
+    'description' => 'Reserva hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 5,
+    'especie' => 'Cartão de Débito',
+    'data_hora_cadastro' => '2025-02-25',
+    'valor_entrada' => 12,
+    'valor_saida' => 0,
+    'saldo_real' => 0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'reserva hotel',
+  ),
+)  
+[2025-02-25 23:51:08] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-25 23:51:08] local.INFO: Quantia de dados: 2  
+[2025-02-25 23:51:08] local.INFO: Dados linha 24  
+[2025-02-25 23:51:08] local.INFO: array (
+  'description' => 'Reserva hotel',
+  'cliente_id' => 1,
+  'cliente' => 'Teste 1',
+  'especie_id' => 1,
+  'especie' => 'Dinheiro',
+  'data_hora_cadastro' => '2025-02-25',
+  'valor_entrada' => 28,
+  'valor_saida' => 0,
+  'saldo_real' => 0,
+  'user_id' => 1,
+  'seller' => 'aa',
+  'origem' => 'reserva hotel',
+)  
+[2025-02-25 23:51:08] local.INFO: cashBox  
+[2025-02-25 23:51:08] local.INFO: {"description":"Reserva hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-25","valor_entrada":28,"valor_saida":0,"saldo_real":0,"user_id":1,"seller":"aa","origem":"reserva hotel","id":3}  
+[2025-02-25 23:51:08] local.INFO: O valor total vai ser alterado  
+[2025-02-25 23:51:08] local.INFO: cashBox: {"description":"Reserva hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-25","valor_entrada":28,"valor_saida":0,"saldo_real":0,"user_id":1,"seller":"aa","origem":"reserva hotel","id":3}ID: 3  
+[2025-02-25 23:51:08] local.INFO: Dados linha 24  
+[2025-02-25 23:51:08] local.INFO: array (
+  'description' => 'Reserva hotel',
+  'cliente_id' => 1,
+  'cliente' => 'Teste 1',
+  'especie_id' => 5,
+  'especie' => 'Cartão de Débito',
+  'data_hora_cadastro' => '2025-02-25',
+  'valor_entrada' => 12,
+  'valor_saida' => 0,
+  'saldo_real' => 0,
+  'user_id' => 1,
+  'seller' => 'aa',
+  'origem' => 'reserva hotel',
+)  
+[2025-02-25 23:51:08] local.INFO: cashBox  
+[2025-02-25 23:51:08] local.INFO: {"description":"Reserva hotel","cliente_id":1,"cliente":"Teste 1","especie_id":5,"especie":"Cart\u00e3o de D\u00e9bito","data_hora_cadastro":"2025-02-25","valor_entrada":12,"valor_saida":0,"saldo_real":0,"user_id":1,"seller":"aa","origem":"reserva hotel","id":4}  
+[2025-02-25 23:51:08] local.INFO: O valor total vai ser alterado  
+[2025-02-25 23:51:08] local.INFO: cashBox: {"description":"Reserva hotel","cliente_id":1,"cliente":"Teste 1","especie_id":5,"especie":"Cart\u00e3o de D\u00e9bito","data_hora_cadastro":"2025-02-25","valor_entrada":12,"valor_saida":0,"saldo_real":0,"user_id":1,"seller":"aa","origem":"reserva hotel","id":4}ID: 4  
+[2025-02-25 23:51:08] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 63 --  
