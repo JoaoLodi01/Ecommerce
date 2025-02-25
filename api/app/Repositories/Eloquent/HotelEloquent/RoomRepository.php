@@ -30,11 +30,13 @@ class RoomRepository implements RoomContract
 {
     public function __construct(
         protected PaymentsRepository $paymentsRepository,
-        protected CashRegisterRepository $cashRegisterRepository
+        protected CashRegisterRepository $cashRegisterRepository,
+        protected HotelRepository $hotelRepository
     )
     {
         $this->paymentsRepository = $paymentsRepository;
         $this->paymentsRepository = $paymentsRepository;
+        $this->hotelRepository = $hotelRepository;
     }
     public function allRooms(int $active)
     {
@@ -156,40 +158,83 @@ class RoomRepository implements RoomContract
         return $room;
     }
 
-    public function reservation(array $formas, float $total, int $roomID)
+    public function reservation(array $forms, array $payment, float $total, int $roomID)
     {
+        // $payment = array do pagemento todo
         Log::info('Vai procurar o quarto');
         $room = $this->find($roomID);
+        
         Log::info('Vai procurar o cliente');
         $customer = $this->findCustomer(1);
+        
         Log::info('Vai procurar a(s) formas de pagamento');
-        $forms = $this->paymentsRepository->findByID($formas);
+        $formsPayment = $this->paymentsRepository->findByID($forms);
+        // formsPayment - apenas as espécies
+        return $formsPayment;
+        Log::info('Vai buscar o hotel');
+        $hotel = $this->hotelRepository->find(1);
+        $currantDate = new Carbon();
+        if(
+            $total > $room->price_for_night 
+            && $customer 
+            && $formsPayment
+            && $hotel
 
-        if($total > $room->price_for_night && $customer && $forms)
+        )
         {
-            Log::info("Valor informado maior: R$ $total, maior que o total: $room->price_for_night");
-            /*Reservation::create([
+            Log::info("Valor informado: R$ $total, maior que o valor do quarto: $room->price_for_night");
+            Reservation::create([
                 'customer_id' => $customer->id,
                 'name' => $customer->name,
                 'room_id' => $room->number_room
                 
             ]);
-    
-            Log::info('Quarto encontrado' . $room);
+            
             $room->update([
                 'reserved' => 1
         
             ]);
-    
-            $cashRegister = array(
-                'description' => 'Reserva de Hotel',
-                'valor_entrada' => $total,
-                'valor_saida' => 0,
-                'origem' => 'Reserva Hotel'
-
-            );
             
-            $this->cashRegisterRepository->store($cashRegister);*/
+            if(count($forms) >= 2)
+            {
+                $cashRegisters = [];
+                Log::info('Teve mais de uma especie informada');
+                Log::info('Quantia formsPayment: ' . count($formsPayment));
+                for ($i= 0; $i < count($forms); $i++) {
+                    Log::info('Contador for i: ' . $i);
+                    Log::info($formsPayment);
+                    Log::info('ID: ' . $formsPayment[$i]['id']);
+                    for ($t=0; $t < count($payment); $t++) { 
+                        Log::info('Contador for t: ' . $t);
+                        if($payment[$t] > 0)
+                        {
+                            Log::info('payment ' . $payment[$t]);
+                            $cashRegisters[] = array(
+                                'description' => 'Reserva de Hotel',
+                                'cliente_id' => $customer->id,
+                                'cliente' => $customer->name,
+                                'especie_id' => $formsPayment[$t]['id'],
+                                'especie' => $formsPayment[$t]['especie'],
+                                'data_hora_cadastro' => $currantDate->format('Y-m-d'),
+                                'valor_entrada' => $payment[$t],
+                                'valor_saida' => 0,
+                                'saldo_real' => 0,
+                                'user_id' => 1,
+                                'seller' => 'aa',
+                                'origem' => 'Reserva Hotel'
+                
+                            );    
+
+                            Log::info('Dados: ');
+                            Log::info($cashRegisters);
+                            
+                        }
+                    }
+                }
+            }
+            
+            return $cashRegisters;
+            $this->cashRegisterRepository->create($cashRegisters);
 
             return array(
                 'success' => true,
@@ -201,7 +246,12 @@ class RoomRepository implements RoomContract
 
         }
         
-        if($total === $room->price_for_night && $customer && $forms)
+        if(
+            $total === $room->price_for_night 
+            && $customer 
+            && $formsPayment
+            && $hotel
+        )
         {
             Reservation::create([
                 'customer_id' => $customer->id,
@@ -218,6 +268,9 @@ class RoomRepository implements RoomContract
     
             $cashRegister = array(
                 'description' => 'Reserva de Hotel',
+                'cliente_id' => $customer->id,
+                'cliente' => $customer->name,
+                'especie_id' => 1,
                 'valor_entrada' => $total,
                 'valor_saida' => 0,
                 'origem' => 'Reserva Hotel'
@@ -254,11 +307,11 @@ class RoomRepository implements RoomContract
         ]);
     }
 
-    public function countActive(object $room, int $room_id)
+    public function countActive(object $room, int $roomID)
     {
         Log::info("Chamou o countActive");
         return $room->where('active', 1)
-                    ->where('room_id', $room_id)
+                    ->where('room_id', $roomID)
                     ->count('active');
         
     }
@@ -303,9 +356,9 @@ class RoomRepository implements RoomContract
         ]); // Desativa o quarto
     }
 
-    public function checkReservation(int $customer_id)
+    public function checkReservation(int $customerID)
     {
-        return Reservation::where('customer_id', $customer_id)->first();
+        return Reservation::where('customer_id', $customerID)->first();
 
     }
 }

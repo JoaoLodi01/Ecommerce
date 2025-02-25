@@ -1,0 +1,3 @@
+Bom dia Adri, tudo certo? Ontem a noite eu estava pensando, que pode ser dado uma atenção maior para a página de donwloads da empresa, possui diversas coisas que podem ser úteis, mas em contra partida possui algumas coisas que estão desatualizadas, largadas e que acaba trazendo um ar de fundão de empresa, se fosse o caso de que não viesse ao público, retira do site e deixe somente o que realmente o que importa, o instalador do Xremote e do SG Master, já que o MEI não vai se encontrar mais em uso, e o ideal é migrar para o Master.
+
+Porém não seria algo interessante em manter como é hoje, uma página sem formatação alguma e que está lá só pra ter um link de download, creio que seria interessante dar uma atenção para ela. ( me candidatando por estudo web :D)
