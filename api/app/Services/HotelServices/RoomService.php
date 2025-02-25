@@ -122,7 +122,7 @@ class RoomService
             }    
 
             return response()->json(
-                $this->roomRepository->reservation($forms, $total, $room_id)
+                $this->roomRepository->reservation($forms, $data, $total, $room_id)
             );
             
         } catch (\Throwable $th) {
