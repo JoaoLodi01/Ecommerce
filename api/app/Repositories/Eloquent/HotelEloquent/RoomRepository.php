@@ -175,7 +175,7 @@ class RoomRepository implements RoomContract
 
         Log::info('Vai buscar o hotel');
         $hotel = $this->hotelRepository->find(1);
-
+        $currantDate = new Carbon();
         if(
             $total > $room->price_for_night 
             && $customer 
@@ -202,8 +202,6 @@ class RoomRepository implements RoomContract
                 $this->payMentMethod->payment($formsPayment, $payment, $customer);
                 Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 203 --');
             }
-
-            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'reserva hotel');
 
             return array(
                 'success' => true,
@@ -234,14 +232,23 @@ class RoomRepository implements RoomContract
         
             ]);
     
-            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'reserva hotel');
-            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 239 --');
+            $cashRegister = array(
+                'description' => 'Reserva de Hotel',
+                'cliente_id' => $customer->id,
+                'cliente' => $customer->name,
+                'especie_id' => 1,
+                'valor_entrada' => $total,
+                'valor_saida' => 0,
+                'origem' => 'Reserva Hotel'
+
+            );
+            
+            $this->cashRegisterRepository->create($cashRegister);
 
             return array(
                 'success' => true,
                 'message' => 'Reserva concluida',
-                'bigger' => false,
-                'extra_amount' => (float) $total - $room->price_for_night
+                'bigger' => false
             
             );
         }

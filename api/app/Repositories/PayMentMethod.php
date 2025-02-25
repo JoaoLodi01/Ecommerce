@@ -20,10 +20,9 @@ class PayMentMethod
         Log::info('-- Inicio do registro no caixa, PayMentMethod.php, linha 15 --');
         Log::info('Possui mais de uma espécie informada: ' . count($formsPayment));
         $cashRegisters = [];
-        for ($i=0; $i < count($payment); $i++)
+        for ($i=0; $i < count($formsPayment); $i++)
         { // Percore todo o array enviado de valores
-            Log::info('$payment[$i] linha - 204: i = ' . $i);
-            Log::info($payment[$i]);
+            Log::info('$payment[$i] linha - 32: i = ' . $i);            
             if($payment[$i] > 0)
             {
                 foreach ($formsPayment as $form) 
@@ -52,8 +51,9 @@ class PayMentMethod
             Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 52 --');
           
         }    
-        $this->cashRegisterRepository->create($cashRegisters);        
-    }
-    
-    
+        Log::info('Dados de envio: ');
+        Log::info($cashRegisters);
+        $this->cashRegisterRepository->create($cashRegisters);    
+        Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 63 --');
+    }    
 }
