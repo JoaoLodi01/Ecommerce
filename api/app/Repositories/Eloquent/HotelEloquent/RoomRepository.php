@@ -170,12 +170,11 @@ class RoomRepository implements RoomContract
         $customer = $this->findCustomer(1);
         
         Log::info('Vai procurar a(s) formas de pagamento');
-        $formsPayment = $this->paymentsRepository->findByID($forms);
-        // formsPayment - apenas as espécies
-
+        $formsPayment = $this->paymentsRepository->findByID($forms); // formsPayment - apenas as espécies
+        
         Log::info('Vai buscar o hotel');
         $hotel = $this->hotelRepository->find(1);
-        $currantDate = new Carbon();
+        
         if(
             $total > $room->price_for_night 
             && $customer 
@@ -197,11 +196,10 @@ class RoomRepository implements RoomContract
         
             ]);
             
-            if(count($formsPayment) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $formsPayment
-            {
-                $this->payMentMethod->payment($formsPayment, $payment, $customer);
-                Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 203 --');
-            }
+            // Se der completamente errado, retornar para >= 2
+            Log::info('Quantia $formsPayment: ' . count($formsPayment));
+            $this->payMentMethod->payment($formsPayment, $payment, $customer);
+            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 202 --');
 
             return array(
                 'success' => true,
