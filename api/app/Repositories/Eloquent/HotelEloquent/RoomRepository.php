@@ -198,7 +198,7 @@ class RoomRepository implements RoomContract
             
             // Se der completamente errado, retornar para >= 2
             Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 200 --');
-            $this->payMentMethod->payment($formsPayment, $payment, $customer);
+            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'reserva_hotel');
             Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 202 --');
 
             return array(
@@ -231,7 +231,7 @@ class RoomRepository implements RoomContract
             ]);
     
             Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 233 --');
-            $this->payMentMethod->payment($formsPayment, $payment, $customer);
+            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'reserva_hotel');
             Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 235 --');
             
             return array(

@@ -14,9 +14,9 @@ class PayMentMethod
     {
         $this->cashRegisterRepository = $cashRegisterRepository;
     }
-    public function payment(array $formsPayment, array $payment, object $customer)
+    public function payment(array $formsPayment, array $payment, object $customer, string $description, string $origem)
     {
-        Log::info('-- Inicio do registro no caixa, PayMentMethod.php, linha 15 --');
+        Log::info('-- Inicio do registro no caixa, PayMentMethod.php, linha 19 --');
         Log::info('Quantia $formsPayment: ' . count($formsPayment));
         $currantDate = new Carbon();
         $cashRegisters = [];
@@ -34,9 +34,9 @@ class PayMentMethod
                     {
                         Log::info($payment[$i]);
                         Log::info('ID linha 27 - : ' . $form);
-    
+                        
                         $cashRegisters[] = array(
-                            'description' => 'Reserva de Hotel',
+                            'description' => $description,
                             'cliente_id' => $customer->id,
                             'cliente' => $customer->name,
                             'especie_id' => $form->id,
@@ -47,7 +47,7 @@ class PayMentMethod
                             'saldo_real' => $payment[$form->id - 1],
                             'user_id' => 1,
                             'seller' => 'aa',
-                            'origem' => 'Reserva Hotel'
+                            'origem' => $origem
                         
                         );  
                     }
@@ -57,7 +57,7 @@ class PayMentMethod
             Log::info('Terminou de montar o corpo do caixa: ');
             Log::info('Dados de envio: ');
             Log::info($cashRegisters);
-            $this->cashRegisterRepository->create($cashRegisters);
+            $this->cashRegisterRepository->createTheView($cashRegisters);
             Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 58 --');
             return;
         }
@@ -98,7 +98,7 @@ class PayMentMethod
         Log::info('Dados: ');
         Log::info($cashRegisters);
 
-        $this->cashRegisterRepository->create($cashRegisters);
+        $this->cashRegisterRepository->createTheView($cashRegisters);
         Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 100 --');
         return;
     }    

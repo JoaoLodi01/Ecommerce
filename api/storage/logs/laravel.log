@@ -820,3 +820,15 @@
 [2025-02-27 01:38:45] local.INFO: Novo valor: R$ 626.00 + 267.00 = 893  
 [2025-02-27 01:38:45] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
 [2025-02-27 01:38:45] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 10:39:39] local.INFO: Chamou o IPController  
+[2025-02-27 10:39:39] local.INFO: Chamou o IPService  
+[2025-02-27 10:41:25] local.INFO: Chamou o IPController  
+[2025-02-27 10:41:25] local.INFO: Chamou o IPService  
+[2025-02-27 10:41:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-02-27 10:41:25] local.INFO: O hotel foi encontrado  
+[2025-02-27 10:41:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-02-27 10:41:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-02-27 10:41:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-02-27 10:41:25] local.INFO: O hotel foi encontrado  
+[2025-02-27 10:41:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-02-27 10:41:25] local.INFO: Opção desativada, não vai alterar o endereço  
