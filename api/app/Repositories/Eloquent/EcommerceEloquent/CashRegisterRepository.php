@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\CashRegister;
 use Illuminate\Support\Facades\Log;
@@ -16,33 +16,6 @@ class CashRegisterRepository
     }
 
     public function create(array $cashRegisters){
-        Log::info('Vai iniciar criação no caixa, dados:');
-        Log::info('Quantia: '. count($cashRegisters));
-        Log::info($cashRegisters);
-
-        if(count($cashRegisters) >= 2)
-        {
-            Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
-            for ($i=0; $i < count($cashRegisters); $i++)
-            { 
-                Log::info('Vai chamar o updateCurrentCash($cashRegisters[$i]), dados x: ' . $i);
-                Log::info($cashRegisters[$i]);
-                CashRegister::create($cashRegisters[$i]);
-                $this->updateCurrentCash();
-            }
-        } 
-        
-        if(count($cashRegisters) <= 1)
-        {
-            Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
-            CashRegister::create($cashRegisters[0]);
-            $this->updateCurrentCash();
-        }
-    
-        return;
-    }
-
-    public function createInTerm(array $cashRegisters){
         Log::info('Vai iniciar criação no caixa, dados:');
         Log::info('Quantia: '. count($cashRegisters));
         Log::info($cashRegisters);
