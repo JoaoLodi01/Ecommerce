@@ -13,15 +13,17 @@ class ProductsRepository
     public function search(array $data)
     {
         return Products::where('active', 1)
-                        ->where(function ($query) use ($data) {
-                            $query->where('name', 'like', '%' . $data['name'] . '%');
+            ->where(function ($query) use ($data) {
+                if (!empty($data['produto'])) { 
+                    $query->where('produto', 'like', '%' . $data['produto'] . '%');
+                }
 
-                        if (isset($data['id']) && !empty($data['id'])) {
-                            $query->orWhere('id', $data['id']);
-                        }
-                    })
-                    ->paginate(10);
-    }
+                if (!empty($data['id'])) {
+                    $query->orWhere('id', $data['id']);
+                }
+            })
+            ->paginate(10);
+}
 
     public function findByID(int $id){
         return Products::where('id', $id)->first();
