@@ -102,27 +102,27 @@ class RoomService
 
     public function reservation(array $data, int $room_id)
     {
-        // Vai ser necessário conferir aqui se teve mais deu ma forma de pagamento
-        // Mas passando do mesmo modo uma array
-
         try {
-            $result = 0;
-            $formas = [];
+            $total = 0;
+            $forms = [];
 
             foreach ($data as $value) {
-                $result += $value;
-                
-            }
+                $total += $value;
 
+            }
+            
             for ($i=0; $i < count($data); $i++) { 
+                // posição do array com o valor > 0
+                // Vai ser o ID da espécie
                 if($data[$i] > 0)
                 {
-                    $formas[] = $i + 1;
+                    $forms[] = $i + 1; 
+                    
                 }
             }    
-        
+
             return response()->json(
-                $this->roomRepository->reservation($formas, $result, $room_id)
+                $this->roomRepository->reservation($forms, $data, $total, $room_id)
             );
             
         } catch (\Throwable $th) {

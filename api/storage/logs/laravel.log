@@ -1,0 +1,834 @@
+[2025-02-27 01:23:46] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:24:37] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:24:37] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:24:37] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:24:37] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:24:37] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:24:42] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:24:42] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:24:42] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:24:42] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:24:42] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:24:42] local.INFO: Valor informado: R$ 23, maior que o valor do quarto: 22  
+[2025-02-27 01:24:42] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:24:42] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:24:42] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:24:42] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:24:42] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:24:42] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:24:42] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:24:42] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:24:42] local.INFO: Dados:   
+[2025-02-27 01:24:42] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 23,
+    'valor_saida' => 0,
+    'saldo_real' => 23,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:24:42] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:24:42] local.INFO: Quantia: 1  
+[2025-02-27 01:24:42] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 23,
+    'valor_saida' => 0,
+    'saldo_real' => 23,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:24:42] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:24:42] local.INFO: Não foi encontrado um registro anterior do segundo registro no caixa  
+[2025-02-27 01:24:42] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:24:42] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:24:53] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:24:54] local.INFO: Chamou o IPController  
+[2025-02-27 01:24:54] local.INFO: Chamou o IPService  
+[2025-02-27 01:24:55] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-27 01:25:09] local.INFO: Chamou o IPController  
+[2025-02-27 01:25:09] local.INFO: Chamou o IPService  
+[2025-02-27 01:25:09] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-27 01:27:37] local.INFO: Chamou o IPController  
+[2025-02-27 01:27:37] local.INFO: Chamou o IPService  
+[2025-02-27 01:27:37] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-27 01:28:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:28:24] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:28:24] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:28:24] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:28:24] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:28:24] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:28:24] local.INFO: Valor informado: R$ 26, maior que o valor do quarto: 25  
+[2025-02-27 01:28:24] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:28:24] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:28:24] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:28:24] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:28:24] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:28:24] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:28:24] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:28:24] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:28:24] local.INFO: Dados:   
+[2025-02-27 01:28:24] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 26,
+    'valor_saida' => 0,
+    'saldo_real' => 26,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:28:24] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:28:24] local.INFO: Quantia: 1  
+[2025-02-27 01:28:24] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 26,
+    'valor_saida' => 0,
+    'saldo_real' => 26,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:28:24] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:28:24] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:28:24] local.INFO: {"id":2,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"26.00","valor_saida":"0.00","saldo_real":"26.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:28:24] local.INFO: $cashBox  
+[2025-02-27 01:28:24] local.INFO: {"id":1,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"23.00","valor_saida":"0.00","saldo_real":"23.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:28:24] local.INFO: Novo valor: R$ 23.00 + 26.00 = 49  
+[2025-02-27 01:28:24] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:28:24] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:28:42] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:28:54] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:28:54] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:28:54] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:28:54] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:28:54] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:28:54] local.INFO: Valor informado: R$ 265, maior que o valor do quarto: 25  
+[2025-02-27 01:28:54] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:28:54] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:28:54] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:28:54] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:28:54] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:28:54] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:28:54] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:28:54] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:28:54] local.INFO: Dados:   
+[2025-02-27 01:28:54] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 265,
+    'valor_saida' => 0,
+    'saldo_real' => 265,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:28:54] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:28:54] local.INFO: Quantia: 1  
+[2025-02-27 01:28:54] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 265,
+    'valor_saida' => 0,
+    'saldo_real' => 265,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:28:54] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:28:54] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:28:54] local.INFO: {"id":3,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"265.00","valor_saida":"0.00","saldo_real":"265.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:28:54] local.INFO: $cashBox  
+[2025-02-27 01:28:54] local.INFO: {"id":2,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"26.00","valor_saida":"0.00","saldo_real":"49.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:28:54] local.INFO: Novo valor: R$ 26.00 + 265.00 = 291  
+[2025-02-27 01:28:54] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:28:54] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:29:49] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:29:55] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:30:40] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:30:49] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:30:54] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:31:14] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:31:19] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:31:28] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:31:31] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:31:31] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:31:31] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:31:31] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:31:31] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:31:31] local.INFO: Valor informado: R$ 431, maior que o valor do quarto: 25  
+[2025-02-27 01:31:31] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:31:31] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:31:31] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:31:31] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:31:31] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:31:31] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:31:31] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:31:31] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:31:31] local.INFO: Dados:   
+[2025-02-27 01:31:31] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 431,
+    'valor_saida' => 0,
+    'saldo_real' => 431,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:31:31] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:31:31] local.INFO: Quantia: 1  
+[2025-02-27 01:31:31] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 431,
+    'valor_saida' => 0,
+    'saldo_real' => 431,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:31:31] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:31:31] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:31:31] local.INFO: {"id":4,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"431.00","valor_saida":"0.00","saldo_real":"431.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:31:31] local.INFO: $cashBox  
+[2025-02-27 01:31:31] local.INFO: {"id":3,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"265.00","valor_saida":"0.00","saldo_real":"314.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:31:31] local.INFO: Novo valor: R$ 265.00 + 431.00 = 696  
+[2025-02-27 01:31:31] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:31:31] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:33:16] local.INFO: Chamou o IPController  
+[2025-02-27 01:33:16] local.INFO: Chamou o IPService  
+[2025-02-27 01:33:17] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-27 01:33:18] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:33:24] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:34:14] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:34:14] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:34:14] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:34:14] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:34:14] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:34:14] local.INFO: Valor informado: R$ 26, maior que o valor do quarto: 25  
+[2025-02-27 01:34:14] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:34:14] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:34:14] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:34:14] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:34:14] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:34:14] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:34:14] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:34:14] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:34:14] local.INFO: Dados:   
+[2025-02-27 01:34:14] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 26,
+    'valor_saida' => 0,
+    'saldo_real' => 26,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:34:14] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:34:14] local.INFO: Quantia: 1  
+[2025-02-27 01:34:14] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 26,
+    'valor_saida' => 0,
+    'saldo_real' => 26,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:34:14] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:34:14] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:34:14] local.INFO: {"id":5,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"26.00","valor_saida":"0.00","saldo_real":"26.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:34:14] local.INFO: $cashBox  
+[2025-02-27 01:34:14] local.INFO: {"id":4,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"431.00","valor_saida":"0.00","saldo_real":"745.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:34:14] local.INFO: Novo valor: R$ 431.00 + 26.00 = 457  
+[2025-02-27 01:34:14] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:34:14] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:34:22] local.INFO: Chamou o IPController  
+[2025-02-27 01:34:22] local.INFO: Chamou o IPService  
+[2025-02-27 01:34:22] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-27 01:34:50] local.INFO: Chamou o IPController  
+[2025-02-27 01:34:50] local.INFO: Chamou o IPService  
+[2025-02-27 01:34:50] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-27 01:34:53] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:34:57] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:34:57] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:34:57] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:34:57] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:34:57] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:34:57] local.INFO: Valor informado: R$ 2666, maior que o valor do quarto: 25  
+[2025-02-27 01:34:57] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:34:57] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:34:57] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:34:57] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:34:57] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:34:57] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:34:57] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:34:57] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:34:57] local.INFO: Dados:   
+[2025-02-27 01:34:57] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 2666,
+    'valor_saida' => 0,
+    'saldo_real' => 2666,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:34:57] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:34:57] local.INFO: Quantia: 1  
+[2025-02-27 01:34:57] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 2666,
+    'valor_saida' => 0,
+    'saldo_real' => 2666,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:34:57] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:34:57] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:34:57] local.INFO: {"id":6,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"2666.00","valor_saida":"0.00","saldo_real":"2666.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:34:57] local.INFO: $cashBox  
+[2025-02-27 01:34:57] local.INFO: {"id":5,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"26.00","valor_saida":"0.00","saldo_real":"771.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:34:57] local.INFO: Novo valor: R$ 26.00 + 2666.00 = 2692  
+[2025-02-27 01:34:57] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:34:57] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:35:30] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:35:35] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:35:35] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:35:35] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:35:35] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:35:35] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:35:35] local.INFO: Valor informado: R$ 26, maior que o valor do quarto: 25  
+[2025-02-27 01:35:35] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:35:35] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:35:35] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:35:35] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:35:35] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:35:35] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:35:35] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:35:35] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:35:35] local.INFO: Dados:   
+[2025-02-27 01:35:35] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 26,
+    'valor_saida' => 0,
+    'saldo_real' => 26,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:35:35] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:35:35] local.INFO: Quantia: 1  
+[2025-02-27 01:35:35] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 26,
+    'valor_saida' => 0,
+    'saldo_real' => 26,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:35:35] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:35:35] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:35:35] local.INFO: {"id":7,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"26.00","valor_saida":"0.00","saldo_real":"26.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:35:35] local.INFO: $cashBox  
+[2025-02-27 01:35:35] local.INFO: {"id":6,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"2666.00","valor_saida":"0.00","saldo_real":"3437.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:35:35] local.INFO: Novo valor: R$ 2666.00 + 26.00 = 2692  
+[2025-02-27 01:35:35] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:35:35] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:35:52] local.INFO: Chamou o IPController  
+[2025-02-27 01:35:52] local.INFO: Chamou o IPService  
+[2025-02-27 01:35:52] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-27 01:36:25] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:36:27] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:36:27] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:36:27] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:36:27] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:36:27] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:36:27] local.INFO: Valor informado: R$ 67, maior que o valor do quarto: 25  
+[2025-02-27 01:36:27] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:36:27] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:36:27] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:36:27] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:36:27] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:36:27] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:36:27] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:36:27] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:36:27] local.INFO: Dados:   
+[2025-02-27 01:36:27] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 67,
+    'valor_saida' => 0,
+    'saldo_real' => 67,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:36:27] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:36:27] local.INFO: Quantia: 1  
+[2025-02-27 01:36:27] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 67,
+    'valor_saida' => 0,
+    'saldo_real' => 67,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:36:27] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:36:27] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:36:27] local.INFO: {"id":8,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"67.00","valor_saida":"0.00","saldo_real":"67.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:36:27] local.INFO: $cashBox  
+[2025-02-27 01:36:27] local.INFO: {"id":7,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"26.00","valor_saida":"0.00","saldo_real":"3463.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:36:27] local.INFO: Novo valor: R$ 26.00 + 67.00 = 93  
+[2025-02-27 01:36:27] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:36:27] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:36:53] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:37:02] local.INFO: Chamou o IPController  
+[2025-02-27 01:37:02] local.INFO: Chamou o IPService  
+[2025-02-27 01:37:03] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-02-27 01:37:06] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:37:08] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:37:09] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:37:09] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:37:09] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:37:09] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:37:09] local.INFO: Valor informado: R$ 26, maior que o valor do quarto: 25  
+[2025-02-27 01:37:09] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:37:09] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:37:09] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:37:09] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:37:09] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:37:09] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:37:09] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:37:09] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:37:09] local.INFO: Dados:   
+[2025-02-27 01:37:09] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 26,
+    'valor_saida' => 0,
+    'saldo_real' => 26,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:37:09] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:37:09] local.INFO: Quantia: 1  
+[2025-02-27 01:37:09] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 26,
+    'valor_saida' => 0,
+    'saldo_real' => 26,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:37:09] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:37:09] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:37:09] local.INFO: {"id":9,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"26.00","valor_saida":"0.00","saldo_real":"26.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:37:09] local.INFO: $cashBox  
+[2025-02-27 01:37:09] local.INFO: {"id":8,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"67.00","valor_saida":"0.00","saldo_real":"3530.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:37:09] local.INFO: Novo valor: R$ 67.00 + 26.00 = 93  
+[2025-02-27 01:37:09] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:37:09] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:37:22] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:37:26] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:37:38] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:37:38] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:37:38] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:37:38] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:37:38] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:37:38] local.INFO: Valor informado: R$ 27, maior que o valor do quarto: 25  
+[2025-02-27 01:37:38] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:37:38] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:37:38] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:37:38] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:37:38] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:37:38] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:37:38] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:37:38] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:37:38] local.INFO: Dados:   
+[2025-02-27 01:37:38] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 27,
+    'valor_saida' => 0,
+    'saldo_real' => 27,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:37:38] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:37:38] local.INFO: Quantia: 1  
+[2025-02-27 01:37:38] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 27,
+    'valor_saida' => 0,
+    'saldo_real' => 27,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:37:38] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:37:38] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:37:38] local.INFO: {"id":10,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"27.00","valor_saida":"0.00","saldo_real":"27.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:37:38] local.INFO: $cashBox  
+[2025-02-27 01:37:38] local.INFO: {"id":9,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"26.00","valor_saida":"0.00","saldo_real":"3556.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:37:38] local.INFO: Novo valor: R$ 26.00 + 27.00 = 53  
+[2025-02-27 01:37:38] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:37:38] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:37:58] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:38:01] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:38:01] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:38:01] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:38:01] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:38:01] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:38:02] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:38:03] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:38:03] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:38:03] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:38:03] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:38:03] local.INFO: Valor informado: R$ 267, maior que o valor do quarto: 25  
+[2025-02-27 01:38:03] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:38:03] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:38:03] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:38:03] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:38:03] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:38:03] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:38:03] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:38:03] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:38:03] local.INFO: Dados:   
+[2025-02-27 01:38:03] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 267,
+    'valor_saida' => 0,
+    'saldo_real' => 267,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:38:03] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:38:03] local.INFO: Quantia: 1  
+[2025-02-27 01:38:03] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 267,
+    'valor_saida' => 0,
+    'saldo_real' => 267,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:38:03] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:38:03] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:38:03] local.INFO: {"id":11,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"267.00","valor_saida":"0.00","saldo_real":"267.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:38:03] local.INFO: $cashBox  
+[2025-02-27 01:38:03] local.INFO: {"id":10,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"27.00","valor_saida":"0.00","saldo_real":"3583.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:38:03] local.INFO: Novo valor: R$ 27.00 + 267.00 = 294  
+[2025-02-27 01:38:03] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:38:03] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:38:29] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:38:32] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:38:32] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:38:32] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:38:32] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:38:32] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:38:32] local.INFO: Valor informado: R$ 626, maior que o valor do quarto: 25  
+[2025-02-27 01:38:32] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:38:32] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:38:32] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:38:32] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:38:32] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:38:32] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:38:32] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:38:32] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:38:32] local.INFO: Dados:   
+[2025-02-27 01:38:32] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 626,
+    'valor_saida' => 0,
+    'saldo_real' => 626,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:38:32] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:38:32] local.INFO: Quantia: 1  
+[2025-02-27 01:38:32] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 626,
+    'valor_saida' => 0,
+    'saldo_real' => 626,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:38:32] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:38:32] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:38:32] local.INFO: {"id":12,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"626.00","valor_saida":"0.00","saldo_real":"626.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:38:32] local.INFO: $cashBox  
+[2025-02-27 01:38:32] local.INFO: {"id":11,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"267.00","valor_saida":"0.00","saldo_real":"3850.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:38:32] local.INFO: Novo valor: R$ 267.00 + 626.00 = 893  
+[2025-02-27 01:38:32] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:38:32] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 01:38:39] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:38:42] local.INFO: Buscando todas as espécies na table: payments  
+[2025-02-27 01:38:45] local.INFO: Vai procurar o quarto  
+[2025-02-27 01:38:45] local.INFO: Vai procurar o cliente  
+[2025-02-27 01:38:45] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-02-27 01:38:45] local.INFO: Buscando a espécie pelo ID.  
+[2025-02-27 01:38:45] local.INFO: Vai buscar o hotel  
+[2025-02-27 01:38:45] local.INFO: Valor informado: R$ 267, maior que o valor do quarto: 25  
+[2025-02-27 01:38:45] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 200 --  
+[2025-02-27 01:38:45] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 15 --  
+[2025-02-27 01:38:45] local.INFO: Quantia $formsPayment: 1  
+[2025-02-27 01:38:45] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-02-27 01:38:45] local.INFO: $payment[$i] linha - 71: i = 0  
+[2025-02-27 01:38:45] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-02-27 01:38:45] local.INFO: ID linha 77 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-02-27 01:38:45] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-02-27 01:38:45] local.INFO: Dados:   
+[2025-02-27 01:38:45] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 267,
+    'valor_saida' => 0,
+    'saldo_real' => 267,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:38:45] local.INFO: Vai iniciar criação no caixa, dados:  
+[2025-02-27 01:38:45] local.INFO: Quantia: 1  
+[2025-02-27 01:38:45] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva de Hotel',
+    'cliente_id' => 1,
+    'cliente' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'data_hora_cadastro' => '2025-02-27',
+    'valor_entrada' => 267,
+    'valor_saida' => 0,
+    'saldo_real' => 267,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'Reserva Hotel',
+  ),
+)  
+[2025-02-27 01:38:45] local.INFO: Vai criar 1 registro:   
+[2025-02-27 01:38:45] local.INFO: $lastCashBoxashBox  
+[2025-02-27 01:38:45] local.INFO: {"id":13,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"267.00","valor_saida":"0.00","saldo_real":"267.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:38:45] local.INFO: $cashBox  
+[2025-02-27 01:38:45] local.INFO: {"id":12,"description":"Reserva de Hotel","cliente_id":1,"cliente":"Teste 1","especie_id":1,"especie":"Dinheiro","data_hora_cadastro":"2025-02-27","valor_entrada":"626.00","valor_saida":"0.00","saldo_real":"4476.00","origem":"Reserva Hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-02-27 01:38:45] local.INFO: Novo valor: R$ 626.00 + 267.00 = 893  
+[2025-02-27 01:38:45] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 100 --  
+[2025-02-27 01:38:45] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 202 --  
+[2025-02-27 10:39:39] local.INFO: Chamou o IPController  
+[2025-02-27 10:39:39] local.INFO: Chamou o IPService  
+[2025-02-27 10:41:25] local.INFO: Chamou o IPController  
+[2025-02-27 10:41:25] local.INFO: Chamou o IPService  
+[2025-02-27 10:41:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-02-27 10:41:25] local.INFO: O hotel foi encontrado  
+[2025-02-27 10:41:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-02-27 10:41:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-02-27 10:41:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-02-27 10:41:25] local.INFO: O hotel foi encontrado  
+[2025-02-27 10:41:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-02-27 10:41:25] local.INFO: Opção desativada, não vai alterar o endereço  

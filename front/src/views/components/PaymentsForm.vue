@@ -68,6 +68,13 @@
 
         </div>
     </div>
+
+    <div v-if="bigger">
+        <h3>Pagamento efetuado maior que o valor do quarto</h3>
+        <h3>Deseja gerar crédito no valor de: R$ {{extraAmount }}?</h3>
+        <button @click="generateCredit(true, extraAmount)">Sim</button>
+        <button @click="generateCredit(false)">Não</button>
+    </div>
 </template>
 
 <script>
@@ -80,11 +87,13 @@ export default {
             paymentsValues: [],
             message: null,
             isLoanding: false,
+            bigger: false,
+            extraAmount: 0,
             api: process.env.VUE_APP_API_URL,
 
         };
     },
-
+    emits: ['close'],
     props: {
         show: {
             type: Boolean,
@@ -141,7 +150,12 @@ export default {
                     
                     this.isLoanding = !this.isLoanding
 
-                    console.log('Retorno response', response)
+                    const reservation = response.data
+                    if(reservation.bigger === true)
+                    {
+                        this.bigger = true
+                        this.extraAmount = reservation.extraAmount
+                    }
 
                     break;
             
@@ -160,7 +174,26 @@ export default {
             
         },
 
+        generateCredit(option, extraAmount)
+        {
+            console.log(`Deseja gerar crédito no valor de: R$ ${extraAmount}?`, option)
+            if(option === true && extraAmount )
+            {
+                console.log('Quis');   
+            } 
+            
+            if(option === false && !extraAmount) {
+                console.log('Não quis');
+                this.closeOperation()
+            }
+        },
+
         cancelOperation(){
+            this.$emit("close")
+
+        },
+
+        closeOperation(){
             this.$emit("close")
 
         }

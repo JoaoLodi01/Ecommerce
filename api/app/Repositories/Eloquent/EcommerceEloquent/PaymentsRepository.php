@@ -19,8 +19,8 @@ class PaymentsRepository
             $result[] = Payment::where('id', $i)->first();
             
         }
-        return $result;
         
+        return $result;
     }
 
     public function store(array $data){
