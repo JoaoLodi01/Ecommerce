@@ -28,7 +28,7 @@ class CashRegisterRepository
                 Log::info('Vai chamar o updateCurrentCash($cashRegisters[$i]), dados x: ' . $i);
                 Log::info($cashRegisters[$i]);
                 CashRegister::create($cashRegisters[$i]);
-
+                $this->updateCurrentCash();
             }
         } 
         
@@ -36,17 +36,17 @@ class CashRegisterRepository
         {
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             CashRegister::create($cashRegisters[0]);
+            $this->updateCurrentCash();
         }
-        
-        $this->updateCurrentCash();
-
+    
         return;
     }
 
     public function updateCurrentCash()
-    {
+    {   
         $lastCashBox = CashRegister::where('canceled', 0)->latest('id')->first();
         $cashBox = CashRegister::where('id', $lastCashBox->id - 1)->first();
+        
         if(!$cashBox)
         {
             Log::info('Não foi encontrado um registro anterior do segundo registro no caixa');
@@ -59,11 +59,13 @@ class CashRegisterRepository
 
         Log::info('$lastCashBoxashBox');
         Log::info($lastCashBox);
+
         Log::info('$cashBox');
         Log::info($cashBox);
 
+        Log::info('Novo valor: R$ ' . $cashBox->valor_entrada . ' + '  . $lastCashBox->valor_entrada . ' = ' . $cashBox->valor_entrada + $lastCashBox->valor_entrada);
         $lastCashBox->update([
-            'saldo_real' => $cashBox->valor_entrada + $lastCashBox->valor_entrada - $lastCashBox->valor_saida
+            'saldo_real' => $cashBox->saldo_real + $lastCashBox->valor_entrada - $lastCashBox->valor_saida
         ]);
         
     }
