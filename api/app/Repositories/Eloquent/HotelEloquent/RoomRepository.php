@@ -205,7 +205,7 @@ class RoomRepository implements RoomContract
                 'success' => true,
                 'message' => 'Reserva concluida',
                 'bigger' => true,
-                'extra_amount' => (float) $total - $room->price_for_night
+                'extraAmount' => (float) $total - $room->price_for_night
             
             );
         }
