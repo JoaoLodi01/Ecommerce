@@ -10,17 +10,21 @@ class ProductsRepository
         return Products::where('active', $active)->get();
     }
 
-    public function search(array $data){
+    public function search(array $data)
+    {
         return Products::where('active', 1)
-                       ->where(function ($query) use ($data) {
-                           $query->where('name', 'like', '%' . $data['name'] . '%')
-                                 ->orWhere('id', $data['id']);
-                       })
-                       ->paginate(10);
+                        ->where(function ($query) use ($data) {
+                            $query->where('name', 'like', '%' . $data['name'] . '%');
+
+                        if (isset($data['id']) && !empty($data['id'])) {
+                            $query->orWhere('id', $data['id']);
+                        }
+                    })
+                    ->paginate(10);
     }
 
-    public function findByID(string $params){
-        return Products::where('id', $params)->first();
+    public function findByID(int $id){
+        return Products::where('id', $id)->first();
     }
 
     public function store(array $data){

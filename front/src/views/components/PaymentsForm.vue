@@ -25,36 +25,11 @@
                     </tbody>
                 </table>
 
-<<<<<<< HEAD
-        <form @submit.prevent="finalizeSale">
-            <table class="border border-red-500"">
-                <thead>
-                    <tr>
-                        <th>Formas de pagamento</th>
-                        <th>Valores</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(payment, index) in payments" :key="payment.id">
-                        <td>{{ payment.descricao }}</td>
-                        <td>
-                            <input
-                                type="number"
-                                v-model="paymentsValues[index]"
-                                placeholder="0.00"
-                                step="0.01"
-                            />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-=======
                 <button type="submit"> {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Emitir Venda" }} </button>
                 
             </form>
             <button @click="cancelOperation()">Cancelar</button>
             <h3>Total: R$ {{ totalOperation }}</h3>
->>>>>>> 802d3bb03fc86b4e442dcac5d0aa85d99a734f11
 
             <div class="" v-if="isLoanding">
                 <h2>Carregando...</h2>

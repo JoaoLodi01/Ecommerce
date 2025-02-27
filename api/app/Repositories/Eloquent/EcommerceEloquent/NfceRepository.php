@@ -56,16 +56,18 @@ class NfceRepository
                 'valor_desconto' => $nfce->valor_desconto,
             ]);
 
-            Log::info("Update do Nº documento venda.");
+            Log::info("Início update do Nº documento venda: " . $nfce->documento);
             $nfce->update([
                 'documento' => $nfce->documento + 1,
-                'descricao' => "VENDA NFC-E: $nfce->id",
+                'descricao' => "VENDA NFC-E: $nfce->documento",
             ]);
+            Log::info("Fim do update! Nº venda: " . $nfce->documento);
 
-            Log::info("Update do Nº documento forma pagamento.");
+            Log::info("Início do update do Nº documento forma pagamento.");
             $payment->update([
                 'documento' => $payment->documento + 1,
             ]);
+            Log::info("Fim do update! Nº forma pagamento: " . $payment->documento);
 
             Log::info("Vai salvar!");
             $nfce->save();

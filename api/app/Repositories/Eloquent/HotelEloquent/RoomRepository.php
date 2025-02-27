@@ -12,7 +12,6 @@ use App\Models\HotelModels\{
 
 use App\Repositories\Eloquent\EcommerceEloquent\{
     PaymentsRepository,
-    CashRegisterRepository
     
 };
 
@@ -24,6 +23,8 @@ use App\Models\{
 
 use App\Repositories\Contracts\HotelContract\RoomContract;
 use App\Repositories\PayMentMethod;
+use App\Repositories\Eloquent\CashRegisterRepository;
+
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 

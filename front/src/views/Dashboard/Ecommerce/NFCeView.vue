@@ -7,7 +7,7 @@
       <label for="product">Produto:</label>
       <input 
         v-model="newProduct.name" 
-        @input="searchProduct" 
+        @input="searchProduct"
         @keydown.enter="addProduct"
         type="text" id="product" placeholder="Digite o código ou nome..." 
       />
@@ -95,8 +95,9 @@ export default {
 
   methods: {
     async searchProduct() {
+      //console.log(this.newProduct.name);
       try {
-        const response = await axios.get(`${this.api}/products/search`, {
+        const response = await axios.post(`${this.api}/ecommerce/products/search`, {
           params: this.newProduct.name});
           console.log('Consultando...', response.data)
         this.searchResults = response.data;

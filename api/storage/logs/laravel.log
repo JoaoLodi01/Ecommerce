@@ -832,3 +832,36 @@
 [2025-02-27 10:41:25] local.INFO: O hotel foi encontrado  
 [2025-02-27 10:41:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-02-27 10:41:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-02-27 17:38:10] local.ERROR: The "--host:192.168.98.32" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--host:192.168.98.32\" option does not exist. at C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Input\\ArgvInput.php:226)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Input\\ArgvInput.php(155): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Input\\ArgvInput.php(88): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Input\\ArgvInput.php(77): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Input\\Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(238): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 C:\\Code\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#12 {main}
+"} 
+[2025-02-27 17:38:26] local.ERROR: No arguments expected for "serve" command, got "192.168.98.32". {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): No arguments expected for \"serve\" command, got \"192.168.98.32\". at C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Input\\ArgvInput.php:199)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Input\\ArgvInput.php(92): Symfony\\Component\\Console\\Input\\ArgvInput->parseArgument()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Input\\ArgvInput.php(77): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Input\\Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(238): Symfony\\Component\\Console\\Input\\Input->bind()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 C:\\Code\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#11 {main}
+"} 
+[2025-02-27 17:40:27] local.INFO: Chamou o IPController  
+[2025-02-27 17:40:27] local.INFO: Chamou o IPService  
