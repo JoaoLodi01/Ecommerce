@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Models\EcommerceModels\CashRegister;
+use App\Models\CashRegister;
 use Illuminate\Support\Facades\Log;
 
 class CashRegisterRepository
@@ -15,7 +15,7 @@ class CashRegisterRepository
         return CashRegister::where('id', $params)->first();
     }
 
-    public function createTheView(array $cashRegisters){
+    public function create(array $cashRegisters){
         Log::info('Vai iniciar criação no caixa, dados:');
         Log::info('Quantia: '. count($cashRegisters));
         Log::info($cashRegisters);
