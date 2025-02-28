@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductsRequest;
+
 use Illuminate\Http\Request;
 use App\Services\EcommerceService\ProductsService;
 
@@ -19,12 +19,12 @@ class ProductsController extends Controller
         return $this->productsService->getAll();
     }
 
-    public function search(ProductsRequest $request){
-        return response()->json($request->all());
+    public function search(Request $request){
+        return $this->productsService->findByID('a');
+        
     }
 
     public function store(Request $request){
-        $data = $request->validated();
         return $this->productsService->store($request->all());
     }
 
@@ -32,9 +32,8 @@ class ProductsController extends Controller
         return $this->productsService->findByID($id);
     }
 
-    public function update(ProductsRequest $request, int $id){
-        $data = $request->validated();
-        return $this->productsService->update($data, $id);
+    public function update(Request $request, int $id){
+        return $this->productsService->update($request->all(), $id);
     }
 
     public function delete(int $id){
