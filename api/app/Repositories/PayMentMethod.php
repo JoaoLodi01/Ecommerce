@@ -66,7 +66,6 @@ class PayMentMethod
 
                         if($form->tipo_lancamento === 'Receber')
                         {
-                            Log::info('Teste dia: ' .  $currantDate->addDays(30)->format('Y-m-d'));
                             $bodyCash = array(
                                 'description' => $description,
                                 'customer_id' => $customer->id,
@@ -88,7 +87,10 @@ class PayMentMethod
                                 'origem' => $origem
                             
                             );  
-                            array_push($cashRegisters, $bodyCash);
+                            
+                            Log::info('-- Vai chamar o receiveRepository -- ');
+                            $this->receiveRepository->create($bodyCash);
+                            Log::info('-- Terminou de chamar o receiveRepository -- ');
                         }
                     }
                 }                         
@@ -100,10 +102,6 @@ class PayMentMethod
             Log::info('-- Vai chamar o cashRegisterRepository -- ');
             $this->cashRegisterRepository->create($cashRegisters);
             Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
-
-            Log::info('-- Vai chamar o receiveRepository -- ');
-            $this->receiveRepository->create($cashRegisters);
-            Log::info('-- Terminou de chamar o receiveRepository -- ');
             Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 58 --');
             return;
         }
