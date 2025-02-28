@@ -15,20 +15,7 @@ class ReceiveRepository
         Log::info('Vai iniciar criação no RECEBER, dados: ');
         Log::info('Quantia: '. count($cashRegister));
         Log::info($cashRegister);
-        if(count($cashRegister) >= 2)
-        {
-            for ($i=0; $i < count($cashRegister); $i++) { 
-                Receive::create($cashRegister[$i]);
-                
-            }
-            
-        }
-
-        if(count($cashRegister) === 1)
-        {
-            Log::info();
-            Receive::create($cashRegister[0]);
-        }
+        Receive::create($cashRegister);
         return;
     }
 
