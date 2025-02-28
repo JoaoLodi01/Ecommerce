@@ -16,7 +16,7 @@ class CashRegisterRepository
     }
 
     public function create(array $cashRegisters){
-        Log::info('Vai iniciar criação no caixa, dados:');
+        Log::info('Vai iniciar criação no CAIXA, dados:');
         Log::info('Quantia: '. count($cashRegisters));
         Log::info($cashRegisters);
 
@@ -34,11 +34,10 @@ class CashRegisterRepository
         
         if(count($cashRegisters) <= 1)
         {
-            Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             CashRegister::create($cashRegisters[0]);
             $this->updateCurrentCash();
+
         }
-    
         return;
     }
 
@@ -51,7 +50,7 @@ class CashRegisterRepository
         {
             Log::info('Não foi encontrado um registro anterior do segundo registro no caixa');
             $lastCashBox->update([
-                'saldo_real' => $lastCashBox->valor_entrada
+                'saldo_real' => $lastCashBox->input_value
 
             ]);
             return;
@@ -63,9 +62,9 @@ class CashRegisterRepository
         Log::info('$cashBox');
         Log::info($cashBox);
 
-        Log::info('Novo valor: R$ ' . $cashBox->valor_entrada . ' + '  . $lastCashBox->valor_entrada . ' = ' . $cashBox->valor_entrada + $lastCashBox->valor_entrada);
+        Log::info('Novo valor: R$ ' . $cashBox->input_value . ' + '  . $lastCashBox->input_value . ' = ' . $cashBox->input_value + $lastCashBox->input_value);
         $lastCashBox->update([
-            'saldo_real' => $cashBox->saldo_real + $lastCashBox->valor_entrada - $lastCashBox->valor_saida
+            'real_balance' => $cashBox->real_balance + $lastCashBox->input_value - $lastCashBox->outputvalue
         ]);
         
     }

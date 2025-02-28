@@ -3,17 +3,21 @@
 namespace App\Repositories;
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
+use App\Repositories\Eloquent\ReceiveRepository;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class PayMentMethod
 {
     public function __construct(
-        protected CashRegisterRepository $cashRegisterRepository
+        protected CashRegisterRepository $cashRegisterRepository,
+        protected ReceiveRepository $receiveRepository
     )
     {
         $this->cashRegisterRepository = $cashRegisterRepository;
+        $this->receiveRepository = $receiveRepository;
     }
+
     public function payment(array $formsPayment, array $payment, object $customer, string $description, string $origem)
     {
         Log::info('-- Inicio do registro no caixa, PayMentMethod.php, linha 19 --');
@@ -35,35 +39,71 @@ class PayMentMethod
                     Log::info('Vai pegar as posições maiores que zero, posição: ' . $i);
                     foreach ($formsPayment as $form) 
                     {
-                        Log::info('ID linha 35 - : ' . $form);
-                        Log::info('Payment linha 36 - : ' . $payment[$i]);
-                        
-                        $bodyCash = array(
-                            'description' => $description,
-                            'cliente_id' => $customer->id,
-                            'cliente' => $customer->name,
-                            'especie_id' => $form->id,
-                            'especie' => $form->especie,
-                            'data_hora_cadastro' => $currantDate->format('Y-m-d'),
-                            'valor_entrada' => $payment[$form->id - 1],
-                            'valor_saida' => 0,
-                            'saldo_real' => $payment[$form->id - 1],
-                            'user_id' => 1,
-                            'seller' => 'aa',
-                            'origem' => $origem
-                        
-                        );  
-                        array_push($cashRegisters, $bodyCash);
-                        
+                        Log::info('ID linha 39 - : ' . $form);
+                        Log::info('Payment linha 40 - : ' . $payment[$i]);
+                        Log::info('Vai conferir os tipos de lançamento');
+                        if($form->tipo_lancamento === 'Caixa')
+                        {
+                            $bodyCash = array(
+                                'description' => $description,
+                                'customer_id' => $customer->id,
+                                'name' => $customer->name,
+                                'especie_id' => $form->id,
+                                'especie' => $form->especie,
+                                'date_register' => $currantDate->format('Y-m-d'),
+                                'input_value' => $payment[$form->id - 1],
+                                'output_value' => 0,
+                                'real_balance' => $payment[$form->id - 1],
+                                'user_id' => 1,
+                                'seller' => 'aa',
+                                'origem' => $origem
+                            
+                            );  
+                            array_push($cashRegisters, $bodyCash);
+                            Log::info('Vai chamar o cashRegisterRepository');
+                            
+                        }
+
+                        if($form->tipo_lancamento === 'Receber')
+                        {
+                            Log::info('Teste dia: ' .  $currantDate->addDays(30)->format('Y-m-d'));
+                            $bodyCash = array(
+                                'description' => $description,
+                                'customer_id' => $customer->id,
+                                'name' => $customer->name,
+                                'especie_id' => $form->id,
+                                'especie' => $form->especie,
+                                'date_register' => $currantDate->format('Y-m-d'),
+                                'due_date' => $currantDate->addDays(30)->format('Y-m-d'),
+                                'installment_amount' => 1,
+                                'installment_number' => 1,
+                                'installment_value' => $payment[$form->id - 1],
+                                'output_value' => 0,
+                                'real_balance' => $payment[$form->id - 1],
+                                'type_interest' => '%',
+                                'interest_value' => 10,
+                                'total_amount' => 10,
+                                'user_id' => 1,
+                                'user' => 'aa',
+                                'origem' => $origem
+                            
+                            );  
+                            array_push($cashRegisters, $bodyCash);
+                        }
                     }
-                    
                 }                         
             }    
 
-            Log::info('Terminou de montar o corpo do caixa: ');
+            Log::info('Terminou de montar o corpo dos registros: ');
             Log::info('Dados de envio: ');
             Log::info($cashRegisters);
+            Log::info('-- Vai chamar o cashRegisterRepository -- ');
             $this->cashRegisterRepository->create($cashRegisters);
+            Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
+
+            Log::info('-- Vai chamar o receiveRepository -- ');
+            $this->receiveRepository->create($cashRegisters);
+            Log::info('-- Terminou de chamar o receiveRepository -- ');
             Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 58 --');
             return;
         }
@@ -78,23 +118,53 @@ class PayMentMethod
                 if($payment[$i] > 0)
                 {
                     foreach ($formsPayment as $form) {
-                        Log::info('ID linha 77 - : ' . $form);
+                        Log::info('ID linha 111 - : ' . $form);
+                        Log::info('Payment linha 112 - : ' . $payment[$i]);
+                        Log::info('Vai conferir os tipos de lançamento');
+                        if($form->tipo_lancamento === 'Caixa')
+                        {
+                            $bodyCash = array(
+                                'description' => $description,
+                                'customer_id' => $customer->id,
+                                'name' => $customer->name,
+                                'especie_id' => $form->id,
+                                'especie' => $form->especie,
+                                'date_register' => $currantDate->format('Y-m-d'),
+                                'input_value' => $payment[$form->id - 1],
+                                'output_value' => 0,
+                                'real_balance' => $payment[$form->id - 1],
+                                'user_id' => 1,
+                                'seller' => 'aa',
+                                'origem' => $origem
+                            
+                            );  
+                            array_push($cashRegisters, $bodyCash);
+                            Log::info('Vai chamar o cashRegisterRepository');
+                            $this->cashRegisterRepository->create($cashRegisters);
+                        }
 
-                        $cashRegisters[] = array(
-                            'description' => 'Reserva de Hotel',
-                            'cliente_id' => $customer->id,
-                            'cliente' => $customer->name,
-                            'especie_id' => $form->id,
-                            'especie' => $form->especie,
-                            'data_hora_cadastro' => $currantDate->format('Y-m-d'),
-                            'valor_entrada' => $payment[$form->id - 1],
-                            'valor_saida' => 0,
-                            'saldo_real' => $payment[$form->id - 1],
-                            'user_id' => 1,
-                            'seller' => 'aa',
-                            'origem' => 'Reserva Hotel'
-                        
-                        );  
+                        if($form->tipo_lancamento === 'Receber')
+                        {
+                            $bodyCash = array(
+                                'description' => $description,
+                                'customer_id' => $customer->id,
+                                'name' => $customer->name,
+                                'especie_id' => $form->id,
+                                'especie' => $form->especie,
+                                'date_register' => $currantDate->format('Y-m-d'),
+                                'input_value' => $payment[$form->id - 1],
+                                'output_value' => 0,
+                                'real_balance' => $payment[$form->id - 1],
+                                'user_id' => 1,
+                                'seller' => 'aa',
+                                'origem' => $origem
+                            
+                            );  
+                            array_push($cashRegisters, $bodyCash);
+                            Log::info('Vai chamar o receiveRepository');
+                            $this->receiveRepository->create($cashRegisters);
+
+                        }
                     }
                 }
             }
@@ -104,7 +174,7 @@ class PayMentMethod
         Log::info('Dados: ');
         Log::info($cashRegisters);
 
-        $this->cashRegisterRepository->create($cashRegisters);
+        
         Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 100 --');
         return;
     }    
