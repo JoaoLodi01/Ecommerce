@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     protected $table = 'Products';
-
+    
     protected $fillable = [
         'produto',
         'quantidade',
