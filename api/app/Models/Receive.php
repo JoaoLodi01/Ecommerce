@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\EcommerceModels;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,23 +9,24 @@ class Receive extends Model
     protected $table = 'receives';
 
     protected $fillable = [
-        'descricao',
-        'cliente_id',
-        'cliente',
+        'description',
+        'customer_id',
+        'name',
         'especie_id',
         'especie',
-        'data_vencimento',
-        'qtde_parcela',
-        'numero_parcela',
-        'valor_parcela',
-        'tipo_juros',
-        'valor_juros',
-        'valor_total',
+        'date_register',
+        'due_date',
+        'installment_amount',
+        'installment_number',
+        'installment_value',
+        'type_interest',
+        'interest_value',
+        'total_amount',
         'origem',
-        'cancelada',
+        'canceled',
         'user_id',
         'user',
-        'active',
+        
     ];
 
     protected $hidden = [

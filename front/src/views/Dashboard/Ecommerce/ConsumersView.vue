@@ -5,19 +5,39 @@
       <form @submit.prevent="submitForm">
 
         <label for="client">Cliente:</label>
-        <input type="text" v-model="form.client" id="client" placeholder="Inserir..."/>
+        <input 
+        type="text" 
+        v-model="form.client" 
+        id="client" 
+        placeholder="Inserir..."/>
 
         <label for="cpf">CPF:</label>
-        <input type="text" v-model="form.cpf" id="cpf" placeholder="Inserir..."/>
+        <input 
+        type="text" 
+        v-model="form.cpf" 
+        id="cpf" 
+        placeholder="Inserir..."/>
 
         <label for="cnpj">CNPJ:</label>
-        <input type="text" v-model="form.cnpj" id="cnpj" placeholder="Inserir..."/>
+        <input 
+        type="text" 
+        v-model="form.cnpj" 
+        id="cnpj" 
+        placeholder="Inserir..."/>
 
         <label for="email">E-mail:</label>
-        <input type="email" v-model="form.email" id="email" placeholder="Inserir..."/>
+        <input 
+        type="email" 
+        v-model="form.email" 
+        id="email" 
+        placeholder="Inserir..."/>
 
         <label for="phone">Fone:</label>
-        <input type="number" v-model="form.phone" id="phone" placeholder="Inserir..."/>
+        <input 
+        type="number" 
+        v-model="form.phone" 
+        id="phone" 
+        placeholder="Inserir..."/>
 
       </form>
     </div>

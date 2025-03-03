@@ -121,7 +121,7 @@ export default {
     },
 
     addProduct() {
-      if (!this.newProduct.produto || !this.newProduct.price >=0) {
+      if (!this.newProduct.produto || !this.newProduct.price <=0) {
         alert("Selecione um produto válido!");
         return;
       }
