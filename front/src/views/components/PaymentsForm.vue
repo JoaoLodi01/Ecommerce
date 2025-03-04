@@ -1,5 +1,5 @@
 <template>
-    <div class="payments-container">
+    <div class="payments-container bg-slate-600">
         <h1>Formas de Pagamento</h1>
         <div>
             <form @submit.prevent="finalizeSale">
@@ -12,7 +12,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(payment, index) in payments" :key="payment.id">
-                            <td>{{ payment.descricao }}</td>
+                            <td>{{ payment.especie }}</td>
                             <td>
                                 <input
                                     type="number"
@@ -25,10 +25,29 @@
                     </tbody>
                 </table>
 
-                <button type="submit">Emitir Venda</button>
+                <button type="submit"> {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Finalizar Venda" }} </button>
+                
             </form>
-            
+            <button @click="cancelOperation()">Cancelar</button>
+            <h3>Total: R$ {{ totalOperation }}</h3>
+
+            <div class="" v-if="isLoanding">
+                <h2>Carregando...</h2>
+            </div>    
+
+            <div class="" v-if="message">
+                {{ message }} <br>
+
+            </div>
+          
         </div>
+    </div>
+
+    <div v-if="bigger">
+        <h3>Pagamento efetuado maior que o valor do quarto</h3>
+        <h3>Deseja gerar crédito no valor de: R$ {{extraAmount }}?</h3>
+        <button @click="generateCredit(true, extraAmount)">Sim</button>
+        <button @click="generateCredit(false)">Não</button>
     </div>
 </template>
 
@@ -40,18 +59,18 @@ export default {
         return {
             payments: [],
             paymentsValues: [],
-            valorVenda: 0,
-            valorPago: 0,
+            message: null,
+            isLoanding: false,
+            bigger: false,
+            extraAmount: 0,
             api: process.env.VUE_APP_API_URL,
 
         };
     },
-
+    emits: ['close'],
     props: {
         show: {
             type: Boolean,
-            required: true
-            
         },
 
         typeOperation: {
@@ -59,9 +78,15 @@ export default {
             required: true
     
         },
-        idRoom: {
+
+        room_id: {
             type: Number
-        }        
+        },
+
+        totalOperation: {
+            type: Number,
+            required: true
+        }
     },
     
     methods: {
@@ -77,35 +102,71 @@ export default {
         },
         
         async finalizeSale() {
+            this.isLoanding = true
             switch (this.typeOperation) {
                 case 'reservation':
-                    console.log('Começou reserva')
-                    const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
-                        paymentsValues: this.paymentsValues,
-                        roomID: this.idRoom
+                    const generateCredit = this.calculeCredit(this.paymentsValues);
 
-                    });
+                    this.isLoanding = !this.isLoanding
                     
-                    console.log('Retorno response', response)
+                    const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
+                        customer_id: 1,
+                        payments_values: this.paymentsValues,
+                        room_id: this.room_id,
+                        generateCredit: generateCredit
+                    });
 
+                    const reservation = response.data
+                    
+                    this.message = reservation.message ? reservation.message : reservation.errorMessage
+                
                     break;
-            
+
                 case 'saleNFCe':
                     console.log('Começou venda NFCe')
                     break
 
-                case 'saleNFCe':
+                case 'saleNM':
                     console.log('Começou venda NM')
                     break
+
                 default:
-                    console.log('Operation not defined')
+                    console.log('Operation not defined',  this.typeOperation)
                     break;
             }
             
+        },
+
+        calculeCredit(paymentsValues = [])
+        {
+            let total = 0;
+            paymentsValues.forEach(values => {
+                total += values;
+
+            });
+
+            let extraAmount = this.totalOperation - total;
+            console.log('Valor do quarto: R$', this.totalOperation);
+            console.log('Total pago: R$', total);
+            if(total > this.totalOperation)
+            {   
+                console.log('Passou o valor do quarto: R$', this.totalOperation);
+                let option = confirm(`Deseja gerar crédito no valor de: R$ ${extraAmount}?`);
+                return option;
+            } 
+        },
+
+        cancelOperation(){
+            this.$emit("close")
+
+        },
+
+        closeOperation(){
+            this.$emit("close")
+
         }
     },
     mounted(){
-        console.log('Quarto reservado', this.idRoom)
         this.getPayments();
         
     },

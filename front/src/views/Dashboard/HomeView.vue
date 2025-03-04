@@ -1,35 +1,18 @@
 <template>
-  <h1>Página inicial</h1>
-  <a href="/hotel">Hotel</a>
+  <div class="welcome">
+    <h1 class="title bg-white p-2">Bem vindo!</h1>
+  </div>
+  <Sidebar />
+
 </template>
 
 <script>
-  import axios from 'axios';
+import Sidebar from '../components/Sidebar.vue';
 
-  
-  export default {
-    data(){
-      return {
-        api: process.env.VUE_APP_API_URL,
-        aaaaa: process.env.VUE_APP_API_URL
-      }
-    },
-    methods: {
-      async getIP()
-      {      
-        try {
-          const response = await axios.get(`${this.api}/get-ip`);
+export default{
 
-          console.log('Aqui', response)
-          
-        } catch (error) {
-          console.error('Erro no getIP', this.api)
-          
-        }
-      }
-    },
-    mounted(){ 
-      this.getIP()
-    }
-  }
+  components: {
+    Sidebar,
+  },
+};
 </script>

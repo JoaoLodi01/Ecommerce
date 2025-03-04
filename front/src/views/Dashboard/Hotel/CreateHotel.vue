@@ -107,7 +107,6 @@
                     const response = await axios.post(`${this.api}/hotel/create`, form)
                     
                     if (response.data.success === true) {
-                        console.log(response)
                         this.$router.push('/hotel')
                         
                     }
@@ -141,12 +140,9 @@
                     console.log(this.form.cep)
                     if(this.form.cep.length === 8)
                     {
-                        console.log(`${this.api_viaCEP}/${this.form.cep}/json/`)
-                        
                         const response = await axios.get(`${this.api_viaCEP}/${this.form.cep}/json/`)
                         this.form.address = response.data.logradouro
-                        console.log(response.data);
-                        console.log(this.form.address);
+                        
                     }
                     
                 } catch (error) {
@@ -167,9 +163,7 @@
                         email: response.data.emails[0].address,
                         cnpj: response.data.taxId
                     }
-                    
-                    console.log(response.data)
-
+            
                 }
             }
         },
@@ -179,7 +173,7 @@
 
         },
         mounted(){
-            console.log(this.$route.name)
+            
         }
     }
 </script>

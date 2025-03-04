@@ -17,13 +17,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PaymentsSeeder::class,
             ProductsSeeder::class,
-            ConsumerSeeder::class
+            CostumerSeeder::class,
+            UserSeeder::class
+            
         ]);
 
-        User::create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => Hash::make('1')
-        ]);
     }
 }

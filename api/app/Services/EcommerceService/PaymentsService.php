@@ -20,7 +20,7 @@ class PaymentsService{
         }
     }
 
-    public function findById(int $id){
+    public function findById(array $id){
         try {
             return response()->json([
                 'success' => true,
@@ -66,7 +66,7 @@ class PaymentsService{
         return response()->json([
             'success' => false,
             'th' => $th->getMessage(),
-            'line' => $th->getLise(),
+            'line' => $th->getLine(),
             'file' => $th->getFile(),
         ]);
     }
