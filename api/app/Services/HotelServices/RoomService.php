@@ -100,7 +100,7 @@ class RoomService
         }
     }
 
-    public function reservation(array $data, int $room_id)
+    public function reservation(array $data, int $roomID, bool $generateCredit)
     {
         try {
             $total = 0;
@@ -122,7 +122,7 @@ class RoomService
             }    
 
             return response()->json(
-                $this->roomRepository->reservation($forms, $data, $total, $room_id)
+                $this->roomRepository->reservation($forms, $data, $total, $roomID, $generateCredit)
             );
             
         } catch (\Throwable $th) {
@@ -136,10 +136,11 @@ class RoomService
         }
     }
 
-    public function checkReservation(int $customer_id)
+    public function checkReservation(int $customerID)
     {
         return response()->json([
-            'customer' => $this->roomRepository->checkReservation($customer_id) ? $this->roomRepository->checkReservation($customer_id) : null
+            'customer' => $this->roomRepository->checkReservation($customerID) ? $this->roomRepository->checkReservation($customerID) : null
+            
         ]);
     }
 }

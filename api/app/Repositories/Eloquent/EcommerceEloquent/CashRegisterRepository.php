@@ -18,6 +18,7 @@ class CashRegisterRepository
     public function create(array $cashRegisters){
         Log::info('Vai iniciar criação no CAIXA, dados:');
         Log::info('Quantia: '. count($cashRegisters));
+        Log::info('Tipo de dado: ' . gettype($cashRegisters));
         Log::info($cashRegisters);
 
         if(count($cashRegisters) >= 2)
@@ -34,6 +35,7 @@ class CashRegisterRepository
         
         if(count($cashRegisters) <= 1)
         {
+            Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             CashRegister::create($cashRegisters[0]);
             $this->updateCurrentCash();
 

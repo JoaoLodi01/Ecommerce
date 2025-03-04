@@ -44,7 +44,7 @@ class RoomController extends Controller
 
     public function reservation()
     {
-        return $this->roomService->reservation(request('payments_values'), request('room_id'));
+        return $this->roomService->reservation(request('payments_values'), request('room_id'), request('generateCredit'));
         
     }
     

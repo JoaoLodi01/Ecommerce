@@ -105,9 +105,8 @@ Route::prefix('v1')->group( function (){
             Route::put('/check-in', [RoomController::class, 'checkIn']);
             Route::post('/reservation', [RoomController::class, 'reservation']);
             Route::post('/check-reservation', [RoomController::class, 'checkReservation']);
-    
+            
         });
-
     });
 
     Route::prefix('config')->group( function () {

@@ -1,0 +1,112 @@
+[2025-03-04 00:31:13] local.INFO: Vai procurar o quarto  
+[2025-03-04 00:31:13] local.INFO: Vai procurar o cliente  
+[2025-03-04 00:31:13] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-04 00:31:13] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-04 00:31:13] local.INFO: Vai buscar o hotel  
+[2025-03-04 00:31:13] local.INFO: Valor informado: R$ 31, maior que o valor do quarto: 29  
+[2025-03-04 00:31:13] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 192 --  
+[2025-03-04 00:31:13] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 24 --  
+[2025-03-04 00:31:13] local.INFO: Quantia $formsPayment: 1  
+[2025-03-04 00:31:13] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-04 00:31:13] local.INFO: $payment[$i] linha - 115: i = 0  
+[2025-03-04 00:31:13] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-04 00:31:13] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-04 00:31:13] local.INFO: Payment linha 121 - : 31  
+[2025-03-04 00:31:13] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-04 00:31:13] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-03-04 00:31:13] local.INFO: Dados:   
+[2025-03-04 00:31:13] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-04',
+    'input_value' => 31,
+    'output_value' => 0,
+    'real_balance' => 31,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-04 00:31:13] local.INFO: -- Vai chamar o cashRegisterRepository linha 181 --   
+[2025-03-04 00:31:13] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-04 00:31:13] local.INFO: Quantia: 1  
+[2025-03-04 00:31:13] local.INFO: Tipo de dado: array  
+[2025-03-04 00:31:13] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-04',
+    'input_value' => 31,
+    'output_value' => 0,
+    'real_balance' => 31,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-04 00:31:13] local.INFO: Vai criar 1 registro:   
+[2025-03-04 00:31:13] local.INFO: Não foi encontrado um registro anterior do segundo registro no caixa  
+[2025-03-04 00:31:13] local.INFO: -- Vai chamar o reservationRepository linha 183 --   
+[2025-03-04 00:31:13] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-04 00:31:13] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 186 --  
+[2025-03-04 00:31:13] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 194 --  
+[2025-03-04 00:31:13] local.INFO: -- Inicio createCredit linha 240 --  
+[2025-03-04 00:31:13] local.INFO: Vai criar o crédito do cliente, R$: 2  
+[2025-03-04 00:31:13] local.INFO: -- Inicio decreaseCash linha 192 --  
+[2025-03-04 00:31:13] local.INFO: Corpo:   
+[2025-03-04 00:31:13] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-04',
+    'input_value' => 0,
+    'output_value' => 2.0,
+    'real_balance' => 2.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-04 00:31:13] local.INFO: -- Vai chamar o cashRegisterRepository linha 211 --   
+[2025-03-04 00:31:13] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-04 00:31:13] local.INFO: Quantia: 1  
+[2025-03-04 00:31:13] local.INFO: Tipo de dado: array  
+[2025-03-04 00:31:13] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-04',
+    'input_value' => 0,
+    'output_value' => 2.0,
+    'real_balance' => 2.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-04 00:31:13] local.INFO: Vai criar 1 registro:   
+[2025-03-04 00:31:13] local.INFO: $lastCashBoxashBox  
+[2025-03-04 00:31:13] local.INFO: {"id":2,"description":"Gera\u00e7\u00e3o de cr\u00e9dito","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-04","input_value":"0.00","output_value":"2.00","real_balance":"2.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-04 00:31:13] local.INFO: $cashBox  
+[2025-03-04 00:31:13] local.INFO: {"id":1,"description":"Reserva hotel","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-04","input_value":"31.00","output_value":"0.00","real_balance":"31.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-04 00:31:13] local.INFO: Novo valor: R$ 31.00 + 0.00 = 31  
+[2025-03-04 00:31:13] local.INFO: -- Vai chamar o reservationRepository linha 213 --   
+[2025-03-04 00:31:13] local.INFO: -- Fim decreaseCash linha 211 --  
+[2025-03-04 00:31:13] local.INFO: -- Fim createCredit linha 250 --  
