@@ -13,7 +13,11 @@
         @click="toggleSidebar"
         class="absolute top-4 right-4 p-2 bg-gray-800 hover:text-blue-300 text-white border-none rounded-lg cursor-pointer z-50">
         <span v-if="!sidebarActive">Open</span>
-        <span v-else>Close</span>
+        <span v-else>
+          <div class="border border-white w-4 mb-1"></div>
+          <div class="border border-white w-5 mt-1"></div>
+          <div class="border border-white w-6 mt-1"></div>
+        </span>
       </button>
 
       <!-- Links Sidebar-->
@@ -52,7 +56,11 @@
       v-if="!sidebarActive"
       @click="toggleSidebar"
       class="toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg transform transition-all">
-      <span>Open</span>
+      <span>
+        <div class="border border-white w-6 mb-1"></div>
+        <div class="border border-white w-5 mt-1"></div>
+        <div class="border border-white w-4 mt-1"></div>
+      </span>
     </button>
   </div>
 </template>
