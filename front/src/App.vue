@@ -19,7 +19,7 @@
     },
     mounted(){ 
       const response = axios.get(`${this.api}/get-ip`);
-
+      
     }
   }
 </script>

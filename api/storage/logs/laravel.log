@@ -1,0 +1,34 @@
+[2025-03-04 14:41:07] local.INFO: Chamou o IPController  
+[2025-03-04 14:41:07] local.INFO: Chamou o IPService  
+[2025-03-04 14:41:10] local.INFO: Chamou o IPController  
+[2025-03-04 14:41:10] local.INFO: Chamou o IPService  
+[2025-03-04 14:41:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-04 14:41:10] local.INFO: O hotel foi encontrado  
+[2025-03-04 14:41:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-04 14:41:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-04 14:41:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-04 14:41:10] local.INFO: O hotel foi encontrado  
+[2025-03-04 14:41:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-04 14:41:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-04 14:41:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-04 14:41:48] local.INFO: O hotel foi encontrado  
+[2025-03-04 14:41:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-04 14:41:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-04 14:41:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-04 14:41:48] local.INFO: O hotel foi encontrado  
+[2025-03-04 14:41:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-04 14:41:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-04 14:41:48] local.INFO: Chamou o IPController  
+[2025-03-04 14:41:48] local.INFO: Chamou o IPService  
+[2025-03-04 14:41:49] local.INFO: Chamou o IPController  
+[2025-03-04 14:41:49] local.INFO: Chamou o IPService  
+[2025-03-04 14:41:50] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-04 14:42:01] local.INFO: Chamou o IPController  
+[2025-03-04 14:42:01] local.INFO: Chamou o IPService  
+[2025-03-04 14:42:02] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-04 14:43:12] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-04 14:43:12] local.INFO: Chamou o IPController  
+[2025-03-04 14:43:12] local.INFO: Chamou o IPService  
+[2025-03-04 14:43:13] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-04 14:43:13] local.INFO: Chamou o IPController  
+[2025-03-04 14:43:13] local.INFO: Chamou o IPService  
