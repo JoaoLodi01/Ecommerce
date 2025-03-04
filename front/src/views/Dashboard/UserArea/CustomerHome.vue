@@ -89,7 +89,7 @@
             showConfig(){
                 this.show = true
 
-            }
+            },
 
         },
         

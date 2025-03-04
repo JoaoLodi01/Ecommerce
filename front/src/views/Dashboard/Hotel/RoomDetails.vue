@@ -78,7 +78,7 @@
                 try {
                     const response = await axios.get(`${this.api}/hotel/stay/rooms`)
                     this.rooms = response.data.all
-                    console.log(response)
+                    
                 } catch (error) {
                     console.error('Erro no getRooms', error)   
 

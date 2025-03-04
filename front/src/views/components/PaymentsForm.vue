@@ -25,7 +25,7 @@
                     </tbody>
                 </table>
 
-                <button type="submit"> {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Emitir Venda" }} </button>
+                <button type="submit"> {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Finalizar Venda" }} </button>
                 
             </form>
             <button @click="cancelOperation()">Cancelar</button>
@@ -40,7 +40,6 @@
 
             </div>
           
-
         </div>
     </div>
 
@@ -81,6 +80,7 @@ export default {
             required: true
     
         },
+
         room_id: {
             type: Number
         },
@@ -95,7 +95,6 @@ export default {
         async getPayments() {
             try {
                 const response = await axios.get(`${this.api}/ecommerce/payments/all`);
-                console.log(response.data)
                 this.payments = response.data;
                 
             } catch (error) {
@@ -108,34 +107,23 @@ export default {
             this.isLoanding = true
             switch (this.typeOperation) {
                 case 'reservation':
-                    console.log('Começou reserva')
-                    console.log('Dados de envio', {
-                        customer_id: 1,
-                        payments_values: this.paymentsValues,
-                        room_id: this.room_id,
-                        
-                    })
+                    const generateCredit = this.calculeCredit(this.paymentsValues);
 
+                    this.isLoanding = !this.isLoanding
+                    
                     const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
                         customer_id: 1,
                         payments_values: this.paymentsValues,
-                        room_id: this.room_id
-
+                        room_id: this.room_id,
+                        generateCredit: generateCredit
                     });
 
-                    this.message = response.data.message ? response.data.message : response.data.errorMessage
-                    
-                    this.isLoanding = !this.isLoanding
-
                     const reservation = response.data
-                    if(reservation.bigger === true)
-                    {
-                        this.bigger = true
-                        this.extraAmount = reservation.extraAmount
-                    }
-
+                    
+                    this.message = reservation.message ? reservation.message : reservation.errorMessage
+                
                     break;
-            
+
                 case 'saleNFCe':
                     console.log('Começou venda NFCe')
                     break
@@ -151,18 +139,23 @@ export default {
             
         },
 
-        generateCredit(option, extraAmount)
+        calculeCredit(paymentsValues = [])
         {
-            console.log(`Deseja gerar crédito no valor de: R$ ${extraAmount}?`, option)
-            if(option === true && extraAmount )
-            {
-                console.log('Quis');   
+            let total = 0;
+            paymentsValues.forEach(values => {
+                total += values;
+
+            });
+
+            let extraAmount = this.totalOperation - total;
+            console.log('Valor do quarto: R$', this.totalOperation);
+            console.log('Total pago: R$', total);
+            if(total > this.totalOperation)
+            {   
+                console.log('Passou o valor do quarto: R$', this.totalOperation);
+                let option = confirm(`Deseja gerar crédito no valor de: R$ ${extraAmount}?`);
+                return option;
             } 
-            
-            if(option === false && !extraAmount) {
-                console.log('Não quis');
-                this.closeOperation()
-            }
         },
 
         cancelOperation(){

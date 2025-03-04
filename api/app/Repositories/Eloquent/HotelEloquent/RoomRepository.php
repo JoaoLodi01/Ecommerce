@@ -24,8 +24,8 @@ use App\Models\{
 
 use App\Repositories\Contracts\HotelContract\RoomContract;
 use App\Repositories\PayMentMethod;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 class RoomRepository implements RoomContract
 {
@@ -149,18 +149,16 @@ class RoomRepository implements RoomContract
                     'capacity' => $capacity->capacity
 
                 ]);
-
                 
                 Log::info("Quarto pós update");
                 Log::info($room);
-                
             }
         }
         
         return $room;
     }
 
-    public function reservation(array $forms, array $payment, float $total, int $roomID)
+    public function reservation(array $forms, array $payment, float $total, int $roomID, bool $generateCredit)
     {
         // $payment = array do pagemento todo
         Log::info('Vai procurar o quarto');
@@ -180,16 +178,9 @@ class RoomRepository implements RoomContract
             && $customer 
             && $formsPayment
             && $hotel
-
         )
         {
             Log::info("Valor informado: R$ $total, maior que o valor do quarto: $room->price_for_night");
-            Reservation::create([
-                'customer_id' => $customer->id,
-                'name' => $customer->name,
-                'room_id' => $room->number_room
-                
-            ]);
             
             $room->update([
                 'reserved' => 1
@@ -197,15 +188,19 @@ class RoomRepository implements RoomContract
             ]);
             
             // Se der completamente errado, retornar para >= 2
-            Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 200 --');
-            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'reserva_hotel');
-            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 202 --');
+            Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 192 --');
+            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
+            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 194 --');
 
+            if($generateCredit === true)
+            {
+                $this->createCredit($customer, (float) $total - $room->price_for_night, $room);
+
+            }
+            
             return array(
                 'success' => true,
-                'message' => 'Reserva concluida',
-                'bigger' => true,
-                'extraAmount' => (float) $total - $room->price_for_night
+                'message' => 'Reserva concluida'
             
             );
         }
@@ -217,22 +212,15 @@ class RoomRepository implements RoomContract
             && $hotel
         )
         {
-            Reservation::create([
-                'customer_id' => $customer->id,
-                'name' => $customer->name,
-                'room_id' => $room->number_room
-                
-            ]);
-    
             Log::info('Quarto encontrado' . $room);
             $room->update([
                 'reserved' => 1
         
             ]);
     
-            Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 233 --');
-            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'reserva_hotel');
-            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 235 --');
+            Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 224 --');
+            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
+            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 225 --');
             
             return array(
                 'success' => true,
@@ -251,14 +239,19 @@ class RoomRepository implements RoomContract
         );
     }
 
-    public function createCredit(object $customer, float $credit) {
-        $credit = CustomerCredit::create([
+    public function createCredit(object $customer, float $credit, object $room) 
+    {
+        Log::info('-- Inicio createCredit linha 240 --');
+        Log::info('Vai criar o crédito do cliente, R$: ' . $credit);
+        $customerCredit = CustomerCredit::create([
             'customer_id' => $customer->id,
             'name' => $customer->name,
             'current_credit' => $credit,
             'validate' => Carbon::now()->addDays(30)->format('Y-m-d')
 
         ]);
+        $this->payMentMethod->decreaseCash($customer, $customerCredit->current_credit, 'Geração de crédito', 'hotel', $room);
+        Log::info('-- Fim createCredit linha 250 --');   
     }
 
     public function countActive(object $room, int $roomID)
