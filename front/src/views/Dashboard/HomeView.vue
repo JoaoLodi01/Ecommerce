@@ -1,9 +1,18 @@
 <template>
-  <h1>Página inicial</h1>
-  <a href="/hotel">Hotel</a><br>
-  <a href="/nfce">NFC-e</a>
+  <div class="welcome">
+    <h1 class="title bg-white p-2">Bem vindo!</h1>
+  </div>
+  <Sidebar />
+
 </template>
 
 <script>
+import Sidebar from '../components/Sidebar.vue';
 
+export default{
+
+  components: {
+    Sidebar,
+  },
+};
 </script>
