@@ -1,5 +1,5 @@
 <template>
-    <div class="payments-container">
+    <div class="payments-container bg-slate-600">
         <h1>Formas de Pagamento</h1>
         <div>
             <form @submit.prevent="finalizeSale">
@@ -71,8 +71,6 @@ export default {
     props: {
         show: {
             type: Boolean,
-            required: true
-            
         },
 
         typeOperation: {

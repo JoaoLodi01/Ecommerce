@@ -1,8 +1,14 @@
 <template>
-  <h1>Página inicial</h1>
-  <a href="/hotel">Hotel</a>
+  <Sidebar/>
 </template>
 
 <script>
+import Sidebar from '../components/Sidebar.vue';
+export default{
+  components:{ 
+    Sidebar
+  }
+
+}
 
 </script>

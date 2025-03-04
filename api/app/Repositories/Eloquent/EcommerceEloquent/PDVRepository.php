@@ -2,13 +2,16 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\Customer;
+use App\Models\{
+    Receive,
+    Customer
+};
 use App\Models\EcommerceModels\{
     PDV,
     FormaPagamentoPDV,
     Payment,
     User,
-    Receive
+    
 };
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
@@ -89,7 +92,7 @@ class PDVRepository
 
         if ($paymentForm->tipolancamento === 'CAIXA'){
             Log::info("Vai criar registro no caixa");
-            $cashBox = $this->cashRegisterRepository->create([
+            $cashBoxRegister = array(
                 'cliente_id' => $customer->id,
                 'cliente' => $customer->name,
                 'especie_id' => $paymentForm->id,
@@ -98,8 +101,10 @@ class PDVRepository
                 'valor_saída' => 0,
                 'user_id' => $user->id,
                 'user' => $user->name,
-            ], 201);
+            );
             
+            $this->cashRegisterRepository->create($cashBoxRegister);
+
         } else if ($paymentForm->tipolancamento === 'RECEBER'){
 
             Log::info("Vai criar registro no receber");
@@ -113,16 +118,6 @@ class PDVRepository
                 'user' => $user->name,
 
             ], 201);
-        }
-
-        if(isset($cashBox))
-        {
-            $cashBox?->update([
-                'saldo_real' => $cashBox->valor_entrda - $cashBox->valor_saida
-                
-            ]);
-
-            $cashBox->save();
         }
 
         Log::info("Update origem NFC-e ou NOTA MANUAL");

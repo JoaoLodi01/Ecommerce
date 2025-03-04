@@ -3,7 +3,7 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use Illuminate\Support\Facades\Log;
-use App\Models\EcommerceModels\Customer;
+use App\Models\Customer;
 
 class ConsumerRepository 
 {
@@ -20,7 +20,7 @@ class ConsumerRepository
     public function store(array $data){
 
         Log::info("Se tiver nome, cnpj ou cpf vai criar.");
-        if (!empty($data['name']) || !empty($data['cnpj']) || !empty($data['cpf'])){
+        if (!empty($data['name']) && !empty($data['cnpj']) || !empty($data['cpf'])){
 
             Log::info("Criando cliente");
             $customer = Customer::create([
@@ -69,9 +69,9 @@ class ConsumerRepository
 
     public function delete(int $id){
         Log::info("Iniciando exclusão do cliente");
-        $customer = Customer::find($id);
+        $customerID = Customer::find($id);
 
-        if (!$customer) {
+        if (!$customerID) {
             Log::info("Cliente não encontrado.");
             return response()->json([
                 'success' => false,
@@ -79,7 +79,7 @@ class ConsumerRepository
             ], 404);
         }
 
-        $customer->update(['active' => 0]);
+        $customerID->update(['active' => 0]);
 
         Log::info("Cliente desativado com sucesso!");
         return response()->json([

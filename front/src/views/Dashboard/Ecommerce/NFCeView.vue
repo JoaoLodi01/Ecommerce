@@ -1,136 +1,135 @@
 <template>
-  <div class="nfce-container">
-    <h1 class="title">Emissão NFC-e</h1>
+  <button @click="showProdutcts">Todos os produtos</button>
 
-    <!-- Adicionar produto -->
-    <div class="add-product">
-      <label for="product">Produto:</label>
-      <input 
-        v-model="newProduct.name" 
-        @input="searchProduct" 
-        @keydown.enter="addProduct"
-        type="text" id="product" placeholder="Digite o código ou nome..." 
-      />
-      <ul v-if="searchResults.length" class="search-results">
-        <li v-for="product in searchResults" :key="product.id" @click="selectProduct(product)">
-          {{ product.name }} - R$ {{ product.price }}
-        </li>
-      </ul>
-    </div>
+  <div v-if="productsSeletion.length > 0">
+    <div v-for="(products, id) in productsSeletion">
+      <div v-for="product in products" :key="id">
+        {{ product.produto }}
 
-    <!-- Lista de Produtos -->
-    <div class="product-list">
-      <h2>Produtos Adicionados:</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Produto</th>
-            <th>CSOSN</th>
-            <th>Quantidade</th>
-            <th>Desconto</th>
-            <th>Acréscimo</th>
-            <th>Valor bruto</th>
-            <th>Valor líquido</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(product, index) in products" :key="index">
-            <td>{{ product.name }}</td>
-            <td>{{ product.csosn || '---' }}</td>
-            <td>{{ product.quantity }}</td>
-            <td>R$ {{ product.discount ? product.discount.toFixed(2) : '0.00' }}</td>
-            <td>R$ {{ product.addition ? product.addition.toFixed(2) : '0.00' }}</td>
-            <td>R$ {{ product.price ? product.price.toFixed(2) : '0.00' }}</td>
-            <td>R$ {{ calculateTotal(product).toFixed(2) }}</td>
-            <td><button @click="removeProduct(index)">Remover</button></td>
-          </tr>
-        </tbody>
-      </table>
+        <input 
+            v-model="product.quantidade"
+            :placeholder=product.quantidade
+            type="number"
+            class="w-7"
+            @input="changeAmount(product.id, product.quantidade)"
+          
+        />
+        Valor de venda R$ {{ product.preco_venda }}
+        Total líquid do item: R$ {{ product.preco_venda * product.quantidade }}
+      </div>
     </div>
+  </div>
 
-    <!-- Resumo da venda -->
-    <div class="sale-summary">
-      <h2>Valores:</h2>
-      <p><strong>Total:</strong> R$ {{ total.toFixed(2) }}</p>
-      <button @click="emitNfce">Finalizar</button>
-    </div>
+  <br>
+  <button @click="saleNM()" class="m-2 p-2">Finalizar</button>
+  <button @click="saleNFCe()" class="m-2 p-2">Finalizar e emitir NFC-e</button>
+
+
+  <div>
+    <ProductsSelectionView
+      v-if="show"
+      :show="this.show"
+      @close="show = false"
+      @update:selectProducts="updateProductsSeletion"
+    />
+    
+  </div>
+
+  <div>
+    <PaymentsForm
+        v-if="showPaymentsForm"
+        :show="this.showPaymentsForm"
+        :typeOperation=this.typeOperation
+        :totalOperation=this.totalOperation
+        @close="cancelOperation"
+    />
   </div>
 </template>
 
 <script>
-import axios from "axios";
+    import PaymentsForm from '@/views/components/PaymentsForm.vue';
+    import ProductsSelectionView from '@/views/components/ProductsSelectionView.vue';
+  
+    import { toRaw } from 'vue'
 
-export default {
-  data() {
-    return {
-      newProduct: {
-        name: "",
-        csosn: "",
-        price: 0,
-        quantity: 1,
-        discount: 0,
-        addition: 0,
-      },
-      api: process.env.VUE_APP_API_URL,
-      searchResults: [],
-      products: [],
-    };
-  },
-  computed: {
-    total() {
-      return this.products.reduce((acc, product) => acc + this.calculateTotal(product), 0);
-    },
-  },
-  methods: {
-    async searchProduct() {
-      if (!this.newProduct.name) {
-        this.searchResults = [];
-        return;
+    export default{
+        data(){
+        return {
+            show: false,
+            showPaymentsForm: false,
+            productsSeletion: [],
+            emitProducts: [],
+            typeOperation: '',
+            totalOperation: 0
+        }
+        },
+
+        methods: {
+            showProdutcts(){
+                this.show = !this.show
+                
+            },
+
+            changeAmount(id, newAmount)
+            {
+                const rawProducts = toRaw(this.productsSeletion)
+
+                let productFound = null;
+                
+                for (let i = 0; i < rawProducts.length; i++) {
+                    const productArray = rawProducts[i];
+                    productFound = productArray.find(p => p.id === id)
+                    if(productFound) break
+
+                }
+
+                if(productFound)
+                {
+                    productFound.quantidade = newAmount
+
+                }
+                
+                const productsSeletionRaw = toRaw(this.productsSeletion)
+                for (let i = 0; i < productsSeletionRaw.length; i++) {
+                    const productsSeletionArray = productsSeletionRaw[i];
+                    productsSeletionArray.forEach(p => {
+                        this.totalOperation += toRaw(p.preco_venda) * toRaw(p.quantidade)
+
+                    });
+                }
+                this.emitProducts = this.productsSeletion
+            },
+
+            updateProductsSeletion(selectedProducts)
+            {
+                this.productsSeletion = [...this.productsSeletion, selectedProducts]
+                
+            },
+
+            saleNFCe()
+            {
+                this.typeOperation = 'saleNFCe'
+                this.showPaymentsForm = !this.showPaymentsForm
+                console.log('emitProducts', this.emitProducts)
+                
+            },
+
+            saleNM()
+            {
+                this.typeOperation = 'saleNM'
+                this.showPaymentsForm = !this.showPaymentsForm
+                console.log('emitProducts', this.emitProducts)
+                
+            },
+            cancelOperation()
+            {
+                this.showPaymentsForm = false
+            },        
+        },
+
+        components: {
+            ProductsSelectionView,
+            PaymentsForm
+        }
       }
-      try {
-        const response = await axios.get(`${this.api}/products/search`, {
-          params: { query: this.newProduct.name },
-        });
-        this.searchResults = response.data;
-      } catch (error) {
-        console.error("Erro ao buscar produtos:", error);
-      }
-    },
-
-    selectProduct(product) {
-      this.newProduct = { ...product, quantity: 1, discount: 0, addition: 0 };
-      this.searchResults = [];
-    },
-
-    addProduct() {
-      if (!this.newProduct.name) {
-        alert("Selecione um produto!");
-        return;
-      }
-      this.products.push({ ...this.newProduct });
-      this.newProduct = { name: "", csosn: "", price: 0, quantity: 1, discount: 0, addition: 0 };
-    },
-
-    removeProduct(index) {
-      this.products.splice(index, 1);
-    },
-
-    calculateTotal(product) {
-      return product.quantity * product.price - product.discount + product.addition;
-    },
-
-    async emitNfce() {
-      try {
-
-
-        this.$routes.push({ name: "PaymentsForm" });
-        console.log("Dados enviados!", response.data);
-      } catch (error) {
-        console.error("Erro ao enviar dados!", error);
-      }
-    },
-  },
-};
 </script>
-

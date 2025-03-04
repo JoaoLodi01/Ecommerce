@@ -29,9 +29,8 @@ Route::get('/', function () {
 
 Route::prefix('v1')->group( function (){
     Route::prefix('ecommerce')->group( function (){
-        // products routes
+        // Products routes
         Route::prefix('products')->group( function(){
-
             Route::get('/all', [ProductsController::class, 'getAll']);
             Route::post('/search', [ProductsController::class, 'search']);
             Route::post('/create', [ProductsController::class, 'store']);

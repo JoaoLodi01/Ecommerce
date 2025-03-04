@@ -3,15 +3,13 @@
 namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 use App\Services\EcommerceService\ProductsService;
 
 class ProductsController extends Controller
 {
-    protected $productsService;
 
-    public function __construct(ProductsService $productsService){
+    public function __construct(protected ProductsService $productsService){
         $this->productsService = $productsService;
     }
 
@@ -20,11 +18,11 @@ class ProductsController extends Controller
     }
 
     public function search(Request $request){
-        return $this->productsService->findByID('a');
-        
+        return $this->productsService->search($request->all());
     }
 
     public function store(Request $request){
+       
         return $this->productsService->store($request->all());
     }
 

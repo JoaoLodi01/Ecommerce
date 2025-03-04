@@ -29,13 +29,22 @@
         <form @submit.prevent="submitForm">
 
             <label>Descrição:</label>
-            <input type="text" v-model="cash.description" placeholder="Inserir...">
+            <input 
+            type="text" 
+            v-model="cash.description" 
+            placeholder="Inserir...">
 
             <label>Valor de entrada:</label>
-            <input type="number" v-model="cash.valor_entrada" placeholder="Inserir...">
+            <input 
+            type="number" 
+            v-model="cash.valor_entrada" 
+            placeholder="Inserir...">
 
             <label>Valor de saída:</label>
-            <input type="number" v-model="cash.valor_saida" placeholder="Inserir...">
+            <input 
+            type="number" 
+            v-model="cash.valor_saida" 
+            placeholder="Inserir...">
 
             <button type="submit">Cadastrar</button>
 
