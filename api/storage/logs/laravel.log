@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2025-03-04 18:40:47] local.INFO: Chamou o IPController  
 [2025-03-04 18:40:47] local.INFO: Chamou o IPService  
 [2025-03-04 18:44:58] local.INFO: Chamou o IPController  
@@ -1001,3 +1002,6 @@ porque o host conectado não respondeu at C:\\Code\\ProjetoWeb\\api\\vendor\\lar
 [2025-03-04 21:07:43] local.INFO: Chamou o IPController  
 [2025-03-04 21:07:43] local.INFO: Chamou o IPService  
 >>>>>>> Kochem
+=======
+[2025-03-04 00:31:56] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+>>>>>>> 58684f41dbd769e85bed82f128430eeeff41d8be
