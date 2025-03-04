@@ -659,3 +659,24 @@ Did you mean one of these?
 #49 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
 #50 {main}
 "} 
+[2025-03-04 21:08:39] local.ERROR: filemtime(): stat failed for C:\Gabriel\Codes\Projeto_3_Hotel - Ecommerce\api\.env {"exception":"[object] (ErrorException(code: 0): filemtime(): stat failed for C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\.env at C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\ServeCommand.php:115)
+[stacktrace]
+#0 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}()
+#2 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\ServeCommand.php(115): filemtime()
+#3 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Console\\ServeCommand->handle()
+#4 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#5 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#6 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#7 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Container\\BoundMethod::call()
+#8 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#9 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#10 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#11 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#12 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#13 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#14 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#15 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1231): Illuminate\\Foundation\\Console\\Kernel->handle()
+#16 C:\\Gabriel\\Codes\\Projeto_3_Hotel - Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#17 {main}
+"} 
