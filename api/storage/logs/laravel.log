@@ -207,3 +207,13 @@
 [2025-03-04 20:53:48] local.INFO: Chamou o IPService  
 [2025-03-04 20:54:52] local.INFO: Buscando todas as espécies na table: payments  
 [2025-03-04 20:55:20] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-04 20:57:33] local.INFO: Chamou o IPController  
+[2025-03-04 20:57:33] local.INFO: Chamou o IPService  
+[2025-03-04 20:57:33] local.INFO: Chamou o IPController  
+[2025-03-04 20:57:33] local.INFO: Chamou o IPService  
+[2025-03-04 20:57:33] local.INFO: Chamou o IPController  
+[2025-03-04 20:57:33] local.INFO: Chamou o IPService  
+[2025-03-04 20:57:35] local.INFO: Chamou o IPController  
+[2025-03-04 20:57:35] local.INFO: Chamou o IPService  
+[2025-03-04 20:57:39] local.INFO: Chamou o IPController  
+[2025-03-04 20:57:39] local.INFO: Chamou o IPService  

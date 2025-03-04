@@ -4,7 +4,7 @@ import LoginView from '@/views/Auth/LoginView.vue';
 import RegisterView from '@/views/Auth/RegisterView.vue';
 import AboutView from '@/views/Dashboard/Ecommerce/AboutView.vue';
 import SettingsView from '@/views/Dashboard/Ecommerce/SettingsView.vue';
-import NFCeView from '@/views/Dashboard/Ecommerce/NFCeView.vue';
+import PDVView from '@/views/Dashboard/Ecommerce/PDVView.vue';
 import ConsumersView from '@/views/Dashboard/Ecommerce/ConsumersView.vue';
 import HomeView from '@/views/Dashboard/HomeView.vue';
 import PaymentsForm from '@/views/components/PaymentsForm.vue';
@@ -58,9 +58,9 @@ const routes = [
     component: ConsumersView,
   },
   {
-    path: '/nfce',
-    name: 'nfce',
-    component: NFCeView,
+    path: '/pdv',
+    name: 'pdv',
+    component: PDVView,
   },
   {
     path: '/payments',
