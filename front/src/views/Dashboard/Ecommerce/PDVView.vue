@@ -1,24 +1,45 @@
 <template>
   <button @click="showProdutcts">Todos os produtos</button>
+  <button ><a href="/">Voltar</a></button>
 
-  <div v-if="productsSeletion.length > 0">
-    <div v-for="(products, id) in productsSeletion">
-      <div v-for="product in products" :key="id">
-        {{ product.produto }}
+  <div class="relative overflow-x-autoauto">
+    <table class="text-left rtl:text-right">
+            <thead class="uppercase">
+                <tr>
+                    <th scope="col" class="px-6 py-3">Cód.</th>
+                    <th scope="col" class="px-6 py-3">Produto</th>
+                    <th scope="col" class="px-6 py-3">CFOP</th>
+                    <th scope="col" class="px-6 py-3">Qtde</th>
+                    <th scope="col" class="px-6 py-3">Preço venda</th>
+                    <th scope="col" class="px-6 py-3">Total</th>
+                </tr>
+            </thead>
+            <div v-for="products in productsSeletion">
+                    <tbody>
+                        <tr>
+                            <div v-for="(product, id) in products" :key="id">
+                            
+                                <td scope="row" class="px-6 py-3">{{ product.id }}</td>
+                                <td class="px-6 py-3">{{ product.produto }}</td>
+                                <td class="px-6 py-3">{{ product.cfop }}</td>
+                                <td class="px-6 py-3"><input 
+                                    v-model="product.quantidade"
+                                    :placeholder=product.quantidade
+                                    type="number"
+                                    class="w-7"
+                                    @input="changeAmount(product.id, product.quantidade)"
+                                
+                                />
+                                </td>
+                                <td class="px-6 py-3">Valor de venda R$ {{ product.preco_venda }}</td>
+                                <td class="px-6 py-3">Total líquid do item: R$ {{ product.preco_venda * product.quantidade }}</td>
+                            </div>
+                        </tr>
+                    </tbody>
+                </div>
 
-        <input 
-            v-model="product.quantidade"
-            :placeholder=product.quantidade
-            type="number"
-            class="w-7"
-            @input="changeAmount(product.id, product.quantidade)"
-          
-        />
-        Valor de venda R$ {{ product.preco_venda }}
-        Total líquid do item: R$ {{ product.preco_venda * product.quantidade }}
-      </div>
+        </table>
     </div>
-  </div>
 
   <br>
   <button @click="saleNM()" class="m-2 p-2">Finalizar</button>
@@ -49,19 +70,21 @@
 <script>
     import PaymentsForm from '@/views/components/PaymentsForm.vue';
     import ProductsSelectionView from '@/views/components/ProductsSelectionView.vue';
-  
-    import { toRaw } from 'vue'
-
+    import axios from 'axios';
+    import { toRaw } from 'vue'   
+    
     export default{
         data(){
-        return {
-            show: false,
-            showPaymentsForm: false,
-            productsSeletion: [],
-            emitProducts: [],
-            typeOperation: '',
-            totalOperation: 0
-        }
+            return {
+                productsSeletion: [],
+                emitProducts: [],
+                userDetails: [],
+                show: false,
+                showPaymentsForm: false,
+                typeOperation: '',
+                totalOperation: 0,
+                api: process.env.VUE_APP_API_URL
+            }
         },
 
         methods: {
@@ -130,6 +153,10 @@
         components: {
             ProductsSelectionView,
             PaymentsForm
+        },
+
+        mounted(){
+            
         }
       }
 </script>

@@ -21,15 +21,17 @@ return new class extends Migration
             $table->integer('number', false, 20);
             $table->integer('number_of_rooms', false, 20);
             $table->integer('number_of_employees', false, 20);
+            $table->integer('cod_cnae', false, 1);
+            $table->string('cnae', 7);
+            $table->integer('cod_crt', false, 1);
+            $table->string('crt', 50);
             $table->boolean('active', 1)->default(1);
             $table->date('end_date')->nullable();
             $table->timestamps();
+
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('hotel_details');

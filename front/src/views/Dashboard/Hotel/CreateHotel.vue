@@ -59,8 +59,31 @@
                 
             >
 
+            <select 
+                id=""
+                v-model="form.cod_crt"
+            >
+                <option value="1">Simples Nacional</option>
+                <option value="2">Lucro Presumido</option>
+                <option value="3">Lucro Real</option>
+                <option value="4">Simples - excesso de receita</option>
+                <option value="5">Simples - MEI</option>
+            </select>
+
+            <select 
+                id=""
+                v-model="form.cod_cnae"
+            >
+                <option value="5510801">Hotéis</option>
+                
+            </select>
+
             <button>Enviar</button>
         </form> 
+    </div>
+
+    <div v-if="message">
+        Aviso: {{ $t(message) }}
     </div>
 
 </template>
@@ -81,8 +104,13 @@
                     number: '',
                     number_of_rooms: '',
                     number_of_employees: '',
+                    cod_cnae: '',
+                    cnae: '',
+                    cod_crt: '',
+                    crt: ''
 
                 },
+                message: '',
                 api: process.env.VUE_APP_API_URL,
                 api_viaCEP: process.env.VUE_APP_VIACEP,
                 api_CNPJ: process.env.VUE_APP_CNPJA,
@@ -103,8 +131,52 @@
                     form.append("number", this.form.number);
                     form.append("number_of_rooms", this.form.number_of_rooms);
                     form.append("number_of_employees", this.form.number_of_employees);
+                    form.append("cod_cnae", this.form.cod_cnae);
+                    form.append("cnae", this.form.cnae);
+                    form.append("cod_crt", this.form.cod_crt);
+                    
+                    switch (this.form.cod_crt) {
+                        case '1':
+                            this.form.crt = 'Simples Nacional'
+                            form.append("crt", this.form.crt);
+                            break;
+                        
+                        case '2':
+                            this.form.crt = 'Lucro Presumido'
+                            form.append("crt", this.form.crt);
+                            break;
 
-                    const response = await axios.post(`${this.api}/hotel/create`, form)
+                        case '3':
+                            this.form.crt = 'Lucro Real'
+                            form.append("crt", this.form.crt);
+                            break;
+
+                        case '4':
+                            this.form.crt = 'Simples - excesso de receita'
+                            form.append("crt", this.form.crt);
+                            break;
+
+                        case '5':
+                            this.form.crt = 'Simples - MEI'
+                            form.append("crt", this.form.crt);
+                            break;
+
+                        default:
+                            alert('Insira um valor válido')
+                            break;
+                    }
+
+                    switch (this.form.cod_cnae) {
+                        case '5510801':
+                            this.form.cnae = 'Hotéis'
+                            form.append("cnae", this.form.cnae);
+                            break;
+                    
+                        default:
+                            break;
+                    }
+
+                    const response = await axios.post(`${this.api}/hotel/create`, this.form)
                     
                     if (response.data.success === true) {
                         this.$router.push('/hotel')
@@ -116,12 +188,10 @@
                         switch (response.data.code) {
                             case '23000':
                                 alert('Esse CNPJ já foi cadastro na base de dados!');
-                                //this.form.cnpj = ''
                                 break;
-                            
-                        
+
                             default:
-                                alert('Esse CNPJ já foi cadastro na base de dados! 2');
+                                alert('Algo deu errado: ', response.data.message);
                                 break;
                         }
 
@@ -132,6 +202,7 @@
                     if(error.response)
                     {
                         alert(error.response.data.message ? error.response.data.message : "Erro detecado")
+                        
                     }
                 }
             },
@@ -154,16 +225,27 @@
             async getCNPJData(){
                 if(this.form.cnpj.length === 14)
                 {
-                    const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
-                    this.form = {
-                        name: response.data.company.name,
-                        cep: response.data.address.zip,
-                        address: response.data.address.street,
-                        number: response.data.address.number,
-                        email: response.data.emails[0].address,
-                        cnpj: response.data.taxId
+                    try {
+                        const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
+                        if(response.status === 200)
+                        {
+                            this.form = {
+                                name: response.data.company.name,
+                                cep: response.data.address.zip,
+                                address: response.data.address.street,
+                                number: response.data.address.number,
+                                email: response.data.emails[0].address,
+                                cnpj: response.data.taxId
+                            }
+
+                        } 
+                        
+                    } catch (error) {
+                        console.error('Erro', error)
+                        this.message = 'message.constraints'; // Definir a chave da mensagem de erro
+                        //this.message = error.response.data.constraints[0]
+                        
                     }
-            
                 }
             }
         },
