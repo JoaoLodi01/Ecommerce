@@ -1,11 +1,13 @@
 <template>
+  <Sidebar />
   <router-link to="/"></router-link>
   <router-view></router-view>
   
 </template>
 
 <script>
-  import axios from 'axios';
+import axios from 'axios';
+import Sidebar from './views/components/Sidebar.vue';
 
   
   export default {
@@ -20,6 +22,10 @@
     mounted(){ 
       const response = axios.get(`${this.api}/get-ip`);
       
-    }
+    },
+
+    components: {
+      Sidebar,
+  },
   }
 </script>

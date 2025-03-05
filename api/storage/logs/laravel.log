@@ -1005,3 +1005,97 @@ porque o host conectado não respondeu at C:\\Code\\ProjetoWeb\\api\\vendor\\lar
 =======
 [2025-03-04 00:31:56] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
 >>>>>>> 58684f41dbd769e85bed82f128430eeeff41d8be
+[2025-03-05 19:40:04] local.INFO: Chamou o IPController  
+[2025-03-05 19:40:04] local.INFO: Chamou o IPService  
+[2025-03-05 19:41:16] local.INFO: Chamou o IPController  
+[2025-03-05 19:41:16] local.INFO: Chamou o IPService  
+[2025-03-05 19:41:21] local.INFO: Chamou o IPController  
+[2025-03-05 19:41:21] local.INFO: Chamou o IPService  
+[2025-03-05 19:41:22] local.INFO: Chamou o IPController  
+[2025-03-05 19:41:22] local.INFO: Chamou o IPService  
+[2025-03-05 19:41:58] local.INFO: Chamou o IPController  
+[2025-03-05 19:41:58] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:00] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:00] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:01] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:01] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:03] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:03] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:12] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:12] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:14] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:14] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:17] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:17] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:21] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:21] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:21] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:21] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:32] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:32] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:34] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:34] local.INFO: Chamou o IPService  
+[2025-03-05 19:42:35] local.INFO: Chamou o IPController  
+[2025-03-05 19:42:35] local.INFO: Chamou o IPService  
+[2025-03-05 19:43:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-05 19:43:01] local.INFO: O hotel foi encontrado  
+[2025-03-05 19:43:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-05 19:43:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-05 19:43:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-05 19:43:01] local.INFO: O hotel foi encontrado  
+[2025-03-05 19:43:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-05 19:43:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-05 19:43:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-05 19:43:03] local.INFO: O hotel foi encontrado  
+[2025-03-05 19:43:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-05 19:43:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-05 19:43:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-05 19:43:03] local.INFO: O hotel foi encontrado  
+[2025-03-05 19:43:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-05 19:43:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-05 19:43:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-05 19:43:05] local.INFO: O hotel foi encontrado  
+[2025-03-05 19:43:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-05 19:43:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-05 19:43:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-05 19:43:05] local.INFO: O hotel foi encontrado  
+[2025-03-05 19:43:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-05 19:43:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-05 19:43:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-05 19:43:07] local.INFO: O hotel foi encontrado  
+[2025-03-05 19:43:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-05 19:43:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-05 19:43:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-05 19:43:07] local.INFO: O hotel foi encontrado  
+[2025-03-05 19:43:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-05 19:43:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-05 19:43:28] local.INFO: Chamou o IPController  
+[2025-03-05 19:43:28] local.INFO: Chamou o IPService  
+[2025-03-05 19:45:58] local.INFO: Chamou o IPController  
+[2025-03-05 19:45:58] local.INFO: Chamou o IPService  
+[2025-03-05 19:46:01] local.INFO: Chamou o IPController  
+[2025-03-05 19:46:01] local.INFO: Chamou o IPService  
+[2025-03-05 19:46:08] local.INFO: Chamou o IPController  
+[2025-03-05 19:46:08] local.INFO: Chamou o IPService  
+[2025-03-05 19:46:25] local.INFO: Chamou o IPController  
+[2025-03-05 19:46:25] local.INFO: Chamou o IPService  
+[2025-03-05 19:46:32] local.INFO: Chamou o IPController  
+[2025-03-05 19:46:32] local.INFO: Chamou o IPService  
+[2025-03-05 19:49:08] local.INFO: Chamou o IPController  
+[2025-03-05 19:49:08] local.INFO: Chamou o IPService  
+[2025-03-05 19:53:25] local.INFO: Chamou o IPController  
+[2025-03-05 19:53:25] local.INFO: Chamou o IPService  
+[2025-03-05 19:53:41] local.INFO: Chamou o IPController  
+[2025-03-05 19:53:41] local.INFO: Chamou o IPService  
+[2025-03-05 19:53:44] local.INFO: Chamou o IPController  
+[2025-03-05 19:53:44] local.INFO: Chamou o IPService  
+[2025-03-05 19:53:45] local.INFO: Chamou o IPController  
+[2025-03-05 19:53:45] local.INFO: Chamou o IPService  
+[2025-03-05 19:53:50] local.INFO: Chamou o IPController  
+[2025-03-05 19:53:50] local.INFO: Chamou o IPService  
+[2025-03-05 19:54:19] local.INFO: Chamou o IPController  
+[2025-03-05 19:54:19] local.INFO: Chamou o IPService  
+[2025-03-05 19:54:22] local.INFO: Chamou o IPController  
+[2025-03-05 19:54:22] local.INFO: Chamou o IPService  
+[2025-03-05 19:54:33] local.INFO: Chamou o IPController  
+[2025-03-05 19:54:33] local.INFO: Chamou o IPService  

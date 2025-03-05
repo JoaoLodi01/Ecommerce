@@ -7,8 +7,7 @@
     <!-- Grid de Produtos -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         <div 
-          v-for="(product, index) in products" 
-          :key="product.id" 
+          v-for="(product, id) in products" :key="product.id" 
           class="bg-white p-6 shadow-lg rounded-lg border border-gray-200">
           <!-- Nome do produto -->
           <h2 class="text-xl font-semibold mb-4">{{ product.name }}</h2>
@@ -54,6 +53,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import RegisterProduct from '@/views/components/RegisterProduct.vue';
 import Sidebar from '@/views/components/Sidebar.vue';
 
@@ -72,6 +72,11 @@ export default {
   },
 
   methods: {
+    async getProducts() {
+      const response = await axios.get(`${this.api}/ecommerce/products/all`)
+      this.products = response.data;
+    },
+
     toggleRegisterProductVisibility(){
       this.showRegisterProduct = !this.showRegisterProduct;
     },
