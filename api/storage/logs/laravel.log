@@ -1,1 +1,22 @@
 [2025-03-04 00:31:56] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-06 01:28:32] local.ERROR: filemtime(): stat failed for D:\SGBR\Projeto_3_Hotel\api\.env {"exception":"[object] (ErrorException(code: 0): filemtime(): stat failed for D:\\SGBR\\Projeto_3_Hotel\\api\\.env at D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\ServeCommand.php:115)
+[stacktrace]
+#0 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}()
+#2 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\ServeCommand.php(115): filemtime()
+#3 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Console\\ServeCommand->handle()
+#4 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#5 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#6 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#7 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#8 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#9 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#10 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#11 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#12 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#13 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#14 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#15 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#16 D:\\SGBR\\Projeto_3_Hotel\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#17 {main}
+"} 
