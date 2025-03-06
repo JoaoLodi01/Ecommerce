@@ -15,10 +15,11 @@ class Products extends Model
         'grupo',
         'preco_custo',
         'preco_venda',
-        'NCM',
-        'CEST',
-        'CSOSN',
-        'CFOP',
+        'ncm',
+        'cest',
+        'csosn',
+        'cfop',
+        'unit',
         'active',
     ];
 

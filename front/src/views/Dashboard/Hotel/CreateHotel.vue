@@ -10,9 +10,9 @@
 
             <input
                 type="text"
-                maxlength="14"
                 placeholder="CNPJ do Hotel"
                 v-model="form.cnpj"
+                v-mask="'##.###.###/####-##'"
                 @input="getCNPJData"
             >
 
@@ -25,9 +25,9 @@
 
             <input
                 type="text"
-                maxlength="8"
                 placeholder="CEP do Hotel"
                 v-model="form.cep"
+                v-mask="'#####-###'"
                 @input="getAddress"
             >
 
@@ -59,14 +59,38 @@
                 
             >
 
+            <select 
+                id=""
+                v-model="form.cod_crt"
+            >
+                <option value="1">Simples Nacional</option>
+                <option value="2">Lucro Presumido</option>
+                <option value="3">Lucro Real</option>
+                <option value="4">Simples - excesso de receita</option>
+                <option value="5">Simples - MEI</option>
+            </select>
+
+            <select 
+                id=""
+                v-model="form.cod_cnae"
+            >
+                <option value="5510801">Hotéis</option>
+                
+            </select>
+
             <button>Enviar</button>
         </form> 
+    </div>
+
+    <div v-if="message">
+        Aviso: {{ $t(message) }}
     </div>
 
 </template>
 
 <script>
     import Config from '@/views/components/Config.vue';
+    import { mask } from 'vue-the-mask';
     import axios from 'axios';
 
     export default {
@@ -81,19 +105,38 @@
                     number: '',
                     number_of_rooms: '',
                     number_of_employees: '',
+                    cod_cnae: '',
+                    cnae: '',
+                    cod_crt: '',
+                    crt: ''
 
                 },
+                message: '',
                 api: process.env.VUE_APP_API_URL,
                 api_viaCEP: process.env.VUE_APP_VIACEP,
                 api_CNPJ: process.env.VUE_APP_CNPJA,
                 
             }
         },
+        directives: {
+            mask
+        },
 
         methods: {
+            
             async createHotel()
             {
                 try {
+                    const codingCRT = {
+                        '1': 'Simples Nacional',
+                        '2': 'Lucro Presumido',
+                        '3': 'Lucro Real',
+                        '4': 'Simples - excesso de receita',
+                        '5': 'Simples - MEI'
+
+                    }
+                    this.form.crt = codingCRT[this.form.cod_crt] || '0'
+
                     const form = new FormData();
                     form.append("name", this.form.name);
                     form.append("cnpj", this.form.cnpj);
@@ -103,8 +146,22 @@
                     form.append("number", this.form.number);
                     form.append("number_of_rooms", this.form.number_of_rooms);
                     form.append("number_of_employees", this.form.number_of_employees);
+                    form.append("cod_cnae", this.form.cod_cnae);
+                    form.append("cnae", this.form.cnae);
+                    form.append("cod_crt", this.form.cod_crt);
+                    form.append("crt", this.form.crt);
+                    
+                    switch (this.form.cod_cnae) {
+                        case '5510801':
+                            this.form.cnae = 'Hotéis'
+                            form.append("cnae", this.form.cnae);
+                            break;
+                    
+                        default:
+                            break;
+                    }
 
-                    const response = await axios.post(`${this.api}/hotel/create`, form)
+                    /*const response = await axios.post(`${this.api}/hotel/create`, form)
                     
                     if (response.data.success === true) {
                         this.$router.push('/hotel')
@@ -116,28 +173,26 @@
                         switch (response.data.code) {
                             case '23000':
                                 alert('Esse CNPJ já foi cadastro na base de dados!');
-                                //this.form.cnpj = ''
                                 break;
-                            
-                        
+
                             default:
-                                alert('Esse CNPJ já foi cadastro na base de dados! 2');
+                                alert('Algo deu errado: ', response.data.message);
                                 break;
                         }
 
-                    }
+                    }*/
                     
                 } catch (error) {
                     console.error('Erro ao criar o Hotel', error)
                     if(error.response)
                     {
                         alert(error.response.data.message ? error.response.data.message : "Erro detecado")
+                        
                     }
                 }
             },
             async getAddress(){
                 try {                
-                    console.log(this.form.cep)
                     if(this.form.cep.length === 8)
                     {
                         const response = await axios.get(`${this.api_viaCEP}/${this.form.cep}/json/`)
@@ -152,18 +207,31 @@
             },
 
             async getCNPJData(){
-                if(this.form.cnpj.length === 14)
-                {
-                    const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
-                    this.form = {
-                        name: response.data.company.name,
-                        cep: response.data.address.zip,
-                        address: response.data.address.street,
-                        number: response.data.address.number,
-                        email: response.data.emails[0].address,
-                        cnpj: response.data.taxId
+                const noMaskCNPJ = this.form.cnpj.replace(/\D/g, '');
+
+                if(noMaskCNPJ.length === 14)
+                {   
+                    try {
+                        const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
+                        if(response.status === 200)
+                        {
+                            this.form = {
+                                name: response.data.company.name,
+                                cep: response.data.address.zip,
+                                address: response.data.address.street,
+                                number: response.data.address.number,
+                                email: response.data.emails[0]?.address || '',
+                                cnpj: response.data.taxId
+                            }
+
+                        } 
+                        
+                    } catch (error) {
+                        console.error('Erro', error)
+                        this.message = 'message.constraints'; // Definir a chave da mensagem de erro
+                        //this.message = error.response.data.constraints[0]
+                        
                     }
-            
                 }
             }
         },

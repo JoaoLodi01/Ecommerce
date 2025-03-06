@@ -2,7 +2,7 @@
     <form @submit.prevent="addProduct" class="bg-white p-6 shadow-lg rounded-lg border border-gray-300">
       <h2 class="text-2xl font-semibold mb-4">Cadastrar Novo Produto</h2>
   
-      <div class="space-y-4">
+      <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
         <!-- Nome do produto -->
         <div>
           <label for="name" class="block text-sm font-medium">Produto:</label>
@@ -160,11 +160,7 @@
             return;
           }
   
-          const response = await axios.post(`${this.api}/ecommerce/products/create`, this.product, {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
+          const response = await axios.post(`${this.api}/ecommerce/products/create`);
   
           this.$emit('productAdded', { ...this.product });
           this.product = {
@@ -172,7 +168,7 @@
             quantity: '',
             cost: '',
             sale: '',
-            profit: '100',
+            profit: '',
             ncm: '',
             cest: '',
             csosn: '',

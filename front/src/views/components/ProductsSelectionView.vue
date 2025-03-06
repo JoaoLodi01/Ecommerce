@@ -5,17 +5,23 @@
                 <tr>
                     <th scope="col" class="px-6 py-3">Nome</th>
                     <th scope="col" class="px-6 py-3">CFOP</th>
+                    <th scope="col" class="px-6 py-3">Preço de venda</th>
+                    <th scope="col" class="px-6 py-3">Quantidade</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(product, id) in products" :key="id">
                     <th scope="row" class="px-6 py-3">{{ product.produto }}</th>
-                    <td class="px-6 py-3">{{ product.CFOP }}</td>
+                    <td class="px-6 py-3">{{ product.cfop }}</td>
+                    <td class="px-6 py-3">R$ {{ product.preco_venda }}</td>
+                    <td class="px-6 py-3">{{ product.quantidade }}</td>
+                    <td>
                     <input
                         type="checkbox"
                         v-model="product.isSelected"
                         @change="selectProducts(product)"
                     />
+                    </td>
                 </tr>
             </tbody>
 
@@ -108,7 +114,8 @@
         
         mounted(){
             this.getProducts()
-
+            const response = axios.get(`${this.api}/hotel/all`)
+            console.log(response)
         }
     }
 

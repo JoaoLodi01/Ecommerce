@@ -1,16 +1,17 @@
 <template>
-  <Sidebar/>
   <div class="estoque-container px-20 py-20">
     <!-- Título -->
     <h1 class="text-3xl font-semibold mb-6">Estoque</h1>
 
     <!-- Grid de Produtos -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" v-if="showProducts">
         <div 
           v-for="(product, id) in products" :key="product.id" 
           class="bg-white p-6 shadow-lg rounded-lg border border-gray-200">
           <!-- Nome do produto -->
-          <h2 class="text-xl font-semibold mb-4">{{ product.name }}</h2>
+          <div class="text-sm text-gray-500 mb-2">
+            <span class="font-semibold">Produto:</span> {{ product.produto}}
+          </div>
 
           <!-- ID do produto -->
           <div class="text-sm text-gray-500 mb-2">
@@ -19,12 +20,12 @@
 
           <!-- Quantidade -->
           <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">Quantidade:</span> {{ product.quantity }}
+            <span class="font-semibold">Quantidade:</span> {{ product.quantidade }}
           </div>
 
           <!-- Preço de Venda -->
           <div class="text-sm text-gray-500 mb-4">
-            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale).toFixed(2) || '0.00' }}
+            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.preco_venda).toFixed(2) || '0.00' }}
           </div>
 
           <!-- Ações -->
@@ -55,30 +56,36 @@
 <script>
 import axios from 'axios';
 import RegisterProduct from '@/views/components/RegisterProduct.vue';
-import Sidebar from '@/views/components/Sidebar.vue';
 
 export default {
   components: {
     RegisterProduct,
-    Sidebar,
   },
   data() {
     return {
       products: [],
-      api: process.env.VUE_APP_API_URL,
+      showProducts: true,
       showRegisterProduct: false,
-      showSidebar: false,
+      api: process.env.VUE_APP_API_URL,
+      
     };
   },
 
+  mounted() {
+    this.getProducts();
+  },
+
   methods: {
+
     async getProducts() {
-      const response = await axios.get(`${this.api}/ecommerce/products/all`)
+      const response = await axios.get(`${this.api}/ecommerce/products/all`);
+      console.log(response);
       this.products = response.data;
     },
 
     toggleRegisterProductVisibility(){
       this.showRegisterProduct = !this.showRegisterProduct;
+      this.showProducts = false;
     },
 
     addProduct(newProduct) {

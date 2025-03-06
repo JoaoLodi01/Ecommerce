@@ -12,8 +12,17 @@
       <button 
         @click="toggleSidebar"
         class="absolute top-4 right-4 p-2 bg-gray-800 hover:text-blue-300 text-white border-none rounded-lg cursor-pointer z-50">
-        <span v-if="!sidebarActive">Open</span>
-        <span v-else>
+        <span 
+          v-if="!sidebarActive"
+          class=""
+        >
+          Open
+        </span>
+
+        <span 
+          v-else
+          class="transition-transform duration-300"
+        >
           <div class="border border-white w-4 mb-1"></div>
           <div class="border border-white w-5 mt-1"></div>
           <div class="border border-white w-6 mt-1"></div>
@@ -51,7 +60,7 @@
         </div>
     </b-sidebar>
 
-    <!-- Botão fora da Sidebar -->
+    <!-- Botão da Sidebar fechada -->
     <button 
       v-if="!sidebarActive"
       @click="toggleSidebar"
