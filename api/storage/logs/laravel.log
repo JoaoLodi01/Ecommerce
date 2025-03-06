@@ -455,3 +455,107 @@
 [2025-03-05 18:29:50] local.INFO: Chamou o IPService  
 [2025-03-05 20:17:08] local.INFO: Chamou o IPController  
 [2025-03-05 20:17:08] local.INFO: Chamou o IPService  
+[2025-03-06 00:35:31] local.ERROR: SQLSTATE[HY000] [2002] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu (Connection: mariadb, SQL: select exists (select 1 from information_schema.tables where table_schema = 'hotelDb' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+
+corretamente após um período de tempo ou a conexão estabelecida falhou
+
+porque o host conectado não respondeu (Connection: mariadb, SQL: select exists (select 1 from information_schema.tables where table_schema = 'hotelDb' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) at D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(344): Illuminate\\Database\\Connection->select()
+#3 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#4 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
+#5 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
+#6 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#7 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#8 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#9 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#10 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#11 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#12 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#13 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#14 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#15 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#16 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#17 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#18 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#19 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#20 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#21 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#22 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#23 D:\\SGBR\\Projeto_3_Hotel\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#24 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+
+corretamente após um período de tempo ou a conexão estabelecida falhou
+
+porque o host conectado não respondeu at D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:66)
+[stacktrace]
+#0 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(66): PDO->__construct()
+#1 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection()
+#2 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection()
+#3 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(185): Illuminate\\Database\\Connectors\\MySqlConnector->connect()
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1231): call_user_func()
+#6 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
+#7 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
+#8 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#9 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#10 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#11 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#12 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(344): Illuminate\\Database\\Connection->select()
+#13 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(361): Illuminate\\Database\\Connection->selectOne()
+#14 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
+#15 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
+#16 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#17 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#18 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#19 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#20 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#21 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#22 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#23 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#24 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#25 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#26 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#27 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#28 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#29 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#30 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#31 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#32 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#33 D:\\SGBR\\Projeto_3_Hotel\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#34 {main}
+"} 
+[2025-03-06 00:41:05] local.INFO: Chamou o IPController  
+[2025-03-06 00:41:05] local.INFO: Chamou o IPService  
+[2025-03-06 00:41:15] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-06 00:41:15] local.INFO: O hotel não foi encontrado  
+[2025-03-06 00:51:06] local.INFO: Chamou o IPController  
+[2025-03-06 00:51:06] local.INFO: Chamou o IPService  
+[2025-03-06 00:59:31] local.INFO: Chamou o IPController  
+[2025-03-06 00:59:31] local.INFO: Chamou o IPService  
+[2025-03-06 01:01:26] local.INFO: Chamou o IPController  
+[2025-03-06 01:01:26] local.INFO: Chamou o IPService  
+[2025-03-06 01:03:01] local.INFO: Chamou o IPController  
+[2025-03-06 01:03:01] local.INFO: Chamou o IPService  
+[2025-03-06 01:03:14] local.INFO: Chamou o IPController  
+[2025-03-06 01:03:14] local.INFO: Chamou o IPService  
+[2025-03-06 01:09:17] local.INFO: Chamou o IPController  
+[2025-03-06 01:09:17] local.INFO: Chamou o IPService  
+[2025-03-06 01:14:55] local.INFO: Chamou o IPController  
+[2025-03-06 01:14:55] local.INFO: Chamou o IPService  
+[2025-03-06 01:21:21] local.INFO: Chamou o IPController  
+[2025-03-06 01:21:21] local.INFO: Chamou o IPService  
+[2025-03-06 01:24:16] local.INFO: Chamou o IPController  
+[2025-03-06 01:24:16] local.INFO: Chamou o IPService  
+[2025-03-06 01:24:35] local.INFO: Chamou o IPController  
+[2025-03-06 01:24:35] local.INFO: Chamou o IPService  
+[2025-03-06 01:25:20] local.INFO: Chamou o IPController  
+[2025-03-06 01:25:20] local.INFO: Chamou o IPService  
+[2025-03-06 01:28:04] local.INFO: Chamou o IPController  
+[2025-03-06 01:28:04] local.INFO: Chamou o IPService  

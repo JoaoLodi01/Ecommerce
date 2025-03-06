@@ -10,9 +10,9 @@
 
             <input
                 type="text"
-                maxlength="14"
                 placeholder="CNPJ do Hotel"
                 v-model="form.cnpj"
+                v-mask="'##.###.###/####-##'"
                 @input="getCNPJData"
             >
 
@@ -25,9 +25,9 @@
 
             <input
                 type="text"
-                maxlength="8"
                 placeholder="CEP do Hotel"
                 v-model="form.cep"
+                v-mask="'#####-###'"
                 @input="getAddress"
             >
 
@@ -90,6 +90,7 @@
 
 <script>
     import Config from '@/views/components/Config.vue';
+    import { mask } from 'vue-the-mask';
     import axios from 'axios';
 
     export default {
@@ -117,11 +118,25 @@
                 
             }
         },
+        directives: {
+            mask
+        },
 
         methods: {
+            
             async createHotel()
             {
                 try {
+                    const codingCRT = {
+                        '1': 'Simples Nacional',
+                        '2': 'Lucro Presumido',
+                        '3': 'Lucro Real',
+                        '4': 'Simples - excesso de receita',
+                        '5': 'Simples - MEI'
+
+                    }
+                    this.form.crt = codingCRT[this.form.cod_crt] || '0'
+
                     const form = new FormData();
                     form.append("name", this.form.name);
                     form.append("cnpj", this.form.cnpj);
@@ -134,38 +149,8 @@
                     form.append("cod_cnae", this.form.cod_cnae);
                     form.append("cnae", this.form.cnae);
                     form.append("cod_crt", this.form.cod_crt);
+                    form.append("crt", this.form.crt);
                     
-                    switch (this.form.cod_crt) {
-                        case '1':
-                            this.form.crt = 'Simples Nacional'
-                            form.append("crt", this.form.crt);
-                            break;
-                        
-                        case '2':
-                            this.form.crt = 'Lucro Presumido'
-                            form.append("crt", this.form.crt);
-                            break;
-
-                        case '3':
-                            this.form.crt = 'Lucro Real'
-                            form.append("crt", this.form.crt);
-                            break;
-
-                        case '4':
-                            this.form.crt = 'Simples - excesso de receita'
-                            form.append("crt", this.form.crt);
-                            break;
-
-                        case '5':
-                            this.form.crt = 'Simples - MEI'
-                            form.append("crt", this.form.crt);
-                            break;
-
-                        default:
-                            alert('Insira um valor válido')
-                            break;
-                    }
-
                     switch (this.form.cod_cnae) {
                         case '5510801':
                             this.form.cnae = 'Hotéis'
@@ -176,7 +161,7 @@
                             break;
                     }
 
-                    const response = await axios.post(`${this.api}/hotel/create`, this.form)
+                    /*const response = await axios.post(`${this.api}/hotel/create`, form)
                     
                     if (response.data.success === true) {
                         this.$router.push('/hotel')
@@ -195,7 +180,7 @@
                                 break;
                         }
 
-                    }
+                    }*/
                     
                 } catch (error) {
                     console.error('Erro ao criar o Hotel', error)
@@ -208,7 +193,6 @@
             },
             async getAddress(){
                 try {                
-                    console.log(this.form.cep)
                     if(this.form.cep.length === 8)
                     {
                         const response = await axios.get(`${this.api_viaCEP}/${this.form.cep}/json/`)
@@ -223,8 +207,10 @@
             },
 
             async getCNPJData(){
-                if(this.form.cnpj.length === 14)
-                {
+                const noMaskCNPJ = this.form.cnpj.replace(/\D/g, '');
+
+                if(noMaskCNPJ.length === 14)
+                {   
                     try {
                         const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
                         if(response.status === 200)
@@ -234,7 +220,7 @@
                                 cep: response.data.address.zip,
                                 address: response.data.address.street,
                                 number: response.data.address.number,
-                                email: response.data.emails[0].address,
+                                email: response.data.emails[0]?.address || '',
                                 cnpj: response.data.taxId
                             }
 
