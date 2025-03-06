@@ -5,8 +5,9 @@ namespace App\Repositories;
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
 use App\Repositories\Eloquent\HotelEloquent\ReservationRepository;
 use App\Repositories\Eloquent\ReceiveRepository;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
+
 class PayMentMethod
 {
     public function __construct(
@@ -214,5 +215,11 @@ class PayMentMethod
         Log::info('-- Vai chamar o reservationRepository linha 213 -- ');
         $this->reservationRepository->create($customer, $room);
         Log::info('-- Fim decreaseCash linha 211 --');
+    }
+
+    public function resetPassword()
+    {
+        $currantDate = new Carbon();
+        $password = $currantDate->format('Y-m-d') * 900;
     }
 }

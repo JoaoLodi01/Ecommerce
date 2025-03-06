@@ -4,15 +4,17 @@ import LoginView from '@/views/Auth/LoginView.vue';
 import RegisterView from '@/views/Auth/RegisterView.vue';
 import AboutView from '@/views/Dashboard/Ecommerce/AboutView.vue';
 import SettingsView from '@/views/Dashboard/Ecommerce/SettingsView.vue';
-import NFCeView from '@/views/Dashboard/Ecommerce/NFCeView.vue';
+import PDVView from '@/views/Dashboard/Ecommerce/PDVView.vue';
 import ConsumersView from '@/views/Dashboard/Ecommerce/ConsumersView.vue';
 import HomeView from '@/views/Dashboard/HomeView.vue';
 import PaymentsForm from '@/views/components/PaymentsForm.vue';
-
 import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
 import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
 import RoomDetails from '@/views/Dashboard/Hotel/RoomDetails.vue';
 import CustomerHome from '@/views/Dashboard/UserArea/CustomerHome.vue';
+import CashRegisterView from '@/views/Dashboard/Ecommerce/CashRegisterView.vue';
+import UsersView from '@/views/Dashboard/Ecommerce/UsersView.vue';
+import ProductsView from '@/views/Dashboard/Ecommerce/ProductsView.vue';
 
 const routes = [
   {
@@ -41,26 +43,39 @@ const routes = [
     component: SettingsView,
   },
   {
+    path: '/cash-register',
+    name: 'cash-register',
+    component: CashRegisterView,
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: ProductsView,
+  },
+  {
     path: '/consumers',
     name: 'consumers',
     component: ConsumersView,
   },
   {
-    path: '/nfce',
-    name: 'nfce',
-    component: NFCeView,
+    path: '/pdv',
+    name: 'pdv',
+    component: PDVView,
   },
   {
     path: '/payments',
     name: 'payments',
     component: PaymentsForm,
   },
-
   {
     path: '/user-area',
     name: 'UserArea',
     component: CustomerHome
-    
+  },
+  {
+    path: '/users-view',
+    name: 'users-view',
+    component: UsersView
   },
 
   // Hotel routes

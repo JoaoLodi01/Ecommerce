@@ -6,7 +6,6 @@
 
 <script>
   import axios from 'axios';
-
   
   export default {
     data(){
@@ -19,7 +18,7 @@
     },
     mounted(){ 
       const response = axios.get(`${this.api}/get-ip`);
-
+      
     }
   }
 </script>

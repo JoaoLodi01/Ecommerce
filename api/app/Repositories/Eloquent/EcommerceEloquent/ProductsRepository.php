@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
+use Illuminate\Support\Facades\Log;
 
 class ProductsRepository
 {
@@ -10,17 +11,22 @@ class ProductsRepository
         return Products::where('active', $active)->get();
     }
 
-    public function search(array $data){
-        return Products::where('active', 1)
-                       ->where(function ($query) use ($data) {
-                           $query->where('name', 'like', '%' . $data['name'] . '%')
-                                 ->orWhere('id', $data['id']);
-                       })
-                       ->paginate(10);
+    public function search(array $data)
+    {
+        Log::info('Dados recebidos');
+        Log::info($data);
+        $products = Products::where('active', 1)
+                    ->where('produto', 'like', '%' . $data['params'] . '%')
+                    ->get();
+
+        Log::info('O que achou: ');
+        Log::info($products);
+
+        return $products;
     }
 
-    public function findByID(string $params){
-        return Products::where('id', $params)->first();
+    public function findByID(int $id){
+        return Products::where('id', $id)->first();
     }
 
     public function store(array $data){

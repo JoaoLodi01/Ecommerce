@@ -30,7 +30,10 @@ class HotelDetailRequest extends FormRequest
             'number' => [$required],
             'number_of_rooms' => [$required],
             'number_of_employees' => [$required],
-            
+            'cod_cnae' => [$required, 'max:7'],
+            'cnae' => [$required, 'string'],
+            'cod_crt' => [$required, 'max:1'],
+            'crt' => [$required, 'string'],
         ];
         
     }

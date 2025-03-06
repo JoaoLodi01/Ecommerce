@@ -37,9 +37,9 @@ class ProductsSeeder extends Seeder
                 "preco_venda" => 20.00,
                 "perc_lucro" => 100,
                 "ncm" => 12345678,
-                "CEST" => 1234567,
-                "CSOSN" => 102,
-                "CFOP" => 5102,
+                "cest" => 1234567,
+                "csosn" => 102,
+                "cfop" => 5102,
             ],
             [
                 "produto" => "Jack Daniels Honey",
@@ -50,9 +50,9 @@ class ProductsSeeder extends Seeder
                 "preco_venda" => 20.00,
                 "perc_lucro" => 100,
                 "ncm" => 12345678,
-                "CEST" => 1234567,
-                "CSOSN" => 102,
-                "CFOP" => 5102,
+                "cest" => 1234567,
+                "csosn" => 102,
+                "cfop" => 5102,
             ],
             [
                 "produto" => "Jack Daniels Canela",
@@ -63,9 +63,9 @@ class ProductsSeeder extends Seeder
                 "preco_venda" => 20.00,
                 "perc_lucro" => 100,
                 "ncm" => "12345678",
-                "CEST" => "123456",
-                "CSOSN" => "102",
-                "CFOP" => "5102",
+                "cest" => "123456",
+                "csosn" => "102",
+                "cfop" => "5102",
             ],
         ];
 

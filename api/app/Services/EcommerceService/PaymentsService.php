@@ -66,7 +66,7 @@ class PaymentsService{
         return response()->json([
             'success' => false,
             'th' => $th->getMessage(),
-            'line' => $th->getLise(),
+            'line' => $th->getLine(),
             'file' => $th->getFile(),
         ]);
     }

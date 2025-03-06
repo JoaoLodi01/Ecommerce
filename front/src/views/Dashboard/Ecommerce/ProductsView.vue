@@ -1,126 +1,92 @@
 <template>
-    <div class="estoque-container">
-        <h1 class="title">Estoque:</h1>
+  <Sidebar/>
+  <div class="estoque-container px-20 py-20">
+    <!-- Título -->
+    <h1 class="text-3xl font-semibold mb-6">Estoque</h1>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Quantidade</th>
-                    <th>Preço de Venda</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="product in products" :key="product.id">
-                    <td>{{ product.id }}</td>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.quantity }}</td>
-                    <td>{{ Number(product.sale).toFixed(2) || '0.00' }}</td>
-                    <td>
-                        <button @click="editProduct(product)">Editar</button>
-                        <button @click="deleteProduct(product.id)">Excluir</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- Grid de Produtos -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div 
+          v-for="(product, index) in products" 
+          :key="product.id" 
+          class="bg-white p-6 shadow-lg rounded-lg border border-gray-200">
+          <!-- Nome do produto -->
+          <h2 class="text-xl font-semibold mb-4">{{ product.name }}</h2>
 
-        <form @submit.prevent="submitForm">
+          <!-- ID do produto -->
+          <div class="text-sm text-gray-500 mb-2">
+            <span class="font-semibold">ID:</span> {{ product.id }}
+          </div>
 
-            <label for="name">Produto:</label>
-            <input v-model="product.name" type="text" id="name" placeholder="Inserir..." />
+          <!-- Quantidade -->
+          <div class="text-sm text-gray-500 mb-2">
+            <span class="font-semibold">Quantidade:</span> {{ product.quantity }}
+          </div>
 
-            <label for="quantity">Quantidade:</label>
-            <input v-model="product.quantity" type="number" id="quantity" placeholder="Inserir..." />
+          <!-- Preço de Venda -->
+          <div class="text-sm text-gray-500 mb-4">
+            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale).toFixed(2) || '0.00' }}
+          </div>
 
-            <label for="cost">Preço de custo:</label>
-            <input v-model="product.cost" type="number" id="cost" placeholder="Inserir..." />
-
-            <label for="sale">Preço de venda:</label>
-            <input v-model="product.sale" type="number" id="sale" placeholder="Inserir..." />
-
-            <label for="profit">% de lucro:</label>
-            <input v-model="product.profit" type="number" id="profit" placeholder="Inserir..." />
-
-            <label for="ncm">NCM:</label>
-            <input v-model="product.ncm" type="number" id="ncm" placeholder="Inserir..." />
-
-            <label for="cest">CEST:</label>
-            <input v-model="product.cest" type="number" id="cest" placeholder="Inserir..." />
-
-            <label for="csosn">CSOSN:</label>
-            <input v-model="product.csosn" type="number" id="csosn" placeholder="Inserir..." />
-
-            <label for="cfop">CFOP:</label>
-            <input v-model="product.cfop" type="number" id="cfop" placeholder="Inserir..." />
-
-            <button @submit.prevent="addProduct">Cadastrar</button>
-        </form>
-    </div>
+          <!-- Ações -->
+          <div class="flex space-x-2">
+            <button 
+              @click="editProduct(product)" 
+              class="px-4 py-2 text-blue-500 bg-blue-100 rounded-lg hover:bg-blue-200 transition">Editar</button>
+            <button 
+              @click="deleteProduct(product.id)" 
+              class="px-4 py-2 text-red-500 bg-red-100 rounded-lg hover:bg-red-200 transition">Excluir</button>
+          </div>
+        </div>
+        <div class="mt-4">
+          <RegisterProduct
+            v-if= "showRegisterProduct"
+          />
+          <button 
+            @click="toggleRegisterProductVisibility"
+            class="w-full py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
+            <span v-if="!showRegisterProduct">Cadastrar</span>
+            <span v-else>Voltar</span>
+          </button>
+        </div>
+      </div>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
+import RegisterProduct from '@/views/components/RegisterProduct.vue';
+import Sidebar from '@/views/components/Sidebar.vue';
 
 export default {
-    data(){
-        return{
-            product: {
-                name: '',
-                quantity: '',
-                cost: '',
-                sale: '',
-                profit: '',
-                ncm: '',
-                cest: '',
-                csosn: '',
-                cfop: '',
-            },
-            products: [],
-        api: process.env.VUE_APP_API_URL
-        };
+  components: {
+    RegisterProduct,
+    Sidebar,
+  },
+  data() {
+    return {
+      products: [],
+      api: process.env.VUE_APP_API_URL,
+      showRegisterProduct: false,
+      showSidebar: false,
+    };
+  },
+
+  methods: {
+    toggleRegisterProductVisibility(){
+      this.showRegisterProduct = !this.showRegisterProduct;
     },
 
-    methods: {
-        async addProduct() {
-        try {
-            if (!this.product.name || !this.product.quantity || !this.product.cost || !this.product.sale || !this.product.profit){
-                alert("Nome, quantidade, preço custo, preço venda, perc lucro são obrigatórios!");
-                return;
-            }
-
-            const response = await axios.post(`${this.api}/products/create`, this.product,{
-                headers: {
-                    "Content-Type": "application/json",
-                }
-            })
-
-            this.products.push({ ...this.product});
-            this.products = {
-                name: '',
-                quantity: '',
-                cost: '',
-                sale: '',
-                profit: '',
-                ncm: '',
-                cest: '',
-                csosn: '',
-                cfop: '',
-            }
-
-            console.log("Resposota da API:", response.data);
-            alert("Cadastro realizado com sucesso!");
-        } catch (error) {
-            console.log("Erro ao cadastrar:", error);
-            alert("Erro ao cadastrar!");
-        }
-      },
-
-      removeProduct(index) {
-        this.products.splice(index, 1);
-      },
+    addProduct(newProduct) {
+      this.products.push(newProduct);
     },
-}
 
+    deleteProduct(id) {
+      this.products = this.products.filter(product => product.id !== id);
+    },
+
+    editProduct(product) {
+      // Adicione a lógica de edição se necessário
+    },
+  },
+};
 </script>
