@@ -1,20 +1,22 @@
 <template>
-    <div class="relative overflow-x-autoauto m-auto" v-if="showGrid">
-        <div class="flex justify-between">
-            <div class="ml-6 mt-5 mb-0 cursor-pointer" @click="showProdutcts">
+    <div class="relative overflow-x-autoauto ml-16 border w-max" v-if="showGrid">
+        <div class="flex">
+            <div class="ml-6 mt-4 mb-4 cursor-pointer" @click="showProdutcts">
                 <div class="border border-red-500 w-6 mb-1"></div>
                 <div class="border border-black w-5 mb-1"></div>
                 <div class="border border-gray-500 w-4 mb-1"></div>        
             </div>
 
-            <button class="mr-6 mt-2">
-                <a href="/">Voltar</a>
-            </button>
+            <input
+                type="text"
+                placeholder="Busca"
+                class="w-full ml-auto text-right pr-3.5"
+            />
         </div>
 
-        <div class="rounded-t-xl m-5">
-            <table class="text-left rtl:text-right">
-                    <thead class="uppercase relative border border-b-orange-950 shadow-xl">
+        <div class="m-5 w-max">
+            <table class="text-left rounded-t-xl rtl:text-right">
+                    <thead class="uppercase relative shadow-lg">
                         <tr>
                             <th scope="col" class="px-6 py-3 ">Cód.</th>
                             <th scope="col" class="px-6 py-3 text-left">Produto</th>
@@ -69,7 +71,8 @@
                 </table>
             </div>
 
-            <div class="flex m-5 top-auto">
+        <div class="flex justify-end">
+            <div class="m-5 top-auto">
                 <div class="inline-flex">
                     <button
                         v-if="productsSeletion.length <= 0"
@@ -93,21 +96,21 @@
                         </svg>
                     </button>
 
-                    <button @click="saleNM()" class="p-2">Finalizar</button>
-                    <button @click="saleNFCe()" class="p-2">Finalizar e emitir NFC-e</button>
+                        <button @click="saleNM()" class="p-2">Finalizar</button>
+                        <button @click="saleNFCe()" class="p-2">Finalizar e emitir NFC-e</button>
+                    </div>
                 </div>
             </div>
         </div>
-
     <div>
       <ProductsSelectionView
-        v-if="show"
-        :show="this.show"
-        @close="showGridEmit()"
-        @update:selectProducts="updateProductsSeletion"
-    />
+            v-if="show"
+            :show="this.show"
+            @close="showGridEmit()"
+            @update:selectProducts="updateProductsSeletion"
+        />
     
-  </div>
+    </div>
 
   <div>
     <PaymentsForm
@@ -229,6 +232,19 @@
                 this.emitProducts = this.productsSeletion
             },
 
+            calculateTotal(){
+                const rawproductsSeletion = toRaw(this.productsSeletion)
+                console.log('rawproductsSeletion', rawproductsSeletion)
+                let total = 0;
+                rawproductsSeletion.forEach(products => {
+                    for (let i = 0; i < products.length; i++) {
+                        const element = products[i];
+                        total += element.preco_venda * element.quantidade
+                        
+                    }
+                });
+                return total;
+            },
 
             updateProductsSeletion(selectedProducts)
             {

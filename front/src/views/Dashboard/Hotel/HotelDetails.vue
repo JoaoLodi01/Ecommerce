@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-gray-700 text-white text-sm">    
+  <div class="bg-gray-700 text-white text-sm w-full">    
     <div class="flex justify-between p-2">
       <h1 class="ml-2">Bem vindo a sua área do Hotel!</h1>
       <div class="flex">
@@ -15,8 +15,8 @@
       <h3 class="ml-2" v-if="!isLoanding">Contamos com um total de: {{ hotel.number_of_rooms }} quartos </h3>
 
     </div>
-  </header>
-
+  </div>
+  <!--REFAZER essa essa view-->
   <button><a href="/hotel/rooms">Conferir quartos</a></button>
 </template>
 

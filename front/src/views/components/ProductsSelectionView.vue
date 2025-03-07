@@ -1,5 +1,5 @@
 <template>
-    <div class="relative overflow-x-autoauto w-max">
+    <div class="relative overflow-x-autoauto ml-16 border w-max">
         <div class="flex justify-between">
             <h3 class="ml-5">Todos os produtos</h3>
             <input type="text" placeholder="( n faz nd )Pesquisar registro " >
@@ -111,12 +111,7 @@
                         
                     })
                     
-                } else {
-                    this.selectedProducts = this.selectedProducts.filter((selectProduct) => 
-                        selectProduct.id !== product.id
-                        
-                    )
-                }
+                } 
             },
 
             emitProducts()
