@@ -154,24 +154,8 @@ class PDVRepository
         }
     }
 
-    public function delete(int $id){
-        Log::info("Iniciando exclusão do registro");
-        $pdv = PDV::find($id);
+    public function saveSale()
+    {
 
-        if (!$pdv){
-            Log::info("Registro não encontrado.");
-            return response()->json([
-                'success' => false,
-                'error' => 'Registro não encontrado.'
-            ], 404);
-        }
-
-        $pdv->update(['active' => 0]);
-
-        Log::info("Registro desativado!");
-        return response()->json([
-            'success' => true,
-            'message' => 'Registro deletado com sucesso!',
-        ], 200);
     }
 }

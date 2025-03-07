@@ -18,7 +18,8 @@ class PDV extends Model
         'valor_acrescimo',
         'user_id',
         'seller',
-        'cancelada',
+        'finished',
+        'canceled',
         'is_nfce_nm',
     ];
 

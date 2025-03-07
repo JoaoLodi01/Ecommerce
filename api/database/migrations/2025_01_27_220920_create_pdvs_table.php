@@ -24,8 +24,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('seller', 120);
-            $table->boolean('cancelada', 1)->default(0);
-            $table->boolean('is_nfce_nm', 1);
+            $table->boolean('finished', 1)->default(0);
+            $table->boolean('canceled', 1)->default(0);
+            $table->boolean('is_nfce_nm', 1);            
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

@@ -6,15 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class ItensPDV extends Model
 {
-    protected $table = 'formas_pagamento_nfces';
+    protected $table = 'itens_pdvs';
 
     protected $fillable = [
-        'cod_especie',
-        'especie',
-        'documento',
-        'valor_bruto',
-        'valor_liquido',
-        'valor_desconto',
+        'pdvs_id',
+        'products_id',
+        'product',
+        'amount_sold',
+        'addition',
+        'discount',
+        'seller_id',
+        'seller',
+        'finished',
     ];
 
     protected $hidden = [
