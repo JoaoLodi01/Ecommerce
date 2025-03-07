@@ -39,7 +39,7 @@ class RoomController extends Controller
     public function checkIn(CheckInRequest $request)
     {
         $data = $request->validated();
-        return $this->roomService->checkIn($data);        
+        ;;return $this->roomService->checkIn($data);        
     }
 
     public function reservation()
