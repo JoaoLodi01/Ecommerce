@@ -13,14 +13,16 @@
                 placeholder="CNPJ do Hotel"
                 v-model="form.cnpj"
                 v-mask="'##.###.###/####-##'"
-                @input="getCNPJData"
+                @blur="getCNPJData"
+                ref="cnpjInput"
+                tabindex="1"
             >
 
             <input
                 type="email"
                 placeholder="E-mail do Hotel"
                 v-model="form.email"
-                
+                tabindex="2"
             >
 
             <input
@@ -139,9 +141,9 @@
 
                     const form = new FormData();
                     form.append("name", this.form.name);
-                    form.append("cnpj", this.form.cnpj);
+                    form.append("cnpj", this.form.cnpj.replace(/\D/g, ''));
                     form.append("email", this.form.email);
-                    form.append("cep", this.form.cep);
+                    form.append("cep", this.form.cep.replace(/\D/g, ''));
                     form.append("address", this.form.address);
                     form.append("number", this.form.number);
                     form.append("number_of_rooms", this.form.number_of_rooms);
@@ -160,8 +162,8 @@
                         default:
                             break;
                     }
-
-                    /*const response = await axios.post(`${this.api}/hotel/create`, form)
+                    
+                    const response = await axios.post(`${this.api}/hotel/create`, form)
                     
                     if (response.data.success === true) {
                         this.$router.push('/hotel')
@@ -180,7 +182,7 @@
                                 break;
                         }
 
-                    }*/
+                    }
                     
                 } catch (error) {
                     console.error('Erro ao criar o Hotel', error)
@@ -207,30 +209,33 @@
             },
 
             async getCNPJData(){
-                const noMaskCNPJ = this.form.cnpj.replace(/\D/g, '');
-
-                if(noMaskCNPJ.length === 14)
-                {   
-                    try {
-                        const response = await axios.get(`${this.api_CNPJ}/${this.form.cnpj}`);
-                        if(response.status === 200)
-                        {
-                            this.form = {
-                                name: response.data.company.name,
-                                cep: response.data.address.zip,
-                                address: response.data.address.street,
-                                number: response.data.address.number,
-                                email: response.data.emails[0]?.address || '',
-                                cnpj: response.data.taxId
-                            }
-
-                        } 
-                        
-                    } catch (error) {
-                        console.error('Erro', error)
-                        this.message = 'message.constraints'; // Definir a chave da mensagem de erro
-                        //this.message = error.response.data.constraints[0]
-                        
+                if(this.form.cnpj.length === 18)
+                {
+                    this.$refs.cnpjInput.blur()
+                    const noMaskCNPJ = this.form.cnpj.replace(/\D/g, '');
+                    if(noMaskCNPJ.length === 14)
+                    {   
+                        try {
+                            const response = await axios.get(`${this.api_CNPJ}/${noMaskCNPJ}`);
+                            if(response.status === 200)
+                            {
+                                this.form = {
+                                    name: response.data.company.name,
+                                    cep: response.data.address.zip,
+                                    address: response.data.address.street,
+                                    number: response.data.address.number,
+                                    email: response.data.emails[0]?.address || '',
+                                    cnpj: noMaskCNPJ
+                                }
+                                
+                            } 
+                            
+                        } catch (error) {
+                            console.error('Erro', error)
+                            this.message = 'message.constraints'; // Definir a chave da mensagem de erro
+                            //this.message = error.response.data.constraints[0]
+                            
+                        }
                     }
                 }
             }
