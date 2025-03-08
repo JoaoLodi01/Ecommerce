@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\EcommerceModels\Products;
 use App\Models\EcommerceModels\Grupos;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ProductsSeeder extends Seeder
