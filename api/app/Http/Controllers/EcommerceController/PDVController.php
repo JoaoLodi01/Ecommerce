@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\EcommerceService\PDVService;
 
+
 class PDVController extends Controller
 {
     public function __construct(
@@ -26,10 +27,12 @@ class PDVController extends Controller
     public function update(Request $request, int $id){
         //$data = $request->validated();
         return $this->pdvService->update($request->all(), $id);
+
     }
 
     public function saveSale(Request $request)
     {
+
         $allProducts = $request->all();
         foreach ($allProducts as $products) {
             for ($i=0; $i < count($products); $i++) { 
