@@ -75,6 +75,21 @@
         <div class="flex justify-end">
             <div class="m-5 top-auto">
                 <div class="inline-flex bg-slate-800 text-white p-2 rounded-md">
+                    <label for="addition">Acréscimo</label>
+                    <input 
+                        id="addition"
+                        v-model.number="addition"
+                        type="text"
+                        class="text-black border border-black w-10"
+                    />
+                    <label for="discount">Desconto</label>
+                    <input 
+                        id="discount"
+                        v-model.number="discount"
+                        type="text"
+                        class="text-black border border-black w-10"
+                    />
+
                     <button
                         v-if="productsSeletion.length <= 0"
                         disabled
@@ -150,6 +165,12 @@
                 showPaymentsForm: false,
                 typeOperation: '',
                 totalOperation: 0,
+                addition: 0,
+                discount: 0,
+
+                userID: 1,
+                clientID: 1,
+
                 api: process.env.VUE_APP_API_URL
             }
         },
@@ -157,8 +178,15 @@
         methods: {
             async saveSale(){
                 try {
-                    const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, this.productsSeletion )
-                    // Produtos da venda
+                    const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                        products: this.productsSeletion, // Produtos da venda
+                        userID: this.userID,
+                        clientID: this.clientID,
+                        addition: this.addition ?? 0,
+                        discount: this.discount ?? 0,
+                        
+                    })
+                    
                     console.log(response.data)
                     
                 } catch (error) {
@@ -199,14 +227,6 @@
 
                 }
                 
-                const productsSeletionRaw = toRaw(this.productsSeletion)
-                for (let i = 0; i < productsSeletionRaw.length; i++) {
-                    const productsSeletionArray = productsSeletionRaw[i];
-                    productsSeletionArray.forEach(p => {
-                        this.totalOperation += toRaw(p.preco_venda) * toRaw(p.quantidade)
-
-                    });
-                }
                 this.emitProducts = this.productsSeletion
             },
 
@@ -257,15 +277,16 @@
             calculateTotal(){
                 const rawproductsSeletion = toRaw(this.productsSeletion)
                 
-                let total = 0;
+                let totalSale = 0
                 rawproductsSeletion.forEach(products => {
                     for (let i = 0; i < products.length; i++) {
                         const element = products[i];
-                        total += element.preco_venda * element.quantidade
-                        
+                        totalSale += element.preco_venda * element.quantidade 
+
                     }
                 });
-                return total;
+
+                return totalSale + this.addition - this.discount
             },
 
             updateProductsSeletion(selectedProducts)
