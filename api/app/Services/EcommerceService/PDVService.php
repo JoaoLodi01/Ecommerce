@@ -63,4 +63,9 @@ class PDVService{
             'file' => $th->getFile(),
         ]);
     }
+
+    public function saveSale(array $data)
+    {
+        
+    }
 }

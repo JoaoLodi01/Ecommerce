@@ -4,6 +4,7 @@ namespace App\Http\Controllers\EcommerceController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EcommerceRequest\PDVSaveSaleRequest;
 use App\Services\EcommerceService\PDVService;
 
 
@@ -30,19 +31,11 @@ class PDVController extends Controller
 
     }
 
-    public function saveSale(Request $request)
+    public function saveSale(PDVSaveSaleRequest $request)
     {
-
-        $allProducts = $request->all();
-        foreach ($allProducts as $products) {
-            for ($i=0; $i < count($products); $i++) { 
-                print_r(array( 
-                    'message' => 'Itens da venda',
-                    'products' => $products[$i],
-                    
-                ));
-            }
-        }
+        $data = $request->validated();
+        
+        return $this->pdvService->saveSale($data);
         
     }
 }

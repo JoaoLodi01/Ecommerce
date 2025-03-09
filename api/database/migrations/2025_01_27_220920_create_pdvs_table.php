@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('pdvs', function (Blueprint $table) {
             $table->id();
-            $table->string('descricao', 120);
+            $table->string('description', 120);
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->string('cliente', 120);
-            $table->decimal('valor_bruto', 16,2);
-            $table->decimal('valor_liquido', 16,2);
-            $table->decimal('valor_desconto', 16,2)->nullable();
-            $table->decimal('valor_acrescimo', 16,2)->nullable();
+            $table->string('client', 120);
+            $table->decimal('gross_value', 16,2);
+            $table->decimal('net_value', 16,2);
+            $table->decimal('discount', 16,2)->nullable();
+            $table->decimal('addition', 16,2)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('seller', 120);
             $table->boolean('finished', 1)->default(0);
             $table->boolean('canceled', 1)->default(0);
-            $table->boolean('is_nfce_nm', 1);            
+            $table->boolean('is_nfce_nm', 1)->nullable(0);
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

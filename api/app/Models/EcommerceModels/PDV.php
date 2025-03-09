@@ -9,13 +9,13 @@ class PDV extends Model
     protected $table = 'pdvs';
 
     protected $fillable = [
-        'descricao',
+        'description',
         'cliente_id',
-        'cliente',
-        'valor_bruto',
-        'valor_liquido',
-        'valor_desconto',
-        'valor_acrescimo',
+        'client',
+        'gross_value',
+        'net_value',
+        'discount',
+        'addition',
         'user_id',
         'seller',
         'finished',

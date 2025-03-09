@@ -35,7 +35,7 @@
                     <th scope="col" class="px-6 py-3">Cód.Produto</th>
                     <th scope="col" class="px-6 py-3">Produto</th>
                     <th scope="col" class="px-6 py-3">CFOP</th>
-                    <th scope="col" class="px-6 py-3">CSOSN</th>
+                    <th scope="col" class="px-6 py-3 text-center"> {{ hotelCodCRT === 1 ? 'CSOSN' : 'CST' }} </th>
                     <th scope="col" class="px-6 py-3">Preço de venda</th>
                     <th scope="col" class="px-6 py-3">Quantidade</th>
                 </tr>
@@ -85,7 +85,6 @@
                 products: [],
                 selectedProducts: [],
                 checkBoxMarked: false,
-                
                 api: process.env.VUE_APP_API_URL
 
             }
@@ -100,6 +99,11 @@
         props: {
             show: {
                 type: Boolean,
+                required: true
+            },
+
+            hotelCodCRT: {
+                type: Number,
                 required: true
             }
         },
@@ -154,7 +158,7 @@
         
         mounted(){
             this.getProducts()
-            const response = axios.get(`${this.api}/hotel/all`)
+            
         }
     }
 

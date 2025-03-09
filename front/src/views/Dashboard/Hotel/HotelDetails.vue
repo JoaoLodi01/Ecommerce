@@ -34,31 +34,7 @@
     },
 
     methods: {
-      async getHotel(){
-        try {
-          const response = await axios.get(`${this.api}/hotel/all`)
-          if(response.data.success === true)
-          {
-            this.hotel = response.data.all.hotel
-            this.isLoanding = false
-            
-          }
-
-          if(response.data.success === false){
-            console.log(response.data)
-
-          }
-
-        } catch (error) {
-          if(error.response.data.message === 'Hotel não encontrado')
-          {
-            alert(error.response.data.message)
-            alert('Por favor faça o cadastro do mesmo')
-            this.$router.push('/hotel/create')
-
-          }
-        }
-      },
+      
 
     },
 
