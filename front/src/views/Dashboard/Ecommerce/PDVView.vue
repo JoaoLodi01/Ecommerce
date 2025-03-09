@@ -3,8 +3,9 @@
         class="flex border border-black mt-2 w-max" 
         v-if="showGrid"
         :class="{
-                'ml-7': withScreen === 1920,
-                'ml-10': withScreen !== 1920
+                'ml-12': withScreen === 1920,
+                'ml-14': withScreen !== 1920
+
                 }"   
     >
 
@@ -27,7 +28,7 @@
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                         <thead class="uppercase shadow-lg">
                             <tr class="bg-white sticky z-10">
-                                <th scope="col" class="px-6 py-3 ">Cód.</th>
+                                <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
                                 <th scope="col" class="px-6 py-3 text-center">CFOP</th>
                                 <th scope="col" class="px-6 py-3 text-center"> {{ hotelCodCRT === 1 ? 'CSOSN' : 'CST' }} </th>
@@ -452,6 +453,8 @@
 
         mounted(){
             this.getHotel()
+            this.withScreen += screen.width
+            console.log('Largura atual:', this.withScreen)
         }
       }
 </script>

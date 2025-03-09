@@ -1,5 +1,5 @@
 <template>
-    <div class="relative overflow-x-autoauto ml-16 border w-max text-xl p-5">
+    <div class="relative overflow-x-auto ml-16 border w-max text-xl p-5">
         <div class="flex justify-between">
             <h3 class="m-2 p-2">Seleção de produtos</h3>
             <button @click="this.$emit('close')">
