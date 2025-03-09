@@ -46,14 +46,15 @@ class PDVRepository
         $paymentForm = Payment::where('id', $data['payment_id'])->first();
 
         if($customer && $user && $paymentForm){
-
+            // Precisa ajustar e melhorar
             Log::info("Vai criar NFC-e.");
             $pdv = PDV::create([
-                'cliente_id' => $customer->id,
-                'cliente' => $customer->name,
-                'valor_bruto' => $paymentForm->valor_bruto,
-                'valor_liquido' => $paymentForm->valor_liquido,
-                'valor_desconto' => $paymentForm->valor_desconto,
+                'customer_id' => $customer->id,
+                'customer' => $customer->name,
+                'gross_value' => $paymentForm->valor_bruto,
+                'net_value' => $paymentForm->valor_liquido,
+                'discount' => $paymentForm->valor_desconto,
+                'addition' => $paymentForm->valor_desconto,
                 'user_id' => $user->id,
                 'user' => $user->name,
             ]);
@@ -156,7 +157,7 @@ class PDVRepository
 
     public function saveSale()
     {
-        
+
 
     }
 }
