@@ -64,8 +64,11 @@ class PDVService{
         ]);
     }
 
-    public function saveSale(array $data)
+    public function saveSale(array $details, array $productsArray)
     {
-        
+        return response()->json([
+            'details' => $details,
+            'productsArray' => $productsArray
+        ]);
     }
 }

@@ -34,8 +34,8 @@ class PDVController extends Controller
     public function saveSale(PDVSaveSaleRequest $request)
     {
         $data = $request->validated();
-        
-        return $this->pdvService->saveSale($data);
+            
+        return $this->pdvService->saveSale($data, $data['products']);
         
     }
 }
