@@ -2045,3 +2045,7 @@
 #37 D:\\SGBR\\Projeto_3_Hotel\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
 #38 {main}
 "} 
+[2025-03-09 15:36:37] local.INFO: Chamou o IPController  
+[2025-03-09 15:36:37] local.INFO: Chamou o IPService  
+[2025-03-09 15:36:37] local.INFO: Chamou o IPController  
+[2025-03-09 15:36:37] local.INFO: Chamou o IPService  
