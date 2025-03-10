@@ -19,9 +19,9 @@
     </div>
 
     <div class="flex justify-center border border-purple-950 m-2">
-        <div class="flex justify-between border border-gray-700 w-max">
-            <p class="mr-2">Saldo total de entrada</p>
-            <span class="mr-4">R${{ '0.00' }}</span>
+        <div class="flex justify-between border border-gray-700 w-max p-3">
+            <p class="mr-2">Saldo total de entrada</p> 
+            <span class="mr-4">R${{ '0.00' }}</span> 
             
             <p class="mr-2">Saldo Total</p>
             <span class="mr-5">R${{ '0.00' }}</span>
@@ -37,8 +37,8 @@
                 <table class="text-left rounded-t-xl rtl:text-right table-auto">
                     <thead class="uppercase shadow-lg">
                         <tr>
-                            <th scope="col" class="px-6 py-3">Tipo</th>
-                            <th scope="col" class="px-6 py-3">Ações</th>
+                            <th scope="col" class="px-6 py-3 sticky right-0 bg-white">Tipo</th>
+                            <th scope="col" class="px-6 py-3 sticky left-0 bg-white">Ações</th>
                             <th scope="col" class="px-6 py-3">Cód</th>
                             <th scope="col" class="px-3 py-4">Documento</th>
                             <th scope="col" class="px-6 py-3">Descrição</th>
@@ -56,21 +56,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row" class="px-6 py-3">Entrada</td>
-                            <td scope="row" class="px-12">
+                        <tr class="border border-b-black" v-for="(register, id) in  cashs" :key="id">
+                            <td scope="row" class="px-6 py-3 sticky right-0 bg-white">Entrada</td>
+                            <td scope="row" class="px-12 sticky left-0 bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                                 </svg>
                             </td>
-                            <td scope="row" class="px-6 py-3 text-center">1</td>
-                            <td scope="row" class="px-6 py-3 text-center">1</td>
-                            <td scope="row" class="px-3 py-4">Teste</td>
-                            <td scope="row" class="px-5 py-3 text-center">R$ 1,00</td>
-                            <td scope="row" class="px-6 py-3 text-center">R$ 1,00</td>
-                            <td scope="row" class="px-6 py-3 text-center">1</td>
-                            <td scope="row" class="px-6 py-3">PIX</td>
-                            <td scope="row" class="px-6 py-3">Teste</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ id }}</td>
+                            <td scope="row" class="px-3 py-4">{{ register.description }}</td>
+                            <td scope="row" class="px-5 py-3 text-center">{{ register.input_value }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
+                            <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
+                            <td scope="row" class="px-6 py-3">{{ register.origem }}</td>
                             <td scope="row" class="px-6 py-3">-</td>
                             <td scope="row" class="px-6 py-3">-</td>
                             <td scope="row" class="px-6 py-3">-</td>
@@ -132,8 +132,19 @@ export default {
 
             }
         },
+
+        async getRegister(){
+            try {
+                const response = await axios.get(`${this.api}/ecommerce/cashRegister/all`)
+                this.cashs = response.data
+                
+            } catch (error) {
+                
+            }
+        },
     },
     mounted(){
+        this.getRegister()
         this.withScreen += screen.width
 
     }
@@ -142,10 +153,10 @@ export default {
 </script>
 
 <style>
-    @media not (min-width: 1920px) {
+    @media (min-width: 1920px) {
         .container{       
             height: 30rem;
         }
         
-    }    
+    }
 </style>
