@@ -4924,3 +4924,11 @@
 "} 
 >>>>>>> e5fdf4d8a24ffc4ed343ef673a78524a2a205550
 >>>>>>> Kochem
+[2025-03-11 22:09:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-11 22:09:51] local.INFO: O hotel foi encontrado  
+[2025-03-11 22:09:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-11 22:09:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-11 22:09:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-11 22:09:51] local.INFO: O hotel foi encontrado  
+[2025-03-11 22:09:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-11 22:09:51] local.INFO: Opção desativada, não vai alterar o endereço  
