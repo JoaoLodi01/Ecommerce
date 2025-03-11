@@ -67,11 +67,7 @@ class PDVService{
     public function saveSale(array $details, array $productsArray)
     {
         try {
-            return array(
-                'details' => $details,
-                'productsArray' => $productsArray
-            );
-            $this->pdvRepository->saveSale();
+            return $this->pdvRepository->saveSale($details, $productsArray);
         } catch (\Throwable $th) {
             //throw $th;
         }

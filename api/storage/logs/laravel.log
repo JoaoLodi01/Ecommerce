@@ -4924,3 +4924,31 @@
 "} 
 >>>>>>> e5fdf4d8a24ffc4ed343ef673a78524a2a205550
 >>>>>>> Kochem
+[2025-03-11 21:54:47] local.INFO: Chamou o IPController  
+[2025-03-11 21:54:47] local.INFO: Chamou o IPService  
+[2025-03-11 21:54:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-11 21:54:50] local.INFO: O hotel foi encontrado  
+[2025-03-11 21:54:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-11 21:54:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-11 21:54:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-11 21:54:50] local.INFO: O hotel foi encontrado  
+[2025-03-11 21:54:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-11 21:54:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-11 21:55:13] local.INFO: Chamou o IPController  
+[2025-03-11 21:55:13] local.INFO: Chamou o IPService  
+[2025-03-11 21:55:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-11 21:55:13] local.INFO: O hotel foi encontrado  
+[2025-03-11 21:55:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-11 21:55:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-11 21:55:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-11 21:55:13] local.INFO: O hotel foi encontrado  
+[2025-03-11 21:55:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-11 21:55:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-11 22:07:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-11 22:07:56] local.INFO: O hotel foi encontrado  
+[2025-03-11 22:07:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-11 22:07:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-11 22:07:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-11 22:07:56] local.INFO: O hotel foi encontrado  
+[2025-03-11 22:07:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-11 22:07:56] local.INFO: Opção desativada, não vai alterar o endereço  

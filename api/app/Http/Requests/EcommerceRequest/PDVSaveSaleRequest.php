@@ -19,6 +19,7 @@ class PDVSaveSaleRequest extends FormRequest
             'seller_id' => ['required'], // 'exists:users,id' add depois
             'customer_id' => ['required'], // , 'exists:customer,id' 
             'sub_total' => ['required', 'numeric'],
+            'total' => ['required', 'numeric'],
             'addition' => ['required', 'numeric'],
             'discount' => ['required', 'numeric'],
             'is_nfce_nm' => ['sometimes'],
