@@ -28,6 +28,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('seller', 120)->nullable();
+            $table->boolean('type', 1);
             $table->boolean('canceled', 1)->default(0);
             $table->timestamps();
         });

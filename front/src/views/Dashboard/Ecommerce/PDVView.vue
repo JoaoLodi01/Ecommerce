@@ -1,13 +1,17 @@
 <template>    
     <div
-        class="flex border border-black mt-2 w-max" 
+        class="flex border rounded-lg border-black mt-2 w-max" 
         v-if="showGrid"
         :class="{
-                'ml-7': withScreen === 1920,
-                'ml-10': withScreen !== 1920
-                }"   
+            'ml-10': withScreen === 1920,
+            'ml-14': withScreen !== 1920,
+            
+            'text-xl': textSize === 4,
+            'text-2xl': textSize === 8,
+            'text-3xl': textSize === 16,
+                
+        }"   
     >
-
         <div class="relative overflow-x-auto max-h-96 overflow-y-auto ">
             <div class="flex">
                 <div class="ml-6 mt-4 mb-4 cursor-pointer" @click="showProdutcts">
@@ -19,7 +23,7 @@
                 <input
                     type="text"
                     placeholder="Busca"
-                    class="w-full ml-auto text-right pr-3.5"
+                    class="w-full ml-auto mr-2 mt-2 text-right pr-3.5 border border-black"
                 />
             </div>
 
@@ -27,7 +31,7 @@
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                         <thead class="uppercase shadow-lg">
                             <tr class="bg-white sticky z-10">
-                                <th scope="col" class="px-6 py-3 ">Cód.</th>
+                                <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
                                 <th scope="col" class="px-6 py-3 text-center">CFOP</th>
                                 <th scope="col" class="px-6 py-3 text-center"> {{ hotelCodCRT === 1 ? 'CSOSN' : 'CST' }} </th>
@@ -39,7 +43,10 @@
                         </thead>
                         
                         <tbody v-for="products in productsSeletion">
-                            <tr v-for="(product, id) in products" :key="id" >       
+                            <tr
+                                v-for="(product, id) in products" :key="id"
+                                class="border border-black"
+                            >    
                                 <td class="px-6" scope="row">{{ product.id }}</td>
                                 <td class="px-6 py-3">{{ product.produto }}</td>
 
@@ -94,11 +101,19 @@
             />
         </div>
 
-        <div class="flex max-w-64 text-sm border border-black">
+        <div 
+            class="flex max-w-64 text-sm rounded-t-lg rounded-b-lg border border-black"
+            :class="{
+                'text-xl': textSize === 4,
+                'text-2xl': textSize === 8,
+                'text-3xl': textSize === 16,
+
+            }"   
+        >
             <div>
                 <div>
                     <div 
-                        class="m-2 p-2 border border-pink-900"
+                        class="m-2 p-2 rounded-lg border border-gray-700"
                     >
                         <label class="text-black" for="discount">Vendedor</label>
                         <input 
@@ -120,7 +135,7 @@
                     </div>
                     
                     <div
-                        class="m-2 p-2 border border-yellow-500" 
+                        class="m-2 p-2 rounded-lg border border-gray-700" 
                         id="values"
                         
                     >
@@ -139,22 +154,20 @@
                             type="text"
                             class="text-black border border-black w-10"
                         />
-
-
                     </div>
 
                     <div
-                        class="m-2 p-2 border border-pink-500"
+                        class="m-2 p-2 rounded-lg border border-gray-700"
                         id="total"
                     >
                         <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.total.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount < 0 ? calculateTotal.discount.toFixed(2) : '0.00' }}</span></p>
-                        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition < 0 ? calculateTotal.addition.toFixed(2) : '0.00' }}</span></p>
+                        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
                         <p class="flex justify-between">Frete <span>R$ {{ '0.00' }}</span></p>
 
                     </div>
 
-                    <div class="flex m-2 p-2 border border-green-950">
+                    <div class="flex m-2 p-2 rounded-lg border border-gray-700">
                         <button
                             v-if="productsSeletion.length <= 0"
                             disabled
@@ -186,10 +199,13 @@
                             </svg>
                         </button>
                         
-                        <span class="mt-auto mb-auto mr-1 ml-auto text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.total + calculateTotal.addition - calculateTotal.discount }}</span>
+                        <div class="mb-auto ml-auto text-xl w-auto">
+                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.total + calculateTotal.addition - calculateTotal.discount }}</span>
+
+                        </div>
                     </div>
 
-                    <div class="flex text-white p-1 border border-purple-950">
+                    <div class="flex text-white p-1 rounded-lg border border-gray-700">
                         <button @click="saleNM()" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar</button>
                         <button @click="saleNFCe()" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
                         
@@ -199,21 +215,23 @@
             </div>
         </div>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-  <path d="M6.375 5.5h.875v1.75h-.875a.875.875 0 1 1 0-1.75ZM8.75 10.5V8.75h.875a.875.875 0 0 1 0 1.75H8.75Z" />
-  <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM7.25 3.75a.75.75 0 0 1 1.5 0V4h2.5a.75.75 0 0 1 0 1.5h-2.5v1.75h.875a2.375 2.375 0 1 1 0 4.75H8.75v.25a.75.75 0 0 1-1.5 0V12h-2.5a.75.75 0 0 1 0-1.5h2.5V8.75h-.875a2.375 2.375 0 1 1 0-4.75h.875v-.25Z" clip-rule="evenodd" />
-</svg>
-
+    <div class="flex border border-black w-10 ml-10">
+        <select id="textSize" v-model.number="textSize" @change="setTextSize">
+            <option selected value=4>4</option>
+            <option value=8>8</option>
+            <option value=16>16</option>
+        </select>
+    </div>
     <div>
         <ProductsSelectionView
-                v-if="show"
-                :show="this.show"
-                :hotelCodCRT="this.hotelCodCRT"
-                @close="showGridEmit()"
-                @update:selectProducts="updateProductsSeletion"
-            />
+            v-if="show"
+            :show="this.show"
+            :hotelCodCRT="this.hotelCodCRT"
+            @close="showGridEmit()"
+            @update:selectProducts="updateProductsSeletion"
+        />
         
-        </div>
+    </div>
 </template>
 
 <script>
@@ -223,8 +241,6 @@
     import { toRaw } from 'vue'   
     
     export default{
-        
-        
         data(){
             return {
                 productsSeletion: [],
@@ -242,11 +258,12 @@
                 },
                 
                 withScreen: 0,
+                totalOperation: 0,
+                textSize: 4,
                 show: false,
                 showGrid: true,
                 showPaymentsForm: false,
                 typeOperation: '',
-                totalOperation: 0,
 
                 api: process.env.VUE_APP_API_URL
             }
@@ -427,6 +444,11 @@
                 
             },
 
+            setTextSize()
+            {
+                console.log('Texto atual:', this.textSize)
+            },
+
             cancelOperation()
             {
                 this.showPaymentsForm = false
@@ -452,6 +474,8 @@
 
         mounted(){
             this.getHotel()
+            this.withScreen += screen.width
+            
         }
       }
 </script>
