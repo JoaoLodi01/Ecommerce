@@ -21,7 +21,7 @@ main()
 	read init
 
 	if [[ $init -eq 1 ]]; then
-		ech "A"
+		echo "A"
 	fi
 
 	if [[ $init -eq 2 ]]; then
