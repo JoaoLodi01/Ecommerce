@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\EcommerceModels\Products;
 use App\Models\EcommerceModels\Grupos;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ProductsSeeder extends Seeder
@@ -34,7 +33,7 @@ class ProductsSeeder extends Seeder
                 "grupo" => $id->grupo,
                 "quantidade" => 10,
                 "preco_custo" => 10.00,
-                "preco_venda" => 20.00,
+                "preco_venda" => 120.00,
                 "perc_lucro" => 100,
                 "ncm" => 12345678,
                 "cest" => 1234567,
@@ -47,7 +46,7 @@ class ProductsSeeder extends Seeder
                 "grupo" => $id->grupo,
                 "quantidade" => 10,
                 "preco_custo" => 10.00,
-                "preco_venda" => 20.00,
+                "preco_venda" => 130.00,
                 "perc_lucro" => 100,
                 "ncm" => 12345678,
                 "cest" => 1234567,
@@ -60,7 +59,7 @@ class ProductsSeeder extends Seeder
                 "grupo" => $id->grupo,
                 "quantidade" => 10,
                 "preco_custo" => 10.00,
-                "preco_venda" => 20.00,
+                "preco_venda" => 140.00,
                 "perc_lucro" => 100,
                 "ncm" => "12345678",
                 "cest" => "123456",

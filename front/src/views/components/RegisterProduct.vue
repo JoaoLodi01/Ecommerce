@@ -1,8 +1,9 @@
 <template>
-    <form @submit.prevent="addProduct" class="bg-white p-6 shadow-lg rounded-lg border border-gray-300">
-      <h2 class="text-2xl font-semibold mb-4">Cadastrar Novo Produto</h2>
+    <form @submit.prevent="addProduct" class="bg-white p-6 shadow-lg rounded-lg border border-gray-300 max-w-max m-auto">
+      <!--border-gray-300" para retornar como estava, deixo assim-->
+      <h2 class="text-2xl text-center font-semibold mb-4">Cadastrar Novo Produto</h2>
   
-      <div class="space-y-4">
+      <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
         <!-- Nome do produto -->
         <div>
           <label for="name" class="block text-sm font-medium">Produto:</label>
@@ -113,6 +114,7 @@
   
         <!-- Botão de cadastro -->
         <div class="mt-4">
+          <button @click="cancelOperation()">Voltar</button>
           <button 
             type="submit" 
             class="w-full py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">Cadastrar Produto</button>
@@ -145,6 +147,9 @@
         api: process.env.VUE_APP_API_URL,
       };
     },
+    emits: [
+      'close'
+    ],  
   
     methods: {
       async addProduct() {
@@ -160,11 +165,7 @@
             return;
           }
   
-          const response = await axios.post(`${this.api}/ecommerce/products/create`, this.product, {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
+          const response = await axios.post(`${this.api}/ecommerce/products/create`);
   
           this.$emit('productAdded', { ...this.product });
           this.product = {
@@ -172,7 +173,7 @@
             quantity: '',
             cost: '',
             sale: '',
-            profit: '100',
+            profit: '',
             ncm: '',
             cest: '',
             csosn: '',
@@ -186,6 +187,11 @@
           alert("Erro ao cadastrar!");
         }
       },
+
+      cancelOperation()
+      {
+        this.$emit('close')
+      }
     },
   };
   </script>

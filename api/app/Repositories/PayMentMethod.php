@@ -216,10 +216,4 @@ class PayMentMethod
         $this->reservationRepository->create($customer, $room);
         Log::info('-- Fim decreaseCash linha 211 --');
     }
-
-    public function resetPassword()
-    {
-        $currantDate = new Carbon();
-        $password = $currantDate->format('Y-m-d') * 900;
-    }
 }
