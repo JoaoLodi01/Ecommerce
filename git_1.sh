@@ -17,6 +17,7 @@ fun_git_commit()
 
 fun_git_push_actual()
 {
+    echo "git add . na branch: $1"
     fun_git_add
 }
 
@@ -24,6 +25,24 @@ fun_git_add()
 {
     git add .
     fun_git_commit
+
+}
+
+fun_git_push_other()
+{
+    echo "Qual branch deseja fazer checkout: "
+    git branch
+
+    read changeBrach
+
+    echo "Alterando para a branch: $changeBrach"
+    fun_loanding
+
+    if [[ -n $changeBrach ]]; then
+        git checkout $changeBrach
+        fun_git_push_actual $changeBrach
+
+    fi
 }
 
 main()
@@ -41,12 +60,13 @@ main()
         1)
             clear
             fun_loanding
-            fun_git_push_actual
+            fun_git_push_actual $actualBranch
             ;;
 
         2)
             clear
             fun_loanding
+            fun_git_push_other
             ;;
 
         3)
