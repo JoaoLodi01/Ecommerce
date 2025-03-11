@@ -12,6 +12,7 @@ fun_git_commit()
     echo "Digite seu commit: "
     read commit 
     git commit -m "$commit"
+    git push -u
 }
 
 fun_git_push_actual()
