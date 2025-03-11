@@ -17,18 +17,84 @@ fun_git_commit()
 
 fun_git_push()
 {
-    echo "Qual branch"
+    echo "Qual branch: "
     echo "1 - Main"
     echo "2 - Dev"
     echo "3 - Kochem"
     echo "4 - Lodi"
     read branch
-    branch -c "git push -u $branch"
+    case $branch in
+        1)
+            echo "Carregando ... "
+            bash -c "git push -u Main"
+            ;;
+        2)
+            echo "Carregando ... "
+            bash -c "git push -u Dev"
+            ;;
+
+        3)
+            echo "Carregando ... "
+            bash -c "git push -u Kochem"
+            ;;
+        4)
+            echo "Carregando ... "
+            bash -c "git push -u Lodi"
+            ;;
+    esac
+    echo "Finalizado!"
+    
     main
+}
+
+fun_git_checkout()
+{
+    bash -c "git add ."
+
+    echo "Digite seu commit: "
+    read commit
+    bash -c "git commit -m '$commit'" 
+
+    echo "Digite a sua branch: "
+    read myBranch
+
+    echo "Branch para checkout: "
+    echo "1 - Main"
+    echo "2 - Dev"
+    echo "3 - Kochem"
+    echo "4 - Lodi"
+    read branch
+
+    case $branch in
+        1)
+            echo "Carregando ... "
+            bash -c "git checkout Main"
+            ;;
+        2)
+            echo "Carregando ... "
+            bash -c "git checkout Dev"
+            ;;
+
+        3)
+            echo "Carregando ... "
+            bash -c "git checkout Kochem"
+            ;;
+        4)
+            echo "Carregando ... "
+            bash -c "git checkout Lodi"
+            ;;
+    esac
+    fun_git_merge $myBranch
+}
+
+fun_git_merge()
+{
+    bash -c "git merge $1"
 }
 
 main()
 {   
+    clear
     echo "1 - git push completo"
     echo "2 - git merge"
     echo "0 - Sair"
@@ -36,9 +102,14 @@ main()
 
     case $option in
         1)
+            clear
             fun_git_add
             ;;
 
+        2)
+            clear
+            fun_git_checkout
+            ;;
         0)
             exit 1
             ;;
