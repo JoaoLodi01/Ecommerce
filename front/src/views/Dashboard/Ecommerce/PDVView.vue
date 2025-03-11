@@ -301,6 +301,7 @@
                             seller_id: this.emitProducts.sellerID,
                             customer_id: this.emitProducts.customerID,
                             sub_total: this.calculateTotal.total,
+                            total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
                             addition: this.calculateTotal.addition,
                             discount: this.calculateTotal.discount,
                             is_nfce_nm: null

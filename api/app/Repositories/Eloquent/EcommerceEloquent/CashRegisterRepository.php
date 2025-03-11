@@ -81,4 +81,6 @@ class CashRegisterRepository
             'active' => 0,
         ]);
     }
+
+    
 }

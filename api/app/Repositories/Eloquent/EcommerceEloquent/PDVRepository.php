@@ -17,7 +17,9 @@ use App\Models\EcommerceModels\{
 };
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-use App\Repositories\Eloquent\CustomerRepository;
+use App\Repositories\Eloquent\{
+    CustomerRepository
+};
 
 use Illuminate\Support\Facades\Log;
 
@@ -157,9 +159,21 @@ class PDVRepository
         }
     }
 
-    public function saveSale()
+    public function saveSale(array $details, array $productsArray)
     {
+        $customer = $this->customerRepository->findByID($details['customer_id']);
 
+        return array(
+            'details' => $details,
+            'productsArray' => $productsArray
+
+        );
+        $pdv = PDV::create([
+            'customer_id' => $customer->id,
+            'customer' => $customer->name,
+            'details' => $details['is_nfce_nm']
+        ]);  
+        
 
     }
 }
