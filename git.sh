@@ -3,7 +3,6 @@
 fun_git_add()
 {
     bash -c "git add ."
-    fun_git_commit
 
 }
 
@@ -23,6 +22,7 @@ fun_git_push()
     echo "3 - Kochem"
     echo "4 - Lodi"
     read branch
+    
     case $branch in
         1)
             echo "Carregando ... "

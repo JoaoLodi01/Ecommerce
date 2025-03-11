@@ -36,6 +36,7 @@ change_ambient()
 					mysql -u $DB_USER -p$DB_PASS $DB_NAME -e \ "SELECT * FROM bootIP WHERE id = $1"
 				fi
 				;;
+				
 			2)
 				echo "Digite seu novo caminho do FrontEnd com / "
 				read newPath
