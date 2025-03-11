@@ -71,19 +71,23 @@ fun_git_checkout()
         1)
             echo "Carregando ... "
             bash -c "git checkout Main"
+            branchName="Main"
             ;;
         2)
             echo "Carregando ... "
             bash -c "git checkout Dev"
+            branchName="Dev"
             ;;
 
         3)
             echo "Carregando ... "
             bash -c "git checkout Kochem"
+            branchName="Kochem"
             ;;
         4)
             echo "Carregando ... "
             bash -c "git checkout Lodi"
+            branchName="Lodi"
             ;;
     esac
     fun_git_merge $branchName
@@ -94,16 +98,18 @@ fun_git_merge()
     echo "git push -u $1"
     bash -c "git merge $1"
     sleep 0.5
+
     echo "Merge feito!"
     echo "1 - Deseja efetuar o git push?"
-    echo "2 - Sair"
+    echo "0 - Sair"
     read push
+
     case $push in
         1) 
             bash -c "git push -u $1"
             ;;
 
-        2)  
+        0)  
             echo "Saindo ..."
             sleep 0.5
             exit 1
