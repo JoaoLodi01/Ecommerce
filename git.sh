@@ -66,6 +66,7 @@ fun_git_checkout()
     echo "4 - Lodi"
     read branch
 
+    branchName
     case $branch in
         1)
             echo "Carregando ... "
@@ -85,7 +86,7 @@ fun_git_checkout()
             bash -c "git checkout Lodi"
             ;;
     esac
-    fun_git_merge $myBranch
+    fun_git_merge $branchName
 }
 
 fun_git_merge()
