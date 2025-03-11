@@ -4632,3 +4632,13 @@
 [2025-03-10 22:29:57] local.INFO: O hotel foi encontrado  
 [2025-03-10 22:29:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-03-10 22:29:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 22:31:27] local.INFO: Chamou o IPController  
+[2025-03-10 22:31:27] local.INFO: Chamou o IPService  
+[2025-03-10 22:31:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 22:31:27] local.INFO: O hotel foi encontrado  
+[2025-03-10 22:31:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 22:31:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 22:31:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 22:31:27] local.INFO: O hotel foi encontrado  
+[2025-03-10 22:31:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 22:31:27] local.INFO: Opção desativada, não vai alterar o endereço  
