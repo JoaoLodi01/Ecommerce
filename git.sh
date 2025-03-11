@@ -49,6 +49,7 @@ fun_git_push()
 
 fun_git_checkout()
 {
+    echo "Executando git add . ..."
     bash -c "git add ."
 
     echo "Digite seu commit: "
