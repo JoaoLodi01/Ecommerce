@@ -97,7 +97,7 @@ fun_git_merge()
     read push
     case $push in
         1) 
-            fun_git_push
+            bash -c "git push -u $1"
             ;;
 
         2)  
