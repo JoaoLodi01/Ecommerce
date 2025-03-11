@@ -66,7 +66,7 @@ fun_git_checkout()
     echo "4 - Lodi"
     read branch
 
-    branchName
+    branchName=""
     case $branch in
         1)
             echo "Carregando ... "
