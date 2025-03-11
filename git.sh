@@ -90,6 +90,7 @@ fun_git_checkout()
 
 fun_git_merge()
 {
+    echo "git push -u $1"
     bash -c "git merge $1"
     sleep 0.5
     echo "Merge feito!"
