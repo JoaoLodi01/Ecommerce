@@ -7,6 +7,12 @@ fun_loanding()
     sleep 0.5 
 }
 
+fun_git_status()
+{
+    git status
+
+}
+
 fun_git_commit()
 {
     echo "Digite seu commit: "
@@ -28,6 +34,11 @@ fun_git_add()
 
 }
 
+fun_git_merge()
+{
+    
+}
+
 main()
 {   
     actualBranch=$(bash -c "git rev-parse --abbrev-ref HEAD")
@@ -35,6 +46,7 @@ main()
     echo "Branch atual: $actualBranch"
     echo "1 - git push ( branch: $actualBranch )"
     echo "2 - git merge"
+    echo "3 - git status"
     echo "0 - Sair"
     read option
 
@@ -48,7 +60,13 @@ main()
         2)
             clear
             fun_loanding
-                     
+            fun_git_merge
+            ;;
+
+        3)
+            clear
+            fun_loanding
+            fun_git_status
             ;;
         0)
             echo "Saindo ... "
