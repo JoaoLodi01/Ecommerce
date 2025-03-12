@@ -1,9 +1,8 @@
 <template>
-    <div class="payments-container bg-slate-600">
-        <h1>Formas de Pagamento</h1>
+    <div class="payments-container">
         <div>
             <form @submit.prevent="finalizeSale">
-                <table>
+                <table class="border border-black ml-16">
                     <thead>
                         <tr>
                             <th>Formas de pagamento</th>
@@ -24,12 +23,13 @@
                         </tr>
                     </tbody>
                 </table>
-
-                <button type="submit"> {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Finalizar Venda" }} </button>
-                
+                <div class="ml-16 mt-2 bg-slate-600 w-max flex rounded-lg">
+                    <button class="bg-slate-500 text-white rounded-lg px-2 mt-2 mb-2 mr-2 ml-2" type="submit"> {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Finalizar Venda" }} </button>
+                    <button @click="cancelOperation()" class="bg-slate-500 text-white rounded-lg px-2 mt-2 mb-2 mr-2">Cancelar</button>
+                    <h3 class="bg-slate-500 text-white rounded-lg px-2 mt-2 mb-2 mr-2">Total: R$ {{ totalOperation }}</h3>
+                </div>
             </form>
-            <button @click="cancelOperation()">Cancelar</button>
-            <h3>Total: R$ {{ totalOperation }}</h3>
+            
 
             <div class="" v-if="isLoanding">
                 <h2>Carregando...</h2>

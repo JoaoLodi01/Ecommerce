@@ -30,3 +30,908 @@
 [2025-03-07 02:24:49] local.INFO: O hotel foi encontrado  
 [2025-03-07 02:24:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-03-07 02:24:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 10:53:29] local.INFO: Chamou o IPController  
+[2025-03-07 10:53:29] local.INFO: Chamou o IPService  
+[2025-03-07 11:18:59] local.INFO: Chamou o IPController  
+[2025-03-07 11:18:59] local.INFO: Chamou o IPService  
+[2025-03-07 11:19:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 11:19:12] local.INFO: O hotel foi encontrado  
+[2025-03-07 11:19:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 11:19:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 11:19:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 11:19:12] local.INFO: O hotel foi encontrado  
+[2025-03-07 11:19:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 11:19:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 11:19:18] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:19:37] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:20:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:20:30] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:20:35] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:20:54] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:20:58] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:21:03] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:21:06] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:21:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:21:19] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:21:32] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:21:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:21:39] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:22:01] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:22:08] local.INFO: Chamou o IPController  
+[2025-03-07 11:22:08] local.INFO: Chamou o IPService  
+[2025-03-07 11:22:11] local.INFO: Chamou o IPController  
+[2025-03-07 11:22:11] local.INFO: Chamou o IPService  
+[2025-03-07 11:22:53] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:23:08] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:23:22] local.INFO: Chamou o IPController  
+[2025-03-07 11:23:22] local.INFO: Chamou o IPService  
+[2025-03-07 11:37:24] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:37:46] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:37:47] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:38:00] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:38:20] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:38:27] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:38:34] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:38:42] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:39:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:39:25] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:39:27] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:39:41] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:39:49] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:39:53] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:39:57] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:40:03] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:40:12] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:40:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:40:22] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:40:29] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:40:50] local.INFO: Chamou o IPController  
+[2025-03-07 11:40:50] local.INFO: Chamou o IPService  
+[2025-03-07 11:40:54] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:41:03] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:41:12] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:41:23] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:41:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:41:44] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:41:56] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:42:03] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:42:37] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:42:38] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:42:56] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:43:13] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:43:29] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:43:38] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:43:46] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:43:58] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:44:01] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:44:03] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:44:10] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:44:12] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:44:17] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:44:19] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:44:29] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:44:36] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:44:51] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:45:06] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:45:15] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:45:21] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:45:23] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:45:25] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:45:27] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 11:45:28] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:22] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:23] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:23] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:26] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:28] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:30] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:35] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:39] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:16:55] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:17:03] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:17:10] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:17:22] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:17:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:17:42] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:17:50] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:17:53] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:04] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:09] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:10] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:15] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:24] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:25] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:26] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:28] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:29] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:35] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:18:41] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:19:46] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:19:49] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:19:52] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:19:59] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:20:07] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:20:11] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:20:24] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:20:37] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:20:44] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:21:01] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:21:04] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:21:10] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:21:15] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:21:25] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:21:27] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:21:48] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:21:51] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:21:57] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:22:10] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:22:12] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:22:21] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:22:27] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:22:36] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:22:40] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:22:46] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:22:59] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:23:08] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:23:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:23:26] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 12:23:30] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 14:06:55] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 14:07:25] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 14:47:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 14:47:53] local.INFO: O hotel foi encontrado  
+[2025-03-07 14:47:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 14:47:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 14:47:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 14:47:53] local.INFO: O hotel foi encontrado  
+[2025-03-07 14:47:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 14:47:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 14:47:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 14:47:55] local.INFO: O hotel foi encontrado  
+[2025-03-07 14:47:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 14:47:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 14:47:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 14:47:55] local.INFO: O hotel foi encontrado  
+[2025-03-07 14:47:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 14:47:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 14:51:23] local.INFO: Chamou o IPController  
+[2025-03-07 14:51:23] local.INFO: Chamou o IPService  
+[2025-03-07 14:52:58] local.INFO: Chamou o IPController  
+[2025-03-07 14:52:58] local.INFO: Chamou o IPService  
+[2025-03-07 14:57:06] local.INFO: Chamou o IPController  
+[2025-03-07 14:57:06] local.INFO: Chamou o IPService  
+[2025-03-07 15:00:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 15:00:27] local.INFO: O hotel foi encontrado  
+[2025-03-07 15:00:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 15:00:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 15:00:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 15:00:27] local.INFO: O hotel foi encontrado  
+[2025-03-07 15:00:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 15:00:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:33:19] local.INFO: Chamou o IPController  
+[2025-03-07 17:33:19] local.INFO: Chamou o IPService  
+[2025-03-07 17:34:09] local.INFO: Vai chamar checkGTIN  
+[2025-03-07 17:34:09] local.INFO: Caiu no checkGTIN  
+[2025-03-07 17:35:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:35:14] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:35:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:35:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:35:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:35:14] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:35:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:35:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:35:20] local.INFO: Chamou o IPController  
+[2025-03-07 17:35:20] local.INFO: Chamou o IPService  
+[2025-03-07 17:35:20] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-07 17:36:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:36:09] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:36:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:36:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:36:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:36:09] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:36:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:36:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:36:10] local.INFO: Chamou o IPController  
+[2025-03-07 17:36:10] local.INFO: Chamou o IPService  
+[2025-03-07 17:36:10] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-07 17:36:11] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 17:36:36] local.INFO: Vai procurar o quarto  
+[2025-03-07 17:36:36] local.INFO: Vai procurar o cliente  
+[2025-03-07 17:36:36] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-07 17:36:36] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-07 17:36:36] local.INFO: Vai buscar o hotel  
+[2025-03-07 17:36:36] local.INFO: Valor informado: R$ 410, maior que o valor do quarto: 45  
+[2025-03-07 17:36:37] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 192 --  
+[2025-03-07 17:36:37] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 24 --  
+[2025-03-07 17:36:37] local.INFO: Quantia $formsPayment: 1  
+[2025-03-07 17:36:37] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-07 17:36:37] local.INFO: $payment[$i] linha - 115: i = 0  
+[2025-03-07 17:36:37] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-07 17:36:37] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-07 17:36:37] local.INFO: Payment linha 121 - : 410  
+[2025-03-07 17:36:37] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-07 17:36:37] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-03-07 17:36:37] local.INFO: Dados:   
+[2025-03-07 17:36:37] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 410,
+    'output_value' => 0,
+    'real_balance' => 410,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:36:37] local.INFO: -- Vai chamar o cashRegisterRepository linha 181 --   
+[2025-03-07 17:36:37] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-07 17:36:37] local.INFO: Quantia: 1  
+[2025-03-07 17:36:37] local.INFO: Tipo de dado: array  
+[2025-03-07 17:36:37] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 410,
+    'output_value' => 0,
+    'real_balance' => 410,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:36:37] local.INFO: Vai criar 1 registro:   
+[2025-03-07 17:36:37] local.INFO: $lastCashBoxashBox  
+[2025-03-07 17:36:37] local.INFO: {"id":5,"description":"Reserva hotel","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"410.00","output_value":"0.00","real_balance":"410.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:36:37] local.INFO: $cashBox  
+[2025-03-07 17:36:37] local.INFO: {"id":4,"description":"Gera\u00e7\u00e3o de cr\u00e9dito","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"0.00","output_value":"12355622.00","real_balance":"24711290.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:36:37] local.INFO: Novo valor: R$ 0.00 + 410.00 = 410  
+[2025-03-07 17:36:37] local.INFO: -- Vai chamar o reservationRepository linha 183 --   
+[2025-03-07 17:36:37] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-07 17:36:37] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 186 --  
+[2025-03-07 17:36:37] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 194 --  
+[2025-03-07 17:36:37] local.INFO: -- Inicio createCredit linha 240 --  
+[2025-03-07 17:36:37] local.INFO: Vai criar o crédito do cliente, R$: 365  
+[2025-03-07 17:36:37] local.INFO: -- Inicio decreaseCash linha 192 --  
+[2025-03-07 17:36:37] local.INFO: Corpo:   
+[2025-03-07 17:36:37] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 0,
+    'output_value' => 365.0,
+    'real_balance' => 365.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:36:37] local.INFO: -- Vai chamar o cashRegisterRepository linha 211 --   
+[2025-03-07 17:36:37] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-07 17:36:37] local.INFO: Quantia: 1  
+[2025-03-07 17:36:37] local.INFO: Tipo de dado: array  
+[2025-03-07 17:36:37] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 0,
+    'output_value' => 365.0,
+    'real_balance' => 365.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:36:37] local.INFO: Vai criar 1 registro:   
+[2025-03-07 17:36:37] local.INFO: $lastCashBoxashBox  
+[2025-03-07 17:36:37] local.INFO: {"id":6,"description":"Gera\u00e7\u00e3o de cr\u00e9dito","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"0.00","output_value":"365.00","real_balance":"365.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:36:37] local.INFO: $cashBox  
+[2025-03-07 17:36:37] local.INFO: {"id":5,"description":"Reserva hotel","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"410.00","output_value":"0.00","real_balance":"24711700.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:36:37] local.INFO: Novo valor: R$ 410.00 + 0.00 = 410  
+[2025-03-07 17:36:37] local.INFO: -- Vai chamar o reservationRepository linha 213 --   
+[2025-03-07 17:36:37] local.INFO: -- Fim decreaseCash linha 211 --  
+[2025-03-07 17:36:37] local.INFO: -- Fim createCredit linha 250 --  
+[2025-03-07 17:36:37] local.INFO: Vai procurar o quarto  
+[2025-03-07 17:36:38] local.INFO: Vai procurar o cliente  
+[2025-03-07 17:36:38] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-07 17:36:38] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-07 17:36:38] local.INFO: Vai buscar o hotel  
+[2025-03-07 17:36:38] local.INFO: Valor informado: R$ 410, maior que o valor do quarto: 45  
+[2025-03-07 17:36:38] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 192 --  
+[2025-03-07 17:36:38] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 24 --  
+[2025-03-07 17:36:38] local.INFO: Quantia $formsPayment: 1  
+[2025-03-07 17:36:38] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-07 17:36:38] local.INFO: $payment[$i] linha - 115: i = 0  
+[2025-03-07 17:36:38] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-07 17:36:38] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-07 17:36:38] local.INFO: Payment linha 121 - : 410  
+[2025-03-07 17:36:38] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-07 17:36:38] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-03-07 17:36:38] local.INFO: Dados:   
+[2025-03-07 17:36:38] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 410,
+    'output_value' => 0,
+    'real_balance' => 410,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:36:38] local.INFO: -- Vai chamar o cashRegisterRepository linha 181 --   
+[2025-03-07 17:36:38] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-07 17:36:38] local.INFO: Quantia: 1  
+[2025-03-07 17:36:38] local.INFO: Tipo de dado: array  
+[2025-03-07 17:36:38] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 410,
+    'output_value' => 0,
+    'real_balance' => 410,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:36:38] local.INFO: Vai criar 1 registro:   
+[2025-03-07 17:36:38] local.INFO: $lastCashBoxashBox  
+[2025-03-07 17:36:38] local.INFO: {"id":7,"description":"Reserva hotel","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"410.00","output_value":"0.00","real_balance":"410.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:36:38] local.INFO: $cashBox  
+[2025-03-07 17:36:38] local.INFO: {"id":6,"description":"Gera\u00e7\u00e3o de cr\u00e9dito","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"0.00","output_value":"365.00","real_balance":"24711700.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:36:38] local.INFO: Novo valor: R$ 0.00 + 410.00 = 410  
+[2025-03-07 17:36:38] local.INFO: -- Vai chamar o reservationRepository linha 183 --   
+[2025-03-07 17:36:38] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-07 17:36:38] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 186 --  
+[2025-03-07 17:36:38] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 194 --  
+[2025-03-07 17:36:38] local.INFO: -- Inicio createCredit linha 240 --  
+[2025-03-07 17:36:38] local.INFO: Vai criar o crédito do cliente, R$: 365  
+[2025-03-07 17:36:38] local.INFO: -- Inicio decreaseCash linha 192 --  
+[2025-03-07 17:36:38] local.INFO: Corpo:   
+[2025-03-07 17:36:38] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 0,
+    'output_value' => 365.0,
+    'real_balance' => 365.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:36:38] local.INFO: -- Vai chamar o cashRegisterRepository linha 211 --   
+[2025-03-07 17:36:38] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-07 17:36:38] local.INFO: Quantia: 1  
+[2025-03-07 17:36:38] local.INFO: Tipo de dado: array  
+[2025-03-07 17:36:38] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 0,
+    'output_value' => 365.0,
+    'real_balance' => 365.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:36:38] local.INFO: Vai criar 1 registro:   
+[2025-03-07 17:36:38] local.INFO: $lastCashBoxashBox  
+[2025-03-07 17:36:38] local.INFO: {"id":8,"description":"Gera\u00e7\u00e3o de cr\u00e9dito","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"0.00","output_value":"365.00","real_balance":"365.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:36:38] local.INFO: $cashBox  
+[2025-03-07 17:36:38] local.INFO: {"id":7,"description":"Reserva hotel","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"410.00","output_value":"0.00","real_balance":"24712110.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:36:38] local.INFO: Novo valor: R$ 410.00 + 0.00 = 410  
+[2025-03-07 17:36:38] local.INFO: -- Vai chamar o reservationRepository linha 213 --   
+[2025-03-07 17:36:38] local.INFO: -- Fim decreaseCash linha 211 --  
+[2025-03-07 17:36:38] local.INFO: -- Fim createCredit linha 250 --  
+[2025-03-07 17:36:40] local.ERROR: App\Services\HotelServices\RoomService::reservation(): Argument #3 ($generateCredit) must be of type bool, null given, called in C:\Code\ProjetoWeb\api\app\Http\Controllers\HotelController\RoomController.php on line 47 {"exception":"[object] (TypeError(code: 0): App\\Services\\HotelServices\\RoomService::reservation(): Argument #3 ($generateCredit) must be of type bool, null given, called in C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\HotelController\\RoomController.php on line 47 at C:\\Code\\ProjetoWeb\\api\\app\\Services\\HotelServices\\RoomService.php:103)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\HotelController\\RoomController.php(47): App\\Services\\HotelServices\\RoomService->reservation()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\HotelController\\RoomController->reservation()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#35 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#37 {main}
+"} 
+[2025-03-07 17:36:45] local.INFO: Chamou o IPController  
+[2025-03-07 17:36:45] local.INFO: Chamou o IPService  
+[2025-03-07 17:36:45] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-07 17:36:47] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 17:36:50] local.ERROR: App\Services\HotelServices\RoomService::reservation(): Argument #3 ($generateCredit) must be of type bool, null given, called in C:\Code\ProjetoWeb\api\app\Http\Controllers\HotelController\RoomController.php on line 47 {"exception":"[object] (TypeError(code: 0): App\\Services\\HotelServices\\RoomService::reservation(): Argument #3 ($generateCredit) must be of type bool, null given, called in C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\HotelController\\RoomController.php on line 47 at C:\\Code\\ProjetoWeb\\api\\app\\Services\\HotelServices\\RoomService.php:103)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\HotelController\\RoomController.php(47): App\\Services\\HotelServices\\RoomService->reservation()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\HotelController\\RoomController->reservation()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#35 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#37 {main}
+"} 
+[2025-03-07 17:36:54] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-07 17:36:54] local.INFO: Chamou o IPController  
+[2025-03-07 17:36:54] local.INFO: Chamou o IPService  
+[2025-03-07 17:36:56] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 17:37:05] local.ERROR: App\Services\HotelServices\RoomService::reservation(): Argument #3 ($generateCredit) must be of type bool, null given, called in C:\Code\ProjetoWeb\api\app\Http\Controllers\HotelController\RoomController.php on line 47 {"exception":"[object] (TypeError(code: 0): App\\Services\\HotelServices\\RoomService::reservation(): Argument #3 ($generateCredit) must be of type bool, null given, called in C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\HotelController\\RoomController.php on line 47 at C:\\Code\\ProjetoWeb\\api\\app\\Services\\HotelServices\\RoomService.php:103)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\HotelController\\RoomController.php(47): App\\Services\\HotelServices\\RoomService->reservation()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\HotelController\\RoomController->reservation()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#35 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#37 {main}
+"} 
+[2025-03-07 17:37:23] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 17:37:26] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 17:37:27] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 17:37:28] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 17:37:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:37:30] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:37:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:37:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:37:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:37:30] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:37:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:37:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:37:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:37:36] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:37:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:37:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:37:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:37:36] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:37:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:37:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:38:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:38:36] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:38:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:38:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:38:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 17:38:36] local.INFO: O hotel foi encontrado  
+[2025-03-07 17:38:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 17:38:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 17:38:38] local.INFO: Chamou o IPController  
+[2025-03-07 17:38:38] local.INFO: Chamou o IPService  
+[2025-03-07 17:38:38] local.INFO: Vai buscar todos os quartos ativos do hotel table = DetailRooms  
+[2025-03-07 17:38:40] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 17:38:50] local.INFO: Vai procurar o quarto  
+[2025-03-07 17:38:50] local.INFO: Vai procurar o cliente  
+[2025-03-07 17:38:50] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-07 17:38:50] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-07 17:38:50] local.INFO: Vai buscar o hotel  
+[2025-03-07 17:38:50] local.INFO: Valor informado: R$ 45, maior que o valor do quarto: 44  
+[2025-03-07 17:38:50] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 192 --  
+[2025-03-07 17:38:50] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 24 --  
+[2025-03-07 17:38:50] local.INFO: Quantia $formsPayment: 1  
+[2025-03-07 17:38:50] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-07 17:38:50] local.INFO: $payment[$i] linha - 115: i = 0  
+[2025-03-07 17:38:50] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-07 17:38:50] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-07 17:38:50] local.INFO: Payment linha 121 - : 45  
+[2025-03-07 17:38:50] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-07 17:38:50] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-03-07 17:38:50] local.INFO: Dados:   
+[2025-03-07 17:38:50] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 45,
+    'output_value' => 0,
+    'real_balance' => 45,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:38:50] local.INFO: -- Vai chamar o cashRegisterRepository linha 181 --   
+[2025-03-07 17:38:50] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-07 17:38:50] local.INFO: Quantia: 1  
+[2025-03-07 17:38:50] local.INFO: Tipo de dado: array  
+[2025-03-07 17:38:50] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 45,
+    'output_value' => 0,
+    'real_balance' => 45,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:38:50] local.INFO: Vai criar 1 registro:   
+[2025-03-07 17:38:50] local.INFO: $lastCashBoxashBox  
+[2025-03-07 17:38:50] local.INFO: {"id":9,"description":"Reserva hotel","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"45.00","output_value":"0.00","real_balance":"45.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:38:50] local.INFO: $cashBox  
+[2025-03-07 17:38:50] local.INFO: {"id":8,"description":"Gera\u00e7\u00e3o de cr\u00e9dito","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"0.00","output_value":"365.00","real_balance":"24712110.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:38:50] local.INFO: Novo valor: R$ 0.00 + 45.00 = 45  
+[2025-03-07 17:38:50] local.INFO: -- Vai chamar o reservationRepository linha 183 --   
+[2025-03-07 17:38:50] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-07 17:38:50] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 186 --  
+[2025-03-07 17:38:50] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 194 --  
+[2025-03-07 17:38:50] local.INFO: -- Inicio createCredit linha 240 --  
+[2025-03-07 17:38:50] local.INFO: Vai criar o crédito do cliente, R$: 1  
+[2025-03-07 17:38:50] local.INFO: -- Inicio decreaseCash linha 192 --  
+[2025-03-07 17:38:50] local.INFO: Corpo:   
+[2025-03-07 17:38:50] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 0,
+    'output_value' => 1.0,
+    'real_balance' => 1.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:38:50] local.INFO: -- Vai chamar o cashRegisterRepository linha 211 --   
+[2025-03-07 17:38:50] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-07 17:38:50] local.INFO: Quantia: 1  
+[2025-03-07 17:38:50] local.INFO: Tipo de dado: array  
+[2025-03-07 17:38:50] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 0,
+    'output_value' => 1.0,
+    'real_balance' => 1.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:38:50] local.INFO: Vai criar 1 registro:   
+[2025-03-07 17:38:50] local.INFO: $lastCashBoxashBox  
+[2025-03-07 17:38:50] local.INFO: {"id":10,"description":"Gera\u00e7\u00e3o de cr\u00e9dito","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"0.00","output_value":"1.00","real_balance":"1.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:38:50] local.INFO: $cashBox  
+[2025-03-07 17:38:50] local.INFO: {"id":9,"description":"Reserva hotel","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"45.00","output_value":"0.00","real_balance":"24712155.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:38:50] local.INFO: Novo valor: R$ 45.00 + 0.00 = 45  
+[2025-03-07 17:38:50] local.INFO: -- Vai chamar o reservationRepository linha 213 --   
+[2025-03-07 17:38:50] local.INFO: -- Fim decreaseCash linha 211 --  
+[2025-03-07 17:38:50] local.INFO: -- Fim createCredit linha 250 --  
+[2025-03-07 17:38:53] local.INFO: Vai procurar o quarto  
+[2025-03-07 17:38:53] local.INFO: Vai procurar o cliente  
+[2025-03-07 17:38:53] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-07 17:38:53] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-07 17:38:53] local.INFO: Vai buscar o hotel  
+[2025-03-07 17:38:53] local.INFO: Valor informado: R$ 45, maior que o valor do quarto: 44  
+[2025-03-07 17:38:53] local.INFO: -- Começo do registro no caixa, RoomRepository.php, linha 192 --  
+[2025-03-07 17:38:53] local.INFO: -- Inicio do registro no caixa, PayMentMethod.php, linha 24 --  
+[2025-03-07 17:38:53] local.INFO: Quantia $formsPayment: 1  
+[2025-03-07 17:38:53] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-07 17:38:53] local.INFO: $payment[$i] linha - 115: i = 0  
+[2025-03-07 17:38:53] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-07 17:38:53] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-07 17:38:53] local.INFO: Payment linha 121 - : 45  
+[2025-03-07 17:38:53] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-07 17:38:53] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-03-07 17:38:53] local.INFO: Dados:   
+[2025-03-07 17:38:53] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 45,
+    'output_value' => 0,
+    'real_balance' => 45,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:38:53] local.INFO: -- Vai chamar o cashRegisterRepository linha 181 --   
+[2025-03-07 17:38:53] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-07 17:38:53] local.INFO: Quantia: 1  
+[2025-03-07 17:38:53] local.INFO: Tipo de dado: array  
+[2025-03-07 17:38:53] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Reserva hotel',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 45,
+    'output_value' => 0,
+    'real_balance' => 45,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:38:53] local.INFO: Vai criar 1 registro:   
+[2025-03-07 17:38:53] local.INFO: $lastCashBoxashBox  
+[2025-03-07 17:38:53] local.INFO: {"id":11,"description":"Reserva hotel","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"45.00","output_value":"0.00","real_balance":"45.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:38:53] local.INFO: $cashBox  
+[2025-03-07 17:38:53] local.INFO: {"id":10,"description":"Gera\u00e7\u00e3o de cr\u00e9dito","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"0.00","output_value":"1.00","real_balance":"24712155.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:38:53] local.INFO: Novo valor: R$ 0.00 + 45.00 = 45  
+[2025-03-07 17:38:53] local.INFO: -- Vai chamar o reservationRepository linha 183 --   
+[2025-03-07 17:38:53] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-07 17:38:53] local.INFO: -- Fim do registro no caixa, PayMentMethod.php, linha 186 --  
+[2025-03-07 17:38:53] local.INFO: -- Fim do registro no caixa, RoomRepository.php, linha 194 --  
+[2025-03-07 17:38:53] local.INFO: -- Inicio createCredit linha 240 --  
+[2025-03-07 17:38:53] local.INFO: Vai criar o crédito do cliente, R$: 1  
+[2025-03-07 17:38:53] local.INFO: -- Inicio decreaseCash linha 192 --  
+[2025-03-07 17:38:53] local.INFO: Corpo:   
+[2025-03-07 17:38:53] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 0,
+    'output_value' => 1.0,
+    'real_balance' => 1.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:38:53] local.INFO: -- Vai chamar o cashRegisterRepository linha 211 --   
+[2025-03-07 17:38:53] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-07 17:38:53] local.INFO: Quantia: 1  
+[2025-03-07 17:38:53] local.INFO: Tipo de dado: array  
+[2025-03-07 17:38:53] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Geração de crédito',
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-07',
+    'input_value' => 0,
+    'output_value' => 1.0,
+    'real_balance' => 1.0,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'hotel',
+  ),
+)  
+[2025-03-07 17:38:53] local.INFO: Vai criar 1 registro:   
+[2025-03-07 17:38:53] local.INFO: $lastCashBoxashBox  
+[2025-03-07 17:38:53] local.INFO: {"id":12,"description":"Gera\u00e7\u00e3o de cr\u00e9dito","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"0.00","output_value":"1.00","real_balance":"1.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:38:53] local.INFO: $cashBox  
+[2025-03-07 17:38:53] local.INFO: {"id":11,"description":"Reserva hotel","customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-07","input_value":"45.00","output_value":"0.00","real_balance":"24712200.00","origem":"hotel","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-07 17:38:53] local.INFO: Novo valor: R$ 45.00 + 0.00 = 45  
+[2025-03-07 17:38:53] local.INFO: -- Vai chamar o reservationRepository linha 213 --   
+[2025-03-07 17:38:53] local.INFO: -- Fim decreaseCash linha 211 --  
+[2025-03-07 17:38:53] local.INFO: -- Fim createCredit linha 250 --  
+[2025-03-07 20:56:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 20:56:35] local.INFO: O hotel foi encontrado  
+[2025-03-07 20:56:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 20:56:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 20:56:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 20:56:36] local.INFO: O hotel foi encontrado  
+[2025-03-07 20:56:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 20:56:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 21:10:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 21:10:55] local.INFO: O hotel foi encontrado  
+[2025-03-07 21:10:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 21:10:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 21:10:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 21:10:55] local.INFO: O hotel foi encontrado  
+[2025-03-07 21:10:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 21:10:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 21:11:01] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 21:11:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 21:11:31] local.INFO: O hotel foi encontrado  
+[2025-03-07 21:11:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 21:11:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 21:11:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-07 21:11:31] local.INFO: O hotel foi encontrado  
+[2025-03-07 21:11:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-07 21:11:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-07 21:11:39] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-07 21:11:39] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-10 11:35:06] local.INFO: Chamou o IPController  
+[2025-03-10 11:35:06] local.INFO: Chamou o IPService  
+[2025-03-10 11:36:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:22] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 11:36:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:22] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 11:36:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:24] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 11:36:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:24] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 11:36:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:27] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 11:36:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:27] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 11:36:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:39] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 11:36:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:39] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 11:36:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:40] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-10 11:36:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-10 11:36:40] local.INFO: O hotel foi encontrado  
+[2025-03-10 11:36:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-10 11:36:40] local.INFO: Opção desativada, não vai alterar o endereço  

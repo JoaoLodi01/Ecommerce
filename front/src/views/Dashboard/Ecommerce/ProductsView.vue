@@ -2,7 +2,12 @@
   <div class="estoque-container px-20 py-20">
     <!-- Título -->
     <h1 class="text-3xl font-semibold mb-6">Estoque</h1>
-
+      <button 
+        @click="toggleRegisterProductVisibility"
+        class="w-full py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
+        <span v-if="!showRegisterProduct">Cadastrar</span>
+        <span v-else>Voltar</span>
+      </button>
     <!-- Grid de Produtos -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" v-if="showProducts">
         <div 
@@ -40,12 +45,6 @@
         </div>
         <div class="mt-4">
           
-          <button 
-            @click="toggleRegisterProductVisibility"
-            class="w-full py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
-            <span v-if="!showRegisterProduct">Cadastrar</span>
-            <span v-else>Voltar</span>
-          </button>
         </div>
         
       </div>
@@ -101,7 +100,7 @@ export default {
     },
 
     editProduct(productID) {
-      // Adicione a lógica de edição se necessário
+      this.showRegisterProduct = !this.showRegisterProduct;
     },
   },
 };
