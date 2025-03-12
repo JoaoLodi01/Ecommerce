@@ -4,7 +4,7 @@ namespace App\Http\Requests\EcommerceRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PDVSaveSaleRequest extends FormRequest
+class PDVSaleRequest extends FormRequest
 {
 
     public function authorize(): bool
@@ -23,7 +23,7 @@ class PDVSaveSaleRequest extends FormRequest
             'sub_total' => ['required', 'numeric'],
             'addition' => ['required', 'numeric'],
             'discount' => ['required', 'numeric'],
-            'is_nfce_nm' => ['sometimes'],
+            'is_nfce_nm' => ['required'],
 
         ];
     }

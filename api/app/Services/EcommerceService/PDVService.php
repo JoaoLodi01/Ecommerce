@@ -69,7 +69,22 @@ class PDVService{
         try {
             return $this->pdvRepository->saveSale($details, $productsArray);
         } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'th' => $th->getMessage(),
+                'line' => $th->getLine(),
+                'file' => $th->getFile(),
+            ]);
+        }
+    }
+
+    public function finalizeSale(array $data)
+    {
+        try {
+            return response()->json($this->pdvRepository->finalizeSale($data));
+        } catch (\Throwable $th) {
             //throw $th;
         }
+
     }
 }

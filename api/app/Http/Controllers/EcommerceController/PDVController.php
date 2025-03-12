@@ -4,6 +4,7 @@ namespace App\Http\Controllers\EcommerceController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EcommerceRequest\PDVSaleRequest;
 use App\Http\Requests\EcommerceRequest\PDVSaveSaleRequest;
 use App\Services\EcommerceService\PDVService;
 
@@ -37,5 +38,26 @@ class PDVController extends Controller
             
         return $this->pdvService->saveSale($data, $data['products']);
         
+    }
+
+    public function saleNM(PDVSaleRequest $request)
+    {
+        $data = $request->validated();
+        return $this->pdvService->finalizeSale($data);
+        return response()->json([
+            'data' => $data
+        ]);
+
+    }
+
+    public function saleNFCE(PDVSaleRequest $request)
+    {
+        $data = $request->validated();
+        return $this->pdvService->finalizeSale($data);
+        return response()->json([
+            'data' => $data
+
+        ]);
+
     }
 }
