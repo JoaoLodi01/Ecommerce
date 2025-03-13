@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Log;
 class CashRegisterRepository
 {
     public function getAll(int $active){ 
-        return CashRegister::where('active', $active)->get();
+        return CashRegister::all();
+        
     }
 
     public function findByID(string $params){
@@ -80,4 +81,6 @@ class CashRegisterRepository
             'active' => 0,
         ]);
     }
+
+    
 }

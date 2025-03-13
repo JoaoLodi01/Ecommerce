@@ -17,13 +17,14 @@ return new class extends Migration
             $table->foreign('pdvs_id')->references('id')->on('pdvs')->onDelete('cascade');
             $table->unsignedBigInteger('products_id');
             $table->foreign('products_id')->references('id')->on('products')->onDelete('cascade');
-            $table->string('produto', 255);
-            $table->float('qtde_vendida');
-            $table->decimal('acrescimo', 16,2)->nullable();
-            $table->decimal('desconto', 16,2)->nullable();
-            $table->unsignedBigInteger('id_vendedor');
-            $table->foreign('id_vendedor')->references('id')->on('users')->onDelete('cascade');
-            $table->string('vendedor', 255);
+            $table->string('product', 255);
+            $table->float('amount_sold');
+            $table->decimal('addition', 16,2)->nullable();
+            $table->decimal('discount', 16,2)->nullable();
+            $table->unsignedBigInteger('seller_id');
+            $table->foreign('seller_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('seller', 255);
+            $table->boolean('finished', 1)->default(0);
             $table->timestamps();
         });
     }

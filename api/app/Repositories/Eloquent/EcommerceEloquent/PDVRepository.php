@@ -5,7 +5,9 @@ namespace App\Repositories\Eloquent\EcommerceEloquent;
 use App\Models\{
     Receive,
     Customer
+
 };
+
 use App\Models\EcommerceModels\{
     PDV,
     FormaPagamentoPDV,
@@ -15,7 +17,9 @@ use App\Models\EcommerceModels\{
 };
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-use App\Repositories\Eloquent\CustomerRepository;
+use App\Repositories\Eloquent\{
+    CustomerRepository
+};
 
 use Illuminate\Support\Facades\Log;
 
@@ -46,14 +50,15 @@ class PDVRepository
         $paymentForm = Payment::where('id', $data['payment_id'])->first();
 
         if($customer && $user && $paymentForm){
-
+            // Precisa ajustar e melhorar
             Log::info("Vai criar NFC-e.");
             $pdv = PDV::create([
-                'cliente_id' => $customer->id,
-                'cliente' => $customer->name,
-                'valor_bruto' => $paymentForm->valor_bruto,
-                'valor_liquido' => $paymentForm->valor_liquido,
-                'valor_desconto' => $paymentForm->valor_desconto,
+                'customer_id' => $customer->id,
+                'customer' => $customer->name,
+                'gross_value' => $paymentForm->valor_bruto,
+                'net_value' => $paymentForm->valor_liquido,
+                'discount' => $paymentForm->valor_desconto,
+                'addition' => $paymentForm->valor_desconto,
                 'user_id' => $user->id,
                 'user' => $user->name,
             ]);
@@ -154,24 +159,21 @@ class PDVRepository
         }
     }
 
-    public function delete(int $id){
-        Log::info("Iniciando exclusão do registro");
-        $pdv = PDV::find($id);
+    public function saveSale(array $details, array $productsArray)
+    {
+        $customer = $this->customerRepository->findByID($details['customer_id']);
 
-        if (!$pdv){
-            Log::info("Registro não encontrado.");
-            return response()->json([
-                'success' => false,
-                'error' => 'Registro não encontrado.'
-            ], 404);
-        }
+        return array(
+            'details' => $details,
+            'productsArray' => $productsArray
 
-        $pdv->update(['active' => 0]);
+        );
+        $pdv = PDV::create([
+            'customer_id' => $customer->id,
+            'customer' => $customer->name,
+            'details' => $details['is_nfce_nm']
+        ]);  
+        
 
-        Log::info("Registro desativado!");
-        return response()->json([
-            'success' => true,
-            'message' => 'Registro deletado com sucesso!',
-        ], 200);
     }
 }

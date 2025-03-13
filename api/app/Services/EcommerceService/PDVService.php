@@ -2,31 +2,19 @@
 
 namespace App\Services\EcommerceService;
 
-use App\Repositories\Eloquent\NfceRepository;
+use App\Repositories\Eloquent\EcommerceEloquent\PDVRepository;
 
-class NfceService{
+class PDVService{
 
-    protected $nfceRepository;
+    protected $pdvRepository;
 
-    public function __construct(NfceRepository $nfceRepository){
-        $this->nfceRepository = $nfceRepository;
+    public function __construct(PDVRepository $pdvRepository){
+        $this->pdvRepository = $pdvRepository;
     }
 
     public function getAll(){
         try {
-            return $this->nfceRepository->getAll(1);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
-    }
-
-    public function findByID(int $id){
-        try {
-            return response()->json([
-                'success' => true,
-                'nfce' => $this->nfceRepository->findByID($id)
-            ]);
-
+            return $this->pdvRepository->getAll(1);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
@@ -37,7 +25,7 @@ class NfceService{
             $total = $this->calculateTotal($data);
             $data['valor_liquido'] = $total;
 
-            $this->nfceRepository->store($data);
+            $this->pdvRepository->store($data);
             return response()->json([
                 'success' => true,
                 'message' => 'Venda realizada com sucesso!',
@@ -50,17 +38,7 @@ class NfceService{
 
     public function update(array $data, int $id){
         try {
-            $this->nfceRepository->update($data, $id);
-            return response()->json(true);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
-    }
-
-    public function delete(int $id){
-        try {
-            $this->nfceRepository->delete($id);
+            $this->pdvRepository->update($data, $id);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -84,5 +62,14 @@ class NfceService{
             'line' => $th->getLine(),
             'file' => $th->getFile(),
         ]);
+    }
+
+    public function saveSale(array $details, array $productsArray)
+    {
+        try {
+            return $this->pdvRepository->saveSale($details, $productsArray);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }

@@ -5,7 +5,7 @@ use App\Http\Controllers\EcommerceController\{
     ProductsController,
     CashRegisterController,
     UserController,
-    NfceController,
+    PDVController,
     PaymentsController,
 
 };
@@ -73,13 +73,13 @@ Route::prefix('v1')->group( function (){
         });        
 
         // NFC-e routes
-        Route::prefix('nfce')->group( function(){
+        Route::prefix('pdv')->group( function(){
+            Route::get('/all', [PDVController::class, 'getAll']);
+            Route::post('/create', [PDVController::class, 'store']);
+            Route::get('/{id}', [PDVController::class, 'findByID']);
+            Route::put('/{id}', [PDVController::class, 'update']);
+            Route::post('/save-sale', [PDVController::class, 'saveSale']);
             
-            Route::get('/all', [NfceController::class, 'getAll']);
-            Route::post('/create', [NfceController::class, 'store']);
-            Route::get('/{id}', [NfceController::class, 'findByID']);
-            Route::put('/{id}', [NfceController::class, 'update']);
-            Route::delete('/{id}/deactivate', [NfceController::class, 'delete']);
         });
 
         Route::prefix('payments')->group( function(){

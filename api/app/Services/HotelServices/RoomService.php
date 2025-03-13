@@ -110,7 +110,6 @@ class RoomService
                 $total += $value;
 
             }
-            
             for ($i=0; $i < count($data); $i++) { 
                 // posição do array com o valor > 0
                 // Vai ser o ID da espécie
