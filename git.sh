@@ -2,8 +2,19 @@
 
 fun_git_add()
 {
-    bash -c "git add ."
+    echo "Deseja levar as logs? (Y/N)"
+    read logs
 
+    if [[ $logs -eq 'Y' ]]; then
+        bash -c "git add ."
+
+    fi
+    
+    if [[ $logs -eq 'N' ]]; then
+        rm api/storage/logs/*
+        bash -c "git add ."
+
+    fi
 }
 
 fun_git_commit()
@@ -12,6 +23,7 @@ fun_git_commit()
     read commit
     bash -c "git commit -m '$commit'" 
     fun_git_push
+    
 }
 
 fun_git_push()
