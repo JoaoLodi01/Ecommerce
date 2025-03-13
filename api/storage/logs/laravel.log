@@ -4683,3 +4683,13 @@
 #32 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
 #33 {main}
 "} 
+[2025-03-13 02:04:21] local.INFO: Chamou o IPController  
+[2025-03-13 02:04:21] local.INFO: Chamou o IPService  
+[2025-03-13 02:04:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 02:04:21] local.INFO: O hotel foi encontrado  
+[2025-03-13 02:04:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 02:04:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 02:04:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 02:04:21] local.INFO: O hotel foi encontrado  
+[2025-03-13 02:04:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 02:04:21] local.INFO: Opção desativada, não vai alterar o endereço  
