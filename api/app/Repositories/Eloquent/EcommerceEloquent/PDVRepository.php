@@ -190,6 +190,7 @@ class PDVRepository
     
                 ]);
             }
+
             Log::info('ItensPDV ' . $itensPDV);
         }
     }
@@ -209,8 +210,8 @@ class PDVRepository
             'client' => $customer->name,
             'gross_value' => $details['sub_total'],
             'net_value' => $details['total'],
-            'discount' => $details['discount'],
             'addition' => $details['addition'],
+            'discount' => $details['discount'],
             'user_id' => $user->id,
             'seller' => $user->name, 
             'is_nfce_nm' => $details['is_nfce_nm']

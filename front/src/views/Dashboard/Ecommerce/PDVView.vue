@@ -35,7 +35,7 @@
                                 <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
                                 <th scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th scope="col" class="px-6 py-3 text-center"> {{  }} </th>
+                                <th scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
                                 <th scope="col" class="px-6 py-3 text-center">Qtde</th>
                                 <th scope="col" class="px-6 py-3 text-center">Valor unitário</th>
                                 <th scope="col" class="px-6 py-3">Valor líquido</th>
@@ -252,8 +252,7 @@
         data(){
             return {
                 productsSeletion: [],
-                hotelCodCRT: [],
-                csosncst: '',
+                hotelCodCRT: 0,
                 emitProducts: {
                     addition: 0,
                     discount: 0,
@@ -269,7 +268,7 @@
                 showGrid: true,
                 showPaymentsForm: false,
                 typeOperation: '',
-
+                csosncst: '',
                 api: process.env.VUE_APP_API_URL
             }
         },
@@ -289,7 +288,8 @@
 
                 const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
                 const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
-
+                this.totalOperation = totalSale + addition - discount
+                
                 return {
                     total: totalSale,
                     addition: addition,
@@ -336,8 +336,20 @@
                     const response = await axios.get(`${this.api}/hotel/all`)
                     if(response.data.success === true)
                     {
-                        this.hotelCodCRT = response.data.all.hotel.cod_crt
-                        
+                        this.hotelCodCRT += response.data.all.hotel.cod_crt
+                        if(Number(this.hotelCodCRT) && this.hotelCodCRT > 0)
+                        {
+                            console.log(this.hotelCodCRT)
+                            if(this.hotelCodCRT == 1 || this.hotelCodCRT >= 4)
+                            {
+                                this.csosncst = 'CSOSN'
+
+                            } else {
+                                this.csosncst = 'CST'
+                            }
+
+                        }
+
                     }
 
                     if(response.data.success === false){
@@ -377,7 +389,6 @@
                     {
                         this.typeOperation = 'saleNM'
                         this.showPaymentsForm = !this.showPaymentsForm
-                        console.log('this.emitProducts', this.emitProducts)
 
                     }
                 }
@@ -401,7 +412,6 @@
                     {
                         this.typeOperation = 'saleNFCe'
                         this.showPaymentsForm = !this.showPaymentsForm
-                        console.log('this.emitProducts', this.emitProducts)
 
                     }
                 }

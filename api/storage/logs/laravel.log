@@ -1,0 +1,942 @@
+[2025-03-13 09:36:51] local.INFO: Chamou o IPController  
+[2025-03-13 09:36:51] local.INFO: Chamou o IPService  
+[2025-03-13 09:36:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:36:51] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:36:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:36:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:36:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:36:51] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:36:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:36:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:37:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:37:17] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:37:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:37:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:37:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:37:17] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:37:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:37:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:38:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:38:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:38:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:38:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:38:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:38:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:38:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:38:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:38:06] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 09:38:06] local.INFO: Busca pelo customer  
+[2025-03-13 09:38:06] local.INFO: Busca pelo user  
+[2025-03-13 09:38:06] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-09T13:05:22.000000Z","updated_at":"2025-03-09T13:05:22.000000Z"}  
+[2025-03-13 09:38:06] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'discount' => 0,
+  'addition' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-13 09:38:06] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 09:38:06] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 09:38:06] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 09:38:06] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 09:38:06] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 09:38:06] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 09:38:06] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 09:38:06] local.INFO: ItensPDV {"pdv_id":5,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":7}  
+[2025-03-13 09:38:07] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 09:38:08] local.INFO: Chamou o IPController  
+[2025-03-13 09:38:08] local.INFO: Chamou o IPService  
+[2025-03-13 09:38:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:38:09] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:38:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:38:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:38:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:38:09] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:38:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:38:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:38:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:38:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:38:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:38:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:38:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:38:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:38:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:38:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:38:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:38:28] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:38:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:38:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:38:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:38:28] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:38:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:38:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:40:02] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 09:40:02] local.INFO: Busca pelo customer  
+[2025-03-13 09:40:02] local.INFO: Busca pelo user  
+[2025-03-13 09:40:02] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-09T13:05:22.000000Z","updated_at":"2025-03-09T13:05:22.000000Z"}  
+[2025-03-13 09:40:02] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-13 09:40:02] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 09:40:02] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 09:40:02] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 09:40:02] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 09:40:02] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 09:40:02] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 09:40:02] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 09:40:02] local.INFO: ItensPDV {"pdv_id":6,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":9}  
+[2025-03-13 09:40:02] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 09:41:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:32] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:41:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:32] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:41:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:41:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:41:39] local.INFO: Chamou o IPController  
+[2025-03-13 09:41:39] local.INFO: Chamou o IPService  
+[2025-03-13 09:41:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:39] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:41:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:39] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:41:49] local.INFO: Chamou o IPController  
+[2025-03-13 09:41:49] local.INFO: Chamou o IPService  
+[2025-03-13 09:41:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:49] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:41:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:49] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:41:51] local.INFO: Chamou o IPController  
+[2025-03-13 09:41:51] local.INFO: Chamou o IPService  
+[2025-03-13 09:41:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:51] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:41:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:41:51] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:41:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:41:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:11] local.INFO: Chamou o IPController  
+[2025-03-13 09:42:11] local.INFO: Chamou o IPService  
+[2025-03-13 09:42:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:11] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:11] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:11] local.INFO: Chamou o IPController  
+[2025-03-13 09:42:11] local.INFO: Chamou o IPService  
+[2025-03-13 09:42:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:12] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:12] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:17] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:17] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:19] local.INFO: Chamou o IPController  
+[2025-03-13 09:42:19] local.INFO: Chamou o IPService  
+[2025-03-13 09:42:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:19] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:19] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:23] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:23] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:23] local.INFO: Chamou o IPController  
+[2025-03-13 09:42:23] local.INFO: Chamou o IPService  
+[2025-03-13 09:42:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:24] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:24] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:26] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:26] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:27] local.INFO: Chamou o IPController  
+[2025-03-13 09:42:27] local.INFO: Chamou o IPService  
+[2025-03-13 09:42:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:27] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:27] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:39] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:42:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:42:39] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:42:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:42:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:43:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:43:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:43:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:43:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:43:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:43:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:43:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:43:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:43:47] local.INFO: Chamou o IPController  
+[2025-03-13 09:43:47] local.INFO: Chamou o IPService  
+[2025-03-13 09:43:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:43:48] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:43:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:43:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:43:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:43:48] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:43:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:43:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:08] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:08] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:09] local.INFO: Chamou o IPController  
+[2025-03-13 09:44:09] local.INFO: Chamou o IPService  
+[2025-03-13 09:44:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:10] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:10] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:30] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:30] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:31] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:31] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:31] local.INFO: Chamou o IPController  
+[2025-03-13 09:44:31] local.INFO: Chamou o IPService  
+[2025-03-13 09:44:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:32] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:32] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:40] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:40] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:40] local.INFO: Chamou o IPController  
+[2025-03-13 09:44:40] local.INFO: Chamou o IPService  
+[2025-03-13 09:44:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:40] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:40] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:46] local.INFO: Chamou o IPController  
+[2025-03-13 09:44:46] local.INFO: Chamou o IPService  
+[2025-03-13 09:44:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:44:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:44:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:44:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:44:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:45:36] local.INFO: Chamou o IPController  
+[2025-03-13 09:45:36] local.INFO: Chamou o IPService  
+[2025-03-13 09:45:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:45:36] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:45:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:45:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:45:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:45:36] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:45:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:45:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:01] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:01] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:01] local.INFO: Chamou o IPController  
+[2025-03-13 09:46:01] local.INFO: Chamou o IPService  
+[2025-03-13 09:46:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:01] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:01] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:35] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:35] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:38] local.INFO: Chamou o IPController  
+[2025-03-13 09:46:38] local.INFO: Chamou o IPService  
+[2025-03-13 09:46:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:38] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:38] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:45] local.INFO: Chamou o IPController  
+[2025-03-13 09:46:45] local.INFO: Chamou o IPService  
+[2025-03-13 09:46:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:45] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:45] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:47] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:47] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:49] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:49] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:58] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:46:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:46:58] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:46:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:46:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:47:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:47:13] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:47:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:47:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:47:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:47:13] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:47:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:47:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:47:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:47:16] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:47:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:47:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:47:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:47:16] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:47:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:47:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:47:17] local.INFO: Chamou o IPController  
+[2025-03-13 09:47:17] local.INFO: Chamou o IPService  
+[2025-03-13 09:47:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:47:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:47:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:47:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:47:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:47:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:47:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:47:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:47:22] local.INFO: Chamou o IPController  
+[2025-03-13 09:47:22] local.INFO: Chamou o IPService  
+[2025-03-13 09:47:54] local.INFO: Chamou o IPController  
+[2025-03-13 09:47:54] local.INFO: Chamou o IPService  
+[2025-03-13 09:47:56] local.INFO: Chamou o IPController  
+[2025-03-13 09:47:56] local.INFO: Chamou o IPService  
+[2025-03-13 09:48:07] local.INFO: Chamou o IPController  
+[2025-03-13 09:48:07] local.INFO: Chamou o IPService  
+[2025-03-13 09:48:09] local.INFO: Chamou o IPController  
+[2025-03-13 09:48:09] local.INFO: Chamou o IPService  
+[2025-03-13 09:48:18] local.INFO: Chamou o IPController  
+[2025-03-13 09:48:18] local.INFO: Chamou o IPService  
+[2025-03-13 09:48:31] local.INFO: Chamou o IPController  
+[2025-03-13 09:48:31] local.INFO: Chamou o IPService  
+[2025-03-13 09:48:36] local.INFO: Chamou o IPController  
+[2025-03-13 09:48:36] local.INFO: Chamou o IPService  
+[2025-03-13 09:48:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:37] local.INFO: Chamou o IPController  
+[2025-03-13 09:48:37] local.INFO: Chamou o IPService  
+[2025-03-13 09:48:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:43] local.INFO: Chamou o IPController  
+[2025-03-13 09:48:43] local.INFO: Chamou o IPService  
+[2025-03-13 09:48:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:43] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:43] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:49] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:49] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:51] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:51] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:57] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:57] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:58] local.INFO: Chamou o IPController  
+[2025-03-13 09:48:58] local.INFO: Chamou o IPService  
+[2025-03-13 09:48:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:58] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:48:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:48:58] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:48:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:48:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:12] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:12] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:12] local.INFO: Chamou o IPController  
+[2025-03-13 09:49:12] local.INFO: Chamou o IPService  
+[2025-03-13 09:49:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:13] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:13] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:19] local.INFO: Chamou o IPController  
+[2025-03-13 09:49:19] local.INFO: Chamou o IPService  
+[2025-03-13 09:49:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:19] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:19] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:27] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:27] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:27] local.INFO: Chamou o IPController  
+[2025-03-13 09:49:27] local.INFO: Chamou o IPService  
+[2025-03-13 09:49:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:28] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:49:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:49:28] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:49:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:49:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:04] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:04] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:19] local.INFO: Chamou o IPController  
+[2025-03-13 09:50:19] local.INFO: Chamou o IPService  
+[2025-03-13 09:50:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:19] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:20] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:26] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:27] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:29] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:29] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:30] local.INFO: Chamou o IPController  
+[2025-03-13 09:50:30] local.INFO: Chamou o IPService  
+[2025-03-13 09:50:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:30] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:30] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:41] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:41] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:47] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:47] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:51] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:51] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:53] local.INFO: Chamou o IPController  
+[2025-03-13 09:50:53] local.INFO: Chamou o IPService  
+[2025-03-13 09:50:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:54] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:50:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:50:54] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:50:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:50:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:09] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:09] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:16] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:16] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:16] local.INFO: Chamou o IPController  
+[2025-03-13 09:51:16] local.INFO: Chamou o IPService  
+[2025-03-13 09:51:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:17] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:17] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:43] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:43] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:47] local.INFO: Chamou o IPController  
+[2025-03-13 09:51:47] local.INFO: Chamou o IPService  
+[2025-03-13 09:51:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:47] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:51:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:51:47] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:51:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:51:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:01] local.INFO: Chamou o IPController  
+[2025-03-13 09:52:01] local.INFO: Chamou o IPService  
+[2025-03-13 09:52:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:01] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:01] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:14] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:14] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:35] local.INFO: Chamou o IPController  
+[2025-03-13 09:52:35] local.INFO: Chamou o IPService  
+[2025-03-13 09:52:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:36] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:36] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:36] local.INFO: Chamou o IPController  
+[2025-03-13 09:52:36] local.INFO: Chamou o IPService  
+[2025-03-13 09:52:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:36] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:36] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:44] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:44] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:45] local.INFO: Chamou o IPController  
+[2025-03-13 09:52:45] local.INFO: Chamou o IPService  
+[2025-03-13 09:52:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:45] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:52:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:52:45] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:52:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:52:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:05] local.INFO: Chamou o IPController  
+[2025-03-13 09:53:05] local.INFO: Chamou o IPService  
+[2025-03-13 09:53:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:05] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:05] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:22] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:22] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:23] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:23] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:24] local.INFO: Chamou o IPController  
+[2025-03-13 09:53:24] local.INFO: Chamou o IPService  
+[2025-03-13 09:53:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:24] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:24] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:28] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:28] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:28] local.INFO: Chamou o IPController  
+[2025-03-13 09:53:28] local.INFO: Chamou o IPService  
+[2025-03-13 09:53:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:28] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:28] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:38] local.INFO: Chamou o IPController  
+[2025-03-13 09:53:38] local.INFO: Chamou o IPService  
+[2025-03-13 09:53:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:38] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:38] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:44] local.INFO: Chamou o IPController  
+[2025-03-13 09:53:44] local.INFO: Chamou o IPService  
+[2025-03-13 09:53:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:44] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:44] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:46] local.INFO: Chamou o IPController  
+[2025-03-13 09:53:46] local.INFO: Chamou o IPService  
+[2025-03-13 09:53:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 09:53:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 09:53:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 09:53:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 09:53:46] local.INFO: Opção desativada, não vai alterar o endereço  
