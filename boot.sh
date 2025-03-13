@@ -36,6 +36,7 @@ change_ambient()
 					mysql -u $DB_USER -p$DB_PASS $DB_NAME -e \ "SELECT * FROM bootIP WHERE id = $1"
 				fi
 				;;
+				
 			2)
 				echo "Digite seu novo caminho do FrontEnd com / "
 				read newPath
@@ -171,6 +172,7 @@ main()
 
 	case $ambiente in
 	 	1)
+			clear
 	 		frontPath="D:\SGBR\Projeto_3_Hotel_Ecommerce\front"
 	 		backPath="D:\SGBR\Projeto_3_Hotel_Ecommerce\api"
 
@@ -181,6 +183,7 @@ main()
 	 		start bash -c "php artisan serve --host=192.168.1.104"
 	 		;;
 	 	2)
+			clear
 	 		frontPath="C:\Gabriel\Codes\Projeto_3_Hotel_Ecommerce\front"
 	 		backPath="C:\Gabriel\Codes\Projeto_3_Hotel_Ecommerce\api"
 	 		cd $frontPath

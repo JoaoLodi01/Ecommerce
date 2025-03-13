@@ -22,9 +22,14 @@ use App\Http\Controllers\{
     CustomerController
 
 };
+use App\Http\Controllers\Auth\AuthController;
 
 Route::get('/', function () {
     return response()->json(['message' => 'API funcionando!']);
+});
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::post('/auth', [AuthController::class, 'auth']);
 });
 
 Route::prefix('v1')->group( function (){
@@ -37,9 +42,9 @@ Route::prefix('v1')->group( function (){
             Route::get('/{id}', [ProductsController::class, 'findByID']);
             Route::put('/{id}', [ProductsController::class, 'update']);
             Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
-
+    
         });
-
+    
         // Consumer routes
         Route::prefix('consumers')->group( function(){
             
@@ -50,10 +55,10 @@ Route::prefix('v1')->group( function (){
             Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
             
         });
-
+    
         // CashRegister routes
         Route::prefix('cashRegister')->group( function(){
-
+    
             Route::get('/all', [CashRegisterController::class, 'getAll']);
             Route::post('/create', [CashRegisterController::class, 'store']);
             Route::get('/{id}', [CashRegisterController::class, 'findByID']);
@@ -61,7 +66,7 @@ Route::prefix('v1')->group( function (){
             Route::delete('/{id}/deactivate', [CashRegisterController::class, 'delete']);
             
         });
-
+    
         // User routes
         Route::prefix('users')->group( function(){
             Route::get('/all', [UserController::class, 'getAll']);
@@ -71,7 +76,7 @@ Route::prefix('v1')->group( function (){
             Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
             
         });        
-
+    
         // NFC-e routes
         Route::prefix('pdv')->group( function(){
             Route::get('/all', [PDVController::class, 'getAll']);
@@ -79,25 +84,27 @@ Route::prefix('v1')->group( function (){
             Route::get('/{id}', [PDVController::class, 'findByID']);
             Route::put('/{id}', [PDVController::class, 'update']);
             Route::post('/save-sale', [PDVController::class, 'saveSale']);
+            Route::post('/sale-nm', [PDVController::class, 'saleNM']);
+            Route::post('/sale-nfce', [PDVController::class, 'saleNFCE']);
             
         });
-
+    
         Route::prefix('payments')->group( function(){
             Route::get('/all', [PaymentsController::class, 'getAll']);
             Route::post('/create', [PaymentsController::class, 'store']);
             Route::get('/{id}', [PaymentsController::class, 'findByID']);
             Route::put('/{id}', [PaymentsController::class, 'update']);
             Route::put('/{id}/deactivate', [PaymentsController::class, 'delete']);
-
+    
         });
     });
-
+    
     Route::prefix('hotel')->group( function (){
         Route::get('/all', [HotelController::class, 'allHotel']);
         Route::get('/find', [HotelController::class, 'findHotel']);
         Route::post('/create', [HotelController::class, 'create']);
         Route::get('/room', [RoomController::class, 'find']);
-
+    
         Route::prefix('stay')->group(function () {
             Route::get('/rooms', [RoomController::class, 'allRooms']);
             Route::post('/room', [RoomController::class, 'create']);
@@ -107,23 +114,34 @@ Route::prefix('v1')->group( function (){
             
         });
     });
-
+    
     Route::prefix('config')->group( function () {
         Route::prefix('config-hotel')->group( function () {
             Route::put('/set-config', [ConfigController::class, 'update']);
             Route::get('/get-config', [ConfigController::class, 'getConfigs']);
-
+    
         });
     });
-
-    Route::prefix('customers')->group( function(){
-        Route::get('/all', [CustomerController::class, 'getAll']);
-        Route::post('/create', [CustomerController::class, 'store']);
-        Route::get('/{id}', [CustomerController::class, 'findByID']);
-        Route::put('/{id}', [CustomerController::class, 'update']);
-        Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']);
-        
-});
     
-    Route::get('/get-ip', [IPController::class, 'create']);
+Route::prefix('customers')->group( function(){
+    Route::get('/all', [CustomerController::class, 'getAll']);
+    Route::post('/create', [CustomerController::class, 'store']);
+    Route::get('/{id}', [CustomerController::class, 'findByID']);
+    Route::put('/{id}', [CustomerController::class, 'update']);
+    Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']);
+    
+});
+
+Route::get('/get-ip', [IPController::class, 'create']);
+});
+
+
+
+Route::get('/page-401', function (){
+    return response()->json([
+        'status' => 'error',
+        'success' => false,
+        'message' => 'Acesso negado',
+        
+    ]);
 });

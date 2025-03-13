@@ -1,6 +1,7 @@
 <template>    
     <div
         class="flex border rounded-lg border-black mt-2 w-max" 
+        id="pdv-view"
         v-if="showGrid"
         :class="{
             'ml-10': withScreen === 1920,
@@ -34,7 +35,7 @@
                                 <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
                                 <th scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th scope="col" class="px-6 py-3 text-center"> {{ hotelCodCRT === 1 ? 'CSOSN' : 'CST' }} </th>
+                                <th scope="col" class="px-6 py-3 text-center"> {{  }} </th>
                                 <th scope="col" class="px-6 py-3 text-center">Qtde</th>
                                 <th scope="col" class="px-6 py-3 text-center">Valor unitário</th>
                                 <th scope="col" class="px-6 py-3">Valor líquido</th>
@@ -55,7 +56,7 @@
                                         v-model="product.cfop"
                                         :placeholder=product.cfop
                                         type="text"
-                                        class="w-10 text-center border-b-4 border-b-gray-500"
+                                        class="w-12 text-center border-b-4 border-b-gray-500"
                                         @input="changeCFOP(product.id, product.cfop)"
 
                                     />
@@ -117,7 +118,7 @@
                     >
                         <label class="text-black" for="discount">Vendedor</label>
                         <input 
-                            v-model="emitProducts.sellerID"
+                            v-model="emitProducts.userID"
                             placeholder="Funcionário Padrão"
                             id="discount"
                             type="text"
@@ -144,14 +145,17 @@
                             id="addition"
                             v-model.number="emitProducts.addition"
                             type="text"
+
                             class="text-black border border-black w-10"
                         />
+
                         <br>
                         <label class="text-black" for="discount">Desconto R$</label>
                         <input 
                             id="discount"
                             v-model.number="emitProducts.discount"
                             type="text"
+                        
                             class="text-black border border-black w-10"
                         />
                     </div>
@@ -206,8 +210,8 @@
                     </div>
 
                     <div class="flex text-white p-1 rounded-lg border border-gray-700">
-                        <button @click="saleNM()" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar</button>
-                        <button @click="saleNFCe()" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
+                        <button @click="finalizeSale('nm')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar</button>
+                        <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
                         
                     </div>
                 
@@ -215,7 +219,9 @@
             </div>
         </div>
     </div>
-    <div class="flex border border-black w-10 ml-10">
+    <div
+        v-if="showGrid"
+        class="flex border border-black w-10 ml-10">
         <select id="textSize" v-model.number="textSize" @change="setTextSize">
             <option selected value=4>4</option>
             <option value=8>8</option>
@@ -245,16 +251,13 @@
             return {
                 productsSeletion: [],
                 hotelCodCRT: [],
+                csosncst: '',
                 emitProducts: {
                     addition: 0,
                     discount: 0,
-                    sellerID: 1,
+                    userID: 1,
                     customerID: 1,
 
-                },
-
-                totals: {
-                    subTotal: 0
                 },
                 
                 withScreen: 0,
@@ -281,33 +284,43 @@
                         
                     }
                 });
-                
+
+                const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
+                const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
+
                 return {
                     total: totalSale,
-                    addition: this.emitProducts.addition,
-                    discount: this.emitProducts.discount
-
+                    addition: addition,
+                    discount: discount
+                    
                 }
             },
         },
-
+        //RTCSessionDescription
         methods: {
-            async saveSale(){
+            async saveSale()
+            {
                 const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
                         const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                             products: this.productsSeletion, // Produtos da 
-                            seller_id: this.emitProducts.sellerID,
+                            user_id: this.emitProducts.userID,
                             customer_id: this.emitProducts.customerID,
                             sub_total: this.calculateTotal.total,
+                            total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
                             addition: this.calculateTotal.addition,
                             discount: this.calculateTotal.discount,
+                            description: 'Venda guardada',
                             is_nfce_nm: null
                             
                         })
                         
-                        console.log(response.data)
+                        if(response.data.success === true)
+                        {
+                            alert('Venda guardarda para enviar posteriormente!')
+                            this.productsSeletion = []
+                        }
                         
                     } catch (error) {
                         console.error('Erro saveSale() = error.response', error)
@@ -329,17 +342,65 @@
                         console.log(response.data)
 
                     }
-
-                    
-
                 } catch (error) {
                     if(error.response.data.message === 'Hotel não encontrado')
-                        {
-                            alert(error.response.data.message)
-                            alert('Por favor faça o cadastro do mesmo')
-                            this.$router.push('/hotel/create')
+                    {
+                        alert(error.response.data.message)
+                        alert('Por favor faça o cadastro do mesmo')
+                        this.$router.push('/hotel/create')
 
-                        }
+                    }
+                }
+            },
+
+            async finalizeSale(type)
+            {
+                // Só vai chamar a forma de pagamento
+                console.log(type)
+                if(type === 'nm')
+                {
+                    const response_sale = await axios.post(`${this.api}/ecommerce/pdv/sale-nm`, { // Salva apenas a venda
+                        products: this.productsSeletion, // Produtos da 
+                        user_id: this.emitProducts.userID,
+                        customer_id: this.emitProducts.customerID,
+                        sub_total: this.calculateTotal.total,
+                        total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
+                        addition: this.calculateTotal.addition,
+                        discount: this.calculateTotal.discount,
+                        description: 'Venda guardada',
+                        is_nfce_nm: type
+                            
+                    })
+
+                    console.log('response_sale', response_sale)
+
+                    this.typeOperation = 'saleNM'
+                    this.showPaymentsForm = !this.showPaymentsForm
+                    console.log('this.emitProducts', this.emitProducts)
+
+                }
+                
+                if(type === 'nfce')
+                {
+                    const response_sale = await axios.post(`${this.api}/ecommerce/pdv/sale-nfce`, { // Salva apenas a venda
+                        products: this.productsSeletion, // Produtos da 
+                        user_id: this.emitProducts.userID,
+                        customer_id: this.emitProducts.customerID,
+                        sub_total: this.calculateTotal.total,
+                        total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
+                        addition: this.calculateTotal.addition,
+                        discount: this.calculateTotal.discount,
+                        description: 'Venda guardada',
+                        is_nfce_nm: type
+                            
+                    })
+
+                    console.log('response_sale', response_sale)
+
+                    this.typeOperation = 'saleNFCe'
+                    this.showPaymentsForm = !this.showPaymentsForm
+                    console.log('this.emitProducts', this.emitProducts)
+
                 }
             },
 
@@ -374,8 +435,6 @@
                     productFound.quantidade = newAmount
 
                 }
-                
-                //this.emitProducts = this.productsSeletion
             },
 
             changeCFOP(id, newCFOP)
@@ -396,8 +455,6 @@
                     productFound.cfop = newCFOP
 
                 }
-                
-                //this.emitProducts = this.productsSeletion
             },
 
             changeCSOSN(id, newCSOSN)
@@ -418,29 +475,11 @@
                     productFound.csosn = newCSOSN
 
                 }
-                
-                //this.emitProducts = this.productsSeletion
             },
 
             updateProductsSeletion(selectedProducts)
             {
                 this.productsSeletion = [...this.productsSeletion, selectedProducts]
-                
-            },
-
-            saleNFCe()
-            {
-                this.typeOperation = 'saleNFCe'
-                this.showPaymentsForm = !this.showPaymentsForm
-                console.log('this.emitProducts', this.emitProducts)
-                
-            },
-
-            saleNM()
-            {
-                this.typeOperation = 'saleNM'
-                this.showPaymentsForm = !this.showPaymentsForm
-                console.log('this.emitProducts', this.emitProducts)
                 
             },
 
@@ -462,7 +501,6 @@
                     this.emitProducts = [],
                     this.productsSeletion = []
                 }
-                
             }
         },
         
@@ -479,3 +517,11 @@
         }
       }
 </script>
+
+<style>
+    #pdv-view{
+        height: 100%;
+
+    }
+
+</style>    

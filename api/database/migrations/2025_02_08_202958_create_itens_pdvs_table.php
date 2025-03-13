@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('itens_pdvs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pdvs_id');
-            $table->foreign('pdvs_id')->references('id')->on('pdvs')->onDelete('cascade');
-            $table->unsignedBigInteger('products_id');
-            $table->foreign('products_id')->references('id')->on('products')->onDelete('cascade');
+            $table->unsignedBigInteger('pdv_id');
+            $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('product', 255);
             $table->float('amount_sold');
             $table->decimal('addition', 16,2)->nullable();
             $table->decimal('discount', 16,2)->nullable();
-            $table->unsignedBigInteger('seller_id');
-            $table->foreign('seller_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('seller', 255);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('user', 255);
             $table->boolean('finished', 1)->default(0);
             $table->timestamps();
         });

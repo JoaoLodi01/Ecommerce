@@ -66,9 +66,23 @@ export default {
             api: process.env.VUE_APP_API_URL,
 
         };
+        
     },
-    emits: ['close'],
+    emits: [
+        'close'
+    ],
+
     props: {
+        products: {
+
+        },
+
+        // Para o hotel
+        roomID: { 
+            type: Number
+
+        },
+
         show: {
             type: Boolean,
         },
@@ -77,10 +91,6 @@ export default {
             type: String,
             required: true
     
-        },
-
-        room_id: {
-            type: Number
         },
 
         totalOperation: {
@@ -103,7 +113,8 @@ export default {
         
         async finalizeSale() {
             this.isLoanding = true
-            switch (this.typeOperation) {
+            try {
+                switch (this.typeOperation) {
                 case 'reservation':
                     const generateCredit = this.calculeCredit(this.paymentsValues);
 
@@ -112,7 +123,7 @@ export default {
                     const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
                         customer_id: 1,
                         payments_values: this.paymentsValues,
-                        room_id: this.room_id,
+                        roomID: this.roomID,
                         generateCredit: generateCredit
                     });
 
@@ -133,6 +144,10 @@ export default {
                 default:
                     console.log('Operation not defined',  this.typeOperation)
                     break;
+                }
+                
+            } catch (error) {
+                
             }
             
         },

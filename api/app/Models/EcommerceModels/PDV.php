@@ -17,7 +17,7 @@ class PDV extends Model
         'discount',
         'addition',
         'user_id',
-        'seller',
+        'user',
         'finished',
         'canceled',
         'is_nfce_nm',

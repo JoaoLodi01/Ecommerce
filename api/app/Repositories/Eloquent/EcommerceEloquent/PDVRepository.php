@@ -11,13 +11,18 @@ use App\Models\{
 use App\Models\EcommerceModels\{
     PDV,
     FormaPagamentoPDV,
+    ItensPDV,
     Payment,
     User,
     
 };
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-use App\Repositories\Eloquent\CustomerRepository;
+
+use App\Repositories\Eloquent\{
+    CustomerRepository,
+    UserRepository
+};
 
 use Illuminate\Support\Facades\Log;
 
@@ -26,6 +31,7 @@ class PDVRepository
     public function __construct(
         protected CustomerRepository $customerRepository,
         protected CashRegisterRepository $cashRegisterRepository,
+        protected UserRepository $userRepository
     )
     {
         $this->customerRepository = $customerRepository;
@@ -157,9 +163,65 @@ class PDVRepository
         }
     }
 
-    public function saveSale()
+    public function saveProducts(array $productsArray, int $pdvID, object $user)
     {
+        Log::info('-- Iniciou o saveProducts() line 167 -- ');
+        foreach ($productsArray as $products) {
+            Log::info('Entrou no primeiro for: (products)');
+            Log::info($products);
+            foreach ($products as $product) {
+                Log::info('Entrou no segundo for: (product)');
+                Log::info($product);
+                $itensPDV = ItensPDV::create([
+                    'pdv_id' => $pdvID,
+                    'product_id' => $product['id'],
+                    'product' => $product['produto'],
+                    'amount_sold' => $product['quantidade'],
+                    'addition' => 0,
+                    'discount' => 0,
+                    'user_id' => $user->id,
+                    'user' => $user->name, 
+    
+                ]);
+            }
+            Log::info('ItensPDV ' . $itensPDV);
+        }
+    }
 
+    public function saveSale(array $details, array $productsArray)
+    {
+        Log::info('-- Iniciou o saveSale() line 172 -- ');
+        Log::info('Busca pelo customer');
+        $customer = $this->customerRepository->findByID($details['customer_id']);
+        Log::info('Busca pelo user');
+        $user = $this->userRepository->findByID($details['user_id']); // "user"
 
+        $pdv = PDV::create([
+            'description' => $details['description'],
+            'cliente_id' => $customer->id,
+            'client' => $customer->name,
+            'gross_value' => $details['sub_total'],
+            'net_value' => $details['total'],
+            'discount' => $details['discount'],
+            'addition' => $details['addition'],
+            'user_id' => $user->id,
+            'user' => $user->name, 
+            'is_nfce_nm' => $details['is_nfce_nm']
+        ]);         
+
+        if($pdv && $pdv->id)
+        {
+            $this->saveProducts($productsArray, $pdv->id, $user);
+            return array(
+                'success' => true,
+                'pdv' => $pdv       
+
+            );
+        }
+    }
+
+    public function finalizeSale(array $data)
+    {
+        
     }
 }
