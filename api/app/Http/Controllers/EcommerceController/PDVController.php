@@ -35,12 +35,11 @@ class PDVController extends Controller
     public function saveSale(PDVSaveSaleRequest $request)
     {
         $data = $request->validated();
-            
         return $this->pdvService->saveSale($data, $data['products']);
         
     }
 
-    public function saleNM(PDVSaleRequest $request)
+    public function finalizeSale(PDVSaleRequest $request)
     {
         $data = $request->validated();
         return $this->pdvService->finalizeSale($data);
@@ -50,14 +49,4 @@ class PDVController extends Controller
 
     }
 
-    public function saleNFCE(PDVSaleRequest $request)
-    {
-        $data = $request->validated();
-        return $this->pdvService->finalizeSale($data);
-        return response()->json([
-            'data' => $data
-
-        ]);
-
-    }
 }

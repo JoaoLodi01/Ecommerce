@@ -47,7 +47,6 @@ Route::prefix('v1')->group( function (){
     
         // Consumer routes
         Route::prefix('consumers')->group( function(){
-            
             Route::get('/all', [UserController::class, 'getAll']);
             Route::post('/create', [UserController::class, 'store']);
             Route::get('/{id}', [UserController::class, 'findByID']);
@@ -58,7 +57,6 @@ Route::prefix('v1')->group( function (){
     
         // CashRegister routes
         Route::prefix('cashRegister')->group( function(){
-    
             Route::get('/all', [CashRegisterController::class, 'getAll']);
             Route::post('/create', [CashRegisterController::class, 'store']);
             Route::get('/{id}', [CashRegisterController::class, 'findByID']);
@@ -84,8 +82,7 @@ Route::prefix('v1')->group( function (){
             Route::get('/{id}', [PDVController::class, 'findByID']);
             Route::put('/{id}', [PDVController::class, 'update']);
             Route::post('/save-sale', [PDVController::class, 'saveSale']);
-            Route::post('/sale-nm', [PDVController::class, 'saleNM']);
-            Route::post('/sale-nfce', [PDVController::class, 'saleNFCE']);
+            Route::put('/finalize-sale', [PDVController::class, 'finalizeSale']);
             
         });
     

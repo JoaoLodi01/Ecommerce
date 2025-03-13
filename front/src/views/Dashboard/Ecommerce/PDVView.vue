@@ -356,23 +356,22 @@
             async finalizeSale(type)
             {
                 // Só vai chamar a forma de pagamento
-                console.log(type)
                 if(type === 'nm')
                 {
-                    const response_sale = await axios.post(`${this.api}/ecommerce/pdv/sale-nm`, { // Salva apenas a venda
-                        products: this.productsSeletion, // Produtos da 
-                        user_id: this.emitProducts.userID,
-                        customer_id: this.emitProducts.customerID,
-                        sub_total: this.calculateTotal.total,
-                        total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
-                        addition: this.calculateTotal.addition,
-                        discount: this.calculateTotal.discount,
-                        description: 'Venda guardada',
-                        is_nfce_nm: type
+                    const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            products: this.productsSeletion, // Produtos da 
+                            user_id: this.emitProducts.userID,
+                            customer_id: this.emitProducts.customerID,
+                            sub_total: this.calculateTotal.total,
+                            total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
+                            addition: this.calculateTotal.addition,
+                            discount: this.calculateTotal.discount,
+                            description: 'Venda guardada',
+                            is_nfce_nm: type
                             
-                    })
+                        })
 
-                    console.log('response_sale', response_sale)
+                    console.log('response', response)
 
                     this.typeOperation = 'saleNM'
                     this.showPaymentsForm = !this.showPaymentsForm
@@ -382,20 +381,20 @@
                 
                 if(type === 'nfce')
                 {
-                    const response_sale = await axios.post(`${this.api}/ecommerce/pdv/sale-nfce`, { // Salva apenas a venda
-                        products: this.productsSeletion, // Produtos da 
-                        user_id: this.emitProducts.userID,
-                        customer_id: this.emitProducts.customerID,
-                        sub_total: this.calculateTotal.total,
-                        total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
-                        addition: this.calculateTotal.addition,
-                        discount: this.calculateTotal.discount,
-                        description: 'Venda guardada',
-                        is_nfce_nm: type
+                    const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            products: this.productsSeletion, // Produtos da 
+                            user_id: this.emitProducts.userID,
+                            customer_id: this.emitProducts.customerID,
+                            sub_total: this.calculateTotal.total,
+                            total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
+                            addition: this.calculateTotal.addition,
+                            discount: this.calculateTotal.discount,
+                            description: 'Venda guardada',
+                            is_nfce_nm: type
                             
-                    })
+                        })
 
-                    console.log('response_sale', response_sale)
+                    console.log('response', response)
 
                     this.typeOperation = 'saleNFCe'
                     this.showPaymentsForm = !this.showPaymentsForm
