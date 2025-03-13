@@ -81,6 +81,7 @@ class PDVService{
     public function finalizeSale(array $data)
     {
         try {
+            return response()->json($data);
             return response()->json($this->pdvRepository->finalizeSale($data));
         } catch (\Throwable $th) {
             //throw $th;
