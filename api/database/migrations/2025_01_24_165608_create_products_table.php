@@ -21,10 +21,10 @@ return new class extends Migration
             $table->decimal('preco_custo', 16,2);
             $table->decimal('preco_venda', 16,2);
             $table->decimal('perc_lucro', 16,2);
+            $table->string('cfop', 4);
+            $table->string('csosn', 3);
             $table->string('ncm', 8);
             $table->string('cest', 7);
-            $table->string('csosn', 3);
-            $table->string('cfop', 4);
             $table->string('unit', 4)->default('UN');
             $table->boolean('active')->default(1);
             $table->timestamps();

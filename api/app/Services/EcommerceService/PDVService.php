@@ -67,7 +67,15 @@ class PDVService{
     public function saveSale(array $details, array $productsArray)
     {
         try {
-            return $this->pdvRepository->saveSale($details, $productsArray);
+            $saveSale = $this->pdvRepository->saveSale($details, $productsArray);
+            if($saveSale['success'])
+            {
+                return $saveSale;
+
+            }
+            
+            return 400;
+
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,

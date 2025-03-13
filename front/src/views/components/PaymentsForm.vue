@@ -18,7 +18,7 @@
                                     type="number"
                                     v-model="paymentsValues[index]"
                                     placeholder="0.00"
-                                    step="0.01"
+                                    
                                 />
                             </td>
                         </tr>
@@ -73,8 +73,9 @@ export default {
     ],
 
     props: {
-        products: {
-
+        // Para o ecommerce
+        saleID: {
+            type: Number
         },
 
         // Para o hotel
@@ -134,6 +135,7 @@ export default {
                     break;
 
                 case 'saleNFCe':
+                    //const response = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/`)
                     console.log('Começou venda NFCe')
                     break
 
