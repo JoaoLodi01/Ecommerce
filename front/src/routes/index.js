@@ -16,11 +16,17 @@ import CashRegisterView from '@/views/Dashboard/Ecommerce/CashRegisterView.vue';
 import UsersView from '@/views/Dashboard/Ecommerce/UsersView.vue';
 import ProductsView from '@/views/Dashboard/Ecommerce/ProductsView.vue';
 
+
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView,
+  },
+  {
+    path: '/updates',
+    name: 'updates',
+    //component:
   },
   {
     path: '/sobre',

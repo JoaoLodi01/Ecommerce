@@ -1,13 +1,12 @@
 <template>
-  <div class="estoque-container px-20 py-20">
-    <!-- Título -->
-    <h1 class="text-3xl font-semibold mb-6">Estoque</h1>
-      <button 
-        @click="toggleRegisterProductVisibility"
-        class="w-full py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
-        <span v-if="!showRegisterProduct">Cadastrar</span>
-        <span v-else>Voltar</span>
-      </button>
+  <div class="estoque-container px-20">
+    <h1 class="text-3xl font-semibold mb-6 py-2">Estoque</h1>
+        <button 
+          @click="toggleRegisterProductVisibility"
+          class="w-96 py-2 absolute right-2 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
+          <span v-if="!showRegisterProduct">Cadastrar</span>
+          <span v-else>Voltar</span>
+        </button>
     <!-- Grid de Produtos -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" v-if="showProducts">
         <div 
@@ -16,7 +15,7 @@
           <!-- Nome do produto -->
           <div class="text-sm text-gray-500 mb-2">
             <span class="font-semibold">Produto:</span> {{ product.produto}}
-          </div>
+          </div>  
 
           <!-- ID do produto -->
           <div class="text-sm text-gray-500 mb-2">
@@ -64,13 +63,13 @@ export default {
   components: {
     RegisterProduct,
   },
+
   data() {
     return {
       products: [],
       showProducts: true,
       showRegisterProduct: false,
-      api: process.env.VUE_APP_API_URL,
-      
+      api: process.env.VUE_APP_API_URL, 
     };
   },
 

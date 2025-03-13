@@ -23,7 +23,7 @@ return new class extends Migration
             $table->decimal('addition', 16,2)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('seller', 120);
+            $table->string('user', 120);
             $table->boolean('finished', 1)->default(0);
             $table->boolean('canceled', 1)->default(0);
             $table->boolean('is_nfce_nm', 1)->nullable(0);
