@@ -940,3 +940,2126 @@
 [2025-03-13 09:53:46] local.INFO: O hotel foi encontrado  
 [2025-03-13 09:53:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-03-13 09:53:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 10:50:04] local.INFO: Chamou o IPController  
+[2025-03-13 10:50:05] local.INFO: Chamou o IPService  
+[2025-03-13 10:50:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 10:50:07] local.INFO: O hotel foi encontrado  
+[2025-03-13 10:50:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 10:50:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 10:50:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 10:50:07] local.INFO: O hotel foi encontrado  
+[2025-03-13 10:50:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 10:50:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:25:47] local.INFO: Chamou o IPController  
+[2025-03-13 11:25:47] local.INFO: Chamou o IPService  
+[2025-03-13 11:25:58] local.INFO: Chamou o IPController  
+[2025-03-13 11:25:58] local.INFO: Chamou o IPService  
+[2025-03-13 11:25:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:25:58] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:25:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:25:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:25:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:25:58] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:25:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:25:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:26:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:26:31] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:26:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:26:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:26:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:26:31] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:26:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:26:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:26:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:26:48] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:26:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:26:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:26:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:26:48] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:26:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:26:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:29:03] local.INFO: Chamou o IPController  
+[2025-03-13 11:29:03] local.INFO: Chamou o IPService  
+[2025-03-13 11:29:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:29:03] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:29:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:29:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:29:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:29:03] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:29:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:29:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:29:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:29:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:29:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:29:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 11:29:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 11:29:37] local.INFO: O hotel foi encontrado  
+[2025-03-13 11:29:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 11:29:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:39:14] local.INFO: Chamou o IPController  
+[2025-03-13 16:39:14] local.INFO: Chamou o IPService  
+[2025-03-13 16:40:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:40:35] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:40:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:40:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:40:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:40:35] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:40:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:40:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:40:48] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:40:48] local.INFO: Busca pelo customer  
+[2025-03-13 16:40:48] local.INFO: Busca pelo user  
+[2025-03-13 16:40:49] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:40:49] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 390,
+  'net_value' => 390,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-13 16:42:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:42:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:42:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:42:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:42:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:42:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:42:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:42:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:42:01] local.INFO: Chamou o IPController  
+[2025-03-13 16:42:01] local.INFO: Chamou o IPService  
+[2025-03-13 16:42:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:42:13] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:42:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:42:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:42:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:42:13] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:42:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:42:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:42:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:42:24] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:42:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:42:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:42:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:42:24] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:42:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:42:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:42:28] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:42:28] local.INFO: Busca pelo customer  
+[2025-03-13 16:42:28] local.INFO: Busca pelo user  
+[2025-03-13 16:42:28] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:42:28] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 390,
+  'net_value' => 390,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:42:46] local.INFO: Chamou o IPController  
+[2025-03-13 16:42:46] local.INFO: Chamou o IPService  
+[2025-03-13 16:42:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:42:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:42:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:42:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:42:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:42:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:42:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:42:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:43:16] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:43:16] local.INFO: Busca pelo customer  
+[2025-03-13 16:43:16] local.INFO: Busca pelo user  
+[2025-03-13 16:43:16] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:43:16] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:44:08] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:44:08] local.INFO: Busca pelo customer  
+[2025-03-13 16:44:08] local.INFO: Busca pelo user  
+[2025-03-13 16:44:08] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:44:08] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:44:18] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:44:18] local.INFO: Busca pelo customer  
+[2025-03-13 16:44:18] local.INFO: Busca pelo user  
+[2025-03-13 16:44:18] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:44:18] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:45:42] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:45:42] local.INFO: Busca pelo customer  
+[2025-03-13 16:45:42] local.INFO: Busca pelo user  
+[2025-03-13 16:45:42] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:45:42] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:45:42] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:45:42] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:45:42] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:45:42] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:45:42] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:47:01] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:47:01] local.INFO: Busca pelo customer  
+[2025-03-13 16:47:01] local.INFO: Busca pelo user  
+[2025-03-13 16:47:01] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:47:01] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:47:01] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:47:01] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:47:01] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:47:01] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:47:01] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:47:20] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:47:20] local.INFO: Busca pelo customer  
+[2025-03-13 16:47:20] local.INFO: Busca pelo user  
+[2025-03-13 16:47:20] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:47:20] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:47:20] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:47:20] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:47:20] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:47:20] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:47:20] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:47:24] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:47:24] local.INFO: Busca pelo customer  
+[2025-03-13 16:47:24] local.INFO: Busca pelo user  
+[2025-03-13 16:47:24] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:47:24] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:47:24] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:47:24] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:47:24] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:47:24] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:47:24] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:48:34] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:48:34] local.INFO: Busca pelo customer  
+[2025-03-13 16:48:34] local.INFO: Busca pelo user  
+[2025-03-13 16:48:34] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:48:34] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:48:34] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:48:34] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:48:34] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:48:34] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:48:34] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:48:34] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:48:34] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:48:34] local.INFO: ItensPDV {"pdv_id":7,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":6}  
+[2025-03-13 16:48:35] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:49:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:49:17] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:49:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:49:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:49:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:49:17] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:49:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:49:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:49:22] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:49:22] local.INFO: Busca pelo customer  
+[2025-03-13 16:49:22] local.INFO: Busca pelo user  
+[2025-03-13 16:49:22] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:49:22] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:49:22] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:49:22] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:49:22] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:49:22] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:49:22] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:49:22] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:49:22] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:49:22] local.INFO: ItensPDV {"pdv_id":8,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":8}  
+[2025-03-13 16:49:22] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:49:58] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:50:05] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:50:06] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:52:03] local.INFO: Chamou o IPController  
+[2025-03-13 16:52:03] local.INFO: Chamou o IPService  
+[2025-03-13 16:52:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:52:04] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:52:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:52:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:52:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:52:04] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:52:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:52:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:52:08] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:52:08] local.INFO: Busca pelo customer  
+[2025-03-13 16:52:08] local.INFO: Busca pelo user  
+[2025-03-13 16:52:08] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:52:08] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:52:08] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:52:08] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:52:08] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:52:08] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:52:08] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:52:08] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:52:08] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:52:08] local.INFO: ItensPDV {"pdv_id":9,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":10}  
+[2025-03-13 16:52:08] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:52:42] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:52:42] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:52:50] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:52:50] local.INFO: Busca pelo customer  
+[2025-03-13 16:52:50] local.INFO: Busca pelo user  
+[2025-03-13 16:52:50] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:52:50] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:52:50] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:52:50] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:52:50] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:52:50] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:52:50] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:52:50] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:52:50] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:52:50] local.INFO: ItensPDV {"pdv_id":10,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":12}  
+[2025-03-13 16:52:51] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:53:54] local.INFO: Chamou o IPController  
+[2025-03-13 16:53:54] local.INFO: Chamou o IPService  
+[2025-03-13 16:53:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:53:54] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:53:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:53:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:53:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:53:54] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:53:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:53:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:54:08] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:54:08] local.INFO: Busca pelo customer  
+[2025-03-13 16:54:08] local.INFO: Busca pelo user  
+[2025-03-13 16:54:08] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:54:08] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:54:08] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:54:08] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:54:08] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:54:08] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:54:08] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:54:08] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:54:08] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:54:08] local.INFO: ItensPDV {"pdv_id":11,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":14}  
+[2025-03-13 16:54:08] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:54:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:54:25] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:54:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:54:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:54:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:54:25] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:54:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:54:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:54:33] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:54:33] local.INFO: Busca pelo customer  
+[2025-03-13 16:54:33] local.INFO: Busca pelo user  
+[2025-03-13 16:54:33] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:54:33] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 130,
+  'net_value' => 130,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:54:33] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:54:33] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:54:33] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:54:33] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:54:33] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:54:33] local.INFO: ItensPDV {"pdv_id":12,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":15}  
+[2025-03-13 16:54:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:55:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:55:45] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:55:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:55:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:55:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:55:45] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:55:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:55:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:55:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:55:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:55:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:55:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:55:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:55:46] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:55:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:55:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:55:47] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:56:07] local.INFO: Chamou o IPController  
+[2025-03-13 16:56:07] local.INFO: Chamou o IPService  
+[2025-03-13 16:56:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:56:07] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:56:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:56:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:56:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:56:07] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:56:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:56:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:56:12] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:56:12] local.INFO: Busca pelo customer  
+[2025-03-13 16:56:12] local.INFO: Busca pelo user  
+[2025-03-13 16:56:12] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:56:12] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:56:12] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:56:12] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:56:12] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:56:12] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:56:12] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:56:12] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:56:12] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:56:12] local.INFO: ItensPDV {"pdv_id":13,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":17}  
+[2025-03-13 16:56:12] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:56:27] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:56:30] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:56:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:56:40] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:56:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:56:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:56:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:56:40] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:56:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:56:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:56:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:56:55] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:56:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:56:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:56:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:56:55] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:56:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:56:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:56:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:56:58] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:56:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:56:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:56:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:56:58] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:56:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:56:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:57:04] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:57:04] local.INFO: Busca pelo customer  
+[2025-03-13 16:57:04] local.INFO: Busca pelo user  
+[2025-03-13 16:57:04] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:57:04] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:57:04] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:57:04] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:57:04] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:57:04] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:57:04] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:57:04] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:57:04] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:57:04] local.INFO: ItensPDV {"pdv_id":14,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":19}  
+[2025-03-13 16:57:04] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:57:18] local.INFO: Chamou o IPController  
+[2025-03-13 16:57:18] local.INFO: Chamou o IPService  
+[2025-03-13 16:57:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:57:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:57:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:57:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:57:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:57:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:57:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:57:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:57:49] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:57:49] local.INFO: Busca pelo customer  
+[2025-03-13 16:57:49] local.INFO: Busca pelo user  
+[2025-03-13 16:57:49] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:57:49] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:57:49] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:57:49] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:57:49] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:57:49] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:57:49] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:57:49] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:57:49] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:57:49] local.INFO: ItensPDV {"pdv_id":15,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":21}  
+[2025-03-13 16:57:50] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:58:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:58:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:58:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:58:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:58:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:58:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:58:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:58:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:58:05] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:58:05] local.INFO: Busca pelo customer  
+[2025-03-13 16:58:05] local.INFO: Busca pelo user  
+[2025-03-13 16:58:05] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:58:05] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:58:05] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:58:05] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:58:05] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:58:05] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:58:05] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:58:05] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:58:05] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:58:05] local.INFO: ItensPDV {"pdv_id":16,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":23}  
+[2025-03-13 16:58:05] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:58:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:58:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:58:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:58:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:58:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:58:18] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:58:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:58:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:58:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:58:35] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:58:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:58:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:58:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:58:35] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:58:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:58:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:58:40] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:58:40] local.INFO: Busca pelo customer  
+[2025-03-13 16:58:40] local.INFO: Busca pelo user  
+[2025-03-13 16:58:40] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:58:40] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:58:40] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:58:40] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:58:40] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:58:40] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:58:40] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:58:40] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:58:40] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:58:40] local.INFO: ItensPDV {"pdv_id":17,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":25}  
+[2025-03-13 16:58:40] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 16:58:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:58:54] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:58:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:58:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:58:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:58:54] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:58:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:58:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:59:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:59:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:59:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:59:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:59:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:59:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:59:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:59:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:59:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:59:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:59:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:59:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:59:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 16:59:00] local.INFO: O hotel foi encontrado  
+[2025-03-13 16:59:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 16:59:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 16:59:07] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 16:59:07] local.INFO: Busca pelo customer  
+[2025-03-13 16:59:07] local.INFO: Busca pelo user  
+[2025-03-13 16:59:07] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 16:59:07] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 16:59:07] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 16:59:07] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 16:59:07] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 16:59:07] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:59:07] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:59:07] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 16:59:07] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 16:59:07] local.INFO: ItensPDV {"pdv_id":18,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":27}  
+[2025-03-13 16:59:07] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:16:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:16:22] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:16:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:16:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:16:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:16:22] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:16:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:16:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:16:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:16:41] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:16:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:16:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:16:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:16:41] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:16:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:16:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:16:41] local.INFO: Chamou o IPController  
+[2025-03-13 17:16:41] local.INFO: Chamou o IPService  
+[2025-03-13 17:17:07] local.INFO: Chamou o IPController  
+[2025-03-13 17:17:07] local.INFO: Chamou o IPService  
+[2025-03-13 17:17:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:17:07] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:17:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:17:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:17:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:17:07] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:17:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:17:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:17:14] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:17:14] local.INFO: Busca pelo customer  
+[2025-03-13 17:17:14] local.INFO: Busca pelo user  
+[2025-03-13 17:17:14] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:17:14] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:17:14] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:17:14] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:17:14] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:17:14] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:17:14] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:17:14] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:17:14] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:17:14] local.INFO: ItensPDV {"pdv_id":19,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":29}  
+[2025-03-13 17:17:14] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:17:31] local.INFO: Chamou o IPController  
+[2025-03-13 17:17:31] local.INFO: Chamou o IPService  
+[2025-03-13 17:17:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:17:32] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:17:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:17:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:17:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:17:32] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:17:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:17:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:17:36] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:17:36] local.INFO: Busca pelo customer  
+[2025-03-13 17:17:36] local.INFO: Busca pelo user  
+[2025-03-13 17:17:36] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:17:36] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 130,
+  'net_value' => 130,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:17:36] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:17:36] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:17:36] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:17:36] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:17:36] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:17:36] local.INFO: ItensPDV {"pdv_id":20,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":30}  
+[2025-03-13 17:17:36] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:17:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:17:48] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:17:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:17:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:17:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:17:48] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:17:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:17:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:18:04] local.INFO: Chamou o IPController  
+[2025-03-13 17:18:04] local.INFO: Chamou o IPService  
+[2025-03-13 17:18:20] local.INFO: Chamou o IPController  
+[2025-03-13 17:18:20] local.INFO: Chamou o IPService  
+[2025-03-13 17:18:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:18:20] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:18:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:18:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:18:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:18:20] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:18:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:18:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:18:25] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:18:25] local.INFO: Busca pelo customer  
+[2025-03-13 17:18:25] local.INFO: Busca pelo user  
+[2025-03-13 17:18:25] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:18:25] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:18:25] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:18:25] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:18:25] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:18:25] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:18:25] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:18:25] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:18:25] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:18:25] local.INFO: ItensPDV {"pdv_id":21,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":32}  
+[2025-03-13 17:18:26] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:18:38] local.INFO: Chamou o IPController  
+[2025-03-13 17:18:38] local.INFO: Chamou o IPService  
+[2025-03-13 17:18:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:18:39] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:18:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:18:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:18:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:18:39] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:18:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:18:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:18:49] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:18:49] local.INFO: Busca pelo customer  
+[2025-03-13 17:18:49] local.INFO: Busca pelo user  
+[2025-03-13 17:18:49] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:18:49] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 270,
+  'net_value' => 270,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:18:49] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:18:49] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:18:49] local.INFO: array (
+  0 => 
+  array (
+    'id' => 3,
+    'produto' => 'Jack Daniels Canela',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '140.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '123456',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:18:49] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:18:49] local.INFO: {"id":3,"produto":"Jack Daniels Canela","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"140.00","perc_lucro":"100.00","ncm":"12345678","cest":"123456","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:18:49] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:18:49] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:18:49] local.INFO: ItensPDV {"pdv_id":22,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":34}  
+[2025-03-13 17:18:49] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:19:12] local.INFO: Chamou o IPController  
+[2025-03-13 17:19:12] local.INFO: Chamou o IPService  
+[2025-03-13 17:19:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:19:13] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:19:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:19:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:19:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:19:13] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:19:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:19:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:19:36] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:19:36] local.INFO: Busca pelo customer  
+[2025-03-13 17:19:36] local.INFO: Busca pelo user  
+[2025-03-13 17:19:36] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:19:36] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:19:36] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:19:36] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:19:36] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:19:36] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:19:36] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:19:36] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:19:36] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:19:36] local.INFO: ItensPDV {"pdv_id":23,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":36}  
+[2025-03-13 17:19:37] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:20:16] local.INFO: Chamou o IPController  
+[2025-03-13 17:20:16] local.INFO: Chamou o IPService  
+[2025-03-13 17:20:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:20:16] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:20:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:20:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:20:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:20:16] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:20:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:20:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:20:27] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:20:27] local.INFO: Busca pelo customer  
+[2025-03-13 17:20:27] local.INFO: Busca pelo user  
+[2025-03-13 17:20:27] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:20:27] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:20:27] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:20:27] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:20:27] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:20:27] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:20:27] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:20:27] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:20:27] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:20:27] local.INFO: ItensPDV {"pdv_id":24,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":38}  
+[2025-03-13 17:20:27] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:21:08] local.INFO: Chamou o IPController  
+[2025-03-13 17:21:08] local.INFO: Chamou o IPService  
+[2025-03-13 17:21:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:21:08] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:21:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:21:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:21:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:21:08] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:21:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:21:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:21:14] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:21:14] local.INFO: Busca pelo customer  
+[2025-03-13 17:21:14] local.INFO: Busca pelo user  
+[2025-03-13 17:21:14] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:21:14] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:21:14] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:21:14] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:21:14] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:21:14] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:21:14] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:21:14] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:21:14] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:21:14] local.INFO: ItensPDV {"pdv_id":25,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":40}  
+[2025-03-13 17:21:14] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:22:00] local.INFO: Chamou o IPController  
+[2025-03-13 17:22:00] local.INFO: Chamou o IPService  
+[2025-03-13 17:22:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:22:01] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:22:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:22:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:22:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:22:01] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:22:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:22:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:22:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:22:03] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:22:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:22:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:22:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:22:03] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:22:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:22:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:22:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:22:05] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:22:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:22:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:22:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:22:05] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:22:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:22:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:22:23] local.INFO: Chamou o IPController  
+[2025-03-13 17:22:23] local.INFO: Chamou o IPService  
+[2025-03-13 17:22:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:22:24] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:22:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:22:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:22:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:22:24] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:22:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:22:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:25:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:25:04] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:25:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:25:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:25:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:25:04] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:25:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:25:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:25:10] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:25:10] local.INFO: Busca pelo customer  
+[2025-03-13 17:25:10] local.INFO: Busca pelo user  
+[2025-03-13 17:25:11] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:25:11] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:25:11] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:25:11] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:25:11] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:25:11] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:25:11] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:25:11] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:25:11] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:25:11] local.INFO: ItensPDV {"pdv_id":26,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":42}  
+[2025-03-13 17:25:11] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:25:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:25:27] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:25:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:25:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:25:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:25:27] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:25:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:25:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:25:33] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:25:33] local.INFO: Busca pelo customer  
+[2025-03-13 17:25:33] local.INFO: Busca pelo user  
+[2025-03-13 17:25:33] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:25:33] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 270,
+  'net_value' => 270,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:25:33] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:25:33] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:25:33] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 3,
+    'produto' => 'Jack Daniels Canela',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '140.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '123456',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:25:33] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:25:33] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:25:33] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:25:33] local.INFO: {"id":3,"produto":"Jack Daniels Canela","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"140.00","perc_lucro":"100.00","ncm":"12345678","cest":"123456","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:25:33] local.INFO: ItensPDV {"pdv_id":27,"product_id":3,"product":"Jack Daniels Canela","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":44}  
+[2025-03-13 17:25:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:30:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:30:57] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:30:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:30:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:30:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 17:30:57] local.INFO: O hotel foi encontrado  
+[2025-03-13 17:30:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 17:30:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 17:30:58] local.INFO: Chamou o IPController  
+[2025-03-13 17:30:58] local.INFO: Chamou o IPService  
+[2025-03-13 17:31:03] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:31:03] local.INFO: Busca pelo customer  
+[2025-03-13 17:31:03] local.INFO: Busca pelo user  
+[2025-03-13 17:31:03] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:31:03] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:31:03] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:31:03] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:31:03] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:31:03] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:31:03] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:31:03] local.INFO: ItensPDV {"pdv_id":28,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":45}  
+[2025-03-13 17:31:03] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:31:29] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 17:31:57] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-13 17:31:57] local.INFO: Busca pelo customer  
+[2025-03-13 17:31:57] local.INFO: Busca pelo user  
+[2025-03-13 17:31:57] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-07T16:37:06.000000Z","updated_at":"2025-03-07T16:37:06.000000Z"}  
+[2025-03-13 17:31:57] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 250,
+  'net_value' => 250,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-13 17:31:57] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-13 17:31:57] local.INFO: Entrou no primeiro foreach: (products)  
+[2025-03-13 17:31:57] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'produto' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '120.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'produto' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'quantidade' => 1,
+    'preco_custo' => '10.00',
+    'preco_venda' => '130.00',
+    'perc_lucro' => '100.00',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'csosn' => '102',
+    'cfop' => '5102',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-13 17:31:57] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:31:57] local.INFO: {"id":1,"produto":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"120.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:31:57] local.INFO: Entrou no segundo foreach: (product)  
+[2025-03-13 17:31:57] local.INFO: {"id":2,"produto":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","quantidade":10,"preco_custo":"10.00","preco_venda":"130.00","perc_lucro":"100.00","ncm":"12345678","cest":"1234567","csosn":"102","cfop":"5102","unit":"UN","active":1}  
+[2025-03-13 17:31:57] local.INFO: ItensPDV {"pdv_id":29,"product_id":2,"product":"Jack Daniels Honey","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount_sold":10,"addition":0,"discount":0,"seller_id":1,"seller":"Kochem","id":47}  
+[2025-03-13 17:31:57] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-13 18:27:19] local.INFO: Chamou o IPController  
+[2025-03-13 18:27:19] local.INFO: Chamou o IPService  
+[2025-03-13 18:27:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 18:27:20] local.INFO: O hotel foi encontrado  
+[2025-03-13 18:27:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 18:27:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 18:27:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 18:27:20] local.INFO: O hotel foi encontrado  
+[2025-03-13 18:27:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 18:27:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 18:29:07] local.INFO: Chamou o IPController  
+[2025-03-13 18:29:07] local.INFO: Chamou o IPService  
+[2025-03-13 18:29:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 18:29:10] local.INFO: O hotel foi encontrado  
+[2025-03-13 18:29:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 18:29:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 18:29:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 18:29:10] local.INFO: O hotel foi encontrado  
+[2025-03-13 18:29:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 18:29:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 18:50:34] local.INFO: Chamou o IPController  
+[2025-03-13 18:50:34] local.INFO: Chamou o IPService  
+[2025-03-13 18:50:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 18:50:34] local.INFO: O hotel foi encontrado  
+[2025-03-13 18:50:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 18:50:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-13 18:50:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-13 18:50:34] local.INFO: O hotel foi encontrado  
+[2025-03-13 18:50:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-13 18:50:34] local.INFO: Opção desativada, não vai alterar o endereço  

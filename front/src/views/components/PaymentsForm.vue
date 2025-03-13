@@ -1,5 +1,5 @@
 <template>
-    <div class="payments-container bg-slate-600">
+    <div class="payments-container bg-slate-600 text-white">
         <h1>Formas de Pagamento</h1>
         <div>
             <form @submit.prevent="finalizeSale">
@@ -113,6 +113,7 @@ export default {
         },
         
         async finalizeSale() {
+            console.log('', this.typeOperation)
             this.isLoanding = true
             try {
                 switch (this.typeOperation) {
@@ -136,10 +137,12 @@ export default {
 
                 case 'saleNFCe':
                     //const response = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/`)
+                    console.log('2', this.totalOperation)
                     console.log('Começou venda NFCe')
                     break
 
                 case 'saleNM':
+                
                     console.log('Começou venda NM')
                     break
 
@@ -184,6 +187,7 @@ export default {
         }
     },
     mounted(){
+        console.log('2', this.totalOperation)
         this.getPayments();
         
     },

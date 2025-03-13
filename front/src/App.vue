@@ -24,7 +24,7 @@ import Sidebar from './views/components/Sidebar.vue';
     },
     mounted(){ 
       const response = axios.get(`${this.api}/get-ip`);
-      
+
     },
 
     components: {

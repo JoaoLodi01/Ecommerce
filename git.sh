@@ -7,7 +7,8 @@ fun_git_add()
 
     if [[ $logs -eq 'Y' ]]; then
         bash -c "git add ."
-
+        fun_git_commit
+        
     fi
     
     if [[ $logs -eq 'N' ]]; then
@@ -128,14 +129,14 @@ fun_git_merge()
             ;;
     esac
 
-
 }
 
 main()
 {   
     clear
-    echo "1 - git push completo"
+    echo "1 - git push"
     echo "2 - git merge"
+    echo "3 - git pull"
     echo "0 - Sair"
     read option
 
@@ -149,6 +150,11 @@ main()
             clear
             fun_git_checkout
             ;;
+
+        3)
+            clear
+            ;;
+            
         0)
             exit 1
             ;;

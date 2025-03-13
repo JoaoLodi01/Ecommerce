@@ -156,7 +156,7 @@
             class="m-2 p-2 rounded-lg border border-gray-700"
             id="total"
         >
-        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.total.toFixed(2) }}</span></p>
+        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
         <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
         <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
         <p class="flex justify-between">Frete <span>R$ {{ '0.00' }}</span></p>
@@ -195,7 +195,7 @@
             </button>
 
             <div class="mb-auto ml-auto text-xl w-auto">
-                <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.total + calculateTotal.addition - calculateTotal.discount }}</span>
+                <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.addition - calculateTotal.discount }}</span>
                 
             </div>
         </div>
@@ -261,8 +261,8 @@
 
                 },
                 
-                withScreen: 0,
                 totalOperation: 0,
+                withScreen: 0,
                 textSize: 4,
                 show: false,
                 showGrid: true,
@@ -277,21 +277,20 @@
             calculateTotal(){
                 const rawproductsSeletion = toRaw(this.productsSeletion)
                 
-                let totalSale = 0
+                let subtotal = 0
                 rawproductsSeletion.forEach(products => {
                     for (let i = 0; i < products.length; i++) {
                         const p = products[i];
-                        totalSale += p.preco_venda * p.quantidade
+                        subtotal += p.preco_venda * p.quantidade
                         
                     }
                 });
 
                 const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
                 const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
-                this.totalOperation = totalSale + addition - discount
-                
+
                 return {
-                    total: totalSale,
+                    subtotal: subtotal,
                     addition: addition,
                     discount: discount
                     
@@ -302,6 +301,7 @@
         methods: {
             async saveSale()
             {
+                this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
                 const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
@@ -309,8 +309,8 @@
                             products: this.productsSeletion, // Produtos da 
                             user_id: this.emitProducts.userID,
                             customer_id: this.emitProducts.customerID,
-                            sub_total: this.calculateTotal.total,
-                            total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
+                            sub_total: this.calculateTotal.subtotal,
+                            total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                             addition: this.calculateTotal.addition,
                             discount: this.calculateTotal.discount,
                             description: 'Venda guardada',
@@ -322,6 +322,7 @@
                         {
                             alert('Venda guardarda para enviar posteriormente!')
                             this.productsSeletion = []
+
                         }
                         
                     } catch (error) {
@@ -376,17 +377,18 @@
                         products: this.productsSeletion, // Produtos da 
                         user_id: this.emitProducts.userID,
                         customer_id: this.emitProducts.customerID,
-                        sub_total: this.calculateTotal.total,
-                        total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
+                        sub_total: this.calculateTotal.subtotal,
+                        total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                         addition: this.calculateTotal.addition,
                         discount: this.calculateTotal.discount,
                         description: 'Venda guardada',
                         is_nfce_nm: type
                         
                     })
-                    
+                    console.log(response.data)
                     if(response.data.success === true)
                     {
+                        this.productsSeletion = []
                         this.typeOperation = 'saleNM'
                         this.showPaymentsForm = !this.showPaymentsForm
 
@@ -410,6 +412,7 @@
 
                     if(response.data.success === true)
                     {
+                        this.productsSeletion = []
                         this.typeOperation = 'saleNFCe'
                         this.showPaymentsForm = !this.showPaymentsForm
 
@@ -418,6 +421,7 @@
             },
 
             showProdutcts(){
+                this.showPaymentsForm = false
                 this.showGrid = !this.showGrid
                 this.show = !this.show
                 

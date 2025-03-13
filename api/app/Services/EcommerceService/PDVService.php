@@ -91,9 +91,15 @@ class PDVService{
         try {
             return response()->json($data);
             return response()->json($this->pdvRepository->finalizeSale($data));
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
 
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'th' => $th->getMessage(),
+                'line' => $th->getLine(),
+                'file' => $th->getFile(),
+            ]);
+            
+        }
     }
 }
