@@ -363,40 +363,42 @@
                         alert(error.response.data.message)
                         alert('Por favor faça o cadastro do mesmo')
                         this.$router.push('/hotel/create')
-
+                        
                     }
                 }
             },
-
+            
             async finalizeSale(type)
             {
                 // Só vai chamar a forma de pagamento
                 this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
-                
-                if(type === 'nm')
-                {
-                    const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
-                        products: this.productsSeletion, // Produtos da 
-                        user_id: this.emitProducts.userID,
-                        customer_id: this.emitProducts.customerID,
-                        total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                        sub_total: this.calculateTotal.subtotal,
-                        addition: this.calculateTotal.addition,
-                        discount: this.calculateTotal.discount,
-                        description: 'Venda Nota Manual N°',
-                        is_nfce_nm: type
-                        
-                    })
-
-                    console.log(response.data)
-                    if(response.data.success === true)
+                try {
+                    if(type === 'nm')
                     {
-                        this.productsSeletion = []
-                        this.typeOperation = 'saleNM'
-                        this.showPaymentsForm = !this.showPaymentsForm
-                        this.pdvID = response.data.pdvID
+                        const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            products: this.productsSeletion, // Produtos da 
+                            user_id: this.emitProducts.userID,
+                            customer_id: this.emitProducts.customerID,
+                            total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                            sub_total: this.calculateTotal.subtotal,
+                            addition: this.calculateTotal.addition,
+                            discount: this.calculateTotal.discount,
+                            description: 'Venda Nota Manual N°',
+                            is_nfce_nm: type,
+                            
+                        }, {
+                            withCredentials: false
+                        })
 
-                    }
+                        console.log(response.data)
+                        if(response.data.success === true)
+                        {
+                            this.productsSeletion = []
+                            this.typeOperation = 'saleNM'
+                            this.showPaymentsForm = !this.showPaymentsForm
+                            this.pdvID = response.data.pdvID
+
+                        }
                 }
                 
                 if(type === 'nfce')
@@ -412,6 +414,8 @@
                         description: 'Venda NFC-e N° ',
                         is_nfce_nm: type
                         
+                    }, {
+                        withCredentials: false
                     })
 
                     console.log(response.data)
@@ -423,6 +427,10 @@
                         this.pdvID = response.data.pdvID
 
                     }
+                }
+                    
+                } catch (error) {
+                    console.error('Erro finalizeSale', error)   
                 }
             },
 

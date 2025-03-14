@@ -45,6 +45,7 @@ class PDVController extends Controller
         return response()->json([
             'data' => $request->all()
         ]);
+        
         return $this->pdvService->finalizeSale($request->input('paymentsValues'), $request->input('typeOperation'), $id);
 
     }
