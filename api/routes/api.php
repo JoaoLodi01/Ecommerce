@@ -47,11 +47,11 @@ Route::prefix('v1')->group( function (){
     
         // Consumer routes
         Route::prefix('consumers')->group( function(){
-            Route::get('/all', [UserController::class, 'getAll']);
-            Route::post('/create', [UserController::class, 'store']);
-            Route::get('/{id}', [UserController::class, 'findByID']);
-            Route::put('/{id}', [UserController::class, 'update']);
-            Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
+            Route::get('/all', [CustomerController::class, 'getAll']);
+            Route::post('/create', [CustomerController::class, 'store']);
+            Route::get('/{id}', [CustomerController::class, 'findByID']);
+            Route::put('/{id}', [CustomerController::class, 'update']);
+            Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']);
             
         });
     

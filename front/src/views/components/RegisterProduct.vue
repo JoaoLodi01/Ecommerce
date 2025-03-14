@@ -1,9 +1,9 @@
 <template>
-    <form @submit.prevent="addProduct" class="bg-white p-6 shadow-lg rounded-lg border border-gray-300 max-w-max m-auto">
+    <form @submit.prevent="addProduct" class="bg-white shadow-lg rounded-lg border border-gray-300">
       <!--border-gray-300" para retornar como estava, deixo assim-->
       <h2 class="text-2xl text-center font-semibold mb-4">Cadastrar Novo Produto</h2>
   
-      <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
+      <div class="max-w-md mx-auto mt-5 p-6 bg-white shadow-md rounded">
         <!-- Nome do produto -->
         <div>
           <label for="name" class="block text-sm font-medium">Produto:</label>
@@ -113,11 +113,9 @@
         </div>
   
         <!-- Botão de cadastro -->
-        <div class="mt-4">
-          <button @click="cancelOperation()">Voltar</button>
-          <button 
-            type="submit" 
-            class="w-full py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">Cadastrar Produto</button>
+        <div>
+          <button class="mt-2 ml-1 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500" @click="cancelOperation()">Voltar</button>
+          <button class="mt-2 ml-9 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500" type="submit" >Cadastrar Produto</button>
         </div>
       </div>
     </form>

@@ -1,74 +1,87 @@
 <template>
-    <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
-      <h2 class="text-xl font-semibold mb-4">Cadastro de Cliente</h2>
-      
-      <form @submit.prevent="submitForm">
+  <div class="clientes-container px-20">
+    <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
+    <button 
+      @click="toggleRegisterProductVisibility"
+      class="w-96 py-2 absolute right-2 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
+      <span v-if="!showRegisterClients">Cadastrar</span>
+      <span v-else>Voltar</span>
+    </button>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div
+        v-for="(client, id) in clients" :key="client.id" 
+        class="bg-white p-6 shadow-lg rounded-lg border border-gray-200">
 
-        <label for="client">Cliente:</label>
-        <input 
-        type="text" 
-        v-model="form.client" 
-        id="client" 
-        placeholder="Inserir..."/>
+        <div class="text-sm text-gray-500 mb-2">
+          <span class="font-semibold">Cliente:</span> {{ client.name }}
+        </div>
 
-        <label for="cpf">CPF:</label>
-        <input 
-        type="text" 
-        v-model="form.cpf" 
-        id="cpf" 
-        placeholder="Inserir..."/>
+        <div class="text-sm text-gray-500 mb-2">
+          <span class="font-semibold">ID:</span> {{ client.id }}
+        </div>
 
-        <label for="cnpj">CNPJ:</label>
-        <input 
-        type="text" 
-        v-model="form.cnpj" 
-        id="cnpj" 
-        placeholder="Inserir..."/>
+        <div class="text-sm text-gray-500 mb-2">
+          <span class="font-semibold">CPF:</span> {{ client.cpf }}
+        </div>
 
-        <label for="email">E-mail:</label>
-        <input 
-        type="email" 
-        v-model="form.email" 
-        id="email" 
-        placeholder="Inserir..."/>
+        <div class="text-sm text-gray-500 mb-2">
+          <span class="font-semibold">CNPJ:</span>
+        </div>
 
-        <label for="phone">Fone:</label>
-        <input 
-        type="number" 
-        v-model="form.phone" 
-        id="phone" 
-        placeholder="Inserir..."/>
+        <div class="text-sm text-gray-500 mb-2">
+          <span class="font-semibold"></span>
+        </div>
 
-      </form>
+      </div>
     </div>
-  </template>
+  </div>
+</template>
   
-  <script>
-  import axios from "axios";
+<script>
+import axios from "axios";
+import RegisterConsumer from "@/views/components/RegisterConsumer.vue";
   
-  export default {
-    data() {
-      return {
-        form: {
-          cliente: "",
-          cpf: "",
-          cnpj: "",
-          email: "",
-          phone: "",
-        },
-        api: process.env.VUE_APP_API_URL_ECOMMERCE,
-      };
+export default {
+  components: {
+    RegisterConsumer,
+  },
+
+  data() {
+    return {
+      clients: [],
+      showClients: true,
+      showRegisterClients: false,
+      api: process.env.VUE_APP_API_URL,
+    };
+  },
+
+  mounted(){
+    this.getClients();
+  },
+
+  methods: {
+    async getClients() {
+      const response = await axios.get(`${this.api}/ecommerce/consumers/all`);
+      console.log(response);
+      this.clients = response.data;
     },
-    methods: {
-      async submitForm() {
-        try {
-          const response = await axios.post(`${this.api}/consumers/create`, this.form);
-          this.form = { cliente: "", cpf: "", cnpj: "", email: "", phone: "" };
-        
-        } catch (error) {
-            alert("Ocorreu um erro ao cadastrar o cliente.");
-        }
-      },
+
+    toggleRegisterClientVisibility(){
+      this.showRegisterClients = !this.showRegisterClients;
+      this.showClients = !this.showClients;
     },
-  };
-  </script>
+
+    addClient(newClient){
+      this.clients.push(newClient);
+    },
+
+    deleteClient(){
+      this.clients = this.clients.filter(client => client.id !== id);
+    },
+
+    editClient(clientID){
+      this.showRegisterClients = !this.showRegisterClients;
+    },
+  },
+};
+</script>

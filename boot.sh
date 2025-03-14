@@ -184,13 +184,13 @@ main()
 	 		;;
 	 	2)
 			clear
-	 		frontPath="C:\Gabriel\Codes\Projeto_3_Hotel_Ecommerce\front"
-	 		backPath="C:\Gabriel\Codes\Projeto_3_Hotel_Ecommerce\api"
+	 		frontPath="C:\Code\ProjetoWeb\front"
+	 		backPath="C:\Code\ProjetoWeb\api"
 	 		cd $frontPath
 	 		start bash -c "npm run s"
 
 	 		cd $backPath 
-	 		start bash -c "php artisan serve --host=192.168.98.51"
+	 		start bash -c "php artisan serve --host=192.168.98.32"
 			;;
 
 		3)
