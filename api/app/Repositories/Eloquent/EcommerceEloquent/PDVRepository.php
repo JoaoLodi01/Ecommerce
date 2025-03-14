@@ -4,8 +4,8 @@ namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\{
     Receive,
-    Customer
-
+    Customer,
+    User
 };
 
 use App\Models\EcommerceModels\{
@@ -13,7 +13,6 @@ use App\Models\EcommerceModels\{
     FormaPagamentoPDV,
     ItensPDV,
     Payment,
-    User,
     
 };
 
@@ -24,18 +23,22 @@ use App\Repositories\Eloquent\{
     UserRepository
 };
 
+use App\Repositories\PayMentMethod;
 use Illuminate\Support\Facades\Log;
-
 class PDVRepository
 {
     public function __construct(
         protected CustomerRepository $customerRepository,
         protected CashRegisterRepository $cashRegisterRepository,
-        protected UserRepository $userRepository
+        protected UserRepository $userRepository,
+        protected ProductsRepository $productsRepository,
+        protected PayMentMethod $payMentMethod,
+
     )
     {
         $this->customerRepository = $customerRepository;
         $this->cashRegisterRepository = $cashRegisterRepository;
+        $this->payMentMethod = $payMentMethod;
     }
 
     public function getAll(int $active){
@@ -165,25 +168,32 @@ class PDVRepository
 
     public function saveProducts(array $productsArray, int $pdvID, object $user)
     {
-        Log::info('-- Iniciou o saveProducts() line 167 -- ');
+        Log::info('-- Iniciou o saveProducts() line 167 -- ');        
         foreach ($productsArray as $products) {
-            Log::info('Entrou no primeiro for: (products)');
+            Log::info('Entrou no primeiro foreach: (products)');
             Log::info($products);
             foreach ($products as $product) {
-                Log::info('Entrou no segundo for: (product)');
+                Log::info('Entrou no segundo foreach: (product)');
+                $product = $this->productsRepository->findByID($product['id']);
                 Log::info($product);
                 $itensPDV = ItensPDV::create([
                     'pdv_id' => $pdvID,
-                    'product_id' => $product['id'],
-                    'product' => $product['produto'],
+                    'product_id' => $product->id,
+                    'product' => $product->produto,
+                    'cfop' => $product->cfop,
+                    'csosn' => $product->csosn,
+                    'ncm' => $product->ncm,
+                    'cest' => $product->cest,
+                    'unit' => $product->unit,
                     'amount_sold' => $product['quantidade'],
                     'addition' => 0,
                     'discount' => 0,
-                    'user_id' => $user->id,
-                    'user' => $user->name, 
+                    'seller_id' => $user->id,
+                    'seller' => $user->name, 
     
                 ]);
             }
+
             Log::info('ItensPDV ' . $itensPDV);
         }
     }
@@ -195,33 +205,54 @@ class PDVRepository
         $customer = $this->customerRepository->findByID($details['customer_id']);
         Log::info('Busca pelo user');
         $user = $this->userRepository->findByID($details['user_id']); // "user"
+        Log::info($user);
 
-        $pdv = PDV::create([
+        $pdvData = array(
             'description' => $details['description'],
             'cliente_id' => $customer->id,
             'client' => $customer->name,
             'gross_value' => $details['sub_total'],
             'net_value' => $details['total'],
-            'discount' => $details['discount'],
             'addition' => $details['addition'],
+            'discount' => $details['discount'],
             'user_id' => $user->id,
             'user' => $user->name, 
             'is_nfce_nm' => $details['is_nfce_nm']
-        ]);         
+        );
+
+        Log::info($pdvData);
+        
+        $pdv = PDV::create($pdvData);  
 
         if($pdv && $pdv->id)
         {
             $this->saveProducts($productsArray, $pdv->id, $user);
             return array(
                 'success' => true,
-                'pdv' => $pdv       
+                'pdv' => $pdv,
+                'pdvID' => $pdv->id
 
             );
         }
     }
 
-    public function finalizeSale(array $data)
+    public function findByID(int $id)
     {
-        
+        return PDV::where('id', $id)->first();
+    }
+
+    public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total)
+    {
+        $pdv = $this->findByID($id);
+        $customer = $this->customerRepository->findByID($pdv->customer_id);
+        //$customer->joinSales();
+        $this->payMentMethod->payment(
+            $paymentsValues, [1], $customer, $pdv->description, $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id"
+        );
+
+        /*$pdv = PDV::where('id', $id)->first()->update([
+            'description' => $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id",
+            'finished' => 1
+        ]);*/        
     }
 }

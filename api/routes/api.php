@@ -82,7 +82,7 @@ Route::prefix('v1')->group( function (){
             Route::get('/{id}', [PDVController::class, 'findByID']);
             Route::put('/{id}', [PDVController::class, 'update']);
             Route::post('/save-sale', [PDVController::class, 'saveSale']);
-            Route::put('/finalize-sale', [PDVController::class, 'finalizeSale']);
+            Route::put('/finalize-sale/{id}', [PDVController::class, 'finalizeSale']);
             
         });
     

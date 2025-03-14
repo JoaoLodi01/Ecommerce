@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Models\EcommerceModels\User;
+use App\Models\User;
 
 class UserRepository
 {

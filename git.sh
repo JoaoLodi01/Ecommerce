@@ -2,8 +2,20 @@
 
 fun_git_add()
 {
-    bash -c "git add ."
+    echo "Deseja levar as logs? (Y/N)"
+    read logs
 
+    if [[ $logs -eq 'Y' ]]; then
+        bash -c "git add ."
+        fun_git_commit
+        
+    fi
+    
+    if [[ $logs -eq 'N' ]]; then
+        rm api/storage/logs/*
+        bash -c "git add ."
+
+    fi
 }
 
 fun_git_commit()
@@ -12,6 +24,7 @@ fun_git_commit()
     read commit
     bash -c "git commit -m '$commit'" 
     fun_git_push
+    
 }
 
 fun_git_push()
@@ -116,14 +129,14 @@ fun_git_merge()
             ;;
     esac
 
-
 }
 
 main()
 {   
     clear
-    echo "1 - git push completo"
+    echo "1 - git push"
     echo "2 - git merge"
+    echo "3 - git pull"
     echo "0 - Sair"
     read option
 
@@ -137,6 +150,11 @@ main()
             clear
             fun_git_checkout
             ;;
+
+        3)
+            clear
+            ;;
+            
         0)
             exit 1
             ;;

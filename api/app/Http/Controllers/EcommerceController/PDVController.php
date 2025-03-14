@@ -39,13 +39,13 @@ class PDVController extends Controller
         
     }
 
-    public function finalizeSale(PDVSaleRequest $request)
+    public function finalizeSale(Request $request, int $id)
     {
-        $data = $request->validated();
-        return $this->pdvService->finalizeSale($data);
+        //$data = $request->validated();
         return response()->json([
-            'data' => $data
+            'data' => $request->all()
         ]);
+        return $this->pdvService->finalizeSale($request->input('paymentsValues'), $request->input('typeOperation'), $id);
 
     }
 

@@ -35,7 +35,7 @@
                                 <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
                                 <th scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th scope="col" class="px-6 py-3 text-center"> {{  }} </th>
+                                <th scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
                                 <th scope="col" class="px-6 py-3 text-center">Qtde</th>
                                 <th scope="col" class="px-6 py-3 text-center">Valor unitário</th>
                                 <th scope="col" class="px-6 py-3">Valor líquido</th>
@@ -92,133 +92,125 @@
                 </div>
             </div>
         <div>
-            <PaymentsForm
-                v-if="showPaymentsForm"
-                :show="this.showPaymentsForm"
-                :typeOperation=this.typeOperation
-                :totalOperation=this.totalOperation
-                @close="cancelOperation"
-
-            />
         </div>
-
+        
         <div 
             class="flex max-w-64 text-sm rounded-t-lg rounded-b-lg border border-black"
             :class="{
                 'text-xl': textSize === 4,
                 'text-2xl': textSize === 8,
                 'text-3xl': textSize === 16,
-
+                
             }"   
         >
+        <div>
             <div>
-                <div>
-                    <div 
-                        class="m-2 p-2 rounded-lg border border-gray-700"
-                    >
-                        <label class="text-black" for="discount">Vendedor</label>
-                        <input 
-                            v-model="emitProducts.userID"
-                            placeholder="Funcionário Padrão"
-                            id="discount"
-                            type="text"
-                            class="text-black border border-black w-full"
-                        />
-                        <br>
-                        <label class="text-black" for="discount">Cliente</label>
-                        <input 
-                            placeholder="Consumidor Padrão"
-                            v-model="emitProducts.clientID"
-                            id="discount"
-                            type="text"
-                            class="text-black border border-black w-full"
-                        />
-                    </div>
-                    
-                    <div
-                        class="m-2 p-2 rounded-lg border border-gray-700" 
-                        id="values"
-                        
-                    >
-                        <label class="text-black" for="addition">Acréscimo R$</label>
-                        <input 
-                            id="addition"
-                            v-model.number="emitProducts.addition"
-                            type="text"
-
-                            class="text-black border border-black w-10"
-                        />
-
-                        <br>
-                        <label class="text-black" for="discount">Desconto R$</label>
-                        <input 
-                            id="discount"
-                            v-model.number="emitProducts.discount"
-                            type="text"
-                        
-                            class="text-black border border-black w-10"
-                        />
-                    </div>
-
-                    <div
-                        class="m-2 p-2 rounded-lg border border-gray-700"
-                        id="total"
-                    >
-                        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.total.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Frete <span>R$ {{ '0.00' }}</span></p>
-
-                    </div>
-
-                    <div class="flex m-2 p-2 rounded-lg border border-gray-700">
-                        <button
-                            v-if="productsSeletion.length <= 0"
-                            disabled
-                            title="Sem vendas no momento"
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
-
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                            </svg>
-                        </button>
-                        
-                        <button
-                            v-else @click="cancelSale()"
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                            </svg>
-                        </button>
-
-                        <button 
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
-                            title="Salvar venda"
-                            @click="saveSale()"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                            </svg>
-                        </button>
-                        
-                        <div class="mb-auto ml-auto text-xl w-auto">
-                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.total + calculateTotal.addition - calculateTotal.discount }}</span>
-
-                        </div>
-                    </div>
-
-                    <div class="flex text-white p-1 rounded-lg border border-gray-700">
-                        <button @click="finalizeSale('nm')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar</button>
-                        <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
-                        
-                    </div>
+                <div 
+                    class="m-2 p-2 rounded-lg border border-gray-700"
+                >
+                <label class="text-black" for="discount">Vendedor</label>
+                <input 
+                    v-model="emitProducts.userID"
+                    placeholder="Funcionário Padrão"
+                    id="discount"
+                    type="text"
+                    class="text-black border border-black w-full"
+                />
+                <br>
+                <label class="text-black" for="discount">Cliente</label>
+                <input 
+                    placeholder="Consumidor Padrão"
+                    v-model="emitProducts.clientID"
+                    id="discount"
+                    type="text"
+                    class="text-black border border-black w-full"
+                />
+            </div>
+            
+            <div
+                class="m-2 p-2 rounded-lg border border-gray-700" 
+                id="values"
                 
+            >
+            <label class="text-black" for="addition">Acréscimo R$</label>
+            <input 
+                id="addition"
+                v-model.number="emitProducts.addition"
+                type="text"
+                
+                class="text-black border border-black w-10"
+            />
+            
+            <br>
+            <label class="text-black" for="discount">Desconto R$</label>
+            <input 
+                id="discount"
+                v-model.number="emitProducts.discount"
+                type="text"
+                
+                class="text-black border border-black w-10"
+            />
+        </div>
+        
+        <div
+            class="m-2 p-2 rounded-lg border border-gray-700"
+            id="total"
+        >
+        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
+        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
+        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
+        <p class="flex justify-between">Frete <span>R$ {{ '0.00' }}</span></p>
+        
+    </div>
+    <div class="flex m-2 p-2 rounded-lg border border-gray-700">
+            <button
+                v-if="productsSeletion.length <= 0"
+                disabled
+                title="Sem vendas no momento"
+                class="mr-1 ml-2 bg-slate-600 rounded-md"
+                
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                </svg>
+            </button>
+
+            <button
+                v-else @click="cancelSale()"
+                class="mr-1 ml-2 bg-slate-600 rounded-md"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                </svg>
+            </button>
+
+            <button 
+                class="mr-1 ml-2 bg-slate-600 rounded-md"
+                title="Salvar venda"
+                @click="saveSale()"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                </svg>
+            </button>
+
+            <div class="mb-auto ml-auto text-xl w-auto">
+                <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.addition - calculateTotal.discount }}</span>
+                
+            </div>
+        </div>
+
+        <div class="flex text-white p-1 rounded-lg border border-gray-700">
+            <button @click="finalizeSale('nm')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar</button>
+            <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
+            
+        </div>
+
                 </div>
             </div>
         </div>
     </div>
+
     <div
         v-if="showGrid"
         class="flex border border-black w-10 ml-10">
@@ -228,6 +220,7 @@
             <option value=16>16</option>
         </select>
     </div>
+
     <div>
         <ProductsSelectionView
             v-if="show"
@@ -236,8 +229,18 @@
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion"
         />
-        
-    </div>
+    
+    <PaymentsForm
+        v-if="showPaymentsForm"
+        :show="this.showPaymentsForm"
+        :typeOperation=this.typeOperation
+        :totalOperation=this.totalOperation
+        :pdvID=this.pdvID
+        @close="cancelOperation"
+    
+    />
+
+</div>
 </template>
 
 <script>
@@ -250,8 +253,7 @@
         data(){
             return {
                 productsSeletion: [],
-                hotelCodCRT: [],
-                csosncst: '',
+                hotelCodCRT: 0,
                 emitProducts: {
                     addition: 0,
                     discount: 0,
@@ -260,14 +262,15 @@
 
                 },
                 
-                withScreen: 0,
                 totalOperation: 0,
+                withScreen: 0,
                 textSize: 4,
+                pdvID: 0,
                 show: false,
                 showGrid: true,
                 showPaymentsForm: false,
                 typeOperation: '',
-
+                csosncst: '',
                 api: process.env.VUE_APP_API_URL
             }
         },
@@ -276,11 +279,11 @@
             calculateTotal(){
                 const rawproductsSeletion = toRaw(this.productsSeletion)
                 
-                let totalSale = 0
+                let subtotal = 0
                 rawproductsSeletion.forEach(products => {
                     for (let i = 0; i < products.length; i++) {
                         const p = products[i];
-                        totalSale += p.preco_venda * p.quantidade
+                        subtotal += p.preco_venda * p.quantidade
                         
                     }
                 });
@@ -289,7 +292,7 @@
                 const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
 
                 return {
-                    total: totalSale,
+                    subtotal: subtotal,
                     addition: addition,
                     discount: discount
                     
@@ -307,8 +310,8 @@
                             products: this.productsSeletion, // Produtos da 
                             user_id: this.emitProducts.userID,
                             customer_id: this.emitProducts.customerID,
-                            sub_total: this.calculateTotal.total,
-                            total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
+                            sub_total: this.calculateTotal.subtotal,
+                            total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                             addition: this.calculateTotal.addition,
                             discount: this.calculateTotal.discount,
                             description: 'Venda guardada',
@@ -320,6 +323,7 @@
                         {
                             alert('Venda guardarda para enviar posteriormente!')
                             this.productsSeletion = []
+
                         }
                         
                     } catch (error) {
@@ -334,8 +338,19 @@
                     const response = await axios.get(`${this.api}/hotel/all`)
                     if(response.data.success === true)
                     {
-                        this.hotelCodCRT = response.data.all.hotel.cod_crt
-                        
+                        this.hotelCodCRT += response.data.all.hotel.cod_crt
+                        if(Number(this.hotelCodCRT) && this.hotelCodCRT > 0)
+                        {
+                            if(this.hotelCodCRT == 1 || this.hotelCodCRT >= 4)
+                            {
+                                this.csosncst = 'CSOSN'
+
+                            } else {
+                                this.csosncst = 'CST'
+                            }
+
+                        }
+
                     }
 
                     if(response.data.success === false){
@@ -356,54 +371,63 @@
             async finalizeSale(type)
             {
                 // Só vai chamar a forma de pagamento
+                this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
+                
                 if(type === 'nm')
                 {
                     const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
-                            products: this.productsSeletion, // Produtos da 
-                            user_id: this.emitProducts.userID,
-                            customer_id: this.emitProducts.customerID,
-                            sub_total: this.calculateTotal.total,
-                            total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
-                            addition: this.calculateTotal.addition,
-                            discount: this.calculateTotal.discount,
-                            description: 'Venda guardada',
-                            is_nfce_nm: type
-                            
-                        })
+                        products: this.productsSeletion, // Produtos da 
+                        user_id: this.emitProducts.userID,
+                        customer_id: this.emitProducts.customerID,
+                        total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                        sub_total: this.calculateTotal.subtotal,
+                        addition: this.calculateTotal.addition,
+                        discount: this.calculateTotal.discount,
+                        description: 'Venda Nota Manual N°',
+                        is_nfce_nm: type
+                        
+                    })
 
-                    console.log('response', response)
+                    console.log(response.data)
+                    if(response.data.success === true)
+                    {
+                        this.productsSeletion = []
+                        this.typeOperation = 'saleNM'
+                        this.showPaymentsForm = !this.showPaymentsForm
+                        this.pdvID = response.data.pdvID
 
-                    this.typeOperation = 'saleNM'
-                    this.showPaymentsForm = !this.showPaymentsForm
-                    console.log('this.emitProducts', this.emitProducts)
-
+                    }
                 }
                 
                 if(type === 'nfce')
                 {
                     const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
-                            products: this.productsSeletion, // Produtos da 
-                            user_id: this.emitProducts.userID,
-                            customer_id: this.emitProducts.customerID,
-                            sub_total: this.calculateTotal.total,
-                            total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
-                            addition: this.calculateTotal.addition,
-                            discount: this.calculateTotal.discount,
-                            description: 'Venda guardada',
-                            is_nfce_nm: type
-                            
-                        })
+                        products: this.productsSeletion, // Produtos da 
+                        user_id: this.emitProducts.userID,
+                        customer_id: this.emitProducts.customerID,
+                        total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                        sub_total: this.calculateTotal.subtotal,
+                        addition: this.calculateTotal.addition,
+                        discount: this.calculateTotal.discount,
+                        description: 'Venda NFC-e N° ',
+                        is_nfce_nm: type
+                        
+                    })
 
-                    console.log('response', response)
+                    console.log(response.data)
+                    if(response.data.success === true)
+                    {
+                        this.productsSeletion = []
+                        this.typeOperation = 'saleNFCe'
+                        this.showPaymentsForm = !this.showPaymentsForm
+                        this.pdvID = response.data.pdvID
 
-                    this.typeOperation = 'saleNFCe'
-                    this.showPaymentsForm = !this.showPaymentsForm
-                    console.log('this.emitProducts', this.emitProducts)
-
+                    }
                 }
             },
 
             showProdutcts(){
+                this.showPaymentsForm = false
                 this.showGrid = !this.showGrid
                 this.show = !this.show
                 

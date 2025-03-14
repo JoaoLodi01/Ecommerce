@@ -1,9 +1,9 @@
 <template>
-    <div class="payments-container bg-slate-600">
+    <div class="payments-container bg-slate-600 text-white">
         <h1>Formas de Pagamento</h1>
         <div>
             <form @submit.prevent="finalizeSale">
-                <table>
+                <table class="text-black">
                     <thead>
                         <tr>
                             <th>Formas de pagamento</th>
@@ -18,7 +18,7 @@
                                     type="number"
                                     v-model="paymentsValues[index]"
                                     placeholder="0.00"
-                                    step="0.01"
+                                    
                                 />
                             </td>
                         </tr>
@@ -73,8 +73,9 @@ export default {
     ],
 
     props: {
-        products: {
-
+        // Para o ecommerce
+        pdvID: {
+            type: Number
         },
 
         // Para o hotel
@@ -121,10 +122,11 @@ export default {
                     this.isLoanding = !this.isLoanding
                     
                     const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
-                        customer_id: 1,
-                        payments_values: this.paymentsValues,
+                        customerID: 1,
+                        paymentsValues: this.paymentsValues,
                         roomID: this.roomID,
                         generateCredit: generateCredit
+                        
                     });
 
                     const reservation = response.data
@@ -135,10 +137,23 @@ export default {
 
                 case 'saleNFCe':
                     console.log('Começou venda NFCe')
+                    const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                        typeOperation: this.typeOperation,
+                        payments_values: this.paymentsValues
+                    })
+
+                    console.log(response_nfce)
                     break
 
                 case 'saleNM':
                     console.log('Começou venda NM')
+                    const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                        typeOperation: this.typeOperation,
+                        payments_values: this.paymentsValues
+
+                    })
+                
+                    console.log(response_nm)                    
                     break
 
                 default:
@@ -147,7 +162,7 @@ export default {
                 }
                 
             } catch (error) {
-                
+                console.error('Error: ', error)
             }
             
         },
