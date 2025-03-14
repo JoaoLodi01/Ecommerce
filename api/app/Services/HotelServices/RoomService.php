@@ -100,20 +100,20 @@ class RoomService
         }
     }
 
-    public function reservation(array $data, int $roomID, bool $generateCredit)
+    public function reservation(array $paymentsValues, int $roomID, bool $generateCredit)
     {
         try {
             $total = 0;
             $forms = [];
 
-            foreach ($data as $value) {
+            foreach ($paymentsValues as $value) {
                 $total += $value;
 
             }
-            for ($i=0; $i < count($data); $i++) { 
+            for ($i=0; $i < count($paymentsValues); $i++) { 
                 // posição do array com o valor > 0
                 // Vai ser o ID da espécie
-                if($data[$i] > 0)
+                if($paymentsValues[$i] > 0)
                 {
                     $forms[] = $i + 1; 
                     
@@ -121,7 +121,7 @@ class RoomService
             }    
 
             return response()->json(
-                $this->roomRepository->reservation($forms, $data, $total, $roomID, $generateCredit)
+                $this->roomRepository->reservation($forms, $paymentsValues, $total, $roomID, $generateCredit)
             );
             
         } catch (\Throwable $th) {

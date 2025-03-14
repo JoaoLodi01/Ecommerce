@@ -20,7 +20,8 @@ class PayMentMethod
         $this->receiveRepository = $receiveRepository;
     }
 
-    public function payment(array $formsPayment, array $payment, object $customer, string $description, string $origem, object $room)
+    public function payment(array $formsPayment, array $payment, object $customer, string $description, string $origem)
+    
     {   // Método para ser adicioando ao caixa
         Log::info('-- Inicio do registro no caixa, PayMentMethod.php, linha 24 --');
         Log::info('Quantia $formsPayment: ' . count($formsPayment));
@@ -100,12 +101,12 @@ class PayMentMethod
             Log::info('Terminou de montar o corpo dos registros: ');
             Log::info('Dados de envio: ');
             Log::info($cashRegisters);
-            Log::info('-- Vai chamar o cashRegisterRepository linha 102 -- ');
+            Log::info('-- Vai chamar o cashRegisterRepository linha 104 -- ');
             $this->cashRegisterRepository->create($cashRegisters);
-            Log::info('-- Vai chamar o reservationRepository linha 104 -- ');
-            $this->reservationRepository->create($customer, $room);
+            Log::info('-- Vai chamar o reservationRepository linha 106 -- ');
+            $this->reservationRepository->create($customer);
             Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
-            Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 106 --');
+            Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 109 --');
             return;
         }
 
@@ -114,13 +115,13 @@ class PayMentMethod
             Log::info('Não possui mais de uma espécie informada: ' . count($formsPayment) . ' Dados: ');
             for ($i=0; $i < count($payment); $i++)
             {
-                Log::info('$payment[$i] linha - 115: i = ' . $i);            
+                Log::info('$payment[$i] linha - 118: i = ' . $i);            
                 Log::info('Vai pegar as posições maiores que zero, vezes: ' . $i);
                 if($payment[$i] > 0)
                 {
                     foreach ($formsPayment as $form) {
                         Log::info('ID linha 120 - : ' . $form);
-                        Log::info('Payment linha 121 - : ' . $payment[$i]);
+                        Log::info('Payment linha 124 - : ' . $payment[$i]);
                         Log::info('Vai conferir os tipos de lançamento');
                         if($form->tipo_lancamento === 'Caixa')
                         {
@@ -166,7 +167,7 @@ class PayMentMethod
                             
                             );  
                             
-                            Log::info('-- Vai chamar o receiveRepository linha 167 -- ');
+                            Log::info('-- Vai chamar o receiveRepository linha 170 -- ');
                             $this->receiveRepository->create($bodyCash);
                             Log::info('-- Terminou de chamar o receiveRepository -- ');
 
@@ -179,18 +180,18 @@ class PayMentMethod
         Log::info('Terminou de montar o corpo do caixa: ');
         Log::info('Dados: ');
         Log::info($cashRegisters);
-        Log::info('-- Vai chamar o cashRegisterRepository linha 181 -- ');
+        Log::info('-- Vai chamar o cashRegisterRepository linha 183 -- ');
         $this->cashRegisterRepository->create($cashRegisters);
-        Log::info('-- Vai chamar o reservationRepository linha 183 -- ');
-        $this->reservationRepository->create($customer, $room);
+        Log::info('-- Vai chamar o reservationRepository linha 185 -- ');
+        $this->reservationRepository->create($customer);
         Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
-        Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 186 --');
+        Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 188 --');
         return;
     }    
 
     public function decreaseCash(object $customer, float $value, string $description, string $origem, object $room)
     {
-        Log::info('-- Inicio decreaseCash linha 192 --');
+        Log::info('-- Inicio decreaseCash linha 194 --');
         $currantDate = new Carbon();
         $cashRegisters = [];
         $cashRegisters[] = array(
@@ -210,10 +211,8 @@ class PayMentMethod
         );  
         Log::info('Corpo: ');
         Log::info($cashRegisters);    
-        Log::info('-- Vai chamar o cashRegisterRepository linha 211 -- ');
+        Log::info('-- Vai chamar o cashRegisterRepository linha 214 -- ');
         $this->cashRegisterRepository->create($cashRegisters);
-        Log::info('-- Vai chamar o reservationRepository linha 213 -- ');
-        $this->reservationRepository->create($customer, $room);
-        Log::info('-- Fim decreaseCash linha 211 --');
+        Log::info('-- Fim decreaseCash linha 216 --');
     }
 }

@@ -23,19 +23,22 @@ use App\Repositories\Eloquent\{
     UserRepository
 };
 
+use App\Repositories\PayMentMethod;
 use Illuminate\Support\Facades\Log;
-
 class PDVRepository
 {
     public function __construct(
         protected CustomerRepository $customerRepository,
         protected CashRegisterRepository $cashRegisterRepository,
         protected UserRepository $userRepository,
-        protected ProductsRepository $productsRepository
+        protected ProductsRepository $productsRepository,
+        protected PayMentMethod $payMentMethod,
+
     )
     {
         $this->customerRepository = $customerRepository;
         $this->cashRegisterRepository = $cashRegisterRepository;
+        $this->payMentMethod = $payMentMethod;
     }
 
     public function getAll(int $active){
@@ -213,7 +216,7 @@ class PDVRepository
             'addition' => $details['addition'],
             'discount' => $details['discount'],
             'user_id' => $user->id,
-            'seller' => $user->name, 
+            'user' => $user->name, 
             'is_nfce_nm' => $details['is_nfce_nm']
         );
 
@@ -226,14 +229,30 @@ class PDVRepository
             $this->saveProducts($productsArray, $pdv->id, $user);
             return array(
                 'success' => true,
-                'pdv' => $pdv       
+                'pdv' => $pdv,
+                'pdvID' => $pdv->id
 
             );
         }
     }
 
-    public function finalizeSale(array $data)
+    public function findByID(int $id)
     {
-        
+        return PDV::where('id', $id)->first();
+    }
+
+    public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total)
+    {
+        $pdv = $this->findByID($id);
+        $customer = $this->customerRepository->findByID($pdv->customer_id);
+        //$customer->joinSales();
+        $this->payMentMethod->payment(
+            $paymentsValues, [1], $customer, $pdv->description, $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id"
+        );
+
+        /*$pdv = PDV::where('id', $id)->first()->update([
+            'description' => $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id",
+            'finished' => 1
+        ]);*/        
     }
 }

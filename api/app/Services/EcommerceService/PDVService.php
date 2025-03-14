@@ -86,11 +86,27 @@ class PDVService{
         }
     }
 
-    public function finalizeSale(array $data)
+    public function finalizeSale(array $paymentsValues, string $typeOperation, int $id)
     {
         try {
-            return response()->json($data);
-            return response()->json($this->pdvRepository->finalizeSale($data));
+            $total = 0;
+            $forms = [];
+
+            foreach ($paymentsValues as $value) {
+                $total += $value;
+
+            }
+            for ($i=0; $i < count($paymentsValues); $i++) { 
+                // posição do array com o valor > 0
+                // Vai ser o ID da espécie
+                if($paymentsValues[$i] > 0)
+                {
+                    $forms[] = $i + 1; 
+                    
+                }
+            }    
+
+            return response()->json($this->pdvRepository->finalizeSale($typeOperation, $id, $paymentsValues, $forms, $total));
 
         } catch (\Throwable $th) {
             return response()->json([

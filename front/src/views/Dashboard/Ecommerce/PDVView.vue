@@ -235,6 +235,7 @@
         :show="this.showPaymentsForm"
         :typeOperation=this.typeOperation
         :totalOperation=this.totalOperation
+        :pdvID=this.pdvID
         @close="cancelOperation"
     
     />
@@ -264,6 +265,7 @@
                 totalOperation: 0,
                 withScreen: 0,
                 textSize: 4,
+                pdvID: 0,
                 show: false,
                 showGrid: true,
                 showPaymentsForm: false,
@@ -301,7 +303,6 @@
         methods: {
             async saveSale()
             {
-                this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
                 const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
@@ -340,7 +341,6 @@
                         this.hotelCodCRT += response.data.all.hotel.cod_crt
                         if(Number(this.hotelCodCRT) && this.hotelCodCRT > 0)
                         {
-                            console.log(this.hotelCodCRT)
                             if(this.hotelCodCRT == 1 || this.hotelCodCRT >= 4)
                             {
                                 this.csosncst = 'CSOSN'
@@ -371,26 +371,30 @@
             async finalizeSale(type)
             {
                 // Só vai chamar a forma de pagamento
+                this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
+                
                 if(type === 'nm')
                 {
                     const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                         products: this.productsSeletion, // Produtos da 
                         user_id: this.emitProducts.userID,
                         customer_id: this.emitProducts.customerID,
-                        sub_total: this.calculateTotal.subtotal,
                         total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                        sub_total: this.calculateTotal.subtotal,
                         addition: this.calculateTotal.addition,
                         discount: this.calculateTotal.discount,
-                        description: 'Venda guardada',
+                        description: 'Venda Nota Manual N°',
                         is_nfce_nm: type
                         
                     })
+
                     console.log(response.data)
                     if(response.data.success === true)
                     {
                         this.productsSeletion = []
                         this.typeOperation = 'saleNM'
                         this.showPaymentsForm = !this.showPaymentsForm
+                        this.pdvID = response.data.pdvID
 
                     }
                 }
@@ -398,23 +402,25 @@
                 if(type === 'nfce')
                 {
                     const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
-                            products: this.productsSeletion, // Produtos da 
-                            user_id: this.emitProducts.userID,
-                            customer_id: this.emitProducts.customerID,
-                            sub_total: this.calculateTotal.total,
-                            total: this.calculateTotal.total - this.calculateTotal.discount + this.calculateTotal.addition,
-                            addition: this.calculateTotal.addition,
-                            discount: this.calculateTotal.discount,
-                            description: 'Venda guardada',
-                            is_nfce_nm: type
-                            
-                        })
+                        products: this.productsSeletion, // Produtos da 
+                        user_id: this.emitProducts.userID,
+                        customer_id: this.emitProducts.customerID,
+                        total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                        sub_total: this.calculateTotal.subtotal,
+                        addition: this.calculateTotal.addition,
+                        discount: this.calculateTotal.discount,
+                        description: 'Venda NFC-e N° ',
+                        is_nfce_nm: type
+                        
+                    })
 
+                    console.log(response.data)
                     if(response.data.success === true)
                     {
                         this.productsSeletion = []
                         this.typeOperation = 'saleNFCe'
                         this.showPaymentsForm = !this.showPaymentsForm
+                        this.pdvID = response.data.pdvID
 
                     }
                 }

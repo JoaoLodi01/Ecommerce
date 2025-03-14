@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\HotelModels\Reservation;
 use App\Models\CustomerCredit;
-
+use App\Models\EcommerceModels\PDV;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -37,5 +37,10 @@ class Customer extends Model
     {
         return $this->hasMany(CustomerCredit::class, 'customer_id');
 
+    }
+
+    public function joinSales()
+    {
+        return $this->hasMany(PDV::class, 'customer_id');
     }
 }
