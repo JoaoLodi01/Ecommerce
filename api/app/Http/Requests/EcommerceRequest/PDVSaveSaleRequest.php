@@ -24,7 +24,7 @@ class PDVSaveSaleRequest extends FormRequest
             'addition' => ['required', 'numeric'],
             'discount' => ['required', 'numeric'],
             'is_nfce_nm' => ['sometimes'],
-
+            
         ];
     }
 }

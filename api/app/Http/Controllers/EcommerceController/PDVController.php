@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EcommerceRequest\PDVSaleRequest;
 use App\Http\Requests\EcommerceRequest\PDVSaveSaleRequest;
 use App\Services\EcommerceService\PDVService;
-
+use Illuminate\Support\Facades\Log;
 
 class PDVController extends Controller
 {
@@ -34,8 +34,10 @@ class PDVController extends Controller
 
     public function saveSale(PDVSaveSaleRequest $request)
     {
+        Log::info('Chamou aqui');
         $data = $request->validated();
-        return $this->pdvService->saveSale($data, $data['products']);
+        return response()->json($data);
+        //return $this->pdvService->saveSale($data, $data['products']);
         
     }
 

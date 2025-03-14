@@ -303,7 +303,8 @@
         methods: {
             async saveSale()
             {
-                const saveSale = confirm('Deseja salvar a venda?')
+                console.log(toRaw(this.productsSeletion))
+                /*const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
                         const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
@@ -330,7 +331,7 @@
                         console.error('Erro saveSale() = error.response', error)
                         
                     }
-                }
+                }*/
             },
 
             async getHotel(){
@@ -386,8 +387,6 @@
                             description: 'Venda Nota Manual N°',
                             is_nfce_nm: type,
                             
-                        }, {
-                            withCredentials: false
                         })
 
                         console.log(response.data)
@@ -414,8 +413,6 @@
                         description: 'Venda NFC-e N° ',
                         is_nfce_nm: type
                         
-                    }, {
-                        withCredentials: false
                     })
 
                     console.log(response.data)

@@ -25,6 +25,7 @@ use App\Repositories\Eloquent\{
 
 use App\Repositories\PayMentMethod;
 use Illuminate\Support\Facades\Log;
+
 class PDVRepository
 {
     public function __construct(
@@ -242,7 +243,7 @@ class PDVRepository
     }
 
     public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total)
-    {
+    {/*
         $pdv = $this->findByID($id);
         $customer = $this->customerRepository->findByID($pdv->customer_id);
         //$customer->joinSales();
@@ -250,7 +251,7 @@ class PDVRepository
             $paymentsValues, [1], $customer, $pdv->description, $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id"
         );
 
-        /*$pdv = PDV::where('id', $id)->first()->update([
+        $pdv = PDV::where('id', $id)->first()->update([
             'description' => $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id",
             'finished' => 1
         ]);*/        
