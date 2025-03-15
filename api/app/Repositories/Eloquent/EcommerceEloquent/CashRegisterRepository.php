@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Log;
 
 class CashRegisterRepository
 {
-    public function getAll(int $active){ 
-        return CashRegister::all();
+    public function getAll(){ 
+        return CashRegister::paginate(20);
         
     }
 

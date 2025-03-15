@@ -8,7 +8,7 @@ class ConfigRepository
 {
     public function getConfigs()
     {
-        return Config::all();
+        return Config::paginate(20);
         
     }
 
@@ -21,7 +21,6 @@ class ConfigRepository
         
         ]);
 
-        return Config::all();
+        return $this->getConfigs();
     }
-
 }

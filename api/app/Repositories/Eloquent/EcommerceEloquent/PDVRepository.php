@@ -35,16 +35,11 @@ class PDVRepository
         protected ProductsRepository $productsRepository,
         protected PayMentMethod $payMentMethod,
 
-    )
-    {
-        $this->customerRepository = $customerRepository;
-        $this->cashRegisterRepository = $cashRegisterRepository;
-        $this->payMentMethod = $payMentMethod;
-    }
+    ){}
 
-    public function getAll(int $active){
+    public function getAll(){
         Log::info("Vai buscar todas as NFC-e ativas da table = PDV");
-        return PDV::where('active', $active)->get();
+        return PDV::paginate(10);
     }
 
     public function store(array $data){
@@ -169,7 +164,16 @@ class PDVRepository
 
     public function saveProducts(array $productsArray, int $pdvID, object $user)
     {
-        Log::info('-- Iniciou o saveProducts() line 167 -- ');        
+        Log::info('-- Iniciou o saveProducts() line 167 -- ');     
+        /*   
+        $productsIDs = array_column($productsArray, 'id');
+        for ($i=0; $i < count($productsIDs); $i++) { 
+            $products = $this->productsRepository->findByID($productsIDs[$i]);
+        }
+        
+        Log::info('$products');
+        Log::info($products);
+        
         foreach ($productsArray as $products) {
             Log::info('Entrou no primeiro foreach: (products)');
             Log::info($products);
@@ -194,9 +198,9 @@ class PDVRepository
     
                 ]);
             }
-
             Log::info('ItensPDV ' . $itensPDV);
         }
+        */
     }
 
     public function saveSale(array $details, array $productsArray)
@@ -227,7 +231,7 @@ class PDVRepository
 
         if($pdv && $pdv->id)
         {
-            $this->saveProducts($productsArray, $pdv->id, $user);
+            //$this->saveProducts($productsArray, $pdv->id, $user);
             return array(
                 'success' => true,
                 'pdv' => $pdv,

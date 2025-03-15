@@ -17,14 +17,12 @@ return new class extends Migration
             $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->string('product', 255);
+            $table->string('product', 120);
             $table->string('cfop', 4);
             $table->string('csosn', 3);
             $table->string('ncm', 8);
             $table->string('cest', 7);
-            $table->string('unit', 4);
-            $table->string('product', 255);
-            $table->string('product', 255);
+            $table->string('unit', 4);        
             $table->float('amount_sold');
             $table->decimal('addition', 16,2)->nullable();
             $table->decimal('discount', 16,2)->nullable();

@@ -4,36 +4,15 @@ namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PDVRepository;
 
-class PDVService{
+class PDVService
+{
+    public function __construct(
+        protected PDVRepository $pdvRepository
 
-    protected $pdvRepository;
-
-    public function __construct(PDVRepository $pdvRepository){
-        $this->pdvRepository = $pdvRepository;
-    }
+    ){}
 
     public function getAll(){
-        try {
-            return $this->pdvRepository->getAll(1);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
-    }
-
-    public function store(array $data){
-        try {
-            $total = $this->calculateTotal($data);
-            $data['valor_liquido'] = $total;
-
-            $this->pdvRepository->store($data);
-            return response()->json([
-                'success' => true,
-                'message' => 'Venda realizada com sucesso!',
-            ]);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        return $this->pdvRepository->getAll();
     }
 
     public function update(array $data, int $id){
@@ -44,15 +23,6 @@ class PDVService{
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
-    }
-
-    public function calculateTotal(array $data){
-        $total = 0;
-
-        foreach ($data as $item){
-            $total += $item['preco_unitario'] * $item['qtde'];
-        }
-        return $total;
     }
 
     public function returnResponse($th){
@@ -86,7 +56,7 @@ class PDVService{
         }
     }
 
-    public function finalizeSale(array $paymentsValues, string $typeOperation, int $id)
+    /*public function finalizeSale(array $paymentsValues, string $typeOperation, int $id)
     {
         try {
             $total = 0;
@@ -117,5 +87,5 @@ class PDVService{
             ]);
             
         }
-    }
+    }*/
 }

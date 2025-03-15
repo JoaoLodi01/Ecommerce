@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Log;
 class ProductsRepository
 {
     public function getAll(int $active){
-        return Products::where('active', $active)->get();
+        //return Products::where('active', $active)->get();
+        return Products::paginate(10);
     }
 
     public function search(array $data)

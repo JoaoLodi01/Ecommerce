@@ -13,43 +13,31 @@ class PDVController extends Controller
 {
     public function __construct(
         protected PDVService $pdvService
-    ){
-        $this->pdvService = $pdvService;
-    }
+    ){}
 
     public function getAll(){
         return $this->pdvService->getAll();
     }
 
-    public function store(Request $request){
-        //$data = $request->validated();
-        return $this->pdvService->store($request->all());
-    }
-
-    public function update(Request $request, int $id){
-        //$data = $request->validated();
-        return $this->pdvService->update($request->all(), $id);
-
-    }
-
-    public function saveSale(PDVSaveSaleRequest $request)
+    public function saveSale(Request $request)
     {
+        dump('Chamou aqui');
         Log::info('Chamou aqui');
-        $data = $request->validated();
-        return response()->json($data);
-        //return $this->pdvService->saveSale($data, $data['products']);
-        
-    }
-
-    public function finalizeSale(Request $request, int $id)
-    {
         //$data = $request->validated();
         return response()->json([
             'data' => $request->all()
         ]);
         
-        return $this->pdvService->finalizeSale($request->input('paymentsValues'), $request->input('typeOperation'), $id);
-
+        //return $this->pdvService->saveSale($data, $data['products']);
+        
     }
-
+    
+    public function finalizeSale(Request $request, int $id)
+    {
+        //$data = $request->validated();
+        //return $this->pdvService->finalizeSale($request->input('paymentsValues'), $request->input('typeOperation'), $id);
+        return response()->json([
+            'data' => $request->all()
+        ]);
+    }
 }
