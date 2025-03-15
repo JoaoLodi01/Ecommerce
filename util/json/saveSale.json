@@ -46,5 +46,13 @@ is_nfce_nm: null
             "unit": "UN"
             
         }
-    ]
+    ],
+    "user_id": 1,
+    "customer_id": 1,
+    "sub_total": 100,
+    "total": 100,
+    "addition": 0,
+    "discount": 0,
+    "description": "Venda guardada",
+    "is_nfce_nm": null
 }

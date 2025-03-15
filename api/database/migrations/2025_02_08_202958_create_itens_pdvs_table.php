@@ -29,7 +29,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('seller', 255);
-            $table->string('is_nfce_nm', 4);
+            $table->string('is_nfce_nm', 4)->nullable();
             $table->boolean('finished', 1)->default(0);
             $table->timestamps();
         });

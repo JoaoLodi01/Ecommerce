@@ -4,26 +4,31 @@ namespace App\Repositories;
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
 use App\Repositories\Eloquent\HotelEloquent\ReservationRepository;
+use App\Repositories\Eloquent\HotelEloquent\RoomRepository;
 use App\Repositories\Eloquent\ReceiveRepository;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
 class PayMentMethod
-{
+{    
     public function __construct(
         protected CashRegisterRepository $cashRegisterRepository,
         protected ReceiveRepository $receiveRepository,
-        protected ReservationRepository $reservationRepository
-    )
+        protected ReservationRepository $reservationRepository,
+        protected RoomRepository $roomRepository
+        
+    ){}
+
+    public function test()
     {
-        $this->cashRegisterRepository = $cashRegisterRepository;
-        $this->receiveRepository = $receiveRepository;
+        Log::info('Memória usada PayMentMethod::class, test: ' . memory_get_usage(true));
+        return 1;
     }
 
-    public function payment(array $formsPayment, array $payment, object $customer, string $description, string $origem)
-    
-    {   // Método para ser adicioando ao caixa
+    public function payment(array $formsPayment, array $payment, object $customer, string $description, string $origem)    
+    {   // Método para ser adicioando ao caixa        
         Log::info('-- Inicio do registro no caixa, PayMentMethod.php, linha 24 --');
+        Log::info('Memória usada PayMentMethod::class, payment: ' . memory_get_usage(true));
         Log::info('Quantia $formsPayment: ' . count($formsPayment));
         $currantDate = new Carbon();
         $cashRegisters = [];
@@ -215,4 +220,5 @@ class PayMentMethod
         $this->cashRegisterRepository->create($cashRegisters);
         Log::info('-- Fim decreaseCash linha 216 --');
     }
+    
 }

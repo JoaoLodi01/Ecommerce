@@ -17,11 +17,11 @@ class HotelService
     {
         try {
             $hotel = $this->hotelRepository->all($active);
-            if($hotel['success'] == true)
+            if(['success'] == true)
             {
                 return response()->json([
                     'success' => true,
-                    'all' => $this->hotelRepository->all($active)
+                    'all' => $hotel
 
                 ], 200);
 

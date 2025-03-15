@@ -1,14 +1,14 @@
 <?php
-
+/*
 namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Requests\PayMentMethodRequest;
 use App\Http\Controllers\Controller;
-/*use Illuminate\Http\Client\Request;
+use Illuminate\Http\Client\Request;
 use MercadoPago\Client\Common\RequestOptions;
 use MercadoPago\Client\Payment\PaymentClient;
 use MercadoPago\Exceptions\MPApiException;
-use MercadoPago\MercadoPagoConfig;*/
+use MercadoPago\MercadoPagoConfig;
 
 class MercadoPagoController extends Controller
 {
@@ -47,7 +47,7 @@ class MercadoPagoController extends Controller
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
-    }*/
+    }
 
     public function payMent(PayMentMethodRequest $request)
     {
@@ -55,4 +55,4 @@ class MercadoPagoController extends Controller
         $amount = (float) $data;
 
     }
-}
+}*/

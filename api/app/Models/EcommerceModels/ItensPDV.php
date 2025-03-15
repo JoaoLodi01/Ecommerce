@@ -20,7 +20,7 @@ class ItensPDV extends Model
         'amount_sold',
         'addition',
         'discount',
-        'seller_id',
+        'user_id',
         'seller',
         'is_nfce_nm',
         'finished',

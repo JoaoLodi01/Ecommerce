@@ -8,16 +8,19 @@ use Illuminate\Support\Facades\Log;
 class CashRegisterRepository
 {
     public function getAll(){ 
+        Log::info('Memória usada CashRegisterRepository::class, getAll: ' . memory_get_usage(true));
         return CashRegister::paginate(20);
         
     }
 
     public function findByID(string $params){
+        Log::info('Memória usada CashRegisterRepository::class, findByID: ' . memory_get_usage(true));
         return CashRegister::where('id', $params)->first();
     }
 
     public function create(array $cashRegisters){
         Log::info('Vai iniciar criação no CAIXA, dados:');
+        Log::info('Memória usada CashRegisterRepository::class, create: ' . memory_get_usage(true));
         Log::info('Quantia: '. count($cashRegisters));
         Log::info('Tipo de dado: ' . gettype($cashRegisters));
         Log::info($cashRegisters);
@@ -27,6 +30,7 @@ class CashRegisterRepository
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             for ($i=0; $i < count($cashRegisters); $i++)
             { 
+                Log::info('Memória usada CashRegisterRepository::class, create, dentro for: ' . memory_get_usage(true));
                 Log::info('Vai chamar o updateCurrentCash($cashRegisters[$i]), dados x: ' . $i);
                 Log::info($cashRegisters[$i]);
                 CashRegister::create($cashRegisters[$i]);
@@ -41,11 +45,12 @@ class CashRegisterRepository
             $this->updateCurrentCash();
 
         }
-        return;
+        
     }
 
     public function updateCurrentCash()
     {   
+        Log::info('Memória usada CashRegisterRepository::class, updateCurrentCash: ' . memory_get_usage(true));
         $lastCashBox = CashRegister::where('canceled', 0)->latest('id')->first();
         $cashBox = CashRegister::where('id', $lastCashBox->id - 1)->first();
         
@@ -56,7 +61,7 @@ class CashRegisterRepository
                 'saldo_real' => $lastCashBox->input_value
 
             ]);
-            return;
+            
         }
 
         Log::info('$lastCashBoxashBox');
@@ -73,10 +78,12 @@ class CashRegisterRepository
     }
 
     public function update(array $cashRegisters, int $id){
+        Log::info('Memória usada CashRegisterRepository::class, update: ' . memory_get_usage(true));
         return CashRegister::where('id', $id)->update($cashRegisters);
     }
 
     public function delete(int $id){
+        Log::info('Memória usada CashRegisterRepository::class, delete: ' . memory_get_usage(true));
         return CashRegister::where('id', $id)->update([
             'active' => 0,
         ]);

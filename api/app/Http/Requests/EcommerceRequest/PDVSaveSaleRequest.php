@@ -27,4 +27,30 @@ class PDVSaveSaleRequest extends FormRequest
             
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'description.required' => 'A descrição da venda é obrigatória',
+            'description.string' => 'A descrição da venda deve ser um texto válido',
+            'description.max' => 'A descrição da venda passou do seu limite de caracteres',
+
+            'products.required' => 'Os produtos da venda são obrigatórios',
+            'products.array' => 'Os produtos da venda estão fora do padrão esperado',
+
+            'total.required' => 'O total da venda deve ser informado',
+            'total.numeric' => 'O total da venda está fora do padrão esperado',
+
+            'sub_total.required' => 'O subtotal da venda deve ser informado',
+            'sub_total.numeric' => 'O subototal da venda está fora do padrão esperado',
+            
+            'addition.required' => 'O acrésimo da venda deve ser informado', 
+            'addition.numeric' => 'O acrésimo da venda está fora do padrão esperado',
+
+            'discount.required' => 'O desconto  da venda deve ser informado',
+            'discount.numeric' => 'O desconto da venda está fora do padrão esperado',
+
+        ];
+        
+    }
 }

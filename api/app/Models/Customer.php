@@ -38,9 +38,4 @@ class Customer extends Model
         return $this->hasMany(CustomerCredit::class, 'customer_id');
 
     }
-
-    public function joinSales()
-    {
-        return $this->hasMany(PDV::class, 'customer_id');
-    }
 }
