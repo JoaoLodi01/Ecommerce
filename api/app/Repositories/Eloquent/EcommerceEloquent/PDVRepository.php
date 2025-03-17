@@ -15,7 +15,7 @@ use App\Repositories\Eloquent\{
     UserRepository
 };
 
-use App\Repositories\PayMentMethod;
+use App\Services\PayMentMethodService;
 use Illuminate\Support\Facades\Log;
 
 class PDVRepository
@@ -25,9 +25,11 @@ class PDVRepository
         protected CashRegisterRepository $cashRegisterRepository,
         protected UserRepository $userRepository,
         protected ProductsRepository $productsRepository,
-        protected PayMentMethod $payMentMethod,
+        protected PayMentMethodService $payMentMethodService,
 
-    ){}
+    ){
+        Log::info('Memória usada PDVRepository::class, __construct, linha 31: ' . memory_get_usage(true));
+    }
 
     public function getAll(){
         Log::info("Vai buscar todas as NFC-e ativas da table = PDV");
@@ -115,7 +117,6 @@ class PDVRepository
         
         $pdv = PDV::create($pdvData);  
 
-        Log::info($this->payMentMethod->test());
         if($pdv && $pdv->id)
         {
             $this->saveProducts($productsArray, $pdv->id, $user);
@@ -138,7 +139,7 @@ class PDVRepository
         $pdv = $this->findByID($id);
         $customer = $this->customerRepository->findByID($pdv->customer_id);
         //$customer->joinSales();
-        $this->payMentMethod->payment(
+        $this->PayMentMethodService->payment(
             $paymentsValues, [1], $customer, $pdv->description, $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id"
         );
 

@@ -1,34 +1,30 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Services;
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-use App\Repositories\Eloquent\HotelEloquent\ReservationRepository;
-use App\Repositories\Eloquent\HotelEloquent\RoomRepository;
+
 use App\Repositories\Eloquent\ReceiveRepository;
+use App\Services\HotelServices\ReservationService;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
-class PayMentMethod
+class PayMentMethodService
 {    
     public function __construct(
         protected CashRegisterRepository $cashRegisterRepository,
         protected ReceiveRepository $receiveRepository,
-        protected ReservationRepository $reservationRepository,
-        protected RoomRepository $roomRepository
-        
-    ){}
+        protected ReservationService $reservationService,
 
-    public function test()
-    {
-        Log::info('Memória usada PayMentMethod::class, test: ' . memory_get_usage(true));
-        return 1;
+        
+    ){
+        Log::info('Memória usada PayMentMethodService::class, __construct, linha 22: ' . memory_get_usage(true));
     }
 
     public function payment(array $formsPayment, array $payment, object $customer, string $description, string $origem)    
-    {   // Método para ser adicioando ao caixa        
-        Log::info('-- Inicio do registro no caixa, PayMentMethod.php, linha 24 --');
-        Log::info('Memória usada PayMentMethod::class, payment: ' . memory_get_usage(true));
+    {   // Método para ser adicioando ao caixa                
+        Log::info('-- Inicio do registro no caixa, PayMentMethodService.php, linha 24 --');
+        Log::info('Memória usada PayMentMethodService::class, payment: ' . memory_get_usage(true));
         Log::info('Quantia $formsPayment: ' . count($formsPayment));
         $currantDate = new Carbon();
         $cashRegisters = [];
@@ -109,9 +105,9 @@ class PayMentMethod
             Log::info('-- Vai chamar o cashRegisterRepository linha 104 -- ');
             $this->cashRegisterRepository->create($cashRegisters);
             Log::info('-- Vai chamar o reservationRepository linha 106 -- ');
-            $this->reservationRepository->create($customer);
+            $this->reservationService->create($customer);
             Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
-            Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 109 --');
+            Log::info('-- Fim do registro no caixa, PayMentMethodService.php, linha 109 --');
             return;
         }
 
@@ -181,22 +177,23 @@ class PayMentMethod
                 }
             }
         }
-        
+    
         Log::info('Terminou de montar o corpo do caixa: ');
         Log::info('Dados: ');
         Log::info($cashRegisters);
         Log::info('-- Vai chamar o cashRegisterRepository linha 183 -- ');
         $this->cashRegisterRepository->create($cashRegisters);
         Log::info('-- Vai chamar o reservationRepository linha 185 -- ');
-        $this->reservationRepository->create($customer);
+        $this->reservationService->create($customer);
         Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
-        Log::info('-- Fim do registro no caixa, PayMentMethod.php, linha 188 --');
+        Log::info('-- Fim do registro no caixa, PayMentMethodService.php, linha 188 --');
         return;
     }    
 
     public function decreaseCash(object $customer, float $value, string $description, string $origem, object $room)
     {
         Log::info('-- Inicio decreaseCash linha 194 --');
+        Log::info('Memória usada PayMentMethodService::class, decreaseCash: ' . memory_get_usage(true));
         $currantDate = new Carbon();
         $cashRegisters = [];
         $cashRegisters[] = array(

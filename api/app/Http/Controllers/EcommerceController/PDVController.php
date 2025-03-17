@@ -13,15 +13,16 @@ class PDVController extends Controller
 {
     public function __construct(
         protected PDVService $pdvService
-    ){}
+    ){
+        Log::info('Memória usada PDVController::class, __construct: ' . memory_get_usage(true));
+    }
 
     public function getAll(){
         return $this->pdvService->getAll();
     }
 
     public function saveSale(PDVSaveSaleRequest $request)
-    {
-        Log::info('Chamou aqui');
+    {;
         Log::info('Memória usada PDVController::class, saveSale: ' . memory_get_usage(true));
 
         $data = $request->validated();

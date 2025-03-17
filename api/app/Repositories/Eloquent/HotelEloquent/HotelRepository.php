@@ -13,14 +13,13 @@ use App\Models\Config as ConfigHotel;
 use App\Repositories\Contracts\HotelContract\HotelDetailContract;
 
 use Illuminate\Support\Facades\Log;
-
 class HotelRepository implements HotelDetailContract
 {
     public function all(int $active)
     {
         Log::info("Vai buscar o hotel e as configurações");
-        $hotel = HotelDetail::where('active', $active)->first()->paginate(1);
-        $config = ConfigHotel::where('active', $active)->first()->paginate(6);
+        $hotel = HotelDetail::where('active', $active)->first();
+        $config = ConfigHotel::where('active', $active)->first();
 
         if(!empty($hotel))
         {  

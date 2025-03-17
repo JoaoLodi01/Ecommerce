@@ -3,13 +3,16 @@
 namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PDVRepository;
+use Illuminate\Support\Facades\Log;
 
 class PDVService
 {
     public function __construct(
         protected PDVRepository $pdvRepository
 
-    ){}
+    ){
+        Log::info('Memória usada PDVService::class, __construct, linha 13: ' . memory_get_usage(true));
+    }
 
     public function getAll(){
         return $this->pdvRepository->getAll();

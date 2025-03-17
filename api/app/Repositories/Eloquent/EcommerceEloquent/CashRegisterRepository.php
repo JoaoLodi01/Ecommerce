@@ -4,7 +4,6 @@ namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\CashRegister;
 use Illuminate\Support\Facades\Log;
-
 class CashRegisterRepository
 {
     public function getAll(){ 

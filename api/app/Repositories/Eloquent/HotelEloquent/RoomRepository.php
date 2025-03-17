@@ -23,17 +23,18 @@ use App\Models\{
 };
 
 use App\Repositories\Contracts\HotelContract\RoomContract;
-use App\Repositories\PayMentMethod;
+use App\Services\PayMentMethodService;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
 class RoomRepository implements RoomContract
 {
     public function __construct(
-        //protected PaymentsRepository $paymentsRepository,
+        protected PaymentsRepository $paymentsRepository,
         protected CashRegisterRepository $cashRegisterRepository,
         protected HotelRepository $hotelRepository,
-        protected PayMentMethod $payMentMethod
+        protected PayMentMethodService $PayMentMethodService
+
     ){
         Log::info('Memória usada RoomRepository::class, __construct: ' . memory_get_usage(true));
 
@@ -188,7 +189,7 @@ class RoomRepository implements RoomContract
             
             // Se der completamente errado, retornar para >= 2
             Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 192 --');
-            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
+            $this->PayMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
             Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 194 --');
 
             if($generateCredit === true)
@@ -218,7 +219,7 @@ class RoomRepository implements RoomContract
             ]);
     
             Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 224 --');
-            $this->payMentMethod->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
+            $this->PayMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
             Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 225 --');
             
             return array(
@@ -250,7 +251,7 @@ class RoomRepository implements RoomContract
             'validate' => Carbon::now()->addDays(30)->format('Y-m-d')
 
         ]);
-        $this->payMentMethod->decreaseCash($customer, $customerCredit->current_credit, 'Geração de crédito', 'hotel', $room);
+        $this->PayMentMethodService->decreaseCash($customer, $customerCredit->current_credit, 'Geração de crédito', 'hotel', $room);
         Log::info('-- Fim createCredit linha 250 --');   
     }
 
@@ -305,9 +306,10 @@ class RoomRepository implements RoomContract
         ]); // Desativa o quarto
     }
 
-    public function checkReservation(int $customerID)
+    /*public function checkReservation(int $customerID)
     {
+        Log::info('Memória usada RoomRepository::class, checkReservation: ' . memory_get_usage(true));
         return Reservation::where('customer_id', $customerID)->first();
 
-    }
+    }*/
 }
