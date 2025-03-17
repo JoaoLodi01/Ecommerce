@@ -1,0 +1,87 @@
+[2025-03-17 11:41:36] local.ERROR: Command "make:teste" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view
+    schedule:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:teste\" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view
+    schedule:test at C:\\Gabriel\\Codes\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php:726)
+[stacktrace]
+#0 C:\\Gabriel\\Codes\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(284): Symfony\\Component\\Console\\Application->find()
+#1 C:\\Gabriel\\Codes\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#2 C:\\Gabriel\\Codes\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#3 C:\\Gabriel\\Codes\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1231): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 C:\\Gabriel\\Codes\\Projeto_3_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#5 {main}
+"} 
