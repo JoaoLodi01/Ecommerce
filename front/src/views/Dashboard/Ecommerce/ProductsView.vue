@@ -42,10 +42,6 @@
               class="px-4 py-2 text-red-500 bg-red-100 rounded-lg hover:bg-red-200 transition">Excluir</button>
           </div>
         </div>
-        <div class="mt-4">
-          
-        </div>
-        
       </div>
       <RegisterProduct
         v-if= "showRegisterProduct"
@@ -73,16 +69,19 @@ export default {
     };
   },
 
-  mounted() {
-    this.getProducts();
-  },
-
   methods: {
 
     async getProducts() {
-      const response = await axios.get(`${this.api}/ecommerce/products/all`);
-      console.log(response);
-      this.products = response.data;
+      try {
+        const response = await axios.get(`${this.api}/ecommerce/products/all`);
+        console.log(response);
+        this.products = response.data;
+        
+      } catch (error) {
+        console.error('getProducts', error)
+        
+      }
+
     },
 
     toggleRegisterProductVisibility(){
@@ -102,5 +101,10 @@ export default {
       this.showRegisterProduct = !this.showRegisterProduct;
     },
   },
+
+  mounted() {
+    this.getProducts();
+  },
 };
+
 </script>

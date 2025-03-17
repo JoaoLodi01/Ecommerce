@@ -142,3 +142,7 @@ Route::get('/page-401', function (){
         
     ]);
 });
+
+Route::get('/php-info', function (){
+    return phpinfo();
+});

@@ -1,18 +1,18 @@
 <?php
-
+/*
 namespace App\Http\Controllers\EcommerceController;
 
-use App\Http\Requests\PayMentMethodRequest;
+use App\Http\Requests\PayMentMethodServiceRequest;
 use App\Http\Controllers\Controller;
-/*use Illuminate\Http\Client\Request;
+use Illuminate\Http\Client\Request;
 use MercadoPago\Client\Common\RequestOptions;
 use MercadoPago\Client\Payment\PaymentClient;
 use MercadoPago\Exceptions\MPApiException;
-use MercadoPago\MercadoPagoConfig;*/
+use MercadoPago\MercadoPagoConfig;
 
 class MercadoPagoController extends Controller
 {
-    /*public function payMentMercadoPago(PayMentMethodRequest $request)
+    /*public function payMentMercadoPago(PayMentMethodServiceRequest $request)
     {
         try {
             //MercadoPagoConfig::setAccessToken(env('MERCADO_PAGO_ACCESS_TOKEN'));
@@ -47,12 +47,12 @@ class MercadoPagoController extends Controller
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
-    }*/
+    }
 
-    public function payMent(PayMentMethodRequest $request)
+    public function payMent(PayMentMethodServiceRequest $request)
     {
         $data = $request->validated();
         $amount = (float) $data;
 
     }
-}
+}*/

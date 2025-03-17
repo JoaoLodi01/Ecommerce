@@ -13,7 +13,7 @@
         class="bg-white p-6 shadow-lg rounded-lg border border-gray-200">
 
         <div class="text-sm text-gray-500 mb-2">
-          <span class="font-semibold">Cliente:</span> {{ client.name }}
+          <span class="font-semibold">Cliente:</span> {{ client }}
         </div>
 
         <div class="text-sm text-gray-500 mb-2">
@@ -25,13 +25,21 @@
         </div>
 
         <div class="text-sm text-gray-500 mb-2">
-          <span class="font-semibold">CNPJ:</span>
+          <span class="font-semibold">CNPJ:</span> {{ client.cnpj }}
         </div>
 
         <div class="text-sm text-gray-500 mb-2">
-          <span class="font-semibold"></span>
+          <span class="font-semibold">Número:</span> {{ client.number }}
         </div>
 
+        <div class="flex space-x-2">
+          <button
+             @click="editClient(client)"
+            class="px-4 py-2 text-blue-500 bg-blue-100 rounded-lg hover:bg-blue-200 transition">Editar</button>
+          <button
+            @click="deleteClient(client.id)"
+            class="px-4 py-2 text-red-500 bg-red-100 rounded-lg hover:bg-red-200 transition">Excluir</button>
+        </div>
       </div>
     </div>
   </div>

@@ -2,17 +2,9 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\{
-    Receive,
-    Customer,
-    User
-};
-
 use App\Models\EcommerceModels\{
     PDV,
-    FormaPagamentoPDV,
     ItensPDV,
-    Payment,
     
 };
 
@@ -23,8 +15,9 @@ use App\Repositories\Eloquent\{
     UserRepository
 };
 
-use App\Repositories\PayMentMethod;
+use App\Services\PayMentMethodService;
 use Illuminate\Support\Facades\Log;
+
 class PDVRepository
 {
     public function __construct(
@@ -32,126 +25,22 @@ class PDVRepository
         protected CashRegisterRepository $cashRegisterRepository,
         protected UserRepository $userRepository,
         protected ProductsRepository $productsRepository,
-        protected PayMentMethod $payMentMethod,
+        protected PayMentMethodService $payMentMethodService,
 
-    )
-    {
-        $this->customerRepository = $customerRepository;
-        $this->cashRegisterRepository = $cashRegisterRepository;
-        $this->payMentMethod = $payMentMethod;
+    ){
+        Log::info('Memória usada PDVRepository::class, __construct, linha 31: ' . memory_get_usage(true));
     }
 
-    public function getAll(int $active){
+    public function getAll(){
         Log::info("Vai buscar todas as NFC-e ativas da table = PDV");
-        return PDV::where('active', $active)->get();
-    }
-
-    public function store(array $data){
-        Log::info("Buscando cliente da venda.");
-        $customer = Customer::where('id', $data['customer_id'])->first();
-
-        Log::info("Buscando usuário logado.");
-        $user = User::where('id', $data['user_id'])->first();
-
-        Log::info("Buscando espécie utilizada.");
-        $paymentForm = Payment::where('id', $data['payment_id'])->first();
-
-        if($customer && $user && $paymentForm){
-            // Precisa ajustar e melhorar
-            Log::info("Vai criar NFC-e.");
-            $pdv = PDV::create([
-                'customer_id' => $customer->id,
-                'customer' => $customer->name,
-                'gross_value' => $paymentForm->valor_bruto,
-                'net_value' => $paymentForm->valor_liquido,
-                'discount' => $paymentForm->valor_desconto,
-                'addition' => $paymentForm->valor_desconto,
-                'user_id' => $user->id,
-                'user' => $user->name,
-            ]);
-
-            Log::info("Vai criar a forma de pagamento.");
-            $payment = FormaPagamentoPDV::create([
-                'cod_especie' => $paymentForm->id,
-                'espécie' => $paymentForm->descricao,
-                'valor_bruto' => $pdv->valor_bruto,
-                'valor_liquido' => $pdv->valor_liquido,
-                'valor_desconto' => $pdv->valor_desconto,
-            ]);
-
-            Log::info("Update do Nº documento venda.");
-            $pdv->update([
-                'documento' => $pdv->documento + 1,
-                'descricao' => "VENDA NFC-E: $pdv->id",
-            ]);
-
-            Log::info("Update do Nº documento forma pagamento.");
-            $payment->update([
-                'documento' => $payment->documento + 1,
-            ]);
-
-            Log::info("Vai salvar!");
-            $pdv->save();
-            $payment->save();
-
-        } else if (!$customer){
-            return array('message' => 'Cliente não encontrado!');
-        } else if (!$user){
-            return array('message' => 'Usuário não encontrado!');
-        } else if (!$paymentForm){
-            return array('message' => 'Forma de pagamento não encontrada!');
-        }
-
-        if ($paymentForm->tipolancamento === 'CAIXA'){
-            Log::info("Vai criar registro no caixa");
-            $cashBoxRegister = array(
-                'cliente_id' => $customer->id,
-                'cliente' => $customer->name,
-                'especie_id' => $paymentForm->id,
-                'especie' => $paymentForm->descricao,
-                'valor_entrada' => $pdv->valor_liquido,
-                'valor_saída' => 0,
-                'user_id' => $user->id,
-                'user' => $user->name,
-            );
-            
-            $this->cashRegisterRepository->create($cashBoxRegister);
-
-        } else if ($paymentForm->tipolancamento === 'RECEBER'){
-
-            Log::info("Vai criar registro no receber");
-            $receive = Receive::create([
-                'cliente_id' => $customer->id,
-                'cliente' => $customer->name,
-                'especie_id' => $paymentForm->id,
-                'especie' => $paymentForm->descricao,
-                'valor_parcela' => $pdv->valor_liquido,
-                'user_id' => $user->id,
-                'user' => $user->name,
-
-            ], 201);
-        }
-
-        Log::info("Update origem NFC-e ou NOTA MANUAL");
-        if ($pdv->is_nfce_nm === 1){
-            $pdv->update([
-                'origem' => 'NFC-e',
-            ], 200);
-        } else if ($pdv->is_nfce_nm === 0){
-            $pdv->update([
-                'origem' => 'NOTA MANUAL',
-            ], 200);
-        }
-
-        Log::info("Vai salvar!");
-        $pdv->save();
+        return PDV::paginate(10);
     }
 
     public function update(array $data, int $id){
         Log::info("Buscando registro por ID");
-        $pdv_id = PDV::where('id', $id)->update($data, $id);
+        $pdvID = PDV::where('id', $id)->update($data, $id);
 
-        if ($pdv_id){
+        if ($pdvID){
             Log::info("Registro atualizado com sucesso!");
             return response()->json([
                 'success' => true,
@@ -168,39 +57,43 @@ class PDVRepository
 
     public function saveProducts(array $productsArray, int $pdvID, object $user)
     {
-        Log::info('-- Iniciou o saveProducts() line 167 -- ');        
-        foreach ($productsArray as $products) {
-            Log::info('Entrou no primeiro foreach: (products)');
-            Log::info($products);
-            foreach ($products as $product) {
-                Log::info('Entrou no segundo foreach: (product)');
-                $product = $this->productsRepository->findByID($product['id']);
-                Log::info($product);
-                $itensPDV = ItensPDV::create([
-                    'pdv_id' => $pdvID,
-                    'product_id' => $product->id,
-                    'product' => $product->produto,
-                    'cfop' => $product->cfop,
-                    'csosn' => $product->csosn,
-                    'ncm' => $product->ncm,
-                    'cest' => $product->cest,
-                    'unit' => $product->unit,
-                    'amount_sold' => $product['quantidade'],
-                    'addition' => 0,
-                    'discount' => 0,
-                    'seller_id' => $user->id,
-                    'seller' => $user->name, 
-    
-                ]);
-            }
+        Log::info('-- Iniciou o saveProducts() line 167 -- ');     
+        Log::info('Memória usada PDVRepository::class, saveProducts: ' . memory_get_usage(true));
+        Log::info('User: ' . $user);
+        $productsIDs = array_column($productsArray, 'id');
+        Log::info($productsIDs);
+        
+        for ($i=0; $i < count($productsIDs); $i++) { 
+            Log::info('Memória usada PDVRepository::class, saveProducts dentro do for: ' . memory_get_usage(true));
+            $products = $this->productsRepository->findByID($productsIDs[$i]);
+            $itensPDV = array(
+                'pdv_id' => $pdvID,
+                'product_id' => $products->id,
+                'product' => $products->produto,
+                'cfop' => $products->cfop,
+                'csosn' => $products->csosn,
+                'ncm' => $products->ncm,
+                'cest' => $products->cest,
+                'unit' => $products->unit,
+                'amount_sold' => $products['quantidade'],
+                'addition' => 0,
+                'discount' => 0,
+                'user_id' => $user->id,
+                'seller' => $user->name, 
 
-            Log::info('ItensPDV ' . $itensPDV);
+            );
+            Log::info('itensPDV ');
+            Log::info($itensPDV);
+            ItensPDV::create($itensPDV);
+            
         }
+        
     }
 
     public function saveSale(array $details, array $productsArray)
     {
         Log::info('-- Iniciou o saveSale() line 172 -- ');
+        Log::info('Memória usada PDVRepository::class, saveSale: ' . memory_get_usage(true));
         Log::info('Busca pelo customer');
         $customer = $this->customerRepository->findByID($details['customer_id']);
         Log::info('Busca pelo user');
@@ -227,9 +120,9 @@ class PDVRepository
         if($pdv && $pdv->id)
         {
             $this->saveProducts($productsArray, $pdv->id, $user);
+            
             return array(
                 'success' => true,
-                'pdv' => $pdv,
                 'pdvID' => $pdv->id
 
             );
@@ -242,15 +135,15 @@ class PDVRepository
     }
 
     public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total)
-    {
+    {/*
         $pdv = $this->findByID($id);
         $customer = $this->customerRepository->findByID($pdv->customer_id);
         //$customer->joinSales();
-        $this->payMentMethod->payment(
+        $this->PayMentMethodService->payment(
             $paymentsValues, [1], $customer, $pdv->description, $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id"
         );
 
-        /*$pdv = PDV::where('id', $id)->first()->update([
+        $pdv = PDV::where('id', $id)->first()->update([
             'description' => $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id",
             'finished' => 1
         ]);*/        

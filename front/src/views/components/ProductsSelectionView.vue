@@ -112,8 +112,8 @@
             async getProducts(){
                 try {
                     const response = await axios.get(`${this.api}/ecommerce/products/all`)
-                    
-                    this.products = response.data.map(product => ({
+                    console.log(response.data.data)
+                    this.products = response.data.data.map(product => ({
                         ...product,
                         isSelected: false
 

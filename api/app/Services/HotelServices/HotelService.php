@@ -21,7 +21,7 @@ class HotelService
             {
                 return response()->json([
                     'success' => true,
-                    'all' => $this->hotelRepository->all($active)
+                    'all' => $hotel
 
                 ], 200);
 
