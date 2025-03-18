@@ -5,6 +5,7 @@ main()
     echo "2 - Seeder: php artisan db:see"
     echo "3 - Artisan: php artisan ..."
     echo "4 - Model and table: php artisan make:model 'name' -m"
+    echo "5 - Apagar as logs"
     echo "0 - Sair"
     read option
 
@@ -41,6 +42,15 @@ main()
             bash -c "php artisan make:model $name -m"
 
             sleep 1
+            main
+            ;;
+
+        5)
+            clear
+            cd "D:/SGBR/Projeto_3_Hotel_Ecommerce/api/storage/logs" || { "Caminho não encontrado! "; exit 1;}
+            echo "Apagando logs..."
+            sleep 1
+            rm "laravel.log"
             main
             ;;
 

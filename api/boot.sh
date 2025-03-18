@@ -7,25 +7,21 @@ DB_PASS="masterkey"
 save_db()
 {
 	mysql -u $DB_USER -p$DB_PASS $DB_NAME -e \
-	"INSERT INTO ambientes (ip, local) VALUES ('$1')"
+	"INSERT INTO ambientes (ip, frontend_path, backend_path, local) VALUES ('$1')"
 
 	echo "Dados salvos com sucesso!"
 }
 
 start_server()
 {
-
 	clear
-
-	frontPath="D:\SGBR\Projeto_3_Hotel_Ecommerce\front"
-	backPath="D:\SGBR\Projeto_3_Hotel_Ecommerce\api"
-
-	cd $frontPath
+	echo "Iniciando servidores..."
+	cd $1
 	start bash -c "npm run s"
 
-	cd $backPath 
-	start bash -c "php artisan serve --host=192.168.$ip"
-	
+	cd $2 
+	start bash -c "php artisan serve --host=192.168.$3"
+	clear
 }
 
 all_ambients()
@@ -44,14 +40,11 @@ change_ambient()
 	mysql -u $DB_USER -p$DB_PASS $DB_NAME -e "SELECT * FROM ambientes"	
 	read id
 
-	case $id in
-		1)
-			
-			ip=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -e "SELECT ip FROM ambientes WHERE id = $id")
-			;;
-			
-	esac
+	ip=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT ip FROM ambientes WHERE id = $id")
+	frontPath=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT frontend_path FROM ambientes WHERE id = $id")
+	backPath=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT backend_path FROM ambientes WHERE id = $id")
 
+	start_server $frontPath $backPath $ip 
 }
 
 main()
@@ -66,11 +59,12 @@ main()
 
 	case $ambiente in
 	 	1)
-	 		cd $backPath || { echo "Caminho não encontrado!"; exit 1; }
-	 		start bash -c "php artisan serve --host=192.168.$ip"
+			clear
+			change_ambient
 			;;
 
 		2)
+			clear		
 			all_ambients
 			;;
 

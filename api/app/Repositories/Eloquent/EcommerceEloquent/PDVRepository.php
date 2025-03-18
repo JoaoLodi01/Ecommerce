@@ -26,6 +26,7 @@ class PDVRepository
         protected UserRepository $userRepository,
         protected ProductsRepository $productsRepository,
         protected PayMentMethodService $payMentMethodService,
+        protected PaymentsRepository $paymentsRepository
 
     ){
         Log::info('Memória usada PDVRepository::class, __construct, linha 31: ' . memory_get_usage(true));
@@ -135,17 +136,36 @@ class PDVRepository
     }
 
     public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total)
-    {/*
-        $pdv = $this->findByID($id);
-        $customer = $this->customerRepository->findByID($pdv->customer_id);
-        //$customer->joinSales();
-        $this->PayMentMethodService->payment(
-            $paymentsValues, [1], $customer, $pdv->description, $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id"
-        );
+    {
+        Log::info('-- Iniciou o finalizeSale() line 172 -- ');
+        Log::info('Memória usada PDVRepository::class, finalizeSale: ' . memory_get_usage(true));
 
-        $pdv = PDV::where('id', $id)->first()->update([
-            'description' => $type === 'nfce' ? "Venda NFC-e N° $id" : "Venda Nota Manual N° $id",
+        Log::info('$paymentsValues');
+        Log::info($paymentsValues);
+
+        Log::info('$forms');
+        Log::info($forms);
+
+        $pdv = $this->findByID($id);
+        Log::info('PDV');
+        Log::info($pdv);
+        $customer = $this->customerRepository->findByID($pdv->cliente_id);
+
+        Log::info('Vai procurar a(s) formas de pagamento');
+        $formsPayment = $this->paymentsRepository->findByID($forms); // formsPayment - apenas as espécies
+        Log::info('$pdv->is_nfce_nm');
+        Log::info($pdv->is_nfce_nm);
+        $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id", 'pdv', $pdv);
+
+        $pdv->update([
+            'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
             'finished' => 1
-        ]);*/        
+
+        ]); 
+
+        Log::info('pdv');
+        Log::info($pdv);
+        Log::info('Memória usada PDVRepository::class, finalizeSale após update: ' . memory_get_usage(true));
+        return $pdv;
     }
 }

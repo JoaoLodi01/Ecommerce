@@ -26,7 +26,7 @@ class CashRegisterRepository
 
         if(count($cashRegisters) >= 2)
         {
-            Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
+            Log::info('Vai criar ' . count($cashRegisters) . ' registros: ');
             for ($i=0; $i < count($cashRegisters); $i++)
             { 
                 Log::info('Memória usada CashRegisterRepository::class, create, dentro for: ' . memory_get_usage(true));
@@ -49,29 +49,36 @@ class CashRegisterRepository
 
     public function updateCurrentCash()
     {   
-        Log::info('Memória usada CashRegisterRepository::class, updateCurrentCash: ' . memory_get_usage(true));
+    Log::info('Memória usada CashRegisterRepository::class, updateCurrentCash: ' . memory_get_usage(true));
         $lastCashBox = CashRegister::where('canceled', 0)->latest('id')->first();
-        $cashBox = CashRegister::where('id', $lastCashBox->id - 1)->first();
+        $actualCashBox = CashRegister::where('id', $lastCashBox->id + 1)->first();
+
+        Log::info('$lastCashBoxashBox');
+        Log::info($lastCashBox->id + 1);
+
+        Log::info('$actualCashBox');
+        Log::info($actualCashBox);
         
-        if(!$cashBox)
+        if(!$actualCashBox)
         {
             Log::info('Não foi encontrado um registro anterior do segundo registro no caixa');
             $lastCashBox->update([
-                'saldo_real' => $lastCashBox->input_value
+                'real_balance' => $lastCashBox->input_value
 
             ]);
             
+            Log::info('$lastCashBoxashBox 2');
+            Log::info($lastCashBox);
+
+            Log::info('$actualCashBox 2');
+            Log::info($actualCashBox);
+            Log::info('Vai retornar');
+            return;
         }
 
-        Log::info('$lastCashBoxashBox');
-        Log::info($lastCashBox);
-
-        Log::info('$cashBox');
-        Log::info($cashBox);
-
-        Log::info('Novo valor: R$ ' . $cashBox->input_value . ' + '  . $lastCashBox->input_value . ' = ' . $cashBox->input_value + $lastCashBox->input_value);
+        Log::info('Novo valor: R$ ' . $actualCashBox->input_value . ' + '  . $lastCashBox->input_value . ' = ' . $actualCashBox->input_value + $lastCashBox->input_value);
         $lastCashBox->update([
-            'real_balance' => $cashBox->real_balance + $lastCashBox->input_value - $lastCashBox->outputvalue
+            'real_balance' => $actualCashBox->real_balance + $lastCashBox->input_value - $lastCashBox->outputvalue
         ]);
         
     }
@@ -86,7 +93,5 @@ class CashRegisterRepository
         return CashRegister::where('id', $id)->update([
             'active' => 0,
         ]);
-    }
-
-    
+    }    
 }

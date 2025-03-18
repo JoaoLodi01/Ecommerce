@@ -303,8 +303,7 @@
         methods: {
             async saveSale()
             {
-                console.log(toRaw(this.productsSeletion))
-                /*const saveSale = confirm('Deseja salvar a venda?')
+                const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
                         const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
@@ -331,7 +330,7 @@
                         console.error('Erro saveSale() = error.response', error)
                         
                     }
-                }*/
+                }
             },
 
             async getHotel(){
@@ -389,7 +388,6 @@
                             
                         })
 
-                        console.log(response.data)
                         if(response.data.success === true)
                         {
                             this.productsSeletion = []
@@ -410,12 +408,11 @@
                         sub_total: this.calculateTotal.subtotal,
                         addition: this.calculateTotal.addition,
                         discount: this.calculateTotal.discount,
-                        description: 'Venda NFC-e N° ',
+                        description: 'Venda NFC-e N°',
                         is_nfce_nm: type
                         
                     })
 
-                    console.log(response.data)
                     if(response.data.success === true)
                     {
                         this.productsSeletion = []
@@ -509,11 +506,6 @@
             {
                 this.productsSeletion = [...this.productsSeletion, selectedProducts]
                 
-            },
-
-            setTextSize()
-            {
-                console.log('Texto atual:', this.textSize)
             },
 
             cancelOperation()

@@ -10,6 +10,7 @@ class CashRegister extends Model
 
     protected $fillable = [
         'description',
+        'pdv_id',
         'customer_id',
         'name',
         'especie_id',
@@ -21,7 +22,6 @@ class CashRegister extends Model
         'origem',
         'user_id',
         'seller',
-        'type',
         'canceled',
         
     ];

@@ -13,19 +13,20 @@
         class="bg-white p-6 shadow-lg rounded-lg border border-gray-200">
 
         <div class="text-sm text-gray-500 mb-2">
-          <span class="font-semibold">Cliente:</span> {{ client }}
-        </div>
-
-        <div class="text-sm text-gray-500 mb-2">
           <span class="font-semibold">ID:</span> {{ client.id }}
         </div>
 
         <div class="text-sm text-gray-500 mb-2">
+          <span class="font-semibold">Cliente:</span> {{ client.name }}
+        </div>
+
+        <div class="text-sm text-gray-500 mb-2" v-if="client.cpf">
           <span class="font-semibold">CPF:</span> {{ client.cpf }}
         </div>
 
-        <div class="text-sm text-gray-500 mb-2">
+        <div class="text-sm text-gray-500 mb-2" v-if="client.cnpj">
           <span class="font-semibold">CNPJ:</span> {{ client.cnpj }}
+          
         </div>
 
         <div class="text-sm text-gray-500 mb-2">

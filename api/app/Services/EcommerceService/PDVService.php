@@ -59,7 +59,7 @@ class PDVService
         }
     }
 
-    /*public function finalizeSale(array $paymentsValues, string $typeOperation, int $id)
+    public function finalizeSale(array $paymentsValues, string $typeOperation, int $id)
     {
         try {
             $total = 0;
@@ -90,5 +90,5 @@ class PDVService
             ]);
             
         }
-    }*/
+    }
 }
