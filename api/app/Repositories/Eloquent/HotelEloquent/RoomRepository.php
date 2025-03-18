@@ -189,7 +189,7 @@ class RoomRepository implements RoomContract
             
             // Se der completamente errado, retornar para >= 2
             Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 192 --');
-            $this->PayMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
+            $this->PayMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel');
             Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 194 --');
 
             if($generateCredit === true)
@@ -219,7 +219,7 @@ class RoomRepository implements RoomContract
             ]);
     
             Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 224 --');
-            $this->PayMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
+            $this->PayMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel');
             Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 225 --');
             
             return array(
@@ -306,10 +306,10 @@ class RoomRepository implements RoomContract
         ]); // Desativa o quarto
     }
 
-    /*public function checkReservation(int $customerID)
+    public function checkReservation(int $customerID)
     {
         Log::info('Memória usada RoomRepository::class, checkReservation: ' . memory_get_usage(true));
         return Reservation::where('customer_id', $customerID)->first();
 
-    }*/
+    }
 }

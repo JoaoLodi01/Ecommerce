@@ -115,6 +115,7 @@ export default {
         
         async finalizeSale() {
             this.isLoanding = true
+            console.log('pdvID', this.pdvID)
             try {
                 switch (this.typeOperation) {
                 case 'reservation':
@@ -140,21 +141,21 @@ export default {
                     console.log('Começou venda NFCe')
                     const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                         typeOperation: this.typeOperation,
-                        payments_values: this.paymentsValues
+                        paymentsValues: this.paymentsValues
                     })
 
-                    console.log(response_nfce)
+                    console.log(response_nfce.data)
                     break
 
                 case 'saleNM':
                     console.log('Começou venda NM')
                     const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                         typeOperation: this.typeOperation,
-                        payments_values: this.paymentsValues
+                        paymentsValues: this.paymentsValues
 
                     })
                 
-                    console.log(response_nm)                    
+                    console.log(response_nm.data)                    
                     break
 
                 default:
@@ -188,6 +189,7 @@ export default {
         },
 
         cancelOperation(){
+            
             this.$emit("close")
 
         },

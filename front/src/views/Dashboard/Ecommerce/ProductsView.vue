@@ -75,7 +75,7 @@ export default {
       try {
         const response = await axios.get(`${this.api}/ecommerce/products/all`);
         console.log(response);
-        this.products = response.data;
+        this.products = response.data.data;
         
       } catch (error) {
         console.error('getProducts', error)

@@ -56,7 +56,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border border-b-black" v-for="(register, id) in  cashs" :key="id">
+                        <tr class="border border-b-black" v-for="(register, id) in cashs" :key="id">
                             <td scope="row" class="px-6 py-3 sticky right-0 bg-white">Entrada</td>
                             <td scope="row" class="px-12 sticky left-0 bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -64,7 +64,7 @@
                                 </svg>
                             </td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
-                            <td scope="row" class="px-6 py-3 text-center">{{ id }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{  }}</td>
                             <td scope="row" class="px-3 py-4">{{ register.description }}</td>
                             <td scope="row" class="px-5 py-3 text-center">{{ register.input_value }}</td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
@@ -136,9 +136,10 @@ export default {
         async getRegister(){
             try {
                 const response = await axios.get(`${this.api}/ecommerce/cashRegister/all`)
-                this.cashs = response.data
+                this.cashs = response.data.data
                 
             } catch (error) {
+            console.error("Erro ao buscar registros:", error)
                 
             }
         },
