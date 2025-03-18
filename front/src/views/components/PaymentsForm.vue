@@ -122,8 +122,9 @@ export default {
             try {
                 switch (this.typeOperation) {
                 case 'reservation':
+                    console.log('Começou reserva')
                     const generateCredit = this.calculeCredit(this.paymentsValues);
-
+                    
                     this.isLoanding = !this.isLoanding
                     
                     const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
@@ -133,7 +134,7 @@ export default {
                         generateCredit: generateCredit
                         
                     });
-
+                    
                     const reservation = response.data
                     
                     this.message = reservation.message ? reservation.message : reservation.errorMessage
@@ -196,8 +197,7 @@ export default {
             });
 
             let extraAmount = this.totalOperation - total;
-            console.log('Valor do quarto: R$', this.totalOperation);
-            console.log('Total pago: R$', total);
+            
             if(total > this.totalOperation)
             {   
                 console.log('Passou o valor do quarto: R$', this.totalOperation);
@@ -219,7 +219,7 @@ export default {
     },
     mounted(){
         this.getPayments();
-        console.log('this.totalOperation atual', this.totalOperation)
+
     },
 }
 </script>

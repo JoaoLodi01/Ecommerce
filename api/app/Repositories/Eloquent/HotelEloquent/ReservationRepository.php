@@ -13,7 +13,10 @@ class ReservationRepository
     public function create(object $customer)
     {
         Log::info('Memória usada ReservationRepository::class, create: ' . memory_get_usage(true));
+        Log::info('customer ' . $customer);
         $room = Room::where('customer_id', $customer->id)->first();
+        Log::info('room ' . $room);
+
         Reservation::create([
             'customer_id' => $customer->id,
             'name' => $customer->name,

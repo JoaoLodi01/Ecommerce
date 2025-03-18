@@ -45,7 +45,7 @@
         v-if="show"
         :show="show"
         type-operation="reservation"
-        :room_id="room_id"
+        :roomID="roomID"
         :totalOperation="totalOperation"
         @close="cancelOperation"
         
@@ -62,7 +62,7 @@
                 rooms: [],
                 show: false,
                 showRooms: true,
-                room_id: null,
+                roomID: null,
                 totalOperation: 0,
                 reserved: null,
                 api: process.env.VUE_APP_API_URL
@@ -77,7 +77,8 @@
             async getRooms() {
                 try {
                     const response = await axios.get(`${this.api}/hotel/stay/rooms`)
-                    this.rooms = response.data.all
+                    console.log(response.data.all.data)
+                    this.rooms = response.data.all.data
                     
                 } catch (error) {
                     console.error('Erro no getRooms', error)   
@@ -85,7 +86,7 @@
                 }
             },
 
-            async checkReserved(){
+            /*async checkReserved(){
                 const response = await axios.post(`${this.api}/hotel/stay/check-reservation`, {
                     customer_id: 2
                 });
@@ -95,10 +96,12 @@
                     alert('Vaga ativa')
                     this.reserved = true
                 }
-            },
+            },*/
 
-            showPayMent(room_id, price_for_night){
-                this.room_id = room_id
+            showPayMent(roomID, price_for_night){
+                console.log('roomID', roomID)
+                this.roomID = roomID
+                console.log('this.roomID', this.roomID)
                 this.totalOperation = price_for_night
                 this.show = !this.show
                 this.showRooms = false
@@ -117,7 +120,7 @@
 
         mounted() {            
             this.getRooms()
-            this.checkReserved()
+            //this.checkReserved()
 
         }
     }
