@@ -10,6 +10,7 @@ class CashRegister extends Model
 
     protected $fillable = [
         'description',
+        'document',
         'pdv_id',
         'customer_id',
         'name',

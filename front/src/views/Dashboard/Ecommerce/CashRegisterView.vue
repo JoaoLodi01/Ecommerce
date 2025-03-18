@@ -37,8 +37,8 @@
                 <table class="text-left rounded-t-xl rtl:text-right table-auto">
                     <thead class="uppercase shadow-lg">
                         <tr>
-                            <th scope="col" class="px-6 py-3 sticky right-0 bg-white">Tipo</th>
-                            <th scope="col" class="px-6 py-3 sticky left-0 bg-white">Ações</th>
+                            <th scope="col" class="px-6 py-3 sticky right-0 bg-gray-200">Tipo</th>
+                            <th scope="col" class="px-6 py-3 sticky left-0 bg-gray-200">Ações</th>
                             <th scope="col" class="px-6 py-3">Cód</th>
                             <th scope="col" class="px-3 py-4">Documento</th>
                             <th scope="col" class="px-6 py-3">Descrição</th>
@@ -57,14 +57,14 @@
                     </thead>
                     <tbody>
                         <tr class="border border-b-black" v-for="(register, id) in cashs" :key="id">
-                            <td scope="row" class="px-6 py-3 sticky right-0 bg-white">Entrada</td>
-                            <td scope="row" class="px-12 sticky left-0 bg-white">
+                            <td scope="row" class="px-6 py-3 sticky right-0 bg-gray-200">Entrada</td>
+                            <td scope="row" class="px-12 sticky left-0 bg-gray-200">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                                 </svg>
                             </td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
-                            <td scope="row" class="px-6 py-3 text-center">{{  }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.document }}</td>
                             <td scope="row" class="px-3 py-4">{{ register.description }}</td>
                             <td scope="row" class="px-5 py-3 text-center">{{ register.input_value }}</td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
@@ -111,7 +111,7 @@ export default {
                     return;
                 }
 
-                const response = await axios.post(`${this.api}/cashRegister/create`, this.cash, {
+                const response = await axios.post(`${this.api}/cash-register/create`, this.cash, {
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -136,7 +136,7 @@ export default {
 
         async getRegister(){
             try {
-                const response = await axios.get(`${this.api}/ecommerce/cashRegister/all`)
+                const response = await axios.get(`${this.api}/ecommerce/cash-register/all`)
                 this.cashs = response.data.data
                 
             } catch (error) {

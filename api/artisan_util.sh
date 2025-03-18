@@ -5,7 +5,8 @@ main()
     echo "2 - Seeder: php artisan db:see"
     echo "3 - Artisan: php artisan ..."
     echo "4 - Model and table: php artisan make:model 'name' -m"
-    echo "5 - Apagar as logs"
+    echo "5 - Route:cache: php artisan route:ca"
+    echo "6 - Apagar as logs"
     echo "0 - Sair"
     read option
 
@@ -46,6 +47,15 @@ main()
             ;;
 
         5)
+            clear
+            echo "Apagando o cache das rotas..."
+            bash -c "php artisan route:ca"
+            sleep 1
+            main
+            ;;
+
+
+        6)
             clear
             cd "D:/SGBR/Projeto_3_Hotel_Ecommerce/api/storage/logs" || { "Caminho não encontrado! "; exit 1;}
             echo "Apagando logs..."

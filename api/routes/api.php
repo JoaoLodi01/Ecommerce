@@ -56,7 +56,7 @@ Route::prefix('v1')->group( function (){
         });
     
         // CashRegister routes
-        Route::prefix('cashRegister')->group( function(){
+        Route::prefix('cash-register')->group( function(){
             Route::get('/all', [CashRegisterController::class, 'getAll']);
             Route::post('/create', [CashRegisterController::class, 'store']);
             Route::get('/{id}', [CashRegisterController::class, 'findByID']);
