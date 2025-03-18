@@ -51,7 +51,7 @@ class CashRegisterRepository
     {   
     Log::info('Memória usada CashRegisterRepository::class, updateCurrentCash: ' . memory_get_usage(true));
         $lastCashBox = CashRegister::where('canceled', 0)->latest('id')->first();
-        $actualCashBox = CashRegister::where('id', $lastCashBox->id + 1)->first();
+        $actualCashBox = CashRegister::where('id', $lastCashBox->id - 1)->first();
 
         Log::info('$lastCashBoxashBox');
         Log::info($lastCashBox->id + 1);

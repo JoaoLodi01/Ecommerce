@@ -44,10 +44,10 @@
                             <th scope="col" class="px-6 py-3">Descrição</th>
                             <th scope="col" class="px-6 py-3">Valor entrada</th>
                             <th scope="col" class="px-6 py-3">Valor saída</th>
+                            <th scope="col" class="px-6 py-3">Total</th>
                             <th scope="col" class="px-6 py-3">Cód Espécie</th>
                             <th scope="col" class="px-6 py-3">Espécie</th>
                             <th scope="col" class="px-6 py-3">Origem</th>
-                            <th scope="col" class="px-6 py-3">A</th>
                             <th scope="col" class="px-6 py-3">B</th>
                             <th scope="col" class="px-6 py-3">C</th>
                             <th scope="col" class="px-6 py-3">D</th>
@@ -68,6 +68,7 @@
                             <td scope="row" class="px-3 py-4">{{ register.description }}</td>
                             <td scope="row" class="px-5 py-3 text-center">{{ register.input_value }}</td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.real_balance }}</td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
                             <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
                             <td scope="row" class="px-6 py-3">{{ register.origem }}</td>
