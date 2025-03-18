@@ -55,6 +55,7 @@ class PayMentMethodService
                         {
                             $bodyCash = array(
                                 'description' => $description,
+                                'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
                                 'name' => $customer->name,
@@ -77,6 +78,7 @@ class PayMentMethodService
                         {
                             $bodyCash = array(
                                 'description' => $description,
+                                'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
                                 'name' => $customer->name,
@@ -120,7 +122,11 @@ class PayMentMethodService
             
             Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
             Log::info('-- Fim do registro no caixa, PayMentMethodService.php, linha 109 --');
-            return;
+            return array(
+                'line' => 124,
+                'success' => true
+    
+            ); 
         }
 
         if(count($forms) <= 1)
@@ -145,6 +151,7 @@ class PayMentMethodService
                         {
                             $bodyCash = array(
                                 'description' => $description,
+                                'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
                                 'name' => $customer->name,
@@ -166,6 +173,7 @@ class PayMentMethodService
                         {
                             $bodyCash = array(
                                 'description' => $description,
+                                'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
                                 'name' => $customer->name,
@@ -211,7 +219,11 @@ class PayMentMethodService
             }
         Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
         Log::info('-- Fim do registro no caixa, PayMentMethodService.php, linha 188 --');
-        return;
+        return array(
+            'line' => 215,
+            'success' => true
+
+        );  
     }    
 
     public function decreaseCash(object $customer, float $value, string $description, string $origem)
@@ -222,6 +234,7 @@ class PayMentMethodService
         $cashRegisters = [];
         $cashRegisters[] = array(
             'description' => $description,
+            'document' => 1,
             'customer_id' => $customer->id,
             'name' => $customer->name,
             'especie_id' => 1,
@@ -240,6 +253,10 @@ class PayMentMethodService
         Log::info('-- Vai chamar o cashRegisterRepository linha 214 -- ');
         $this->cashRegisterRepository->create($cashRegisters);
         Log::info('-- Fim decreaseCash linha 216 --');
+        return array(
+            'line' => 244,
+            'success' => true
+
+        );  
     }
-    
 }

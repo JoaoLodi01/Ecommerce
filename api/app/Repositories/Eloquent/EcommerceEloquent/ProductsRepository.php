@@ -43,4 +43,20 @@ class ProductsRepository
             'active' => 0,
         ]);
     }
+
+    public function decreaseQuantiy(int $id, float|int $quantiy)
+    {
+        Log::info('-- Inicio decreaseQuantiy, linha 49 --');
+        $product = $this->findByID($id);
+        if($product)
+        {
+            Log::info('Produto encontrado ' . $product->id);
+            Log::info($product);
+            $product->update([
+                'quantidade' => $product->quantidade - $quantiy
+            ]);
+        }
+
+        Log::info('-- Fim decreaseQuantiy, linha 49 --');
+    }
 }

@@ -138,6 +138,7 @@
                         
                         })                        
                     }
+                    
                 } else {
                     this.selectedProducts = this.selectedProducts.filter(p => p.id !== product.id)
                 }

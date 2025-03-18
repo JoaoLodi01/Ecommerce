@@ -372,8 +372,9 @@
             {
                 // Só vai chamar a forma de pagamento
                 this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
+                
                 try {
-                    if(type === 'nm')
+                    if(type === 'nm')   
                     {
                         const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                             products: this.productsSeletion, // Produtos da 
@@ -387,6 +388,8 @@
                             is_nfce_nm: type,
                             
                         })
+
+                        console.log('response.dat PDVView, line 391: ', response.data)
 
                         if(response.data.success === true)
                         {
@@ -412,7 +415,7 @@
                         is_nfce_nm: type
                         
                     })
-
+                    console.log('response.dat PDVView, line 415: ', response.data)
                     if(response.data.success === true)
                     {
                         this.productsSeletion = []

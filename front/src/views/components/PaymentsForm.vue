@@ -141,21 +141,33 @@ export default {
                     console.log('Começou venda NFCe')
                     const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                         typeOperation: this.typeOperation,
-                        paymentsValues: this.paymentsValues
+                        paymentsValues: this.paymentsValues,
+                        pdvID: this.pdvID
+                        
                     })
 
-                    console.log(response_nfce.data)
+                    if(response_nfce.data.success === true)
+                    {
+                        this.closeOperation()
+                        this.totalOperation = 0
+                    }
                     break
 
                 case 'saleNM':
                     console.log('Começou venda NM')
                     const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                         typeOperation: this.typeOperation,
-                        paymentsValues: this.paymentsValues
+                        paymentsValues: this.paymentsValues,
+                        pdvID: this.pdvID
 
                     })
-                
-                    console.log(response_nm.data)                    
+                    console.log(response_nm.data)
+                    if(response_nm.data.success === true)
+                    {
+                        this.closeOperation()
+                        this.totalOperation = 0
+                    }
+
                     break
 
                 default:

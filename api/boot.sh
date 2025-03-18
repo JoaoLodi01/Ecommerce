@@ -22,6 +22,10 @@ start_server()
 	cd $2 
 	start bash -c "php artisan serve --host=192.168.$3"
 	clear
+	echo "Iniciando Artisan Utils..."
+	sleep 1
+	bash -c "sh artisan_util.sh"
+	clear
 }
 
 all_ambients()

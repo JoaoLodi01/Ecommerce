@@ -59,7 +59,7 @@ class PDVService
         }
     }
 
-    public function finalizeSale(array $paymentsValues, string $typeOperation, int $id)
+    public function finalizeSale(array $paymentsValues, string $typeOperation, int $id, int $pdvID)
     {
         try {
             $total = 0;
@@ -79,8 +79,15 @@ class PDVService
                 }
             }    
 
-            return response()->json($this->pdvRepository->finalizeSale($typeOperation, $id, $paymentsValues, $forms, $total));
+            $pdv = $this->pdvRepository->finalizeSale($typeOperation, $id, $paymentsValues, $forms, $total);
 
+            if ($pdv['success']) {
+                return response()->json([
+                    'success' => $pdv['success'],
+                    'pdv' => $pdv['pdv']
+                ]);
+            }
+            
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,
