@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-=======
-[2025-03-18 02:03:33] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-18 02:03:33] local.INFO: O hotel foi encontrado  
-[2025-03-18 02:03:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-18 02:03:33] local.INFO: Opção desativada, não vai alterar o endereço  
->>>>>>> Kochem
-[2025-03-18 02:04:32] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
