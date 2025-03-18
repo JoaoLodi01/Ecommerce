@@ -7,7 +7,7 @@ DB_PASS="masterkey"
 save_db()
 {
 	mysql -u $DB_USER -p$DB_PASS $DB_NAME -e \
-	"INSERT INTO ambientes (ip, frontend_path, backend_path, local) VALUES ('$1')"
+	"INSERT INTO ambientes (ip, user, frontend_path, backend_path, local) VALUES ('$1')"
 
 	echo "Dados salvos com sucesso!"
 }
@@ -16,16 +16,18 @@ start_server()
 {
 	clear
 	echo "Iniciando servidores..."
+
 	cd $1
 	start bash -c "npm run s"
 
 	cd $2 
 	start bash -c "php artisan serve --host=192.168.$3"
-	clear
+	
 	echo "Iniciando Artisan Utils..."
 	sleep 1
 	bash -c "sh artisan_util.sh"
 	clear
+	
 }
 
 all_ambients()
@@ -47,7 +49,7 @@ change_ambient()
 	ip=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT ip FROM ambientes WHERE id = $id")
 	frontPath=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT frontend_path FROM ambientes WHERE id = $id")
 	backPath=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT backend_path FROM ambientes WHERE id = $id")
-
+	
 	start_server $frontPath $backPath $ip 
 }
 

@@ -70,7 +70,9 @@ export default {
         
     },
     emits: [
-        'close'
+        'close',
+        'resetTotal'
+
     ],
 
     props: {
@@ -116,6 +118,7 @@ export default {
         async finalizeSale() {
             this.isLoanding = true
             console.log('pdvID', this.pdvID)
+
             try {
                 switch (this.typeOperation) {
                 case 'reservation':
@@ -149,8 +152,10 @@ export default {
                     if(response_nfce.data.success === true)
                     {
                         this.closeOperation()
-                        this.totalOperation = 0
+                        this.$emit('resetTotal', 0);
+                        
                     }
+
                     break
 
                 case 'saleNM':
@@ -165,7 +170,8 @@ export default {
                     if(response_nm.data.success === true)
                     {
                         this.closeOperation()
-                        this.totalOperation = 0
+                        this.$emit('resetTotal', 0);
+                        
                     }
 
                     break
@@ -213,7 +219,7 @@ export default {
     },
     mounted(){
         this.getPayments();
-        
+        console.log('this.totalOperation atual', this.totalOperation)
     },
 }
 </script>

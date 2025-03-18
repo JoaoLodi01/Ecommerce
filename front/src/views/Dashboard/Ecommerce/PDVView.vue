@@ -235,6 +235,7 @@
         :show="this.showPaymentsForm"
         :typeOperation=this.typeOperation
         :totalOperation=this.totalOperation
+        @resetTotal="totalOperation = 0"
         :pdvID=this.pdvID
         @close="cancelOperation"
     

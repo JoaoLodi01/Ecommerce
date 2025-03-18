@@ -56,48 +56,46 @@ class PDVRepository
         }
     }
 
-    public function saveProducts(array $productsArray, int $pdvID, object $user)
+    public function saveProducts(array $products, int $pdvID, object $user)
     {
         Log::info('-- Iniciou o saveProducts() line 167 -- ');     
         Log::info('Memória usada PDVRepository::class, saveProducts: ' . memory_get_usage(true));
         Log::info('User: ' . $user);
 
-        Log::info('$productsArray 1' . count($productsArray));
-        Log::info($productsArray);
+        Log::info('$products 1' . count($products));
+        Log::info($products);
 
-        for ($i=0; $i < count($productsArray); $i++) { 
-            Log::info('Memória usada PDVRepository::class, saveProducts dentro do for: ' . memory_get_usage(true));
-            Log::info("i = $i");
-            Log::info('$productsArray[$i]');
-            Log::info($productsArray[$i]);
-            $products = $productsArray[$i];
+        foreach ($products as $product) {
+            Log::info('Memória usada PDVRepository::class, saveProducts dentro do foreach: ' . memory_get_usage(true));
+            Log::info('$product');
+            for ($i=0; $i < count($product); $i++) { 
+                Log::info('Memória usada PDVRepository::class, saveProducts dentro do for: ' . memory_get_usage(true));
+                Log::info('$product[$i]');
+                Log::info($product[$i]);
 
-            $product = $this->productsRepository->findByID($products[$i]['id']);
-            if($product)
-            {
                 $itensPDV = array(
                     'pdv_id' => $pdvID,
-                    'product_id' => $product->id,
-                    'product' => $product->produto,
-                    'cfop' => $product->cfop,
-                    'csosn' => $product->csosn,
-                    'ncm' => $product->ncm,
-                    'cest' => $product->cest,
-                    'unit' => $product->unit,
-                    'amount_sold' => $products[$i]['quantidade'],
+                    'product_id' => $product[$i]['id'],
+                    'product' => $product[$i]['produto'],
+                    'cfop' => $product[$i]['cfop'],
+                    'csosn' => $product[$i]['csosn'],
+                    'ncm' => $product[$i]['ncm'],
+                    'cest' => $product[$i]['cest'],
+                    'unit' => $product[$i]['unit'],
+                    'amount_sold' => $product[$i]['quantidade'],
                     'addition' => 0,
                     'discount' => 0,
                     'user_id' => $user->id,
                     'seller' => $user->name, 
     
                 );
-
+    
                 Log::info('itensPDV ');
                 Log::info($itensPDV);
                 ItensPDV::create($itensPDV);
-              
             }
         }
+
         return;
     }
 
@@ -173,7 +171,10 @@ class PDVRepository
             for ($i=0; $i < count($products); $i++) { 
                 $product = $products[$i];
                 $this->productsRepository->decreaseQuantiy($product->product_id, $product->amount_sold);
-
+                $product->update([
+                    'is_nfce_nm' => $pdv->is_nfce_nm,
+                    'finished' => 1
+                ]);
             }
 
             //ord()

@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
+
 use Illuminate\Support\Facades\Log;
 
 class ProductsRepository
@@ -46,7 +47,7 @@ class ProductsRepository
 
     public function decreaseQuantiy(int $id, float|int $quantiy)
     {
-        Log::info('-- Inicio decreaseQuantiy, linha 49 --');
+        Log::info('-- Inicio decreaseQuantiy, linha 50 --');
         $product = $this->findByID($id);
         if($product)
         {
@@ -55,8 +56,11 @@ class ProductsRepository
             $product->update([
                 'quantidade' => $product->quantidade - $quantiy
             ]);
+            
         }
 
-        Log::info('-- Fim decreaseQuantiy, linha 49 --');
+        Log::info('-- Fim decreaseQuantiy, linha 62 --');
     }
+
+        
 }
