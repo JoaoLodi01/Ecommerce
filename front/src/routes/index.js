@@ -63,7 +63,7 @@ const routes = [
     component: ConsumersView,
   },
   {
-    path: '/sale/save/pdv/:idPDV',
+    path: '/sale/pdv/:idPDV',
     name: 'PDVID',
     component: PDVView,
     props: true

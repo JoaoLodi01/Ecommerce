@@ -54,7 +54,7 @@ class ProductsRepository
             Log::info('Produto encontrado ' . $product->id);
             Log::info($product);
             $product->update([
-                'amount' => $product->amount - $quantiy
+                'quantidade' => $product->quantidade - $quantiy
             ]);
             
         }

@@ -18,8 +18,7 @@ class DatabaseSeeder extends Seeder
             PaymentsSeeder::class,
             ProductsSeeder::class,
             CostumerSeeder::class,
-            UserSeeder::class,
-            HotelSeeder::class
+            UserSeeder::class
             
         ]);
 

@@ -113,7 +113,11 @@ export default {
     },
     emits: [
         'close',
+<<<<<<< HEAD
         'resetTotal',
+=======
+        'resetTotal'
+>>>>>>> parent of 313f963 (General adjustamente in PayFormsView, PDVView, reopen sale, PDVRepository, ProducstRepository, HotelSeeder)
 
     ],
 
@@ -148,6 +152,7 @@ export default {
     computed: {
         calculateValueInformed()
         {
+            console.log('this.paymentsValues', this.paymentsValues)
             let total = this.paymentsValues.reduce((sum, value) => {
                 const num = parseFloat(value) || 0;
                 return sum + num
@@ -177,66 +182,64 @@ export default {
 
             try {
                 switch (this.typeOperation) {
-                    case 'reservation':
-                        console.log('Começou reserva')
-                        const generateCredit = this.calculeCredit(this.paymentsValues);
-                        
-                        this.isLoanding = !this.isLoanding
-                        
-                        const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
-                            customerID: 1,
-                            paymentsValues: this.paymentsValues,
-                            roomID: this.roomID,
-                            generateCredit: generateCredit
-                            
-                        });
-                        
-                        const reservation = response.data
-                        
-                        this.message = reservation.message ? reservation.message : reservation.errorMessage
+                case 'reservation':
+                    console.log('Começou reserva')
+                    const generateCredit = this.calculeCredit(this.paymentsValues);
                     
-                        break;
-
-                    case 'saleNFCe':
-                        console.log('Começou venda NFCe')
-                        const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            typeOperation: this.typeOperation,
-                            paymentsValues: this.paymentsValues,
-                            pdvID: this.pdvID
-                            
-                        })
-
-                        if(response_nfce.data.success === true)
-                        {
-                            this.cancelOperation()
-                            
-                        }
-
-                        break
-
-                    case 'saleNM':
-                        console.log('Começou venda NM')
-                        const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            typeOperation: this.typeOperation,
-                            paymentsValues: this.paymentsValues,
-                            pdvID: this.pdvID
-
-                        })
-                        console.log(response_nm.data)
+                    this.isLoanding = !this.isLoanding
+                    
+                    const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
+                        customerID: 1,
+                        paymentsValues: this.paymentsValues,
+                        roomID: this.roomID,
+                        generateCredit: generateCredit
                         
-                        if(response_nm.data.success === true)
-                        {
-                            this.cancelOperation()
-                            this.$router.push({ name: 'PDV' })
+                    });
+                    
+                    const reservation = response.data
+                    
+                    this.message = reservation.message ? reservation.message : reservation.errorMessage
+                
+                    break;
 
-                        }
+                case 'saleNFCe':
+                    console.log('Começou venda NFCe')
+                    const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                        typeOperation: this.typeOperation,
+                        paymentsValues: this.paymentsValues,
+                        pdvID: this.pdvID
+                        
+                    })
 
-                        break
-
-                    default:
-                        console.log('Operation not defined',  this.typeOperation)
-                        break;
+                    if(response_nfce.data.success === true)
+                    {
+                        this.closeOperation()
+                        
                     }
+
+                    break
+
+                case 'saleNM':
+                    console.log('Começou venda NM')
+                    const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                        typeOperation: this.typeOperation,
+                        paymentsValues: this.paymentsValues,
+                        pdvID: this.pdvID
+
+                    })
+                    console.log(response_nm)
+                    if(response_nm.data.success === true)
+                    {
+                        this.closeOperation()
+                        
+                    }
+
+                    break
+
+                default:
+                    console.log('Operation not defined',  this.typeOperation)
+                    break;
+                }
                 
             } catch (error) {
                 console.error('Error: ', error)

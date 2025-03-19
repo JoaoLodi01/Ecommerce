@@ -19,8 +19,12 @@
                     :show="this.showPaymentsForm"
                     :typeOperation=this.typeOperation
                     :totalOperation=this.totalOperation
+                    @resetTotal="totalOperation = 0"
                     :pdvID=this.pdvID
+<<<<<<< HEAD
                     @resetTotal="totalOperation = $event"
+=======
+>>>>>>> parent of 313f963 (General adjustamente in PayFormsView, PDVView, reopen sale, PDVRepository, ProducstRepository, HotelSeeder)
                     @close="cancelOperation"
 
                 />
@@ -84,7 +88,7 @@
                                 <td class="px-6 py-3 text-center">
                                     <input 
                                         v-model="product.amount"
-                                        :placeholder=product.amount 
+                                        :placeholder=product.amount
                                         type="text"
                                         class="w-10 text-center border-b-4 border-b-gray-500 "
                                         @input="changeAmount(product.id, product.amount)"
@@ -92,7 +96,7 @@
                                     />
                                 </td>
                                 <td class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                                <td class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
+                                <td class="text-center">R$ {{ product.sale_price * product.amount }}</td>
                             </tr>    
                         </tbody>
                         
@@ -268,13 +272,13 @@
                 show: false,
                 showGrid: true,
                 showPaymentsForm: false,
-                success: null,
                 typeOperation: '',
                 csosncst: '',
                 api: process.env.VUE_APP_API_URL
             }
         },
 
+<<<<<<< HEAD
         watch: {
             '$route'(to, from) {
                 if(to.fullPath === '/sale/pdv'){
@@ -284,6 +288,8 @@
             }
         },  
 
+=======
+>>>>>>> parent of 313f963 (General adjustamente in PayFormsView, PDVView, reopen sale, PDVRepository, ProducstRepository, HotelSeeder)
         computed: {
             calculateTotal(){
                 const rawproductsSeletion = toRaw(this.productsSeletion)
@@ -316,6 +322,7 @@
                 const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
+                        
                         const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                             products: this.productsSeletion, // Produtos da 
                             user_id: this.emitProducts.userID,
@@ -380,79 +387,74 @@
             
             async finalizeSale(type)
             {
+<<<<<<< HEAD
                 // Só vai chamar a forma de pagamento    
+=======
+                /* Só vai chamar a forma de pagamento
+                for (let i = 0; i < this.productsSeletion[0].length; i++) {
+                    //console.log("this.productsSeletion[i]['pdv_id']", this.productsSeletion[0][i]['pdv_id'])
+                    
+                    this.productsSeletion[0][i]['id'] = this.productsSeletion[0][i]['product_id']
+                }
+
+                console.log("this.productsSeletion[0]", this.productsSeletion[0])*/
+                
+>>>>>>> parent of 313f963 (General adjustamente in PayFormsView, PDVView, reopen sale, PDVRepository, ProducstRepository, HotelSeeder)
                 this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
                 try {
-                    if(this.idPDV)
+                    if(type === 'nm')   
                     {
+<<<<<<< HEAD
                         if(type === 'nm')
+=======
+                        const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            products: this.productsSeletion, // Produtos da 
+                            user_id: this.emitProducts.userID,
+                            customer_id: this.emitProducts.customerID,
+                            total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                            sub_total: this.calculateTotal.subtotal,
+                            addition: this.calculateTotal.addition,
+                            discount: this.calculateTotal.discount,
+                            description: 'Venda Nota Manual N°',
+                            is_nfce_nm: type,
+                            
+                        })
+
+                        console.log('response.dat PDVView, line 391: ', response.data)
+
+                        if(response.data.success === true)
+>>>>>>> parent of 313f963 (General adjustamente in PayFormsView, PDVView, reopen sale, PDVRepository, ProducstRepository, HotelSeeder)
                         {
                             this.typeOperation = 'saleNM'
                             this.showPaymentsForm = !this.showPaymentsForm
-                            this.pdvID = Number(this.idPDV)
+                            this.pdvID = response.data.pdvID
 
-                        }   
-
-                        if(type === 'nfce')
-                        {
-                            this.typeOperation = 'saleNFCe'
-                            this.showPaymentsForm = !this.showPaymentsForm
-                            this.pdvID = Number(this.idPDV)
                         }
+                }
+                
+                if(type === 'nfce')
+                {
+                    const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                        products: this.productsSeletion, // Produtos da 
+                        user_id: this.emitProducts.userID,
+                        customer_id: this.emitProducts.customerID,
+                        total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                        sub_total: this.calculateTotal.subtotal,
+                        addition: this.calculateTotal.addition,
+                        discount: this.calculateTotal.discount,
+                        description: 'Venda NFC-e N°',
+                        is_nfce_nm: type
                         
-                        
-                    } else {
-                        if(type === 'nm')   
-                        {
-                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.emitProducts.userID,
-                                customer_id: this.emitProducts.customerID,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                sub_total: this.calculateTotal.subtotal,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
-                                description: 'Venda Nota Manual N°',
-                                is_nfce_nm: type,
-                                
-                            })
+                    })
+                    console.log('response.dat PDVView, line 415: ', response.data)
+                    if(response.data.success === true)
+                    {
+                        this.typeOperation = 'saleNFCe'
+                        this.showPaymentsForm = !this.showPaymentsForm
+                        this.pdvID = response.data.pdvID
 
-                            console.log('response.dat PDVView, line 415: ', response.data)
-
-                            if(response.data.success === true)
-                            {
-                                this.typeOperation = 'saleNM'
-                                this.showPaymentsForm = !this.showPaymentsForm
-                                this.pdvID = response.data.pdvID
-
-                            }
-                        
-                        }
-                    
-                        if(type === 'nfce')
-                        {
-                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.emitProducts.userID,
-                                customer_id: this.emitProducts.customerID,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                sub_total: this.calculateTotal.subtotal,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
-                                description: 'Venda NFC-e N°',
-                                is_nfce_nm: type
-                                
-                            })
-                            console.log('response.dat PDVView, line 415: ', response.data)
-                            if(response.data.success === true)
-                            {
-                                this.typeOperation = 'saleNFCe'
-                                this.showPaymentsForm = !this.showPaymentsForm
-                                this.pdvID = response.data.pdvID
-
-                            }
-                        }
                     }
+                }
                     
                 } catch (error) {
                     console.error('Erro finalizeSale', error)   
@@ -464,7 +466,6 @@
                 try {
                     const response = await axios.get(`${this.api}/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
                     console.log(response.data.pdvs.get_itens)
-                    
                     this.updateProductsSeletion(response.data.pdvs.get_itens)
 
                 } catch (error) {
@@ -571,10 +572,6 @@
                 if (option === true) {
                     this.emitProducts = [],
                     this.productsSeletion = []
-                    if(this.idPDV)
-                    {
-                        this.$router.push({ name: 'PDV' })
-                    }
                 }
             }
         },
@@ -586,21 +583,24 @@
         },
 
         props: [
-            'idPDV',
-    
+            'idPDV'
+
         ],
 
         mounted(){
             this.getHotel()
             this.withScreen += screen.width
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 313f963 (General adjustamente in PayFormsView, PDVView, reopen sale, PDVRepository, ProducstRepository, HotelSeeder)
             if(this.idPDV)
             {
                 this.importSale()
-                console.log('this.totalOperation ', this.totalOperation)
-                console.log('this.productsSeletion', this.productsSeletion)        
+                console.log('this.productsSeletion', this.productsSeletion)
                 
             }
+            
         }
       }
 </script>
