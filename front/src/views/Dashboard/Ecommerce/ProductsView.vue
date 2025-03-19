@@ -29,7 +29,7 @@
 
           <!-- Preço de Venda -->
           <div class="text-sm text-gray-500 mb-4">
-            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.preco_venda).toFixed(2) || '0.00' }}
+            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
           </div>
 
           <!-- Ações -->
@@ -53,7 +53,7 @@
 
 <script>
 import axios from 'axios';
-import RegisterProduct from '@/views/components/RegisterProduct.vue';
+import RegisterProduct from '@/views/components/Register/RegisterProduct.vue';
 
 export default {
   components: {

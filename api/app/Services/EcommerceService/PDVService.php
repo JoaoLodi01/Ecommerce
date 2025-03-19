@@ -14,6 +14,15 @@ class PDVService
         Log::info('Memória usada PDVService::class, __construct, linha 13: ' . memory_get_usage(true));
     }
 
+    public function returnResponse($th){
+        return response()->json([
+            'success' => false,
+            'th' => $th->getMessage(),
+            'line' => $th->getLine(),
+            'file' => $th->getFile(),
+        ], 400);
+    }
+
     public function getAll(){
         return $this->pdvRepository->getAll();
     }
@@ -28,13 +37,29 @@ class PDVService
         }
     }
 
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ]);
+    public function findSavePDV()
+    {
+        try {
+            return response()->json([
+                'success' => true,
+                'pdvs' => $this->pdvRepository->findSavePDV()
+                
+            ], 200);
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
+    }
+    public function findSavePDVByID(int $id)
+    {
+        try {
+            return response()->json([
+                'success' => true,
+                'pdvs' => $this->pdvRepository->findSavePDVByID($id)
+                
+            ], 200);
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
     }
 
     public function saveSale(array $details, array $productsArray)
@@ -59,7 +84,7 @@ class PDVService
         }
     }
 
-    public function finalizeSale(array $paymentsValues, string $typeOperation, int $id)
+    public function finalizeSale(array $paymentsValues, string $typeOperation, int $id, int $pdvID)
     {
         try {
             $total = 0;
@@ -78,9 +103,23 @@ class PDVService
                     
                 }
             }    
+            Log::info('PDVService.php, class:finalizeSale, $total: ' . $total);
+            $pdv = $this->pdvRepository->finalizeSale($typeOperation, $id, $paymentsValues, $forms, $total);
 
-            return response()->json($this->pdvRepository->finalizeSale($typeOperation, $id, $paymentsValues, $forms, $total));
+            if ($pdv['success']) {
+                return response()->json([
+                    'success' => $pdv['success'],
+                    'pdv' => $pdv['pdv'],
+                    'message' => 'Venda finalizada'
+                ], 200);
+            }
 
+            return response()->json([
+                'success' => $pdv['success'],
+                'pdv' => $pdv['pdv'],
+                'message' => $pdv['errorMessage'] ?? $pdv['message']
+            ], 400);
+            
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,

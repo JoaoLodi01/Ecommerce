@@ -16,7 +16,8 @@ class PDVSaleRequest extends FormRequest
     {
         return [
             'paymentsValues' => ['required'],
-            'typeOperation' => ['required', 'string']
+            'typeOperation' => ['required', 'string'],
+            'pdvID' => ['required']
 
         ];
     }

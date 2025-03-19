@@ -56,7 +56,7 @@ Route::prefix('v1')->group( function (){
         });
     
         // CashRegister routes
-        Route::prefix('cashRegister')->group( function(){
+        Route::prefix('cash-register')->group( function(){
             Route::get('/all', [CashRegisterController::class, 'getAll']);
             Route::post('/create', [CashRegisterController::class, 'store']);
             Route::get('/{id}', [CashRegisterController::class, 'findByID']);
@@ -78,12 +78,11 @@ Route::prefix('v1')->group( function (){
         // NFC-e routes
         Route::prefix('pdv')->group( function(){
             Route::get('/all', [PDVController::class, 'getAll']);
-            Route::post('/create', [PDVController::class, 'store']);
-            Route::get('/{id}', [PDVController::class, 'findByID']);
-            Route::put('/{id}', [PDVController::class, 'update']);
             Route::post('/save-sale', [PDVController::class, 'saveSale']);
             Route::put('/finalize-sale/{id}', [PDVController::class, 'finalizeSale']);
-            
+            Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
+            Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
+
         });
     
         Route::prefix('payments')->group( function(){

@@ -48,7 +48,7 @@
   
 <script>
 import axios from "axios";
-import RegisterConsumer from "@/views/components/RegisterConsumer.vue";
+import RegisterConsumer from "@/views/components/Register/RegisterConsumer.vue";
   
 export default {
   components: {

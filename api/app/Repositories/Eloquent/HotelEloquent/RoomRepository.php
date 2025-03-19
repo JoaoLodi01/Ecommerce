@@ -33,7 +33,7 @@ class RoomRepository implements RoomContract
         protected PaymentsRepository $paymentsRepository,
         protected CashRegisterRepository $cashRegisterRepository,
         protected HotelRepository $hotelRepository,
-        protected PayMentMethodService $PayMentMethodService
+        protected PayMentMethodService $payMentMethodService
 
     ){
         Log::info('Memória usada RoomRepository::class, __construct: ' . memory_get_usage(true));
@@ -43,7 +43,7 @@ class RoomRepository implements RoomContract
     public function allRooms(int $active)
     {
         Log::info("Vai buscar todos os quartos ativos do hotel table = DetailRooms");
-        return DetailRooms::where('active', $active)->get()->paginate(10);
+        return DetailRooms::where('active', $active)->paginate(10);
 
     }
     
@@ -189,7 +189,7 @@ class RoomRepository implements RoomContract
             
             // Se der completamente errado, retornar para >= 2
             Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 192 --');
-            $this->PayMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel');
+            $this->payMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
             Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 194 --');
 
             if($generateCredit === true)
@@ -219,7 +219,7 @@ class RoomRepository implements RoomContract
             ]);
     
             Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 224 --');
-            $this->PayMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel');
+            $this->payMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
             Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 225 --');
             
             return array(
@@ -233,7 +233,7 @@ class RoomRepository implements RoomContract
         return array(
             'success' => false,
             'errorMessage' => 'O valor pago é menor que o valor do quarto',
-            'amount_paid' => $total,
+            'amountPaid' => $total,
             'remaining' => $room->price_for_night - $total,
             
         );
@@ -251,7 +251,7 @@ class RoomRepository implements RoomContract
             'validate' => Carbon::now()->addDays(30)->format('Y-m-d')
 
         ]);
-        $this->PayMentMethodService->decreaseCash($customer, $customerCredit->current_credit, 'Geração de crédito', 'hotel', $room);
+        $this->payMentMethodService->decreaseCash($customer, $customerCredit->current_credit, 'Geração de crédito', 'hotel', $room->id);
         Log::info('-- Fim createCredit linha 250 --');   
     }
 

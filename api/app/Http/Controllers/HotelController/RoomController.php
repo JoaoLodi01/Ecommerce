@@ -42,9 +42,9 @@ class RoomController extends Controller
         return $this->roomService->checkIn($data);        
     }
 
-    public function reservation()
+    public function reservation(Request $request)
     {
-        return $this->roomService->reservation(request('paymentsValues'), request('roomID'), request('generateCredit') ?? false);
+        return $this->roomService->reservation($request['paymentsValues'], $request['roomID'], $request['generateCredit'] ?? false);
         
     }
     
