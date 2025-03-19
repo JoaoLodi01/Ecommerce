@@ -274,7 +274,7 @@ export default {
         cancelOperation(){            
             this.$emit("close")
             this.$emit('resetTotal', 0);
-            this.$emit('success', []);
+   
         },
 
         closeOperation(){
@@ -284,7 +284,7 @@ export default {
     },
     mounted(){
         this.getPayments();
-
+        console.log('PaymentsForm router', this.$router, ' route ', this.$route)
     },
 }
 </script>
