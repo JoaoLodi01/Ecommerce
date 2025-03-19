@@ -114,7 +114,6 @@ export default {
     emits: [
         'close',
         'resetTotal',
-        'success'
 
     ],
 
@@ -210,7 +209,6 @@ export default {
                         if(response_nfce.data.success === true)
                         {
                             this.cancelOperation()
-                            this.$router.push({ name: 'PDV' })
                             
                         }
 
@@ -284,7 +282,7 @@ export default {
     },
     mounted(){
         this.getPayments();
-        console.log('PaymentsForm router', this.$router, ' route ', this.$route)
+        
     },
 }
 </script>

@@ -82,11 +82,7 @@ const routes = [
     component: ListPDVView
 
   },
-  {
-    path: '/payments',
-    name: 'Payments',
-    component: PaymentsForm,
-  },
+  
   {
     path: '/user-area',
     name: 'UserArea',

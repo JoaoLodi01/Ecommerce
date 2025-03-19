@@ -20,7 +20,6 @@
                     :typeOperation=this.typeOperation
                     :totalOperation=this.totalOperation
                     :pdvID=this.pdvID
-                    @success="success = $event"
                     @resetTotal="totalOperation = $event"
                     @close="cancelOperation"
 
@@ -280,9 +279,8 @@
             '$route'(to, from) {
                 if(to.fullPath === '/sale/pdv'){
                     this.productsSeletion = []
-                    this.cancelOperation
 
-                }
+                } 
             }
         },  
 
@@ -382,14 +380,11 @@
             
             async finalizeSale(type)
             {
-                // Só vai chamar a forma de pagamento
-                console.log("this.productsSeletion[0]", this.productsSeletion[0])
-                
+                // Só vai chamar a forma de pagamento    
                 this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
                 try {
                     if(this.idPDV)
                     {
-                        console.log('this.productsSeletion[0]: ', this.productsSeletion, ' this.idPDV', this.idPDV)
                         if(type === 'nm')
                         {
                             this.typeOperation = 'saleNM'
@@ -567,6 +562,7 @@
             setTextSize()
             {
 
+
             },
 
             cancelSale()
@@ -597,7 +593,6 @@
         mounted(){
             this.getHotel()
             this.withScreen += screen.width
-            console.log('this.success', this.success)
 
             if(this.idPDV)
             {
