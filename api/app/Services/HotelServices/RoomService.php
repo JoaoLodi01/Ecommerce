@@ -6,13 +6,10 @@ use App\Repositories\Eloquent\HotelEloquent\RoomRepository;
 
 class RoomService
 {
-    protected $roomRepository;
-
-    public function __construct(RoomRepository $roomRepository)
-    {
-        $this->roomRepository= $roomRepository;
-        
-    }
+    public function __construct(
+        protected RoomRepository $roomRepository
+    )
+    {}
 
     public function allRooms(int $active)
     {

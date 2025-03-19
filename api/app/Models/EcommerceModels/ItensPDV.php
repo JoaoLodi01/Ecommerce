@@ -12,6 +12,8 @@ class ItensPDV extends Model
         'pdv_id',
         'product_id',    
         'product',
+        'price_cost',
+        'sale_price',
         'cfop',
         'csosn',
         'ncm',

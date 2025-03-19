@@ -4,7 +4,7 @@ import LoginView from '@/views/Auth/LoginView.vue';
 import RegisterView from '@/views/Auth/RegisterView.vue';
 import AboutView from '@/views/Dashboard/Ecommerce/AboutView.vue';
 import SettingsView from '@/views/Dashboard/Ecommerce/SettingsView.vue';
-import PDVView from '@/views/Dashboard/Ecommerce/PDVView.vue';
+import PDVView from '@/views/Dashboard/Ecommerce/PDV/PDVView.vue';
 import ConsumersView from '@/views/Dashboard/Ecommerce/ConsumersView.vue';
 import HomeView from '@/views/Dashboard/HomeView.vue';
 import PaymentsForm from '@/views/components/PaymentsForm.vue';
@@ -15,62 +15,77 @@ import CustomerHome from '@/views/Dashboard/UserArea/CustomerHome.vue';
 import CashRegisterView from '@/views/Dashboard/Ecommerce/CashRegisterView.vue';
 import UsersView from '@/views/Dashboard/Ecommerce/UsersView.vue';
 import ProductsView from '@/views/Dashboard/Ecommerce/ProductsView.vue';
-
+import ListPDVView from '@/views/Dashboard/Ecommerce/PDV/ListPDVView.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView,
   },
   {
     path: '/updates',
-    name: 'updates',
+    name: 'Updates',
     //component:
   },
   {
-    path: '/sobre',
-    name: 'sobre',
+    path: '/about',
+    name: 'about',
     component: AboutView,
   },
   {
     path: "/login",
-    name: "login",
+    name: "Login",
     component: LoginView,
   },
   {
     path: "/register",
-    name: "register",
+    name: "Register",
     component: RegisterView,
   },
   {
     path: "/settings",
-    name: "settings",
+    name: "Settings",
     component: SettingsView,
   },
   {
     path: '/cash-register',
-    name: 'cash-register',
+    name: 'CashRegister',
     component: CashRegisterView,
   },
   {
     path: '/products',
-    name: 'products',
+    name: 'Products',
     component: ProductsView,
   },
   {
     path: '/consumers',
-    name: 'consumers',
+    name: 'Consumers',
     component: ConsumersView,
   },
   {
-    path: '/pdv',
-    name: 'pdv',
+    path: '/sale/pdv/:idPDV',
+    name: 'PDVID',
     component: PDVView,
+    props: true
+
+  },
+  {
+    path: '/sale/pdv',
+    name: 'PDV',
+    component: PDVView,
+    props: true
+    
+  },
+  {
+    path: '/sale/list-pdv',
+    name: 'ListPDV',
+    component: ListPDVView
+
   },
   {
     path: '/payments',
-    name: 'payments',
+    name: 'Payments',
     component: PaymentsForm,
   },
   {
@@ -80,7 +95,7 @@ const routes = [
   },
   {
     path: '/users-view',
-    name: 'users-view',
+    name: 'UsersView',
     component: UsersView
   },
 

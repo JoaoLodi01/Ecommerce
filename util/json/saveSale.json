@@ -22,8 +22,8 @@ is_nfce_nm: null
             "isSelected": true,
             "ncm": "12345678",
             "perc_lucro": "100.00",
-            "preco_custo": "10.00",
-            "preco_venda": "120.00",
+            "price_cost": "10.00",
+            "sale_price": "120.00",
             "produto": "Jack Daniels Maça",
             "quantidade": 1,
             "unit": "UN"
@@ -39,8 +39,8 @@ is_nfce_nm: null
             "isSelected": true,
             "ncm": "12345678",
             "perc_lucro": "100.00",
-            "preco_custo": "10.00",
-            "preco_venda": "120.00",
+            "price_cost": "10.00",
+            "sale_price": "120.00",
             "produto": "Jack Daniels Maça",
             "quantidade": 1,
             "unit": "UN"

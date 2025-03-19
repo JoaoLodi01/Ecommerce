@@ -1,4 +1,4 @@
-<template>    
+<template>
     <div
         class="flex border rounded-lg border-black mt-2 w-max" 
         id="pdv-view"
@@ -13,19 +13,26 @@
                 
         }"   
     >
+            <div class="absolute left-96 right-auto top-40 z-20">
+                <PaymentsForm
+                    v-if="showPaymentsForm"
+                    :show="this.showPaymentsForm"
+                    :typeOperation=this.typeOperation
+                    :totalOperation=this.totalOperation
+                    @resetTotal="totalOperation = 0"
+                    :pdvID=this.pdvID
+                    @close="cancelOperation"
+
+                />
+            </div>
         <div class="relative overflow-x-auto max-h-96 overflow-y-auto ">
             <div class="flex">
-                <div class="ml-6 mt-4 mb-4 cursor-pointer" @click="showProdutcts">
+                <div class="ml-6 mt-4 mb-4 cursor-pointer" @click="showproductts">
                     <div class="border border-red-500 w-6 mb-1"></div>
                     <div class="border border-black w-5 mb-1"></div>
                     <div class="border border-gray-500 w-4 mb-1"></div>        
                 </div>
 
-                <input
-                    type="text"
-                    placeholder="Busca"
-                    class="w-full ml-auto mr-2 mt-2 text-right pr-3.5 border border-black"
-                />
             </div>
 
             <div class="m-5 w-max shadow-lg">
@@ -42,14 +49,15 @@
 
                             </tr>
                         </thead>
-                        
+
                         <tbody v-for="products in productsSeletion">
                             <tr
                                 v-for="(product, id) in products" :key="id"
                                 class="border border-black"
                             >    
-                                <td class="px-6" scope="row">{{ product.id }}</td>
-                                <td class="px-6 py-3">{{ product.produto }}</td>
+
+                                <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                                <td class="px-6 py-3">{{ product.product }}</td>
 
                                 <td class="px-6 py-3 text-center">
                                     <input 
@@ -75,16 +83,16 @@
 
                                 <td class="px-6 py-3 text-center">
                                     <input 
-                                        v-model="product.quantidade"
-                                        :placeholder=product.quantidade
+                                        v-model="product.amount"
+                                        :placeholder=product.amount
                                         type="text"
                                         class="w-10 text-center border-b-4 border-b-gray-500 "
-                                        @input="changeAmount(product.id, product.quantidade)"
+                                        @input="changeAmount(product.id, product.amount)"
                                         
                                     />
                                 </td>
-                                <td class="px-6 py-3 text-center">R$ {{ product.preco_venda }}</td>
-                                <td class="text-center">R$ {{ product.preco_venda * product.quantidade }}</td>
+                                <td class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                                <td class="text-center">R$ {{ product.sale_price * product.amount }}</td>
                             </tr>    
                         </tbody>
                         
@@ -209,11 +217,13 @@
                 </div>
             </div>
         </div>
+        <!--image-->
     </div>
 
     <div
         v-if="showGrid"
-        class="flex border border-black w-10 ml-10">
+        class="flex border border-black w-10 ml-10"
+    >
         <select id="textSize" v-model.number="textSize" @change="setTextSize">
             <option selected value=4>4</option>
             <option value=8>8</option>
@@ -229,24 +239,12 @@
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion"
         />
-    
-    <PaymentsForm
-        v-if="showPaymentsForm"
-        :show="this.showPaymentsForm"
-        :typeOperation=this.typeOperation
-        :totalOperation=this.totalOperation
-        @resetTotal="totalOperation = 0"
-        :pdvID=this.pdvID
-        @close="cancelOperation"
-    
-    />
-
-</div>
+    </div>
 </template>
 
 <script>
     import PaymentsForm from '@/views/components/PaymentsForm.vue';
-    import ProductsSelectionView from '@/views/components/ProductsSelectionView.vue';
+    import ProductsSelectionView from '@/views/components/Products/ProductsSelectionView.vue';
     import axios from 'axios';
     import { toRaw } from 'vue'   
     
@@ -281,10 +279,11 @@
                 const rawproductsSeletion = toRaw(this.productsSeletion)
                 
                 let subtotal = 0
+                
                 rawproductsSeletion.forEach(products => {
                     for (let i = 0; i < products.length; i++) {
                         const p = products[i];
-                        subtotal += p.preco_venda * p.quantidade
+                        subtotal += p.sale_price * p.amount
                         
                     }
                 });
@@ -307,6 +306,7 @@
                 const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
+                        
                         const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                             products: this.productsSeletion, // Produtos da 
                             user_id: this.emitProducts.userID,
@@ -371,9 +371,16 @@
             
             async finalizeSale(type)
             {
-                // Só vai chamar a forma de pagamento
-                this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
+                /* Só vai chamar a forma de pagamento
+                for (let i = 0; i < this.productsSeletion[0].length; i++) {
+                    //console.log("this.productsSeletion[i]['pdv_id']", this.productsSeletion[0][i]['pdv_id'])
+                    
+                    this.productsSeletion[0][i]['id'] = this.productsSeletion[0][i]['product_id']
+                }
+
+                console.log("this.productsSeletion[0]", this.productsSeletion[0])*/
                 
+                this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
                 try {
                     if(type === 'nm')   
                     {
@@ -394,7 +401,6 @@
 
                         if(response.data.success === true)
                         {
-                            this.productsSeletion = []
                             this.typeOperation = 'saleNM'
                             this.showPaymentsForm = !this.showPaymentsForm
                             this.pdvID = response.data.pdvID
@@ -419,7 +425,6 @@
                     console.log('response.dat PDVView, line 415: ', response.data)
                     if(response.data.success === true)
                     {
-                        this.productsSeletion = []
                         this.typeOperation = 'saleNFCe'
                         this.showPaymentsForm = !this.showPaymentsForm
                         this.pdvID = response.data.pdvID
@@ -432,7 +437,20 @@
                 }
             },
 
-            showProdutcts(){
+            async importSale()
+            {
+                try {
+                    const response = await axios.get(`${this.api}/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
+                    console.log(response.data.pdvs.get_itens)
+                    this.updateProductsSeletion(response.data.pdvs.get_itens)
+
+                } catch (error) {
+                    console.error('Erro importSale', error)
+                    
+                }
+            },
+
+            showproductts(){
                 this.showPaymentsForm = false
                 this.showGrid = !this.showGrid
                 this.show = !this.show
@@ -461,7 +479,7 @@
 
                 if(productFound)
                 {
-                    productFound.quantidade = newAmount
+                    productFound.amount_sold = newAmount
 
                 }
             },
@@ -518,6 +536,11 @@
 
             },
 
+            setTextSize()
+            {
+
+            },
+
             cancelSale()
             {
                 const option = confirm('Deseja realmente cancelar a venda? ')
@@ -534,9 +557,20 @@
 
         },
 
+        props: [
+            'idPDV'
+
+        ],
+
         mounted(){
             this.getHotel()
             this.withScreen += screen.width
+            if(this.idPDV)
+            {
+                this.importSale()
+                console.log('this.productsSeletion', this.productsSeletion)
+                
+            }
             
         }
       }
@@ -548,4 +582,4 @@
 
     }
 
-</style>    
+</style>
