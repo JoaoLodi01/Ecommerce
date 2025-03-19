@@ -104,12 +104,14 @@ class PDVRepository
                     'pdv_id' => $pdvID,
                     'product_id' => $product[$i]['id'],
                     'product' => $product[$i]['product'],
+                    'cost_price' => $product[$i]['cost_price'],
+                    'sale_price' => $product[$i]['sale_price'],
                     'cfop' => $product[$i]['cfop'],
                     'csosn' => $product[$i]['csosn'],
                     'ncm' => $product[$i]['ncm'],
                     'cest' => $product[$i]['cest'],
                     'unit' => $product[$i]['unit'],
-                    'amount_sold' => $product[$i]['amount'],
+                    'amount' => $product[$i]['amount'],
                     'addition' => 0,
                     'discount' => 0,
                     'user_id' => $user->id,
@@ -119,7 +121,9 @@ class PDVRepository
     
                 Log::info('itensPDV ');
                 Log::info($itensPDV);
-                ItensPDV::create($itensPDV);
+                $ipdv = ItensPDV::create($itensPDV);
+                Log::info('$ipdv');
+                Log::info($ipdv);
             }
         }
 
@@ -188,10 +192,7 @@ class PDVRepository
                 Log::info('$type ' . $type);
                 $pdv->update([
                     'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
-<<<<<<< HEAD
                     'is_nfce_nm' => $type === 'saleNM' ? 'nm' : 'nfce',
-=======
->>>>>>> parent of 313f963 (General adjustamente in PayFormsView, PDVView, reopen sale, PDVRepository, ProducstRepository, HotelSeeder)
                     'finished' => 1
         
                 ]);
@@ -200,8 +201,9 @@ class PDVRepository
                 $products = ItensPDV::where('pdv_id', $pdv->id)->get();
         
                 for ($i=0; $i < count($products); $i++) { 
+                    Log::info('Alteração dentro do for = ' . $pdv->id);
                     $product = $products[$i];
-                    $this->productsRepository->decreaseQuantiy($product->product_id, $product->amount_sold);
+                    $this->productsRepository->decreaseQuantiy($product->product_id, $product->amount);
                     $product->update([
                         'is_nfce_nm' => $pdv->is_nfce_nm,
                         'finished' => 1
@@ -209,8 +211,6 @@ class PDVRepository
                 }
 
                 //ord()
-                Log::info('Memória usada PDVRepository::class, finalizeSale após update: ' . memory_get_usage(true));
-
                 return array(
                     'success' => true,
                     'message' => 'O pagamento foi efetuado com sucesso!',

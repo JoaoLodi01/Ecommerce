@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('grupo_id')->references('id')->on('grupos')->onDelete('cascade');
             $table->string('grupo', 255);
             $table->integer('amount');
-            $table->decimal('price_cost', 16,2);
+            $table->decimal('cost_price', 16,2);
             $table->decimal('sale_price', 16,2);
             $table->decimal('perc_lucro', 16,2);
             $table->string('cfop', 4);

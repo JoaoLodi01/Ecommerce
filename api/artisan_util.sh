@@ -29,7 +29,7 @@ main()
 
         3)
             clear
-            echo "Digite seu comando: "
+            echo "Digite seu comando: php artisan ..."
             read command
             echo "Rodando: php artisan $command"
             bash -c "php artisan $command"

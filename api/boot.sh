@@ -66,7 +66,8 @@ main()
 
 	case $ambiente in
 	 	1)
-	 		change_ambient
+	 		cd $backPath || { echo "Caminho não encontrado!"; exit 1; }
+	 		start bash -c "php artisan serve --host=192.168.$ip"
 			;;
 
 		2)
