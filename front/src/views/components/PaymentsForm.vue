@@ -113,7 +113,8 @@ export default {
     },
     emits: [
         'close',
-        'resetTotal'
+        'resetTotal',
+        'success'
 
     ],
 
@@ -148,7 +149,6 @@ export default {
     computed: {
         calculateValueInformed()
         {
-            console.log('this.paymentsValues', this.paymentsValues)
             let total = this.paymentsValues.reduce((sum, value) => {
                 const num = parseFloat(value) || 0;
                 return sum + num
@@ -178,64 +178,67 @@ export default {
 
             try {
                 switch (this.typeOperation) {
-                case 'reservation':
-                    console.log('Começou reserva')
-                    const generateCredit = this.calculeCredit(this.paymentsValues);
-                    
-                    this.isLoanding = !this.isLoanding
-                    
-                    const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
-                        customerID: 1,
-                        paymentsValues: this.paymentsValues,
-                        roomID: this.roomID,
-                        generateCredit: generateCredit
+                    case 'reservation':
+                        console.log('Começou reserva')
+                        const generateCredit = this.calculeCredit(this.paymentsValues);
                         
-                    });
+                        this.isLoanding = !this.isLoanding
+                        
+                        const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
+                            customerID: 1,
+                            paymentsValues: this.paymentsValues,
+                            roomID: this.roomID,
+                            generateCredit: generateCredit
+                            
+                        });
+                        
+                        const reservation = response.data
+                        
+                        this.message = reservation.message ? reservation.message : reservation.errorMessage
                     
-                    const reservation = response.data
-                    
-                    this.message = reservation.message ? reservation.message : reservation.errorMessage
-                
-                    break;
+                        break;
 
-                case 'saleNFCe':
-                    console.log('Começou venda NFCe')
-                    const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                        typeOperation: this.typeOperation,
-                        paymentsValues: this.paymentsValues,
-                        pdvID: this.pdvID
-                        
-                    })
+                    case 'saleNFCe':
+                        console.log('Começou venda NFCe')
+                        const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                            typeOperation: this.typeOperation,
+                            paymentsValues: this.paymentsValues,
+                            pdvID: this.pdvID
+                            
+                        })
 
-                    if(response_nfce.data.success === true)
-                    {
-                        this.closeOperation()
+                        if(response_nfce.data.success === true)
+                        {
+                            this.cancelOperation()
+                            this.$router.push({ name: 'PDV' })
+                            
+                        }
+
+                        break
+
+                    case 'saleNM':
+                        console.log('Começou venda NM')
+                        const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                            typeOperation: this.typeOperation,
+                            paymentsValues: this.paymentsValues,
+                            pdvID: this.pdvID
+
+                        })
+                        console.log(response_nm.data)
                         
+                        if(response_nm.data.success === true)
+                        {
+                            this.cancelOperation()
+                            this.$router.push({ name: 'PDV' })
+
+                        }
+
+                        break
+
+                    default:
+                        console.log('Operation not defined',  this.typeOperation)
+                        break;
                     }
-
-                    break
-
-                case 'saleNM':
-                    console.log('Começou venda NM')
-                    const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                        typeOperation: this.typeOperation,
-                        paymentsValues: this.paymentsValues,
-                        pdvID: this.pdvID
-
-                    })
-                    console.log(response_nm)
-                    if(response_nm.data.success === true)
-                    {
-                        this.closeOperation()
-                        
-                    }
-
-                    break
-
-                default:
-                    console.log('Operation not defined',  this.typeOperation)
-                    break;
-                }
                 
             } catch (error) {
                 console.error('Error: ', error)
@@ -271,7 +274,7 @@ export default {
         cancelOperation(){            
             this.$emit("close")
             this.$emit('resetTotal', 0);
-
+            this.$emit('success', []);
         },
 
         closeOperation(){
