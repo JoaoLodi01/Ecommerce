@@ -16,12 +16,11 @@ class Receive extends Model
         'especie',
         'date_register',
         'due_date',
-        'installment_amount',
-        'installment_number',
-        'installment_value',
-        'type_interest',
-        'interest_value',
-        'total_amount',
+        'installment_number', // nmr parcela
+        'installment_value', // valor da parcela
+        'type_interest', // Tipo de juros
+        'interest_value', // valor de juros
+        'total_amount', // Valor total
         'origem',
         'canceled',
         'user_id',

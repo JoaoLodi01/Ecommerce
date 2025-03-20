@@ -8,19 +8,21 @@ use App\Services\EcommerceService\CashRegisterService;
 
 class CashRegisterController extends Controller
 {
-    protected $cashRegisterService;
-
-    public function __construct(CashRegisterService $cashRegisterService){
-        $this->cashRegisterService = $cashRegisterService;
-    }
+    public function __construct(
+        protected CashRegisterService $cashRegisterService
+    ) {}
 
     public function getAll(){
         return $this->cashRegisterService->getAll();
     }
 
+    public function getAllReceive(){
+        return $this->cashRegisterService->getAllReceive();
+    }
+
     public function store(CashRegisterRequest $request){
         $data = $request->validated();
-        return $this->cashRegisterService->store($data);
+        return $this->cashRegisterService->create($data);
     }
 
     public function findByID(int $id){

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2025-03-12 10:51:03] local.INFO: Vai buscar o hotel e as configurações  
 [2025-03-12 10:51:03] local.INFO: O hotel foi encontrado  
 [2025-03-12 10:51:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
@@ -1585,3 +1586,807 @@
 [2025-03-20 20:50:46] local.INFO: Chamou o IPService  
 [2025-03-20 20:50:46] local.INFO: Chamou o IPController  
 [2025-03-20 20:50:46] local.INFO: Chamou o IPService  
+=======
+[2025-03-20 09:08:57] local.INFO: Chamou o IPController  
+[2025-03-20 09:08:57] local.INFO: Chamou o IPService  
+[2025-03-20 09:09:00] local.INFO: Memória usada ReservationService::class, __construct: 16777216  
+[2025-03-20 09:09:00] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-20 09:09:00] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-20 09:09:00] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-20 09:09:00] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-20 09:09:00] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:09:24] local.INFO: Memória usada ReservationService::class, __construct: 16777216  
+[2025-03-20 09:09:24] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-20 09:09:24] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-20 09:09:24] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-20 09:09:24] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-20 09:09:24] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:09:26] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-20 09:09:26] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-20 09:09:26] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-20 09:09:26] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-20 09:09:26] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-20 09:09:26] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:10] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:10:10] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:10:10] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:10:10] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:10:10] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:10:10] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:11] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:10:11] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:10:11] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:10:11] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:10:11] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:10:11] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:12] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:10:12] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:10:12] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:10:12] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:10:12] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:10:12] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:15] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:10:15] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:10:15] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:10:15] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:10:15] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:10:15] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:39] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:10:39] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:10:39] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:10:39] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:10:39] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:10:39] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:40] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:10:40] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:10:40] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:10:40] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:10:40] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:10:40] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:42] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:10:42] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:10:42] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:10:42] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:10:42] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:10:42] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:43] local.INFO: Chamou o IPController  
+[2025-03-20 09:10:43] local.INFO: Chamou o IPService  
+[2025-03-20 09:10:43] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:10:43] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:10:43] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:10:43] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:10:43] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:10:43] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:51] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:10:51] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:10:51] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:10:51] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:10:51] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:10:51] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:10:55] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:10:55] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:10:55] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:10:55] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:10:55] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:10:55] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:11:09] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:11:09] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:11:09] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:11:09] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:11:09] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:11:09] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:11:11] local.INFO: Chamou o IPController  
+[2025-03-20 09:11:11] local.INFO: Chamou o IPService  
+[2025-03-20 09:11:11] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:11:11] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:11:11] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:11:11] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:11:11] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:11:11] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:11:15] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:11:15] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:11:15] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:11:15] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:11:15] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:11:15] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:11:20] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:11:20] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:11:20] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:11:20] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:11:20] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:11:20] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:12:28] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:12:28] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:12:28] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:12:28] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:12:28] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:12:28] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:12:28] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:12:28] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:12:28] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:12:28] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:12:28] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:12:28] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:12:41] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:12:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:12:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:12:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:12:41] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:12:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:12:48] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:12:48] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:12:48] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:12:48] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:12:48] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:12:48] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:12:49] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:12:49] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:12:49] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:12:49] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:12:49] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:12:49] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:12:51] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:12:51] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:12:51] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:12:51] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:12:51] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:12:51] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:12:56] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:12:56] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:12:56] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:12:56] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:12:56] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:12:56] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:13:10] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:13:10] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:13:10] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:13:10] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:13:10] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:13:10] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:13:11] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:13:11] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:13:11] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:13:11] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:13:11] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:13:11] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:13:35] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:13:35] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:13:35] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:13:35] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:13:35] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:13:35] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:13:35] local.INFO: Chamou o IPController  
+[2025-03-20 09:13:35] local.INFO: Chamou o IPService  
+[2025-03-20 09:13:36] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:13:36] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:13:36] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:13:36] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:13:36] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:13:36] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:13:48] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:13:48] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:13:48] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:13:48] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:13:48] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:13:48] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:13:52] local.INFO: Chamou o IPController  
+[2025-03-20 09:13:52] local.INFO: Chamou o IPService  
+[2025-03-20 09:13:52] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:13:52] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:13:52] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:13:52] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:13:52] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:13:52] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:13:56] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:13:56] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:13:56] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:13:56] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:13:56] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:13:56] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:14:22] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:14:22] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:14:22] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:14:22] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:14:22] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:14:22] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:14:26] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:14:26] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:14:26] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:14:26] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:14:26] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:14:26] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:14:29] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:14:29] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:14:29] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:14:29] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:14:29] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:14:29] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:14:47] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:14:47] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:14:47] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:14:47] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:14:47] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:14:47] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:15:03] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:15:03] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:15:03] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:15:03] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:15:03] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:15:03] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:15:09] local.INFO: Chamou o IPController  
+[2025-03-20 09:15:09] local.INFO: Chamou o IPService  
+[2025-03-20 09:15:09] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:15:09] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:15:09] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:15:09] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:15:09] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:15:09] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:15:34] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:15:34] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:15:34] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:15:34] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:15:34] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:15:34] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:15:38] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:15:38] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:15:38] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:15:38] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:15:38] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:15:38] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:15:41] local.INFO: Chamou o IPController  
+[2025-03-20 09:15:41] local.INFO: Chamou o IPService  
+[2025-03-20 09:15:41] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:15:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:15:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:15:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:15:41] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:15:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:15:48] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:15:48] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:15:48] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:15:48] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:15:48] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:15:48] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:16:02] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:16:02] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:16:02] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:16:02] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:16:02] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:16:02] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:16:03] local.INFO: Chamou o IPController  
+[2025-03-20 09:16:03] local.INFO: Chamou o IPService  
+[2025-03-20 09:16:03] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:16:03] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:16:03] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:16:03] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:16:03] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:16:03] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:16:17] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:16:17] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:16:17] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:16:17] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:16:17] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:16:17] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:16:31] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:16:31] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:16:31] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:16:31] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:16:31] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:16:31] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:16:35] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:16:35] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:16:35] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:16:35] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:16:35] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:16:36] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:16:36] local.INFO: Chamou o IPController  
+[2025-03-20 09:16:36] local.INFO: Chamou o IPService  
+[2025-03-20 09:16:37] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:16:37] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:16:37] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:16:37] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:16:37] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:16:37] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:16:50] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:16:50] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:16:50] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:16:50] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:16:50] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:16:50] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:16:53] local.INFO: Chamou o IPController  
+[2025-03-20 09:16:53] local.INFO: Chamou o IPService  
+[2025-03-20 09:16:53] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:16:53] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:16:53] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:16:53] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:16:53] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:16:53] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:17:06] local.INFO: Chamou o IPController  
+[2025-03-20 09:17:06] local.INFO: Chamou o IPService  
+[2025-03-20 09:17:07] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:17:07] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:17:07] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:17:07] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:17:07] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:17:07] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:18:21] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:18:21] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:18:21] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:18:21] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:18:21] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:18:21] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:19:13] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:19:13] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:19:13] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:19:13] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:19:13] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:19:13] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:19:25] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:19:25] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:19:25] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:19:25] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:19:25] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:19:25] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:19:27] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:19:27] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:19:27] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:19:27] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:19:27] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:19:27] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:19:29] local.INFO: Chamou o IPController  
+[2025-03-20 09:19:29] local.INFO: Chamou o IPService  
+[2025-03-20 09:19:29] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:19:29] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:19:29] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:19:29] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:19:29] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:19:29] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:19:40] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:19:40] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:19:40] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:19:40] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:19:40] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:19:40] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:19:46] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:19:46] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:19:46] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:19:46] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:19:46] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:19:46] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:19:49] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:19:49] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:19:49] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:19:49] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:19:49] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:19:49] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:19:52] local.INFO: Chamou o IPController  
+[2025-03-20 09:19:52] local.INFO: Chamou o IPService  
+[2025-03-20 09:19:52] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:19:52] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:19:52] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:19:52] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:19:52] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:19:52] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:20:03] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:20:03] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:20:03] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:20:03] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:20:03] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:20:03] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:20:10] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:20:10] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:20:10] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:20:10] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:20:10] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:20:10] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:20:11] local.INFO: Chamou o IPController  
+[2025-03-20 09:20:11] local.INFO: Chamou o IPService  
+[2025-03-20 09:20:11] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:20:11] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:20:11] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:20:11] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:20:11] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:20:11] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:20:19] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:20:19] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:20:19] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:20:19] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:20:19] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:20:19] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:20:32] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:20:32] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:20:32] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:20:32] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:20:32] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:20:32] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:20:33] local.INFO: Chamou o IPController  
+[2025-03-20 09:20:33] local.INFO: Chamou o IPService  
+[2025-03-20 09:20:33] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:20:33] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:20:33] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:20:33] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:20:33] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:20:33] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:21:06] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:21:06] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:21:06] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:21:06] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:21:06] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:21:06] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:21:07] local.INFO: Chamou o IPController  
+[2025-03-20 09:21:07] local.INFO: Chamou o IPService  
+[2025-03-20 09:21:07] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:21:07] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:21:07] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:21:07] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:21:07] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:21:07] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:21:19] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:21:19] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:21:19] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:21:19] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:21:19] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:21:19] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:22:39] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:22:39] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:22:39] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:22:39] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:22:39] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:22:39] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:22:51] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:22:51] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:22:51] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:22:51] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:22:51] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:22:51] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:22:52] local.INFO: Chamou o IPController  
+[2025-03-20 09:22:52] local.INFO: Chamou o IPService  
+[2025-03-20 09:22:53] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:22:53] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:22:53] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:22:53] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:22:53] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:22:53] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:22:57] local.INFO: Chamou o IPController  
+[2025-03-20 09:22:57] local.INFO: Chamou o IPService  
+[2025-03-20 09:22:57] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:22:57] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:22:57] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:22:57] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:22:57] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:22:57] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:23:10] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:23:10] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:23:10] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:23:10] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:23:10] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:23:10] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:23:10] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:23:10] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:23:10] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:23:10] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:23:10] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:23:10] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:23:46] local.INFO: Chamou o IPController  
+[2025-03-20 09:23:46] local.INFO: Chamou o IPService  
+[2025-03-20 09:23:46] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:23:46] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:23:46] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:23:46] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:23:46] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:23:46] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:23:47] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:23:47] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:23:47] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:23:47] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:23:47] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:23:47] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:24:00] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:24:00] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:24:00] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:24:00] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:24:00] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:24:00] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:24:12] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:24:12] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:24:12] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:24:12] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:24:12] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:24:12] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:24:57] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:24:57] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:24:57] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:24:57] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:24:57] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:24:57] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:25:32] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:25:32] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:25:32] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:25:32] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:25:32] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:25:32] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:25:36] local.INFO: Chamou o IPController  
+[2025-03-20 09:25:36] local.INFO: Chamou o IPService  
+[2025-03-20 09:25:36] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:25:36] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:25:36] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:25:36] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:25:36] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:25:36] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:25:43] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:25:43] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:25:43] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:25:43] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:25:43] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:25:43] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:25:51] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:25:51] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:25:51] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:25:51] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:25:51] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:25:51] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:25:53] local.INFO: Chamou o IPController  
+[2025-03-20 09:25:53] local.INFO: Chamou o IPService  
+[2025-03-20 09:25:54] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:25:54] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:25:54] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:25:54] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:25:54] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:25:54] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:25:55] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:25:55] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:25:55] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:25:55] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:25:55] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:25:55] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:26:01] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:26:01] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:26:01] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:26:01] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:26:01] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:26:01] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:26:15] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:26:15] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:26:15] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:26:15] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:26:15] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:26:15] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:26:53] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:26:53] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:26:53] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:26:53] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:26:53] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:26:53] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:26:58] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:26:58] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:26:58] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:26:58] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:26:58] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:26:58] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:27:00] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:27:00] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:27:00] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:27:00] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:27:00] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:27:00] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:27:13] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:27:13] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:27:13] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:27:13] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:27:13] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:27:13] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:27:14] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:27:14] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:27:14] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:27:14] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:27:14] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:27:14] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:27:23] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:27:23] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:27:23] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:27:23] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:27:23] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:27:23] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:27:27] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:27:27] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:27:27] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:27:27] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:27:27] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:27:27] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:27:27] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:27:27] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:27:27] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:27:27] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:27:27] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:27:27] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:27:39] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:27:39] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:27:39] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:27:39] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:27:39] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:27:39] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:27:41] local.INFO: Chamou o IPController  
+[2025-03-20 09:27:41] local.INFO: Chamou o IPService  
+[2025-03-20 09:27:41] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:27:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:27:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:27:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:27:41] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:27:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:27:45] local.INFO: Chamou o IPController  
+[2025-03-20 09:27:45] local.INFO: Chamou o IPService  
+[2025-03-20 09:27:45] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:27:45] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:27:45] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:27:45] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:27:45] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:27:45] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:28:17] local.INFO: Chamou o IPController  
+[2025-03-20 09:28:17] local.INFO: Chamou o IPService  
+[2025-03-20 09:28:18] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:28:18] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:28:18] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:28:18] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:28:18] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:28:18] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:28:44] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:28:44] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:28:44] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:28:44] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:28:44] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:28:44] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:28:47] local.INFO: Chamou o IPController  
+[2025-03-20 09:28:47] local.INFO: Chamou o IPService  
+[2025-03-20 09:28:47] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:28:47] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:28:47] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:28:47] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:28:47] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:28:47] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:29:28] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:29:28] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:29:28] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:29:28] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:29:28] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:29:28] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:29:30] local.INFO: Chamou o IPController  
+[2025-03-20 09:29:30] local.INFO: Chamou o IPService  
+[2025-03-20 09:29:30] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:29:30] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:29:30] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:29:30] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:29:30] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:29:30] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:30:26] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:30:26] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:30:26] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:30:26] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:30:26] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:30:26] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:30:41] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:30:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:30:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:30:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:30:41] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:30:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:30:47] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:30:47] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:30:47] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:30:47] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:30:47] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:30:47] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:30:52] local.INFO: Chamou o IPController  
+[2025-03-20 09:30:52] local.INFO: Chamou o IPService  
+[2025-03-20 09:30:52] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:30:52] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:30:52] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:30:52] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:30:52] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:30:52] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:31:03] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:31:03] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:31:03] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:31:03] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:31:03] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:31:03] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:31:08] local.INFO: Chamou o IPController  
+[2025-03-20 09:31:08] local.INFO: Chamou o IPService  
+[2025-03-20 09:31:08] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:31:08] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:31:08] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:31:08] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:31:08] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:31:08] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:31:29] local.INFO: Chamou o IPController  
+[2025-03-20 09:31:29] local.INFO: Chamou o IPService  
+[2025-03-20 09:31:29] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:31:29] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:31:29] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:31:29] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:31:29] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:31:29] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:31:45] local.INFO: Chamou o IPController  
+[2025-03-20 09:31:45] local.INFO: Chamou o IPService  
+[2025-03-20 09:31:46] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:31:46] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:31:46] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:31:46] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:31:46] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:31:46] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:32:37] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:32:37] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:32:37] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:32:37] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:32:37] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:32:37] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:32:57] local.INFO: Chamou o IPController  
+[2025-03-20 09:32:57] local.INFO: Chamou o IPService  
+[2025-03-20 09:32:57] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:32:57] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:32:57] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:32:57] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:32:57] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:32:57] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:33:16] local.INFO: Chamou o IPController  
+[2025-03-20 09:33:16] local.INFO: Chamou o IPService  
+[2025-03-20 09:33:17] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:33:17] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:33:17] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:33:17] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:33:17] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:33:17] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:33:48] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:33:48] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:33:48] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:33:48] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:33:48] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:33:48] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:34:20] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:34:20] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:34:20] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:34:20] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:34:20] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:34:20] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:34:41] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 09:34:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 09:34:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 09:34:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 09:34:41] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 09:34:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:34:45] local.INFO: Chamou o IPController  
+[2025-03-20 09:34:45] local.INFO: Chamou o IPService  
+[2025-03-20 09:34:45] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:34:45] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:34:45] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:34:45] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:34:45] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:34:45] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:35:26] local.INFO: Chamou o IPController  
+[2025-03-20 09:35:26] local.INFO: Chamou o IPService  
+[2025-03-20 09:35:26] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:35:26] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:35:26] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:35:26] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:35:26] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:35:27] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:35:39] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:35:39] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:35:39] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:35:39] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:35:39] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:35:39] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:35:40] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:35:40] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:35:40] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:35:40] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:35:40] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:35:40] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 09:35:41] local.INFO: Chamou o IPController  
+[2025-03-20 09:35:41] local.INFO: Chamou o IPService  
+[2025-03-20 09:35:41] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 09:35:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 09:35:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 09:35:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 09:35:41] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 09:35:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+>>>>>>> fef558c8562dd36baa1b780ba7fe45fc30071a93

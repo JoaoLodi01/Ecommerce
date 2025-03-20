@@ -1,8 +1,12 @@
 <template>
-  <div class="estoque-container px-20 py-20">
-    <!-- Título -->
-    <h1 class="text-3xl font-semibold mb-6">Estoque</h1>
-
+  <div class="estoque-container px-20">
+    <h1 class="text-3xl font-semibold mb-6 py-2">Estoque</h1>
+        <button 
+          @click="toggleRegisterProductVisibility"
+          class="w-96 py-2 absolute right-2 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
+          <span v-if="!showRegisterProduct">Cadastrar</span>
+          <span v-else>Voltar</span>
+        </button>
     <!-- Grid de Produtos -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" v-if="showProducts">
         <div 
@@ -11,7 +15,7 @@
           <!-- Nome do produto -->
           <div class="text-sm text-gray-500 mb-2">
             <span class="font-semibold">Produto:</span> {{ product.produto}}
-          </div>
+          </div>  
 
           <!-- ID do produto -->
           <div class="text-sm text-gray-500 mb-2">
@@ -25,7 +29,7 @@
 
           <!-- Preço de Venda -->
           <div class="text-sm text-gray-500 mb-4">
-            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.preco_venda).toFixed(2) || '0.00' }}
+            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
           </div>
 
           <!-- Ações -->
@@ -38,16 +42,6 @@
               class="px-4 py-2 text-red-500 bg-red-100 rounded-lg hover:bg-red-200 transition">Excluir</button>
           </div>
         </div>
-        <div class="mt-4">
-          
-          <button 
-            @click="toggleRegisterProductVisibility"
-            class="w-full py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
-            <span v-if="!showRegisterProduct">Cadastrar</span>
-            <span v-else>Voltar</span>
-          </button>
-        </div>
-        
       </div>
       <RegisterProduct
         v-if= "showRegisterProduct"
@@ -59,32 +53,35 @@
 
 <script>
 import axios from 'axios';
-import RegisterProduct from '@/views/components/RegisterProduct.vue';
+import RegisterProduct from '@/views/components/Register/RegisterProduct.vue';
 
 export default {
   components: {
     RegisterProduct,
   },
+
   data() {
     return {
       products: [],
       showProducts: true,
       showRegisterProduct: false,
-      api: process.env.VUE_APP_API_URL,
-      
+      api: process.env.VUE_APP_API_URL, 
     };
-  },
-
-  mounted() {
-    this.getProducts();
   },
 
   methods: {
 
     async getProducts() {
-      const response = await axios.get(`${this.api}/ecommerce/products/all`);
-      console.log(response);
-      this.products = response.data;
+      try {
+        const response = await axios.get(`${this.api}/ecommerce/products/all`);
+        console.log(response);
+        this.products = response.data.data;
+        
+      } catch (error) {
+        console.error('getProducts', error)
+        
+      }
+
     },
 
     toggleRegisterProductVisibility(){
@@ -101,8 +98,13 @@ export default {
     },
 
     editProduct(productID) {
-      // Adicione a lógica de edição se necessário
+      this.showRegisterProduct = !this.showRegisterProduct;
     },
   },
+
+  mounted() {
+    this.getProducts();
+  },
 };
+
 </script>

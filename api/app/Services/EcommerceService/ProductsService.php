@@ -15,8 +15,9 @@ class ProductsService{
     }
     
     public function getAll(){
+        $all = $this->productsRepository->getAll(1);
         try {
-            return $this->productsRepository->getAll(1);
+            return response()->json($all);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }

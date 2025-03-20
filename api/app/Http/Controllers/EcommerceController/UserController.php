@@ -8,7 +8,7 @@ use App\Services\EcommerceService\UserService;
 
 class UserController extends Controller
 {
-    /*protected $userService;
+    protected $userService;
 
     public function __construct(UserService $userService){
         $this->userService = $userService;
@@ -34,5 +34,5 @@ class UserController extends Controller
 
     public function delete(int $id){
         return $this->userService->delete($id);
-    }*/
+    }
 }

@@ -1,6 +1,9 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
+        Header set Access-Control-Allow-Origin "http://192.168.1.104:8080"
+        Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type, Authorization"
     </IfModule>
 
     RewriteEngine On

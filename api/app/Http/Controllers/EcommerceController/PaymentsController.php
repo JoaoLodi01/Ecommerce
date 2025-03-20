@@ -23,10 +23,6 @@ class PaymentsController extends Controller
         return $this->paymentsSaleService->store($data);
     }
 
-    public function findByID(int $id){
-        return $this->paymentsSaleService->findByID($id);
-    }
-
     public function update(Request $request, int $id){
         $data = $request->validated();
         return $this->paymentsSaleService->update($data, $id);

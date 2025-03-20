@@ -9,9 +9,10 @@ use App\Models\HotelModels\{
 };
 
 use App\Models\Config as ConfigHotel;
-use App\Repositories\Contracts\HotelContract\HotelDetailContract;
-use Illuminate\Support\Facades\Log;
 
+use App\Repositories\Contracts\HotelContract\HotelDetailContract;
+
+use Illuminate\Support\Facades\Log;
 class HotelRepository implements HotelDetailContract
 {
     public function all(int $active)
@@ -51,7 +52,6 @@ class HotelRepository implements HotelDetailContract
                 'message' => 'Hotel não encontrado'
 
             );
-
         }
     }
 
