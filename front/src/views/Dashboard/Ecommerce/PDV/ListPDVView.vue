@@ -5,48 +5,74 @@
     >
         <div class="">
             <h1>Listagem PDV <span class="text-sm">(NFC-e/Nota Manual)</span></h1>
-        </div>        
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Opções</th>
-                    <th>ID</th>
-                    <th>Descrição</th>
-                    <th>Total bruto</th>
-                    <th>Total líquido</th>
-                    <th>Desconto</th>
-                    <th>Acréscimo</th>
+            <div class="">
+                <input
+                    type="checkbox"
+                    v-model="searchFill.all"
+                    @change="filterPDVs('all')"
                     
-                </tr>
-            </thead>
-            <tbody v-for="(pdv, id) in savedPDVs" :key="id">
-                <tr>
-                    <td><button @click="openPDV(pdv)">Reabrir PDV</button></td>
-                    <td>{{ pdv.id }}</td>
-                    <td>{{ pdv.description }}</td>
-                    <td>{{ pdv.gross_value }}</td>
-                    <td>{{ pdv.net_value }}</td>
-                    <td>{{ pdv.discount }}</td>
-                    <td>{{ pdv.addition }}</td>
+                /> <span class="mr-5">Todas</span>
+                
+                <input
+                    type="checkbox"
+                    v-model="searchFill.finaly"
+                    @change="filterPDVs('finaly')"
 
-                </tr>
-            </tbody>
-        </table>
+                /> <span class="mr-5">Emitidas</span>
+
+                <input
+                    type="checkbox"
+                    v-model="searchFill.noFinaly"
+                    @change="filterPDVs('noFinaly')"
+
+                /> <span>Não emitidas</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Opções</th>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Total bruto</th>
+                        <th>Total líquido</th>
+                        <th>Desconto</th>
+                        <th>Acréscimo</th>
+                        
+                    </tr>
+                </thead>
+                <tbody v-for="(pdv, id) in savedPDVs" :key="id">
+                    <tr>
+                        <td><button @click="openPDV(pdv)">Reabrir PDV</button></td>
+                        <td>{{ pdv.id }}</td>
+                        <td>{{ pdv.description }}</td>
+                        <td>{{ pdv.gross_value }}</td>
+                        <td>{{ pdv.net_value }}</td>
+                        <td>{{ pdv.discount }}</td>
+                        <td>{{ pdv.addition }}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
     </div>
 </template>
 
 <script>
     import axios from 'axios';  
-
+    import { toRaw } from 'vue';
+    
     export default {
         data()
         {
             return {
+                searchFill: {
+                    all: true,
+                    finaly: false,
+                    noFinaly: false
+                },
                 savedPDVs: [],
                 itensPDVs: [],
-                markedAll: false,
-                marked: {},
                 api: process.env.VUE_APP_API_URL
 
             }
@@ -69,7 +95,23 @@
                     
                 }
             },
+            
+            filterPDVs(key) // true || false
+            {   
+                const fillters = toRaw(this.searchFill)
+                const marked = [fillters]
 
+                marked.forEach(element => {
+                    Object.entries(element).forEach(([keyO, value]) => {
+                        console.log('Chave:', keyO !== key, ':', value)
+
+                    })
+                    
+                });
+  
+                console.log()
+            },
+        
             openPDV(pdv)
             {
                 this.$router.push({
