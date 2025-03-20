@@ -9,18 +9,21 @@
                 <input
                     type="checkbox"
                     v-model="searchFill.all"
-
+                    @change="filterPDVs('all')"
+                    
                 /> <span class="mr-5">Todas</span>
                 
                 <input
                     type="checkbox"
                     v-model="searchFill.finaly"
+                    @change="filterPDVs('finaly')"
 
                 /> <span class="mr-5">Emitidas</span>
 
                 <input
                     type="checkbox"
                     v-model="searchFill.noFinaly"
+                    @change="filterPDVs('noFinaly')"
 
                 /> <span>Não emitidas</span>
             </div>
@@ -57,7 +60,8 @@
 
 <script>
     import axios from 'axios';  
-
+    import { toRaw } from 'vue';
+    
     export default {
         data()
         {
@@ -72,20 +76,6 @@
                 api: process.env.VUE_APP_API_URL
 
             }
-        },
-
-        watch: {
-            filterPDVs(selected)
-            {   
-                Object.keys(this.searchFill).forEach(key => {
-                    this.searchFill[key] = (key === selected)
-
-                })
-
-                console.log('selected', selected, ' this.searchFill, ', this.searchFill)
-                
-            },
-
         },
         
         methods: {
@@ -105,9 +95,23 @@
                     
                 }
             },
-
             
+            filterPDVs(key) // true || false
+            {   
+                const fillters = toRaw(this.searchFill)
+                const marked = [fillters]
 
+                marked.forEach(element => {
+                    Object.entries(element).forEach(([keyO, value]) => {
+                        console.log('Chave:', keyO !== key, ':', value)
+
+                    })
+                    
+                });
+  
+                console.log()
+            },
+        
             openPDV(pdv)
             {
                 this.$router.push({

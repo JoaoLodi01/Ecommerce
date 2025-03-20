@@ -1,8 +1,10 @@
 /*#!/bin/bash
 
+# ---------- Env ----------
 DB_USER="root"
 DB_NAME="ambiente_config"
-DB_PASS="masterkey"
+DB_PASS="masterkey" 
+# -------------------- #
 
 save_db()
 {
@@ -14,9 +16,7 @@ save_db()
 
 start_server()
 {
-
 	clear
-
 	cd $2
 	start bash -c "npm run s"
 
@@ -36,13 +36,14 @@ all_ambients()
 
 change_ambient()
 {
+	clear
 	echo "Todos os ambientes: "
 	echo "Selecione o ambiente desejado pelo ID "
 	mysql -u $DB_USER -p$DB_PASS $DB_NAME -e "SELECT * FROM ambientes"	
 	read id
-	ip=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT ip FROM ambientes"	)
-	frontendPath=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT frontend_path FROM ambientes"	)
-	backendPath=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT backend_path FROM ambientes"	)
+	ip=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT ip FROM ambientes WHERE id = $id")
+	frontendPath=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT frontend_path FROM ambientes WHERE id = $id")
+	backendPath=$(mysql -u $DB_USER -p$DB_PASS $DB_NAME -se "SELECT backend_path FROM ambientes WHERE id = $id")
 
 	start_server $ip $frontendPath $backendPath
 }
