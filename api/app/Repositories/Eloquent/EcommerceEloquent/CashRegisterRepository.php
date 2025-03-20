@@ -2,13 +2,22 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\CashRegister;
+use App\Models\{
+    CashRegister,
+    Receive
+};
 use Illuminate\Support\Facades\Log;
 class CashRegisterRepository
 {
     public function getAll(){ 
         Log::info('Memória usada CashRegisterRepository::class, getAll: ' . memory_get_usage(true));
         return CashRegister::paginate(20);
+        
+    }
+
+    public function getAllReceive(){ 
+        Log::info('Memória usada CashRegisterRepository::class, getAll: ' . memory_get_usage(true));
+        return Receive::paginate(20);
         
     }
 

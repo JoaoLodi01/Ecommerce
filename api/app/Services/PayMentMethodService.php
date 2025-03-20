@@ -54,7 +54,8 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
-                                'description' => $description,
+                                'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual 
+                                N° $pdv->id",
                                 'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
@@ -77,7 +78,8 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Receber')
                         {
                             $bodyCash = array(
-                                'description' => $description,
+                                'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->id" : "Parcelamento Venda Nota Manual 
+                                N° $pdv->id",
                                 'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
@@ -86,7 +88,6 @@ class PayMentMethodService
                                 'especie' => $form->especie,
                                 'date_register' => $currantDate->format('Y-m-d'),
                                 'due_date' => $currantDate->addDays(30)->format('Y-m-d'),
-                                'installment_amount' => 1,
                                 'installment_number' => 1,
                                 'installment_value' => $paymentValues[$form->id - 1],
                                 'output_value' => 0,
@@ -101,7 +102,10 @@ class PayMentMethodService
                             );  
                             
                             Log::info('-- Vai chamar o receiveRepository -- ');
-                            $this->receiveRepository->create($bodyCash);
+                            $receive = $this->receiveRepository->create($bodyCash);
+                            return array(
+                                'success' => true
+                            );
                             Log::info('-- Terminou de chamar o receiveRepository -- ');
                         }
                     }
@@ -150,7 +154,8 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
-                                'description' => $description,
+                                'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual 
+                                N° $pdv->id",
                                 'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
@@ -172,7 +177,8 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Receber')
                         {
                             $bodyCash = array(
-                                'description' => $description,
+                                'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->id" : "Parcelamento Venda Nota Manual 
+                                N° $pdv->id",
                                 'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
@@ -181,7 +187,6 @@ class PayMentMethodService
                                 'especie' => $form->especie,
                                 'date_register' => $currantDate->format('Y-m-d'),
                                 'due_date' => $currantDate->addDays(30)->format('Y-m-d'),
-                                'installment_amount' => 1,
                                 'installment_number' => 1,
                                 'installment_value' => $paymentValues[$form->id - 1],
                                 'output_value' => 0,
@@ -197,6 +202,10 @@ class PayMentMethodService
                             
                             Log::info('-- Vai chamar o receiveRepository linha 170 -- ');
                             $this->receiveRepository->create($bodyCash);
+                            return array(
+                                'success' => true
+                            );
+                            
                             Log::info('-- Terminou de chamar o receiveRepository -- ');
 
                         }
@@ -212,11 +221,11 @@ class PayMentMethodService
         $this->cashRegisterRepository->create($cashRegisters);
         Log::info('-- Vai chamar o reservationRepository linha 185 -- ');
         if($origem == 'hotel')
-            {
-                Log::info('-- Vai chamar o reservationRepository linha 106 -- ');
-                $this->reservationService->create($customer);
+        {
+            Log::info('-- Vai chamar o reservationRepository linha 106 -- ');
+            $this->reservationService->create($customer);
 
-            }
+        }
         Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
         Log::info('-- Fim do registro no caixa, PayMentMethodService.php, linha 188 --');
         return array(
@@ -252,9 +261,9 @@ class PayMentMethodService
         Log::info($cashRegisters);    
         Log::info('-- Vai chamar o cashRegisterRepository linha 214 -- ');
         $this->cashRegisterRepository->create($cashRegisters);
-        Log::info('-- Fim decreaseCash linha 216 --');
+        Log::info('-- Fim decreaseCash linha 264 --');
         return array(
-            'line' => 244,
+            'line' => 266,
             'success' => true
 
         );  

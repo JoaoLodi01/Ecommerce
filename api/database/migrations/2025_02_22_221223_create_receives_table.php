@@ -21,8 +21,7 @@ return new class extends Migration
             $table->foreign('especie_id')->references('id')->on('payments')->onDelte('cascade');
             $table->string('especie', 120);
             $table->date('date_register');
-            $table->date('due_date');
-            $table->integer('installment_amount');
+            $table->date('due_date');            
             $table->integer('installment_number');
             $table->decimal('installment_value', 16,2);
             $table->string('type_interest', 3);

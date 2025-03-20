@@ -26,7 +26,6 @@ use App\Repositories\Contracts\HotelContract\RoomContract;
 use App\Services\PayMentMethodService;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
-
 class RoomRepository implements RoomContract
 {
     public function __construct(
@@ -188,9 +187,9 @@ class RoomRepository implements RoomContract
             ]);
             
             // Se der completamente errado, retornar para >= 2
-            Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 192 --');
+            Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 191 --');
             $this->payMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
-            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 194 --');
+            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 193 --');
 
             if($generateCredit === true)
             {
@@ -218,9 +217,9 @@ class RoomRepository implements RoomContract
         
             ]);
     
-            Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 224 --');
+            Log::info('-- Começo do registro no caixa, RoomRepository.php, linha 221 --');
             $this->payMentMethodService->payment($formsPayment, $payment, $customer, 'Reserva hotel', 'hotel', $room);
-            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 225 --');
+            Log::info('-- Fim do registro no caixa, RoomRepository.php, linha 223 --');
             
             return array(
                 'success' => true,
@@ -241,7 +240,7 @@ class RoomRepository implements RoomContract
 
     public function createCredit(object $customer, float $credit, object $room) 
     {
-        Log::info('-- Inicio createCredit linha 240 --');
+        Log::info('-- Inicio createCredit linha 244 --');
         Log::info('Memória usada RoomRepository::class, createCredit: ' . memory_get_usage(true));
         Log::info('Vai criar o crédito do cliente, R$: ' . $credit);
         $customerCredit = CustomerCredit::create([
@@ -252,7 +251,7 @@ class RoomRepository implements RoomContract
 
         ]);
         $this->payMentMethodService->decreaseCash($customer, $customerCredit->current_credit, 'Geração de crédito', 'hotel', $room->id);
-        Log::info('-- Fim createCredit linha 250 --');   
+        Log::info('-- Fim createCredit linha 255 --');   
     }
 
     public function countActive(object $room, int $roomID)
