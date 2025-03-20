@@ -2390,3 +2390,17 @@
 [2025-03-20 09:35:41] local.INFO: Memória usada PDVController::class, __construct: 20971520  
 [2025-03-20 09:35:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
 >>>>>>> fef558c8562dd36baa1b780ba7fe45fc30071a93
+[2025-03-20 20:51:16] local.INFO: Chamou o IPController  
+[2025-03-20 20:51:16] local.INFO: Chamou o IPService  
+[2025-03-20 20:51:16] local.INFO: Chamou o IPController  
+[2025-03-20 20:51:16] local.INFO: Chamou o IPService  
+[2025-03-20 20:51:16] local.INFO: Chamou o IPController  
+[2025-03-20 20:51:16] local.INFO: Chamou o IPService  
+[2025-03-20 20:51:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-20 20:51:17] local.INFO: O hotel foi encontrado  
+[2025-03-20 20:51:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-20 20:51:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-20 20:51:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-20 20:51:17] local.INFO: O hotel foi encontrado  
+[2025-03-20 20:51:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-20 20:51:17] local.INFO: Opção desativada, não vai alterar o endereço  
