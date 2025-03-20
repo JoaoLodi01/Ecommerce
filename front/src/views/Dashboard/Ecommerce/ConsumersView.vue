@@ -2,18 +2,19 @@
   <div class="clientes-container px-20">
     <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
     <button 
-      @click="toggleRegisterProductVisibility"
+      @click="toggleRegisterClientVisibility"
       class="w-96 py-2 absolute right-2 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
       <span v-if="!showRegisterClients">Cadastrar</span>
       <span v-else>Voltar</span>
     </button>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+  <!-- GRID CLIENTES -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" v-if="showClients">
       <div
         v-for="(client, id) in clients" :key="client.id" 
         class="bg-white p-6 shadow-lg rounded-lg border border-gray-200">
-
+        
         <div class="text-sm text-gray-500 mb-2">
-          <span class="font-semibold">Cliente:</span> {{ client }}
+          <span class="font-semibold">Cliente:</span> {{ client.name }}
         </div>
 
         <div class="text-sm text-gray-500 mb-2">
@@ -32,6 +33,7 @@
           <span class="font-semibold">Número:</span> {{ client.number }}
         </div>
 
+        <!-- Ações -->
         <div class="flex space-x-2">
           <button
              @click="editClient(client)"
@@ -42,6 +44,10 @@
         </div>
       </div>
     </div>
+    <RegisterConsumer
+      v-if="showRegisterClients"
+      @close="toggleRegisterClientVisibility()"
+    />
   </div>
 </template>
   
