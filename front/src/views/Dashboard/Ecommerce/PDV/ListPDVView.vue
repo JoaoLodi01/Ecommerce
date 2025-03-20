@@ -5,7 +5,25 @@
     >
         <div class="">
             <h1>Listagem PDV <span class="text-sm">(NFC-e/Nota Manual)</span></h1>
-            
+            <div class="">
+                <input
+                    type="checkbox"
+                    v-model="searchFill.all"
+
+                /> <span class="mr-5">Todas</span>
+                
+                <input
+                    type="checkbox"
+                    v-model="searchFill.finaly"
+
+                /> <span class="mr-5">Emitidas</span>
+
+                <input
+                    type="checkbox"
+                    v-model="searchFill.noFinaly"
+
+                /> <span>Não emitidas</span>
+            </div>
             
             <table>
                 <thead>
@@ -44,13 +62,30 @@
         data()
         {
             return {
+                searchFill: {
+                    all: true,
+                    finaly: false,
+                    noFinaly: false
+                },
                 savedPDVs: [],
                 itensPDVs: [],
-                markedAll: false,
-                marked: {},
                 api: process.env.VUE_APP_API_URL
 
             }
+        },
+
+        watch: {
+            filterPDVs(selected)
+            {   
+                Object.keys(this.searchFill).forEach(key => {
+                    this.searchFill[key] = (key === selected)
+
+                })
+
+                console.log('selected', selected, ' this.searchFill, ', this.searchFill)
+                
+            },
+
         },
         
         methods: {
@@ -70,6 +105,8 @@
                     
                 }
             },
+
+            
 
             openPDV(pdv)
             {
