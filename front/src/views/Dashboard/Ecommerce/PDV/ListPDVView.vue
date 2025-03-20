@@ -5,34 +5,35 @@
     >
         <div class="">
             <h1>Listagem PDV <span class="text-sm">(NFC-e/Nota Manual)</span></h1>
-        </div>        
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Opções</th>
-                    <th>ID</th>
-                    <th>Descrição</th>
-                    <th>Total bruto</th>
-                    <th>Total líquido</th>
-                    <th>Desconto</th>
-                    <th>Acréscimo</th>
-                    
-                </tr>
-            </thead>
-            <tbody v-for="(pdv, id) in savedPDVs" :key="id">
-                <tr>
-                    <td><button @click="openPDV(pdv)">Reabrir PDV</button></td>
-                    <td>{{ pdv.id }}</td>
-                    <td>{{ pdv.description }}</td>
-                    <td>{{ pdv.gross_value }}</td>
-                    <td>{{ pdv.net_value }}</td>
-                    <td>{{ pdv.discount }}</td>
-                    <td>{{ pdv.addition }}</td>
+            
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Opções</th>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Total bruto</th>
+                        <th>Total líquido</th>
+                        <th>Desconto</th>
+                        <th>Acréscimo</th>
+                        
+                    </tr>
+                </thead>
+                <tbody v-for="(pdv, id) in savedPDVs" :key="id">
+                    <tr>
+                        <td><button @click="openPDV(pdv)">Reabrir PDV</button></td>
+                        <td>{{ pdv.id }}</td>
+                        <td>{{ pdv.description }}</td>
+                        <td>{{ pdv.gross_value }}</td>
+                        <td>{{ pdv.net_value }}</td>
+                        <td>{{ pdv.discount }}</td>
+                        <td>{{ pdv.addition }}</td>
 
-                </tr>
-            </tbody>
-        </table>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
     </div>
 </template>
 
