@@ -68,9 +68,9 @@
               
             <div class="ml-3 w-full">
                 <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-1">Total <span>R${{ totalOperation.toFixed(2) }}</span></h3>
-                <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-0.5">Valor ausente <span>R$ {{ totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) }}</span></h3>
+                <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-0.5">Valor ausente <span>R$ {{ totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) > 0 ? totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) : '0.00' }}</span></h3>
                 <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-0.5">Valor pago <span>R$ {{ calculateValueInformed.total.toFixed(2) }}</span></h3>
-                <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-1">Troco <span>R$ {{ '0.00' }}</span></h3>
+                <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-1">Troco <span>R$ {{ calculateValueChange.change.toFixed(2) }}</span></h3>
             </div>
 
             <div class="" v-if="isLoanding">
@@ -114,6 +114,7 @@ export default {
     emits: [
         'close',
         'resetTotal',
+        'update:selectProducts'        
 
     ],
 
@@ -157,6 +158,26 @@ export default {
                 total: total
             };
         },
+
+        calculateValueChange()
+        {
+            let total = this.paymentsValues.reduce((sum, value) => {
+                const num = parseFloat(value) || 0;
+                return num + sum 
+            }, 0);
+
+            if(total && total > 0 && total > this.totalOperation)
+            {
+                return {
+                    change: total - this.totalOperation
+
+                };
+
+            }
+            return {
+                change: 0
+            };
+        }
     },
 
     methods: {
@@ -201,6 +222,7 @@ export default {
                         console.log('Começou venda NFCe')
                         const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             typeOperation: this.typeOperation,
+                            change: this.calculateValueChange.change,
                             paymentsValues: this.paymentsValues,
                             pdvID: this.pdvID
                             
@@ -209,7 +231,7 @@ export default {
                         if(response_nfce.data.success === true)
                         {
                             this.cancelOperation()
-                            
+                            this.$emit('update:selectProducts', []);
                         }
 
                         break
@@ -222,13 +244,11 @@ export default {
                             pdvID: this.pdvID
 
                         })
-                        console.log(response_nm.data)
                         
                         if(response_nm.data.success === true)
                         {
                             this.cancelOperation()
-                            this.$router.push({ name: 'PDV' })
-
+                            this.$emit('update:selectProducts', []);
                         }
 
                         break

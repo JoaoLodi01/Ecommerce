@@ -22,6 +22,8 @@
                     :pdvID=this.pdvID
                     @resetTotal="totalOperation = $event"
                     @close="cancelOperation"
+                    @update:selectProducts="productsSeletion = $event"
+
 
                 />
             </div>
@@ -146,7 +148,7 @@
                 v-model.number="emitProducts.addition"
                 type="text"
                 
-                class="text-black border border-black w-10"
+                class="text-black border border-black w-20 p-0.5"
             />
             
             <br>
@@ -156,7 +158,7 @@
                 v-model.number="emitProducts.discount"
                 type="text"
                 
-                class="text-black border border-black w-10"
+                class="text-black border border-black w-20 p-0.5"
             />
         </div>
         
@@ -268,6 +270,7 @@
                 show: false,
                 showGrid: true,
                 showPaymentsForm: false,
+                isOpenedPDV: false,
                 success: null,
                 typeOperation: '',
                 csosncst: '',
@@ -316,24 +319,34 @@
                 const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
-                        const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
-                            products: this.productsSeletion, // Produtos da 
-                            user_id: this.emitProducts.userID,
-                            customer_id: this.emitProducts.customerID,
-                            sub_total: this.calculateTotal.subtotal,
-                            total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                            addition: this.calculateTotal.addition,
-                            discount: this.calculateTotal.discount,
-                            description: 'Venda guardada',
-                            is_nfce_nm: null
-                            
-                        })
-                        
-                        if(response.data.success === true)
+                        if(!this.isOpenedPDV)
                         {
+                            console.log('É uma nova venda')
+                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                                products: this.productsSeletion, // Produtos da 
+                                user_id: this.emitProducts.userID,
+                                customer_id: this.emitProducts.customerID,
+                                sub_total: this.calculateTotal.subtotal,
+                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                addition: this.calculateTotal.addition,
+                                discount: this.calculateTotal.discount,
+                                description: 'Venda guardada',
+                                is_nfce_nm: null
+                                
+                            })
+                        
+                            if(response.data.success === true)
+                            {
+                                alert('Venda guardarda para enviar posteriormente!')
+                                this.productsSeletion = []
+
+                            }
+
+                        } else {
+                            console.log('Já era uma venda que estava guardada')
                             alert('Venda guardarda para enviar posteriormente!')
                             this.productsSeletion = []
-
+                            this.$router.push({ name: "PDV" })
                         }
                         
                     } catch (error) {
@@ -358,9 +371,7 @@
                             } else {
                                 this.csosncst = 'CST'
                             }
-
                         }
-
                     }
 
                     if(response.data.success === false){
@@ -385,6 +396,7 @@
                 try {
                     if(this.idPDV)
                     {
+                        console.log('this.idPDV', this.idPDV)
                         if(type === 'nm')
                         {
                             this.typeOperation = 'saleNM'
@@ -593,12 +605,12 @@
         mounted(){
             this.getHotel()
             this.withScreen += screen.width
+            //history.state?.isOpenedPDV <- output: true
+            this.isOpenedPDV = history.state?.isOpenedPDV
 
             if(this.idPDV)
             {
-                this.importSale()
-                console.log('this.totalOperation ', this.totalOperation)
-                console.log('this.productsSeletion', this.productsSeletion)        
+                this.importSale()            
                 
             }
         }

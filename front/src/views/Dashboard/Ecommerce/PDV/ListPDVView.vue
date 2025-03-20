@@ -3,6 +3,10 @@
         class="flex borderborder-black mt-2 w-max ml-14" 
 
     >
+        <div class="">
+            <h1>Listagem PDV <span class="text-sm">(NFC-e/Nota Manual)</span></h1>
+        </div>        
+        
         <table>
             <thead>
                 <tr>
@@ -16,7 +20,7 @@
                     
                 </tr>
             </thead>
-            <tbody v-for="(pdv, id) in pdvs" :key="id">
+            <tbody v-for="(pdv, id) in savedPDVs" :key="id">
                 <tr>
                     <td><button @click="openPDV(pdv)">Reabrir PDV</button></td>
                     <td>{{ pdv.id }}</td>
@@ -39,7 +43,7 @@
         data()
         {
             return {
-                pdvs: [],
+                savedPDVs: [],
                 itensPDVs: [],
                 markedAll: false,
                 marked: {},
@@ -49,11 +53,11 @@
         },
         
         methods: {
-            async getPDVs()
+            async getPDVsSaved()
             {   
                 try {
                     const response = await axios.get(`${this.api}/ecommerce/pdv/get-saved-sales`)
-                    this.pdvs = response.data.pdvs
+                    this.savedPDVs = response.data.pdvs
     
                     for (let i = 0; i < response.data.pdvs.length; i++) {
                         this.itensPDVs = response.data.pdvs[i]['get_itens']
@@ -68,16 +72,17 @@
 
             openPDV(pdv)
             {
-                this.$router.push({ name: 'PDVID', params: {
-                    idPDV: pdv.id,
-                    
-                }})
+                this.$router.push({
+                    name: 'PDVID', 
+                    params: { idPDV: pdv.id, },
+                    state: { isOpenedPDV: true }
+                })
             }
         },
 
         mounted()
         {
-            this.getPDVs()   
+            this.getPDVsSaved()   
         }
     }
 </script>

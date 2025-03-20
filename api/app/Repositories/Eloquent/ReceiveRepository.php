@@ -17,6 +17,7 @@ class ReceiveRepository
             Log::info('Quantia: '. count($cashRegister));
             Log::info($cashRegister);
             Receive::create($cashRegister);
+            return;
         }
         
     }

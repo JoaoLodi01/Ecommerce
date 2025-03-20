@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2025-03-18 02:16:59] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
 =======
 [2025-03-19 15:53:07] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
@@ -531,6 +532,16 @@
 [2025-03-19 15:55:37] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
 [2025-03-19 15:55:37] local.INFO: -- Iniciou o saveSale() line 172 --   
 [2025-03-19 15:55:37] local.INFO: array (
+=======
+[2025-03-19 23:39:50] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-19 23:39:50] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-19 23:39:50] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-19 23:39:50] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-19 23:39:50] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-19 23:39:50] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-19 23:39:50] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-19 23:39:50] local.INFO: array (
+>>>>>>> Kochem
   'description' => 'Venda Nota Manual N°',
   'products' => 
   array (
@@ -564,11 +575,11 @@
   'discount' => 0,
   'is_nfce_nm' => 'nm',
 )  
-[2025-03-19 15:55:37] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
-[2025-03-19 15:55:37] local.INFO: Busca pelo customer  
-[2025-03-19 15:55:37] local.INFO: Busca pelo user  
-[2025-03-19 15:55:37] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-19T15:30:12.000000Z","updated_at":"2025-03-19T15:30:12.000000Z"}  
-[2025-03-19 15:55:37] local.INFO: array (
+[2025-03-19 23:39:50] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-19 23:39:50] local.INFO: Busca pelo customer  
+[2025-03-19 23:39:50] local.INFO: Busca pelo user  
+[2025-03-19 23:39:50] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-19T10:19:17.000000Z","updated_at":"2025-03-19T10:19:17.000000Z"}  
+[2025-03-19 23:39:50] local.INFO: array (
   'description' => 'Venda Nota Manual N°',
   'cliente_id' => 1,
   'client' => 'Teste 1',
@@ -580,8 +591,8 @@
   'user' => 'Kochem',
   'is_nfce_nm' => 'nm',
 )  
-[2025-03-19 15:55:37] local.INFO: -- Iniciou o saveProducts() line 167 --   
-[2025-03-19 15:55:37] local.INFO: array (
+[2025-03-19 23:39:50] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-19 23:39:50] local.INFO: array (
   0 => 
   array (
     0 => 
@@ -604,10 +615,10 @@
     ),
   ),
 )  
-[2025-03-19 15:55:37] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
-[2025-03-19 15:55:37] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-19T15:30:12.000000Z","updated_at":"2025-03-19T15:30:12.000000Z"}  
-[2025-03-19 15:55:37] local.INFO: $products 11  
-[2025-03-19 15:55:37] local.INFO: array (
+[2025-03-19 23:39:50] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
+[2025-03-19 23:39:50] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-19T10:19:17.000000Z","updated_at":"2025-03-19T10:19:17.000000Z"}  
+[2025-03-19 23:39:50] local.INFO: $products 11  
+[2025-03-19 23:39:50] local.INFO: array (
   0 => 
   array (
     0 => 
@@ -630,11 +641,11 @@
     ),
   ),
 )  
-[2025-03-19 15:55:37] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
-[2025-03-19 15:55:37] local.INFO: $product  
-[2025-03-19 15:55:37] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
-[2025-03-19 15:55:37] local.INFO: $product[$i]  
-[2025-03-19 15:55:37] local.INFO: array (
+[2025-03-19 23:39:50] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-19 23:39:50] local.INFO: $product  
+[2025-03-19 23:39:50] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-19 23:39:50] local.INFO: $product[$i]  
+[2025-03-19 23:39:50] local.INFO: array (
   'id' => 1,
   'product' => 'Jack Daniels Maça',
   'grupo_id' => 2,
@@ -651,9 +662,9 @@
   'active' => 1,
   'isSelected' => true,
 )  
-[2025-03-19 15:55:37] local.INFO: itensPDV   
-[2025-03-19 15:55:37] local.INFO: array (
-  'pdv_id' => 10,
+[2025-03-19 23:39:50] local.INFO: itensPDV   
+[2025-03-19 23:39:50] local.INFO: array (
+  'pdv_id' => 23,
   'product_id' => 1,
   'product' => 'Jack Daniels Maça',
   'cost_price' => '10.00',
@@ -669,21 +680,21 @@
   'user_id' => 1,
   'seller' => 'Kochem',
 )  
-[2025-03-19 15:55:37] local.INFO: $ipdv  
-[2025-03-19 15:55:37] local.INFO: {"pdv_id":10,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":10}  
-[2025-03-19 15:55:38] local.INFO: Buscando todas as espécies na table: payments  
-[2025-03-19 15:55:42] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
-[2025-03-19 15:55:42] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
-[2025-03-19 15:55:42] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
-[2025-03-19 15:55:42] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
-[2025-03-19 15:55:42] local.INFO: Memória usada PDVController::class, __construct: 18874368  
-[2025-03-19 15:55:42] local.INFO: PDVService.php, class:finalizeSale, $total: 120  
-[2025-03-19 15:55:42] local.INFO: -- Iniciou o finalizeSale() line 172 --   
-[2025-03-19 15:55:42] local.INFO: Memória usada PDVRepository::class, finalizeSale: 20971520  
-[2025-03-19 15:55:42] local.INFO: Vai procurar a(s) formas de pagamento  
-[2025-03-19 15:55:42] local.INFO: Buscando a espécie pelo ID.  
-[2025-03-19 15:55:42] local.INFO: $result  
-[2025-03-19 15:55:42] local.INFO: array (
+[2025-03-19 23:39:50] local.INFO: $ipdv  
+[2025-03-19 23:39:50] local.INFO: {"pdv_id":23,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":24}  
+[2025-03-19 23:39:50] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-19 23:39:55] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-19 23:39:55] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-19 23:39:55] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-19 23:39:55] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-19 23:39:55] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-19 23:39:55] local.INFO: PDVService.php, class:finalizeSale, $total: 120  
+[2025-03-19 23:39:55] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-03-19 23:39:55] local.INFO: Memória usada PDVRepository::class, finalizeSale: 20971520  
+[2025-03-19 23:39:55] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-19 23:39:55] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-19 23:39:55] local.INFO: $result  
+[2025-03-19 23:39:55] local.INFO: array (
   0 => 
   \App\Models\EcommerceModels\Payment::__set_state(array(
      'connection' => 'mariadb',
@@ -704,21 +715,21 @@
      'escapeWhenCastingToString' => false,
      'attributes' => 
     array (
-      'id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
       'active' => 1,
-      'created_at' => '2025-03-19 15:30:10',
-      'updated_at' => '2025-03-19 15:30:10',
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
     ),
      'original' => 
     array (
-      'id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
       'active' => 1,
-      'created_at' => '2025-03-19 15:30:10',
-      'updated_at' => '2025-03-19 15:30:10',
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
     ),
      'changes' => 
     array (
@@ -770,12 +781,12 @@
     ),
   )),
 )  
-[2025-03-19 15:55:42] local.INFO: Vai conferir se o $total: R$ 120 é maior que o $pdv->net_value, R$120.00  
-[2025-03-19 15:55:42] local.INFO: Foi maior  
-[2025-03-19 15:55:42] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
-[2025-03-19 15:55:42] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
-[2025-03-19 15:55:42] local.INFO: $forms  
-[2025-03-19 15:55:42] local.INFO: array (
+[2025-03-19 23:39:55] local.INFO: Vai conferir se o $total: R$ 120 é maior que o $pdv->net_value, R$120.00  
+[2025-03-19 23:39:55] local.INFO: Foi maior  
+[2025-03-19 23:39:55] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-03-19 23:39:55] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-03-19 23:39:55] local.INFO: $forms  
+[2025-03-19 23:39:55] local.INFO: array (
   0 => 
   \App\Models\EcommerceModels\Payment::__set_state(array(
      'connection' => 'mariadb',
@@ -796,21 +807,21 @@
      'escapeWhenCastingToString' => false,
      'attributes' => 
     array (
-      'id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
       'active' => 1,
-      'created_at' => '2025-03-19 15:30:10',
-      'updated_at' => '2025-03-19 15:30:10',
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
     ),
      'original' => 
     array (
-      'id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
       'active' => 1,
-      'created_at' => '2025-03-19 15:30:10',
-      'updated_at' => '2025-03-19 15:30:10',
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
     ),
      'changes' => 
     array (
@@ -862,15 +873,21 @@
     ),
   )),
 )  
-[2025-03-19 15:55:42] local.INFO: $paymentValues  
-[2025-03-19 15:55:42] local.INFO: array (
-  0 => '120',
+[2025-03-19 23:39:55] local.INFO: $paymentValues  
+[2025-03-19 23:39:55] local.INFO: array (
+  0 => NULL,
+  1 => NULL,
+  2 => '120',
 )  
-[2025-03-19 15:55:42] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
-[2025-03-19 15:55:42] local.INFO: $paymentValues[$i] linha - 118: i = 0  
-[2025-03-19 15:55:42] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
-[2025-03-19 15:55:42] local.INFO: forms  
-[2025-03-19 15:55:42] local.INFO: array (
+[2025-03-19 23:39:55] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-19 23:39:55] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-03-19 23:39:55] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-19 23:39:55] local.INFO: $paymentValues[$i] linha - 118: i = 1  
+[2025-03-19 23:39:55] local.INFO: Vai pegar as posições maiores que zero, vezes: 1  
+[2025-03-19 23:39:55] local.INFO: $paymentValues[$i] linha - 118: i = 2  
+[2025-03-19 23:39:55] local.INFO: Vai pegar as posições maiores que zero, vezes: 2  
+[2025-03-19 23:39:55] local.INFO: forms  
+[2025-03-19 23:39:55] local.INFO: array (
   0 => 
   \App\Models\EcommerceModels\Payment::__set_state(array(
      'connection' => 'mariadb',
@@ -891,21 +908,21 @@
      'escapeWhenCastingToString' => false,
      'attributes' => 
     array (
-      'id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
       'active' => 1,
-      'created_at' => '2025-03-19 15:30:10',
-      'updated_at' => '2025-03-19 15:30:10',
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
     ),
      'original' => 
     array (
-      'id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
       'active' => 1,
-      'created_at' => '2025-03-19 15:30:10',
-      'updated_at' => '2025-03-19 15:30:10',
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
     ),
      'changes' => 
     array (
@@ -957,56 +974,678 @@
     ),
   )),
 )  
-[2025-03-19 15:55:42] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-03-19 15:55:42] local.INFO: paymentValues linha 124 - : 120  
-[2025-03-19 15:55:42] local.INFO: Vai conferir os tipos de lançamento  
-[2025-03-19 15:55:42] local.INFO: $form->tipo_lancamento  
-[2025-03-19 15:55:42] local.INFO: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-03-19 15:55:42] local.INFO: Terminou de montar o corpo do caixa:   
-[2025-03-19 15:55:42] local.INFO: Dados:   
-[2025-03-19 15:55:42] local.INFO: array (
+[2025-03-19 23:39:55] local.INFO: ID linha 120 - : {"id":3,"especie":"Boleto","tipo_lancamento":"Receber","active":1}  
+[2025-03-19 23:39:55] local.INFO: paymentValues linha 124 - : 120  
+[2025-03-19 23:39:55] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-19 23:39:55] local.INFO: $form->tipo_lancamento  
+[2025-03-19 23:39:55] local.INFO: {"id":3,"especie":"Boleto","tipo_lancamento":"Receber","active":1}  
+[2025-03-19 23:39:55] local.INFO: -- Vai chamar o receiveRepository linha 170 --   
+[2025-03-19 23:39:55] local.INFO: Memória usada ReceiveRepository::class, create: 23068672  
+[2025-03-19 23:39:55] local.INFO: Vai iniciar criação no RECEBER, dados:   
+[2025-03-19 23:39:55] local.INFO: Quantia: 20  
+[2025-03-19 23:39:55] local.INFO: array (
+  'description' => 'Venda Nota Manual N° 23',
+  'document' => 23,
+  'pdv_id' => 23,
+  'customer_id' => 1,
+  'name' => 'Teste 1',
+  'especie_id' => 3,
+  'especie' => 'Boleto',
+  'date_register' => '2025-03-19',
+  'due_date' => '2025-04-18',
+  'installment_amount' => 1,
+  'installment_number' => 1,
+  'installment_value' => '120',
+  'output_value' => 0,
+  'real_balance' => '120',
+  'type_interest' => '%',
+  'interest_value' => 10,
+  'total_amount' => 10,
+  'user_id' => 1,
+  'user' => 'aa',
+  'origem' => 'pdv',
+)  
+[2025-03-19 23:39:55] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":23,"description":"Venda Nota Manual N\u00b0","cliente_id":1,"client":"Teste 1","gross_value":"120.00","net_value":"120.00","discount":"0.00","addition":"0.00","user_id":1,"user":"Kochem","finished":0,"canceled":0,"is_nfce_nm":"nm","active":1}  
+[2025-03-19 23:39:55] local.INFO: $type saleNM  
+[2025-03-19 23:39:55] local.INFO: Buscar e alterar os produtos, pdv_id = 23  
+[2025-03-19 23:39:55] local.INFO: Alteração dentro do for = 23  
+[2025-03-19 23:39:55] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-03-19 23:39:55] local.INFO: Produto encontrado 1  
+[2025-03-19 23:39:55] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","amount":6,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-03-19 23:39:55] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-03-19 23:39:56] local.INFO: Chamou o IPController  
+[2025-03-19 23:39:56] local.INFO: Chamou o IPService  
+[2025-03-19 23:39:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-19 23:39:57] local.INFO: O hotel foi encontrado  
+[2025-03-19 23:39:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-19 23:39:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-19 23:39:57] local.INFO: Chamou o IPController  
+[2025-03-19 23:39:57] local.INFO: Chamou o IPService  
+[2025-03-19 23:39:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-19 23:40:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-19 23:40:40] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-20 00:38:34] local.INFO: Chamou o IPController  
+[2025-03-20 00:38:34] local.INFO: Chamou o IPService  
+[2025-03-20 00:38:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-20 00:38:36] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-20 00:39:04] local.INFO: Chamou o IPController  
+[2025-03-20 00:39:04] local.INFO: Chamou o IPService  
+[2025-03-20 00:39:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-20 00:39:17] local.INFO: Chamou o IPController  
+[2025-03-20 00:39:17] local.INFO: Chamou o IPService  
+[2025-03-20 00:39:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-20 00:39:18] local.INFO: O hotel foi encontrado  
+[2025-03-20 00:39:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-20 00:39:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-20 00:39:24] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-20 00:39:24] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-20 00:39:24] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-20 00:39:24] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-20 00:39:24] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-20 00:39:24] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-20 00:39:24] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-20 00:39:24] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 2,
+        'product' => 'Jack Daniels Honey',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '130.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 130,
+  'sub_total' => 130,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-20 00:39:24] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-20 00:39:24] local.INFO: Busca pelo customer  
+[2025-03-20 00:39:24] local.INFO: Busca pelo user  
+[2025-03-20 00:39:24] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-19T10:19:17.000000Z","updated_at":"2025-03-19T10:19:17.000000Z"}  
+[2025-03-20 00:39:24] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 130,
+  'net_value' => 130,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-20 00:39:24] local.INFO: -- Iniciou o saveProducts() line 167 --   
+[2025-03-20 00:39:24] local.INFO: array (
   0 => 
   array (
-    'description' => 'Venda Nota Manual N° 10',
-    'document' => 10,
-    'pdv_id' => 10,
+    0 => 
+    array (
+      'id' => 2,
+      'product' => 'Jack Daniels Honey',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '130.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-03-20 00:39:24] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
+[2025-03-20 00:39:24] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-19T10:19:17.000000Z","updated_at":"2025-03-19T10:19:17.000000Z"}  
+[2025-03-20 00:39:24] local.INFO: $products 11  
+[2025-03-20 00:39:24] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 2,
+      'product' => 'Jack Daniels Honey',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '130.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-03-20 00:39:24] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-20 00:39:24] local.INFO: $product  
+[2025-03-20 00:39:24] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-20 00:39:24] local.INFO: $product[$i]  
+[2025-03-20 00:39:24] local.INFO: array (
+  'id' => 2,
+  'product' => 'Jack Daniels Honey',
+  'grupo_id' => 2,
+  'grupo' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '130.00',
+  'perc_lucro' => '100.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-03-20 00:39:24] local.INFO: itensPDV   
+[2025-03-20 00:39:24] local.INFO: array (
+  'pdv_id' => 24,
+  'product_id' => 2,
+  'product' => 'Jack Daniels Honey',
+  'cost_price' => '10.00',
+  'sale_price' => '130.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+)  
+[2025-03-20 00:39:24] local.INFO: $ipdv  
+[2025-03-20 00:39:24] local.INFO: {"pdv_id":24,"product_id":2,"product":"Jack Daniels Honey","cost_price":"10.00","sale_price":"130.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":25}  
+[2025-03-20 00:39:24] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-20 00:39:32] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-20 00:39:32] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-20 00:39:32] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-20 00:39:32] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-20 00:39:32] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-20 00:39:32] local.INFO: PDVService.php, class:finalizeSale, $total: 140  
+[2025-03-20 00:39:32] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-03-20 00:39:32] local.INFO: Memória usada PDVRepository::class, finalizeSale: 20971520  
+[2025-03-20 00:39:32] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-20 00:39:32] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-20 00:39:32] local.INFO: $result  
+[2025-03-20 00:39:32] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+  1 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
+    ),
+     'original' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-20 00:39:32] local.INFO: Vai conferir se o $total: R$ 140 é maior que o $pdv->net_value, R$130.00  
+[2025-03-20 00:39:32] local.INFO: Foi maior  
+[2025-03-20 00:39:32] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-03-20 00:39:32] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-03-20 00:39:32] local.INFO: $forms  
+[2025-03-20 00:39:32] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+  1 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
+    ),
+     'original' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-19 10:19:16',
+      'updated_at' => '2025-03-19 10:19:16',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-20 00:39:32] local.INFO: $paymentValues  
+[2025-03-20 00:39:32] local.INFO: array (
+  0 => '130',
+  1 => '10',
+)  
+[2025-03-20 00:39:32] local.INFO: Possui mais de uma espécie informada: 2  
+[2025-03-20 00:39:32] local.INFO: Total de pagamentos: 2  
+[2025-03-20 00:39:32] local.INFO: 1  
+[2025-03-20 00:39:32] local.INFO: $paymentValues[$i] linha - 37: i = 1  
+[2025-03-20 00:39:32] local.INFO: Vai pegar as posições maiores que zero, posição: 1  
+[2025-03-20 00:39:32] local.INFO: ID linha 43 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-20 00:39:32] local.INFO: paymentValues linha 44 - : 10  
+[2025-03-20 00:39:32] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-20 00:39:32] local.INFO: ID linha 43 - : {"id":2,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
+[2025-03-20 00:39:32] local.INFO: paymentValues linha 44 - : 10  
+[2025-03-20 00:39:32] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-20 00:39:32] local.INFO: Terminou de montar o corpo dos registros:   
+[2025-03-20 00:39:32] local.INFO: Dados de envio:   
+[2025-03-20 00:39:32] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda Nota Manual 
+                                N° 24',
+    'document' => 24,
+    'pdv_id' => 24,
     'customer_id' => 1,
     'name' => 'Teste 1',
     'especie_id' => 1,
     'especie' => 'Dinheiro',
-    'date_register' => '2025-03-19',
-    'input_value' => '120',
+    'date_register' => '2025-03-20',
+    'input_value' => '130',
     'output_value' => 0,
-    'real_balance' => '120',
+    'real_balance' => '130',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+  1 => 
+  array (
+    'description' => 'Venda Nota Manual 
+                                N° 24',
+    'document' => 24,
+    'pdv_id' => 24,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 2,
+    'especie' => 'PIX',
+    'date_register' => '2025-03-20',
+    'input_value' => '10',
+    'output_value' => 0,
+    'real_balance' => '10',
     'user_id' => 1,
     'seller' => 'aa',
     'origem' => 'pdv',
   ),
 )  
-[2025-03-19 15:55:42] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
-[2025-03-19 15:55:42] local.INFO: Vai iniciar criação no CAIXA, dados:  
-[2025-03-19 15:55:42] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
-[2025-03-19 15:55:42] local.INFO: Quantia: 1  
-[2025-03-19 15:55:42] local.INFO: Tipo de dado: array  
-[2025-03-19 15:55:42] local.INFO: array (
+[2025-03-20 00:39:32] local.INFO: -- Vai chamar o cashRegisterRepository linha 104 --   
+[2025-03-20 00:39:32] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-20 00:39:32] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-03-20 00:39:32] local.INFO: Quantia: 2  
+[2025-03-20 00:39:32] local.INFO: Tipo de dado: array  
+[2025-03-20 00:39:32] local.INFO: array (
   0 => 
   array (
-    'description' => 'Venda Nota Manual N° 10',
-    'document' => 10,
-    'pdv_id' => 10,
+    'description' => 'Venda Nota Manual 
+                                N° 24',
+    'document' => 24,
+    'pdv_id' => 24,
     'customer_id' => 1,
     'name' => 'Teste 1',
     'especie_id' => 1,
     'especie' => 'Dinheiro',
-    'date_register' => '2025-03-19',
-    'input_value' => '120',
+    'date_register' => '2025-03-20',
+    'input_value' => '130',
     'output_value' => 0,
-    'real_balance' => '120',
+    'real_balance' => '130',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+  1 => 
+  array (
+    'description' => 'Venda Nota Manual 
+                                N° 24',
+    'document' => 24,
+    'pdv_id' => 24,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 2,
+    'especie' => 'PIX',
+    'date_register' => '2025-03-20',
+    'input_value' => '10',
+    'output_value' => 0,
+    'real_balance' => '10',
     'user_id' => 1,
     'seller' => 'aa',
     'origem' => 'pdv',
   ),
 )  
+<<<<<<< HEAD
 [2025-03-19 15:55:42] local.INFO: Vai criar 1 registro:   
 [2025-03-19 15:55:42] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
 [2025-03-19 15:55:42] local.INFO: $lastCashBoxashBox  
@@ -1106,4 +1745,185 @@
 [2025-03-19 20:38:22] local.INFO: Opção desativada, não vai alterar o endereço  
 [2025-03-19 20:38:24] local.INFO: Chamou o IPController  
 [2025-03-19 20:38:24] local.INFO: Chamou o IPService  
+>>>>>>> Kochem
+=======
+[2025-03-20 00:39:32] local.INFO: Vai criar 2 registros:   
+[2025-03-20 00:39:32] local.INFO: Memória usada CashRegisterRepository::class, create, dentro for: 23068672  
+[2025-03-20 00:39:32] local.INFO: Vai chamar o updateCurrentCash($cashRegisters[$i]), dados x: 0  
+[2025-03-20 00:39:32] local.INFO: array (
+  'description' => 'Venda Nota Manual 
+                                N° 24',
+  'document' => 24,
+  'pdv_id' => 24,
+  'customer_id' => 1,
+  'name' => 'Teste 1',
+  'especie_id' => 1,
+  'especie' => 'Dinheiro',
+  'date_register' => '2025-03-20',
+  'input_value' => '130',
+  'output_value' => 0,
+  'real_balance' => '130',
+  'user_id' => 1,
+  'seller' => 'aa',
+  'origem' => 'pdv',
+)  
+[2025-03-20 00:39:32] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-03-20 00:39:32] local.INFO: $lastCashBoxashBox  
+[2025-03-20 00:39:32] local.INFO: 14  
+[2025-03-20 00:39:32] local.INFO: $actualCashBox  
+[2025-03-20 00:39:32] local.INFO: {"id":12,"description":"Venda Nota Manual N\u00b0 17","document":"17","pdv_id":17,"customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-19","input_value":"0.00","output_value":"0.00","real_balance":"1701.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-20 00:39:32] local.INFO: Novo valor: R$ 0.00 + 130.00 = 130  
+[2025-03-20 00:39:32] local.INFO: Memória usada CashRegisterRepository::class, create, dentro for: 23068672  
+[2025-03-20 00:39:32] local.INFO: Vai chamar o updateCurrentCash($cashRegisters[$i]), dados x: 1  
+[2025-03-20 00:39:32] local.INFO: array (
+  'description' => 'Venda Nota Manual 
+                                N° 24',
+  'document' => 24,
+  'pdv_id' => 24,
+  'customer_id' => 1,
+  'name' => 'Teste 1',
+  'especie_id' => 2,
+  'especie' => 'PIX',
+  'date_register' => '2025-03-20',
+  'input_value' => '10',
+  'output_value' => 0,
+  'real_balance' => '10',
+  'user_id' => 1,
+  'seller' => 'aa',
+  'origem' => 'pdv',
+)  
+[2025-03-20 00:39:32] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-03-20 00:39:32] local.INFO: $lastCashBoxashBox  
+[2025-03-20 00:39:32] local.INFO: 15  
+[2025-03-20 00:39:32] local.INFO: $actualCashBox  
+[2025-03-20 00:39:32] local.INFO: {"id":13,"description":"Venda Nota Manual 
+                                N\u00b0 24","document":"24","pdv_id":24,"customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-20","input_value":"130.00","output_value":"0.00","real_balance":"1831.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-20 00:39:32] local.INFO: Novo valor: R$ 130.00 + 10.00 = 140  
+[2025-03-20 00:39:32] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-20 00:39:32] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 109 --  
+[2025-03-20 00:39:32] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":24,"description":"Venda Nota Manual N\u00b0","cliente_id":1,"client":"Teste 1","gross_value":"130.00","net_value":"130.00","discount":"0.00","addition":"0.00","user_id":1,"user":"Kochem","finished":0,"canceled":0,"is_nfce_nm":"nm","active":1}  
+[2025-03-20 00:39:32] local.INFO: $type saleNM  
+[2025-03-20 00:39:32] local.INFO: Buscar e alterar os produtos, pdv_id = 24  
+[2025-03-20 00:39:32] local.INFO: Alteração dentro do for = 24  
+[2025-03-20 00:39:32] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-03-20 00:39:32] local.INFO: Produto encontrado 2  
+[2025-03-20 00:39:32] local.INFO: {"id":2,"product":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","amount":5,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-03-20 00:39:32] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-03-20 00:39:33] local.INFO: Chamou o IPController  
+[2025-03-20 00:39:33] local.INFO: Chamou o IPService  
+[2025-03-20 00:39:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-20 00:39:34] local.INFO: O hotel foi encontrado  
+[2025-03-20 00:39:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-20 00:39:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-20 00:39:35] local.INFO: Chamou o IPController  
+[2025-03-20 00:39:35] local.INFO: Chamou o IPService  
+[2025-03-20 00:39:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-20 00:39:40] local.INFO: Chamou o IPController  
+[2025-03-20 00:39:40] local.INFO: Chamou o IPService  
+[2025-03-20 00:39:40] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:39:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:39:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:39:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:39:41] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:39:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:39:42] local.INFO: Chamou o IPController  
+[2025-03-20 00:39:42] local.INFO: Chamou o IPService  
+[2025-03-20 00:39:42] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:39:42] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:39:42] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:39:42] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:39:42] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:39:42] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:42:21] local.INFO: Chamou o IPController  
+[2025-03-20 00:42:21] local.INFO: Chamou o IPService  
+[2025-03-20 00:42:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-20 00:42:22] local.INFO: O hotel foi encontrado  
+[2025-03-20 00:42:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-20 00:42:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-20 00:42:38] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:42:38] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:42:38] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:42:38] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:42:38] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:42:38] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-03-20 00:44:21] local.INFO: Chamou o IPController  
+[2025-03-20 00:44:21] local.INFO: Chamou o IPService  
+[2025-03-20 00:44:21] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:44:21] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:44:21] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:44:21] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:44:21] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:44:21] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:44:28] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:44:28] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:44:28] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:44:28] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:44:28] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:44:28] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:44:31] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:44:31] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:44:31] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:44:31] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:44:31] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:44:31] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:44:33] local.INFO: Chamou o IPController  
+[2025-03-20 00:44:33] local.INFO: Chamou o IPService  
+[2025-03-20 00:44:33] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:44:33] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:44:33] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:44:33] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:44:33] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:44:33] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:44:36] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:44:36] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:44:36] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:44:36] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:44:36] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:44:36] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:44:44] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:44:44] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:44:44] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:44:44] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:44:44] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:44:44] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:48:05] local.INFO: Chamou o IPController  
+[2025-03-20 00:48:05] local.INFO: Chamou o IPService  
+[2025-03-20 00:48:05] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:48:05] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:48:05] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:48:05] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:48:05] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:48:05] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:48:12] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:48:12] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:48:12] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:48:12] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:48:12] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:48:12] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:48:21] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:48:21] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:48:21] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:48:21] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:48:21] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:48:21] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:48:23] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 00:48:23] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 00:48:23] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 00:48:23] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 00:48:23] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 00:48:23] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:48:26] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-03-20 00:48:26] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-20 00:48:26] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-20 00:48:26] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-20 00:48:26] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-20 00:48:26] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-20 00:48:29] local.INFO: Chamou o IPController  
+[2025-03-20 00:48:29] local.INFO: Chamou o IPService  
+[2025-03-20 00:48:29] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-20 00:48:29] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-20 00:48:29] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-20 00:48:29] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-20 00:48:29] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-20 00:48:29] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
 >>>>>>> Kochem

@@ -91,9 +91,9 @@
               </button>
             </a>
             <div v-if="showFinancial" class="text-end mr-auto">
-              <p><a href="/#" class="hover:text-blue-400">Pagar</a></p>
-                <p><a href="/#" class="hover:text-blue-400">Receber</a></p>
-                <p><a href="/cash-register" class="hover:text-blue-400">Caixa</a></p>
+              <p><a href="/financial/to-pay" class="hover:text-blue-400">Pagar</a></p>
+                <p><a href="/financial/receive" class="hover:text-blue-400">Receber</a></p>
+                <p><a href="/financial/cash-register" class="hover:text-blue-400">Caixa</a></p>
 
             </div>
           </li>

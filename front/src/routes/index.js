@@ -11,10 +11,12 @@ import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
 import CreateHotel from '@/views/Dashboard/Hotel/CreateHotel.vue';
 import RoomDetails from '@/views/Dashboard/Hotel/RoomDetails.vue';
 import CustomerHome from '@/views/Dashboard/UserArea/CustomerHome.vue';
-import CashRegisterView from '@/views/Dashboard/Ecommerce/CashRegisterView.vue';
+import CashRegisterView from '@/views/Dashboard/Ecommerce/Financial/CashRegisterView.vue';
 import UsersView from '@/views/Dashboard/Ecommerce/UsersView.vue';
 import ProductsView from '@/views/Dashboard/Ecommerce/ProductsView.vue';
 import ListPDVView from '@/views/Dashboard/Ecommerce/PDV/ListPDVView.vue';
+import ToReceiveView from '@/views/Dashboard/Ecommerce/Financial/ToReceiveView.vue';
+import ToPayView from '@/views/Dashboard/Ecommerce/Financial/ToPayView.vue';
 
 const routes = [
   {
@@ -48,9 +50,19 @@ const routes = [
     component: SettingsView,
   },
   {
-    path: '/cash-register',
+    path: '/financial/cash-register',
     name: 'CashRegister',
     component: CashRegisterView,
+  },
+  {
+    path: '/financial/receive',
+    name: 'ToReceiveView',
+    component: ToReceiveView,
+  },
+  {
+    path: '/financial/to-pay',
+    name: 'ToPayView',
+    component: ToPayView,
   },
   {
     path: '/products',
