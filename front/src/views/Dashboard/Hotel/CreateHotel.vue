@@ -121,7 +121,7 @@
             }
         },
         directives: {
-            mask
+        mask
         },
 
         methods: {

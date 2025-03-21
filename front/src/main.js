@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
 import App from './App.vue';
 import router from './routes';
+import vuetify from './plugins/vuetify';
 import './assets/tailwind.css';
 
 const messages = {

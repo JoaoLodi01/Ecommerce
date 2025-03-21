@@ -254,10 +254,12 @@
 </template>
 
 <script>
-    import PaymentsForm from '@/views/components/PaymentsForm.vue';
-    import ProductsSelectionView from '@/views/components/Products/ProductsSelectionView.vue';
+    import ProductsSelectionView from 'src/components/ProductsSelectionView.vue';    
+    import PaymentsForm from 'src/components/PaymentsForm.vue';
     import axios from 'axios';
+    
     import { toRaw } from 'vue'   
+
     
     export default{
         data(){

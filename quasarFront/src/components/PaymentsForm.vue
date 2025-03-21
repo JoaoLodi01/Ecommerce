@@ -96,7 +96,6 @@
 
 <script>
 import axios from 'axios';
-import { mask } from 'vue-the-mask';
 
 export default {
     data(){
@@ -112,11 +111,6 @@ export default {
 
         };
         
-    },
-
-    directives: {
-        mask
-
     },
 
     emits: [
