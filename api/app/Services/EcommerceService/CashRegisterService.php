@@ -6,16 +6,22 @@ use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
 
 class CashRegisterService 
 {
-    protected $cashRegisterRepository;
+    public function __construct(
+        protected CashRegisterRepository $cashRegisterRepository
+    ) {}
 
-    public function __construct(CashRegisterRepository $cashRegisterRepository)
+    public function getAll()
     {
-        $this->cashRegisterRepository = $cashRegisterRepository;
-    }
-
-    public function getAll(){
         try {
             return $this->cashRegisterRepository->getAll(1);
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
+    }
+    public function getAllReceive()
+    {
+        try {
+            return $this->cashRegisterRepository->getAllReceive(1);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
@@ -35,7 +41,7 @@ class CashRegisterService
 
     public function store(array $data){
         try {
-            $this->cashRegisterRepository->store($data);
+            $this->cashRegisterRepository->create($data);
             return response()->json([
                 'success' => true
             ], 201);

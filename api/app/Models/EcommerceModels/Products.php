@@ -10,11 +10,11 @@ class Products extends Model
     
     protected $fillable = [
         'produto',
-        'quantidade',
+        'amount',
         'grupo_id',
         'grupo',
-        'preco_custo',
-        'preco_venda',
+        'price_cost',
+        'sale_price',
         'ncm',
         'cest',
         'csosn',

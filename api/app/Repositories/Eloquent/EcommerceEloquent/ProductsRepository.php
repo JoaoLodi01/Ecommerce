@@ -3,12 +3,14 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
+
 use Illuminate\Support\Facades\Log;
 
 class ProductsRepository
 {
     public function getAll(int $active){
-        return Products::where('active', $active)->get();
+        //return Products::where('active', $active)->get();
+        return Products::paginate(10);
     }
 
     public function search(array $data)
@@ -42,4 +44,23 @@ class ProductsRepository
             'active' => 0,
         ]);
     }
+
+    public function decreaseQuantiy(int $id, float|int $quantiy)
+    {
+        Log::info('-- Inicio decreaseQuantiy, linha 50 --');
+        $product = $this->findByID($id);
+        if($product)
+        {
+            Log::info('Produto encontrado ' . $product->id);
+            Log::info($product);
+            $product->update([
+                'amount' => $product->amount - $quantiy
+            ]);
+            
+        }
+
+        Log::info('-- Fim decreaseQuantiy, linha 62 --');
+    }
+
+        
 }

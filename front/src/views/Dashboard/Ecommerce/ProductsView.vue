@@ -26,8 +26,7 @@
           </div>
 
           <div class="text-sm text-gray-500 mb-4">
-            <span class="font-semibold">Preço de Venda:</span>
-             R$ {{ Number(product.preco_venda).toFixed(2) || '0.00' }}
+            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
           </div>
 
           <!-- Ações -->
@@ -50,7 +49,7 @@
 
 <script>
 import axios from 'axios';
-import RegisterProduct from '@/views/components/RegisterProduct.vue';
+import RegisterProduct from '@/views/components/Register/RegisterProduct.vue';
 
 export default {
   components: {
@@ -66,15 +65,18 @@ export default {
     };
   },
 
-  mounted() {
-    this.getProducts();
-  },
-
   methods: {
     async getProducts() {
-      const response = await axios.get(`${this.api}/ecommerce/products/all`);
-      console.log(response);
-      this.products = response.data;
+      try {
+        const response = await axios.get(`${this.api}/ecommerce/products/all`);
+        console.log(response);
+        this.products = response.data.data;
+        
+      } catch (error) {
+        console.error('getProducts', error)
+        
+      }
+
     },
 
     toggleRegisterProductVisibility(){
@@ -94,5 +96,10 @@ export default {
       this.showRegisterProduct = !this.showRegisterProduct;
     },
   },
+
+  mounted() {
+    this.getProducts();
+  },
 };
+
 </script>

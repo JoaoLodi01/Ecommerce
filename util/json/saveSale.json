@@ -1,0 +1,58 @@
+: this.productsSeletion, // Produtos da 
+user_id: this.emitProducts.userID,
+customer_id: this.emitProducts.customerID,
+sub_total: this.calculateTotal.subtotal,
+total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+addition: this.calculateTotal.addition,
+discount: this.calculateTotal.discount,
+description: 'Venda guardada',
+is_nfce_nm: null
+
+
+{
+    "products": [
+        {
+            "active": 1,
+            "cest": "1234567",
+            "cfop": "5102",
+            "csosn": "102",
+            "grupo": "Grupo teste 2",
+            "grupo_id": 2,
+            "id": 1,
+            "isSelected": true,
+            "ncm": "12345678",
+            "perc_lucro": "100.00",
+            "price_cost": "10.00",
+            "sale_price": "120.00",
+            "produto": "Jack Daniels Maça",
+            "quantidade": 1,
+            "unit": "UN"
+        },
+        {
+            "active": 1,
+            "cest": "1234567",
+            "cfop": "5102",
+            "csosn": "102",
+            "grupo": "Grupo teste 2",
+            "grupo_id": 2,
+            "id": 2,
+            "isSelected": true,
+            "ncm": "12345678",
+            "perc_lucro": "100.00",
+            "price_cost": "10.00",
+            "sale_price": "120.00",
+            "produto": "Jack Daniels Maça",
+            "quantidade": 1,
+            "unit": "UN"
+            
+        }
+    ],
+    "user_id": 1,
+    "customer_id": 1,
+    "sub_total": 100,
+    "total": 100,
+    "addition": 0,
+    "discount": 0,
+    "description": "Venda guardada",
+    "is_nfce_nm": null
+}

@@ -10,13 +10,21 @@ class ItensPDV extends Model
 
     protected $fillable = [
         'pdv_id',
-        'product_id',
+        'product_id',    
         'product',
-        'amount_sold',
+        'cost_price',
+        'sale_price',
+        'cfop',
+        'csosn',
+        'ncm',
+        'cest',
+        'unit',
+        'amount',
         'addition',
         'discount',
         'user_id',
-        'user',
+        'seller',
+        'is_nfce_nm',
         'finished',
     ];
 

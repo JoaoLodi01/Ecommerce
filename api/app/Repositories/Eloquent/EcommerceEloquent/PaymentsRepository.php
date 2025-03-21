@@ -19,7 +19,8 @@ class PaymentsRepository
             $result[] = Payment::where('id', $i)->first();
             
         }
-        
+        Log::info('$result');
+        Log::info($result);
         return $result;
     }
 
