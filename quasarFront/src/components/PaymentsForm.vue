@@ -53,7 +53,7 @@
                                     type="text"
                                     class="text-end w-20"
                                     v-model="paymentsValues[index]"
-                                    v-mask="'###,##'"
+
                                     placeholder="0,00"
                                 />
                             </td>
@@ -96,7 +96,6 @@
 
 <script>
 import axios from 'axios';
-import { mask } from 'vue-the-mask';
 
 export default {
     data(){
@@ -112,11 +111,6 @@ export default {
 
         };
         
-    },
-
-    directives: {
-        mask
-
     },
 
     emits: [
