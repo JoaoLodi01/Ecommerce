@@ -1,5 +1,6 @@
 <template>
-    <div    
+    <div
+    
         class="flex border rounded-lg border-black mt-2 w-max" 
         id="pdv-view"
         v-if="showGrid"
@@ -253,10 +254,12 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    import ProductsSelectionView from 'src/components/ProductsSelectionView.vue';    
     import PaymentsForm from 'src/components/PaymentsForm.vue';
-    import ProductsSelectionView from 'src/components/ProductsSelectionView.vue';
+    import axios from 'axios';
+    
     import { toRaw } from 'vue'   
+
     
     export default{
         data(){

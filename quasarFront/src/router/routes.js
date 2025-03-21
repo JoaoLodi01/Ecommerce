@@ -1,19 +1,22 @@
-import HomeView from 'src/pages/HomeView.vue'
 import PDVView from 'src/pages/PDV/PDVView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: HomeView
+    
   },
-
   {
     path: '/sale/pdv',
-    name: 'PDV',
+    name: 'PDV', 
     component: PDVView
-  }
-  
+  },
+  {
+    path: '/sale/save/pdv/:idPDV',
+    name: 'PDVID',
+    component: PDVView,
+    props: true
+
+  },
 ]
 
 export default routes
