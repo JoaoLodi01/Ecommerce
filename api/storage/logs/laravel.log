@@ -1,8 +1,1149 @@
-[2025-03-22 12:40:46] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-22 12:40:46] local.INFO: O hotel foi encontrado  
-[2025-03-22 12:40:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-22 12:40:46] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-22 12:41:03] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-22 12:41:03] local.INFO: O hotel foi encontrado  
-[2025-03-22 12:41:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-22 12:41:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 13:26:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 13:26:52] local.INFO: O hotel foi encontrado  
+[2025-03-22 13:26:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 13:26:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 13:33:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 13:33:18] local.INFO: O hotel foi encontrado  
+[2025-03-22 13:33:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 13:33:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 13:35:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 13:35:08] local.INFO: O hotel foi encontrado  
+[2025-03-22 13:35:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 13:35:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 13:35:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 13:35:48] local.INFO: O hotel foi encontrado  
+[2025-03-22 13:35:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 13:35:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 13:42:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 13:42:40] local.INFO: O hotel foi encontrado  
+[2025-03-22 13:42:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 13:42:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 13:42:45] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-22 13:42:45] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-22 13:42:45] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-22 13:42:45] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-22 13:42:45] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-22 13:42:45] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-22 13:42:45] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-22 13:42:45] local.INFO: array (
+  'description' => 'Venda guardada',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => NULL,
+)  
+[2025-03-22 13:42:45] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-22 13:42:45] local.INFO: Busca pelo customer  
+[2025-03-22 13:42:45] local.INFO: Busca pelo user  
+[2025-03-22 13:42:45] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-22T12:29:35.000000Z","updated_at":"2025-03-22T12:29:35.000000Z"}  
+[2025-03-22 13:42:45] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Kochem',
+  'is_nfce_nm' => NULL,
+)  
+[2025-03-22 13:42:45] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-03-22 13:42:45] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
+[2025-03-22 13:42:45] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-22T12:29:35.000000Z","updated_at":"2025-03-22T12:29:35.000000Z"}  
+[2025-03-22 13:42:45] local.INFO: $products 11  
+[2025-03-22 13:42:45] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-03-22 13:42:45] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-22 13:42:45] local.INFO: $product, type: array  
+[2025-03-22 13:42:45] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'perc_lucro' => '100.00',
+    'cfop' => '5102',
+    'csosn' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-22 13:42:45] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-22 13:42:45] local.INFO: $product[$i]  
+[2025-03-22 13:42:45] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'grupo_id' => 2,
+  'grupo' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'perc_lucro' => '100.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-03-22 13:42:45] local.INFO: itensPDV   
+[2025-03-22 13:42:45] local.INFO: array (
+  'pdv_id' => 11,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+)  
+[2025-03-22 13:42:45] local.INFO: $ipdv  
+[2025-03-22 13:42:45] local.INFO: {"pdv_id":11,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":6}  
+[2025-03-22 13:44:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 13:44:47] local.INFO: O hotel foi encontrado  
+[2025-03-22 13:44:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 13:44:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 13:55:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 13:55:18] local.INFO: O hotel foi encontrado  
+[2025-03-22 13:55:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 13:55:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 13:55:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 13:55:38] local.INFO: O hotel foi encontrado  
+[2025-03-22 13:55:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 13:55:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 13:55:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 13:55:46] local.INFO: O hotel foi encontrado  
+[2025-03-22 13:55:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 13:55:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:03:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:03:33] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:03:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:03:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:03:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:03:38] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:03:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:03:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:37:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:37:49] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:37:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:37:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:37:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:37:50] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:37:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:37:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:37:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:37:51] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:37:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:37:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:37:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:37:53] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:37:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:37:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:38:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:38:17] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:38:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:38:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:38:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:38:34] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:38:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:38:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:38:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:38:42] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:38:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:38:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:40:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:40:55] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:40:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:40:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:46:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:46:19] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:46:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:46:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:46:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:46:25] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:46:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:46:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:46:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:46:36] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:46:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:46:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:47:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:47:49] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:47:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:47:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:47:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:47:52] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:47:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:47:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:48:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:48:07] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:48:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:48:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:48:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:48:10] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:48:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:48:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:48:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:48:25] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:48:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:48:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:48:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:48:44] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:48:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:48:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:49:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:49:16] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:49:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:49:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:49:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:49:57] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:49:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:49:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:50:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:50:14] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:50:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:50:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:50:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:50:36] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:50:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:50:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:51:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:51:21] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:51:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:51:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:51:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:51:35] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:51:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:51:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:53:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:53:11] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:53:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:53:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 14:54:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 14:54:27] local.INFO: O hotel foi encontrado  
+[2025-03-22 14:54:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 14:54:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 15:52:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 15:52:33] local.INFO: O hotel foi encontrado  
+[2025-03-22 15:52:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 15:52:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 15:53:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 15:53:06] local.INFO: O hotel foi encontrado  
+[2025-03-22 15:53:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 15:53:06] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 15:53:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 15:53:08] local.INFO: O hotel foi encontrado  
+[2025-03-22 15:53:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 15:53:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 15:53:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 15:53:46] local.INFO: O hotel foi encontrado  
+[2025-03-22 15:53:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 15:53:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 15:54:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 15:54:08] local.INFO: O hotel foi encontrado  
+[2025-03-22 15:54:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 15:54:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 15:54:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 15:54:27] local.INFO: O hotel foi encontrado  
+[2025-03-22 15:54:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 15:54:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 15:55:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 15:55:16] local.INFO: O hotel foi encontrado  
+[2025-03-22 15:55:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 15:55:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 15:55:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 15:55:16] local.INFO: O hotel foi encontrado  
+[2025-03-22 15:55:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 15:55:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 15:55:32] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-22 15:55:32] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-22 15:55:32] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-22 15:55:32] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-22 15:55:32] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-22 15:55:33] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-22 15:55:33] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-22 15:55:33] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+    1 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 252,
+  'sub_total' => 240,
+  'addition' => 12,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-22 15:55:33] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-22 15:55:33] local.INFO: Busca pelo customer  
+[2025-03-22 15:55:33] local.INFO: Busca pelo user  
+[2025-03-22 15:55:33] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-22T12:29:35.000000Z","updated_at":"2025-03-22T12:29:35.000000Z"}  
+[2025-03-22 15:55:33] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 240,
+  'net_value' => 252,
+  'addition' => 12,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Kochem',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-22 15:55:33] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-03-22 15:55:33] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
+[2025-03-22 15:55:33] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-22T12:29:35.000000Z","updated_at":"2025-03-22T12:29:35.000000Z"}  
+[2025-03-22 15:55:33] local.INFO: $products 12  
+[2025-03-22 15:55:33] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+  1 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-03-22 15:55:33] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-22 15:55:33] local.INFO: $product, type: array  
+[2025-03-22 15:55:33] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'perc_lucro' => '100.00',
+    'cfop' => '5102',
+    'csosn' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-22 15:55:33] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-22 15:55:33] local.INFO: $product[$i]  
+[2025-03-22 15:55:33] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'grupo_id' => 2,
+  'grupo' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'perc_lucro' => '100.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-03-22 15:55:33] local.INFO: itensPDV   
+[2025-03-22 15:55:33] local.INFO: array (
+  'pdv_id' => 12,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+)  
+[2025-03-22 15:55:33] local.INFO: $ipdv  
+[2025-03-22 15:55:33] local.INFO: {"pdv_id":12,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":7}  
+[2025-03-22 15:55:33] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-22 15:55:33] local.INFO: $product, type: array  
+[2025-03-22 15:55:33] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'perc_lucro' => '100.00',
+    'cfop' => '5102',
+    'csosn' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-22 15:55:33] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-22 15:55:33] local.INFO: $product[$i]  
+[2025-03-22 15:55:33] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'grupo_id' => 2,
+  'grupo' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'perc_lucro' => '100.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-03-22 15:55:33] local.INFO: itensPDV   
+[2025-03-22 15:55:33] local.INFO: array (
+  'pdv_id' => 12,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+)  
+[2025-03-22 15:55:33] local.INFO: $ipdv  
+[2025-03-22 15:55:33] local.INFO: {"pdv_id":12,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":8}  
+[2025-03-22 15:55:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-22 15:55:46] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-22 15:55:46] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-22 15:55:46] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-22 15:55:46] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-22 15:55:46] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-22 15:55:46] local.INFO: Dados recebidos nos controllers  
+[2025-03-22 15:55:46] local.INFO: array (
+  'typeOperation' => 'saleNFCe',
+  'change' => 0,
+  'paymentsValues' => 
+  array (
+    0 => '252',
+  ),
+  'pdvID' => 12,
+)  
+[2025-03-22 15:55:46] local.INFO: PDVService.php, class:finalizeSale, $total: 252  
+[2025-03-22 15:55:46] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-03-22 15:55:46] local.INFO: Memória usada PDVRepository::class, finalizeSale: 20971520  
+[2025-03-22 15:55:46] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-22 15:55:46] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-22 15:55:46] local.INFO: $result  
+[2025-03-22 15:55:46] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-22 12:29:34',
+      'updated_at' => '2025-03-22 12:29:34',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-22 12:29:34',
+      'updated_at' => '2025-03-22 12:29:34',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-22 15:55:46] local.INFO: Vai conferir se o $total: R$ 252 é maior que o $pdv->net_value, R$252.00  
+[2025-03-22 15:55:46] local.INFO: Foi maior  
+[2025-03-22 15:55:46] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-03-22 15:55:46] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-03-22 15:55:46] local.INFO: $forms  
+[2025-03-22 15:55:46] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-22 12:29:34',
+      'updated_at' => '2025-03-22 12:29:34',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-22 12:29:34',
+      'updated_at' => '2025-03-22 12:29:34',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-22 15:55:46] local.INFO: $paymentValues  
+[2025-03-22 15:55:46] local.INFO: array (
+  0 => '252',
+)  
+[2025-03-22 15:55:46] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-22 15:55:46] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-03-22 15:55:46] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-22 15:55:46] local.INFO: forms  
+[2025-03-22 15:55:46] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-22 12:29:34',
+      'updated_at' => '2025-03-22 12:29:34',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-22 12:29:34',
+      'updated_at' => '2025-03-22 12:29:34',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-22 15:55:46] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-22 15:55:46] local.INFO: paymentValues linha 124 - : 252  
+[2025-03-22 15:55:46] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-22 15:55:46] local.INFO: $form->tipo_lancamento  
+[2025-03-22 15:55:46] local.INFO: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-22 15:55:46] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-03-22 15:55:46] local.INFO: Dados:   
+[2025-03-22 15:55:46] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 12',
+    'document' => 12,
+    'pdv_id' => 12,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-22',
+    'input_value' => '252',
+    'output_value' => 0,
+    'real_balance' => '252',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-03-22 15:55:46] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-03-22 15:55:46] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-22 15:55:46] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-03-22 15:55:46] local.INFO: Quantia: 1  
+[2025-03-22 15:55:46] local.INFO: Tipo de dado: array  
+[2025-03-22 15:55:46] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 12',
+    'document' => 12,
+    'pdv_id' => 12,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-22',
+    'input_value' => '252',
+    'output_value' => 0,
+    'real_balance' => '252',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-03-22 15:55:46] local.INFO: Vai criar 1 registro:   
+[2025-03-22 15:55:46] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-03-22 15:55:46] local.INFO: $lastCashBoxashBox  
+[2025-03-22 15:55:46] local.INFO: 4  
+[2025-03-22 15:55:46] local.INFO: $actualCashBox  
+[2025-03-22 15:55:46] local.INFO: {"id":2,"description":"Venda Nota Manual 
+                                N\u00b0 10","document":"10","pdv_id":10,"customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-22","input_value":"270.00","output_value":"0.00","real_balance":"510.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-22 15:55:46] local.INFO: Novo valor: R$ 270.00 + 252.00 = 522  
+[2025-03-22 15:55:46] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-03-22 15:55:46] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-22 15:55:46] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-03-22 15:55:46] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":12,"description":"Venda NFC-e N\u00b0","cliente_id":1,"client":"Teste 1","gross_value":"240.00","net_value":"252.00","discount":"0.00","addition":"12.00","user_id":1,"user":"Kochem","finished":0,"canceled":0,"is_nfce_nm":"nfce","active":1}  
+[2025-03-22 15:55:46] local.INFO: $type saleNFCe  
+[2025-03-22 15:55:46] local.INFO: Buscar e alterar os produtos, pdv_id = 12  
+[2025-03-22 15:55:46] local.INFO: Alteração dentro do for = 12  
+[2025-03-22 15:55:46] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-03-22 15:55:46] local.INFO: Produto encontrado 1  
+[2025-03-22 15:55:46] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-03-22 15:55:46] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-03-22 15:55:46] local.INFO: Alteração dentro do for = 12  
+[2025-03-22 15:55:46] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-03-22 15:55:46] local.INFO: Produto encontrado 1  
+[2025-03-22 15:55:46] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","amount":8,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-03-22 15:55:46] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-03-22 16:06:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:06:01] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:06:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:06:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:06:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:06:20] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:06:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:06:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:06:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:06:30] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:06:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:06:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:08:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:08:20] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:08:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:08:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:08:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:08:21] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:08:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:08:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:09:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:09:08] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:09:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:09:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:09:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:09:08] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:09:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:09:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:09:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:09:29] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:09:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:09:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:09:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:09:29] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:09:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:09:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:09:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:09:59] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:09:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:09:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:11:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:11:00] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:11:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:11:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:11:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:11:01] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:11:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:11:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:11:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:11:07] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:11:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:11:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:11:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:11:08] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:11:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:11:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:11:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:11:33] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:11:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:11:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-22 16:11:41] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-22 16:11:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-22 16:11:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-22 16:11:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-22 16:11:41] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-22 16:11:41] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-22 16:11:41] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-22 16:11:41] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '1',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-22 16:11:41] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-22 16:11:41] local.INFO: Busca pelo customer  
+[2025-03-22 16:11:41] local.INFO: Busca pelo user  
+[2025-03-22 16:11:41] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-22T12:29:35.000000Z","updated_at":"2025-03-22T12:29:35.000000Z"}  
+[2025-03-22 16:11:41] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Kochem',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-22 16:11:41] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-03-22 16:11:41] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
+[2025-03-22 16:11:41] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-22T12:29:35.000000Z","updated_at":"2025-03-22T12:29:35.000000Z"}  
+[2025-03-22 16:11:41] local.INFO: $products 11  
+[2025-03-22 16:11:41] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '1',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-03-22 16:11:41] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-22 16:11:41] local.INFO: $product, type: array  
+[2025-03-22 16:11:41] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'perc_lucro' => '100.00',
+    'cfop' => '5102',
+    'csosn' => '1',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-22 16:11:41] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-22 16:11:41] local.INFO: $product[$i]  
+[2025-03-22 16:11:41] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'grupo_id' => 2,
+  'grupo' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'perc_lucro' => '100.00',
+  'cfop' => '5102',
+  'csosn' => '1',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-03-22 16:11:41] local.INFO: itensPDV   
+[2025-03-22 16:11:41] local.INFO: array (
+  'pdv_id' => 13,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '1',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+)  
+[2025-03-22 16:11:41] local.INFO: $ipdv  
+[2025-03-22 16:11:41] local.INFO: {"pdv_id":13,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"1","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":9}  
+[2025-03-22 16:11:41] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-22 16:11:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-22 16:11:43] local.INFO: O hotel foi encontrado  
+[2025-03-22 16:11:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-22 16:11:43] local.INFO: Opção desativada, não vai alterar o endereço  
