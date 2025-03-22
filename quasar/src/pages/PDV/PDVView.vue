@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex border rounded-lg border-black mt-2 w-max" 
+        class="flex border rounded-lg border-black mt-10 w-max" 
         id="pdv-view"
         v-if="showGrid"
         :class="{
@@ -27,23 +27,40 @@
 
             />
         </div>
-        <div class="relative overflow-x-auto max-h-96 overflow-y-auto ">
-            <div class="flex">
-                <div class="ml-6 mt-4 mb-4 cursor-pointer" @click="showproductts">
-                    <div class="border border-red-500 w-6 mb-1"></div>
-                    <div class="border border-black w-5 mb-1"></div>
-                    <div class="border border-gray-500 w-4 mb-1"></div>        
+        
+        <div class="relative overflow-x-auto max-h-96 overflow-y-auto ">            
+            <div class="border border-gray-500 m-3">
+                <div class="inline-flex p-3">
+                    <div class="mt-auto mb-auto mr-8 cursor-pointer" @click="showproductts">
+                        <div class="border border-red-500 w-6 mb-1"></div>
+                        <div class="border border-black w-5 mb-1"></div>
+                        <div class="border border-gray-500 w-4 mb-1"></div>        
+
+                    </div>
+                    
+                    <div class="border border-black mr-20 rounded-md text-center">
+                        <input
+                            type="text"
+                            class="border-none outline-none ml-2 mt-1 mb-1 w-96"
+                            placeholder="Buscar"
+                        />
+                    </div>
+
+                    <div>
+                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
+                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="">Voltar para a listagem</router-link></button>
+                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
+
+                    </div>
+                    
                 </div>
 
             </div>
-            
-            <div class="m-5 w-max shadow-lg">
-                
-                
+
+            <div class="m-5 w-max shadow-lg">                
                 <table class="block text-left rounded-t-xl rtl:text-right ">
-                    <thead class="uppercase shadow-lg">
-                       
-                            <tr class="bg-white sticky z-10">
+                    <thead class="uppercase shadow-lg sticky top-0 bg-white z-50">
+                            <tr class="bg-white">
                                 <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
                                 <th scope="col" class="px-6 py-3 text-center">CFOP</th>
@@ -51,6 +68,7 @@
                                 <th scope="col" class="px-6 py-3 text-center">Qtde</th>
                                 <th scope="col" class="px-6 py-3 text-center">Valor unitário</th>
                                 <th scope="col" class="px-6 py-3">Valor líquido</th>
+                                <th scope="col" class="px-6 py-3">Ações</th>
 
                             </tr>
                         
@@ -71,6 +89,8 @@
                                     :placeholder=product.cfop
                                     type="text"
                                     class="w-12 text-center border-b-4 border-b-gray-500"
+                                    :maxlength="maxlength(csosncst)"
+                                    :minlength="maxlength(csosncst)"
                                     @input="changeCFOP(product.id, product.cfop)"
 
                                 />
@@ -81,6 +101,8 @@
                                     v-model="product.csosn"
                                     :placeholder=product.csosn
                                     type="text"
+                                    :maxlength="maxlength(csosncst)"
+                                    :minlength="maxlength(csosncst)"
                                     class="w-10 text-center border-b-4 border-b-gray-500"
                                     @input="changeCSOSN(product.id, product.csosn)"
 
@@ -99,142 +121,202 @@
                             </td>
                             <td class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
                             <td class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
-                        </tr>    
+                            <td class="text-center">
+                                <div class="m-auto">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" size-5 text-red-500 mr-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                        </svg>
+                                    </button>
+
+                                    <button @click="productOptions">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 text-blue-600">
+                                            <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm6 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                         
                 </table>                
+                
+            </div>
+
+            <div v-if="showProductOptions" class="relative w-64 p-2 mr-5 ml-auto bg-slate-500 text-white">
+                <div class="text-left">
+                    <span>Desconto: R$
+                        <input 
+                            type="text"
+                            class="w-16 bg-slate-400"
+                            
+                        />
+                    
+                    </span>
+                </div>
+                
             </div>
         </div>
     <div>
         </div>
         
-        <div 
-            class="flex max-w-64 text-sm rounded-t-lg rounded-b-lg border border-black"
-            :class="{
-                'text-xl': textSize === 4,
-                'text-2xl': textSize === 8,
-                'text-3xl': textSize === 16,
-                
-            }"   
-        >
-        <div>
-            <div>
                 <div 
-                    class="m-2 p-2 rounded-lg border border-gray-700"
+                    class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-black "
+                    :class="{
+                        'text-xl': textSize === 4,
+                        'text-2xl': textSize === 8,
+                        'text-3xl': textSize === 16,
+                        
+                    }"   
                 >
-                <label class="text-black" for="discount">Vendedor</label>
-                <input 
-                    v-model="emitProducts.userID"
-                    placeholder="Funcionário Padrão"
-                    id="discount"
-                    type="text"
-                    class="text-black border border-black w-full"
-                />
+                <div>
+                    <div>
+                        <div 
+                            class="m-2 p-2 rounded-lg border border-gray-700"
+                        >
+                            <label class="text-black" for="discount">Vendedor</label>
+                            <input 
+                                v-model="emitProducts.userID"
+                                placeholder="Funcionário Padrão"
+                                id="discount"
+                                type="text"
+                                class="text-black border border-black w-full"
+                            />
 
-                <br>
+                            <br>
 
-                <label class="text-black" for="discount">Cliente</label>
-                <input 
-                    placeholder="Consumidor Padrão"
-                    v-model="emitProducts.clientID"
-                    @input="findCustomer(emitProducts.clientID)"
-                    id="discount"
-                    type="text"
-                    class="text-black border border-black w-full"
+                            <label class="text-black" for="discount">Cliente</label>
+                            <input 
+                                placeholder="Consumidor Padrão"
+                                v-model="emitProducts.clientID"
+                                @input="findCustomer(emitProducts.clientID)"
+                                id="discount"
+                                type="text"
+                                class="text-black border border-black w-full"
 
-                />
-            </div>
-            
-            <div
-                class="m-2 p-2 rounded-lg border border-gray-700" 
-                id="values"
-                
-            >
-            <label class="text-black" for="addition">Acréscimo R$</label>
-            <input 
-                id="addition"
-                v-model.number="emitProducts.addition"
-                type="text"
-                
-                class="text-black border border-black w-20 p-0.5"
-            />
-            
-            <br>
-            <label class="text-black" for="discount">Desconto R$</label>
-            <input 
-                id="discount"
-                v-model.number="emitProducts.discount"
-                type="text"
-                
-                class="text-black border border-black w-20 p-0.5"
-            />
-        </div>
+                            />
+                        </div>
+                    
+                    <div
+                        class="m-2 p-2 rounded-lg border border-gray-700" 
+                        id="values"
+                        
+                    >
+                    <label class="text-black" for="addition">Acréscimo R$</label>
+                    <input 
+                        id="addition"
+                        v-model.number="emitProducts.addition"
+                        type="text"
+                        
+                        class="text-black border border-black w-20 p-0.5"
+                    />
+                    
+                    <br>
+                    <label class="text-black" for="discount">Desconto R$</label>
+                    <input 
+                        id="discount"
+                        v-model.number="emitProducts.discount"
+                        type="text"
+                        
+                        class="text-black border border-black w-20 p-0.5"
+                    />
+                </div>
         
-        <div
-            class="m-2 p-2 rounded-lg border border-gray-700"
-            id="total"
-        >
-        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
-        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
-        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
-        <p class="flex justify-between">Frete <span>R$ {{ '0.00' }}</span></p>
-        
-    </div>
-    <div class="flex m-2 p-2 rounded-lg border border-gray-700">
-        <button
-            v-if="productsSeletion.length <= 0"
-            disabled
-            title="Sem vendas no momento"
-            class="mr-1 ml-2 bg-slate-600 rounded-md"
-            
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-            </svg>
-        </button>
+                <div
+                    class="m-2 p-2 rounded-lg border border-gray-700"
+                    id="total"
 
-        <button
-            v-else @click="cancelSale()"
-            class="mr-1 ml-2 bg-slate-600 rounded-md"
-            >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-            </svg>
-        </button>
+                >
+                    <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
+                    <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
+                    <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
+                    <p class="flex justify-between">Frete <span>R$ {{ '0.00' }}</span></p>
+                
+                </div>
+             
+                    <div class="flex m-2 p-2 rounded-lg border border-gray-700">
+                        <button
+                            v-if="productsSeletion.length <= 0"
+                            disabled
+                            title="Sem vendas no momento"
+                            class="mr-1 ml-2 bg-slate-600 rounded-md"
+                            
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                            </svg>
+                        </button>
 
-        <button 
-            class="mr-1 ml-2 bg-slate-600 rounded-md"
-            title="Salvar venda"
-            @click="saveSale()"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-            </svg>
-        </button>
+                        <button
+                            v-else @click="cancelSale()"
+                            class="mr-1 ml-2 bg-slate-600 rounded-md"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                            </svg>
+                        </button>
 
-        <div class="mb-auto ml-auto text-xl w-auto">
-            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.addition - calculateTotal.discount }}</span>
-            
-            </div>
-        </div>
+                        <button
+                            v-if="productsSeletion.length <= 0"
+                            disabled
+                            title="Sem vendas no momento"
+                            class="mr-1 ml-2 bg-slate-600 rounded-md"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-300">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                            </svg>
+                        </button>
+                        <button 
+                            class="mr-1 ml-2 bg-slate-600 rounded-md"
+                            title="Salvar venda"
+                            @click="saveSale()"
+                            v-else
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                            </svg>
+                        </button>
 
-        <div class="flex text-white p-1 rounded-lg border border-gray-700">
-            <button @click="finalizeSale('nm')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar</button>
-            <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
-            
-        </div>
+                        <div class="mb-auto ml-auto text-xl w-auto">
+                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.addition - calculateTotal.discount }}</span>
+                        
+                        </div>
+                    </div>
+
+                    <div class="flex text-white p-1 rounded-lg border border-gray-700 w-full">
+                        <button @click="finalizeSale('nm')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar</button>
+                        <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
+                        
+                    </div>
 
                 </div>
             </div>
         </div>
-        <!--image-->
+
+        <!-- oder options>
+        <div class="bg-purple-400">
+            <div 
+                class="m-2 p-2"
+            >
+                <p>
+                    <button>12</button>
+                </p>
+                <p>
+                    <button>12</button>
+                </p>
+
+                <p>
+                    <button>12</button>
+                </p>
+            </div>
+        </div-->
     </div>
 
     <div
         v-if="showGrid"
-        class="flex border border-black w-10 ml-10"
+        class="flex border border-black w-9  ml-10"
     >
-        <select id="textSize" v-model.number="textSize" @change="setTextSize">
+        <select id="textSize" v-model.number="textSize">
             <option selected value=4>4</option>
             <option value=8>8</option>
             <option value=16>16</option>
@@ -268,7 +350,7 @@
                     addition: 0,
                     discount: 0,
                     userID: 1,
-                    customerID: 0,
+                    customerID: 1,
 
                 },
                 
@@ -279,6 +361,7 @@
                 show: false,
                 showGrid: true,
                 showPaymentsForm: false,
+                showProductOptions: false,
                 isOpenedPDV: false,
                 success: null,
                 typeOperation: '',
@@ -586,10 +669,9 @@
 
             },
 
-            setTextSize()
+            productOptions()
             {
-
-
+                this.showProductOptions = !this.showProductOptions
             },
 
             resetSale(confirmed)
@@ -602,6 +684,18 @@
                     this.emitProducts.discount = 0
                     
                 }
+            },
+
+            maxlength(csosncst)
+            {
+                if(csosncst === 'CSOSN')
+                {
+                    return 2
+                        
+                } else if (csosncst === 'CST'){
+                    return 2
+                }
+
             },
 
             cancelSale()
@@ -646,6 +740,10 @@
 </script>
 
 <style>
+    *{
+        outline: none;
+    }
+
     #pdv-view{
         height: 100%;
 
