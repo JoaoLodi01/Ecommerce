@@ -53,7 +53,7 @@
                                     type="text"
                                     class="text-end w-20"
                                     v-model="paymentsValues[index]"
-                                    v-mask="'###,##'"
+                                    
                                     placeholder="0,00"
                                 />
                             </td>

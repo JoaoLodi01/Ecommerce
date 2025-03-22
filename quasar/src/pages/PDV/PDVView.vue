@@ -1,6 +1,5 @@
 <template>
     <div
-    
         class="flex border rounded-lg border-black mt-2 w-max" 
         id="pdv-view"
         v-if="showGrid"
@@ -43,7 +42,7 @@
                 
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg">
-                        <v-skeleton-loader>
+                       
                             <tr class="bg-white sticky z-10">
                                 <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
@@ -54,7 +53,7 @@
                                 <th scope="col" class="px-6 py-3">Valor líquido</th>
 
                             </tr>
-                        </v-skeleton-loader>
+                        
                     </thead>
 
                     <tbody v-for="products in productsSeletion">
@@ -254,12 +253,11 @@
 </template>
 
 <script>
-    import ProductsSelectionView from 'src/components/ProductsSelectionView.vue';    
-    import PaymentsForm from 'src/components/PaymentsForm.vue';
-    import axios from 'axios';
     
+    import axios from 'axios';
+    import PaymentsForm from 'src/components/PaymentsForm.vue';
+    import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import { toRaw } from 'vue'   
-
     
     export default{
         data(){

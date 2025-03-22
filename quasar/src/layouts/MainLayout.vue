@@ -45,8 +45,8 @@
   </q-layout>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue'
+<script setup>
+import { ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
@@ -91,26 +91,18 @@ const linksList = [
     caption: 'Community Quasar projects',
     icon: 'favorite',
     link: 'https://awesome.quasar.dev'
+  },
+  {
+    title: 'PDV',
+    caption: 'PDV',
+    icon: null,
+    link: '/sale/pdv'
   }
 ]
 
-export default defineComponent({
-  name: 'MainLayout',
+const leftDrawerOpen = ref(false)
 
-  components: {
-    EssentialLink
-  },
-
-  setup () {
-    const leftDrawerOpen = ref(false)
-
-    return {
-      linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
+function toggleLeftDrawer () {
+  leftDrawerOpen.value = !leftDrawerOpen.value
+}
 </script>
