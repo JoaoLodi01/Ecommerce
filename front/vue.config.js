@@ -7,7 +7,8 @@ module.exports = defineConfig({
       .use('vue-loader')
       .tap(options => {
         options.compilerOptions = {
-          isCustomElement: tag => tag.startsWith('b-sidebar') // Adjust the condition as needed
+          isCustomElement: tag => tag.startsWith('b-sidebar') || tag.startsWith('custom-element')
+          
         }
         return options
       })
