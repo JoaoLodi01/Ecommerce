@@ -12,7 +12,7 @@ class ReservationRepository
     ){
         Log::info('Memória usada ReservationRepository::class, __construct: ' . memory_get_usage(true));
     }
-
+/*
     public function create(object $customer)
     {
         Log::info('Memória usada ReservationRepository::class, create: ' . memory_get_usage(true));
@@ -25,5 +25,5 @@ class ReservationRepository
         ]);
 
         return;
-    }
+    }*/
 }

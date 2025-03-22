@@ -11,18 +11,20 @@ use App\Http\Requests\HotelRequest\{
 
 use App\Services\HotelServices\RoomService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class RoomController extends Controller
 {
-    protected $roomService;
-    public function __construct(RoomService $roomService)
-    {
-        $this->roomService = $roomService;
-    }
+    public function __construct(
+        protected RoomService $roomService
+    )
+    {}
 
     public function allRooms()
     {
+        Log::info('allRooms, memória: ' . memory_get_usage(true));
         return $this->roomService->allRooms(1);
+        
     }
 
     public function create(RoomRequest $request)

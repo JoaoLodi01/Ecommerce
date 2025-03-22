@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-use App\Repositories\Eloquent\HotelEloquent\ReservationRepository;
+//use App\Repositories\Eloquent\HotelEloquent\ReservationRepository;
 use App\Repositories\Eloquent\HotelEloquent\RoomRepository;
 use App\Repositories\Eloquent\ReceiveRepository;
 use Illuminate\Support\Facades\Log;
@@ -14,10 +14,12 @@ class PayMentMethod
     public function __construct(
         protected CashRegisterRepository $cashRegisterRepository,
         protected ReceiveRepository $receiveRepository,
-        protected ReservationRepository $reservationRepository,
+        //protected ReservationRepository $reservationRepository,
         protected RoomRepository $roomRepository
         
-    ){}
+    ){
+        Log::info('Memória usada PayMentMethod::class, __construct: ' . memory_get_usage(true));
+    }
 
     public function test()
     {

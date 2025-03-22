@@ -3,15 +3,16 @@
 namespace App\Services\HotelServices;
 
 use App\Repositories\Eloquent\HotelEloquent\RoomRepository;
+use Illuminate\Support\Facades\Log;
 
 class RoomService
 {
-    protected $roomRepository;
 
-    public function __construct(RoomRepository $roomRepository)
+    public function __construct(
+        protected RoomRepository $roomRepository
+    )
     {
-        $this->roomRepository= $roomRepository;
-        
+        Log::info('RoomRepository::class __construct, memória: ' . memory_get_usage(true));
     }
 
     public function allRooms(int $active)

@@ -27,7 +27,9 @@ class PDVRepository
         protected ProductsRepository $productsRepository,
         protected PayMentMethod $payMentMethod,
 
-    ){}
+    ){
+        Log::info('Memória usada PDVRepository::class, __construct: ' . memory_get_usage(true));
+    }
 
     public function getAll(){
         Log::info("Vai buscar todas as NFC-e ativas da table = PDV");

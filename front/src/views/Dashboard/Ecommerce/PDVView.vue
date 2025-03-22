@@ -304,7 +304,7 @@
             async saveSale()
             {
                 console.log(toRaw(this.productsSeletion))
-                /*const saveSale = confirm('Deseja salvar a venda?')
+                const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
                         const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
@@ -331,7 +331,7 @@
                         console.error('Erro saveSale() = error.response', error)
                         
                     }
-                }*/
+                }
             },
 
             async getHotel(){
