@@ -84,8 +84,7 @@ class PDVRepository
 
     public function saveProducts(array $products, int $pdvID, object $user)
     {
-        Log::info('-- Iniciou o saveProducts() line 167 -- ');     
-        Log::info($products);
+        Log::info('-- Iniciou o saveProducts() line 87 -- ');     
         Log::info('Memória usada PDVRepository::class, saveProducts: ' . memory_get_usage(true));
         Log::info('User: ' . $user);
 
@@ -94,9 +93,38 @@ class PDVRepository
 
         foreach ($products as $product) {
             Log::info('Memória usada PDVRepository::class, saveProducts dentro do foreach: ' . memory_get_usage(true));
-            Log::info('$product');
+            Log::info('$product, type: ' . gettype($product));
+            Log::info($product);
+
+            Log::info('Memória usada PDVRepository::class, saveProducts dentro do for: ' . memory_get_usage(true));
+
+            
+            /*$itensPDV = array(
+                'pdv_id' => $pdvID,
+                'product_id' => $product['id'],
+                'product' => $product['produtc'],
+                'cost_price' => $product['cost_price'],
+                'sale_price' => $product['sale_price'],
+                'cfop' => $product['cfop'],
+                'csosn' => $product['csosn'],
+                'ncm' => $product['ncm'],
+                'cest' => $product['cest'],
+                'unit' => $product['unit'],
+                'amount' => $product['amount'],
+                'addition' => 0,
+                'discount' => 0,
+                'user_id' => $user->id,
+                'seller' => $user->name, 
+
+            );
+
+            Log::info('itensPDV ');
+            Log::info($itensPDV);
+            $ipdv = ItensPDV::create($itensPDV);
+            Log::info('$ipdv');
+            Log::info($ipdv);*/
+
             for ($i=0; $i < count($product); $i++) { 
-                Log::info('Memória usada PDVRepository::class, saveProducts dentro do for: ' . memory_get_usage(true));
                 Log::info('$product[$i]');
                 Log::info($product[$i]);
 
