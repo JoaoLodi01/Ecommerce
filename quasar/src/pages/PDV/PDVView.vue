@@ -268,7 +268,7 @@
                     addition: 0,
                     discount: 0,
                     userID: 1,
-                    customerID: 0,
+                    customerID: 1,
 
                 },
                 

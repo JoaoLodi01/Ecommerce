@@ -1,14 +1,3 @@
-: this.productsSeletion, // Produtos da 
-user_id: this.emitProducts.userID,
-customer_id: this.emitProducts.customerID,
-sub_total: this.calculateTotal.subtotal,
-total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-addition: this.calculateTotal.addition,
-discount: this.calculateTotal.discount,
-description: 'Venda guardada',
-is_nfce_nm: null
-
-
 {
     "products": [
         {
@@ -22,10 +11,10 @@ is_nfce_nm: null
             "isSelected": true,
             "ncm": "12345678",
             "perc_lucro": "100.00",
-            "price_cost": "10.00",
+            "cost_price": "10.00",
             "sale_price": "120.00",
-            "produto": "Jack Daniels Maça",
-            "quantidade": 1,
+            "produtc": "Jack Daniels Maça",
+            "amount": 1,
             "unit": "UN"
         },
         {
@@ -39,10 +28,10 @@ is_nfce_nm: null
             "isSelected": true,
             "ncm": "12345678",
             "perc_lucro": "100.00",
-            "price_cost": "10.00",
+            "cost_price": "10.00",
             "sale_price": "120.00",
-            "produto": "Jack Daniels Maça",
-            "quantidade": 1,
+            "produtc": "Jack Daniels Maça",
+            "amount": 1,
             "unit": "UN"
             
         }
