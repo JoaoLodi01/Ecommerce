@@ -57,21 +57,21 @@
 
             </div>
 
-            <div class="m-5 w-max shadow-lg">                
-                <table class="block text-left rounded-t-xl rtl:text-right ">
+            <div class="m-5 w-max shadow-lg">
+                <table class="block text-left rounded-t-xl rtl:text-right">                  
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-50">
-                            <tr class="bg-white">
-                                <th scope="col" class="px-6 py-3">Cód.</th>
-                                <th scope="col" class="px-6 py-3 text-left">Produto</th>
-                                <th scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
-                                <th scope="col" class="px-6 py-3 text-center">Qtde</th>
-                                <th scope="col" class="px-6 py-3 text-center">Valor unitário</th>
-                                <th scope="col" class="px-6 py-3">Valor líquido</th>
-                                <th scope="col" class="px-6 py-3">Ações</th>
+                        <tr class="bg-white">
+                            <th scope="col" class="px-6 py-3">Cód.</th>
+                            <th scope="col" class="px-6 py-3 text-left">Produto</th>
+                            <th scope="col" class="px-6 py-3 text-center">CFOP</th>
+                            <th scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                            <th scope="col" class="px-6 py-3 text-center">Qtde</th>
+                            <th scope="col" class="px-6 py-3 text-center">Valor unitário</th>
+                            <th scope="col" class="px-6 py-3">Valor líquido</th>
+                            <th scope="col" class="px-6 py-3">Ações</th>
 
-                            </tr>
-                        
+                        </tr>
+                    
                     </thead>
 
                     <tbody v-for="products in productsSeletion">
@@ -175,13 +175,14 @@
                             class="m-2 p-2 rounded-lg border border-gray-700"
                         >
                             <label class="text-black" for="discount">Vendedor</label>
-                            <input 
-                                v-model="emitProducts.userID"
-                                placeholder="Funcionário Padrão"
-                                id="discount"
-                                type="text"
-                                class="text-black border border-black w-full"
-                            />
+                                <input 
+                                    v-model="emitProducts.userID"
+                                    placeholder="Funcionário Padrão"
+                                    id="discount"
+                                    type="text"
+                                    class="text-black border border-black w-full"
+                                />
+
 
                             <br>
 
@@ -360,6 +361,7 @@
                 pdvID: 0,
                 show: false,
                 showGrid: true,
+                isLoanding: true,
                 showPaymentsForm: false,
                 showProductOptions: false,
                 isOpenedPDV: false,

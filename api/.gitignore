@@ -22,5 +22,4 @@ yarn-error.log
 /.vscode
 /.zed
 
-boot.sh
 artisan_util.sh
