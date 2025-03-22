@@ -2,28 +2,28 @@
 
 namespace App\Repositories\Eloquent\HotelEloquent;
 
-use App\Models\HotelModels\Reservation;
+use App\Models\HotelModels\{
+    Reservation,
+    Room
+};
 use Illuminate\Support\Facades\Log;
 
 class ReservationRepository
 {
-    public function __construct(
-        //protected RoomRepository $roomRepository
-    ){
-        Log::info('Memória usada ReservationRepository::class, __construct: ' . memory_get_usage(true));
-    }
-/*
     public function create(object $customer)
     {
         Log::info('Memória usada ReservationRepository::class, create: ' . memory_get_usage(true));
-        //$room = $this->roomRepository->findByCustomerID($customer->id);
+        Log::info('customer ' . $customer);
+        $room = Room::where('customer_id', $customer->id)->first();
+        Log::info('room ' . $room);
+
         Reservation::create([
             'customer_id' => $customer->id,
             'name' => $customer->name,
-            'room_id' => 1
+            'room_id' => $room->id
             
         ]);
 
         return;
-    }*/
+    }
 }

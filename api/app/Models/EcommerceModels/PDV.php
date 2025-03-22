@@ -27,4 +27,9 @@ class PDV extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function getItens()
+    {
+        return $this->hasMany(ItensPDV::class, 'pdv_id');
+    }
 }

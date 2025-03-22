@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('cash_registers', function (Blueprint $table) {
             $table->id();
             $table->string('description', 200);
+            $table->string('document', 200);
+            $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
+            $table->unsignedBigInteger('pdv_id')->nullable();
             $table->unsignedBigInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('name', 120);
@@ -28,7 +31,6 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('seller', 120)->nullable();
-            $table->boolean('type', 1);
             $table->boolean('canceled', 1)->default(0);
             $table->timestamps();
         });

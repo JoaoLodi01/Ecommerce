@@ -13,7 +13,9 @@ class PDVController extends Controller
 {
     public function __construct(
         protected PDVService $pdvService
-    ){}
+    ){
+        Log::info('Memória usada PDVController::class, __construct: ' . memory_get_usage(true));
+    }
 
     public function getAll(){
         return $this->pdvService->getAll();
@@ -21,25 +23,31 @@ class PDVController extends Controller
 
     public function saveSale(PDVSaveSaleRequest $request)
     {
-        Log::info('Chamou aqui');
         Log::info('Memória usada PDVController::class, saveSale: ' . memory_get_usage(true));
-
         $data = $request->validated();
         
         return $this->pdvService->saveSale($data, $data['products']);
         
-        return response()->json([
-            'data' => $request->all()
-        ]);
+    }
+    
+    public function finalizeSale(PDVSaleRequest $request, int $id)
+    {
+        $data = $request->validated();
+        Log::info('Dados recebidos nos controllers');
+        Log::info($data);
+        return $this->pdvService->finalizeSale($request->input('paymentsValues'), $request->input('typeOperation'), $id, $data['pdvID']);
+        
+    }
+
+    public function findSavePDV()
+    {
+        return $this->pdvService->findSavePDV();
         
     }
     
-    public function finalizeSale(Request $request, int $id)
+    public function findSavePDVByID(int $id)
     {
-        //$data = $request->validated();
-        //return $this->pdvService->finalizeSale($request->input('paymentsValues'), $request->input('typeOperation'), $id);
-        return response()->json([
-            'data' => $request->all()
-        ]);
+        return $this->pdvService->findSavePDVByID($id);
+        
     }
 }

@@ -9,7 +9,7 @@
     >
 
     <div class="inline-flex">
-        <h2 class="w-max h-max mt-2 ml-2">Caixa</h2>
+        <h2 class="w-max h-max mt-2 ml-2">Receber</h2>
         <button>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" 
             class="size-4 ml-1 mt-4">
@@ -37,17 +37,17 @@
                 <table class="text-left rounded-t-xl rtl:text-right table-auto">
                     <thead class="uppercase shadow-lg">
                         <tr>
-                            <th scope="col" class="px-6 py-3 sticky right-0 bg-white">Tipo</th>
-                            <th scope="col" class="px-6 py-3 sticky left-0 bg-white">Ações</th>
+                            <th scope="col" class="px-6 py-3 sticky right-0 bg-gray-200">Tipo</th>
+                            <th scope="col" class="px-6 py-3 sticky left-0 bg-gray-200">Ações</th>
                             <th scope="col" class="px-6 py-3">Cód</th>
                             <th scope="col" class="px-3 py-4">Documento</th>
                             <th scope="col" class="px-6 py-3">Descrição</th>
                             <th scope="col" class="px-6 py-3">Valor entrada</th>
                             <th scope="col" class="px-6 py-3">Valor saída</th>
+                            <th scope="col" class="px-6 py-3">Total</th>
                             <th scope="col" class="px-6 py-3">Cód Espécie</th>
                             <th scope="col" class="px-6 py-3">Espécie</th>
                             <th scope="col" class="px-6 py-3">Origem</th>
-                            <th scope="col" class="px-6 py-3">A</th>
                             <th scope="col" class="px-6 py-3">B</th>
                             <th scope="col" class="px-6 py-3">C</th>
                             <th scope="col" class="px-6 py-3">D</th>
@@ -56,18 +56,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border border-b-black" v-for="(register, id) in  cashs" :key="id">
-                            <td scope="row" class="px-6 py-3 sticky right-0 bg-white">Entrada</td>
-                            <td scope="row" class="px-12 sticky left-0 bg-white">
+                        <tr class="border border-b-black" v-for="(register, id) in cashs" :key="id">
+                            <td
+                                scope="row"
+                                class="px-6 py-3 sticky right-0 bg-gray-200"
+
+                            >
+                                {{ register.input_value > 0 ? 'Entrada' : 'Saída'}}
+                            </td>
+                            <td scope="row" class="px-12 sticky left-0 bg-gray-200">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                                 </svg>
                             </td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
-                            <td scope="row" class="px-6 py-3 text-center">{{ id }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.document }}</td>
                             <td scope="row" class="px-3 py-4">{{ register.description }}</td>
                             <td scope="row" class="px-5 py-3 text-center">{{ register.input_value }}</td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.real_balance }}</td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
                             <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
                             <td scope="row" class="px-6 py-3">{{ register.origem }}</td>
@@ -110,7 +117,7 @@ export default {
                     return;
                 }
 
-                const response = await axios.post(`${this.api}/cashRegister/create`, this.cash, {
+                const response = await axios.post(`${this.api}/cash-register/create`, this.cash, {
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -135,10 +142,11 @@ export default {
 
         async getRegister(){
             try {
-                const response = await axios.get(`${this.api}/ecommerce/cashRegister/all`)
-                this.cashs = response.data
+                const response = await axios.get(`${this.api}/ecommerce/cash-register/all/receive`)
+                this.cashs = response.data.data
                 
             } catch (error) {
+            console.error("Erro ao buscar registros:", error)
                 
             }
         },
@@ -158,5 +166,10 @@ export default {
             height: 30rem;
         }
         
+    }
+
+    body{
+        max-width: 100%;
+        width: max-content;
     }
 </style>

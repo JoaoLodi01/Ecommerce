@@ -24,12 +24,12 @@
 
           <!-- Quantidade -->
           <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">Quantidade:</span> {{ product.quantidade }}
+            <span class="font-semibold">Quantidade:</span> {{ product.amount }}
           </div>
 
           <!-- Preço de Venda -->
           <div class="text-sm text-gray-500 mb-4">
-            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.preco_venda).toFixed(2) || '0.00' }}
+            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
           </div>
 
           <!-- Ações -->
@@ -53,7 +53,7 @@
 
 <script>
 import axios from 'axios';
-import RegisterProduct from '@/views/components/RegisterProduct.vue';
+import RegisterProduct from '@/views/components/Register/RegisterProduct.vue';
 
 export default {
   components: {
@@ -75,7 +75,7 @@ export default {
       try {
         const response = await axios.get(`${this.api}/ecommerce/products/all`);
         console.log(response);
-        this.products = response.data;
+        this.products = response.data.data;
         
       } catch (error) {
         console.error('getProducts', error)

@@ -7,13 +7,10 @@ use Illuminate\Support\Facades\Log;
 
 class RoomService
 {
-
     public function __construct(
         protected RoomRepository $roomRepository
     )
-    {
-        Log::info('RoomRepository::class __construct, memória: ' . memory_get_usage(true));
-    }
+    {}
 
     public function allRooms(int $active)
     {

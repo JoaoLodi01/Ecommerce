@@ -11,10 +11,10 @@
             "isSelected": true,
             "ncm": "12345678",
             "perc_lucro": "100.00",
-            "preco_custo": "10.00",
-            "preco_venda": "120.00",
-            "produto": "Jack Daniels Maça",
-            "quantidade": 1,
+            "cost_price": "10.00",
+            "sale_price": "120.00",
+            "produtc": "Jack Daniels Maça",
+            "amount": 1,
             "unit": "UN"
         },
         {
@@ -28,10 +28,10 @@
             "isSelected": true,
             "ncm": "12345678",
             "perc_lucro": "100.00",
-            "preco_custo": "10.00",
-            "preco_venda": "120.00",
-            "produto": "Jack Daniels Maça",
-            "quantidade": 1,
+            "cost_price": "10.00",
+            "sale_price": "120.00",
+            "produtc": "Jack Daniels Maça",
+            "amount": 1,
             "unit": "UN"
             
         }

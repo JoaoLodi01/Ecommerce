@@ -14,7 +14,7 @@
         class="absolute top-4 right-4 p-2 bg-gray-800 hover:text-blue-300 text-white border-none rounded-lg cursor-pointer z-50">
         <span 
           v-if="!sidebarActive"
-          class=""
+          
         >
           Open
         </span>
@@ -23,8 +23,8 @@
           v-else
           class="transition-transform duration-300"
         >
-          <div class="border border-white w-4 mb-1"></div>
-          <div class="border border-white w-5 mt-1"></div>
+          <div class="border border-white w-6 mb-1"></div>
+          <div class="border border-white w-6 mt-1"></div>
           <div class="border border-white w-6 mt-1"></div>
         </span>
       </button>
@@ -36,7 +36,7 @@
       <div class="sidebar-links p-4">
         <ul class="space-y-4">
           <li>
-            <router-link to="/" class="ml-5 text-white hover:text-blue-300 flex items-center">
+            <router-link to="/" class="ml-5 hover:text-blue-950 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
               </svg>
@@ -59,21 +59,82 @@
               <span class="ml-2">Produtos</span>
             </router-link>
           </li>
-          <li>
-            <router-link to="/cash-register" class="ml-5 text-white hover:text-blue-300 flex items-center">
+          <li class="w-max">
+            <a class="ml-5 text-white hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
               </svg>
-              <span class="ml-2">Caixa</span>
-            </router-link>
+              <button @click="showFinancialFn()">
+                <span @click="downRow2 = !downRow2" class="inline-flex ml-2">Financeiro
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor" 
+                    class="mt-auto mb-auto size-4"
+                    
+                    v-if="!downRow2"
+                  >
+                    <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd" />
+                  </svg> <!-- Flecha pra baixo -->
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    class="mt-auto mb-auto size-4"
+                    v-if="downRow2"
+                  >
+                    <path fill-rule="evenodd" d="M8 14a.75.75 0 0 0 .75-.75V4.56l1.22 1.22a.75.75 0 1 0 1.06-1.06l-2.5-2.5a.75.75 0 0 0-1.06 0l-2.5 2.5a.75.75 0 0 0 1.06 1.06l1.22-1.22v8.69c0 .414.336.75.75.75Z" clip-rule="evenodd" />
+                  </svg> <!-- Flecha pra cima -->
+                </span>
+                
+              </button>
+            </a>
+            <div v-if="showFinancial" class="ml-12 bg-gray-700 p-2 rounded-lg">
+              <p><a href="/financial/to-pay" class="hover:text-blue-400">Pagar</a></p>
+                <p><a href="/financial/receive" class="hover:text-blue-400">Receber</a></p>
+                <p><a href="/financial/cash-register" class="hover:text-blue-400">Caixa</a></p>
+
+            </div>
           </li>
-          <li>
-            <router-link to="/pdv" class="ml-5 text-white hover:text-blue-300 flex items-center">
+          <li class="w-max">
+            <a class="ml-5 text-white hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-              </svg>
-              <span class="ml-2">PDV</span>
-            </router-link>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+              <button @click="showPDVFn">
+                <span @click="downRow = !downRow" class="inline-flex ml-2">Vendas
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor" 
+                    class="mt-auto mb-auto size-4"
+                    
+                    v-if="!downRow"
+                  >
+                    <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd" />
+                  </svg> <!-- Flecha pra baixo -->
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    class="mt-auto mb-auto size-4"
+                    v-if="downRow"
+                  >
+                    <path fill-rule="evenodd" d="M8 14a.75.75 0 0 0 .75-.75V4.56l1.22 1.22a.75.75 0 1 0 1.06-1.06l-2.5-2.5a.75.75 0 0 0-1.06 0l-2.5 2.5a.75.75 0 0 0 1.06 1.06l1.22-1.22v8.69c0 .414.336.75.75.75Z" clip-rule="evenodd" />
+                  </svg> <!-- Flecha pra cima -->
+
+                </span>
+              </button>
+            </a>
+            <div v-if="showPDV" class="ml-12 bg-gray-700 p-2 rounded-lg">
+                <p><a href="/sale/pdv" class="hover:text-blue-400">PDV</a></p>
+                <p><a href="/sale/list-pdv" class="hover:text-blue-400">Listagem PDV</a></p>
+                <p><a href="/#" class="hover:text-blue-400">DAV</a></p>
+                <p><a href="/#" class="hover:text-blue-400">Devolução</a></p>
+
+            </div>
           </li>
           <li>
             <router-link to="/hotel" class="ml-5 text-white hover:text-blue-300 flex items-center">
@@ -112,8 +173,8 @@
       class="toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg transform transition-all">
       <span>
         <div class="border border-white w-6 mb-1"></div>
-        <div class="border border-white w-5 mt-1"></div>
-        <div class="border border-white w-4 mt-1"></div>
+        <div class="border border-white w-6 mt-1"></div>
+        <div class="border border-white w-6 mt-1"></div>
       </span>
     </button>
   </div>
@@ -123,13 +184,31 @@
 export default {
   data() {
     return {
-      sidebarActive: false,
+      sidebarActive: true,
+      showFinancial: false,
+      showPDV: false,
+      downRow: false,
+      downRow2: false,
     };
   },
   methods: {
     toggleSidebar() {
-      this.sidebarActive = !this.sidebarActive;
+        this.sidebarActive = !this.sidebarActive;
     },
+
+    showFinancialFn()
+    {
+        this.showFinancial = !this.showFinancial
+        this.showPDV = false
+        this.downRow = false
+    },
+
+    showPDVFn()
+    {
+        this.showPDV = !this.showPDV
+        this.showFinancial = false
+        this.downRow2 = false
+    }
   },
 };
 </script>

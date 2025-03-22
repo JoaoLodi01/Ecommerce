@@ -43,11 +43,11 @@
             <tbody>
                 <tr v-for="(product, id) in products" :key="id">
                     <th scope="row" class="px-6 py-3">{{ product.id }}</th>
-                    <th scope="row" class="px-6 py-3 text-center">{{ product.produto }}</th>
+                    <th scope="row" class="px-6 py-3 text-center">{{ product.product }}</th>
                     <td scope="row" class="px-6 py-3 text-center">{{ product.cfop }}</td>
                     <td scope="row" class="px-6 py-3 text-center">{{ product.csosn }}</td>
-                    <td scope="row" class="px-6 py-3 text-center">R$ {{ product.preco_venda }}</td>
-                    <td scope="row" class="px-6 py-3 text-center">{{ product.quantidade }}</td>
+                    <td scope="row" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                    <td scope="row" class="px-6 py-3 text-center">{{ product.amount }}</td>
                     <td>
                     <input
                         type="checkbox"
@@ -112,7 +112,7 @@
             async getProducts(){
                 try {
                     const response = await axios.get(`${this.api}/ecommerce/products/all`)
-                    console.log(response.data.data)
+                    
                     this.products = response.data.data.map(product => ({
                         ...product,
                         isSelected: false
@@ -134,10 +134,11 @@
                     if(!this.selectedProducts.some(p => p.id === product.id)) {
                             this.selectedProducts.push({ 
                             ...product,
-                            quantidade: 1
+                            amount: 1
                         
                         })                        
                     }
+                    
                 } else {
                     this.selectedProducts = this.selectedProducts.filter(p => p.id !== product.id)
                 }

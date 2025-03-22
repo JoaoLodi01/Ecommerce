@@ -1,0 +1,658 @@
+<template>
+    <div
+    
+        class="flex border rounded-lg border-black mt-2 w-max" 
+        id="pdv-view"
+        v-if="showGrid"
+        :class="{
+            'ml-10': withScreen === 1920,
+            'ml-14': withScreen !== 1920,
+            
+            'text-xl': textSize === 4,
+            'text-2xl': textSize === 8,
+            'text-3xl': textSize === 16,
+                
+        }"   
+    >
+        <div class="absolute left-96 right-auto top-40 z-20">
+            <PaymentsForm
+                v-if="showPaymentsForm"
+                :show="this.showPaymentsForm"
+                :typeOperation=this.typeOperation
+                :totalOperation=this.totalOperation
+                :pdvID=this.pdvID
+                @resetTotal="totalOperation = $event"
+                @close="cancelOperation"
+                @update:selectProducts="resetSale($event)"
+
+
+            />
+        </div>
+        <div class="relative overflow-x-auto max-h-96 overflow-y-auto ">
+            <div class="flex">
+                <div class="ml-6 mt-4 mb-4 cursor-pointer" @click="showproductts">
+                    <div class="border border-red-500 w-6 mb-1"></div>
+                    <div class="border border-black w-5 mb-1"></div>
+                    <div class="border border-gray-500 w-4 mb-1"></div>        
+                </div>
+
+            </div>
+            
+            <div class="m-5 w-max shadow-lg">
+                
+                
+                <table class="block text-left rounded-t-xl rtl:text-right ">
+                    <thead class="uppercase shadow-lg">
+                        <v-skeleton-loader>
+                            <tr class="bg-white sticky z-10">
+                                <th scope="col" class="px-6 py-3">Cód.</th>
+                                <th scope="col" class="px-6 py-3 text-left">Produto</th>
+                                <th scope="col" class="px-6 py-3 text-center">CFOP</th>
+                                <th scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                                <th scope="col" class="px-6 py-3 text-center">Qtde</th>
+                                <th scope="col" class="px-6 py-3 text-center">Valor unitário</th>
+                                <th scope="col" class="px-6 py-3">Valor líquido</th>
+
+                            </tr>
+                        </v-skeleton-loader>
+                    </thead>
+
+                    <tbody v-for="products in productsSeletion">
+                        <tr
+                            v-for="(product, id) in products" :key="id"
+                            class="border border-black"
+                        >    
+
+                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                            <td class="px-6 py-3">{{ product.product }}</td>
+
+                            <td class="px-6 py-3 text-center">
+                                <input 
+                                    v-model="product.cfop"
+                                    :placeholder=product.cfop
+                                    type="text"
+                                    class="w-12 text-center border-b-4 border-b-gray-500"
+                                    @input="changeCFOP(product.id, product.cfop)"
+
+                                />
+                            </td>
+
+                            <td class="px-6 py-3 text-center">
+                                <input 
+                                    v-model="product.csosn"
+                                    :placeholder=product.csosn
+                                    type="text"
+                                    class="w-10 text-center border-b-4 border-b-gray-500"
+                                    @input="changeCSOSN(product.id, product.csosn)"
+
+                                />
+                            </td>
+
+                            <td class="px-6 py-3 text-center">
+                                <input 
+                                    v-model="product.amount"
+                                    :placeholder=product.amount 
+                                    type="text"
+                                    class="w-10 text-center border-b-4 border-b-gray-500 "
+                                    @input="changeAmount(product.id, product.amount)"
+                                    
+                                />
+                            </td>
+                            <td class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                            <td class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
+                        </tr>    
+                    </tbody>
+                        
+                </table>                
+            </div>
+        </div>
+    <div>
+        </div>
+        
+        <div 
+            class="flex max-w-64 text-sm rounded-t-lg rounded-b-lg border border-black"
+            :class="{
+                'text-xl': textSize === 4,
+                'text-2xl': textSize === 8,
+                'text-3xl': textSize === 16,
+                
+            }"   
+        >
+        <div>
+            <div>
+                <div 
+                    class="m-2 p-2 rounded-lg border border-gray-700"
+                >
+                <label class="text-black" for="discount">Vendedor</label>
+                <input 
+                    v-model="emitProducts.userID"
+                    placeholder="Funcionário Padrão"
+                    id="discount"
+                    type="text"
+                    class="text-black border border-black w-full"
+                />
+
+                <br>
+
+                <label class="text-black" for="discount">Cliente</label>
+                <input 
+                    placeholder="Consumidor Padrão"
+                    v-model="emitProducts.clientID"
+                    @input="findCustomer(emitProducts.clientID)"
+                    id="discount"
+                    type="text"
+                    class="text-black border border-black w-full"
+
+                />
+            </div>
+            
+            <div
+                class="m-2 p-2 rounded-lg border border-gray-700" 
+                id="values"
+                
+            >
+            <label class="text-black" for="addition">Acréscimo R$</label>
+            <input 
+                id="addition"
+                v-model.number="emitProducts.addition"
+                type="text"
+                
+                class="text-black border border-black w-20 p-0.5"
+            />
+            
+            <br>
+            <label class="text-black" for="discount">Desconto R$</label>
+            <input 
+                id="discount"
+                v-model.number="emitProducts.discount"
+                type="text"
+                
+                class="text-black border border-black w-20 p-0.5"
+            />
+        </div>
+        
+        <div
+            class="m-2 p-2 rounded-lg border border-gray-700"
+            id="total"
+        >
+        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
+        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
+        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
+        <p class="flex justify-between">Frete <span>R$ {{ '0.00' }}</span></p>
+        
+    </div>
+    <div class="flex m-2 p-2 rounded-lg border border-gray-700">
+        <button
+            v-if="productsSeletion.length <= 0"
+            disabled
+            title="Sem vendas no momento"
+            class="mr-1 ml-2 bg-slate-600 rounded-md"
+            
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+            </svg>
+        </button>
+
+        <button
+            v-else @click="cancelSale()"
+            class="mr-1 ml-2 bg-slate-600 rounded-md"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+            </svg>
+        </button>
+
+        <button 
+            class="mr-1 ml-2 bg-slate-600 rounded-md"
+            title="Salvar venda"
+            @click="saveSale()"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+            </svg>
+        </button>
+
+        <div class="mb-auto ml-auto text-xl w-auto">
+            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.addition - calculateTotal.discount }}</span>
+            
+            </div>
+        </div>
+
+        <div class="flex text-white p-1 rounded-lg border border-gray-700">
+            <button @click="finalizeSale('nm')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar</button>
+            <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
+            
+        </div>
+
+                </div>
+            </div>
+        </div>
+        <!--image-->
+    </div>
+
+    <div
+        v-if="showGrid"
+        class="flex border border-black w-10 ml-10"
+    >
+        <select id="textSize" v-model.number="textSize" @change="setTextSize">
+            <option selected value=4>4</option>
+            <option value=8>8</option>
+            <option value=16>16</option>
+        </select>
+    </div>
+
+    <div>
+        <ProductsSelectionView
+            v-if="show"
+            :show="this.show"
+            :hotelCodCRT="this.hotelCodCRT"
+            @close="showGridEmit()"
+            @update:selectProducts="updateProductsSeletion"
+        />
+    </div>
+</template>
+
+<script>
+    import PaymentsForm from '@/views/components/PaymentsForm.vue';
+    import ProductsSelectionView from '@/views/components/Products/ProductsSelectionView.vue';
+    import axios from 'axios';
+    import { toRaw } from 'vue'   
+    
+    export default{
+        data(){
+            return {
+                productsSeletion: [],
+                hotelCodCRT: 0,
+                emitProducts: {
+                    addition: 0,
+                    discount: 0,
+                    userID: 1,
+                    customerID: 0,
+
+                },
+                
+                totalOperation: 0,
+                withScreen: 0,
+                textSize: 4,
+                pdvID: 0,
+                show: false,
+                showGrid: true,
+                showPaymentsForm: false,
+                isOpenedPDV: false,
+                success: null,
+                typeOperation: '',
+                csosncst: '',
+                api: process.env.VUE_APP_API_URL
+            }
+        },
+
+        watch: {
+            '$route'(to, from) {
+                if(to.fullPath === '/sale/pdv'){
+                    this.productsSeletion = []
+
+                } 
+            }
+        },  
+
+        computed: {
+            calculateTotal(){
+                const rawproductsSeletion = toRaw(this.productsSeletion)
+                
+                let subtotal = 0
+                
+                rawproductsSeletion.forEach(products => {
+                    for (let i = 0; i < products.length; i++) {
+                        const p = products[i];
+                        subtotal += p.sale_price * p.amount
+                        
+                    }
+                });
+
+                const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
+                const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
+
+                return {
+                    subtotal: subtotal,
+                    addition: addition,
+                    discount: discount
+                    
+                }
+            },
+        },
+        //RTCSessionDescription
+        methods: {
+            async saveSale()
+            {
+<<<<<<< HEAD:front/src/views/Dashboard/Ecommerce/PDVView.vue
+                console.log(toRaw(this.productsSeletion))
+=======
+>>>>>>> bfae0ccc628bf1709d550bd5679a72808101ad77:front/src/views/Dashboard/Ecommerce/PDV/PDVView.vue
+                const saveSale = confirm('Deseja salvar a venda?')
+                if (saveSale) {
+                    try {
+                        if(!this.isOpenedPDV)
+                        {
+                            console.log('É uma nova venda')
+                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                                products: this.productsSeletion, // Produtos da 
+                                user_id: this.emitProducts.userID,
+                                customer_id: this.emitProducts.customerID,
+                                sub_total: this.calculateTotal.subtotal,
+                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                addition: this.calculateTotal.addition,
+                                discount: this.calculateTotal.discount,
+                                description: 'Venda guardada',
+                                is_nfce_nm: null
+                                
+                            })
+                        
+                            if(response.data.success === true)
+                            {
+                                alert('Venda guardarda para enviar posteriormente!')
+                                this.productsSeletion = []
+
+                            }
+
+                        } else {
+                            console.log('Já era uma venda que estava guardada')
+                            alert('Venda guardarda para enviar posteriormente!')
+                            this.productsSeletion = []
+                            this.$router.push({ name: "PDV" })
+                        }
+                        
+                    } catch (error) {
+                        console.error('Erro saveSale() = error.response', error)
+                        
+                    }
+                }
+            },
+
+            async getHotel()
+            {
+                try {
+                    const response = await axios.get(`${this.api}/hotel/all`)
+                    if(response.data.success === true)
+                    {
+                        this.hotelCodCRT += response.data.all.hotel.cod_crt
+                        if(Number(this.hotelCodCRT) && this.hotelCodCRT > 0)
+                        {
+                            if(this.hotelCodCRT == 1 || this.hotelCodCRT >= 4)
+                            {
+                                this.csosncst = 'CSOSN'
+
+                            } else {
+                                this.csosncst = 'CST'
+                            }
+                        }
+                    }
+
+                    if(response.data.success === false){
+                        console.log(response.data)
+
+                    }
+                } catch (error) {
+                    if(error.response.data.message === 'Hotel não encontrado')
+                    {
+                        alert(error.response.data.message)
+                        alert('Por favor faça o cadastro do hotel!')
+                        this.$router.push('/hotel/create')
+                        
+                    }
+                }
+            },
+            
+            async finalizeSale(type)
+            {
+                // Só vai chamar a forma de pagamento    
+                this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
+                try {
+                    if(this.idPDV)
+                    {
+                        console.log('this.idPDV', this.idPDV)
+                        if(type === 'nm')
+                        {
+                            this.typeOperation = 'saleNM'
+                            this.showPaymentsForm = !this.showPaymentsForm
+                            this.pdvID = Number(this.idPDV)
+
+                        }   
+
+                        if(type === 'nfce')
+                        {
+                            this.typeOperation = 'saleNFCe'
+                            this.showPaymentsForm = !this.showPaymentsForm
+                            this.pdvID = Number(this.idPDV)
+                        }
+                        
+                        
+                    } else {
+                        if(type === 'nm')   
+                        {
+                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                                products: this.productsSeletion, // Produtos da 
+                                user_id: this.emitProducts.userID,
+                                customer_id: this.emitProducts.customerID,
+                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                sub_total: this.calculateTotal.subtotal,
+                                addition: this.calculateTotal.addition,
+                                discount: this.calculateTotal.discount,
+                                description: 'Venda Nota Manual N°',
+                                is_nfce_nm: type,
+                                
+                            })
+
+                            console.log('response.dat PDVView, line 415: ', response.data)
+
+                            if(response.data.success === true)
+                            {
+                                this.typeOperation = 'saleNM'
+                                this.showPaymentsForm = !this.showPaymentsForm
+                                this.pdvID = response.data.pdvID
+
+                            }
+                        
+                        }
+                    
+                        if(type === 'nfce')
+                        {
+                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                                products: this.productsSeletion, // Produtos da 
+                                user_id: this.emitProducts.userID,
+                                customer_id: this.emitProducts.customerID,
+                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                sub_total: this.calculateTotal.subtotal,
+                                addition: this.calculateTotal.addition,
+                                discount: this.calculateTotal.discount,
+                                description: 'Venda NFC-e N°',
+                                is_nfce_nm: type
+                                
+                            })
+                            console.log('response.dat PDVView, line 415: ', response.data)
+                            if(response.data.success === true)
+                            {
+                                this.typeOperation = 'saleNFCe'
+                                this.showPaymentsForm = !this.showPaymentsForm
+                                this.pdvID = response.data.pdvID
+
+                            }
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.error('Erro finalizeSale', error)   
+                }
+            },
+
+            async importSale()
+            {
+                try {
+                    const response = await axios.get(`${this.api}/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
+                    console.log(response.data.pdvs.get_itens)
+                    
+                    this.updateProductsSeletion(response.data.pdvs.get_itens)
+
+                } catch (error) {
+                    console.error('Erro importSale', error)
+                    
+                }
+            },
+
+            async findCustomer(clientID)
+            {
+                console.log('this.emitProducts.customerID', clientID)
+            },
+
+            showproductts(){
+                this.showPaymentsForm = false
+                this.showGrid = !this.showGrid
+                this.show = !this.show
+                
+            },
+
+            
+            showGridEmit(){
+                this.showGrid = !this.showGrid
+                this.show = !this.show
+
+            },  
+
+            changeAmount(id, newAmount)
+            {
+                const rawProducts = toRaw(this.productsSeletion)
+
+                let productFound = null;
+                
+                for (let i = 0; i < rawProducts.length; i++) {
+                    const productArray = rawProducts[i];
+                    productFound = productArray.find(p => p.id === id)
+                    if(productFound) break
+
+                }
+
+                if(productFound)
+                {
+                    productFound.amount_sold = newAmount
+
+                }
+            },
+
+            changeCFOP(id, newCFOP)
+            {
+                const rawProducts = toRaw(this.productsSeletion)
+
+                let productFound = null;
+                
+                for (let i = 0; i < rawProducts.length; i++) {
+                    const productArray = rawProducts[i];
+                    productFound = productArray.find(p => p.id === id)
+                    if(productFound) break
+
+                }
+
+                if(productFound)
+                {
+                    productFound.cfop = newCFOP
+
+                }
+            },
+
+            changeCSOSN(id, newCSOSN)
+            {
+                const rawProducts = toRaw(this.productsSeletion)
+
+                let productFound = null;
+                
+                for (let i = 0; i < rawProducts.length; i++) {
+                    const productArray = rawProducts[i];
+                    productFound = productArray.find(p => p.id === id)
+                    if(productFound) break
+
+                }
+
+                if(productFound)
+                {
+                    productFound.csosn = newCSOSN
+
+                }
+            },
+
+            updateProductsSeletion(selectedProducts)
+            {
+                this.productsSeletion = [...this.productsSeletion, selectedProducts]
+                
+            },
+
+            cancelOperation()
+            {
+                this.showPaymentsForm = false
+
+            },
+
+            setTextSize()
+            {
+
+
+            },
+
+            resetSale(confirmed)
+            {
+                if(confirmed)
+                {
+                    this.emitProducts = [],
+                    this.productsSeletion = [],
+                    this.emitProducts.addition = 0
+                    this.emitProducts.discount = 0
+                    
+                }
+            },
+
+            cancelSale()
+            {
+                const option = confirm('Deseja realmente cancelar a venda? ')
+                if (option === true) {
+                    this.emitProducts = [],
+                    this.productsSeletion = [],
+                    this.emitProducts.addition = 0
+                    this.emitProducts.discount = 0
+                    if(this.idPDV)
+                    {
+                        this.$router.push({ name: 'PDV' })
+                    }
+                }
+            }
+        },
+        
+        components: {
+            ProductsSelectionView,
+            PaymentsForm
+
+        },
+
+        props: [
+            'idPDV',
+    
+        ],
+
+        mounted(){
+            this.getHotel()
+            this.withScreen += screen.width
+            this.isOpenedPDV = history.state?.isOpenedPDV
+
+            if(this.idPDV)
+            {
+                this.importSale()            
+                
+            }
+        }
+      }
+</script>
+
+<style>
+    #pdv-view{
+        height: 100%;
+
+    }
+
+</style>

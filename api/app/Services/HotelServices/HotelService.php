@@ -17,7 +17,7 @@ class HotelService
     {
         try {
             $hotel = $this->hotelRepository->all($active);
-            if(['success'] == true)
+            if($hotel['success'] == true)
             {
                 return response()->json([
                     'success' => true,

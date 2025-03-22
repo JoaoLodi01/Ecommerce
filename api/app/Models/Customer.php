@@ -28,11 +28,6 @@ class Customer extends Model
         'active',
     ];
 
-    public function joinReservation()
-    {
-        return $this->hasOne(Reservation::class, 'customer_id');
-    }
-    
     public function joinCredit()
     {
         return $this->hasMany(CustomerCredit::class, 'customer_id');
