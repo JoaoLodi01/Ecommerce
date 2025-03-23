@@ -38,7 +38,6 @@
                         <th>Total líquido</th>
                         <th>Desconto</th>
                         <th>Acréscimo</th>
-                        
                     </tr>
                 </thead>
                 <tbody v-for="(pdv, id) in savedPDVs" :key="id">
@@ -50,7 +49,6 @@
                         <td>{{ pdv.net_value }}</td>
                         <td>{{ pdv.discount }}</td>
                         <td>{{ pdv.addition }}</td>
-
                     </tr>
                 </tbody>
             </table>

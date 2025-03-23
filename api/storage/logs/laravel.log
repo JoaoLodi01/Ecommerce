@@ -7967,6 +7967,215 @@
     'origem' => 'pdv',
   ),
 )  
+<<<<<<< HEAD
+[2025-03-20 19:58:10] local.INFO: Vai criar 1 registro:   
+[2025-03-20 19:58:10] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-03-20 19:58:10] local.INFO: $lastCashBoxashBox  
+[2025-03-20 19:58:10] local.INFO: 20  
+[2025-03-20 19:58:10] local.INFO: $actualCashBox  
+[2025-03-20 19:58:10] local.INFO: {"id":18,"description":"Venda NFC-e N\u00b0 32","document":"32","pdv_id":32,"customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-20","input_value":"130.00","output_value":"0.00","real_balance":"3690.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-20 19:58:10] local.INFO: Novo valor: R$ 130.00 + 120.00 = 250  
+[2025-03-20 19:58:10] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-03-20 19:58:10] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-20 19:58:10] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-03-20 19:58:10] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":33,"description":"Venda Nota Manual N\u00b0","cliente_id":1,"client":"Teste 1","gross_value":"120.00","net_value":"120.00","discount":"0.00","addition":"0.00","user_id":1,"user":"Kochem","finished":0,"canceled":0,"is_nfce_nm":"nm","active":1}  
+[2025-03-20 19:58:10] local.INFO: $type saleNM  
+[2025-03-20 19:58:10] local.INFO: Buscar e alterar os produtos, pdv_id = 33  
+[2025-03-20 19:58:10] local.INFO: Alteração dentro do for = 33  
+[2025-03-20 19:58:10] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-03-20 19:58:10] local.INFO: Produto encontrado 1  
+[2025-03-20 19:58:10] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","amount":2,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-03-20 19:58:10] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-03-21 00:13:42] local.INFO: Chamou o IPController  
+[2025-03-21 00:13:42] local.INFO: Chamou o IPService  
+[2025-03-21 00:13:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-21 00:13:45] local.INFO: O hotel não foi encontrado  
+[2025-03-21 00:13:46] local.INFO: Chamou o IPController  
+[2025-03-21 00:13:46] local.INFO: Chamou o IPService  
+[2025-03-21 00:13:54] local.INFO: Chamou o IPController  
+[2025-03-21 00:13:54] local.INFO: Chamou o IPService  
+[2025-03-21 00:13:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-21 00:13:54] local.INFO: O hotel não foi encontrado  
+[2025-03-21 00:16:13] local.INFO: Chamou o IPController  
+[2025-03-21 00:16:13] local.INFO: Chamou o IPService  
+[2025-03-21 00:16:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-21 00:16:13] local.INFO: O hotel não foi encontrado  
+[2025-03-21 00:16:27] local.ERROR: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'pdvs' already exists (Connection: mariadb, SQL: create table `pdvs` (`id` bigint unsigned not null auto_increment primary key, `description` varchar(120) not null, `cliente_id` bigint unsigned not null, `client` varchar(120) not null, `gross_value` decimal(16, 2) not null, `net_value` decimal(16, 2) not null, `discount` decimal(16, 2) null, `addition` decimal(16, 2) null, `user_id` bigint unsigned not null, `user` varchar(120) not null, `finished` tinyint(1) not null default '0', `canceled` tinyint(1) not null default '0', `is_nfce_nm` varchar(4) null, `active` tinyint(1) not null default '1', `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'pdvs' already exists (Connection: mariadb, SQL: create table `pdvs` (`id` bigint unsigned not null auto_increment primary key, `description` varchar(120) not null, `cliente_id` bigint unsigned not null, `client` varchar(120) not null, `gross_value` decimal(16, 2) not null, `net_value` decimal(16, 2) not null, `discount` decimal(16, 2) null, `addition` decimal(16, 2) null, `user_id` bigint unsigned not null, `user` varchar(120) not null, `finished` tinyint(1) not null default '0', `canceled` tinyint(1) not null default '0', `is_nfce_nm` varchar(4) null, `active` tinyint(1) not null default '1', `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
+#6 D:\\ProjetoWeb\\api\\database\\migrations\\2025_01_23_220920_create_pdvs_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runMigration():428}()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runUp():244}()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->{closure:Illuminate\\Database\\Console\\Migrations\\MigrateCommand::runMigrations():110}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#26 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#28 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#29 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#30 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#33 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#34 {main}
+
+[previous exception] [object] (PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'pdvs' already exists at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::statement():560}()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
+#8 D:\\ProjetoWeb\\api\\database\\migrations\\2025_01_23_220920_create_pdvs_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runMigration():428}()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runUp():244}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->{closure:Illuminate\\Database\\Console\\Migrations\\MigrateCommand::runMigrations():110}()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#28 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#30 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#31 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#32 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#35 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#36 {main}
+"} 
+[2025-03-21 00:16:48] local.ERROR: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'payments' already exists (Connection: mariadb, SQL: create table `payments` (`id` bigint unsigned not null auto_increment primary key, `especie` varchar(100) not null, `tipo_lancamento` varchar(255) not null, `active` tinyint(1) not null default '1', `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'payments' already exists (Connection: mariadb, SQL: create table `payments` (`id` bigint unsigned not null auto_increment primary key, `especie` varchar(100) not null, `tipo_lancamento` varchar(255) not null, `active` tinyint(1) not null default '1', `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
+#6 D:\\ProjetoWeb\\api\\database\\migrations\\2025_01_06_154504_create_payments_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runMigration():428}()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runUp():244}()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->{closure:Illuminate\\Database\\Console\\Migrations\\MigrateCommand::runMigrations():110}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#26 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#28 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#29 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#30 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#33 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#34 {main}
+
+[previous exception] [object] (PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'payments' already exists at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::statement():560}()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
+#8 D:\\ProjetoWeb\\api\\database\\migrations\\2025_01_06_154504_create_payments_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runMigration():428}()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runUp():244}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->{closure:Illuminate\\Database\\Console\\Migrations\\MigrateCommand::runMigrations():110}()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#28 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#30 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#31 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#32 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#35 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#36 {main}
+"} 
+[2025-03-21 00:17:13] local.ERROR: Invalid database connection [see]. {"exception":"[object] (UnexpectedValueException(code: 0): Invalid database connection [see]. at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\DbCommand.php:81)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\DbCommand.php(38): Illuminate\\Database\\Console\\DbCommand->getConnection()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\DbCommand->handle()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#7 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#9 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#10 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#11 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#14 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#15 {main}
+"} 
+=======
 [2025-03-23 13:09:59] local.INFO: Vai criar 1 registro:   
 [2025-03-23 13:09:59] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
 [2025-03-23 13:09:59] local.INFO: $lastCashBoxashBox  
@@ -16209,6 +16418,7 @@
 [2025-03-23 14:41:27] local.INFO: Buscando todas as espécies na table: payments  
 [2025-03-23 14:42:06] local.INFO: Buscando todas as espécies na table: payments  
 [2025-03-23 14:42:07] local.INFO: Buscando todas as espécies na table: payments  
+<<<<<<< HEAD
 [2025-03-23 14:48:55] local.INFO: Vai buscar o hotel e as configurações  
 [2025-03-23 14:48:55] local.INFO: O hotel foi encontrado  
 [2025-03-23 14:48:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
@@ -16234,24 +16444,250 @@
 [2025-03-23 14:54:15] local.INFO: -- Iniciou o saveSale() line 172 --   
 [2025-03-23 14:54:15] local.INFO: array (
   'description' => 'Venda Nota Manual N°',
+=======
+>>>>>>> d4bfd2f4e7d1249ee0dc5540a669686751daae96
+[2025-03-23 16:49:54] local.INFO: Chamou o IPController  
+[2025-03-23 16:49:54] local.INFO: Chamou o IPService  
+[2025-03-23 16:50:07] local.INFO: Chamou o IPController  
+[2025-03-23 16:50:07] local.INFO: Chamou o IPService  
+[2025-03-23 16:50:09] local.INFO: Chamou o IPController  
+[2025-03-23 16:50:09] local.INFO: Chamou o IPService  
+[2025-03-23 16:50:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 18874368  
+[2025-03-23 16:50:22] local.INFO: Chamou o IPController  
+[2025-03-23 16:50:22] local.INFO: Chamou o IPService  
+[2025-03-23 16:50:22] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 16:50:25] local.INFO: Chamou o IPController  
+[2025-03-23 16:50:25] local.INFO: Chamou o IPService  
+[2025-03-23 16:50:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 16:50:25] local.INFO: O hotel foi encontrado  
+[2025-03-23 16:50:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 16:50:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 16:50:27] local.INFO: Chamou o IPController  
+[2025-03-23 16:50:27] local.INFO: Chamou o IPService  
+[2025-03-23 16:50:27] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-23 16:50:27] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-23 16:50:27] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-23 16:50:27] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-23 16:50:27] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-23 16:50:27] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-23 16:50:29] local.INFO: Chamou o IPController  
+[2025-03-23 16:50:29] local.INFO: Chamou o IPService  
+[2025-03-23 16:50:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 16:50:33] local.INFO: O hotel foi encontrado  
+[2025-03-23 16:50:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 16:50:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 16:50:40] local.INFO: Chamou o IPController  
+[2025-03-23 16:50:40] local.INFO: Chamou o IPService  
+[2025-03-23 16:51:31] local.INFO: Chamou o IPController  
+[2025-03-23 16:51:31] local.INFO: Chamou o IPService  
+[2025-03-23 16:51:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 16:53:00] local.INFO: Chamou o IPController  
+[2025-03-23 16:53:00] local.INFO: Chamou o IPService  
+[2025-03-23 16:53:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 16:53:21] local.INFO: Chamou o IPController  
+[2025-03-23 16:53:21] local.INFO: Chamou o IPService  
+[2025-03-23 16:53:22] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 16:54:40] local.INFO: Chamou o IPController  
+[2025-03-23 16:54:40] local.INFO: Chamou o IPService  
+[2025-03-23 16:54:40] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 16:54:43] local.INFO: Chamou o IPController  
+[2025-03-23 16:54:43] local.INFO: Chamou o IPService  
+[2025-03-23 16:54:43] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 16:54:47] local.INFO: Chamou o IPController  
+[2025-03-23 16:54:47] local.INFO: Chamou o IPService  
+[2025-03-23 16:54:49] local.INFO: Chamou o IPController  
+[2025-03-23 16:54:49] local.INFO: Chamou o IPService  
+[2025-03-23 16:54:49] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 16:54:52] local.INFO: Chamou o IPController  
+[2025-03-23 16:54:52] local.INFO: Chamou o IPService  
+[2025-03-23 16:54:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 16:55:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 17:02:17] local.ERROR: copy(D:\ProjetoWeb\api\resources\views/app.blade.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): copy(D:\\ProjetoWeb\\api\\resources\\views/app.blade.php): Failed to open stream: No such file or directory at D:\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallsInertiaStacks.php:105)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():255}()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallsInertiaStacks.php(105): copy()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallCommand.php(55): Laravel\\Breeze\\Console\\InstallCommand->installInertiaVueStack()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Laravel\\Breeze\\Console\\InstallCommand->handle()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#10 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#12 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#13 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#14 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#17 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#18 {main}
+"} 
+[2025-03-23 17:05:20] local.ERROR: copy(D:\ProjetoWeb\api\resources\views/app.blade.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): copy(D:\\ProjetoWeb\\api\\resources\\views/app.blade.php): Failed to open stream: No such file or directory at D:\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallsInertiaStacks.php:105)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():255}()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallsInertiaStacks.php(105): copy()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallCommand.php(55): Laravel\\Breeze\\Console\\InstallCommand->installInertiaVueStack()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Laravel\\Breeze\\Console\\InstallCommand->handle()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#10 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#12 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#13 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#14 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#17 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#18 {main}
+"} 
+[2025-03-23 17:07:16] local.ERROR: copy(D:\ProjetoWeb\api\resources\css/app.css): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): copy(D:\\ProjetoWeb\\api\\resources\\css/app.css): Failed to open stream: No such file or directory at D:\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallsInertiaStacks.php:149)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():255}()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallsInertiaStacks.php(149): copy()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallCommand.php(55): Laravel\\Breeze\\Console\\InstallCommand->installInertiaVueStack()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Laravel\\Breeze\\Console\\InstallCommand->handle()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#10 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#12 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#13 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#14 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#17 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#18 {main}
+"} 
+[2025-03-23 17:23:53] local.INFO: Chamou o IPController  
+[2025-03-23 17:23:53] local.INFO: Chamou o IPService  
+[2025-03-23 17:23:53] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 17:24:05] local.INFO: Chamou o IPController  
+[2025-03-23 17:24:05] local.INFO: Chamou o IPService  
+[2025-03-23 17:24:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 16777216  
+[2025-03-23 17:24:08] local.INFO: Chamou o IPController  
+[2025-03-23 17:24:08] local.INFO: Chamou o IPService  
+[2025-03-23 18:04:39] local.INFO: Chamou o IPController  
+[2025-03-23 18:04:39] local.INFO: Chamou o IPService  
+[2025-03-23 18:16:45] local.INFO: Chamou o IPController  
+[2025-03-23 18:16:45] local.INFO: Chamou o IPService  
+[2025-03-23 18:17:35] local.INFO: Chamou o IPController  
+[2025-03-23 18:17:35] local.INFO: Chamou o IPService  
+[2025-03-23 18:17:37] local.INFO: Chamou o IPController  
+[2025-03-23 18:17:37] local.INFO: Chamou o IPService  
+[2025-03-23 18:17:40] local.INFO: Chamou o IPController  
+[2025-03-23 18:17:40] local.INFO: Chamou o IPService  
+[2025-03-23 18:17:46] local.INFO: Chamou o IPController  
+[2025-03-23 18:17:46] local.INFO: Chamou o IPService  
+[2025-03-23 18:17:48] local.INFO: Chamou o IPController  
+[2025-03-23 18:17:48] local.INFO: Chamou o IPService  
+[2025-03-23 18:17:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 18:17:49] local.INFO: Chamou o IPController  
+[2025-03-23 18:17:49] local.INFO: Chamou o IPService  
+[2025-03-23 18:18:11] local.INFO: Chamou o IPController  
+[2025-03-23 18:18:11] local.INFO: Chamou o IPService  
+[2025-03-23 18:18:54] local.INFO: Chamou o IPController  
+[2025-03-23 18:18:54] local.INFO: Chamou o IPService  
+[2025-03-23 18:18:57] local.INFO: Chamou o IPController  
+[2025-03-23 18:18:57] local.INFO: Chamou o IPService  
+[2025-03-23 18:18:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 18:18:57] local.INFO: O hotel foi encontrado  
+[2025-03-23 18:18:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 18:18:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 18:19:20] local.INFO: Chamou o IPController  
+[2025-03-23 18:19:20] local.INFO: Chamou o IPService  
+[2025-03-23 18:19:24] local.INFO: Chamou o IPController  
+[2025-03-23 18:19:24] local.INFO: Chamou o IPService  
+[2025-03-23 18:19:26] local.INFO: Chamou o IPController  
+[2025-03-23 18:19:26] local.INFO: Chamou o IPService  
+[2025-03-23 18:19:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 18:19:29] local.INFO: Chamou o IPController  
+[2025-03-23 18:19:29] local.INFO: Chamou o IPService  
+[2025-03-23 18:19:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-23 18:19:30] local.INFO: Chamou o IPController  
+[2025-03-23 18:19:30] local.INFO: Chamou o IPService  
+[2025-03-23 18:38:45] local.INFO: Chamou o IPController  
+[2025-03-23 18:38:45] local.INFO: Chamou o IPService  
+[2025-03-23 18:38:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 18:38:46] local.INFO: O hotel foi encontrado  
+[2025-03-23 18:38:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 18:38:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 18:38:46] local.INFO: Chamou o IPController  
+[2025-03-23 18:38:46] local.INFO: Chamou o IPService  
+[2025-03-23 18:38:47] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-23 18:38:47] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-23 18:38:47] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-23 18:38:47] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-23 18:38:47] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-23 18:38:47] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-23 18:39:09] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-23 18:39:09] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-23 18:39:09] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-23 18:39:09] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-23 18:39:09] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-23 18:39:09] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-23 18:39:13] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-23 18:39:13] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-23 18:39:13] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-23 18:39:13] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-23 18:39:13] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-23 18:39:13] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-23 18:39:22] local.INFO: Chamou o IPController  
+[2025-03-23 18:39:22] local.INFO: Chamou o IPService  
+[2025-03-23 18:39:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 18:39:22] local.INFO: O hotel foi encontrado  
+[2025-03-23 18:39:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 18:39:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 18:39:31] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:31] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:31] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:31] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:31] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:31] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:31] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:31] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
   'products' => 
   array (
     0 => 
     array (
       0 => 
       array (
+<<<<<<< HEAD
         'id' => 3,
         'product' => 'Jack Daniels Canela',
+=======
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
         'grupo_id' => 2,
         'grupo' => 'Grupo teste 2',
         'amount' => 1,
         'cost_price' => '10.00',
+<<<<<<< HEAD
         'sale_price' => '140.00',
+=======
+        'sale_price' => '120.00',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
         'perc_lucro' => '100.00',
         'cfop' => '5102',
         'csosn' => '102',
         'ncm' => '12345678',
+<<<<<<< HEAD
         'cest' => '123456',
+=======
+        'cest' => '1234567',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
         'unit' => 'UN',
         'active' => 1,
         'isSelected' => true,
@@ -16259,6 +16695,7 @@
     ),
   ),
   'user_id' => 1,
+<<<<<<< HEAD
   'customer_id' => 1,
   'total' => 140,
   'sub_total' => 140,
@@ -16380,24 +16817,59 @@
 [2025-03-23 14:54:16] local.INFO: -- Iniciou o saveSale() line 172 --   
 [2025-03-23 14:54:16] local.INFO: array (
   'description' => 'Venda Nota Manual N°',
+=======
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 18:39:31] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:31] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:31] local.INFO: Busca pelo user  
+[2025-03-23 18:39:31] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:33] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:33] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:33] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:33] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:33] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:33] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:33] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:33] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
   'products' => 
   array (
     0 => 
     array (
       0 => 
       array (
+<<<<<<< HEAD
         'id' => 3,
         'product' => 'Jack Daniels Canela',
+=======
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
         'grupo_id' => 2,
         'grupo' => 'Grupo teste 2',
         'amount' => 1,
         'cost_price' => '10.00',
+<<<<<<< HEAD
         'sale_price' => '140.00',
+=======
+        'sale_price' => '120.00',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
         'perc_lucro' => '100.00',
         'cfop' => '5102',
         'csosn' => '102',
         'ncm' => '12345678',
+<<<<<<< HEAD
         'cest' => '123456',
+=======
+        'cest' => '1234567',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
         'unit' => 'UN',
         'active' => 1,
         'isSelected' => true,
@@ -16405,6 +16877,7 @@
     ),
   ),
   'user_id' => 1,
+<<<<<<< HEAD
   'customer_id' => 1,
   'total' => 140,
   'sub_total' => 140,
@@ -16524,6 +16997,27 @@
 [2025-03-23 14:54:17] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
 [2025-03-23 14:54:17] local.INFO: -- Iniciou o saveSale() line 172 --   
 [2025-03-23 14:54:17] local.INFO: array (
+=======
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 18:39:33] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:33] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:33] local.INFO: Busca pelo user  
+[2025-03-23 18:39:33] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:34] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:34] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:34] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:34] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:34] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:34] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:34] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:34] local.INFO: array (
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
   'description' => 'Venda Nota Manual N°',
   'products' => 
   array (
@@ -16531,18 +17025,31 @@
     array (
       0 => 
       array (
+<<<<<<< HEAD
         'id' => 3,
         'product' => 'Jack Daniels Canela',
+=======
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
         'grupo_id' => 2,
         'grupo' => 'Grupo teste 2',
         'amount' => 1,
         'cost_price' => '10.00',
+<<<<<<< HEAD
         'sale_price' => '140.00',
+=======
+        'sale_price' => '120.00',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
         'perc_lucro' => '100.00',
         'cfop' => '5102',
         'csosn' => '102',
         'ncm' => '12345678',
+<<<<<<< HEAD
         'cest' => '123456',
+=======
+        'cest' => '1234567',
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
         'unit' => 'UN',
         'active' => 1,
         'isSelected' => true,
@@ -16550,13 +17057,20 @@
     ),
   ),
   'user_id' => 1,
+<<<<<<< HEAD
   'customer_id' => 1,
   'total' => 140,
   'sub_total' => 140,
+=======
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
   'addition' => 0,
   'discount' => 0,
   'is_nfce_nm' => 'nm',
 )  
+<<<<<<< HEAD
 [2025-03-23 14:54:17] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
 [2025-03-23 14:54:17] local.INFO: Busca pelo customer  
 [2025-03-23 14:54:17] local.INFO: Busca pelo user  
@@ -17117,3 +17631,1615 @@
 [2025-03-23 17:51:06] local.INFO: O hotel foi encontrado  
 [2025-03-23 17:51:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-03-23 17:51:06] local.INFO: Opção desativada, não vai alterar o endereço  
+=======
+[2025-03-23 18:39:34] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:34] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:34] local.INFO: Busca pelo user  
+[2025-03-23 18:39:34] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:34] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:34] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:34] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:34] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:34] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:35] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:35] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:35] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 18:39:35] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:35] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:35] local.INFO: Busca pelo user  
+[2025-03-23 18:39:35] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:37] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:37] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:37] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:37] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:37] local.INFO: Busca pelo user  
+[2025-03-23 18:39:37] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:37] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:37] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:37] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:37] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:37] local.INFO: Busca pelo user  
+[2025-03-23 18:39:37] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:37] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:37] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:37] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 18:39:37] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:37] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:37] local.INFO: Busca pelo user  
+[2025-03-23 18:39:38] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:47] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:47] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:47] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:47] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:47] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:47] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:47] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:47] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 18:39:47] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:47] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:47] local.INFO: Busca pelo user  
+[2025-03-23 18:39:47] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:49] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:49] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:49] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:49] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:49] local.INFO: Busca pelo user  
+[2025-03-23 18:39:49] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:49] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:49] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:49] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:49] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:49] local.INFO: Busca pelo user  
+[2025-03-23 18:39:49] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:39:49] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-23 18:39:49] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 20971520  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 20971520  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVService::class, __construct, linha 13: 20971520  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVController::class, __construct: 20971520  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 18:39:49] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 18:39:49] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 0,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 18:39:49] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 18:39:49] local.INFO: Busca pelo customer  
+[2025-03-23 18:39:49] local.INFO: Busca pelo user  
+[2025-03-23 18:39:50] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-23T17:09:19.000000Z","updated_at":"2025-03-23T17:09:19.000000Z"}  
+[2025-03-23 18:40:54] local.INFO: Chamou o IPController  
+[2025-03-23 18:40:54] local.INFO: Chamou o IPService  
+[2025-03-23 18:40:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 18:40:54] local.INFO: O hotel foi encontrado  
+[2025-03-23 18:40:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 18:40:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 18:42:15] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:42:15] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:42:15] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:42:15] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:42:15] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:42:15] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:42:15] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:42:15] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:42:15] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:42:15] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:42:16] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:42:16] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:42:16] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:42:16] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:42:16] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:42:18] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:42:18] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:42:18] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:42:18] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:42:18] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:42:19] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:42:19] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:42:19] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:42:19] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:42:19] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 18:42:23] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 18:42:53] local.INFO: Chamou o IPController  
+[2025-03-23 18:42:53] local.INFO: Chamou o IPService  
+[2025-03-23 18:42:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 18:42:53] local.INFO: O hotel foi encontrado  
+[2025-03-23 18:42:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 18:42:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 18:42:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 18:42:54] local.INFO: O hotel foi encontrado  
+[2025-03-23 18:42:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 18:42:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:08:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:08:16] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:08:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:08:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:08:23] local.INFO: Chamou o IPController  
+[2025-03-23 19:08:23] local.INFO: Chamou o IPService  
+[2025-03-23 19:08:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:08:24] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:08:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:08:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:08:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:08:47] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:08:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:08:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:09:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:09:02] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:09:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:09:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:09:16] local.INFO: Chamou o IPController  
+[2025-03-23 19:09:16] local.INFO: Chamou o IPService  
+[2025-03-23 19:09:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:09:16] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:09:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:09:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:09:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:09:31] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:09:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:09:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:09:41] local.INFO: Chamou o IPController  
+[2025-03-23 19:09:41] local.INFO: Chamou o IPService  
+[2025-03-23 19:09:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:09:41] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:09:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:09:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:09:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:09:56] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:09:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:09:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:10:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:10:03] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:10:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:10:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:10:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:10:10] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:10:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:10:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:10:15] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:10:15] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:10:15] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:10:15] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:10:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:10:17] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:10:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:10:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:10:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:10:55] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:10:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:10:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:10:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:10:56] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:10:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:10:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:01] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:04] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:24] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:27] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:29] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:31] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:35] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:42] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:44] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:47] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:49] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:57] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:11:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:11:59] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:11:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:11:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:12:06] local.INFO: Chamou o IPController  
+[2025-03-23 19:12:06] local.INFO: Chamou o IPService  
+[2025-03-23 19:12:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:12:06] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:12:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:12:06] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:20:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:20:48] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:20:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:20:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:20:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:20:51] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:20:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:20:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:21:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:21:03] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:21:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:21:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:21:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:21:04] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:21:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:21:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:21:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:21:20] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:21:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:21:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:26:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:26:21] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:26:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:26:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:26:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:26:21] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:26:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:26:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:26:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:26:35] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:26:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:26:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:27:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:27:12] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:27:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:27:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:27:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:27:34] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:27:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:27:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:27:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:27:58] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:27:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:27:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:28:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:28:13] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:28:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:28:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:28:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:28:20] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:28:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:28:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:28:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:28:22] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:28:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:28:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:28:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:28:27] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:28:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:28:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:29:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:29:02] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:29:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:29:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:29:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:29:06] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:29:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:29:06] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:29:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:29:08] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:29:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:29:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:29:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:29:10] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:29:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:29:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:29:42] local.INFO: Chamou o IPController  
+[2025-03-23 19:29:42] local.INFO: Chamou o IPService  
+[2025-03-23 19:29:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:29:42] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:29:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:29:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:29:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:29:45] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:29:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:29:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:29:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:29:49] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:29:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:29:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:29:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:29:55] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:29:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:29:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:30:51] local.INFO: Chamou o IPController  
+[2025-03-23 19:30:51] local.INFO: Chamou o IPService  
+[2025-03-23 19:30:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:30:51] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:30:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:30:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:30:53] local.INFO: Chamou o IPController  
+[2025-03-23 19:30:53] local.INFO: Chamou o IPService  
+[2025-03-23 19:30:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:30:53] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:30:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:30:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:30:58] local.INFO: Chamou o IPController  
+[2025-03-23 19:30:58] local.INFO: Chamou o IPService  
+[2025-03-23 19:30:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:30:58] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:30:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:30:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 19:32:40] local.INFO: Chamou o IPController  
+[2025-03-23 19:32:40] local.INFO: Chamou o IPService  
+[2025-03-23 19:32:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 19:32:40] local.INFO: O hotel foi encontrado  
+[2025-03-23 19:32:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 19:32:40] local.INFO: Opção desativada, não vai alterar o endereço  
+>>>>>>> 3eda6c1dbbe6fd957f8f75f2d9ce5e2f04307eb6
+[2025-03-23 22:54:52] local.INFO: Chamou o IPController  
+[2025-03-23 22:54:52] local.INFO: Chamou o IPService  
+[2025-03-23 22:54:54] local.INFO: Chamou o IPController  
+[2025-03-23 22:54:54] local.INFO: Chamou o IPService  
+[2025-03-23 22:55:03] local.INFO: Chamou o IPController  
+[2025-03-23 22:55:03] local.INFO: Chamou o IPService  
+[2025-03-23 22:55:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:55:06] local.INFO: Chamou o IPController  
+[2025-03-23 22:55:06] local.INFO: Chamou o IPService  
+[2025-03-23 22:55:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:55:17] local.INFO: Chamou o IPController  
+[2025-03-23 22:55:17] local.INFO: Chamou o IPService  
+[2025-03-23 22:55:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:56:15] local.INFO: Chamou o IPController  
+[2025-03-23 22:56:15] local.INFO: Chamou o IPService  
+[2025-03-23 22:56:20] local.INFO: Chamou o IPController  
+[2025-03-23 22:56:20] local.INFO: Chamou o IPService  
+[2025-03-23 22:57:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:00:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:00:26] local.INFO: Chamou o IPController  
+[2025-03-23 23:00:26] local.INFO: Chamou o IPService  
+[2025-03-23 23:00:29] local.INFO: Chamou o IPController  
+[2025-03-23 23:00:29] local.INFO: Chamou o IPService  
+[2025-03-23 23:00:32] local.INFO: Chamou o IPController  
+[2025-03-23 23:00:32] local.INFO: Chamou o IPService  
+[2025-03-23 23:01:38] local.INFO: Chamou o IPController  
+[2025-03-23 23:01:38] local.INFO: Chamou o IPService  
+[2025-03-23 23:02:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:02:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:03:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:03:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:05:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:05:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:08:45] local.ERROR: SQLSTATE[HY000] [1049] Unknown database 'ecommerce1' (Connection: mariadb, SQL: select count(*) as aggregate from `Products`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'ecommerce1' (Connection: mariadb, SQL: select count(*) as aggregate from `Products`) at C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3106): Illuminate\\Database\\Connection->select()
+#3 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3285): Illuminate\\Database\\Query\\Builder->get()
+#7 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3244): Illuminate\\Database\\Query\\Builder->runPaginationCountQuery()
+#8 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1014): Illuminate\\Database\\Query\\Builder->getCountForPagination()
+#9 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->paginate()
+#10 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2368): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#11 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2380): Illuminate\\Database\\Eloquent\\Model->__call()
+#12 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository.php(13): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#13 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Services\\EcommerceService\\ProductsService.php(18): App\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository->getAll()
+#14 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php(17): App\\Services\\EcommerceService\\ProductsService->getAll()
+#15 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->getAll()
+#16 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#17 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#18 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#19 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#20 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#22 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#24 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#25 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#26 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#27 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#28 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#29 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#32 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#34 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#35 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#37 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#39 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#41 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#43 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#45 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#47 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#48 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#49 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#50 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#51 {main}
+
+[previous exception] [object] (PDOException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'ecommerce1' at C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:66)
+[stacktrace]
+#0 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(66): PDO->__construct()
+#1 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection()
+#2 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection()
+#3 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(185): Illuminate\\Database\\Connectors\\MySqlConnector->connect()
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1231): call_user_func()
+#6 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
+#7 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
+#8 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#9 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#10 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#11 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#12 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3106): Illuminate\\Database\\Connection->select()
+#13 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#14 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#15 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#16 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3285): Illuminate\\Database\\Query\\Builder->get()
+#17 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3244): Illuminate\\Database\\Query\\Builder->runPaginationCountQuery()
+#18 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1014): Illuminate\\Database\\Query\\Builder->getCountForPagination()
+#19 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->paginate()
+#20 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2368): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#21 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2380): Illuminate\\Database\\Eloquent\\Model->__call()
+#22 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository.php(13): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#23 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Services\\EcommerceService\\ProductsService.php(18): App\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository->getAll()
+#24 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php(17): App\\Services\\EcommerceService\\ProductsService->getAll()
+#25 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->getAll()
+#26 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#27 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#28 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#29 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#30 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#32 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#34 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#35 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#36 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#37 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#38 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#39 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#41 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#42 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#43 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#44 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#45 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#47 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#48 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#49 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#50 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#51 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#52 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#53 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#54 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#55 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#56 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#57 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#58 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#59 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#60 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#61 {main}
+"} 
+[2025-03-23 23:08:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:08:55] local.ERROR: SQLSTATE[HY000] [1049] Unknown database 'ecommerce1' (Connection: mariadb, SQL: select count(*) as aggregate from `Products`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'ecommerce1' (Connection: mariadb, SQL: select count(*) as aggregate from `Products`) at C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3106): Illuminate\\Database\\Connection->select()
+#3 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3285): Illuminate\\Database\\Query\\Builder->get()
+#7 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3244): Illuminate\\Database\\Query\\Builder->runPaginationCountQuery()
+#8 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1014): Illuminate\\Database\\Query\\Builder->getCountForPagination()
+#9 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->paginate()
+#10 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2368): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#11 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2380): Illuminate\\Database\\Eloquent\\Model->__call()
+#12 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository.php(13): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#13 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Services\\EcommerceService\\ProductsService.php(18): App\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository->getAll()
+#14 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php(17): App\\Services\\EcommerceService\\ProductsService->getAll()
+#15 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->getAll()
+#16 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#17 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#18 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#19 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#20 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#22 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#24 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#25 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#26 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#27 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#28 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#29 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#32 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#34 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#35 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#37 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#39 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#41 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#43 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#45 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#47 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#48 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#49 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#50 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#51 {main}
+
+[previous exception] [object] (PDOException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'ecommerce1' at C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:66)
+[stacktrace]
+#0 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(66): PDO->__construct()
+#1 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection()
+#2 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection()
+#3 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(185): Illuminate\\Database\\Connectors\\MySqlConnector->connect()
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1231): call_user_func()
+#6 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
+#7 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
+#8 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#9 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#10 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#11 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#12 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3106): Illuminate\\Database\\Connection->select()
+#13 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#14 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#15 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#16 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3285): Illuminate\\Database\\Query\\Builder->get()
+#17 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3244): Illuminate\\Database\\Query\\Builder->runPaginationCountQuery()
+#18 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1014): Illuminate\\Database\\Query\\Builder->getCountForPagination()
+#19 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->paginate()
+#20 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2368): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#21 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2380): Illuminate\\Database\\Eloquent\\Model->__call()
+#22 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository.php(13): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#23 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Services\\EcommerceService\\ProductsService.php(18): App\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository->getAll()
+#24 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php(17): App\\Services\\EcommerceService\\ProductsService->getAll()
+#25 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->getAll()
+#26 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#27 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#28 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#29 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#30 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#32 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#34 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#35 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#36 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#37 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#38 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#39 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#41 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#42 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#43 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#44 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#45 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#47 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#48 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#49 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#50 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#51 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#52 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#53 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#54 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#55 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#56 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#57 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#58 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#59 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#60 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#61 {main}
+"} 
+[2025-03-23 23:09:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:22:57] local.ERROR: SQLSTATE[HY000] [1049] Unknown database 'ecommerce1' (Connection: mariadb, SQL: select count(*) as aggregate from `Products`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'ecommerce1' (Connection: mariadb, SQL: select count(*) as aggregate from `Products`) at C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3106): Illuminate\\Database\\Connection->select()
+#3 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3285): Illuminate\\Database\\Query\\Builder->get()
+#7 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3244): Illuminate\\Database\\Query\\Builder->runPaginationCountQuery()
+#8 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1014): Illuminate\\Database\\Query\\Builder->getCountForPagination()
+#9 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->paginate()
+#10 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2368): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#11 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2380): Illuminate\\Database\\Eloquent\\Model->__call()
+#12 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository.php(13): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#13 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Services\\EcommerceService\\ProductsService.php(18): App\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository->getAll()
+#14 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php(17): App\\Services\\EcommerceService\\ProductsService->getAll()
+#15 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->getAll()
+#16 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#17 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#18 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#19 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#20 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#22 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#24 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#25 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#26 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#27 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#28 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#29 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#32 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#34 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#35 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#37 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#39 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#41 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#43 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#45 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#47 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#48 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#49 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#50 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#51 {main}
+
+[previous exception] [object] (PDOException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'ecommerce1' at C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:66)
+[stacktrace]
+#0 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(66): PDO->__construct()
+#1 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection()
+#2 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection()
+#3 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(185): Illuminate\\Database\\Connectors\\MySqlConnector->connect()
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1231): call_user_func()
+#6 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
+#7 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
+#8 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#9 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#10 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#11 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#12 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3106): Illuminate\\Database\\Connection->select()
+#13 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#14 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#15 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#16 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3285): Illuminate\\Database\\Query\\Builder->get()
+#17 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3244): Illuminate\\Database\\Query\\Builder->runPaginationCountQuery()
+#18 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1014): Illuminate\\Database\\Query\\Builder->getCountForPagination()
+#19 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->paginate()
+#20 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2368): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#21 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2380): Illuminate\\Database\\Eloquent\\Model->__call()
+#22 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository.php(13): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#23 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Services\\EcommerceService\\ProductsService.php(18): App\\Repositories\\Eloquent\\EcommerceEloquent\\ProductsRepository->getAll()
+#24 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php(17): App\\Services\\EcommerceService\\ProductsService->getAll()
+#25 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->getAll()
+#26 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#27 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#28 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#29 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#30 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#32 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#34 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#35 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#36 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#37 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#38 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#39 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#41 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#42 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#43 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#44 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#45 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#47 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#48 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#49 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#50 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#51 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#52 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#53 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#54 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#55 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#56 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#57 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#58 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#59 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#60 C:\\Users\\laura\\Gabs_OIMOR\\hotel_ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#61 {main}
+"} 
+[2025-03-23 23:23:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:23:43] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:23:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:23:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:23:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:23:52] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:23:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:23:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:24:14] local.INFO: Memória usada ReservationService::class, __construct: 16777216  
+[2025-03-23 23:24:14] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:24:14] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:24:14] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:24:14] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:24:14] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:24:14] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:24:14] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 23:24:14] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:24:14] local.INFO: Busca pelo customer  
+[2025-03-23 23:24:14] local.INFO: Busca pelo user  
+[2025-03-23 23:24:15] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-22T23:11:53.000000Z","updated_at":"2025-03-22T23:11:53.000000Z"}  
+[2025-03-23 23:24:15] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Kochem',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 23:24:15] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-03-23 23:24:15] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
+[2025-03-23 23:24:15] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"created_at":"2025-03-22T23:11:53.000000Z","updated_at":"2025-03-22T23:11:53.000000Z"}  
+[2025-03-23 23:24:15] local.INFO: $products 11  
+[2025-03-23 23:24:15] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-03-23 23:24:15] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-23 23:24:15] local.INFO: $product, type: array  
+[2025-03-23 23:24:15] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'perc_lucro' => '100.00',
+    'cfop' => '5102',
+    'csosn' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-23 23:24:15] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-23 23:24:15] local.INFO: $product[$i]  
+[2025-03-23 23:24:15] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'grupo_id' => 2,
+  'grupo' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'perc_lucro' => '100.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-03-23 23:24:15] local.INFO: itensPDV   
+[2025-03-23 23:24:15] local.INFO: array (
+  'pdv_id' => 66,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+)  
+[2025-03-23 23:24:15] local.INFO: $ipdv  
+[2025-03-23 23:24:15] local.INFO: {"pdv_id":66,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":72}  
+[2025-03-23 23:24:15] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-23 23:27:33] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 23:27:33] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:27:33] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:27:33] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:27:33] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:27:33] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:27:33] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:27:33] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '11',
+  'customer_id' => 1,
+  'total' => -10781,
+  'sub_total' => 120,
+  'addition' => 9309,
+  'discount' => 20210,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-23 23:27:33] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:27:33] local.INFO: Busca pelo customer  
+[2025-03-23 23:27:33] local.INFO: Busca pelo user  
+[2025-03-23 23:27:33] local.INFO:   
+[2025-03-23 23:27:34] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 23:27:34] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:27:34] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:27:34] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:27:34] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:27:34] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:27:34] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:27:34] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '11',
+  'customer_id' => 1,
+  'total' => -10781,
+  'sub_total' => 120,
+  'addition' => 9309,
+  'discount' => 20210,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-23 23:27:34] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:27:34] local.INFO: Busca pelo customer  
+[2025-03-23 23:27:34] local.INFO: Busca pelo user  
+[2025-03-23 23:27:34] local.INFO:   
+[2025-03-23 23:27:39] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 23:27:39] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:27:39] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:27:39] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:27:39] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:27:39] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:27:39] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:27:39] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '11',
+  'customer_id' => 1,
+  'total' => -10781,
+  'sub_total' => 120,
+  'addition' => 9309,
+  'discount' => 20210,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-23 23:27:39] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:27:39] local.INFO: Busca pelo customer  
+[2025-03-23 23:27:39] local.INFO: Busca pelo user  
+[2025-03-23 23:27:39] local.INFO:   
+[2025-03-23 23:27:40] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 23:27:40] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:27:40] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:27:40] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:27:40] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:27:40] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:27:40] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:27:40] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '11',
+  'customer_id' => 1,
+  'total' => -10781,
+  'sub_total' => 120,
+  'addition' => 9309,
+  'discount' => 20210,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 23:27:40] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:27:40] local.INFO: Busca pelo customer  
+[2025-03-23 23:27:40] local.INFO: Busca pelo user  
+[2025-03-23 23:27:40] local.INFO:   
+[2025-03-23 23:27:41] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 23:27:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:27:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:27:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:27:41] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:27:41] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:27:41] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:27:41] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '11',
+  'customer_id' => 1,
+  'total' => -10781,
+  'sub_total' => 120,
+  'addition' => 9309,
+  'discount' => 20210,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 23:27:41] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:27:41] local.INFO: Busca pelo customer  
+[2025-03-23 23:27:41] local.INFO: Busca pelo user  
+[2025-03-23 23:27:41] local.INFO:   
+[2025-03-23 23:27:42] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 23:27:42] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:27:42] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:27:42] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:27:42] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:27:42] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:27:42] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:27:42] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '11',
+  'customer_id' => 1,
+  'total' => -10781,
+  'sub_total' => 120,
+  'addition' => 9309,
+  'discount' => 20210,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 23:27:42] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:27:42] local.INFO: Busca pelo customer  
+[2025-03-23 23:27:42] local.INFO: Busca pelo user  
+[2025-03-23 23:27:42] local.INFO:   
+[2025-03-23 23:27:57] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 23:27:57] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:27:57] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:27:57] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:27:57] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:27:57] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:27:57] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:27:57] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '11',
+  'customer_id' => 1,
+  'total' => 1000000000120,
+  'sub_total' => 120,
+  'addition' => 1000000000000,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-23 23:27:57] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:27:57] local.INFO: Busca pelo customer  
+[2025-03-23 23:27:57] local.INFO: Busca pelo user  
+[2025-03-23 23:27:57] local.INFO:   
+[2025-03-23 23:27:59] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 23:27:59] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:27:59] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:27:59] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:27:59] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:27:59] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:27:59] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:27:59] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '11',
+  'customer_id' => 1,
+  'total' => 1000000000120,
+  'sub_total' => 120,
+  'addition' => 1000000000000,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 23:27:59] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:27:59] local.INFO: Busca pelo customer  
+[2025-03-23 23:27:59] local.INFO: Busca pelo user  
+[2025-03-23 23:27:59] local.INFO:   
+[2025-03-23 23:28:00] local.INFO: Memória usada ReservationService::class, __construct: 18874368  
+[2025-03-23 23:28:00] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 18874368  
+[2025-03-23 23:28:00] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 18874368  
+[2025-03-23 23:28:00] local.INFO: Memória usada PDVService::class, __construct, linha 13: 18874368  
+[2025-03-23 23:28:00] local.INFO: Memória usada PDVController::class, __construct: 18874368  
+[2025-03-23 23:28:00] local.INFO: Memória usada PDVController::class, saveSale: 20971520  
+[2025-03-23 23:28:00] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-23 23:28:00] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '11',
+  'customer_id' => 1,
+  'total' => 1000000000120,
+  'sub_total' => 120,
+  'addition' => 1000000000000,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-23 23:28:00] local.INFO: Memória usada PDVRepository::class, saveSale: 20971520  
+[2025-03-23 23:28:00] local.INFO: Busca pelo customer  
+[2025-03-23 23:28:00] local.INFO: Busca pelo user  
+[2025-03-23 23:28:00] local.INFO:   

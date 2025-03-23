@@ -7,6 +7,7 @@
             'ml-10': witdhScreen === 1920,
             'ml-14': witdhScreen !== 1920,
             'flex-col': witdhScreen <= 1080,
+            'p-4': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
