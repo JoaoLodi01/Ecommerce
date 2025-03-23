@@ -4,7 +4,8 @@
     <div
       :class="{
         'transform translate-x-0': sidebarActive, 
-        'transform -translate-x-full': !sidebarActive
+        'transform -translate-x-full': !sidebarActive,
+        
       }"
       class="transition-transform duration-300 bg-gray-800 text-white h-screen w-64 fixed top-0 left-0 z-40"
       title="Sidebar">
@@ -12,7 +13,7 @@
       <!-- Botão Sidebar-->
       <button 
         @click="toggleSidebar"
-        class="absolute top-4 right-4 p-2 bg-gray-800 hover:text-blue-300 text-white border-none rounded-lg cursor-pointer z-50">
+        class="absolute top-4 right-4 p-2 delay-75 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50">
         <span 
           v-if="!sidebarActive"
         >
@@ -21,8 +22,9 @@
 
         <span 
           v-else
-          class="transition-transform duration-300"
+          
         >
+        <!-- Botão quando a SideBar está aberta-->
           <div class="border border-white w-6 mb-1"></div>
           <div class="border border-white w-6 mt-1"></div>
           <div class="border border-white w-6 mt-1"></div>
@@ -165,18 +167,34 @@
           </ul>
         </div>
     </div>
+    
 
     <!-- Botão da Sidebar fechada -->
-    <button 
-      v-if="!sidebarActive"
+    <button  
       @click="toggleSidebar"
-      class="toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg transform transition-all">
+      class="opacity-0 toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg"
+      :class="{
+        'opacity-100 delay-300': !sidebarActive
+      }"
+    >
       <span>
         <div class="border border-white w-6 mb-1"></div>
         <div class="border border-white w-6 mt-1"></div>
         <div class="border border-white w-6 mt-1"></div>
       </span>
     </button>
+  </div>
+  
+  <div :class="{
+        'delay-75': !sidebarActive,
+        'transform translate-x-32': sidebarActive,
+        'transform translate-x-40': sidebarActive && widthScreen <= 1080,  
+        'ml-5': widthScreen <= 1080,
+        'ml-24': widthScreen > 1080 
+        
+      }">
+    <router-view></router-view>
+  
   </div>
 </template>
 
@@ -189,6 +207,7 @@ export default {
       showPDV: false,
       downRow: false,
       downRow2: false,
+      widthScreen: 0
     };
   },
   methods: {
@@ -211,6 +230,15 @@ export default {
         this.downRow2 = false
     }
   },
+
+  mounted()
+  { 
+    this.widthScreen += screen.width
+    if(this.widthScreen <= 1080)
+    {   
+        this.sidebarActive = false   
+    }
+  }
 
 };
 </script>

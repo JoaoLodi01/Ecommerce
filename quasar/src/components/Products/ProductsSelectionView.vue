@@ -97,15 +97,17 @@
         ],
 
         props: {
-            show: {
-                type: Boolean,
-                required: true
+            witdhScreen: {
+                type: Number,
+
             },
 
             hotelCodCRT: {
                 type: Number,
                 required: true
-            }
+            },
+            
+
         },
 
         methods: {

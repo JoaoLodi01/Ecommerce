@@ -1,11 +1,12 @@
 <template>
     <div
-        class="flex border rounded-lg border-black mt-10 w-max" 
+        class="w-max flex mx-auto border rounded-lg border-black mt-10" 
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'ml-10': withScreen === 1920,
-            'ml-14': withScreen !== 1920,
+            'ml-10': witdhScreen === 1920,
+            'ml-14': witdhScreen !== 1920,
+            'flex-col': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
@@ -13,10 +14,13 @@
                 
         }"   
     >
-        <div class="absolute left-96 right-auto top-40 z-20">
+        <div :class="{
+            'absolute left-96 right-auto top-40 z-20': witdhScreen > 1080,
+            'absolute right-auto top-5 z-50': witdhScreen <= 1080
+        }">
             <PaymentsForm
                 v-if="showPaymentsForm"
-                :show="this.showPaymentsForm"
+                :witdhScreen="this.witdhScreen"
                 :typeOperation=this.typeOperation
                 :totalOperation=this.totalOperation
                 :pdvID=this.pdvID
@@ -28,17 +32,28 @@
             />
         </div>
         
-        <div class="relative overflow-x-auto max-h-96 overflow-y-auto ">            
-            <div class="border border-gray-500 m-3">
+        <div class="relative overflow-x-auto max-h-96 overflow-y-auto">
+            <div 
+                class="border border-gray-500 m-3"
+                :class="{
+                    'w-14': witdhScreen <= 1080,
+                    
+                }"
+            >
                 <div class="inline-flex p-3">
-                    <div class="mt-auto mb-auto mr-8 cursor-pointer" @click="showproductts">
+                    <div 
+                        class="mt-auto mb-auto mr-8 cursor-pointer"
+                        v-if="witdhScreen !== 0"
+                        @click="showproductts"
+                        
+                    >
                         <div class="border border-red-500 w-6 mb-1"></div>
                         <div class="border border-black w-5 mb-1"></div>
                         <div class="border border-gray-500 w-4 mb-1"></div>        
 
                     </div>
                     
-                    <div class="border border-black mr-20 rounded-md text-center">
+                    <div v-if="witdhScreen > 1366" class="border border-black mr-20 rounded-md text-center">
                         <input
                             type="text"
                             class="border-none outline-none ml-2 mt-1 mb-1 w-96"
@@ -46,7 +61,7 @@
                         />
                     </div>
 
-                    <div>
+                    <div v-if="witdhScreen > 1366">
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="">Voltar para a listagem</router-link></button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
@@ -59,15 +74,15 @@
 
             <div class="m-5 w-max shadow-lg">                
                 <table class="block text-left rounded-t-xl rtl:text-right ">
-                    <thead class="uppercase shadow-lg sticky top-0 bg-white z-50">
+                    <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
                             <tr class="bg-white">
-                                <th scope="col" class="px-6 py-3">Cód.</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
-                                <th scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
-                                <th scope="col" class="px-6 py-3 text-center">Qtde</th>
-                                <th scope="col" class="px-6 py-3 text-center">Valor unitário</th>
-                                <th scope="col" class="px-6 py-3">Valor líquido</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
                                 <th scope="col" class="px-6 py-3">Ações</th>
 
                             </tr>
@@ -80,36 +95,37 @@
                             class="border border-black"
                         >    
 
-                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                            <td v-if="witdhScreen > 1080" class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
 
-                            <td class="px-6 py-3 text-center">
+                            <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.cfop"
                                     :placeholder=product.cfop
                                     type="text"
                                     class="w-12 text-center border-b-4 border-b-gray-500"
-                                    :maxlength="maxlength(csosncst)"
-                                    :minlength="maxlength(csosncst)"
+                                    maxlength="4"
+                                    minlength="4"
                                     @input="changeCFOP(product.id, product.cfop)"
 
                                 />
                             </td>
 
-                            <td class="px-6 py-3 text-center">
+                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.csosn"
                                     :placeholder=product.csosn
-                                    type="text"
+                                    type="number"
                                     :maxlength="maxlength(csosncst)"
                                     :minlength="maxlength(csosncst)"
                                     class="w-10 text-center border-b-4 border-b-gray-500"
+                                    id="csosnInput"
                                     @input="changeCSOSN(product.id, product.csosn)"
 
                                 />
                             </td>
 
-                            <td class="px-6 py-3 text-center">
+                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.amount"
                                     :placeholder=product.amount 
@@ -119,20 +135,43 @@
                                     
                                 />
                             </td>
-                            <td class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                            <td class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
+                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                            <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
                             <td class="text-center">
                                 <div class="m-auto">
                                     <button>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" size-5 text-red-500 mr-4">
+                                        <svg 
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" 
+                                            viewBox="0 0 24 24" 
+                                            stroke-width="1.5" 
+                                            stroke="currentColor" 
+                                            class="size-4 text-red-500 mr-4">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                         </svg>
                                     </button>
 
                                     <button @click="productOptions">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 text-blue-600">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 16 16" fill="currentColor"
+                                            class="size-4 text-blue-600 mr-4">
                                             <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm6 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
                                         </svg>
+                                    </button>
+
+                                    <button>
+                                        <svg 
+                                            v-if="witdhScreen <= 1080"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24" 
+                                            stroke-width="1.5" 
+                                            stroke="currentColor" 
+                                            class="size-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                        </svg>
+
                                     </button>
                                 </div>
                             </td>
@@ -313,7 +352,7 @@
     </div>
 
     <div
-        v-if="showGrid"
+        v-if="showGrid && witdhScreen > 1366"
         class="flex border border-black w-9  ml-10"
     >
         <select id="textSize" v-model.number="textSize">
@@ -326,7 +365,7 @@
     <div>
         <ProductsSelectionView
             v-if="show"
-            :show="this.show"
+            :witdhScreen="this.witdhScreen"
             :hotelCodCRT="this.hotelCodCRT"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion"
@@ -355,7 +394,7 @@
                 },
                 
                 totalOperation: 0,
-                withScreen: 0,
+                witdhScreen: 0,
                 textSize: 4,
                 pdvID: 0,
                 show: false,
@@ -727,7 +766,7 @@
 
         mounted(){
             this.getHotel()
-            this.withScreen += screen.width
+            this.witdhScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
             console.log(screen.width)
 
@@ -745,9 +784,26 @@
         outline: none;
     }
 
+    #csosnInput::-webkit-outer-spin-button,
+    #csosnInput::-webkit-inner-spin-button{
+        margin: 0;
+        -webkit-appearance: none !important; 
+    }
+
     @media (max-width: 1080px) {
+        * {
+            position: relative;
+
+        }
+
         body{
             display: flex;
+            margin-right: 100px;
+        }
+
+        #pdv-view{
+            left: 0;
+            right: 100px;
         }
     }
 
@@ -755,5 +811,7 @@
         height: 100%;
 
     }
+
+    
 
 </style>
