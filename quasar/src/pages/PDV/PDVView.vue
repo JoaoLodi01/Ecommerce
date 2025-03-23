@@ -768,7 +768,6 @@
             this.getHotel()
             this.witdhScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
-            console.log(screen.width)
 
             if(this.idPDV)
             {
@@ -811,7 +810,5 @@
         height: 100%;
 
     }
-
-    
 
 </style>

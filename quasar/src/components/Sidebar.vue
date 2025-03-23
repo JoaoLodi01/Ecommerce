@@ -190,7 +190,7 @@
         'transform translate-x-32': sidebarActive,
         'transform translate-x-40': sidebarActive && widthScreen <= 1080,  
         'ml-5': widthScreen <= 1080,
-        'ml-24': widthScreen > 1080 
+        'ml-20': widthScreen > 1080 
         
       }">
     <router-view></router-view>
