@@ -216,8 +216,8 @@
                         >
                             <label class="text-black" for="discount">Vendedor</label>
                             <input 
-                                v-model="emitProducts.userID"
                                 placeholder="Funcionário Padrão"
+                                v-model="emitProducts.userID"
                                 id="discount"
                                 type="text"
                                 class="text-black border border-black w-full"
@@ -228,8 +228,8 @@
                             <label class="text-black" for="discount">Cliente</label>
                             <input 
                                 placeholder="Consumidor Padrão"
-                                v-model="emitProducts.clientID"
-                                @input="findCustomer(emitProducts.clientID)"
+                                v-model="emitProducts.customerID"
+                                @input="findCustomer(emitProducts.customerID)"
                                 id="discount"
                                 type="text"
                                 class="text-black border border-black w-full"
@@ -389,8 +389,8 @@
                 emitProducts: {
                     addition: 0,
                     discount: 0,
-                    userID: 1,
-                    customerID: 1,
+                    userID: 0,
+                    customerID: 0,
 
                 },
                 
@@ -524,7 +524,8 @@
             
             async finalizeSale(type)
             {
-                // Só vai chamar a forma de pagamento    
+                // Só vai chamar a forma de pagamento
+                console.log('emitProducts', this.emitProducts)    
                 this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
                 try {
                     if(this.idPDV)
