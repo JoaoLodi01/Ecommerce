@@ -14,6 +14,17 @@ class CustomerRepository
 
     }
 
+    public function selectClient(array $search){
+        return Customer::where('active', 1)
+                        ->when(isset($search['id']), function ($query) use ($search){
+                            return $query->where('id', $search['id']);
+                        })
+                        ->when(isset($search['name']), function ($query) use ($search){
+                            return $query->where('name', 'like', "%{$search['name']}%");
+                        })
+                        ->get();
+    }
+
     public function findByID(int $id){
         return Customer::with('joinCredit')
                         ->where('id', $id)

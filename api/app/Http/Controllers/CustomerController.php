@@ -9,31 +9,35 @@ use App\Services\CustomerService;
 class CustomerController extends Controller
 {
     public function __construct(
-        protected CustomerService $costumerService
+        protected CustomerService $custumerService
     )
     {
-        $this->costumerService = $costumerService;
+        $this->custumerService = $custumerService;
     }
 
     public function getAll(){
-        return $this->costumerService->getAll();
+        return $this->custumerService->getAll();
+    }
+
+    public function selectClient(Request $request){
+        return $this->custumerService->selectClient($request->all());
     }
 
     public function store(CostumerRequest $request){
         $data = $request->validated();
-        return $this->costumerService->store($data);
+        return $this->custumerService->store($data);
     }
 
     public function findByID(int $id){
-        return $this->costumerService->findByID($id);
+        return $this->custumerService->findByID($id);
     }
 
     public function update(CostumerRequest $request, int $id){
         $data = $request->validated();
-        return $this->costumerService->update($data, $id);
+        return $this->custumerService->update($data, $id);
     }
 
     public function delete(int $id){
-        return $this->costumerService->delete($id);
+        return $this->custumerService->delete($id);
     }
 }

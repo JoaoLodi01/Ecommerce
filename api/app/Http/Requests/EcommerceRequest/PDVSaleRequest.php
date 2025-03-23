@@ -15,8 +15,9 @@ class PDVSaleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'paymentsValues' => ['required'],
             'typeOperation' => ['required', 'string'],
+            'change' => ['required'],
+            'paymentsValues' => ['required'],
             'pdvID' => ['required']
 
         ];

@@ -48,11 +48,6 @@
                             <th scope="col" class="px-6 py-3">Cód Espécie</th>
                             <th scope="col" class="px-6 py-3">Espécie</th>
                             <th scope="col" class="px-6 py-3">Origem</th>
-                            <th scope="col" class="px-6 py-3">B</th>
-                            <th scope="col" class="px-6 py-3">C</th>
-                            <th scope="col" class="px-6 py-3">D</th>
-                            <th scope="col" class="px-6 py-3">E</th>
-                            
                         </tr>
                     </thead>
                     <tbody>
@@ -82,12 +77,6 @@
                             <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
                             <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
                             <td scope="row" class="px-6 py-3">{{ register.origem }}</td>
-                            <td scope="row" class="px-6 py-3">-</td>
-                            <td scope="row" class="px-6 py-3">-</td>
-                            <td scope="row" class="px-6 py-3">-</td>
-                            <td scope="row" class="px-6 py-3">-</td>
-                            <td scope="row" class="px-6 py-3">-</td>
-                            
                         </tr>
                     </tbody>
                 </table>

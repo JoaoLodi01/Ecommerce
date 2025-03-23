@@ -1,10 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import LoginView from '@/views/Auth/LoginView.vue';
-import RegisterView from '@/views/Auth/RegisterView.vue';
 import AboutView from '@/views/Dashboard/Ecommerce/AboutView.vue';
 import SettingsView from '@/views/Dashboard/Ecommerce/SettingsView.vue';
-import PDVView from '@/views/Dashboard/Ecommerce/PDV/PDVView.vue';
 import ConsumersView from '@/views/Dashboard/Ecommerce/ConsumersView.vue';
 import HomeView from '@/views/Dashboard/HomeView.vue';
 import HotelDetails from '@/views/Dashboard/Hotel/HotelDetails.vue';
@@ -17,6 +14,9 @@ import ProductsView from '@/views/Dashboard/Ecommerce/ProductsView.vue';
 import ListPDVView from '@/views/Dashboard/Ecommerce/PDV/ListPDVView.vue';
 import ToReceiveView from '@/views/Dashboard/Ecommerce/Financial/ToReceiveView.vue';
 import ToPayView from '@/views/Dashboard/Ecommerce/Financial/ToPayView.vue';
+import PDVView from '@/views/Dashboard/Ecommerce/PDV/PDVView.vue';
+import Login from '@/views/Auth/Pages/Auth/Login.vue';
+import Register from '@/views/Auth/Pages/Auth/Register.vue';
 
 const routes = [
   {
@@ -37,12 +37,12 @@ const routes = [
   {
     path: "/login",
     name: "Login",
-    component: LoginView,
+    component: Login,
   },
   {
     path: "/register",
     name: "Register",
-    component: RegisterView,
+    component: Register,
   },
   {
     path: "/settings",

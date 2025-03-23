@@ -14,7 +14,7 @@
         class="absolute top-4 right-4 p-2 bg-gray-800 hover:text-blue-300 text-white border-none rounded-lg cursor-pointer z-50">
         <span 
           v-if="!sidebarActive"
-          class=""
+          
         >
           Open
         </span>
@@ -23,8 +23,8 @@
           v-else
           class="transition-transform duration-300"
         >
-          <div class="border border-white w-4 mb-1"></div>
-          <div class="border border-white w-5 mt-1"></div>
+          <div class="border border-white w-6 mb-1"></div>
+          <div class="border border-white w-6 mt-1"></div>
           <div class="border border-white w-6 mt-1"></div>
         </span>
       </button>
@@ -36,7 +36,7 @@
       <div class="sidebar-links p-4">
         <ul class="space-y-4">
           <li>
-            <router-link to="/" class="ml-5 text-white hover:text-blue-300 flex items-center">
+            <router-link to="/" class="ml-5 hover:text-blue-950 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
               </svg>
@@ -173,8 +173,8 @@
       class="toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg transform transition-all">
       <span>
         <div class="border border-white w-6 mb-1"></div>
-        <div class="border border-white w-5 mt-1"></div>
-        <div class="border border-white w-4 mt-1"></div>
+        <div class="border border-white w-6 mt-1"></div>
+        <div class="border border-white w-6 mt-1"></div>
       </span>
     </button>
   </div>

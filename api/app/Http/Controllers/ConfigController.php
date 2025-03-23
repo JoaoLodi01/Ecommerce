@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Services\ConfigService as ConfigHotelService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ConfigController extends Controller
 {
@@ -12,8 +13,7 @@ class ConfigController extends Controller
         protected ConfigHotelService $configService
     )
     {
-        $this->configService = $configService;
-
+        Log::info('Memória usada ConfigController::class, __construct: ' . memory_get_usage(true));
     }
 
     public function getConfigs()

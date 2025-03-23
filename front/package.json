@@ -8,17 +8,17 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@inertiajs/vue3": "^2.0.5",
     "axios": "^1.7.9",
     "core-js": "^3.8.3",
     "crypto-browserify": "^3.12.1",
-    "path": "^0.12.7",
     "tailwindcss": "^3",
-    "url": "^0.11.4",
     "v-mask": "^2.3.0",
     "vue": "^3.2.13",
     "vue-i18n": "^10.0.5",
     "vue-router": "^4.0.3",
     "vue-the-mask": "^0.11.1",
+    "vuetify": "^3.7.18",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
