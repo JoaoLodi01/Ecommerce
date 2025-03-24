@@ -123,23 +123,23 @@
                 <div 
                     class="m-2 p-2 rounded-lg border border-gray-700"
                 >
-                <label class="text-black" for="discount">Vendedor</label>
+                <label class="text-black" for="winner">Vendedor</label>
                 <input 
                     v-model="emitProducts.userID"
                     placeholder="Funcionário Padrão"
-                    id="discount"
+                    id="winner"
                     type="text"
                     class="text-black border border-black w-full"
                 />
 
                 <br>
 
-                <label class="text-black" for="discount">Cliente</label>
+                <label class="text-black" for="client">Cliente</label>
                 <input 
                     placeholder="Consumidor Padrão"
-                    v-model="emitProducts.clientID"
-                    @input="findCustomer(emitProducts.clientID)"
-                    id="discount"
+                    v-model="emitProducts.id"
+                    @input="selectClient()"
+                    id="client"
                     type="text"
                     class="text-black border border-black w-full"
 
@@ -263,6 +263,7 @@
         data(){
             return {
                 productsSeletion: [],
+                clientSelected: [],
                 hotelCodCRT: 0,
                 emitProducts: {
                     addition: 0,
@@ -616,6 +617,18 @@
                     {
                         this.$router.push({ name: 'PDV' })
                     }
+                }
+            },
+
+            async selectClient(){
+                try {
+                    const response = await axios.get(`${this.api}/consumers/selectClient`, {
+                        Dados: this.selectClient.id,
+                    });
+
+                    this.selectClient = response.data;
+                } catch (error) {
+                    console.log('Erro ao buscar:', error);
                 }
             }
         },

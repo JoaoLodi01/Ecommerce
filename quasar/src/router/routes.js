@@ -1,3 +1,4 @@
+import ListPDVView from 'src/pages/PDV/ListPDVView.vue'
 import PDVView from 'src/pages/PDV/PDVView.vue'
 
 const routes = [
@@ -18,8 +19,22 @@ const routes = [
 
   {
     path: '/sale/pdv',
+    name: 'PDV',
     component: PDVView
-  }
+  },
+  {
+    path: '/sale/save/pdv/:idPDV',
+    name: 'PDVID',
+    component: PDVView,
+    props: true
+
+  },
+  {
+    path: '/sale/list-pdv',
+    name: 'ListPDV',
+    component: ListPDVView
+
+  },
 ]
 
 export default routes

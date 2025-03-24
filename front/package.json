@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@inertiajs/vue3": "^2.0.5",
     "axios": "^1.7.9",
     "core-js": "^3.8.3",
     "crypto-browserify": "^3.12.1",

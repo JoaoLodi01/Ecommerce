@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-
 use App\Repositories\Eloquent\ReceiveRepository;
 use App\Services\HotelServices\ReservationService;
 use Illuminate\Support\Facades\Log;
@@ -31,7 +30,7 @@ class PayMentMethodService
         Log::info('$paymentValues');
         Log::info($paymentValues);
 
-        $currantDate = new Carbon();
+        $currentDate = new Carbon();
         $cashRegisters = [];
         if(count($forms) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $forms
         {  
@@ -62,7 +61,7 @@ class PayMentMethodService
                                 'name' => $customer->name,
                                 'especie_id' => $form->id,
                                 'especie' => $form->especie,
-                                'date_register' => $currantDate->format('Y-m-d'),
+                                'date_register' => $currentDate->format('Y-m-d'),
                                 'input_value' => $paymentValues[$form->id - 1],
                                 'output_value' => 0,
                                 'real_balance' => $paymentValues[$form->id - 1],
@@ -86,8 +85,8 @@ class PayMentMethodService
                                 'name' => $customer->name,
                                 'especie_id' => $form->id,
                                 'especie' => $form->especie,
-                                'date_register' => $currantDate->format('Y-m-d'),
-                                'due_date' => $currantDate->addDays(30)->format('Y-m-d'),
+                                'date_register' => $currentDate->format('Y-m-d'),
+                                'due_date' => $currentDate->addDays(30)->format('Y-m-d'),
                                 'installment_number' => 1,
                                 'installment_value' => $paymentValues[$form->id - 1],
                                 'output_value' => 0,
@@ -162,7 +161,7 @@ class PayMentMethodService
                                 'name' => $customer->name,
                                 'especie_id' => $form->id,
                                 'especie' => $form->especie,
-                                'date_register' => $currantDate->format('Y-m-d'),
+                                'date_register' => $currentDate->format('Y-m-d'),
                                 'input_value' => $paymentValues[$form->id - 1],
                                 'output_value' => 0,
                                 'real_balance' => $paymentValues[$form->id - 1],
@@ -185,8 +184,8 @@ class PayMentMethodService
                                 'name' => $customer->name,
                                 'especie_id' => $form->id,
                                 'especie' => $form->especie,
-                                'date_register' => $currantDate->format('Y-m-d'),
-                                'due_date' => $currantDate->addDays(30)->format('Y-m-d'),
+                                'date_register' => $currentDate->format('Y-m-d'),
+                                'due_date' => $currentDate->addDays(30)->format('Y-m-d'),
                                 'installment_number' => 1,
                                 'installment_value' => $paymentValues[$form->id - 1],
                                 'output_value' => 0,
@@ -239,7 +238,7 @@ class PayMentMethodService
     {
         Log::info('-- Inicio decreaseCash linha 194 --');
         Log::info('Memória usada PayMentMethodService::class, decreaseCash: ' . memory_get_usage(true));
-        $currantDate = new Carbon();
+        $currentDate = new Carbon();
         $cashRegisters = [];
         $cashRegisters[] = array(
             'description' => $description,
@@ -248,7 +247,7 @@ class PayMentMethodService
             'name' => $customer->name,
             'especie_id' => 1,
             'especie' => 'Dinheiro',
-            'date_register' => $currantDate->format('Y-m-d'),
+            'date_register' => $currentDate->format('Y-m-d'),
             'input_value' => 0,
             'output_value' => $value,
             'real_balance' => $value,
