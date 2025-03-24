@@ -21,6 +21,14 @@ class CustomerService
         }
     }
 
+    public function selectClient(array $search){
+        try {
+            return $this->customerRepository->selectClient($search);
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
+    }
+
     public function findByID(int $id){
         try {
             return response()->json([

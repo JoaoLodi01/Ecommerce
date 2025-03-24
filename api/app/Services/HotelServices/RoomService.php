@@ -3,6 +3,7 @@
 namespace App\Services\HotelServices;
 
 use App\Repositories\Eloquent\HotelEloquent\RoomRepository;
+use Illuminate\Support\Facades\Log;
 
 class RoomService
 {

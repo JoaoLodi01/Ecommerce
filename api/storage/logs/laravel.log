@@ -1,22 +1,29 @@
-[2025-03-21 11:30:41] local.ERROR: copy(C:\Code\ProjetoWeb\api\resources\views/app.blade.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): copy(C:\\Code\\ProjetoWeb\\api\\resources\\views/app.blade.php): Failed to open stream: No such file or directory at C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallsInertiaStacks.php:105)
+[2025-03-24 10:48:13] local.INFO: Chamou o IPController  
+[2025-03-24 10:48:13] local.INFO: Chamou o IPService  
+[2025-03-24 10:48:17] local.INFO: Chamou o IPController  
+[2025-03-24 10:48:17] local.INFO: Chamou o IPService  
+[2025-03-24 10:48:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 10:48:52] local.INFO: Chamou o IPController  
+[2025-03-24 10:48:52] local.INFO: Chamou o IPService  
+[2025-03-24 10:48:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 10:51:12] local.ERROR: filemtime(): stat failed for C:\Code\ProjetoWeb\api\.env {"exception":"[object] (ErrorException(code: 0): filemtime(): stat failed for C:\\Code\\ProjetoWeb\\api\\.env at C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\ServeCommand.php:138)
 [stacktrace]
 #0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
 #1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():255}()
-#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallsInertiaStacks.php(105): copy()
-#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\breeze\\src\\Console\\InstallCommand.php(55): Laravel\\Breeze\\Console\\InstallCommand->installInertiaVueStack()
-#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Laravel\\Breeze\\Console\\InstallCommand->handle()
-#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
-#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#10 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#12 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#13 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#14 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#17 C:\\Code\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#18 {main}
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\ServeCommand.php(138): filemtime()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Console\\ServeCommand->handle()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#16 C:\\Code\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#17 {main}
 "} 

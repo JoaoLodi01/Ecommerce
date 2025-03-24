@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
-
 use App\Repositories\Eloquent\ReceiveRepository;
 use App\Services\HotelServices\ReservationService;
 use Illuminate\Support\Facades\Log;
