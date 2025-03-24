@@ -22,7 +22,7 @@
           </div>
 
           <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">Quantidade:</span>{{ product.quantidade }}
+            <span class="font-semibold">Quantidade:</span> {{ product.amount }}
           </div>
 
           <div class="text-sm text-gray-500 mb-4">

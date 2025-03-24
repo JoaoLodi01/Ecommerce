@@ -1,5 +1,6 @@
 <template>
     <div
+    
         class="flex border rounded-lg border-black mt-2 w-max" 
         id="pdv-view"
         v-if="showGrid"
@@ -13,20 +14,20 @@
                 
         }"   
     >
-            <div class="absolute left-96 right-auto top-40 z-20">
-                <PaymentsForm
-                    v-if="showPaymentsForm"
-                    :show="this.showPaymentsForm"
-                    :typeOperation=this.typeOperation
-                    :totalOperation=this.totalOperation
-                    :pdvID=this.pdvID
-                    @resetTotal="totalOperation = $event"
-                    @close="cancelOperation"
-                    @update:selectProducts="productsSeletion = $event"
+        <div class="absolute left-96 right-auto top-40 z-20">
+            <PaymentsForm
+                v-if="showPaymentsForm"
+                :show="this.showPaymentsForm"
+                :typeOperation=this.typeOperation
+                :totalOperation=this.totalOperation
+                :pdvID=this.pdvID
+                @resetTotal="totalOperation = $event"
+                @close="cancelOperation"
+                @update:selectProducts="resetSale($event)"
 
 
-                />
-            </div>
+            />
+        </div>
         <div class="relative overflow-x-auto max-h-96 overflow-y-auto ">
             <div class="flex">
                 <div class="ml-6 mt-4 mb-4 cursor-pointer" @click="showproductts">
@@ -36,10 +37,13 @@
                 </div>
 
             </div>
-
+            
             <div class="m-5 w-max shadow-lg">
+                
+                
                 <table class="block text-left rounded-t-xl rtl:text-right ">
-                        <thead class="uppercase shadow-lg">
+                    <thead class="uppercase shadow-lg">
+                        <v-skeleton-loader>
                             <tr class="bg-white sticky z-10">
                                 <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
@@ -50,58 +54,59 @@
                                 <th scope="col" class="px-6 py-3">Valor líquido</th>
 
                             </tr>
-                        </thead>
+                        </v-skeleton-loader>
+                    </thead>
 
-                        <tbody v-for="products in productsSeletion">
-                            <tr
-                                v-for="(product, id) in products" :key="id"
-                                class="border border-black"
-                            >    
+                    <tbody v-for="products in productsSeletion">
+                        <tr
+                            v-for="(product, id) in products" :key="id"
+                            class="border border-black"
+                        >    
 
-                                <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
-                                <td class="px-6 py-3">{{ product.product }}</td>
+                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                            <td class="px-6 py-3">{{ product.product }}</td>
 
-                                <td class="px-6 py-3 text-center">
-                                    <input 
-                                        v-model="product.cfop"
-                                        :placeholder=product.cfop
-                                        type="text"
-                                        class="w-12 text-center border-b-4 border-b-gray-500"
-                                        @input="changeCFOP(product.id, product.cfop)"
+                            <td class="px-6 py-3 text-center">
+                                <input 
+                                    v-model="product.cfop"
+                                    :placeholder=product.cfop
+                                    type="text"
+                                    class="w-12 text-center border-b-4 border-b-gray-500"
+                                    @input="changeCFOP(product.id, product.cfop)"
 
-                                    />
-                                </td>
+                                />
+                            </td>
 
-                                <td class="px-6 py-3 text-center">
-                                    <input 
-                                        v-model="product.csosn"
-                                        :placeholder=product.csosn
-                                        type="text"
-                                        class="w-10 text-center border-b-4 border-b-gray-500"
-                                        @input="changeCSOSN(product.id, product.csosn)"
+                            <td class="px-6 py-3 text-center">
+                                <input 
+                                    v-model="product.csosn"
+                                    :placeholder=product.csosn
+                                    type="text"
+                                    class="w-10 text-center border-b-4 border-b-gray-500"
+                                    @input="changeCSOSN(product.id, product.csosn)"
 
-                                    />
-                                </td>
+                                />
+                            </td>
 
-                                <td class="px-6 py-3 text-center">
-                                    <input 
-                                        v-model="product.amount"
-                                        :placeholder=product.amount 
-                                        type="text"
-                                        class="w-10 text-center border-b-4 border-b-gray-500 "
-                                        @input="changeAmount(product.id, product.amount)"
-                                        
-                                    />
-                                </td>
-                                <td class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                                <td class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
-                            </tr>    
-                        </tbody>
+                            <td class="px-6 py-3 text-center">
+                                <input 
+                                    v-model="product.amount"
+                                    :placeholder=product.amount 
+                                    type="text"
+                                    class="w-10 text-center border-b-4 border-b-gray-500 "
+                                    @input="changeAmount(product.id, product.amount)"
+                                    
+                                />
+                            </td>
+                            <td class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                            <td class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
+                        </tr>    
+                    </tbody>
                         
-                    </table>                
-                </div>
+                </table>                
             </div>
-        <div>
+        </div>
+    <div>
         </div>
         
         <div 
@@ -126,14 +131,18 @@
                     type="text"
                     class="text-black border border-black w-full"
                 />
+
                 <br>
+
                 <label class="text-black" for="discount">Cliente</label>
                 <input 
                     placeholder="Consumidor Padrão"
                     v-model="emitProducts.clientID"
+                    @input="findCustomer(emitProducts.clientID)"
                     id="discount"
                     type="text"
                     class="text-black border border-black w-full"
+
                 />
             </div>
             
@@ -173,40 +182,40 @@
         
     </div>
     <div class="flex m-2 p-2 rounded-lg border border-gray-700">
-            <button
-                v-if="productsSeletion.length <= 0"
-                disabled
-                title="Sem vendas no momento"
-                class="mr-1 ml-2 bg-slate-600 rounded-md"
-                
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                </svg>
-            </button>
-
-            <button
-                v-else @click="cancelSale()"
-                class="mr-1 ml-2 bg-slate-600 rounded-md"
-                >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                </svg>
-            </button>
-
-            <button 
-                class="mr-1 ml-2 bg-slate-600 rounded-md"
-                title="Salvar venda"
-                @click="saveSale()"
+        <button
+            v-if="productsSeletion.length <= 0"
+            disabled
+            title="Sem vendas no momento"
+            class="mr-1 ml-2 bg-slate-600 rounded-md"
+            
             >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                </svg>
-            </button>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+            </svg>
+        </button>
 
-            <div class="mb-auto ml-auto text-xl w-auto">
-                <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.addition - calculateTotal.discount }}</span>
-                
+        <button
+            v-else @click="cancelSale()"
+            class="mr-1 ml-2 bg-slate-600 rounded-md"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+            </svg>
+        </button>
+
+        <button 
+            class="mr-1 ml-2 bg-slate-600 rounded-md"
+            title="Salvar venda"
+            @click="saveSale()"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+            </svg>
+        </button>
+
+        <div class="mb-auto ml-auto text-xl w-auto">
+            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.addition - calculateTotal.discount }}</span>
+            
             </div>
         </div>
 
@@ -259,7 +268,7 @@
                     addition: 0,
                     discount: 0,
                     userID: 1,
-                    customerID: 1,
+                    customerID: 0,
 
                 },
                 
@@ -356,7 +365,8 @@
                 }
             },
 
-            async getHotel(){
+            async getHotel()
+            {
                 try {
                     const response = await axios.get(`${this.api}/hotel/all`)
                     if(response.data.success === true)
@@ -382,7 +392,7 @@
                     if(error.response.data.message === 'Hotel não encontrado')
                     {
                         alert(error.response.data.message)
-                        alert('Por favor faça o cadastro do mesmo')
+                        alert('Por favor faça o cadastro do hotel!')
                         this.$router.push('/hotel/create')
                         
                     }
@@ -485,6 +495,11 @@
                 }
             },
 
+            async findCustomer(clientID)
+            {
+                console.log('this.emitProducts.customerID', clientID)
+            },
+
             showproductts(){
                 this.showPaymentsForm = false
                 this.showGrid = !this.showGrid
@@ -577,12 +592,26 @@
 
             },
 
+            resetSale(confirmed)
+            {
+                if(confirmed)
+                {
+                    this.emitProducts = [],
+                    this.productsSeletion = [],
+                    this.emitProducts.addition = 0
+                    this.emitProducts.discount = 0
+                    
+                }
+            },
+
             cancelSale()
             {
                 const option = confirm('Deseja realmente cancelar a venda? ')
                 if (option === true) {
                     this.emitProducts = [],
-                    this.productsSeletion = []
+                    this.productsSeletion = [],
+                    this.emitProducts.addition = 0
+                    this.emitProducts.discount = 0
                     if(this.idPDV)
                     {
                         this.$router.push({ name: 'PDV' })
@@ -605,7 +634,6 @@
         mounted(){
             this.getHotel()
             this.withScreen += screen.width
-            //history.state?.isOpenedPDV <- output: true
             this.isOpenedPDV = history.state?.isOpenedPDV
 
             if(this.idPDV)

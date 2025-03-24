@@ -53,6 +53,7 @@
                                     type="text"
                                     class="text-end w-20"
                                     v-model="paymentsValues[index]"
+                                    v-mask="'###,##'"
                                     placeholder="0,00"
                                 />
                             </td>
@@ -95,6 +96,7 @@
 
 <script>
 import axios from 'axios';
+import { mask } from 'vue-the-mask';
 
 export default {
     data(){
@@ -111,6 +113,12 @@ export default {
         };
         
     },
+
+    directives: {
+        mask
+
+    },
+
     emits: [
         'close',
         'resetTotal',
@@ -150,7 +158,7 @@ export default {
         calculateValueInformed()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value) || 0;
+                const num = parseFloat(value.replace(/\D/g, '')) || 0;
                 return sum + num
             }, 0);
 
@@ -162,7 +170,7 @@ export default {
         calculateValueChange()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value) || 0;
+                const num = parseFloat(value.replace(/\D/g, '')) || 0;
                 return num + sum 
             }, 0);
 
@@ -194,7 +202,6 @@ export default {
         
         async finalizeSale() {
             this.isLoanding = true
-            console.log('pdvID', this.pdvID)
 
             try {
                 switch (this.typeOperation) {
@@ -231,15 +238,17 @@ export default {
                         if(response_nfce.data.success === true)
                         {
                             this.cancelOperation()
-                            this.$emit('update:selectProducts', []);
+                            this.$emit('update:selectProducts', true);
                         }
 
                         break
 
                     case 'saleNM':
                         console.log('Começou venda NM')
+
                         const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             typeOperation: this.typeOperation,
+                            change: this.calculateValueChange.change,
                             paymentsValues: this.paymentsValues,
                             pdvID: this.pdvID
 

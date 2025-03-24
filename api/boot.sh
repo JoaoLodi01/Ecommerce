@@ -3,9 +3,7 @@
 # ---------- Env ----------
 DB_USER="root"
 DB_NAME="ambiente_config"
-DB_PASS="masterkey"
-DB_HOST="192.168.98.51"
-
+DB_PASS="masterkey" 
 # -------------------- #
 
 save_db()
