@@ -62,3 +62,24 @@
 [2025-03-24 11:12:09] local.INFO: Chamou o IPController  
 [2025-03-24 11:12:09] local.INFO: Chamou o IPService  
 [2025-03-24 11:12:10] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-24 18:08:51] local.INFO: Chamou o IPController  
+[2025-03-24 18:08:51] local.INFO: Chamou o IPService  
+[2025-03-24 18:08:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 18:10:11] local.INFO: Chamou o IPController  
+[2025-03-24 18:10:11] local.INFO: Chamou o IPService  
+[2025-03-24 18:10:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 18:10:12] local.INFO: O hotel foi encontrado  
+[2025-03-24 18:10:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 18:10:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 19:30:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 19:30:37] local.INFO: O hotel foi encontrado  
+[2025-03-24 19:30:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 19:30:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 19:30:38] local.INFO: Chamou o IPController  
+[2025-03-24 19:30:38] local.INFO: Chamou o IPService  
+[2025-03-24 19:31:29] local.INFO: Chamou o IPController  
+[2025-03-24 19:31:29] local.INFO: Chamou o IPService  
+[2025-03-24 19:31:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 19:31:30] local.INFO: O hotel foi encontrado  
+[2025-03-24 19:31:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 19:31:30] local.INFO: Opção desativada, não vai alterar o endereço  

@@ -124,9 +124,10 @@
                     class="m-2 p-2 rounded-lg border border-gray-700"
                 >
                 <label class="text-black" for="winner">Vendedor</label>
-                <input 
-                    v-model="emitProducts.userID"
+                <input
                     placeholder="Funcionário Padrão"
+                    v-model="sellerData.name"
+                    @keydown.enter="selectSeller()"
                     id="winner"
                     type="text"
                     class="text-black border border-black w-full"
@@ -137,12 +138,11 @@
                 <label class="text-black" for="client">Cliente</label>
                 <input 
                     placeholder="Consumidor Padrão"
-                    v-model="emitProducts.id"
-                    @input="selectClient()"
+                    v-model="clientData.name"
+                    @keydown.enter="selectClient()"
                     id="client"
                     type="text"
                     class="text-black border border-black w-full"
-
                 />
             </div>
             
@@ -257,21 +257,29 @@
     import PaymentsForm from '@/views/components/PaymentsForm.vue';
     import ProductsSelectionView from '@/views/components/Products/ProductsSelectionView.vue';
     import axios from 'axios';
-    import { toRaw } from 'vue'   
+    import { toRaw } from 'vue'
     
     export default{
         data(){
             return {
                 productsSeletion: [],
-                clientSelected: [],
                 hotelCodCRT: 0,
                 emitProducts: {
                     addition: 0,
                     discount: 0,
-                    userID: 1,
+                    userID: 0,
                     customerID: 0,
                 },
-                client: {},
+                sellers: [],
+                sellerData: {
+                    id: '',
+                    name: ''
+                },
+                clients: [],
+                clientData: {
+                    id: '',
+                    name: ''
+                },
                 totalOperation: 0,
                 withScreen: 0,
                 textSize: 4,
@@ -621,13 +629,50 @@
 
             async selectClient(){
                 try {
-                    const response = await axios.get(`${this.api}/consumers/selectClient`, {
-                        dados: this.client.id,
-                    });
+                    const response = await axios.get(`${this.api}/customers/selectClient`);
+                    
+                    if(response.data.length > 0) {
+                        this.clients = response.data;
+
+                        const client = this.clients.find(client => 
+                        client.name.toLowerCase().includes(this.clientData.name.toLowerCase())
+                        );
+
+                        if(client) {
+                            this.clientData.id = client.id;
+                            this.clientData.name = client.name;
+                        } else {
+                            console.log('Nenhum cliente correspondente encontrado!');
+                        }
+                    }
 
                     console.log(response.data)
+                } catch (error) {
+                    console.log('Erro ao buscar:', error);
+                }
+            },
 
-                    this.client = response.data;
+            async selectSeller(){
+                try {
+                    const response = await axios.get(`${this.api}/users/selectSeller`);
+
+                    if(response.data.length > 0) {
+                        this.sellers = response.data;
+                        console.log("Sellers:", this.sellers);
+
+                        const seller = this.sellers.find(seller =>
+                        seller.name.toLowerCase().includes(this.sellerData.name.toLowerCase())
+                        );
+
+                        if(seller){
+                            this.sellerData.id = seller.id;
+                            this.sellerData.name = seller.name;
+                        } else {
+                            console.log('Nenhum vendedor correspondente encontrado!');
+                        }
+                    }
+
+                    console.log(response.data)
                 } catch (error) {
                     console.log('Erro ao buscar:', error);
                 }
