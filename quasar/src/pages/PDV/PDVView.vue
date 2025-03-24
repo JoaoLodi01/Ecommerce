@@ -224,12 +224,11 @@
                             <label class="text-black" for="client">Cliente</label>
                             <input 
                                 placeholder="Consumidor Padrão"
-                                v-model="emitProducts.id"
-                                @input="selectClient()"
+                                v-model="clientData.name"
+                                @keydown.enter="selectClient()"
                                 id="client"
                                 type="text"
                                 class="text-black border border-black w-full"
-
                             />
                         </div>
                     
@@ -390,6 +389,17 @@
                     customerID: 1,
 
                 },
+
+                sellers: [],
+                sellerData: {
+                    id: '',
+                    name: ''
+                },
+                clients: [],
+                clientData: {
+                    id: '',
+                    name: ''
+                },
                 
                 totalOperation: 0,
                 witdhScreen: 0,
@@ -465,7 +475,7 @@
 
                     console.log(response.data)
                 } catch (error) {
-                    console.log('Erro ao buscar:', error);
+                    console.error('selectClient Erro ao buscar:', error);
                 }
             },
 
@@ -480,7 +490,7 @@
                             const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
-                                customer_id: this.emitProducts.customerID,
+                                customer_id: this.clientData.id,
                                 sub_total: this.calculateTotal.subtotal,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 addition: this.calculateTotal.addition,
@@ -578,7 +588,7 @@
                             const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
-                                customer_id: this.emitProducts.customerID,
+                                customer_id: this.clientData.id,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 sub_total: this.calculateTotal.subtotal,
                                 addition: this.calculateTotal.addition,
@@ -605,7 +615,7 @@
                             const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
-                                customer_id: this.emitProducts.customerID,
+                                customer_id: this.clientData.id,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 sub_total: this.calculateTotal.subtotal,
                                 addition: this.calculateTotal.addition,
@@ -748,6 +758,8 @@
                     this.productsSeletion = [],
                     this.emitProducts.addition = 0
                     this.emitProducts.discount = 0
+                    this.clientData.id = null
+                    this.clientData.name = null
                     
                 }
             },

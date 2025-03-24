@@ -8,10 +8,6 @@ DB_PASS="masterkey"
 
 save_db()
 {
-<<<<<<< HEAD
-	mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME -e \
-	"INSERT INTO ambientes (ip, frontend_path, backend_path local) VALUES ('$1')"
-=======
 	echo "dados: "
 	echo "1: $1"
 	echo "2: $2"
@@ -21,7 +17,6 @@ save_db()
 	echo "6: $6"
 	mysql -u $DB_USER -p$DB_PASS $DB_NAME -e \
 	"INSERT INTO ambientes (ip, frontend_path, backend_path, frontend_stack, backend_stack, local) VALUES ('$1', '$2', '$3', '$4', '$5', '$6')"
->>>>>>> 1f3e027591408de607dacc9342a59bd86c388a71
 
 	echo "Dados salvos com sucesso!"
 }
