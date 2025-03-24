@@ -187,7 +187,7 @@
   
   <div :class="{
         'delay-75': !sidebarActive,
-        'transform translate-x-32': sidebarActive,
+        'transform translate-x-36': sidebarActive,
         'transform translate-x-64': sidebarActive && widthScreen <= 1080,
         'top-10 right-14': widthScreen <= 1080,
         'ml-5': widthScreen <= 1080,

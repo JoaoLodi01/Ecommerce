@@ -49,7 +49,7 @@
                     <td scope="row" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
                     <td scope="row" class="px-6 py-3 text-center">{{ product.amount }}</td>
                     <td>
-                    <input
+                    <q-checkbox
                         type="checkbox"
                         v-model="product.isSelected"
                         @change="selectProducts(product)"

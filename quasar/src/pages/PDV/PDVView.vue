@@ -43,7 +43,7 @@
             >
                 <div class="inline-flex p-3">
                     <div 
-                        class="mt-auto mb-auto mr-8 cursor-pointer"
+                        class="mt-auto mb-auto mr-5 cursor-pointer"
                         v-if="witdhScreen !== 0"
                         @click="showproductts"
                         
@@ -54,12 +54,8 @@
 
                     </div>
                     
-                    <div v-if="witdhScreen > 1366" class="border border-black mr-20 rounded-md text-center">
-                        <input
-                            type="text"
-                            class="border-none outline-none ml-2 mt-1 mb-1 w-96"
-                            placeholder="Buscar"
-                        />
+                    <div v-if="witdhScreen > 1366" class="border border-black rounded-md mr-1">
+                        <ProductsSearchBar/>
                     </div>
 
                     <div v-if="witdhScreen > 1366">
@@ -225,12 +221,12 @@
 
                             <br>
 
-                            <label class="text-black" for="discount">Cliente</label>
+                            <label class="text-black" for="client">Cliente</label>
                             <input 
                                 placeholder="Consumidor Padrão"
-                                v-model="emitProducts.customerID"
-                                @input="findCustomer(emitProducts.customerID)"
-                                id="discount"
+                                v-model="emitProducts.id"
+                                @input="selectClient()"
+                                id="client"
                                 type="text"
                                 class="text-black border border-black w-full"
 
@@ -248,7 +244,7 @@
                         v-model.number="emitProducts.addition"
                         type="text"
                         
-                        class="text-black border border-black w-20 p-0.5"
+                        class="text-black rounded-lg border border-black w-20 p-0.5 ml-1 m-1"
                     />
                     
                     <br>
@@ -257,8 +253,7 @@
                         id="discount"
                         v-model.number="emitProducts.discount"
                         type="text"
-                        
-                        class="text-black border border-black w-20 p-0.5"
+                        class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
                     />
                 </div>
         
@@ -378,7 +373,9 @@
     
     import axios from 'axios';
     import PaymentsForm from 'src/components/PaymentsForm.vue';
+    import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
+    
     import { toRaw } from 'vue'   
     
     export default{
@@ -389,8 +386,8 @@
                 emitProducts: {
                     addition: 0,
                     discount: 0,
-                    userID: 0,
-                    customerID: 0,
+                    userID: 1,
+                    customerID: 1,
 
                 },
                 
@@ -447,6 +444,18 @@
         },
         //RTCSessionDescription
         methods: {
+            async selectClient(){
+                try {
+                    const response = await axios.get(`${this.api}/consumers/selectClient`, {
+                        dados: this.selectClient.id,
+                    });
+
+                    this.selectClient = response.data;
+                } catch (error) {
+                    console.log('Erro ao buscar:', error);
+                }
+            },
+
             async saveSale()
             {
                 const saveSale = confirm('Deseja salvar a venda?')
@@ -760,7 +769,8 @@
         
         components: {
             ProductsSelectionView,
-            PaymentsForm
+            PaymentsForm,
+            ProductsSearchBar
 
         },
 

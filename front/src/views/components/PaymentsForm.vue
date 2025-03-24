@@ -202,7 +202,7 @@ export default {
         
         async finalizeSale() {
             this.isLoanding = true
-
+            )
             try {
                 switch (this.typeOperation) {
                     case 'reservation':
@@ -213,7 +213,7 @@ export default {
                         
                         const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
                             customerID: 1,
-                            paymentsValues: this.paymentsValues,
+                            type_peration: this.paymentsValues,
                             roomID: this.roomID,
                             generateCredit: generateCredit
                             
@@ -228,10 +228,10 @@ export default {
                     case 'saleNFCe':
                         console.log('Começou venda NFCe')
                         const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            typeOperation: this.typeOperation,
+                            type_operation: this.typeOperation,
                             change: this.calculateValueChange.change,
-                            paymentsValues: this.paymentsValues,
-                            pdvID: this.pdvID
+                            payments_values: this.paymentsValues,
+                            pdv_id: this.pdvID
                             
                         })
 
@@ -247,10 +247,10 @@ export default {
                         console.log('Começou venda NM')
 
                         const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            typeOperation: this.typeOperation,
+                            type_operation: this.typeOperation,
                             change: this.calculateValueChange.change,
                             paymentsValues: this.paymentsValues,
-                            pdvID: this.pdvID
+                            pdv_id: this.pdvID
 
                         })
                         

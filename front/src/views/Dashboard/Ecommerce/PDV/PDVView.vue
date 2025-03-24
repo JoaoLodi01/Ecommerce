@@ -620,17 +620,7 @@
                 }
             },
 
-            async selectClient(){
-                try {
-                    const response = await axios.get(`${this.api}/consumers/selectClient`, {
-                        Dados: this.selectClient.id,
-                    });
-
-                    this.selectClient = response.data;
-                } catch (error) {
-                    console.log('Erro ao buscar:', error);
-                }
-            }
+            
         },
         
         components: {

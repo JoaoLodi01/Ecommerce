@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\Customer;
 use App\Models\CustomerCredit;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class CustomerRepository
 {
@@ -15,7 +16,7 @@ class CustomerRepository
     }
 
     public function selectClient(array $search){
-        return Customer::where('active', 1)
+        $cusotmer = Customer::where('active', 1)
                         ->when(isset($search['id']), function ($query) use ($search){
                             return $query->where('id', $search['id']);
                         })
@@ -23,6 +24,9 @@ class CustomerRepository
                             return $query->where('name', 'like', "%{$search['name']}%");
                         })
                         ->get();
+
+        Log::info($cusotmer);
+        return $cusotmer;
     }
 
     public function findByID(int $id){
@@ -38,7 +42,6 @@ class CustomerRepository
         return Customer::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password'])
         ]);
     }
 
@@ -48,8 +51,9 @@ class CustomerRepository
     }
 
     public function delete(int $id){
-        return Customer::where('id', $id)->update([
-            'active' => 0,
+        return Customer::where('id', $id)
+                        ->update([
+                            'active' => 0,
         ]);
     }
 }

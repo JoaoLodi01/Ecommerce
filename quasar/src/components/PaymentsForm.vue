@@ -225,10 +225,10 @@ export default {
                         this.isLoanding = !this.isLoanding
                         
                         const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
-                            customerID: 1,
-                            paymentsValues: this.paymentsValues,
-                            roomID: this.roomID,
-                            generateCredit: generateCredit
+                            customer_id: 1,
+                            payments_values: this.paymentsValues,
+                            room_id: this.roomID,
+                            generate_credit: generateCredit
                             
                         });
                         
@@ -241,10 +241,10 @@ export default {
                     case 'nfce':
                         console.log('Começou venda NFCe')
                         const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            typeOperation: 'nfce',
+                            type_operation: 'nfce',
                             change: this.calculateValueChange.change,
-                            paymentsValues: this.paymentsValues,
-                            pdvID: this.pdvID
+                            payments_values: this.paymentsValues,
+                            pdv_id: this.pdvID
                             
                         })
 
@@ -261,10 +261,10 @@ export default {
                         console.log('this.typeOperation:', this.typeOperation)
 
                         const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            typeOperation: 'nm',
+                            type_operation: 'nm',
                             change: this.calculateValueChange.change,
-                            paymentsValues: this.paymentsValues,
-                            pdvID: this.pdvID
+                            payments_values: this.paymentsValues,
+                            pdv_id: this.pdvID
 
                         })
                         

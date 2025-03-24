@@ -18,14 +18,9 @@
                 </button>
             </div>
 
-            <div class="">
+            <div class="ml-10">
                 <!-- Busca de produto -->
-                <input 
-                    type="text"
-                    placeholder="Pesquisar registro" 
-                    class="p-1 w-48 text-start border-none"
-
-                />
+                <ProductsSearchBar/>
 
             </div>
         </div>
@@ -38,6 +33,7 @@
                     <th scope="col" class="px-6 py-3 text-center"> {{ hotelCodCRT === 1 ? 'CSOSN' : 'CST' }} </th>
                     <th scope="col" class="px-6 py-3">Preço de venda</th>
                     <th scope="col" class="px-6 py-3">Quantidade</th>
+                    <th scope="col" class="px-6 py-3">QCheckbox</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,13 +45,17 @@
                     <td scope="row" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
                     <td scope="row" class="px-6 py-3 text-center">{{ product.amount }}</td>
                     <td>
-                    <input 
-                        label="Teal" color="teal"
-                        type="checkbox"
-                        v-model="product.isSelected"
-                        @change="selectProducts(product)"
-                    />
-                    
+                        <input 
+                            label="Teal" color="teal"
+                            type="checkbox"
+                            v-model="product.isSelected"
+                            @change="selectProducts(product)"
+                        />
+
+                    </td>
+                    <td>
+                        <q-checkbox
+                        />
                     </td>
                 </tr>
             </tbody>
@@ -80,6 +80,7 @@
 
 <script>
     import axios from 'axios';
+    import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
 
     export default {
         data(){
@@ -90,6 +91,10 @@
                 api: process.env.VUE_APP_API_URL
 
             }
+        },
+
+        components: {
+            ProductsSearchBar
         },
 
         emits: [
