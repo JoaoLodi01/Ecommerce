@@ -38,7 +38,6 @@ class CustomerRepository
         return Customer::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password'])
         ]);
     }
 
@@ -48,8 +47,9 @@ class CustomerRepository
     }
 
     public function delete(int $id){
-        return Customer::where('id', $id)->update([
-            'active' => 0,
+        return Customer::where('id', $id)
+                        ->update([
+                            'active' => 0,
         ]);
     }
 }

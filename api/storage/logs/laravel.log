@@ -17404,3 +17404,1313 @@
 [2025-03-23 19:32:40] local.INFO: O hotel foi encontrado  
 [2025-03-23 19:32:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-03-23 19:32:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 21:19:10] local.INFO: Chamou o IPController  
+[2025-03-23 21:19:10] local.INFO: Chamou o IPService  
+[2025-03-23 21:19:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 21:19:10] local.INFO: O hotel foi encontrado  
+[2025-03-23 21:19:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 21:19:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 21:19:40] local.INFO: Chamou o IPController  
+[2025-03-23 21:19:40] local.INFO: Chamou o IPService  
+[2025-03-23 21:19:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 21:19:40] local.INFO: O hotel foi encontrado  
+[2025-03-23 21:19:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 21:19:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 21:36:47] local.INFO: Chamou o IPController  
+[2025-03-23 21:36:47] local.INFO: Chamou o IPService  
+[2025-03-23 21:36:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 21:36:47] local.INFO: O hotel foi encontrado  
+[2025-03-23 21:36:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 21:36:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 21:36:52] local.INFO: Chamou o IPController  
+[2025-03-23 21:36:52] local.INFO: Chamou o IPService  
+[2025-03-23 21:36:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 21:36:52] local.INFO: O hotel foi encontrado  
+[2025-03-23 21:36:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 21:36:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 21:38:34] local.INFO: Chamou o IPController  
+[2025-03-23 21:38:34] local.INFO: Chamou o IPService  
+[2025-03-23 21:38:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 21:38:34] local.INFO: O hotel foi encontrado  
+[2025-03-23 21:38:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 21:38:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 21:38:52] local.INFO: Chamou o IPController  
+[2025-03-23 21:38:52] local.INFO: Chamou o IPService  
+[2025-03-23 21:38:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 21:38:52] local.INFO: O hotel foi encontrado  
+[2025-03-23 21:38:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 21:38:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:23:50] local.INFO: Chamou o IPController  
+[2025-03-23 22:23:50] local.INFO: Chamou o IPService  
+[2025-03-23 22:23:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:23:50] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:23:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:23:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:23:53] local.INFO: Chamou o IPController  
+[2025-03-23 22:23:53] local.INFO: Chamou o IPService  
+[2025-03-23 22:23:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:23:53] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:23:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:23:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:24:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:24:17] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:24:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:24:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:24:23] local.INFO: Chamou o IPController  
+[2025-03-23 22:24:23] local.INFO: Chamou o IPService  
+[2025-03-23 22:24:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:24:23] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:24:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:24:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:24:25] local.ERROR: Class "App\Http\Controllers\Request" does not exist {"exception":"[object] (ReflectionException(code: -1): Class \"App\\Http\\Controllers\\Request\" does not exist at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ResolvesRouteDependencies.php:88)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ResolvesRouteDependencies.php(88): ReflectionClass->__construct()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ResolvesRouteDependencies.php(51): Illuminate\\Routing\\ControllerDispatcher->transformDependency()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ResolvesRouteDependencies.php(30): Illuminate\\Routing\\ControllerDispatcher->resolveMethodDependencies()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(60): Illuminate\\Routing\\ControllerDispatcher->resolveClassMethodDependencies()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(41): Illuminate\\Routing\\ControllerDispatcher->resolveParameters()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#36 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#37 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#38 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#39 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#40 {main}
+"} 
+[2025-03-23 22:27:49] local.INFO: Chamou o IPController  
+[2025-03-23 22:27:49] local.INFO: Chamou o IPService  
+[2025-03-23 22:27:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:27:50] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:27:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:27:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:28:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:28:11] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:28:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:28:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:28:15] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:28:15] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:28:15] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:28:15] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:28:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:28:17] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:28:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:28:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:29:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:29:07] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:29:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:29:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:29:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:29:25] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:29:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:29:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:30:44] local.INFO: Chamou o IPController  
+[2025-03-23 22:30:44] local.INFO: Chamou o IPService  
+[2025-03-23 22:30:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:30:45] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:30:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:30:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:32:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:32:11] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:32:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:32:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:33:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:33:22] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:33:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:33:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:33:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:33:23] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:33:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:33:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:33:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:33:26] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:33:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:33:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:33:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:33:27] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:33:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:33:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:33:39] local.INFO: Chamou o IPController  
+[2025-03-23 22:33:39] local.INFO: Chamou o IPService  
+[2025-03-23 22:33:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:33:39] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:33:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:33:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:33:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:33:39] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:33:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:33:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:33:54] local.INFO: Chamou o IPController  
+[2025-03-23 22:33:54] local.INFO: Chamou o IPService  
+[2025-03-23 22:34:06] local.INFO: Chamou o IPController  
+[2025-03-23 22:34:06] local.INFO: Chamou o IPService  
+[2025-03-23 22:34:46] local.INFO: Chamou o IPController  
+[2025-03-23 22:34:46] local.INFO: Chamou o IPService  
+[2025-03-23 22:34:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:34:46] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:34:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:34:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:34:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:34:50] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:34:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:34:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:35:20] local.INFO: Chamou o IPController  
+[2025-03-23 22:35:20] local.INFO: Chamou o IPService  
+[2025-03-23 22:35:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:35:20] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:35:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:35:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:35:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:35:23] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:35:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:35:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:35:41] local.INFO: Chamou o IPController  
+[2025-03-23 22:35:41] local.INFO: Chamou o IPService  
+[2025-03-23 22:35:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:35:41] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:35:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:35:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:36:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:36:13] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:36:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:36:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:36:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:36:14] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:36:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:36:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:36:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:36:21] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:36:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:36:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:36:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:36:31] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:36:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:36:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:36:49] local.INFO: Chamou o IPController  
+[2025-03-23 22:36:49] local.INFO: Chamou o IPService  
+[2025-03-23 22:36:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:36:49] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:36:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:36:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:37:49] local.INFO: Chamou o IPController  
+[2025-03-23 22:37:49] local.INFO: Chamou o IPService  
+[2025-03-23 22:37:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:37:50] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:37:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:37:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:38:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:38:01] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:38:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:38:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:38:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:38:26] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:38:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:38:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:40:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:40:45] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:40:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:40:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:40:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:40:50] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:40:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:40:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:40:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:40:55] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:40:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:40:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:03] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:14] local.INFO: Chamou o IPController  
+[2025-03-23 22:41:14] local.INFO: Chamou o IPService  
+[2025-03-23 22:41:15] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:15] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:15] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:15] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:20] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:21] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:25] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:34] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:38] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:39] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:42] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:45] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:46] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:51] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:41:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:41:58] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:41:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:41:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:42:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:42:00] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:42:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:42:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:42:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:42:03] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:42:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:42:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:42:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:42:14] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:42:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:42:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:42:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:42:16] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:42:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:42:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:42:27] local.INFO: Chamou o IPController  
+[2025-03-23 22:42:27] local.INFO: Chamou o IPService  
+[2025-03-23 22:42:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:42:27] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:42:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:42:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:42:58] local.INFO: Chamou o IPController  
+[2025-03-23 22:42:58] local.INFO: Chamou o IPService  
+[2025-03-23 22:42:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:42:59] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:42:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:42:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:43:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:43:00] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:43:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:43:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:43:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:43:06] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:43:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:43:06] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:43:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:43:14] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:43:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:43:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:43:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:43:35] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:43:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:43:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:43:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:43:47] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:43:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:43:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:44:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:44:29] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:44:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:44:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:44:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:44:29] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:44:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:44:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:44:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:44:36] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:44:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:44:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:44:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:44:53] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:44:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:44:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:44:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:44:54] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:44:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:44:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:44:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:44:56] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:44:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:44:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:44:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:44:57] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:44:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:44:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:45:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:45:01] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:45:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:45:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:45:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:45:06] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:45:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:45:06] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:45:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:45:37] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:45:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:45:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:45:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:45:52] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:45:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:45:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:47:00] local.INFO: Chamou o IPController  
+[2025-03-23 22:47:00] local.INFO: Chamou o IPService  
+[2025-03-23 22:47:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:47:01] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:47:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:47:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:47:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:47:03] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:47:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:47:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:47:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:47:05] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:47:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:47:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:47:23] local.INFO: Chamou o IPController  
+[2025-03-23 22:47:23] local.INFO: Chamou o IPService  
+[2025-03-23 22:47:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:47:23] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:47:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:47:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:47:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:47:27] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:47:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:47:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:47:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:47:29] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:47:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:47:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:47:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:47:35] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:47:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:47:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:47:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:47:36] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:47:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:47:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:47:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:47:59] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:47:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:47:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:48:06] local.INFO: Chamou o IPController  
+[2025-03-23 22:48:06] local.INFO: Chamou o IPService  
+[2025-03-23 22:48:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:48:07] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:48:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:48:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:48:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:48:28] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:48:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:48:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:49:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:49:01] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:49:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:49:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:49:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:49:02] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:49:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:49:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:49:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:49:03] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:49:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:49:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:49:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:49:06] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:49:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:49:06] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:49:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:49:10] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:49:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:49:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:49:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:49:20] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:49:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:49:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:49:29] local.INFO: Chamou o IPController  
+[2025-03-23 22:49:29] local.INFO: Chamou o IPService  
+[2025-03-23 22:49:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:49:29] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:49:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:49:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:51:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:51:57] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:51:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:51:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:52:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:52:14] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:52:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:52:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:52:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:52:20] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:52:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:52:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:52:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:52:50] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:52:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:52:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:54:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:54:14] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:54:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:54:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:54:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:54:21] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:54:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:54:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:54:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:54:22] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:54:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:54:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:54:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:54:32] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:54:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:54:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:55:00] local.INFO: Chamou o IPController  
+[2025-03-23 22:55:00] local.INFO: Chamou o IPService  
+[2025-03-23 22:55:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:55:00] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:55:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:55:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:56:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:56:14] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:56:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:56:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:56:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:56:17] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:56:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:56:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:56:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:56:21] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:56:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:56:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:56:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:56:24] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:56:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:56:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:56:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:56:27] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:56:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:56:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:56:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:56:46] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:56:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:56:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:56:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:56:49] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:56:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:56:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:57:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:57:47] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:57:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:57:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:58:03] local.INFO: Chamou o IPController  
+[2025-03-23 22:58:03] local.INFO: Chamou o IPService  
+[2025-03-23 22:58:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:58:03] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:58:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:58:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:59:12] local.INFO: Chamou o IPController  
+[2025-03-23 22:59:12] local.INFO: Chamou o IPService  
+[2025-03-23 22:59:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:59:12] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:59:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:59:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:59:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:59:14] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:59:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:59:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:59:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:59:18] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:59:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:59:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:59:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:59:22] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:59:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:59:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 22:59:24] local.INFO: Chamou o IPController  
+[2025-03-23 22:59:24] local.INFO: Chamou o IPService  
+[2025-03-23 22:59:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 22:59:24] local.INFO: O hotel foi encontrado  
+[2025-03-23 22:59:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 22:59:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:02:52] local.INFO: Chamou o IPController  
+[2025-03-23 23:02:52] local.INFO: Chamou o IPService  
+[2025-03-23 23:02:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:02:52] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:02:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:02:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:03:15] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:03:15] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:03:15] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:03:15] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:03:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:03:20] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:03:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:03:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:03:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:03:21] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:03:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:03:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:03:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:03:26] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:03:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:03:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:03:44] local.INFO: Chamou o IPController  
+[2025-03-23 23:03:44] local.INFO: Chamou o IPService  
+[2025-03-23 23:03:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:03:44] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:03:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:03:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:03:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:03:49] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:03:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:03:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:00] local.INFO: Chamou o IPController  
+[2025-03-23 23:04:00] local.INFO: Chamou o IPService  
+[2025-03-23 23:04:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:01] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:04] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:26] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:29] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:30] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:34] local.INFO: Chamou o IPController  
+[2025-03-23 23:04:34] local.INFO: Chamou o IPService  
+[2025-03-23 23:04:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:35] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:36] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:37] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:42] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:46] local.INFO: Chamou o IPController  
+[2025-03-23 23:04:46] local.INFO: Chamou o IPService  
+[2025-03-23 23:04:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:47] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:48] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:49] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:50] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:56] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:04:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:04:58] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:04:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:04:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:05:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:05:06] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:05:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:05:06] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:05:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:05:19] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:05:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:05:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:05:24] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:05:24] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:05:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:05:24] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:05:38] local.INFO: Chamou o IPController  
+[2025-03-23 23:05:38] local.INFO: Chamou o IPService  
+[2025-03-23 23:05:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:05:38] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:05:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:05:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:02] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:05] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:10] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:30] local.INFO: Chamou o IPController  
+[2025-03-23 23:06:30] local.INFO: Chamou o IPService  
+[2025-03-23 23:06:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:31] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:37] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:38] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:50] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:53] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:56] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:06:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:06:58] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:06:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:06:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:07:16] local.INFO: Chamou o IPController  
+[2025-03-23 23:07:16] local.INFO: Chamou o IPService  
+[2025-03-23 23:07:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:07:16] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:07:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:07:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:07:55] local.INFO: Chamou o IPController  
+[2025-03-23 23:07:55] local.INFO: Chamou o IPService  
+[2025-03-23 23:07:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:07:56] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:07:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:07:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:07:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:07:56] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:07:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:07:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:08:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:08:00] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:08:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:08:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:08:04] local.INFO: Chamou o IPController  
+[2025-03-23 23:08:04] local.INFO: Chamou o IPService  
+[2025-03-23 23:08:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:08:04] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:08:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:08:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:08:33] local.INFO: Chamou o IPController  
+[2025-03-23 23:08:33] local.INFO: Chamou o IPService  
+[2025-03-23 23:08:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:08:33] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:08:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:08:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:14:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:14:31] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:14:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:14:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:15:05] local.INFO: Chamou o IPController  
+[2025-03-23 23:15:05] local.INFO: Chamou o IPService  
+[2025-03-23 23:15:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:15:05] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:15:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:15:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:15:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:15:08] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:15:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:15:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:15:46] local.INFO: Chamou o IPController  
+[2025-03-23 23:15:46] local.INFO: Chamou o IPService  
+[2025-03-23 23:15:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:15:47] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:15:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:15:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:15:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:15:57] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:15:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:15:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:16:12] local.INFO: Chamou o IPController  
+[2025-03-23 23:16:12] local.INFO: Chamou o IPService  
+[2025-03-23 23:16:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:16:13] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:16:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:16:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:16:45] local.INFO: Chamou o IPController  
+[2025-03-23 23:16:45] local.INFO: Chamou o IPService  
+[2025-03-23 23:16:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:16:45] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:16:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:16:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:16:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:16:46] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:16:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:16:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:16:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:16:48] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:16:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:16:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:17:08] local.INFO: Chamou o IPController  
+[2025-03-23 23:17:08] local.INFO: Chamou o IPService  
+[2025-03-23 23:17:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:17:08] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:17:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:17:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:17:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:17:10] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:17:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:17:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:17:27] local.INFO: Chamou o IPController  
+[2025-03-23 23:17:27] local.INFO: Chamou o IPService  
+[2025-03-23 23:17:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:17:28] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:17:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:17:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:17:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:17:31] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:17:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:17:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:17:42] local.INFO: Chamou o IPController  
+[2025-03-23 23:17:42] local.INFO: Chamou o IPService  
+[2025-03-23 23:17:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:17:43] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:17:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:17:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:17:50] local.INFO: Chamou o IPController  
+[2025-03-23 23:17:50] local.INFO: Chamou o IPService  
+[2025-03-23 23:17:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:17:50] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:17:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:17:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:17:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:17:59] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:17:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:17:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:08] local.INFO: Chamou o IPController  
+[2025-03-23 23:18:08] local.INFO: Chamou o IPService  
+[2025-03-23 23:18:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:08] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:12] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:20] local.INFO: Chamou o IPController  
+[2025-03-23 23:18:20] local.INFO: Chamou o IPService  
+[2025-03-23 23:18:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:20] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:21] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:22] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:35] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:38] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:45] local.INFO: Chamou o IPController  
+[2025-03-23 23:18:45] local.INFO: Chamou o IPService  
+[2025-03-23 23:18:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:45] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:51] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:53] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:18:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:18:58] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:18:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:18:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:19:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:19:06] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:19:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:19:06] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:19:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:19:08] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:19:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:19:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-23 23:19:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-23 23:19:11] local.INFO: O hotel foi encontrado  
+[2025-03-23 23:19:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-23 23:19:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:00:39] local.INFO: Chamou o IPController  
+[2025-03-24 00:00:39] local.INFO: Chamou o IPService  
+[2025-03-24 00:00:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:00:40] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:00:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:00:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:00:52] local.INFO: Chamou o IPController  
+[2025-03-24 00:00:52] local.INFO: Chamou o IPService  
+[2025-03-24 00:00:57] local.INFO: Chamou o IPController  
+[2025-03-24 00:00:57] local.INFO: Chamou o IPService  
+[2025-03-24 00:00:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:00:57] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:00:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:00:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:00:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:00:58] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:00:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:00:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:01:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:01:02] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:01:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:01:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:01:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:01:07] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:01:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:01:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:01:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:01:39] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:01:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:01:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:01:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:01:41] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:01:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:01:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:01:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:01:49] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:01:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:01:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:01:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:01:53] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:01:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:01:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:01:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:01:57] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:01:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:01:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:01:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:01:57] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:01:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:01:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:01:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:01:59] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:01:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:01:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:02:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:02:03] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:02:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:02:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:02:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:02:04] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:02:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:02:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:02:10] local.INFO: Chamou o IPController  
+[2025-03-24 00:02:10] local.INFO: Chamou o IPService  
+[2025-03-24 00:02:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:02:10] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:02:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:02:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:03:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:03:22] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:03:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:03:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:03:57] local.INFO: Chamou o IPController  
+[2025-03-24 00:03:57] local.INFO: Chamou o IPService  
+[2025-03-24 00:03:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:03:57] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:03:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:03:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:03:59] local.ERROR: Undefined constant "App\Http\Controllers\EcommerceController\customerService" {"exception":"[object] (Error(code: 0): Undefined constant \"App\\Http\\Controllers\\EcommerceController\\customerService\" at D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\EcommerceController\\UserController.php:23)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\UserController->selectWinner()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#34 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#36 {main}
+"} 
+[2025-03-24 00:11:59] local.INFO: Chamou o IPController  
+[2025-03-24 00:11:59] local.INFO: Chamou o IPService  
+[2025-03-24 00:11:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:11:59] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:11:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:11:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:12:07] local.ERROR: Undefined constant "App\Http\Controllers\EcommerceController\customerService" {"exception":"[object] (Error(code: 0): Undefined constant \"App\\Http\\Controllers\\EcommerceController\\customerService\" at D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\EcommerceController\\UserController.php:23)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\UserController->selectWinner()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#34 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#36 {main}
+"} 
+[2025-03-24 00:15:39] local.INFO: Chamou o IPController  
+[2025-03-24 00:15:39] local.INFO: Chamou o IPService  
+[2025-03-24 00:15:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:15:39] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:15:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:15:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:17:19] local.INFO: Chamou o IPController  
+[2025-03-24 00:17:19] local.INFO: Chamou o IPService  
+[2025-03-24 00:17:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:17:19] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:17:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:17:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:21:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:21:48] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:21:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:21:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:21:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:21:51] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:21:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:21:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:21:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:21:58] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:21:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:21:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:02] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:04] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:05] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:07] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:10] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:13] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:25] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:26] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:35] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:22:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:22:45] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:22:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:22:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:30:29] local.INFO: Chamou o IPController  
+[2025-03-24 00:30:29] local.INFO: Chamou o IPService  
+[2025-03-24 00:30:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:30:29] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:30:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:30:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:32:00] local.INFO: Chamou o IPController  
+[2025-03-24 00:32:00] local.INFO: Chamou o IPService  
+[2025-03-24 00:32:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:32:00] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:32:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:32:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:32:05] local.ERROR: App\Http\Controllers\EcommerceController\UserController::findByID(): Argument #1 ($id) must be of type int, string given, called in D:\ProjetoWeb\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\EcommerceController\\UserController::findByID(): Argument #1 ($id) must be of type int, string given, called in D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\EcommerceController\\UserController.php:31)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\UserController->findByID()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#34 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#36 {main}
+"} 
+[2025-03-24 00:32:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:32:22] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:32:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:32:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:32:27] local.ERROR: Call to undefined method App\Http\Controllers\EcommerceController\UserController::selectSeller() {"exception":"[object] (Error(code: 0): Call to undefined method App\\Http\\Controllers\\EcommerceController\\UserController::selectSeller() at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php:47)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#33 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#35 {main}
+"} 
+[2025-03-24 00:32:31] local.INFO: Chamou o IPController  
+[2025-03-24 00:32:31] local.INFO: Chamou o IPService  
+[2025-03-24 00:32:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:32:31] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:32:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:32:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:32:35] local.ERROR: Call to undefined method App\Http\Controllers\EcommerceController\UserController::selectSeller() {"exception":"[object] (Error(code: 0): Call to undefined method App\\Http\\Controllers\\EcommerceController\\UserController::selectSeller() at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php:47)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#33 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#35 {main}
+"} 
+[2025-03-24 00:34:03] local.INFO: Chamou o IPController  
+[2025-03-24 00:34:03] local.INFO: Chamou o IPService  
+[2025-03-24 00:34:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:34:03] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:34:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:34:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:35:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:35:46] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:35:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:35:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:35:48] local.INFO: Chamou o IPController  
+[2025-03-24 00:35:48] local.INFO: Chamou o IPService  
+[2025-03-24 00:35:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:35:48] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:35:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:35:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:37:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:37:01] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:37:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:37:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:37:02] local.INFO: Chamou o IPController  
+[2025-03-24 00:37:02] local.INFO: Chamou o IPService  
+[2025-03-24 00:37:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:37:02] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:37:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:37:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:37:19] local.INFO: Chamou o IPController  
+[2025-03-24 00:37:19] local.INFO: Chamou o IPService  
+[2025-03-24 00:37:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:37:19] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:37:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:37:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:37:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:37:26] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:37:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:37:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-24 00:38:29] local.INFO: Chamou o IPController  
+[2025-03-24 00:38:29] local.INFO: Chamou o IPService  
+[2025-03-24 00:38:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-24 00:38:30] local.INFO: O hotel foi encontrado  
+[2025-03-24 00:38:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-24 00:38:30] local.INFO: Opção desativada, não vai alterar o endereço  

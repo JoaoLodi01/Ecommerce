@@ -12,15 +12,62 @@ class UserService
         $this->userRepository = $userRepository;
     }
 
-    public function getAll(){}
+    public function getAll(){
+        try {
+            return $this->userRepository->getAll(1);
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
+    }
 
-    public function findById(){}
+    public function selectSeller(array $search){
+        try {
+            return $this->userRepository->selectSeller($search);
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
+    }
 
-    public function store(){}
+    public function findById(int $id){
+        try {
+            return response()->json([
+                'success' => true,
+                'winner' => $this->userRepository->findById($id)
+            ]);
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
+    }
 
-    public function update(){}
+    public function store(array $data){
+        try {
+            $this->userRepository->store($data);
+            return response()->json(true);
+            
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
+    }
 
-    public function delete(){}
+    public function update(array $data, int $id){
+        try {
+            $this->userRepository->update($array, $id);
+            return response()->json(true);
+
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
+    }
+
+    public function delete(int $id){
+        try {
+            $this->userRepository->delete($id);
+            return response()->json(true);
+
+        } catch (\Throwable $th) {
+            return $this.returnResponse($th);
+        }
+    }
 
     public function returnResponse($th){
         return response()->json([

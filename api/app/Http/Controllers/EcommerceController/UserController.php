@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\EcommerceController;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Http\Controllers\Controller;
 use App\Services\EcommerceService\UserService;
 
 class UserController extends Controller
@@ -16,6 +17,10 @@ class UserController extends Controller
 
     public function getAll(){
         return $this->userService->getAll();
+    }
+
+    public function selectSeller(Request $request){
+        return $this->userService->selectSeller($request->all());
     }
 
     public function store($request){
