@@ -131,7 +131,8 @@ Route::prefix('users')->group( function(){
     
 });
 
-Route::get('/get-ip', [IPController::class, 'create']); });
+Route::get('/get-ip', [IPController::class, 'create']);
+});
 
 Route::get('/php-info', function (){
     return phpinfo();

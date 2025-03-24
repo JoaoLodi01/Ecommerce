@@ -2,44 +2,62 @@
 <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
     <h2 class="text-xl font-semibold mb-4">Cadastro de Cliente</h2>
     
-    <form @submit.prevent="submitForm">
+    <div class="max-w-md mx-auto mt-5 p-6 bg-white shadow-md rounded">
+      <div>
+        <label for="client">Cliente:</label>
+        <input 
+        type="text" 
+        v-model="form.client" 
+        id="client" 
+        placeholder="Inserir..."
+        class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+        />
+      </div>
 
-      <label for="client">Cliente:</label>
-      <input 
-      type="text" 
-      v-model="form.client" 
-      id="client" 
-      placeholder="Inserir..."/>
+      <div>
+        <label for="cpf">CPF:</label>
+        <input 
+        type="text" 
+        v-model="form.cpf" 
+        id="cpf" 
+        placeholder="Inserir..."
+        class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+        />
+      </div>
 
-      <label for="cpf">CPF:</label>
-      <input 
-      type="text" 
-      v-model="form.cpf" 
-      id="cpf" 
-      placeholder="Inserir..."/>
+      <div>
+        <label for="cnpj">CNPJ:</label>
+        <input 
+        type="text" 
+        v-model="form.cnpj" 
+        id="cnpj" 
+        placeholder="Inserir..."
+        class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+        />
+      </div>
 
-      <label for="cnpj">CNPJ:</label>
-      <input 
-      type="text" 
-      v-model="form.cnpj" 
-      id="cnpj" 
-      placeholder="Inserir..."/>
+      <div>
+        <label for="email">E-mail:</label>
+        <input 
+        type="email" 
+        v-model="form.email" 
+        id="email" 
+        placeholder="Inserir..."
+        class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+        />
+      </div>
 
-      <label for="email">E-mail:</label>
-      <input 
-      type="email" 
-      v-model="form.email" 
-      id="email" 
-      placeholder="Inserir..."/>
-
-      <label for="phone">Fone:</label>
-      <input 
-      type="number" 
-      v-model="form.phone" 
-      id="phone" 
-      placeholder="Inserir..."/>
-
-    </form>
+      <div>
+        <label for="phone">Fone:</label>
+        <input 
+        type="number" 
+        v-model="form.phone" 
+        id="phone" 
+        placeholder="Inserir..."
+        class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+        />
+      </div>
+    </div>
   </div>
 </template>
 

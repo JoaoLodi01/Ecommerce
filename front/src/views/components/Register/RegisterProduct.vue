@@ -1,11 +1,11 @@
 <template>
-    <form @submit.prevent="addProduct" class="bg-white shadow-lg rounded-lg border border-gray-300">
+    <form @submit.prevent="addProduct" class="bg-white shadow-lg rounded-lg w-8/12 border border-gray-300 space-y-4">
       <!--border-gray-300" para retornar como estava, deixo assim-->
-      <h2 class="text-2xl text-center font-semibold mb-4">Cadastrar Novo Produto</h2>
+      <h2 class="text-2xl text-center font-semibold mb-4">Cadastro de Produto</h2>
   
-      <div class="max-w-md mx-auto mt-5 p-6 bg-white shadow-md rounded">
+      <div class="mt-5 p-6 bg-white shadow-md rounded">
         <!-- Nome do produto -->
-        <div>
+        <div class="flex space-x-4 w-7/12">
           <label for="name" class="block text-sm font-medium">Produto:</label>
           <input 
             v-model="product.name" 
@@ -15,19 +15,17 @@
             class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
           />
         </div>
-  
         <!-- Quantidade -->
-        <div>
+        <div class="flex justify-center">
           <label for="quantity" class="block text-sm font-medium">Quantidade:</label>
           <input 
             v-model="product.quantity" 
             type="number" 
             id="quantity" 
             placeholder="Quantidade..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+            class="mt-1 p-2 w-24 border border-gray-300 rounded-lg"
           />
         </div>
-  
         <!-- Preço de Custo -->
         <div>
           <label for="cost" class="block text-sm font-medium">Preço de Custo:</label>
@@ -36,10 +34,9 @@
             type="number" 
             id="cost" 
             placeholder="Preço de custo..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+            class="mt-1 p-2 w-32 border border-gray-300 rounded-lg"
           />
         </div>
-  
         <!-- Preço de Venda -->
         <div>
           <label for="sale" class="block text-sm font-medium">Preço de Venda:</label>
@@ -48,10 +45,9 @@
             type="number" 
             id="sale" 
             placeholder="Preço de venda..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+            class="mt-1 p-2 w-32 border border-gray-300 rounded-lg"
           />
         </div>
-  
         <!-- Percentual de Lucro -->
         <div>
           <label for="profit" class="block text-sm font-medium">% de Lucro:</label>
@@ -60,10 +56,9 @@
             type="number" 
             id="profit" 
             placeholder="% de lucro..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+            class="mt-1 p-2 w-20 border border-gray-300 rounded-lg"
           />
         </div>
-  
         <!-- NCM -->
         <div>
           <label for="ncm" class="block text-sm font-medium">NCM:</label>
@@ -72,10 +67,9 @@
             type="number" 
             id="ncm" 
             placeholder="NCM..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+            class="mt-1 p-2 w-32 border border-gray-300 rounded-lg"
           />
         </div>
-  
         <!-- CEST -->
         <div>
           <label for="cest" class="block text-sm font-medium">CEST:</label>
@@ -84,10 +78,9 @@
             type="number" 
             id="cest" 
             placeholder="CEST..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+            class="mt-1 p-2 w-32 border border-gray-300 rounded-lg"
           />
         </div>
-  
         <!-- CSOSN -->
         <div>
           <label for="csosn" class="block text-sm font-medium">CSOSN:</label>
@@ -96,10 +89,9 @@
             type="number" 
             id="csosn" 
             placeholder="CSOSN..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+            class="mt-1 p-2 w-32 border border-gray-300 rounded-lg"
           />
         </div>
-  
         <!-- CFOP -->
         <div>
           <label for="cfop" class="block text-sm font-medium">CFOP:</label>
@@ -108,10 +100,9 @@
             type="number" 
             id="cfop" 
             placeholder="CFOP..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+            class="mt-1 p-2 w-32 border border-gray-300 rounded-lg"
           />
         </div>
-  
         <!-- Botão de cadastro -->
         <div>
           <button class="mt-2 ml-1 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500" @click="cancelOperation()">Voltar</button>

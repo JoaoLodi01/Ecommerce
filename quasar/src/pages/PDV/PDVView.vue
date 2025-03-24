@@ -446,11 +446,24 @@
         methods: {
             async selectClient(){
                 try {
-                    const response = await axios.get(`${this.api}/consumers/selectClient`, {
-                        dados: this.selectClient.id,
-                    });
+                    const response = await axios.get(`${this.api}/customers/selectClient`);
+                    
+                    if(response.data.length > 0) {
+                        this.clients = response.data;
 
-                    this.selectClient = response.data;
+                        const client = this.clients.find(client => 
+                        client.name.toLowerCase().includes(this.clientData.name.toLowerCase())
+                        );
+
+                        if(client) {
+                            this.clientData.id = client.id;
+                            this.clientData.name = client.name;
+                        } else {
+                            console.log('Nenhum cliente correspondente encontrado!');
+                        }
+                    }
+
+                    console.log(response.data)
                 } catch (error) {
                     console.log('Erro ao buscar:', error);
                 }
