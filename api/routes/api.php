@@ -134,17 +134,6 @@ Route::prefix('users')->group( function(){
 Route::get('/get-ip', [IPController::class, 'create']);
 });
 
-
-
-Route::get('/page-401', function (){
-    return response()->json([
-        'status' => 'error',
-        'success' => false,
-        'message' => 'Acesso negado',
-        
-    ]);
-});
-
 Route::get('/php-info', function (){
     return phpinfo();
 });

@@ -270,9 +270,8 @@
                     discount: 0,
                     userID: 1,
                     customerID: 0,
-
                 },
-                
+                client: {},
                 totalOperation: 0,
                 withScreen: 0,
                 textSize: 4,
@@ -623,10 +622,12 @@
             async selectClient(){
                 try {
                     const response = await axios.get(`${this.api}/consumers/selectClient`, {
-                        Dados: this.selectClient.id,
+                        dados: this.client.id,
                     });
 
-                    this.selectClient = response.data;
+                    console.log(response.data)
+
+                    this.client = response.data;
                 } catch (error) {
                     console.log('Erro ao buscar:', error);
                 }
