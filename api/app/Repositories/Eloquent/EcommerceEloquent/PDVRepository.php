@@ -212,10 +212,13 @@ class PDVRepository
         if($total >= $pdv->net_value)
         {
             Log::info('Foi maior');
+            Log::info($pdv->is_nfce_nm);
             
             /*$payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual 
             N° $pdv->id", 'pdv', $pdv);*/
             $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv);
+            Log::info('payMentMethodService');
+            Log::info($payMentMethodService);
 
             if ($payMentMethodService['success'] === true) {
                 Log::info('Pagamento bem sucessido, vai alterar o PDV: ' . $pdv);

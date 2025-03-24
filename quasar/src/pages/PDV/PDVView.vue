@@ -526,14 +526,15 @@
             {
                 // Só vai chamar a forma de pagamento
                 console.log('emitProducts', this.emitProducts)    
+                console.log('this.idPDV', this.idPDV)    
+                console.log('type', type)    
                 this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
                 try {
                     if(this.idPDV)
                     {
-                        console.log('this.idPDV', this.idPDV)
                         if(type === 'nm')
                         {
-                            this.typeOperation = 'saleNM'
+                            this.typeOperation = type
                             this.showPaymentsForm = !this.showPaymentsForm
                             this.pdvID = Number(this.idPDV)
 
@@ -541,11 +542,12 @@
 
                         if(type === 'nfce')
                         {
-                            this.typeOperation = 'saleNFCe'
+                            this.typeOperation = type
                             this.showPaymentsForm = !this.showPaymentsForm
                             this.pdvID = Number(this.idPDV)
                         }
                         
+                        console.log('Falhou')
                         
                     } else {
                         if(type === 'nm')   
@@ -567,7 +569,7 @@
 
                             if(response.data.success === true)
                             {
-                                this.typeOperation = 'saleNM'
+                                this.typeOperation = type
                                 this.showPaymentsForm = !this.showPaymentsForm
                                 this.pdvID = response.data.pdvID
 
@@ -592,7 +594,7 @@
                             console.log('response.dat PDVView, line 415: ', response.data)
                             if(response.data.success === true)
                             {
-                                this.typeOperation = 'saleNFCe'
+                                this.typeOperation = type
                                 this.showPaymentsForm = !this.showPaymentsForm
                                 this.pdvID = response.data.pdvID
 
