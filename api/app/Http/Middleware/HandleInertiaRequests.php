@@ -19,7 +19,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function version(Request $request): ?string
     {
-        return md5_file(base_path('../Front/package.json'));
+        return parent::version($request);
     }
 
     /**
