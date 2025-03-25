@@ -151,7 +151,7 @@ export default {
         },
 
         witdhScreen: {
-            type: Boolean,
+            type: Number,
             required: true
         },
 
@@ -215,7 +215,8 @@ export default {
         
         async finalizeSale() {
             this.isLoanding = true
-
+            this.message = ''
+            
             try {
                 switch (this.typeOperation) {
                     case 'reservation':
@@ -291,7 +292,9 @@ export default {
                     this.isLoanding = !this.isLoanding
                     this.message = error.response.data.message
 
+                    
                 }
+                    
             }
             
         },

@@ -136,7 +136,7 @@
                             <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
                             <td class="text-center">
                                 <div class="m-auto">
-                                    <button>
+                                    <button @click="productOptions(product, 'delete')">
                                         <svg 
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none" 
@@ -144,22 +144,26 @@
                                             stroke-width="1.5" 
                                             stroke="currentColor" 
                                             class="size-4 text-red-500 mr-4">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" 
+                                        />
+                                            delete
                                         </svg>
                                     </button>
 
-                                    <button @click="productOptions">
+                                    <button @click="productOptions(product, 'options')">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 16 16" fill="currentColor"
                                             class="size-4 text-blue-600 mr-4">
-                                            <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm6 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
+                                            <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm6 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"
+                                        />
+                                            options
                                         </svg>
                                     </button>
 
-                                    <button>
+                                    <button @click="productOptions(product, 'view')">
                                         <svg 
-                                            v-if="witdhScreen <= 1080"
+                                            
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24" 
@@ -167,7 +171,10 @@
                                             stroke="currentColor" 
                                             class="size-4">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                            view
+                                            <!-- CODAR AAAAAAAAAAAAAAAAAAAAAAAAAAAAQQQQQQQQQQQQQQQQQQQQQQQ -->
                                         </svg>
+
 
                                     </button>
                                 </div>
@@ -178,18 +185,24 @@
                 </table>                
                 
             </div>
+        </div>
 
-            <div v-if="showProductOptions" class="relative w-64 p-2 mr-5 ml-auto bg-slate-500 text-white">
-                <div class="text-left">
-                    <span>Desconto: R$
-                        <input 
-                            type="text"
-                            class="w-16 bg-slate-400"
-                            
-                        />
-                    
-                    </span>
-                </div>
+        <div v-if="viewProduct.show" class="absolute top-32 left-9 w-64 p-2 mr-5 ml-auto bg-slate-500 text-white z-50">
+            <div @click="viewProduct.show = !viewProduct.show">X</div>
+            <div class="text-left">
+                <p><span>Cód {{ viewProduct.id }}</span></p>
+                <p><span>Preço unitário: R${{ viewProduct.sale_price }}</span></p>
+                <p>
+                    <input 
+                        v-model="viewProduct.amount"
+                        :placeholder=viewProduct.amount
+                        type="text"
+                        class="w-10 text-center border-b-4 border-b-gray-500 bg-black text-white"
+                        @input="changeAmount(viewProduct.id, viewProduct.amount)"
+                        
+                    />
+                
+                </p>
                 
             </div>
         </div>
@@ -327,23 +340,8 @@
             </div>
         </div>
 
-        <!-- oder options>
-        <div class="bg-purple-400">
-            <div 
-                class="m-2 p-2"
-            >
-                <p>
-                    <button>12</button>
-                </p>
-                <p>
-                    <button>12</button>
-                </p>
-
-                <p>
-                    <button>12</button>
-                </p>
-            </div>
-        </div-->
+        <!-- oder options -->
+        
     </div>
 
     <div
@@ -382,19 +380,21 @@
             return {
                 productsSeletion: [],
                 hotelCodCRT: 0,
+
                 emitProducts: {
                     addition: 0,
                     discount: 0,
-                    userID: 1,
-                    customerID: 1,
+                    userID: 0,
 
                 },
 
                 sellers: [],
+
                 sellerData: {
                     id: '',
                     name: ''
                 },
+
                 clients: [],
                 clientData: {
                     id: '',
@@ -409,7 +409,15 @@
                 showGrid: true,
                 isLoanding: true,
                 showPaymentsForm: false,
-                showProductOptions: false,
+
+                viewProduct: {
+                    show: false,
+                    id: '',
+                    amount: 0,
+                    sale_price: 0,
+                    total: 0
+                    
+                },
                 isOpenedPDV: false,
                 success: null,
                 typeOperation: '',
@@ -452,7 +460,7 @@
                 }
             },
         },
-        //RTCSessionDescription
+        
         methods: {
             async selectClient(){
                 try {
@@ -473,7 +481,6 @@
                         }
                     }
 
-                    console.log(response.data)
                 } catch (error) {
                     console.error('selectClient Erro ao buscar:', error);
                 }
@@ -555,14 +562,14 @@
                 }
             },
             
-            async finalizeSale(type)
+            async finalizeSale(type) // Só vai chamar a forma de pagamento
             {
-                // Só vai chamar a forma de pagamento
-                console.log('emitProducts', this.emitProducts)    
-                console.log('this.idPDV', this.idPDV)    
-                console.log('type', type)    
-                this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
                 try {
+                    if(this.clientData.id && this.emitProducts.userID)
+                    {
+                        console.log('Pode calcular o total')
+                        this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
+                    }
                     if(this.idPDV)
                     {
                         if(type === 'nm')
@@ -583,8 +590,9 @@
                         console.log('Falhou')
                         
                     } else {
+                        console.log('Finalizar venda')
                         if(type === 'nm')   
-                        {
+                        { 
                             const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
@@ -598,7 +606,7 @@
                                 
                             })
 
-                            console.log('response.dat PDVView, line 415: ', response.data)
+                            console.log('response.dat PDVView, line 581: ', response.data)
 
                             if(response.data.success === true)
                             {
@@ -608,10 +616,10 @@
 
                             }
                         
-                        }
+                        } 
                     
                         if(type === 'nfce')
-                        {
+                        {  
                             const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
@@ -624,7 +632,8 @@
                                 is_nfce_nm: type
                                 
                             })
-                            console.log('response.dat PDVView, line 415: ', response.data)
+                            console.log('response.dat PDVView, line 607: ', response.data)
+
                             if(response.data.success === true)
                             {
                                 this.typeOperation = type
@@ -633,10 +642,11 @@
 
                             }
                         }
+                    
                     }
                     
                 } catch (error) {
-                    console.error('Erro finalizeSale', error)   
+                    console.error('Erro finalizeSale', error.response.data)   
                 }
             },
 
@@ -675,22 +685,25 @@
 
             changeAmount(id, newAmount)
             {
-                const rawProducts = toRaw(this.productsSeletion)
-
+                const rawProducts = toRaw(this.productsSeletion)   
+                
                 let productFound = null;
                 
                 for (let i = 0; i < rawProducts.length; i++) {
                     const productArray = rawProducts[i];
                     productFound = productArray.find(p => p.id === id)
+                    
+
                     if(productFound) break
 
                 }
 
                 if(productFound)
                 {
-                    productFound.amount_sold = newAmount
+                    productFound.amount = newAmount
 
                 }
+                
             },
 
             changeCFOP(id, newCFOP)
@@ -745,9 +758,60 @@
 
             },
 
-            productOptions()
+            productOptions(product, action)
             {
-                this.showProductOptions = !this.showProductOptions
+                console.log('action:', action)
+                let rawProducts = toRaw(this.productsSeletion)
+
+                switch (action) {
+                    case 'delete':
+                        console.log('delete')
+
+                        for (let i = 0; i < rawProducts.length; i++) {
+                            const products = rawProducts[i];
+                            const index = products.findIndex(p => p.id === product.id)                            
+
+                            if(index !== -1)
+                            {
+                                products.splice(index, 1)
+                                
+                                while (products.length <= 0 ) {
+                                    this.productsSeletion = []
+                                    break
+                                }
+                                break
+                            }
+                        }
+                        break;
+                        
+                    case 'view':
+                        for (let i = 0; i < rawProducts.length; i++) {
+                            const products = rawProducts[i];
+                            const productDetail = products.find(p => p.id === product.id)
+                            console.log(productDetail.id)
+
+                            this.viewProduct = {
+                                id: productDetail.id,
+                                amount: productDetail.amount,
+                                sale_price: productDetail.sale_price,
+                                total: productDetail.amount * productDetail.sale_price
+                            }
+                            console.log(this.viewProduct)
+
+                            this.viewProduct.show = !this.viewProduct.show
+                            console.log(this.viewProduct.show)
+                        }
+                        
+                        
+                        break;
+
+                    case 'options':
+                        
+                        break;
+                
+                    default:
+                        break;
+                }
             },
 
             resetSale(confirmed)
@@ -808,7 +872,7 @@
             this.getHotel()
             this.witdhScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
-
+            
             if(this.idPDV)
             {
                 this.importSale()            

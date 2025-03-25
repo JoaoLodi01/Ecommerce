@@ -33,7 +33,7 @@
                     <th scope="col" class="px-6 py-3 text-center"> {{ hotelCodCRT === 1 ? 'CSOSN' : 'CST' }} </th>
                     <th scope="col" class="px-6 py-3">Preço de venda</th>
                     <th scope="col" class="px-6 py-3">Quantidade</th>
-                    <th scope="col" class="px-6 py-3">QCheckbox</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -52,10 +52,6 @@
                             @change="selectProducts(product)"
                         />
 
-                    </td>
-                    <td>
-                        <q-checkbox
-                        />
                     </td>
                 </tr>
             </tbody>
@@ -105,7 +101,7 @@
 
         props: {
             witdhScreen: {
-                type: Number,
+                type: Number
 
             },
 
