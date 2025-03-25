@@ -29,7 +29,6 @@
                 @close="cancelOperation"
                 @update:selectProducts="resetSale($event)"
 
-
             />
         </div>
         
@@ -60,7 +59,7 @@
 
                     <div v-if="witdhScreen > 1366">
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
-                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="">Voltar para a listagem</router-link></button>
+                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
@@ -163,7 +162,7 @@
 
                                     <button @click="productOptions(product, 'view')">
                                         <svg 
-                                            
+                                            v-if="witdhScreen <= 1080"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24" 
@@ -172,9 +171,8 @@
                                             class="size-4">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                                             view
-                                            <!-- CODAR AAAAAAAAAAAAAAAAAAAAAAAAAAAAQQQQQQQQQQQQQQQQQQQQQQQ -->
+                                            
                                         </svg>
-
 
                                     </button>
                                 </div>
@@ -250,24 +248,30 @@
                         id="values"
                         
                     >
-                    <label class="text-black" for="addition">Acréscimo R$</label>
-                    <input 
-                        id="addition"
-                        v-model.number="emitProducts.addition"
-                        type="text"
-                        
-                        class="text-black rounded-lg border border-black w-20 p-0.5 ml-1 m-1"
-                    />
-                    
-                    <br>
-                    <label class="text-black" for="discount">Desconto R$</label>
-                    <input 
-                        id="discount"
-                        v-model.number="emitProducts.discount"
-                        type="text"
-                        class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
-                    />
-                </div>
+                        <label class="text-black" for="addition">Acréscimo R$</label>
+                        <input 
+                            id="addition"
+                            v-model.number="emitProducts.addition"
+                            type="text"
+                            class="text-black rounded-lg border border-black w-20 p-0.5 ml-1 m-1"
+                        />
+                        <br>
+                        <label class="text-black" for="discount">Desconto R$</label>
+                        <input 
+                            id="discount"
+                            v-model.number="emitProducts.discount"
+                            type="text"
+                            class="text-black rounded-lg border border-black w-20 p-0.5 ml-3.5 m-1"
+                        />
+                        <br>
+                        <label class="text-black" for="discount">Frete R$</label>
+                        <input 
+                            id="discount"
+                            v-model.number="emitProducts.freight"
+                            type="text"
+                            class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
+                        />
+                    </div>
         
                 <div
                     class="m-2 p-2 rounded-lg border border-gray-700"
@@ -277,7 +281,7 @@
                     <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
                     <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
                     <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
-                    <p class="flex justify-between">Frete <span>R$ {{ '0.00' }}</span></p>
+                    <p class="flex justify-between">Frete <span>R$ {{ calculateTotal.freight.toFixed(2) }}</span></p>
                 
                 </div>
              
@@ -288,9 +292,9 @@
                             title="Sem vendas no momento"
                             class="mr-1 ml-2 bg-slate-600 rounded-md"
                             
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-300">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-300">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                             </svg>
                         </button>
 
@@ -325,7 +329,7 @@
                         </button>
 
                         <div class="mb-auto ml-auto text-xl w-auto">
-                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.addition - calculateTotal.discount }}</span>
+                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount }}</span>
                         
                         </div>
                     </div>
@@ -384,8 +388,9 @@
                 emitProducts: {
                     addition: 0,
                     discount: 0,
+                    freight: 0,
                     userID: 0,
-
+                    
                 },
 
                 sellers: [],
@@ -451,11 +456,13 @@
 
                 const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
                 const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
+                const freight = typeof this.emitProducts.freight === 'number' ? this.emitProducts.freight : 0
 
                 return {
                     subtotal: subtotal,
                     addition: addition,
-                    discount: discount
+                    discount: discount,
+                    freight: freight
                     
                 }
             },
@@ -568,7 +575,7 @@
                     if(this.clientData.id && this.emitProducts.userID)
                     {
                         console.log('Pode calcular o total')
-                        this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.addition - this.calculateTotal.discount
+                        this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.freight + this.calculateTotal.addition - this.calculateTotal.discount
                     }
                     if(this.idPDV)
                     {

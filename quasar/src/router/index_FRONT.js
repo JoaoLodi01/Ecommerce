@@ -49,21 +49,7 @@ const routes = [
     name: "Settings",
     component: SettingsView,
   },
-  {
-    path: '/financial/cash-register',
-    name: 'CashRegister',
-    component: CashRegisterView,
-  },
-  {
-    path: '/financial/receive',
-    name: 'ToReceiveView',
-    component: ToReceiveView,
-  },
-  {
-    path: '/financial/to-pay',
-    name: 'ToPayView',
-    component: ToPayView,
-  },
+  
   {
     path: '/products',
     name: 'Products',
