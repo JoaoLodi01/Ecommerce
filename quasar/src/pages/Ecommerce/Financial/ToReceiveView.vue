@@ -110,36 +110,6 @@ export default {
     },
 
     methods: {
-        async submitForm(){
-            try {
-                if (!this.cash.description || !this.cash.valor_entrada && !this.cash.valor_saida){
-                    alert("Descrição e pelo menos um valor (entrada ou saída) são obrigatórios!");
-                    return;
-                }
-
-                const response = await axios.post(`${this.api}/cash-register/create`, this.cash, {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
-
-                this.cashs.push({ ...this.cash});
-                this.cash = {
-                    description: "",
-                    valor_entrada: "",
-                    valor_saida: "",
-                }
-
-                console.log("Resposta da API:", response.data);
-                alert("Cadastro realizado com sucesso!");
-
-            } catch (error) {
-                console.log("Erro ao cadastrar:", error);
-                alert("Erro ao cadastrar!");
-
-            }
-        },
-
         async getRegister(){
             try {
                 const response = await axios.get(`${this.api}/ecommerce/cash-register/all/receive`)
