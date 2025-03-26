@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
+$valor = '1';
 
-$customer = DB::table('customer')->first();
+$amarelo = 'valor';
 
-$customer->name;
+echo $$amarelo; // 1
