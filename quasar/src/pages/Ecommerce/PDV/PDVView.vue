@@ -375,13 +375,11 @@
 </template>
 
 <script>
-    
-    import axios from 'axios';
     import PaymentsForm from 'src/components/PaymentsForm.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing.vue'
-
+    import { api } from "boot/axios"
     import { toRaw } from 'vue'   
     
     export default{
@@ -545,7 +543,8 @@
             async getHotel()
             {
                 try {
-                    const response = await axios.get(`${this.api}/hotel/all`)
+                    const response = await api.get('/hotel/all')
+
                     if(response.data.success === true)
                     {
                         this.hotelCodCRT += response.data.all.hotel.cod_crt
@@ -566,6 +565,7 @@
 
                     }
                 } catch (error) {
+                    console.log('erro ao buscar o hotel: ', error)
                     if(error.response.data.message === 'Hotel não encontrado')
                     {
                         alert(error.response.data.message)

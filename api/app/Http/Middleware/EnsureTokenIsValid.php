@@ -3,7 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
 class EnsureTokenIsValid
@@ -15,9 +17,12 @@ class EnsureTokenIsValid
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->input('token') !== 'my-token')
+        $check = Auth::check();
+        Log::info('EnsureTokenIsValid ' . $check);
+        
+        if (!$check)
         {
-            return redirect('/api/page-401')->with('error', 'Acesso negado');
+            return redirect('php.info')->with('error', 'Acesso negado');
 
         }
 
