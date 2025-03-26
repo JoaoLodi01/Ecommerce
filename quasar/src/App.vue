@@ -29,6 +29,7 @@
     import { api } from "boot/axios"
     import Sidebar from 'src/components/Sidebar.vue';
     import { LocalStorage } from 'quasar';
+import axios from "axios";
 
     export default {
         data(){
@@ -52,16 +53,18 @@
                 try {
                     console.log("Enviando dados:", this.details);
                     
-                    // Enviar os dados corretamente
+                    
                     const response = await api.post("/auth/auth", this.details);
+                    
                     console.log("Resposta:", response.data);
 
                     if (response.data.status && response.data.token) {
-                        // Salvar o token no LocalStorage
-                        LocalStorage.set("auth_token", response.data.token);
-                        LocalStorage.set("loged", true);
                         
-                        // Atualizar o estado logado
+                        LocalStorage.set("auth_token", response.data.token);
+                        const token = LocalStorage.getItem("auth_token");
+                        LocalStorage.set("loged", true);
+                        console.log('token: ', token)
+
                         this.loged = true;
                     } else {
                         alert("Credenciais inválidas!");
@@ -78,7 +81,7 @@
                     const response = await api.get('/auth/me')
                     console.log('token', token)
                     console.log('response checkAuth', response)
-                    if(response.data.status && token)
+                    if(response.data.status)
                     {
                         console.log('token logado', token)
                         this.loged = true
@@ -106,6 +109,8 @@
 
         mounted()
         {
+            const a = axios.get('http://192.168.98.51:8000/sanctum/csrf-cookie');
+            console.log('a: ', a)
             this.loged = LocalStorage.getItem("loged") || false
             this.checkAuth()
             console.log('Token atual no LocalStorage: ', LocalStorage.getItem("auth_token"));

@@ -2,6 +2,8 @@ import { defineBoot } from '#q-app/wrappers'
 import axios from 'axios'
 import { LocalStorage } from 'quasar'
 
+axios.defaults.withCredentials = true
+
 const api = axios.create({ 
     baseURL: process.env.VUE_APP_API_URL 
 });

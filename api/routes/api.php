@@ -39,7 +39,7 @@ Route::prefix('v1')->group( function (){
         });
     }); 
     
-    Route::middleware('auth:sanctum')->group(function (){        
+    Route::middleware('auth:api')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
             // Products routes
             Route::prefix('products')->group( function(){
