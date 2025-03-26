@@ -14,7 +14,7 @@
                 <table class="text-black">
                     <tbody>
                         <tr
-                            v-for="(payment, index) in payments" :key="payment.id"
+                            v-for="(payment, i) in paymentsForms" :key="payment.id"
                             class="bg-white border border-black focus:border-none"
                         >
                             <td> 
@@ -60,9 +60,9 @@
                                 <input
                                     type="text"
                                     class="text-end w-20"
-                                    v-model="paymentsValues[index]"
-                                    
+                                    v-model="paymentsValues[i]"
                                     placeholder="0,00"
+                                    
                                 />
                             </td>
                         </tr>
@@ -114,11 +114,12 @@
 
 <script>
 import axios from 'axios';
+import { toRaw } from 'vue';
 
 export default {
     data(){
         return {
-            payments: [],
+            paymentsForms: [],
             paymentsValues: [],
             valueInformed: [],
             message: null,
@@ -175,6 +176,15 @@ export default {
                 return sum + num
             }, 0);
 
+            //this.paymentsForms
+            
+            const toRawpaymentsForms = toRaw(this.paymentsForms)
+            
+            this.paymentsValues.forEach((value, id) => {
+                form = toRawpaymentsForms.find(p => p.id === id + 1)
+                return form.tipo_lancamento === 'Receber'
+            })
+
             return {
                 total: total
             };
@@ -205,7 +215,7 @@ export default {
         async getPayments() {
             try {
                 const response = await axios.get(`${this.api}/ecommerce/payments/all`);
-                this.payments = response.data;
+                this.paymentsForms = response.data;
                 
             } catch (error) {
                 console.error('Erro no getPayments', error)
@@ -216,7 +226,7 @@ export default {
         async finalizeSale() {
             this.isLoanding = true
             this.message = ''
-            
+
             try {
                 switch (this.typeOperation) {
                     case 'reservation':

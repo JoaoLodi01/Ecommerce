@@ -30,6 +30,10 @@
                 @update:selectProducts="resetSale($event)"
 
             />
+
+            <CashClosing
+                v-if="showCashClosing"
+            />
         </div>
         
         <div class="relative overflow-x-auto max-h-96 overflow-y-auto">
@@ -60,7 +64,7 @@
                     <div v-if="witdhScreen > 1366">
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
-                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
+                        <button @click="showCashClosing = !showCashClosing" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
                     
@@ -376,7 +380,8 @@
     import PaymentsForm from 'src/components/PaymentsForm.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
-    
+    import CashClosing from 'src/components/PDV/CashClosing.vue'
+
     import { toRaw } from 'vue'   
     
     export default{
@@ -414,6 +419,7 @@
                 showGrid: true,
                 isLoanding: true,
                 showPaymentsForm: false,
+                showCashClosing: false,
 
                 viewProduct: {
                     show: false,
@@ -490,6 +496,7 @@
 
                 } catch (error) {
                     console.error('selectClient Erro ao buscar:', error);
+                    
                 }
             },
 
@@ -687,6 +694,7 @@
             showGridEmit(){
                 this.showGrid = !this.showGrid
                 this.show = !this.show
+                
 
             },  
 
@@ -866,7 +874,8 @@
         components: {
             ProductsSelectionView,
             PaymentsForm,
-            ProductsSearchBar
+            ProductsSearchBar,
+            CashClosing
 
         },
 
@@ -898,6 +907,7 @@
     #csosnInput::-webkit-inner-spin-button{
         margin: 0;
         -webkit-appearance: none !important; 
+
     }
 
     @media (max-width: 1080px) {
