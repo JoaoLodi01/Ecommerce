@@ -431,7 +431,7 @@
                 success: null,
                 typeOperation: '',
                 csosncst: '',
-                api: process.env.VUE_APP_API_URL
+                
             }
         },
 
@@ -475,7 +475,7 @@
         methods: {
             async selectClient(){
                 try {
-                    const response = await axios.get(`${this.api}/customers/selectClient`);
+                    const response = await api.get('/customers/selectClient');
                     
                     if(response.data.length > 0) {
                         this.clients = response.data;
@@ -506,7 +506,7 @@
                         if(!this.isOpenedPDV)
                         {
                             console.log('É uma nova venda')
-                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
                                 customer_id: this.clientData.id,
@@ -607,7 +607,7 @@
                         console.log('Finalizar venda')
                         if(type === 'nm')   
                         { 
-                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
                                 customer_id: this.clientData.id,
@@ -634,7 +634,7 @@
                     
                         if(type === 'nfce')
                         {  
-                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
                                 customer_id: this.clientData.id,
@@ -667,7 +667,7 @@
             async importSale()
             {
                 try {
-                    const response = await axios.get(`${this.api}/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
+                    const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
                     console.log(response.data.pdvs.get_itens)
                     
                     this.updateProductsSeletion(response.data.pdvs.get_itens)
