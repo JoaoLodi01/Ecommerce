@@ -12082,3 +12082,881 @@
 [2025-03-26 02:23:36] local.INFO: O hotel foi encontrado  
 [2025-03-26 02:23:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-03-26 02:23:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 08:48:35] local.INFO: Acertou o login  
+[2025-03-26 08:53:16] local.INFO: Acertou o login  
+[2025-03-26 08:53:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 08:53:18] local.INFO: O hotel foi encontrado  
+[2025-03-26 08:53:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 08:53:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 08:53:27] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-26 08:53:27] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-26 08:53:27] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-26 08:53:27] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-26 08:53:27] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-26 08:53:31] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$DFfOPTNFG.1wxyfczYoLBOt2kSnzrBvZoetPmCdIRUOIew70q\/WYC","phone":"+55 4244-4444","active":1,"created_at":"2025-03-26T00:08:11.000000Z","updated_at":"2025-03-26T00:08:11.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2Iu6lVic6v8d9HlbDVnu0eSBIcGytWr9rgIcegtYJ.iEpj9BpJy86","phone":"+55 4244-4444","active":1,"created_at":"2025-03-26T00:08:11.000000Z","updated_at":"2025-03-26T00:08:11.000000Z"}]  
+[2025-03-26 08:53:34] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-26 08:53:34] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-26 08:53:34] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-26 08:53:34] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-26 08:53:34] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-26 08:53:34] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-03-26 08:53:34] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-26 08:53:34] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 2,
+        'product' => 'Jack Daniels Honey',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '130.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => '1',
+  'customer_id' => 1,
+  'total' => 130,
+  'sub_total' => 130,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-26 08:53:34] local.INFO: Memória usada PDVRepository::class, saveSale: 23068672  
+[2025-03-26 08:53:34] local.INFO: Busca pelo customer  
+[2025-03-26 08:53:34] local.INFO: Busca pelo user  
+[2025-03-26 08:53:34] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"active":1,"created_at":"2025-03-26T00:08:12.000000Z","updated_at":"2025-03-26T00:08:12.000000Z"}  
+[2025-03-26 08:53:34] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 130,
+  'net_value' => 130,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Kochem',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-03-26 08:53:34] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-03-26 08:53:34] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
+[2025-03-26 08:53:34] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"active":1,"created_at":"2025-03-26T00:08:12.000000Z","updated_at":"2025-03-26T00:08:12.000000Z"}  
+[2025-03-26 08:53:34] local.INFO: $products 11  
+[2025-03-26 08:53:34] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 2,
+      'product' => 'Jack Daniels Honey',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '130.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-03-26 08:53:34] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-26 08:53:34] local.INFO: $product, type: array  
+[2025-03-26 08:53:34] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'product' => 'Jack Daniels Honey',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '130.00',
+    'perc_lucro' => '100.00',
+    'cfop' => '5102',
+    'csosn' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-26 08:53:34] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-26 08:53:34] local.INFO: $product[$i]  
+[2025-03-26 08:53:34] local.INFO: array (
+  'id' => 2,
+  'product' => 'Jack Daniels Honey',
+  'grupo_id' => 2,
+  'grupo' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '130.00',
+  'perc_lucro' => '100.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-03-26 08:53:34] local.INFO: itensPDV   
+[2025-03-26 08:53:34] local.INFO: array (
+  'pdv_id' => 1,
+  'product_id' => 2,
+  'product' => 'Jack Daniels Honey',
+  'cost_price' => '10.00',
+  'sale_price' => '130.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+)  
+[2025-03-26 08:53:34] local.INFO: $ipdv  
+[2025-03-26 08:53:34] local.INFO: {"pdv_id":1,"product_id":2,"product":"Jack Daniels Honey","cost_price":"10.00","sale_price":"130.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":1}  
+[2025-03-26 08:53:34] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-26 08:53:44] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-26 08:53:44] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-26 08:53:44] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-26 08:53:44] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-26 08:53:44] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-26 08:53:44] local.ERROR: App\Http\Controllers\EcommerceController\PDVController::finalizeSale(): Argument #2 ($id) must be of type int, string given, called in D:\SGBR\Projeto_3_Hotel_Ecommerce\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":1,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\EcommerceController\\PDVController::finalizeSale(): Argument #2 ($id) must be of type int, string given, called in D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\EcommerceController\\PDVController.php:33)
+[stacktrace]
+#0 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\PDVController->finalizeSale()
+#1 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#2 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#3 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#4 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#5 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#6 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#7 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#9 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#10 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#11 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#12 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#13 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#14 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#15 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#16 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#18 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#19 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#21 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#22 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#24 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#26 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#28 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#30 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#32 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#34 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#35 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#36 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#37 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#38 {main}
+"} 
+[2025-03-26 08:54:30] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-26 08:54:34] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-26 08:54:46] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-26 08:54:46] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-26 08:54:46] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-26 08:54:46] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-26 08:54:46] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-26 08:54:46] local.INFO: Dados recebidos nos controllers  
+[2025-03-26 08:54:46] local.INFO: array (
+  'type_operation' => 'nm',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => NULL,
+    1 => '130',
+  ),
+  'pdv_id' => 1,
+)  
+[2025-03-26 08:54:46] local.INFO: PDVService.php, class:finalizeSale, $total: 130  
+[2025-03-26 08:54:46] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-03-26 08:54:46] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-03-26 08:54:46] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-26 08:54:46] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-26 08:54:46] local.INFO: $result  
+[2025-03-26 08:54:46] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-26 00:08:11',
+      'updated_at' => '2025-03-26 00:08:11',
+    ),
+     'original' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-26 00:08:11',
+      'updated_at' => '2025-03-26 00:08:11',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-26 08:54:46] local.INFO: Vai conferir se o $total: R$ 130 é maior que o $pdv->net_value, R$130.00  
+[2025-03-26 08:54:46] local.INFO: Foi maior  
+[2025-03-26 08:54:46] local.INFO: nm  
+[2025-03-26 08:54:46] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-03-26 08:54:46] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-03-26 08:54:46] local.INFO: $forms  
+[2025-03-26 08:54:46] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-26 00:08:11',
+      'updated_at' => '2025-03-26 00:08:11',
+    ),
+     'original' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-26 00:08:11',
+      'updated_at' => '2025-03-26 00:08:11',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-26 08:54:46] local.INFO: $paymentValues  
+[2025-03-26 08:54:46] local.INFO: array (
+  0 => NULL,
+  1 => '130',
+)  
+[2025-03-26 08:54:46] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-26 08:54:46] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-03-26 08:54:46] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-26 08:54:46] local.INFO: $paymentValues[$i] linha - 118: i = 1  
+[2025-03-26 08:54:46] local.INFO: Vai pegar as posições maiores que zero, vezes: 1  
+[2025-03-26 08:54:46] local.INFO: forms  
+[2025-03-26 08:54:46] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-26 00:08:11',
+      'updated_at' => '2025-03-26 00:08:11',
+    ),
+     'original' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-26 00:08:11',
+      'updated_at' => '2025-03-26 00:08:11',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-26 08:54:46] local.INFO: ID linha 120 - : {"id":2,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
+[2025-03-26 08:54:46] local.INFO: paymentValues linha 124 - : 130  
+[2025-03-26 08:54:46] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-26 08:54:46] local.INFO: $form->tipo_lancamento  
+[2025-03-26 08:54:46] local.INFO: {"id":2,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
+[2025-03-26 08:54:46] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-03-26 08:54:46] local.INFO: Dados:   
+[2025-03-26 08:54:46] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda Nota Manual 
+                                N° 1',
+    'document' => 1,
+    'pdv_id' => 1,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 2,
+    'especie' => 'PIX',
+    'date_register' => '2025-03-26',
+    'input_value' => '130',
+    'output_value' => 0,
+    'real_balance' => '130',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-03-26 08:54:46] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-03-26 08:54:46] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-26 08:54:46] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-03-26 08:54:46] local.INFO: Quantia: 1  
+[2025-03-26 08:54:46] local.INFO: Tipo de dado: array  
+[2025-03-26 08:54:46] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda Nota Manual 
+                                N° 1',
+    'document' => 1,
+    'pdv_id' => 1,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 2,
+    'especie' => 'PIX',
+    'date_register' => '2025-03-26',
+    'input_value' => '130',
+    'output_value' => 0,
+    'real_balance' => '130',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-03-26 08:54:46] local.INFO: Vai criar 1 registro:   
+[2025-03-26 08:54:46] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-03-26 08:54:46] local.INFO: $lastCashBox  
+[2025-03-26 08:54:46] local.INFO: 2  
+[2025-03-26 08:54:46] local.INFO: $actualCashBox  
+[2025-03-26 08:54:46] local.INFO:   
+[2025-03-26 08:54:46] local.INFO: Não foi encontrado um registro anterior do segundo registro no caixa  
+[2025-03-26 08:54:46] local.INFO: $lastCashBoxashBox 2  
+[2025-03-26 08:54:46] local.INFO: {"id":1,"description":"Venda Nota Manual 
+                                N\u00b0 1","document":"1","pdv_id":1,"customer_id":1,"name":"Teste 1","especie_id":2,"especie":"PIX","date_register":"2025-03-26","input_value":"130.00","output_value":"0.00","real_balance":"130.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-26 08:54:46] local.INFO: $actualCashBox 2  
+[2025-03-26 08:54:46] local.INFO:   
+[2025-03-26 08:54:46] local.INFO: Vai retornar  
+[2025-03-26 08:54:46] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-03-26 08:54:46] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-26 08:54:46] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-03-26 08:54:46] local.INFO: payMentMethodService  
+[2025-03-26 08:54:46] local.INFO: array (
+  'line' => 215,
+  'success' => true,
+)  
+[2025-03-26 08:54:46] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":1,"description":"Venda Nota Manual N\u00b0","cliente_id":1,"client":"Teste 1","gross_value":"130.00","net_value":"130.00","discount":"0.00","addition":"0.00","user_id":1,"user":"Kochem","finished":0,"canceled":0,"is_nfce_nm":"nm","active":1}  
+[2025-03-26 08:54:46] local.INFO: $type nm  
+[2025-03-26 08:54:46] local.INFO: Buscar e alterar os produtos, pdv_id = 1  
+[2025-03-26 08:54:46] local.INFO: Alteração dentro do for = 1  
+[2025-03-26 08:54:46] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-03-26 08:54:46] local.INFO: Produto encontrado 2  
+[2025-03-26 08:54:46] local.INFO: {"id":2,"product":"Jack Daniels Honey","grupo_id":2,"grupo":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-03-26 08:54:46] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-03-26 08:56:27] local.INFO: Acertou o login  
+[2025-03-26 08:56:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 08:56:28] local.INFO: O hotel foi encontrado  
+[2025-03-26 08:56:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 08:56:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 08:56:51] local.INFO: Acertou o login  
+[2025-03-26 08:57:02] local.INFO: Acertou o login  
+[2025-03-26 08:57:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 08:57:03] local.INFO: O hotel foi encontrado  
+[2025-03-26 08:57:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 08:57:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:06:54] local.INFO: Acertou o login  
+[2025-03-26 09:06:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:06:54] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:06:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:06:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:06:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:06:56] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:06:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:06:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:09:42] local.ERROR: Method Illuminate\Http\Request::token does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Http\\Request::token does not exist. at D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php:115)
+[stacktrace]
+#0 laravel-serializable-closure://function (\\Illuminate\\Http\\Request $request) {
+        return \\response()->json([
+            'success' => true,
+            'user' => $request->user(),
+            'token' => $request->token()
+
+        ]);
+    }(6): Illuminate\\Http\\Request->__call()
+#1 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\CallableDispatcher.php(40): Illuminate\\Routing\\RouteFileRegistrar::{closure}()
+#2 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(244): Illuminate\\Routing\\CallableDispatcher->dispatch()
+#3 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(215): Illuminate\\Routing\\Route->runCallable()
+#4 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#5 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#6 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#7 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#8 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#9 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#10 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#11 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#12 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#13 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#14 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#15 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#16 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#17 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#18 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#20 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#21 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#23 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#25 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#27 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#29 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#31 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#33 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#34 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#35 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#36 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#37 {main}
+"} 
+[2025-03-26 09:09:49] local.ERROR: Method Illuminate\Http\Request::token does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Http\\Request::token does not exist. at D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php:115)
+[stacktrace]
+#0 laravel-serializable-closure://function (\\Illuminate\\Http\\Request $request) {
+        return \\response()->json([
+            'success' => true,
+            'user' => $request->user(),
+            'token' => $request->token()
+
+        ]);
+    }(6): Illuminate\\Http\\Request->__call()
+#1 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\CallableDispatcher.php(40): Illuminate\\Routing\\RouteFileRegistrar::{closure}()
+#2 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(244): Illuminate\\Routing\\CallableDispatcher->dispatch()
+#3 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(215): Illuminate\\Routing\\Route->runCallable()
+#4 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#5 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#6 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#7 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#8 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#9 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#10 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#11 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#12 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#13 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#14 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#15 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#16 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#17 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#18 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#20 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#21 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#23 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#25 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#27 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#29 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#31 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#33 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#34 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#35 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#36 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#37 {main}
+"} 
+[2025-03-26 09:10:33] local.INFO: Acertou o login  
+[2025-03-26 09:12:07] local.INFO: Acertou o login  
+[2025-03-26 09:12:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:12:08] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:12:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:12:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:12:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:12:11] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:12:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:12:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:16:46] local.INFO: Acertou o login  
+[2025-03-26 09:16:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:16:46] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:16:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:16:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:16:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:16:48] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:16:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:16:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:17:24] local.ERROR: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'personal_access_tokens' already exists (Connection: mariadb, SQL: create table `personal_access_tokens` (`id` bigint unsigned not null auto_increment primary key, `tokenable_type` varchar(255) not null, `tokenable_id` bigint unsigned not null, `name` varchar(255) not null, `token` varchar(64) not null, `abilities` text null, `last_used_at` timestamp null, `expires_at` timestamp null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'personal_access_tokens' already exists (Connection: mariadb, SQL: create table `personal_access_tokens` (`id` bigint unsigned not null auto_increment primary key, `tokenable_type` varchar(255) not null, `tokenable_id` bigint unsigned not null, `name` varchar(255) not null, `token` varchar(64) not null, `abilities` text null, `last_used_at` timestamp null, `expires_at` timestamp null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
+#2 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
+#3 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
+#4 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
+#5 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
+#6 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\database\\migrations\\2025_03_26_091339_create_personal_access_tokens_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#7 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#9 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#11 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
+#13 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
+#14 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#15 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#16 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
+#17 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#19 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#20 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#21 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#22 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#23 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#24 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(697): Illuminate\\Container\\BoundMethod::call()
+#25 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#26 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#27 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#28 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
+#29 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
+#30 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
+#31 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#32 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#33 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#34 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#35 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(697): Illuminate\\Container\\BoundMethod::call()
+#36 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#37 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#38 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#39 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#40 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#41 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#42 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#43 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#44 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#45 {main}
+
+[previous exception] [object] (PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'personal_access_tokens' already exists at D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
+[stacktrace]
+#0 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
+#1 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
+#4 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
+#5 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
+#6 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
+#7 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
+#8 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\database\\migrations\\2025_03_26_091339_create_personal_access_tokens_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#9 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#11 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#13 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
+#15 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
+#16 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#17 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#18 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
+#19 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#21 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#22 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#23 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#24 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#25 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#26 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(697): Illuminate\\Container\\BoundMethod::call()
+#27 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#28 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#29 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#30 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
+#31 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
+#32 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
+#33 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#34 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#35 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#36 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#37 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(697): Illuminate\\Container\\BoundMethod::call()
+#38 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#39 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#40 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#41 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#42 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#43 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#44 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#45 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#46 D:\\SGBR\\Projeto_3_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#47 {main}
+"} 
+[2025-03-26 09:17:49] local.INFO: Acertou o login  
+[2025-03-26 09:17:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:17:50] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:17:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:17:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:17:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:17:51] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:17:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:17:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:21:58] local.INFO: Acertou o login  
+[2025-03-26 09:22:11] local.INFO: Acertou o login  
+[2025-03-26 09:22:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:22:25] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:22:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:22:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:23:01] local.INFO: Acertou o login  
+[2025-03-26 09:23:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:23:10] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:23:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:23:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:23:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:23:10] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:23:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:23:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:24:36] local.INFO: Acertou o login  
+[2025-03-26 09:24:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:24:36] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:24:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:24:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:24:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:24:39] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:24:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:24:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:24:42] local.INFO: Acertou o login  
+[2025-03-26 09:24:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:24:42] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:24:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:24:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:24:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:24:43] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:24:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:24:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:26:26] local.INFO: Errou o login  
+[2025-03-26 09:26:32] local.INFO: Errou o login  
+[2025-03-26 09:26:33] local.INFO: Acertou o login  
+[2025-03-26 09:26:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:26:35] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:26:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:26:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:26:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-26 09:26:44] local.INFO: O hotel foi encontrado  
+[2025-03-26 09:26:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-26 09:26:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-26 09:27:29] local.INFO: Acertou o login  
+[2025-03-26 09:30:18] local.INFO: Acertou o login  

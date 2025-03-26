@@ -28,17 +28,18 @@ use Illuminate\Http\Request;
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
         Route::post('/auth', [AuthController::class, 'auth']);
-    }); 
 
-    Route::middleware('auth:sanctum')->group(function (){        
-        Route::get('/auth/me', function (Request $request) {
+        Route::get('/me', function (Request $request) {
             return response()->json([
                 'success' => true,
-                'user' => $request->user()
-
+                'user' => $request->user(),
+                'token_received' => $request->header('Authorization'),
+    
             ]);
         });
-        
+    }); 
+    
+    Route::middleware('auth:sanctum')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
             // Products routes
             Route::prefix('products')->group( function(){

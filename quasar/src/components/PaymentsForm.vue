@@ -251,7 +251,7 @@ export default {
 
                     case 'nfce':
                         console.log('Começou venda NFCe')
-                        const response_nfce = await api.put('ecommerce/pdv/finalize-sale/${this.pdvID}', {
+                        const response_nfce = await api.put(`ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nfce',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues,
@@ -271,7 +271,7 @@ export default {
                         console.log('Começou venda NM')
                         console.log('this.typeOperation:', this.typeOperation)
 
-                        const response_nm = await api.put('/ecommerce/pdv/finalize-sale/${this.pdvID}', {
+                        const response_nm = await api.put(`/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nm',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues,
