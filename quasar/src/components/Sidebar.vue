@@ -194,7 +194,7 @@
         'ml-20': widthScreen > 1080 
         
       }">
-    <router-view></router-view>
+    <router-view/>
   
   </div>
 </template>

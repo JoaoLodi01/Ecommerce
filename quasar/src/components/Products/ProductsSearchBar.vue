@@ -3,7 +3,8 @@
         <input
             type="text"
             class="border-none outline-none ml-2 mt-1 mb-1 w-96"
-            placeholder="Buscar"
+            v-model="productData.name"
+            placeholder="Buscar.."
         />
     </div>
 </template>
@@ -13,14 +14,17 @@
         data()
         {
             return {
-                textSearch: ''
+                produtcData:{
+                    id:'',
+                    name: ''
+                },
 
             }
             
         },
         
         methods: {
-
+            getProdutc
         }
     }
 

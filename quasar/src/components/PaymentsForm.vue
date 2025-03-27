@@ -113,7 +113,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { api } from "src/boot/axios";
 import { toRaw } from 'vue';
 
 export default {
@@ -214,7 +214,7 @@ export default {
     methods: {
         async getPayments() {
             try {
-                const response = await axios.get(`${this.api}/ecommerce/payments/all`);
+                const response = await api.get('/ecommerce/payments/all');
                 this.paymentsForms = response.data;
                 
             } catch (error) {
@@ -235,7 +235,7 @@ export default {
                         
                         this.isLoanding = !this.isLoanding
                         
-                        const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
+                        const response = await api.post('/hotel/stay/reservation', {
                             customer_id: 1,
                             payments_values: this.paymentsValues,
                             room_id: this.roomID,
@@ -251,7 +251,7 @@ export default {
 
                     case 'nfce':
                         console.log('Começou venda NFCe')
-                        const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                        const response_nfce = await api.put(`ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nfce',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues,
@@ -271,7 +271,7 @@ export default {
                         console.log('Começou venda NM')
                         console.log('this.typeOperation:', this.typeOperation)
 
-                        const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                        const response_nm = await api.put(`/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nm',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues,

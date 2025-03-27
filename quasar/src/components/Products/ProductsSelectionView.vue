@@ -75,7 +75,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    import { api } from "src/boot/axios";
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
 
     export default {
@@ -84,8 +84,7 @@
                 products: [],
                 selectedProducts: [],
                 checkBoxMarked: false,
-                api: process.env.VUE_APP_API_URL
-
+        
             }
         },
 
@@ -116,7 +115,7 @@
         methods: {
             async getProducts(){
                 try {
-                    const response = await axios.get(`${this.api}/ecommerce/products/all`)
+                    const response = await api.get('/ecommerce/products/all')
                     
                     this.products = response.data.data.map(product => ({
                         ...product,

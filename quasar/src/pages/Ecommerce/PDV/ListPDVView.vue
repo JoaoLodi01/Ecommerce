@@ -57,7 +57,7 @@
 </template>
 
 <script>
-    import axios from 'axios';  
+    import { api } from "src/boot/axios";
     import { toRaw } from 'vue';
     
     export default {
@@ -70,8 +70,7 @@
                     noFinaly: false
                 },
                 savedPDVs: [],
-                itensPDVs: [],
-                api: process.env.VUE_APP_API_URL
+                itensPDVs: [],                
 
             }
         },
@@ -80,7 +79,7 @@
             async getPDVsSaved()
             {   
                 try {
-                    const response = await axios.get(`${this.api}/ecommerce/pdv/get-saved-sales`)
+                    const response = await api.get('/ecommerce/pdv/get-saved-sales')
                     this.savedPDVs = response.data.pdvs
     
                     for (let i = 0; i < response.data.pdvs.length; i++) {

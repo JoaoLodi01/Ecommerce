@@ -30,6 +30,10 @@
                 @update:selectProducts="resetSale($event)"
 
             />
+
+            <CashClosing
+                v-if="showCashClosing"
+            />
         </div>
         
         <div class="relative overflow-x-auto max-h-96 overflow-y-auto">
@@ -60,7 +64,7 @@
                     <div v-if="witdhScreen > 1366">
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
-                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
+                        <button @click="showCashClosing = !showCashClosing" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
                     
@@ -371,12 +375,11 @@
 </template>
 
 <script>
-    
-    import axios from 'axios';
     import PaymentsForm from 'src/components/PaymentsForm.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
-    
+    import CashClosing from 'src/components/PDV/CashClosing.vue'
+    import { api } from "boot/axios"
     import { toRaw } from 'vue'   
     
     export default{
@@ -414,6 +417,7 @@
                 showGrid: true,
                 isLoanding: true,
                 showPaymentsForm: false,
+                showCashClosing: false,
 
                 viewProduct: {
                     show: false,
@@ -427,7 +431,7 @@
                 success: null,
                 typeOperation: '',
                 csosncst: '',
-                api: process.env.VUE_APP_API_URL
+                
             }
         },
 
@@ -471,7 +475,7 @@
         methods: {
             async selectClient(){
                 try {
-                    const response = await axios.get(`${this.api}/customers/selectClient`);
+                    const response = await api.get('/customers/selectClient');
                     
                     if(response.data.length > 0) {
                         this.clients = response.data;
@@ -490,6 +494,7 @@
 
                 } catch (error) {
                     console.error('selectClient Erro ao buscar:', error);
+                    
                 }
             },
 
@@ -501,7 +506,7 @@
                         if(!this.isOpenedPDV)
                         {
                             console.log('É uma nova venda')
-                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
                                 customer_id: this.clientData.id,
@@ -538,7 +543,8 @@
             async getHotel()
             {
                 try {
-                    const response = await axios.get(`${this.api}/hotel/all`)
+                    const response = await api.get('/hotel/all')
+
                     if(response.data.success === true)
                     {
                         this.hotelCodCRT += response.data.all.hotel.cod_crt
@@ -559,6 +565,7 @@
 
                     }
                 } catch (error) {
+                    console.log('erro ao buscar o hotel: ', error)
                     if(error.response.data.message === 'Hotel não encontrado')
                     {
                         alert(error.response.data.message)
@@ -600,7 +607,7 @@
                         console.log('Finalizar venda')
                         if(type === 'nm')   
                         { 
-                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
                                 customer_id: this.clientData.id,
@@ -627,7 +634,7 @@
                     
                         if(type === 'nfce')
                         {  
-                            const response = await axios.post(`${this.api}/ecommerce/pdv/save-sale`, { // Salva apenas a venda
+                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
                                 customer_id: this.clientData.id,
@@ -660,7 +667,7 @@
             async importSale()
             {
                 try {
-                    const response = await axios.get(`${this.api}/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
+                    const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
                     console.log(response.data.pdvs.get_itens)
                     
                     this.updateProductsSeletion(response.data.pdvs.get_itens)
@@ -687,6 +694,7 @@
             showGridEmit(){
                 this.showGrid = !this.showGrid
                 this.show = !this.show
+                
 
             },  
 
@@ -866,7 +874,8 @@
         components: {
             ProductsSelectionView,
             PaymentsForm,
-            ProductsSearchBar
+            ProductsSearchBar,
+            CashClosing
 
         },
 
@@ -898,6 +907,7 @@
     #csosnInput::-webkit-inner-spin-button{
         margin: 0;
         -webkit-appearance: none !important; 
+
     }
 
     @media (max-width: 1080px) {

@@ -6,13 +6,11 @@ use App\Repositories\Eloquent\ConfigRepository;
 
 class ConfigService
 {
+    
     public function __construct(
         protected ConfigRepository $configHotelRepository
     )
-    {
-        $this->configHotelRepository = $configHotelRepository;
-        
-    }
+    {}
 
     public function update(array $data)
     {

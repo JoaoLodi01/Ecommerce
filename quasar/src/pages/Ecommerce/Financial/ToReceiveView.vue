@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { api } from "src/boot/axios";
 
 export default {
     data(){
@@ -105,14 +105,14 @@ export default {
             },
             cashs: [],
             withScreen: 0,
-            api: process.env.VUE_APP_API_URL
+            
         };
     },
 
     methods: {
         async getRegister(){
             try {
-                const response = await axios.get(`${this.api}/ecommerce/cash-register/all/receive`)
+                const response = await api.get('/ecommerce/cash-register/all/receive')
                 this.cashs = response.data.data
                 
             } catch (error) {

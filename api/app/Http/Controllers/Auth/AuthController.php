@@ -3,41 +3,35 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Laravel\Sanctum\Sanctum;
+use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function auth(Request $request)
+    public function auth(LoginRequest $request)
     {
-        if(Auth::check() === true)
+        $data = $request->validated();
+
+        if(Auth::attempt($data))
         {
+            Log::info('Acertou o login');
+            //$request->session()->regenerate();
+
+            $user = Auth::user();            
+            $token = $user->createToken('auth_token')->plainTextToken;
+        
             return response()->json([
-                'message' => 'Já logado',
-                'request' => $request->all()
+                'status' => true,
+                'user' => $user,
+                'token' => $token
             ]);
+
         }
 
-        $data = [
-            'name' => $request->name,
-            'password' => $request->password
-        ];
-
-        if(!Auth::attempt($data))
-        {
-            return response()->json([
-                'message' => 'Dados errados',
-                'request' => $request->all(),
-                'data' => $data
-            ]);
-        }
-
-        return response()->json([
-            'message' => 'Não logado',
-            'request' => $request->all(),
-            'data' => $data
-        ]);
-
+        Log::info('Errou o login');
+        return redirect()->route('php.info');
     }
 }
