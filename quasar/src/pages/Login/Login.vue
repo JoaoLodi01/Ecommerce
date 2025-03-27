@@ -48,7 +48,7 @@
                         const token = LocalStorage.getItem("auth_token");
 
                         console.log('token no LocalStorage: ', token)
-                        this.$router.push('/')
+                        this.$router.push('/home')
                         
                     } else {
                         alert("Credenciais inválidas!");
@@ -62,11 +62,6 @@
                 }
             },
         },
-
-        mounted()
-        {
-            console.log('this.$route.name pelo Login.vue', this.$route)
-        }   
     }
 
 </script>
