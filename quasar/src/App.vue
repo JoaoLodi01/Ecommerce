@@ -1,16 +1,48 @@
 <template>
-    <Sidebar/>
-</template>
+    <Sidebar
+        @isActive="isActive = $event"
+    />
+    <div class="relative flex" v-if="loged" :class="{
+        'top-10 right-14': widthScreen <= 1080,
+        'ml-12 mr-4': widthScreen <= 1080,
+        'ml-60': widthScreen > 1080,
+        
+    }">
+
+     <router-view />
+        
+    </div>
+        
+    <div>
+        
+        <Login
+            v-if="!loged"
+        />
+  
+    </div>
+  </template>
+  
 
 <script>
     import { LocalStorage } from 'quasar';
     import { api } from './boot/axios';
     import Sidebar from './components/Sidebar.vue';
+    import Login from './pages/Login/Login.vue';
     
     export default {
-        components: {
-            Sidebar
+        data(){
+            return {
+                loged: false,
+                sidebarActive: false,
+                widthScreen: 0
+            }
         },
+
+        components: {
+            Sidebar,
+            Login
+        },
+       
         methods: {
             async checkAuth(){      
                 try {
@@ -23,8 +55,7 @@
                                 
                             }
                         })
-                        
-                        console.log('Response.data App.vue', response.data)
+                        this.loged = true         
                         
                     } else {
                         console.log('Token não encontrado')
@@ -45,8 +76,15 @@
         },
 
         mounted(){
+            this.widthScreen += screen.width
+            console.log('isActive', this.isActive)
+            if(this.widthScreen <= 1080)
+            {   
+                this.sidebarActive = false   
+            }
             this.checkAuth()
         }
     }
 
 </script>
+

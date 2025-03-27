@@ -65,8 +65,8 @@
 
         mounted()
         {
-
-        }
+            console.log('this.$route.name pelo Login.vue', this.$route)
+        }   
     }
 
 </script>

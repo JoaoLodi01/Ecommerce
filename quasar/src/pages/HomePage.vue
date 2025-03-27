@@ -1,12 +1,10 @@
 <template>
-    <button><a href="/login">Login</a></button>
-    <button @click="logout">Sair</button>
     
 </template>
 
 <script>
     import { LocalStorage } from 'quasar';
-import { api } from 'src/boot/axios';
+    import { api } from 'src/boot/axios';
     import Sidebar from 'src/components/Sidebar.vue';
 
     export default {
