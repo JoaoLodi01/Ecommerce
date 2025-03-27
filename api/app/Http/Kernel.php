@@ -12,6 +12,10 @@ class Kernel extends HttpKernel
     ];
 
     protected $middlewareGroups = [
+        'web' => [
+            
+        ],
+
         'api' => [
             EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
