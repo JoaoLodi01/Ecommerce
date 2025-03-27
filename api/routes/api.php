@@ -24,6 +24,7 @@ use App\Http\Controllers\{
 };
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
@@ -36,10 +37,10 @@ Route::prefix('v1')->group( function (){
                 'token_received' => $request->header('Authorization'),
     
             ]);
-        });
+        })->middleware('auth:sanctum');
     }); 
     
-    Route::middleware('auth:api')->group(function (){        
+    Route::middleware('auth:sanctum')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
             // Products routes
             Route::prefix('products')->group( function(){

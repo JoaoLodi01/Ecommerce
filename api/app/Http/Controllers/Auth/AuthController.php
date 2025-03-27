@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Laravel\Sanctum\Sanctum;
-use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -18,7 +16,6 @@ class AuthController extends Controller
         if(Auth::attempt($data))
         {
             Log::info('Acertou o login');
-            //$request->session()->regenerate();
 
             $user = Auth::user();            
             $token = $user->createToken('auth_token')->plainTextToken;
