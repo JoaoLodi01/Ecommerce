@@ -35,7 +35,7 @@ class PDVController extends Controller
         $data = $request->validated();
         Log::info('Dados recebidos nos controllers');
         Log::info($data);
-        return $this->pdvService->finalizeSale($request->input('paymentsValues'), $request->input('typeOperation'), $id, $data['pdvID']);
+        return $this->pdvService->finalizeSale($request->input('payments_values'), $request->input('type_operation'), $id, $data['pdv_id']);
         
     }
 

@@ -15,11 +15,27 @@ class PDVSaleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'typeOperation' => ['required', 'string'],
+            'type_operation' => ['required', 'string'],
             'change' => ['required'],
-            'paymentsValues' => ['required'],
-            'pdvID' => ['required']
+            'payments_values' => ['required'],
+            'pdv_id' => ['required']
 
         ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'type_operation.required' => 'O tipo da operação é obrgitário',
+            'type_operation.string' => 'O tipo da operação deve ser um formato válido',
+
+            'change.required' => 'O troco é obrigatório',
+
+            'payments_values.required' => 'O pagamento é obrigatório',
+
+            'pdv_id.required' => 'O identificador do PDV é obrigatório'
+
+        ];
+        
     }
 }

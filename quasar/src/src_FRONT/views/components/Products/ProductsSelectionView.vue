@@ -18,9 +18,14 @@
                 </button>
             </div>
 
-            <div class="ml-10">
+            <div class="">
                 <!-- Busca de produto -->
-                <ProductsSearchBar/>
+                <input 
+                    type="text"
+                    placeholder="Pesquisar registro" 
+                    class="p-1 w-48 text-start border-none"
+
+                />
 
             </div>
         </div>
@@ -33,7 +38,6 @@
                     <th scope="col" class="px-6 py-3 text-center"> {{ hotelCodCRT === 1 ? 'CSOSN' : 'CST' }} </th>
                     <th scope="col" class="px-6 py-3">Preço de venda</th>
                     <th scope="col" class="px-6 py-3">Quantidade</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -45,13 +49,11 @@
                     <td scope="row" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
                     <td scope="row" class="px-6 py-3 text-center">{{ product.amount }}</td>
                     <td>
-                        <input 
-                            label="Teal" color="teal"
-                            type="checkbox"
-                            v-model="product.isSelected"
-                            @change="selectProducts(product)"
-                        />
-
+                    <q-checkbox
+                        type="checkbox"
+                        v-model="product.isSelected"
+                        @change="selectProducts(product)"
+                    />
                     </td>
                 </tr>
             </tbody>
@@ -76,7 +78,6 @@
 
 <script>
     import axios from 'axios';
-    import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
 
     export default {
         data(){
@@ -89,10 +90,6 @@
             }
         },
 
-        components: {
-            ProductsSearchBar
-        },
-
         emits: [
             'close',
             'update:selectProducts'
@@ -100,17 +97,15 @@
         ],
 
         props: {
-            witdhScreen: {
-                type: Number
-
+            show: {
+                type: Boolean,
+                required: true
             },
 
             hotelCodCRT: {
                 type: Number,
                 required: true
-            },
-            
-
+            }
         },
 
         methods: {

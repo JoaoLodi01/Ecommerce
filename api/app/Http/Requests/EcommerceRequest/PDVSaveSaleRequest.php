@@ -35,6 +35,9 @@ class PDVSaveSaleRequest extends FormRequest
             'description.string' => 'A descrição da venda deve ser um texto válido',
             'description.max' => 'A descrição da venda passou do seu limite de caracteres',
 
+            'user_id.required' => 'O identificador do vendedor é obrigatório',
+            'customer_id.required' => 'O identificador do cliente é obrigatório',
+
             'products.required' => 'Os produtos da venda são obrigatórios',
             'products.array' => 'Os produtos da venda estão fora do padrão esperado',
 

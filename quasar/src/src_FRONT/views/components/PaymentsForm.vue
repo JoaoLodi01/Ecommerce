@@ -1,20 +1,12 @@
 <template>
-    <div
-        class="payment bg-slate-600 text-white m-auto p-3 mr-5 rounded-lg"
-        :class="{
-            'ml-8': witdhScreen > 1366,
-            'mt-12 text-2xl': witdhScreen <= 1080
-        }"
-    >
-        <div :class="{
-            'flex': witdhScreen > 1366
-
-        }">
-            <form @submit.prevent="finalizeSale" class="m-auto">
+    <div class="payment bg-slate-600 text-white m-auto ml-0 p-3">
+        <h1>Formas de Pagamento</h1>
+        <div class="flex">
+            <form @submit.prevent="finalizeSale">
                 <table class="text-black">
                     <tbody>
                         <tr
-                            v-for="(payment, i) in paymentsForms" :key="payment.id"
+                            v-for="(payment, index) in payments" :key="payment.id"
                             class="bg-white border border-black focus:border-none"
                         >
                             <td> 
@@ -60,36 +52,26 @@
                                 <input
                                     type="text"
                                     class="text-end w-20"
-                                    v-model="paymentsValues[i]"
+                                    v-model="paymentsValues[index]"
+                                    v-mask="'###,##'"
                                     placeholder="0,00"
-                                    
                                 />
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="mt-2 bg-slate-600 rounded-lg">
-                    <button
-                        class="bg-slate-500 text-white rounded-lg p-1 mt-2 mb-2 mr-2 ml-2"
-                        type="submit"
-                    >
-                        {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Finalizar Venda" }}
-                    </button>
-                    <button
-                        @click="cancelOperation()" 
-                        class="bg-slate-500 text-white rounded-lg p-1 mt-2 mb-2 mr-2 focus:text-red-500"
-                    >
-                        Cancelar
-                    </button>
+                <div class="mt-2 bg-slate-600 w-max rounded-lg">
+                    <button class="bg-slate-500 text-white rounded-lg px-2 mt-2 mb-2 mr-2 ml-2" type="submit"> {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Finalizar Venda" }} </button>
+                    <button @click="cancelOperation()" class="bg-slate-500 text-white rounded-lg px-2 mt-2 mb-2 mr-2">Cancelar</button>
                     
                 </div>
             </form>     
               
-            <div class="flex-col">
-                <h4 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-1">Total <span>R${{ totalOperation.toFixed(2) }}</span></h4>
-                <h4 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-0.5">Valor ausente <span>R$ {{ totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) > 0 ? totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) : '0.00' }}</span></h4>
-                <h4 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-0.5">Valor pago <span>R$ {{ calculateValueInformed.total.toFixed(2) }}</span></h4>
-                <h4 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-1">Troco <span>R$ {{ calculateValueChange.change.toFixed(2) }}</span></h4>
+            <div class="ml-3 w-full">
+                <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-1">Total <span>R${{ totalOperation.toFixed(2) }}</span></h3>
+                <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-0.5">Valor ausente <span>R$ {{ totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) > 0 ? totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) : '0.00' }}</span></h3>
+                <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-0.5">Valor pago <span>R$ {{ calculateValueInformed.total.toFixed(2) }}</span></h3>
+                <h3 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-1">Troco <span>R$ {{ calculateValueChange.change.toFixed(2) }}</span></h3>
             </div>
 
             <div class="" v-if="isLoanding">
@@ -114,12 +96,12 @@
 
 <script>
 import axios from 'axios';
-import { toRaw } from 'vue';
+import { mask } from 'vue-the-mask';
 
 export default {
     data(){
         return {
-            paymentsForms: [],
+            payments: [],
             paymentsValues: [],
             valueInformed: [],
             message: null,
@@ -130,6 +112,11 @@ export default {
 
         };
         
+    },
+
+    directives: {
+        mask
+
     },
 
     emits: [
@@ -151,9 +138,8 @@ export default {
 
         },
 
-        witdhScreen: {
-            type: Number,
-            required: true
+        show: {
+            type: Boolean,
         },
 
         typeOperation: {
@@ -175,15 +161,6 @@ export default {
                 const num = parseFloat(value.replace(/\D/g, '')) || 0;
                 return sum + num
             }, 0);
-
-            //this.paymentsForms
-            
-            const toRawpaymentsForms = toRaw(this.paymentsForms)
-            
-            this.paymentsValues.forEach((value, id) => {
-                form = toRawpaymentsForms.find(p => p.id === id + 1)
-                return form.tipo_lancamento === 'Receber'
-            })
 
             return {
                 total: total
@@ -215,7 +192,7 @@ export default {
         async getPayments() {
             try {
                 const response = await axios.get(`${this.api}/ecommerce/payments/all`);
-                this.paymentsForms = response.data;
+                this.payments = response.data;
                 
             } catch (error) {
                 console.error('Erro no getPayments', error)
@@ -225,8 +202,7 @@ export default {
         
         async finalizeSale() {
             this.isLoanding = true
-            this.message = ''
-
+            )
             try {
                 switch (this.typeOperation) {
                     case 'reservation':
@@ -236,10 +212,10 @@ export default {
                         this.isLoanding = !this.isLoanding
                         
                         const response = await axios.post(`${this.api}/hotel/stay/reservation`, {
-                            customer_id: 1,
-                            payments_values: this.paymentsValues,
-                            room_id: this.roomID,
-                            generate_credit: generateCredit
+                            customerID: 1,
+                            type_peration: this.paymentsValues,
+                            roomID: this.roomID,
+                            generateCredit: generateCredit
                             
                         });
                         
@@ -249,10 +225,10 @@ export default {
                     
                         break;
 
-                    case 'nfce':
+                    case 'saleNFCe':
                         console.log('Começou venda NFCe')
                         const response_nfce = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            type_operation: 'nfce',
+                            type_operation: this.typeOperation,
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues,
                             pdv_id: this.pdvID
@@ -267,19 +243,16 @@ export default {
 
                         break
 
-                    case 'nm':
+                    case 'saleNM':
                         console.log('Começou venda NM')
-                        console.log('this.typeOperation:', this.typeOperation)
 
                         const response_nm = await axios.put(`${this.api}/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            type_operation: 'nm',
+                            type_operation: this.typeOperation,
                             change: this.calculateValueChange.change,
-                            payments_values: this.paymentsValues,
+                            paymentsValues: this.paymentsValues,
                             pdv_id: this.pdvID
 
                         })
-                        
-                        console.log('Response NM: ', response_nm.data)
                         
                         if(response_nm.data.success === true)
                         {
@@ -302,9 +275,7 @@ export default {
                     this.isLoanding = !this.isLoanding
                     this.message = error.response.data.message
 
-                    
                 }
-                    
             }
             
         },
@@ -346,15 +317,9 @@ export default {
 </script>
 
 <style>
-    @media (min-width: 1080px) {
-        .payment{ 
-            max-width: 32rem;
-                
-        }
-    }
     .payment{
         max-width: 32rem;
-        
+        width: 32rem;
     }
 
 </style>

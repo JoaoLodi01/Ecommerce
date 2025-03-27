@@ -5,8 +5,8 @@ namespace App\Http\Controllers\HotelController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HotelRequest\{
     RoomRequest,
-    CheckInRequest
-    
+    CheckInRequest,
+    ReservationRequest
 };
 
 use App\Services\HotelServices\RoomService;
@@ -44,9 +44,10 @@ class RoomController extends Controller
         return $this->roomService->checkIn($data);        
     }
 
-    public function reservation(Request $request)
+    public function reservation(ReservationRequest $request)
     {
-        return $this->roomService->reservation($request['paymentsValues'], $request['roomID'], $request['generateCredit'] ?? false);
+        $data = $request->validated();
+        return $this->roomService->reservation($request['payments_values'], $request['room_id'], $request['generateredit'] ?? false);
         
     }
     
