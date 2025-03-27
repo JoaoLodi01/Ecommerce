@@ -236,8 +236,7 @@ export default {
   mounted()
   { 
     this.widthScreen += screen.width
-    console.log('this.$route', this.$route)
-
+  
     if(this.widthScreen <= 1080)
     {   
         this.sidebarActive = false   
