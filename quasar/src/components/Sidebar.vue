@@ -163,7 +163,7 @@
                 </svg>
                 <span class="ml-2 mb-auto">Atualizações</span>
               </router-link>
-          </li>
+            </li>
           </ul>
         </div>
     </div>

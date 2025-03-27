@@ -627,9 +627,6 @@
                 }
             },
 
-<<<<<<< HEAD
-            
-=======
             async selectClient(){
                 try {
                     const response = await axios.get(`${this.api}/customers/selectClient`);
@@ -680,7 +677,6 @@
                     console.log('Erro ao buscar:', error);
                 }
             }
->>>>>>> c1db5b604175cc6d0936f8b7a5eec29732574d15
         },
         
         components: {

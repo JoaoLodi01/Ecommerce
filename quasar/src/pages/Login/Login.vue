@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!loged" class="flex justify-center">
+    <div class="flex justify-center">
         <form @submit.prevent="loginMethod">
             <input
                 placeholder="E-mail" 
@@ -47,9 +47,8 @@
                         localStorage.setItem("auth_token", response.data.token);
                         const token = LocalStorage.getItem("auth_token");
 
-                        LocalStorage.set("loged", true);
                         console.log('token no LocalStorage: ', token)
-
+                        this.$router.push('/')
                         
                     } else {
                         alert("Credenciais inválidas!");
@@ -62,48 +61,10 @@
 
                 }
             },
-
-            async checkAuth() {
-                try {
-                    const token = LocalStorage.getItem("auth_token");
-
-                    const response = api.get('/auth/me', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    })
-                    
-                    console.log('token', token)
-                    console.log('response checkAuth', response)
-                    if(response.data)
-                    {
-                        console.log('token logado', token)
-                        this.loged = true
-                        LocalStorage.set("loged", true);
-
-                    } else {
-                        this.logout()
-                    }
-                    
-                } catch (error) {
-                    console.error('Erro checkAuth, token:', token)
-                    console.error('error', error)
-                }
-                
-            },
-            
-            logout()
-            {
-                console.log("Saindo ...")
-                LocalStorage.remove("auth_token")
-                LocalStorage.remove("loged");
-                
-            }
         },
 
         mounted()
         {
-            this.checkAuth()
 
         }
     }

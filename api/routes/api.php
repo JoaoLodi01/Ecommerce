@@ -24,15 +24,15 @@ use App\Http\Controllers\{
 };
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
         Route::post('/auth', [AuthController::class, 'auth']);
+        Route::post('/logout', [AuthController::class, 'logout']);
 
         Route::get('/me', function (Request $request) {
             return response()->json([
-                'success' => true,
+                'success' => $request->header('Authorization') ? true : false,
                 'user' => $request->user(),
                 'token_received' => $request->header('Authorization'),
     
