@@ -46,7 +46,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/" class="ml-5 hover:text-blue-300 flex items-center">
+            <router-link to="/home" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
               </svg>
@@ -175,15 +175,23 @@
           </ul>
         </div>
     </div>
-    
+    <div class="flex" id="q-app" :class="{
+        'top-10 right-14': widthScreen <= 1080,
+        'ml-12 mr-4': widthScreen <= 1080,
+        'ml-36': widthScreen > 1080,
+        'transform transition translate-x-20': sidebarActive
+        
+    }">   
+      <router-view></router-view>
+    </div>
 
     <!-- Botão da Sidebar fechada -->
     <button  
       @click="toggleSidebar"
-      class="opacity-0 toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg"
+      class="transition opacity-0 toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg"
       :class="{
         'opacity-100 delay-300': !sidebarActive,
-        'transform translate-x-36': sidebarActive,
+        'transform transition translate-x-36': sidebarActive,
       }"
     >
       <span>

@@ -1,16 +1,5 @@
 <template>
-    <Sidebar
-        @isActive="isActive = $event"
-    />
-    <div class="flex" v-if="loged" :class="{
-        'top-10 right-14': widthScreen <= 1080,
-        'ml-12 mr-4': widthScreen <= 1080,
-        'ml-56': widthScreen > 1080,
-        
-    }">
-        <router-view></router-view>
-        
-    </div>
+    <Sidebar/>
     
 </template>
 
