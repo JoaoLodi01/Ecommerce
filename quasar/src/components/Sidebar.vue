@@ -211,7 +211,7 @@ export default {
   methods: {
     toggleSidebar() {
         this.sidebarActive = !this.sidebarActive;
-        
+        this.isActive()
     },
 
     showFinancialFn()
@@ -229,7 +229,7 @@ export default {
     },
 
     isActive(){
-      this.$emit('active', true )
+      this.$emit('isActive', true)
     }
   },
 
