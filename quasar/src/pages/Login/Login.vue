@@ -42,7 +42,7 @@
             return {
             showLoading () {
                 $q.loading.show({
-                    message: 'Some important process  is in progress. Hang on...'
+                    message: 'Carregando...'
                 })
 
                     // hiding in 3s

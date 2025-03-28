@@ -207,73 +207,73 @@
 </template>
 
 <script>
-import { LocalStorage } from 'quasar';
-import { api } from 'src/boot/axios';
+  import { LocalStorage } from 'quasar';
+  import { api } from 'src/boot/axios';
 
-export default {
-  data() {
-    return {
-      sidebarActive: true,
-      showFinancial: false,
-      showPDV: false,
-      downRow: false,
-      downRow2: false,
-      widthScreen: 0
-    };
-  },
-  methods: {
-    async logout()
-    {
-        const token = LocalStorage.getItem("auth_token")
-        console.log('token: ', token)
-        try {
-            const response = await api.post('/auth/logout', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                    
-                }
-            })
-
-            console.log('Response.logout', response)
-            if(response.data.success)
-            {
-                LocalStorage.remove("auth_token")
-                this.$router.push('/login')
-            }
-        } catch (error) {
-            console.lo
-        }
+  export default {
+    data() {
+      return {
+        sidebarActive: true,
+        showFinancial: false,
+        showPDV: false,
+        downRow: false,
+        downRow2: false,
+        widthScreen: 0
+      };
     },
-    toggleSidebar() {
-        this.sidebarActive = !this.sidebarActive;
-        this.$emit('toggleSidebar', this.sidebarActive)
+    
+    methods: {
+      async logout()
+      {
+          const token = LocalStorage.getItem("auth_token")
+          console.log('token: ', token)
+          try {
+              const response = await api.post('/auth/logout', {
+                  headers: {
+                      'Authorization': `Bearer ${token}`
+                      
+                  }
+              })
+
+              console.log('Response.logout', response)
+              if(response.data.success)
+              {
+                  LocalStorage.remove("auth_token")
+                  this.$router.push('/login')
+              }
+          } catch (error) {
+              console.lo
+          }
+      },
+      toggleSidebar() {
+          this.sidebarActive = !this.sidebarActive;
+          this.$emit('toggleSidebar', this.sidebarActive)
+      },
+
+      showFinancialFn()
+      {
+          this.showFinancial = !this.showFinancial
+          this.showPDV = false
+          this.downRow = false
+      },
+
+      showPDVFn()
+      {
+          this.showPDV = !this.showPDV
+          this.showFinancial = false
+          this.downRow2 = false
+      },
+
     },
 
-    showFinancialFn()
-    {
-        this.showFinancial = !this.showFinancial
-        this.showPDV = false
-        this.downRow = false
-    },
-
-    showPDVFn()
-    {
-        this.showPDV = !this.showPDV
-        this.showFinancial = false
-        this.downRow2 = false
-    },
-
-   
-  },
-
-  mounted()
-  { 
-    this.widthScreen += screen.width
-  
-    if(this.widthScreen <= 1080)
-    {   
-        this.sidebarActive = false   
-    }
+    mounted()
+    { 
+      this.widthScreen += screen.width
+    
+      if(this.widthScreen <= 1080)
+      {   
+          this.sidebarActive = false   
+      }
   }
 
 };
