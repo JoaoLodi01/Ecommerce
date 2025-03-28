@@ -57,7 +57,10 @@
                     </div>
                     
                     <div v-if="widthScreen > 1366" class="border border-black rounded-md mr-1">
-                        <ProductsSearchBar/>
+                        <ProductsSearchBar
+                            :showProductsSearch
+                            @update:selectProducts="updateProductsSeletion"
+                        />
                     </div>
 
                     <div v-if="widthScreen > 1366">
@@ -236,15 +239,23 @@
 
                             <label class="text-black" for="client">Cliente</label>
                             <input 
+                                v-model="clientsData.name"
+                                @input="selectClient()"
+                                @keydown.enter="setClient()"
                                 placeholder="Consumidor Padrão"
-                                v-model="clientData.name"
-                                @keydown.enter="selectClient()"
-                                id="client"
-                                type="text"
                                 class="text-black border border-black w-full"
                             />
+                            <ul v-if="filteredClients.length" class="border border-gray-300 rounded mt-1">
+                                <li
+                                    v-for="client in filterClients"
+                                    :key="client.id"
+                                    @click="setClient(client)"
+                                    class="p-2 hover:bg-gray-200 cursor-pointer">
+                                
+                                    {{ client.name }}
+                                </li>
+                            </ul>
                         </div>
-                    
                     <div
                         class="m-2 p-2 rounded-lg border border-gray-700" 
                         id="values"
@@ -404,20 +415,17 @@
                     userID: 0,
                     
                 },
-
-                sellers: [],
-
                 sellerData: {
                     id: '',
                     name: ''
                 },
 
                 clients: [],
-                clientData: {
+                filteredClients: [],
+                clientsData: {
                     id: '',
                     name: ''
                 },
-                
                 totalOperation: 0,
                 widthScreen: 0,
                 textSize: 4,
@@ -426,6 +434,7 @@
                 showGrid: true,
                 isLoanding: true,
                 showPaymentsForm: false,
+                showProductsSearch: true,
                 showCashClosing: false,
 
                 viewProduct: {
@@ -483,28 +492,21 @@
         
         methods: {
             async selectClient(){
-                try {
                     const response = await api.get('/customers/selectClient');
-                    
-                    if(response.data.length > 0) {
-                        this.clients = response.data;
+                    this.clients = response.data;
+                    this.filterClients();
+            },
 
-                        const client = this.clients.find(client => 
-                        client.name.toLowerCase().includes(this.clientData.name.toLowerCase())
-                        );
+            filterClients(){
+                this.filteredClients = this.clients.filter(client =>
+                    client.name.toLowerCase().includes(this.clientsData.name.toLowerCase())
+                );
+            },
 
-                        if(client) {
-                            this.clientData.id = client.id;
-                            this.clientData.name = client.name;
-                        } else {
-                            console.log('Nenhum cliente correspondente encontrado!');
-                        }
-                    }
-
-                } catch (error) {
-                    console.error('selectClient Erro ao buscar:', error);
-                    
-                }
+            setClient(){
+                this.clientsData.id = client.id;
+                this.clientsData.name = client.name;
+                this.filteredClients = [];
             },
 
             async saveSale()
