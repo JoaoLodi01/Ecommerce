@@ -5,7 +5,7 @@ import axios from 'axios'
 axios.defaults.withCredentials = false
 
 const api = axios.create({ 
-    baseURL: process.env.VUE_APP_API_URL 
+    baseURL: process.env.VUE_APP_API_URL
 });
 
 api.interceptors.request.use((config) => {
