@@ -69,7 +69,7 @@
                         <button @click="showCashClosing = !showCashClosing" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
-                    
+  
                 </div>
 
             </div>
