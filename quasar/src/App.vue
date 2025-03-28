@@ -1,6 +1,7 @@
 <template>
     <div v-if="loged">
         <HomePage />
+        
     </div>
 
     <div v-if="!loged">
@@ -12,7 +13,7 @@
 <script>
     import { LocalStorage } from 'quasar';
     import { api } from './boot/axios';
-    import HomePage from './pages/HomePage.vue';
+    import HomePage from './pages/SideBarPage.vue';
     import Login from './pages/Login/Login.vue';
     
     export default {
