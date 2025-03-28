@@ -1,7 +1,8 @@
 /*#!/bin/bash
 
 # ---------- Env ----------
-DB_USER="root"
+DB_USER="note"
+DB_HOST="192.168.1.104"
 DB_NAME="ambiente_config"
 DB_PASS="masterkey" 
 # -------------------- #
@@ -15,7 +16,7 @@ save_db()
 	echo "4: $4"
 	echo "5: $5"
 	echo "6: $6"
-	mysql -u $DB_USER -p$DB_PASS $DB_NAME -e \
+	mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME -e \
 	"INSERT INTO ambientes (ip, frontend_path, backend_path, frontend_stack, backend_stack, local) VALUES ('$1', '$2', '$3', '$4', '$5', '$6')"
 
 	echo "Dados salvos com sucesso!"

@@ -14,7 +14,7 @@
                 <table class="text-black">
                     <tbody>
                         <tr
-                            v-for="(payment, i) in paymentsForms" :key="payment.id"
+                            v-for="(payment, i) in paymentsForms" :key="payment.i"
                             class="bg-white border border-black focus:border-none"
                         >
                             <td> 
@@ -55,7 +55,8 @@
                                 
                                 {{ payment.especie }} 
                             
-                            </td>
+
+1                            </td>
                             <td>
                                 <input
                                     type="text"
@@ -176,15 +177,6 @@ export default {
                 return sum + num
             }, 0);
 
-            //this.paymentsForms
-            
-            const toRawpaymentsForms = toRaw(this.paymentsForms)
-            
-            this.paymentsValues.forEach((value, id) => {
-                form = toRawpaymentsForms.find(p => p.id === id + 1)
-                return form.tipo_lancamento === 'Receber'
-            })
-
             return {
                 total: total
             };
@@ -205,6 +197,7 @@ export default {
                 };
 
             }
+            
             return {
                 change: 0
             };

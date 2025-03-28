@@ -5,6 +5,7 @@ namespace App\Http\Controllers\EcommerceController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\EcommerceService\ProductsService;
+use Illuminate\Support\Facades\Log;
 
 class ProductsController extends Controller
 {
@@ -14,6 +15,7 @@ class ProductsController extends Controller
     }
 
     public function getAll(){
+        Log::info('bateu no getAll');
         return $this->productsService->getAll();
     }
 
