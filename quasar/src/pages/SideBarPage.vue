@@ -41,31 +41,7 @@
                 this.sidebarActive = event
 
             },
-            
-            async logout()
-            {
-                const token = LocalStorage.getItem("auth_token")
-                console.log('token: ', token)
-                try {
-                    const response = await api.post('/auth/logout', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                            
-                        }
-                    })
-
-                    console.log('Response.logout', response)
-                    if(response.data.success)
-                    {
-                        LocalStorage.remove("auth_token")
-                        this.$router.push('/login')
-                    }
-                } catch (error) {
-                    
-                }
-            },
-          
-               
+                         
         },
         mounted(){
             this.widthScreen += screen.width

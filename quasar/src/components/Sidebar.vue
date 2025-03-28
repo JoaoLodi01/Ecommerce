@@ -155,16 +155,7 @@
               <span class="ml-2">Configurações</span>
             </router-link>
           </li>
-
-          <li class="fixed bottom-0">
-              <router-link to="/updates" class="ml-5 hover:text-blue-300 flex items-center mb-10">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
-                </svg>
-                <span class="ml-2 mb-auto">Atualizações</span>
-              </router-link>
-            </li>
-            <li>
+          <li>
             <router-link to="/profile" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -172,6 +163,26 @@
               <span class="ml-2">Perfil</span>
             </router-link>
           </li>
+          <li class="fixed bottom-auto">
+            <q-btn>
+              <router-link to="/updates" class="ml-5 hover:text-blue-300 flex items-center mb-10">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+                </svg>
+                <span class="ml-2 mb-auto">Atualizações</span>
+              </router-link>
+            </q-btn>
+          </li>
+          <li class="fixed bottom-0">
+              <q-btn class="ml-5 hover:text-blue-300 flex items-center mb-10" @click="logout()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                </svg>
+
+                <span class="ml-2 mb-auto">Sair</span>
+              </q-btn>
+            </li>
+            
           </ul>
         </div>
     </div>
@@ -196,6 +207,9 @@
 </template>
 
 <script>
+import { LocalStorage } from 'quasar';
+import { api } from 'src/boot/axios';
+
 export default {
   data() {
     return {
@@ -208,6 +222,28 @@ export default {
     };
   },
   methods: {
+    async logout()
+    {
+        const token = LocalStorage.getItem("auth_token")
+        console.log('token: ', token)
+        try {
+            const response = await api.post('/auth/logout', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                    
+                }
+            })
+
+            console.log('Response.logout', response)
+            if(response.data.success)
+            {
+                LocalStorage.remove("auth_token")
+                this.$router.push('/login')
+            }
+        } catch (error) {
+            console.lo
+        }
+    },
     toggleSidebar() {
         this.sidebarActive = !this.sidebarActive;
         this.$emit('toggleSidebar', this.sidebarActive)
