@@ -227,8 +227,8 @@
                         >
                             <label class="text-black" for="discount">Vendedor</label>
                             <input 
-                                placeholder="Funcionário Padrão"
-                                v-model="emitProducts.userID"
+                                :placeholder="sellerData.name"
+                                disabled
                                 id="discount"
                                 type="text"
                                 class="text-black border border-black w-full"
@@ -381,6 +381,7 @@
     import CashClosing from 'src/components/PDV/CashClosing.vue'
     import { api } from "boot/axios"
     import { toRaw } from 'vue'   
+import { LocalStorage } from 'quasar';
     
     export default{
         data(){
@@ -609,7 +610,7 @@
                         { 
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
-                                user_id: this.emitProducts.userID,
+                                user_id: this.sellerData.id,
                                 customer_id: this.clientData.id,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 sub_total: this.calculateTotal.subtotal,
@@ -636,7 +637,7 @@
                         {  
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
-                                user_id: this.emitProducts.userID,
+                                user_id: this.sellerData.id,
                                 customer_id: this.clientData.id,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 sub_total: this.calculateTotal.subtotal,
@@ -889,6 +890,22 @@
             this.witdhScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
             
+            const checkAuth = async () => {
+                const token = LocalStorage.getItem("auth_token")
+                const response = await api.get('/auth/me', {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                const details = response.data
+                this.sellerData = {
+                    id: details.user.id,
+                    name: details.user.name,
+                }
+
+            }
+            checkAuth()
+
             if(this.idPDV)
             {
                 this.importSale()            
