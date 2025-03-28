@@ -53,7 +53,7 @@
                     }
                     
                 } catch (error) {
-                    console.error('Erro no checkAuth App.vue', error.response)
+                    console.error('Erro no checkAuth App.vue', error)
                     if(error.response.status)
                     {
                         LocalStorage.remove("auth_token")

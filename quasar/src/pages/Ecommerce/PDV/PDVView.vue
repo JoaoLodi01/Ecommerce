@@ -401,6 +401,7 @@
     import CashClosing from 'src/components/PDV/CashClosing.vue'
     import { api } from "boot/axios"
     import { toRaw } from 'vue'   
+import { LocalStorage } from 'quasar';
     
     export default{
         data(){
@@ -900,7 +901,20 @@
             this.getHotel()
             this.widthScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
-            console.log(this.widthScreen)
+            const getUser = async () => { 
+                const response = await api.get('/auth/me', {
+                    headers: {
+                        'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
+                    }
+                })
+                const details = response.data   
+                this.sellerData = {
+                    id: details.user.id,
+                    name: details.user.name,
+                }
+            }
+            getUser()
+            
             if(this.idPDV)
             {
                 this.importSale()            

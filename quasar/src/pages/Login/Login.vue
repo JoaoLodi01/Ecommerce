@@ -13,8 +13,9 @@
                 type="password"
                 
             />
-            <button>Entrar</button>
+            <q-btn type="submit">Entrar</q-btn>
         </form>
+        <q-btn>Criar login</q-btn>
     </div>
 
 </template>
@@ -45,9 +46,6 @@
                     if (response.data.status && response.data.token) {
                         
                         localStorage.setItem("auth_token", response.data.token);
-                        const token = LocalStorage.getItem("auth_token");
-
-                        console.log('token no LocalStorage: ', token)
                         this.$router.push('/home')
                         
                     } else {
@@ -57,11 +55,24 @@
 
                 } catch (error) {
                     console.error("Erro no login:", error);
-                    alert("Erro ao tentar fazer login. Verifique suas credenciais.");
+                    alert("Erro ao tentar fazer login. Verifique suas credenciais e tente novamente.");
 
                 }
             },
         },
+        mounted(){
+            const token = LocalStorage.getItem("auth_token")
+            const auth = async () => {
+                const response = api.get('/auth/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+            
+                console.log(response)
+            }
+            auth()
+        }
     }
 
 </script>
