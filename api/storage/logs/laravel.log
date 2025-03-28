@@ -1040,3 +1040,19 @@ porque o host conectado não respondeu at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_E
 [2025-03-28 09:31:57] local.INFO: O hotel foi encontrado  
 [2025-03-28 09:31:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-03-28 09:31:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 10:10:22] local.INFO: Acertou o login  
+[2025-03-28 10:11:28] local.INFO: Acertou o login  
+[2025-03-28 10:12:35] local.INFO: Acertou o login  
+[2025-03-28 10:14:32] local.INFO: Acertou o login  
+[2025-03-28 10:17:29] local.INFO: Acertou o login  
+[2025-03-28 10:18:52] local.INFO: Acertou o login  
+[2025-03-28 10:18:56] local.INFO: Acertou o login  
+[2025-03-28 10:18:58] local.INFO: Acertou o login  
+[2025-03-28 10:19:57] local.INFO: Acertou o login  
+[2025-03-28 10:21:29] local.INFO: Errou o login  
+[2025-03-28 10:22:19] local.INFO: Errou o login  
+[2025-03-28 10:26:36] local.INFO: Acertou o login  
+[2025-03-28 10:32:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 10:32:22] local.INFO: O hotel foi encontrado  
+[2025-03-28 10:32:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 10:32:22] local.INFO: Opção desativada, não vai alterar o endereço  

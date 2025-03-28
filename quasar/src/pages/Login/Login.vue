@@ -13,7 +13,9 @@
                 type="password"
                 
             />
-            <q-btn type="submit">Entrar</q-btn>
+            <div class="q-pa-md">
+                <q-btn @click=showLoading type="submit" label="Entrar"/>
+            </div>
         </form>
         <q-btn>Criar login</q-btn>
     </div>
@@ -22,9 +24,35 @@
 
 <script>
     import { api } from "boot/axios"
-    import { LocalStorage } from 'quasar';
-
+    import { useQuasar, LocalStorage } from 'quasar';
+    import { onBeforeUnmount } from "vue";
+    
     export default {
+        setup () {
+            const $q = useQuasar()
+            let timer
+
+            onBeforeUnmount(() => {
+            if (timer !== void 0) {
+                clearTimeout(timer)
+                $q.loading.hide()
+            }
+            })
+
+            return {
+            showLoading () {
+                $q.loading.show({
+                    message: 'Some important process  is in progress. Hang on...'
+                })
+
+                    // hiding in 3s
+                timer = setTimeout(() => {
+                    $q.loading.hide()
+                    timer = void 0
+                    }, 3000)
+                }
+            }
+        },
         data(){
             return {
                 details: {
