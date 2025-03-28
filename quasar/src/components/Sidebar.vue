@@ -38,14 +38,6 @@
       <div class="sidebar-links p-4">
         <ul class="space-y-4">
           <li>
-            <router-link to="/profile" class="ml-5 hover:text-blue-300 flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-              </svg>
-              <span class="ml-2">Perfil</span>
-            </router-link>
-          </li>
-          <li>
             <router-link to="/home" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
@@ -163,28 +155,38 @@
               <span class="ml-2">Configurações</span>
             </router-link>
           </li>
-
-          <li class="fixed bottom-0">
+          <li>
+            <router-link to="/profile" class="ml-5 hover:text-blue-300 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              </svg>
+              <span class="ml-2">Perfil</span>
+            </router-link>
+          </li>
+          <li class="fixed bottom-auto">
+            <button>
               <router-link to="/updates" class="ml-5 hover:text-blue-300 flex items-center mb-10">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
                 </svg>
                 <span class="ml-2 mb-auto">Atualizações</span>
               </router-link>
+            </button>
+          </li>
+          <li class="fixed bottom-0">
+              <q-btn class="ml-5 hover:text-blue-300 flex items-center mb-10" @click="logout()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                </svg>
+
+                <span class="ml-2 mb-auto">Sair</span>
+              </q-btn>
             </li>
+            
           </ul>
         </div>
     </div>
-    <div class="flex" id="q-app" :class="{
-        'top-10 right-14': widthScreen <= 1080,
-        'ml-12 mr-4': widthScreen <= 1080,
-        'ml-36': widthScreen > 1080,
-        'transform transition translate-x-20': sidebarActive
-        
-    }">   
-      <router-view></router-view>
-    </div>
-
+  
     <!-- Botão da Sidebar fechada -->
     <button  
       @click="toggleSidebar"
@@ -205,6 +207,9 @@
 </template>
 
 <script>
+import { LocalStorage } from 'quasar';
+import { api } from 'src/boot/axios';
+
 export default {
   data() {
     return {
@@ -217,9 +222,31 @@ export default {
     };
   },
   methods: {
+    async logout()
+    {
+        const token = LocalStorage.getItem("auth_token")
+        console.log('token: ', token)
+        try {
+            const response = await api.post('/auth/logout', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                    
+                }
+            })
+
+            console.log('Response.logout', response)
+            if(response.data.success)
+            {
+                LocalStorage.remove("auth_token")
+                this.$router.push('/login')
+            }
+        } catch (error) {
+            console.lo
+        }
+    },
     toggleSidebar() {
         this.sidebarActive = !this.sidebarActive;
-        this.isActive()
+        this.$emit('toggleSidebar', this.sidebarActive)
     },
 
     showFinancialFn()
@@ -236,9 +263,7 @@ export default {
         this.downRow2 = false
     },
 
-    isActive(){
-      this.$emit('isActive', true)
-    }
+   
   },
 
   mounted()

@@ -1,13 +1,12 @@
 <template>
     <div
-        class="w-max flex mx-auto border rounded-lg border-black mt-10" 
+        class="w-max flex mx-auto border border-black rounded-lg mt-10" 
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'ml-10': witdhScreen === 1920,
-            'ml-14': witdhScreen !== 1920,
-            'flex-col': witdhScreen <= 1080,
-            'p-4': witdhScreen <= 1080,
+            'ml-14': widthScreen > 1080 && widthScreen >= 1472,
+            'flex-col': widthScreen <= 1080,
+            'p-4': widthScreen <= 1080,
             
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
@@ -16,12 +15,12 @@
         }"   
     >
         <div :class="{
-            'absolute left-96 right-auto top-40 z-20': witdhScreen > 1080,
-            'absolute right-auto top-5 z-50': witdhScreen <= 1080
+            'absolute left-96 right-auto top-40 z-20': widthScreen > 1080,
+            'absolute right-auto top-5 z-50': widthScreen <= 1080
         }">
             <PaymentsForm
                 v-if="showPaymentsForm"
-                :witdhScreen="this.witdhScreen"
+                :widthScreen="this.widthScreen"
                 :typeOperation=this.typeOperation
                 :totalOperation=this.totalOperation
                 :pdvID=this.pdvID
@@ -40,14 +39,14 @@
             <div 
                 class="border border-gray-500 m-3"
                 :class="{
-                    'w-14': witdhScreen <= 1080,
+                    'w-14': widthScreen <= 1080,
                     
                 }"
             >
                 <div class="inline-flex p-3">
                     <div 
                         class="mt-auto mb-auto mr-5 cursor-pointer"
-                        v-if="witdhScreen !== 0"
+                        v-if="widthScreen !== 0"
                         @click="showproductts"
                         
                     >
@@ -57,17 +56,20 @@
 
                     </div>
                     
-                    <div v-if="witdhScreen > 1366" class="border border-black rounded-md mr-1">
-                        <ProductsSearchBar/>
+                    <div v-if="widthScreen > 1366" class="border border-black rounded-md mr-1">
+                        <ProductsSearchBar
+                            :showProductsSearch
+                            @update:selectProducts="updateProductsSeletion"
+                        />
                     </div>
 
-                    <div v-if="witdhScreen > 1366">
+                    <div v-if="widthScreen > 1366">
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
                         <button @click="showCashClosing = !showCashClosing" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
-                    
+  
                 </div>
 
             </div>
@@ -76,13 +78,13 @@
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
                             <tr class="bg-white">
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Cód.</th>
+                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
+                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
+                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
+                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
+                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
                                 <th scope="col" class="px-6 py-3">Ações</th>
 
                         </tr>
@@ -95,10 +97,10 @@
                             class="border border-black"
                         >    
 
-                            <td v-if="witdhScreen > 1080" class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                            <td v-if="widthScreen > 1080" class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
 
-                            <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
+                            <td v-if="widthScreen > 1080"  class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.cfop"
                                     :placeholder=product.cfop
@@ -111,7 +113,7 @@
                                 />
                             </td>
 
-                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
+                            <td v-if="widthScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.csosn"
                                     :placeholder=product.csosn
@@ -125,7 +127,7 @@
                                 />
                             </td>
 
-                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
+                            <td v-if="widthScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.amount"
                                     :placeholder=product.amount 
@@ -135,8 +137,8 @@
                                     
                                 />
                             </td>
-                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                            <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
+                            <td v-if="widthScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                            <td v-if="widthScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
                             <td class="text-center">
                                 <div class="m-auto">
                                     <button @click="productOptions(product, 'delete')">
@@ -166,7 +168,7 @@
 
                                     <button @click="productOptions(product, 'view')">
                                         <svg 
-                                            v-if="witdhScreen <= 1080"
+                                            v-if="widthScreen <= 1080"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24" 
@@ -210,16 +212,15 @@
         </div>
     <div>
         </div>
-        
-                <div 
-                    class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-black "
-                    :class="{
-                        'text-xl': textSize === 4,
-                        'text-2xl': textSize === 8,
-                        'text-3xl': textSize === 16,
-                        
-                    }"   
-                >
+            <div 
+                class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-black "
+                :class="{
+                    'text-xl': textSize === 4,
+                    'text-2xl': textSize === 8,
+                    'text-3xl': textSize === 16,
+                    'm-auto': widthScreen <= 1080
+                }"   
+            >
                 <div>
                     <div>
                         <div 
@@ -238,15 +239,23 @@
 
                             <label class="text-black" for="client">Cliente</label>
                             <input 
+                                v-model="clientsData.name"
+                                @input="selectClient()"
+                                @keydown.enter="setClient()"
                                 placeholder="Consumidor Padrão"
-                                v-model="clientData.name"
-                                @keydown.enter="selectClient()"
-                                id="client"
-                                type="text"
                                 class="text-black border border-black w-full"
                             />
+                            <ul v-if="filteredClients.length" class="border border-gray-300 rounded mt-1">
+                                <li
+                                    v-for="client in filterClients"
+                                    :key="client.id"
+                                    @click="setClient(client)"
+                                    class="p-2 hover:bg-gray-200 cursor-pointer">
+                                
+                                    {{ client.name }}
+                                </li>
+                            </ul>
                         </div>
-                    
                     <div
                         class="m-2 p-2 rounded-lg border border-gray-700" 
                         id="values"
@@ -338,8 +347,19 @@
                         </div>
                     </div>
 
-                    <div class="flex text-white p-1 rounded-lg border border-gray-700 w-full">
-                        <button @click="finalizeSale('nm')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar</button>
+                    <div 
+                        class="flex text-white p-1 rounded-lg border border-gray-700 w-full"
+                    
+                    >
+                        <button
+                            :class="{
+                                'ml-8': widthScreen > 1080 && widthScreen <= 1920
+                            }" 
+                            @click="finalizeSale('nm')"
+                            class="mr-1 ml-2 p-1 bg-slate-600 rounded-md"
+                        >
+                            Finalizar
+                        </button>
                         <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
                         
                     </div>
@@ -353,7 +373,7 @@
     </div>
 
     <div
-        v-if="showGrid && witdhScreen > 1366"
+        v-if="showGrid && widthScreen > 1366"
         class="flex border border-black w-9  ml-10"
     >
         <select id="textSize" v-model.number="textSize">
@@ -366,7 +386,7 @@
     <div>
         <ProductsSelectionView
             v-if="show"
-            :witdhScreen="this.witdhScreen"
+            :widthScreen="this.widthScreen"
             :hotelCodCRT="this.hotelCodCRT"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion"
@@ -396,28 +416,26 @@ import { LocalStorage } from 'quasar';
                     userID: 0,
                     
                 },
-
-                sellers: [],
-
                 sellerData: {
                     id: '',
                     name: ''
                 },
 
                 clients: [],
-                clientData: {
+                filteredClients: [],
+                clientsData: {
                     id: '',
                     name: ''
                 },
-                
                 totalOperation: 0,
-                witdhScreen: 0,
+                widthScreen: 0,
                 textSize: 4,
                 pdvID: 0,
                 show: false,
                 showGrid: true,
                 isLoanding: true,
                 showPaymentsForm: false,
+                showProductsSearch: true,
                 showCashClosing: false,
 
                 viewProduct: {
@@ -475,28 +493,21 @@ import { LocalStorage } from 'quasar';
         
         methods: {
             async selectClient(){
-                try {
                     const response = await api.get('/customers/selectClient');
-                    
-                    if(response.data.length > 0) {
-                        this.clients = response.data;
+                    this.clients = response.data;
+                    this.filterClients();
+            },
 
-                        const client = this.clients.find(client => 
-                        client.name.toLowerCase().includes(this.clientData.name.toLowerCase())
-                        );
+            filterClients(){
+                this.filteredClients = this.clients.filter(client =>
+                    client.name.toLowerCase().includes(this.clientsData.name.toLowerCase())
+                );
+            },
 
-                        if(client) {
-                            this.clientData.id = client.id;
-                            this.clientData.name = client.name;
-                        } else {
-                            console.log('Nenhum cliente correspondente encontrado!');
-                        }
-                    }
-
-                } catch (error) {
-                    console.error('selectClient Erro ao buscar:', error);
-                    
-                }
+            setClient(){
+                this.clientsData.id = client.id;
+                this.clientsData.name = client.name;
+                this.filteredClients = [];
             },
 
             async saveSale()
@@ -580,11 +591,12 @@ import { LocalStorage } from 'quasar';
             async finalizeSale(type) // Só vai chamar a forma de pagamento
             {
                 try {
-                    if(this.clientData.id && this.emitProducts.userID)
+                    if(this.clientData.id && this.sellerData.id)
                     {
                         console.log('Pode calcular o total')
                         this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.freight + this.calculateTotal.addition - this.calculateTotal.discount
                     }
+
                     if(this.idPDV)
                     {
                         if(type === 'nm')
@@ -887,25 +899,22 @@ import { LocalStorage } from 'quasar';
 
         mounted(){
             this.getHotel()
-            this.witdhScreen += screen.width
+            this.widthScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
-            
-            const checkAuth = async () => {
-                const token = LocalStorage.getItem("auth_token")
+            const getUser = async () => { 
                 const response = await api.get('/auth/me', {
                     headers: {
-                        'Authorization': token
+                        'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
                     }
                 })
-                const details = response.data
+                const details = response.data   
                 this.sellerData = {
                     id: details.user.id,
                     name: details.user.name,
                 }
-
             }
-            checkAuth()
-
+            getUser()
+            
             if(this.idPDV)
             {
                 this.importSale()            

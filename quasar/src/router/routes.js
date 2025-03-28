@@ -1,9 +1,20 @@
 const routes = [
   {
-    path: '/home',
-    component: () => import('src/pages/HomePage.vue')
+    path: '/',
+    name: "SideBar",
+    component: () => import('src/pages/SideBarPage.vue')
   },  
+  {
+    path: '/home',
+    name: "Home",
+    component: () => import('src/pages/HomePage.vue')
+  },
 
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('src/pages/Profile/Profile.vue')
+  },
   {
     path: '/login',
     name: 'LoginView',
@@ -42,6 +53,8 @@ const routes = [
     name: 'ToPayView',
     component: () => import('src/pages/Ecommerce/Financial/ToPayView.vue')
   },
+
+
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue')

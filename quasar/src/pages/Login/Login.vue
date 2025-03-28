@@ -13,17 +13,46 @@
                 type="password"
                 
             />
-            <button>Entrar</button>
+            <div class="q-pa-md">
+                <q-btn @click=showLoading type="submit" label="Entrar"/>
+            </div>
         </form>
+        <q-btn>Criar login</q-btn>
     </div>
 
 </template>
 
 <script>
     import { api } from "boot/axios"
-    import { LocalStorage } from 'quasar';
-
+    import { useQuasar, LocalStorage } from 'quasar';
+    import { onBeforeUnmount } from "vue";
+    
     export default {
+        setup () {
+            const $q = useQuasar()
+            let timer
+
+            onBeforeUnmount(() => {
+            if (timer !== void 0) {
+                clearTimeout(timer)
+                $q.loading.hide()
+            }
+            })
+
+            return {
+            showLoading () {
+                $q.loading.show({
+                    message: 'Some important process  is in progress. Hang on...'
+                })
+
+                    // hiding in 3s
+                timer = setTimeout(() => {
+                    $q.loading.hide()
+                    timer = void 0
+                    }, 3000)
+                }
+            }
+        },
         data(){
             return {
                 details: {
@@ -45,9 +74,6 @@
                     if (response.data.status && response.data.token) {
                         
                         localStorage.setItem("auth_token", response.data.token);
-                        const token = LocalStorage.getItem("auth_token");
-
-                        console.log('token no LocalStorage: ', token)
                         this.$router.push('/home')
                         
                     } else {
@@ -57,11 +83,24 @@
 
                 } catch (error) {
                     console.error("Erro no login:", error);
-                    alert("Erro ao tentar fazer login. Verifique suas credenciais.");
+                    alert("Erro ao tentar fazer login. Verifique suas credenciais e tente novamente.");
 
                 }
             },
         },
+        mounted(){
+            const token = LocalStorage.getItem("auth_token")
+            const auth = async () => {
+                const response = api.get('/auth/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+            
+                console.log(response)
+            }
+            auth()
+        }
     }
 
 </script>

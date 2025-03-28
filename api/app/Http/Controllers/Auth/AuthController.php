@@ -30,7 +30,7 @@ class AuthController extends Controller
         }
 
         Log::info('Errou o login');
-        return redirect()->route('php.info');
+        
     }
 
     public function logout()
