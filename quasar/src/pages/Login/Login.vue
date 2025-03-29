@@ -5,7 +5,8 @@
                 @submit.prevent="loginMethod"
                 v-if="showLogin"
             >
-                <h1 class="text-xl border-b border-black w-12 mb-4">Login</h1>
+                <h1 class="text-xl border-b border-black w-max mb-4">Login</h1>
+                
                 <q-input 
                     filled 
                     v-model="details.email" 
@@ -41,13 +42,14 @@
                 </q-btn>
                 <span class="flex justify-end cursor-pointer hover:">Esqueceu sua senha?</span>
             </q-form>
-            
+
 
             <Register 
                 v-if="showRegister"
                 @close="hideFormRegister($event)"
             />
         </div> 
+        
     </div>
 </template>
 
@@ -119,7 +121,7 @@
               
                     if (response.data.status && response.data.token) {
                         console.log('Vai enviar para o /')
-                        alert('Login bem sucessido!')
+                        alert('Login bem sucedido!')
                         
                         LocalStorage.setItem("auth_token", response.data.token);
                         LocalStorage.setItem("loged", response.data.status);

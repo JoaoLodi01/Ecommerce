@@ -155,13 +155,43 @@
               <span class="ml-2">Configurações</span>
             </router-link>
           </li>
-          <li>
-            <router-link to="/profile" class="ml-5 hover:text-blue-300 flex items-center">
+          <li class="w-max">
+            <a class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
               </svg>
-              <span class="ml-2">Perfil</span>
-            </router-link>
+              <button @click="showProfileFn()">
+                <span @click="downRow3 = !downRow3" class="inline-flex ml-2">Perfil
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor" 
+                    class="mt-auto mb-auto size-4"
+                    
+                    v-if="!downRow3"
+                  >
+                    <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd" />
+                  </svg> <!-- Flecha pra baixo -->
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    class="mt-auto mb-auto size-4"
+                    v-if="downRow3"
+                  >
+                    <path fill-rule="evenodd" d="M8 14a.75.75 0 0 0 .75-.75V4.56l1.22 1.22a.75.75 0 1 0 1.06-1.06l-2.5-2.5a.75.75 0 0 0-1.06 0l-2.5 2.5a.75.75 0 0 0 1.06 1.06l1.22-1.22v8.69c0 .414.336.75.75.75Z" clip-rule="evenodd" />
+                  </svg> <!-- Flecha pra cima -->
+                </span>
+                
+              </button>
+            </a>
+            <div v-if="showProfile" class="ml-12 bg-gray-700 p-2 rounded-lg">
+                <p><a href="/financial/to-pay" class="hover:text-blue-400">Pagar</a></p>
+                <p><a href="/financial/receive" class="hover:text-blue-400">Receber</a></p>
+                <p><a href="/financial/cash-register" class="hover:text-blue-400">Caixa</a></p>
+
+            </div>
           </li>
           <li class="fixed bottom-auto">
             <button>
@@ -173,7 +203,9 @@
               </router-link>
             </button>
           </li>
-          <li class="fixed bottom-0">
+          <li class="fixed bottom-0" :class="{
+            'bottom-10': widthScreen <= 1080
+          }">
               <q-btn class="ml-5 hover:text-blue-300 flex items-center mb-10" @click="logout()">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
@@ -216,8 +248,10 @@
         sidebarActive: true,
         showFinancial: false,
         showPDV: false,
+        showProfile: false,
         downRow: false,
         downRow2: false,
+        downRow3: false,
         widthScreen: 0
       };
     },
@@ -260,11 +294,20 @@
           this.downRow = false
       },
 
+      showProfileFn()
+      {
+          this.showProfile = !this.showProfile
+          this.showPDV = false
+          this.showFinancial = false
+          
+      },
+
       showPDVFn()
       {
           this.showPDV = !this.showPDV
           this.showFinancial = false
           this.downRow2 = false
+          this.downRow3 = false
       },
 
     },

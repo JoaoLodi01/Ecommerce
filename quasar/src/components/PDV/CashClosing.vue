@@ -8,6 +8,17 @@
 
 <script>
     export default {
-       
+        methods: {
+            close()
+            {
+                this.$emit("closeCashClosing", false)
+           
+            },
+
+            
+        },
+        emits: [
+            'closeCashClosing'
+        ]
     }
 </script>

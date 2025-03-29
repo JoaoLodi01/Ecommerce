@@ -15,7 +15,6 @@ class ProductsController extends Controller
     }
 
     public function getAll(){
-        Log::info('bateu no getAll');
         return $this->productsService->getAll();
     }
 

@@ -1,12 +1,11 @@
 <template>
     <div
-        class="w-max flex mx-auto border border-black rounded-lg mt-10" 
+        class="w-max mx-auto border border-black rounded-lg mt-10" 
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'ml-14': witdhScreen > 1080 && witdhScreen >= 1472,
-            'flex-col': witdhScreen <= 1080,
-            'p-4': witdhScreen <= 1080,
+            'flex ml-14': witdhScreen > 1080 && witdhScreen >= 1472,
+            'relative left-10': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
@@ -32,8 +31,16 @@
 
             <CashClosing
                 v-if="showCashClosing"
-                @close="showCashClosing = $event"
+                @closeCashClosing="closeCashClosing($event)"
             />
+
+            <div v-if="errorMessages.length > 0" class="mt-10">
+                <p v-for="erroMessage in errorMessages">
+                    
+                        
+                </p>
+                <button @click="errorMessages = []">Fechar</button>
+            </div>
         </div>
         
         <div class="relative overflow-x-auto max-h-96 overflow-y-auto">
@@ -67,7 +74,7 @@
                     <div v-if="witdhScreen > 1366">
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
-                        <button @click="showCashClosing = !showCashClosing" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
+                        <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
   
@@ -353,7 +360,7 @@
                     
                     >
                     
-                    <q-btn @click="showLoading">
+                    <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
                         <button
                             :class="{
                                 'ml-8': witdhScreen > 1080 && witdhScreen <= 1920
@@ -363,8 +370,8 @@
                         >
                             Finalizar
                         </button>
-                    
-                        
+                    </q-btn>
+                    <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
                         <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
                     </q-btn>
                     </div>
@@ -436,8 +443,7 @@
         data(){
             return {
                 productsSeletion: [],
-                hotelCodCRT: 0,
-
+                errorMessages: [],
                 emitProducts: {
                     addition: 0,
                     discount: 0,
@@ -445,6 +451,8 @@
                     userID: 0,
                     
                 },
+                hotelCodCRT: 0,
+
                 sellerData: {
                     id: '',
                     name: ''
@@ -453,7 +461,7 @@
                 clients: [],
                 filteredClients: [],
                 clientsData: {
-                    id: 1,
+                    id: null,
                     name: ''
                 },
                 totalOperation: 0,
@@ -703,7 +711,9 @@
                     }
                     
                 } catch (error) {
-                    console.error('Erro finalizeSale', error)   
+                    console.error('Erro finalizeSale', error.response.data.errors)
+                    this.errorMessages.push(error.response.data.errors)
+                    
                 }
             },
 
@@ -738,7 +748,6 @@
                 this.showGrid = !this.showGrid
                 this.show = !this.show
                 
-
             },  
 
             changeAmount(id, newAmount)
@@ -872,6 +881,11 @@
                 }
             },
 
+            closeCashClosing(event)
+            {
+                this.showCashClosing = event
+            },
+
             resetSale(confirmed)
             {
                 if(confirmed)
@@ -944,7 +958,7 @@
                 }
             }
             getUser()
-            
+
             if(this.idPDV)
             {
                 this.importSale()            
