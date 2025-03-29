@@ -32,6 +32,7 @@
 
             <CashClosing
                 v-if="showCashClosing"
+                @close="showCashClosing = $event"
             />
         </div>
         

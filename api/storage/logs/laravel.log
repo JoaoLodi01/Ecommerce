@@ -10775,3 +10775,29 @@ porque o host conectado não respondeu at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_E
 >>>>>>> b0ff4ad957030aea48291025514c919be2ee5b32
 [2025-03-29 14:15:14] local.INFO: Acertou o login  
 [2025-03-29 14:15:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-29 14:16:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-29 14:16:42] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-03-29 14:17:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 14:17:36] local.INFO: O hotel foi encontrado  
+[2025-03-29 14:17:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 14:17:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 14:17:42] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-29 14:17:42] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-29 14:17:42] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-29 14:17:42] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-29 14:17:42] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-29 14:17:42] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-29 14:17:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 14:17:44] local.INFO: O hotel foi encontrado  
+[2025-03-29 14:17:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 14:17:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 14:18:53] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-29 14:18:53] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-29 14:18:53] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-29 14:18:53] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-29 14:18:53] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-29 14:18:53] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-29 14:18:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 14:18:54] local.INFO: O hotel foi encontrado  
+[2025-03-29 14:18:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 14:18:54] local.INFO: Opção desativada, não vai alterar o endereço  
