@@ -17,15 +17,12 @@
 </template>
 
 <script>
-    import { LocalStorage } from 'quasar';
-    import { api } from 'src/boot/axios';
     import Sidebar from 'src/components/Sidebar.vue';
 
     export default {
         data()
         {
             return {
-                loged: false,
                 sidebarActive: true,
                 widthScreen: 0
             }
@@ -46,6 +43,11 @@
         mounted(){
             this.widthScreen += screen.width
             
+            if(this.$route.path === '/login')
+            {
+                this.$router.push('/')
+                
+            }
         }
     }
 

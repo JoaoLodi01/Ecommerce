@@ -239,6 +239,8 @@
               if(response.data.success)
               {
                   LocalStorage.remove("auth_token")
+                  LocalStorage.setItem("loged", false)
+                  window.location.reload()
                   this.$router.push('/login')
               }
           } catch (error) {
@@ -269,7 +271,7 @@
     mounted()
     { 
       this.widthScreen += screen.width
-    
+      
       if(this.widthScreen <= 1080)
       {   
           this.sidebarActive = false   

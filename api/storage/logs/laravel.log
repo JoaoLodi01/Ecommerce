@@ -2799,3 +2799,1162 @@
 [2025-03-28 23:31:28] local.INFO: Produto encontrado 3  
 [2025-03-28 23:31:28] local.INFO: {"id":3,"product":"Jack Daniels Canela","grupo_id":2,"grupo":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}  
 [2025-03-28 23:31:28] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-03-29 00:10:20] local.INFO: Acertou o login  
+[2025-03-29 00:10:36] local.INFO: Acertou o login  
+[2025-03-29 00:11:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 00:11:07] local.INFO: O hotel foi encontrado  
+[2025-03-29 00:11:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 00:11:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 00:11:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 00:11:11] local.INFO: O hotel foi encontrado  
+[2025-03-29 00:11:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 00:11:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 00:11:13] local.INFO: bateu no getAll  
+[2025-03-29 00:11:29] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$vqE0JC4HzN0m1iJkaxViPews1Xw9vdLTkCRoXSMtHlpvUOtPVFR8.","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$KbAA2JqUrrCWHcElNHSSK.5xKpGv4leC4nk5u8uAnRkpra6yfI7Wu","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}]  
+[2025-03-29 00:11:30] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$vqE0JC4HzN0m1iJkaxViPews1Xw9vdLTkCRoXSMtHlpvUOtPVFR8.","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$KbAA2JqUrrCWHcElNHSSK.5xKpGv4leC4nk5u8uAnRkpra6yfI7Wu","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}]  
+[2025-03-29 00:11:31] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$vqE0JC4HzN0m1iJkaxViPews1Xw9vdLTkCRoXSMtHlpvUOtPVFR8.","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$KbAA2JqUrrCWHcElNHSSK.5xKpGv4leC4nk5u8uAnRkpra6yfI7Wu","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}]  
+[2025-03-29 00:11:33] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$vqE0JC4HzN0m1iJkaxViPews1Xw9vdLTkCRoXSMtHlpvUOtPVFR8.","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$KbAA2JqUrrCWHcElNHSSK.5xKpGv4leC4nk5u8uAnRkpra6yfI7Wu","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}]  
+[2025-03-29 00:11:34] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$vqE0JC4HzN0m1iJkaxViPews1Xw9vdLTkCRoXSMtHlpvUOtPVFR8.","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$KbAA2JqUrrCWHcElNHSSK.5xKpGv4leC4nk5u8uAnRkpra6yfI7Wu","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}]  
+[2025-03-29 00:11:35] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$vqE0JC4HzN0m1iJkaxViPews1Xw9vdLTkCRoXSMtHlpvUOtPVFR8.","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$KbAA2JqUrrCWHcElNHSSK.5xKpGv4leC4nk5u8uAnRkpra6yfI7Wu","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}]  
+[2025-03-29 00:11:35] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$vqE0JC4HzN0m1iJkaxViPews1Xw9vdLTkCRoXSMtHlpvUOtPVFR8.","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$KbAA2JqUrrCWHcElNHSSK.5xKpGv4leC4nk5u8uAnRkpra6yfI7Wu","phone":"+55 4244-4444","active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}]  
+[2025-03-29 00:11:38] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-29 00:11:38] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-29 00:11:38] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-29 00:11:38] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-29 00:11:38] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-29 00:11:38] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-03-29 00:11:38] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-29 00:11:38] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 3,
+        'product' => 'Jack Daniels Canela',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '140.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '123456',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 140,
+  'sub_total' => 140,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-29 00:11:38] local.INFO: Memória usada PDVRepository::class, saveSale: 23068672  
+[2025-03-29 00:11:38] local.INFO: Busca pelo customer  
+[2025-03-29 00:11:39] local.INFO: Busca pelo user  
+[2025-03-29 00:11:39] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}  
+[2025-03-29 00:11:39] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 140,
+  'net_value' => 140,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Kochem',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-29 00:11:39] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-03-29 00:11:39] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
+[2025-03-29 00:11:39] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}  
+[2025-03-29 00:11:39] local.INFO: $products 11  
+[2025-03-29 00:11:39] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 3,
+      'product' => 'Jack Daniels Canela',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '140.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '102',
+      'ncm' => '12345678',
+      'cest' => '123456',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-03-29 00:11:39] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-29 00:11:39] local.INFO: $product, type: array  
+[2025-03-29 00:11:39] local.INFO: array (
+  0 => 
+  array (
+    'id' => 3,
+    'product' => 'Jack Daniels Canela',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '140.00',
+    'perc_lucro' => '100.00',
+    'cfop' => '5102',
+    'csosn' => '102',
+    'ncm' => '12345678',
+    'cest' => '123456',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-29 00:11:39] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-29 00:11:39] local.INFO: $product[$i]  
+[2025-03-29 00:11:39] local.INFO: array (
+  'id' => 3,
+  'product' => 'Jack Daniels Canela',
+  'grupo_id' => 2,
+  'grupo' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '140.00',
+  'perc_lucro' => '100.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '123456',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-03-29 00:11:39] local.INFO: itensPDV   
+[2025-03-29 00:11:39] local.INFO: array (
+  'pdv_id' => 10,
+  'product_id' => 3,
+  'product' => 'Jack Daniels Canela',
+  'cost_price' => '10.00',
+  'sale_price' => '140.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '123456',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+)  
+[2025-03-29 00:11:39] local.INFO: $ipdv  
+[2025-03-29 00:11:39] local.INFO: {"pdv_id":10,"product_id":3,"product":"Jack Daniels Canela","cost_price":"10.00","sale_price":"140.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":10}  
+[2025-03-29 00:11:40] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-29 00:11:44] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-29 00:11:44] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-29 00:11:44] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-29 00:11:44] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-29 00:11:44] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-29 00:11:44] local.INFO: Dados recebidos nos controllers  
+[2025-03-29 00:11:44] local.INFO: array (
+  'type_operation' => 'nfce',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => '140',
+  ),
+  'pdv_id' => 10,
+)  
+[2025-03-29 00:11:44] local.INFO: PDVService.php, class:finalizeSale, $total: 140  
+[2025-03-29 00:11:44] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-03-29 00:11:44] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-03-29 00:11:44] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-29 00:11:44] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-29 00:11:44] local.INFO: $result  
+[2025-03-29 00:11:44] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-29 00:11:44] local.INFO: Vai conferir se o $total: R$ 140 é maior que o $pdv->net_value, R$140.00  
+[2025-03-29 00:11:44] local.INFO: Foi maior  
+[2025-03-29 00:11:44] local.INFO: nfce  
+[2025-03-29 00:11:44] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-03-29 00:11:44] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-03-29 00:11:44] local.INFO: $forms  
+[2025-03-29 00:11:44] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-29 00:11:44] local.INFO: $paymentValues  
+[2025-03-29 00:11:44] local.INFO: array (
+  0 => '140',
+)  
+[2025-03-29 00:11:44] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-29 00:11:44] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-03-29 00:11:44] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-29 00:11:44] local.INFO: forms  
+[2025-03-29 00:11:44] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-29 00:11:44] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-29 00:11:44] local.INFO: paymentValues linha 124 - : 140  
+[2025-03-29 00:11:44] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-29 00:11:44] local.INFO: $form->tipo_lancamento  
+[2025-03-29 00:11:44] local.INFO: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-29 00:11:44] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-03-29 00:11:44] local.INFO: Dados:   
+[2025-03-29 00:11:44] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 10',
+    'document' => 10,
+    'pdv_id' => 10,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-29',
+    'input_value' => '140',
+    'output_value' => 0,
+    'real_balance' => '140',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-03-29 00:11:44] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-03-29 00:11:44] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-29 00:11:44] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-03-29 00:11:44] local.INFO: Quantia: 1  
+[2025-03-29 00:11:44] local.INFO: Tipo de dado: array  
+[2025-03-29 00:11:44] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 10',
+    'document' => 10,
+    'pdv_id' => 10,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-29',
+    'input_value' => '140',
+    'output_value' => 0,
+    'real_balance' => '140',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-03-29 00:11:44] local.INFO: Vai criar 1 registro:   
+[2025-03-29 00:11:44] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-03-29 00:11:44] local.INFO: $lastCashBox  
+[2025-03-29 00:11:44] local.INFO: 4  
+[2025-03-29 00:11:44] local.INFO: $actualCashBox  
+[2025-03-29 00:11:44] local.INFO: {"id":2,"description":"Venda Nota Manual 
+                                N\u00b0 9","document":"9","pdv_id":9,"customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-28","input_value":"120.00","output_value":"0.00","real_balance":"250.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-29 00:11:44] local.INFO: Novo valor: R$ 120.00 + 140.00 = 260  
+[2025-03-29 00:11:44] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-03-29 00:11:44] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-29 00:11:44] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-03-29 00:11:44] local.INFO: payMentMethodService  
+[2025-03-29 00:11:44] local.INFO: array (
+  'line' => 215,
+  'success' => true,
+)  
+[2025-03-29 00:11:44] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":10,"description":"Venda NFC-e N\u00b0","cliente_id":1,"client":"Teste 1","gross_value":"140.00","net_value":"140.00","discount":"0.00","addition":"0.00","user_id":1,"user":"Kochem","finished":0,"canceled":0,"is_nfce_nm":"nfce","active":1}  
+[2025-03-29 00:11:44] local.INFO: $type nfce  
+[2025-03-29 00:11:44] local.INFO: Buscar e alterar os produtos, pdv_id = 10  
+[2025-03-29 00:11:44] local.INFO: Alteração dentro do for = 10  
+[2025-03-29 00:11:44] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-03-29 00:11:44] local.INFO: Produto encontrado 3  
+[2025-03-29 00:11:44] local.INFO: {"id":3,"product":"Jack Daniels Canela","grupo_id":2,"grupo":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}  
+[2025-03-29 00:11:44] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-03-29 02:11:15] local.INFO: Acertou o login  
+[2025-03-29 02:12:02] local.INFO: Acertou o login  
+[2025-03-29 02:12:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 02:12:48] local.INFO: O hotel foi encontrado  
+[2025-03-29 02:12:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 02:12:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 02:17:00] local.INFO: Acertou o login  
+[2025-03-29 02:17:31] local.INFO: Acertou o login  
+[2025-03-29 02:19:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 02:19:28] local.INFO: O hotel foi encontrado  
+[2025-03-29 02:19:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 02:19:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 02:19:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 02:19:51] local.INFO: O hotel foi encontrado  
+[2025-03-29 02:19:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 02:19:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 02:22:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 02:22:59] local.INFO: O hotel foi encontrado  
+[2025-03-29 02:22:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 02:22:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 02:23:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 02:23:36] local.INFO: O hotel foi encontrado  
+[2025-03-29 02:23:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 02:23:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 02:23:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 02:23:38] local.INFO: O hotel foi encontrado  
+[2025-03-29 02:23:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 02:23:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 02:23:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 02:23:42] local.INFO: O hotel foi encontrado  
+[2025-03-29 02:23:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 02:23:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 02:26:28] local.INFO: bateu no getAll  
+[2025-03-29 02:26:44] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-29 02:26:44] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-29 02:26:44] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-29 02:26:44] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-29 02:26:44] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-29 02:26:44] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-03-29 02:26:44] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-03-29 02:26:44] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'grupo_id' => 2,
+        'grupo' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'perc_lucro' => '100.00',
+        'cfop' => '5102',
+        'csosn' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-29 02:26:44] local.INFO: Memória usada PDVRepository::class, saveSale: 23068672  
+[2025-03-29 02:26:44] local.INFO: Busca pelo customer  
+[2025-03-29 02:26:44] local.INFO: Busca pelo user  
+[2025-03-29 02:26:44] local.INFO: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}  
+[2025-03-29 02:26:44] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Kochem',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-03-29 02:26:44] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-03-29 02:26:44] local.INFO: Memória usada PDVRepository::class, saveProducts: 23068672  
+[2025-03-29 02:26:44] local.INFO: User: {"id":1,"name":"Kochem","email":"gabikochem55@gmail.com","email_verified_at":null,"active":1,"created_at":"2025-03-28T10:17:18.000000Z","updated_at":"2025-03-28T10:17:18.000000Z"}  
+[2025-03-29 02:26:44] local.INFO: $products 11  
+[2025-03-29 02:26:44] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'grupo_id' => 2,
+      'grupo' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'perc_lucro' => '100.00',
+      'cfop' => '5102',
+      'csosn' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-03-29 02:26:44] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 23068672  
+[2025-03-29 02:26:44] local.INFO: $product, type: array  
+[2025-03-29 02:26:44] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'grupo_id' => 2,
+    'grupo' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'perc_lucro' => '100.00',
+    'cfop' => '5102',
+    'csosn' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-03-29 02:26:44] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 23068672  
+[2025-03-29 02:26:44] local.INFO: $product[$i]  
+[2025-03-29 02:26:44] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'grupo_id' => 2,
+  'grupo' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'perc_lucro' => '100.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-03-29 02:26:44] local.INFO: itensPDV   
+[2025-03-29 02:26:44] local.INFO: array (
+  'pdv_id' => 11,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Kochem',
+)  
+[2025-03-29 02:26:44] local.INFO: $ipdv  
+[2025-03-29 02:26:44] local.INFO: {"pdv_id":11,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"Kochem","id":11}  
+[2025-03-29 02:26:45] local.INFO: Buscando todas as espécies na table: payments  
+[2025-03-29 02:26:53] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-29 02:26:53] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-29 02:26:53] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-29 02:26:53] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-29 02:26:53] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-29 02:26:53] local.INFO: Dados recebidos nos controllers  
+[2025-03-29 02:26:53] local.INFO: array (
+  'type_operation' => 'nfce',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => '120',
+  ),
+  'pdv_id' => 11,
+)  
+[2025-03-29 02:26:53] local.INFO: PDVService.php, class:finalizeSale, $total: 120  
+[2025-03-29 02:26:53] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-03-29 02:26:53] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-03-29 02:26:53] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-03-29 02:26:53] local.INFO: Buscando a espécie pelo ID.  
+[2025-03-29 02:26:53] local.INFO: $result  
+[2025-03-29 02:26:53] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-29 02:26:53] local.INFO: Vai conferir se o $total: R$ 120 é maior que o $pdv->net_value, R$120.00  
+[2025-03-29 02:26:53] local.INFO: Foi maior  
+[2025-03-29 02:26:53] local.INFO: nfce  
+[2025-03-29 02:26:53] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-03-29 02:26:53] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-03-29 02:26:53] local.INFO: $forms  
+[2025-03-29 02:26:53] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-29 02:26:53] local.INFO: $paymentValues  
+[2025-03-29 02:26:53] local.INFO: array (
+  0 => '120',
+)  
+[2025-03-29 02:26:53] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-03-29 02:26:53] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-03-29 02:26:53] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-03-29 02:26:53] local.INFO: forms  
+[2025-03-29 02:26:53] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-03-28 10:17:17',
+      'updated_at' => '2025-03-28 10:17:17',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-03-29 02:26:53] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-29 02:26:53] local.INFO: paymentValues linha 124 - : 120  
+[2025-03-29 02:26:53] local.INFO: Vai conferir os tipos de lançamento  
+[2025-03-29 02:26:53] local.INFO: $form->tipo_lancamento  
+[2025-03-29 02:26:53] local.INFO: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-03-29 02:26:53] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-03-29 02:26:53] local.INFO: Dados:   
+[2025-03-29 02:26:53] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 11',
+    'document' => 11,
+    'pdv_id' => 11,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-29',
+    'input_value' => '120',
+    'output_value' => 0,
+    'real_balance' => '120',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-03-29 02:26:53] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-03-29 02:26:53] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-03-29 02:26:53] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-03-29 02:26:53] local.INFO: Quantia: 1  
+[2025-03-29 02:26:53] local.INFO: Tipo de dado: array  
+[2025-03-29 02:26:53] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 11',
+    'document' => 11,
+    'pdv_id' => 11,
+    'customer_id' => 1,
+    'name' => 'Teste 1',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-03-29',
+    'input_value' => '120',
+    'output_value' => 0,
+    'real_balance' => '120',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-03-29 02:26:53] local.INFO: Vai criar 1 registro:   
+[2025-03-29 02:26:53] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-03-29 02:26:53] local.INFO: $lastCashBox  
+[2025-03-29 02:26:53] local.INFO: 5  
+[2025-03-29 02:26:53] local.INFO: $actualCashBox  
+[2025-03-29 02:26:53] local.INFO: {"id":3,"description":"Venda NFC-e N\u00b0 10","document":"10","pdv_id":10,"customer_id":1,"name":"Teste 1","especie_id":1,"especie":"Dinheiro","date_register":"2025-03-29","input_value":"140.00","output_value":"0.00","real_balance":"390.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-03-29 02:26:53] local.INFO: Novo valor: R$ 140.00 + 120.00 = 260  
+[2025-03-29 02:26:53] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-03-29 02:26:53] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-03-29 02:26:53] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-03-29 02:26:53] local.INFO: payMentMethodService  
+[2025-03-29 02:26:53] local.INFO: array (
+  'line' => 215,
+  'success' => true,
+)  
+[2025-03-29 02:26:53] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":11,"description":"Venda NFC-e N\u00b0","cliente_id":1,"client":"Teste 1","gross_value":"120.00","net_value":"120.00","discount":"0.00","addition":"0.00","user_id":1,"user":"Kochem","finished":0,"canceled":0,"is_nfce_nm":"nfce","active":1}  
+[2025-03-29 02:26:53] local.INFO: $type nfce  
+[2025-03-29 02:26:53] local.INFO: Buscar e alterar os produtos, pdv_id = 11  
+[2025-03-29 02:26:53] local.INFO: Alteração dentro do for = 11  
+[2025-03-29 02:26:53] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-03-29 02:26:53] local.INFO: Produto encontrado 1  
+[2025-03-29 02:26:53] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","grupo_id":2,"grupo":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-03-29 02:26:53] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-03-29 02:41:20] local.INFO: Acertou o login  
+[2025-03-29 02:41:52] local.INFO: Acertou o login  
+[2025-03-29 02:42:20] local.INFO: Acertou o login  
+[2025-03-29 02:44:01] local.INFO: Acertou o login  
+[2025-03-29 02:44:47] local.INFO: Acertou o login  
+[2025-03-29 02:46:54] local.INFO: Acertou o login  
+[2025-03-29 02:54:46] local.INFO: Acertou o login  
+[2025-03-29 02:56:12] local.INFO: Acertou o login  
+[2025-03-29 02:57:28] local.INFO: Acertou o login  
+[2025-03-29 02:57:50] local.INFO: Acertou o login  
+[2025-03-29 02:58:25] local.INFO: Acertou o login  
+[2025-03-29 02:58:54] local.INFO: Acertou o login  
+[2025-03-29 02:59:46] local.INFO: Acertou o login  
+[2025-03-29 03:00:34] local.INFO: Acertou o login  
+[2025-03-29 03:01:48] local.INFO: Acertou o login  
+[2025-03-29 03:02:35] local.INFO: Acertou o login  
+[2025-03-29 03:03:27] local.INFO: Acertou o login  
+[2025-03-29 03:04:09] local.INFO: Acertou o login  
+[2025-03-29 03:05:04] local.INFO: Acertou o login  
+[2025-03-29 03:07:24] local.INFO: Acertou o login  
+[2025-03-29 03:08:06] local.INFO: Acertou o login  
+[2025-03-29 03:09:17] local.INFO: Acertou o login  
+[2025-03-29 03:12:48] local.INFO: Acertou o login  
+[2025-03-29 03:24:58] local.INFO: Acertou o login  
+[2025-03-29 03:26:15] local.INFO: Acertou o login  
+[2025-03-29 03:26:49] local.INFO: Acertou o login  
+[2025-03-29 03:27:46] local.INFO: Acertou o login  
+[2025-03-29 03:28:40] local.INFO: Acertou o login  
+[2025-03-29 03:31:55] local.INFO: Acertou o login  
+[2025-03-29 03:32:24] local.INFO: Acertou o login  
+[2025-03-29 03:33:17] local.INFO: Acertou o login  
+[2025-03-29 03:36:23] local.INFO: Acertou o login  
+[2025-03-29 03:37:53] local.INFO: Acertou o login  
+[2025-03-29 03:38:36] local.INFO: Acertou o login  
+[2025-03-29 03:39:03] local.INFO: Acertou o login  
+[2025-03-29 03:39:27] local.INFO: Acertou o login  
+[2025-03-29 03:39:47] local.INFO: Acertou o login  
+[2025-03-29 03:40:09] local.INFO: Acertou o login  
+[2025-03-29 03:40:30] local.INFO: Acertou o login  
+[2025-03-29 03:40:56] local.INFO: Acertou o login  
+[2025-03-29 03:41:23] local.INFO: Acertou o login  
+[2025-03-29 03:41:54] local.INFO: Acertou o login  
+[2025-03-29 03:42:16] local.INFO: Errou o login  
+[2025-03-29 03:42:41] local.INFO: Acertou o login  
+[2025-03-29 03:43:55] local.INFO: Acertou o login  
+[2025-03-29 03:44:49] local.INFO: Acertou o login  
+[2025-03-29 03:46:15] local.INFO: Acertou o login  
+[2025-03-29 03:47:28] local.INFO: Acertou o login  
+[2025-03-29 03:48:13] local.INFO: Acertou o login  
+[2025-03-29 03:48:57] local.INFO: Acertou o login  
+[2025-03-29 03:50:23] local.INFO: Acertou o login  
+[2025-03-29 03:51:03] local.INFO: Errou o login  
+[2025-03-29 03:51:16] local.INFO: Acertou o login  
+[2025-03-29 03:52:04] local.INFO: Errou o login  
+[2025-03-29 03:52:15] local.INFO: Acertou o login  
+[2025-03-29 03:52:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 03:52:59] local.INFO: O hotel foi encontrado  
+[2025-03-29 03:52:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 03:52:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 03:53:09] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-29 03:53:09] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-29 03:53:09] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-29 03:53:09] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-29 03:53:09] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-29 03:53:09] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-29 03:53:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 03:53:11] local.INFO: O hotel foi encontrado  
+[2025-03-29 03:53:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 03:53:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 03:53:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 03:53:26] local.INFO: O hotel foi encontrado  
+[2025-03-29 03:53:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 03:53:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-29 03:55:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-29 03:55:28] local.INFO: O hotel foi encontrado  
+[2025-03-29 03:55:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-29 03:55:29] local.INFO: Opção desativada, não vai alterar o endereço  
