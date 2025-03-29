@@ -225,27 +225,28 @@
     methods: {
       async logout()
       {
-          const token = LocalStorage.getItem("auth_token")
-          console.log('token: ', token)
-          try {
-              const response = await api.post('/auth/logout', {
-                  headers: {
-                      'Authorization': `Bearer ${token}`
-                      
-                  }
-              })
+        const ofCourse = confirm('Deseja realmente sair?')
+        if(ofCourse)
+        {
+            const token = LocalStorage.getItem("auth_token")
+            console.log('token: ', token)
+            const response = await api.post('/auth/logout', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                    
+                }
+            })
 
-              console.log('Response.logout', response)
-              if(response.data.success)
-              {
-                  LocalStorage.remove("auth_token")
-                  LocalStorage.setItem("loged", false)
-                  window.location.reload()
-                  this.$router.push('/login')
-              }
-          } catch (error) {
-              console.lo
-          }
+            console.log('Response.logout', response)
+            if(response.data.success)
+            {
+                LocalStorage.remove("auth_token")
+                LocalStorage.setItem("loged", false)
+                window.location.reload()
+                this.$router.push('/start')
+            }
+        }
+        
       },
       toggleSidebar() {
           this.sidebarActive = !this.sidebarActive;

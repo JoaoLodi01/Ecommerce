@@ -132,12 +132,17 @@ Route::prefix('v1')->group( function (){
     Route::prefix('users')->group( function(){
         Route::get('/all', [UserController::class, 'getAll']);
         Route::get('/selectSeller', [UserController::class, 'selectSeller']);
-        Route::post('/create', [UserController::class, 'store']);
+        Route::post('/create', [UserController::class, 'create']);
         Route::get('/{id}', [UserController::class, 'findByID']);
         Route::put('/{id}', [UserController::class, 'update']);
         Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
         
     });
+});
+
+Route::prefix('users')->group( function(){
+    Route::post('/create', [UserController::class, 'create']);
+    
 });
 
 Route::get('/get-ip', [IPController::class, 'create']);

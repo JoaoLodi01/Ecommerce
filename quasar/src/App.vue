@@ -4,8 +4,7 @@
         
     </div>
 
-    <div v-if="!loged">
-        <span class="">loged: {{ loged }}</span>
+    <div v-if="!loged" class="mt-20">
         <Login />
     </div>
 </template>
@@ -53,14 +52,14 @@
                         console.log('Puxou aqui 51')
                         console.log('Token não encontrado')
                         LocalStorage.remove("auth_token")
-                        this.$router.push('/login')
+                        this.$router.push('/start')
 
                     }
                     
                 } catch (error) {
                     console.log('Puxou aqui 60')
                     console.error('Erro no checkAuth App.vue', error.response.data || error)
-                    this.$router.push('/login')
+                    
                     if(error.response.status)
                     {
                         LocalStorage.remove("auth_token")

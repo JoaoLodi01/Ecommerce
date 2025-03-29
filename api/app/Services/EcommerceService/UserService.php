@@ -6,11 +6,10 @@ use App\Repositories\Eloquent\UserRepository;
 
 class UserService
 {
-    protected $userRepository;
-
-    public function __construct(UserRepository $userRepository){
-        $this->userRepository = $userRepository;
-    }
+    public function __construct(
+        protected UserRepository $userRepository
+    )
+    {}
 
     public function getAll(){
         try {
@@ -39,10 +38,14 @@ class UserService
         }
     }
 
-    public function store(array $data){
+    public function create(array $data){
         try {
-            $this->userRepository->store($data);
-            return response()->json(true);
+            $user = $this->userRepository->create($data);
+            return response()->json([
+                'success' => true,
+                'user' => $user
+                 
+            ], 201);
             
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
@@ -51,7 +54,7 @@ class UserService
 
     public function update(array $data, int $id){
         try {
-            $this->userRepository->update($array, $id);
+            $this->userRepository->update($data, $id);
             return response()->json(true);
 
         } catch (\Throwable $th) {
@@ -65,7 +68,7 @@ class UserService
             return response()->json(true);
 
         } catch (\Throwable $th) {
-            return $this.returnResponse($th);
+            return $this->returnResponse($th);
         }
     }
 
