@@ -2,7 +2,7 @@
     <div 
         class="relative overflow-x-auto ml-16 border w-max text-xl p-5"
         :class="{
-            'w-screen top-10 right-12': widthScreen <= 1080
+            'w-screen top-10 right-12': witdhScreen <= 1080
         }"    
     >
         
@@ -18,7 +18,7 @@
         <div
             class="flex border border-black rounded-sm shadow-lg"
             :class="{
-                'block h-10': widthScreen <= 1080
+                'block h-10': witdhScreen <= 1080
             }"
         >
             <div class="ml-5 mt-auto">
@@ -37,7 +37,7 @@
             <div
                 class="ml-10 mt-1"
                 :class="{
-                    '-mt-9': widthScreen <= 1080
+                    '-mt-9': witdhScreen <= 1080
                 }"
             >
                 <!-- Busca de produto -->
@@ -48,23 +48,23 @@
         <table class="text-left rtl:text-right">
             <thead class="uppercase">
                 <tr>
-                    <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3">Cód.Produto</th>
+                    <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Cód.Produto</th>
                     <th scope="col" class="px-6 py-3">Produto</th>
-                    <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3">CFOP</th>
-                    <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3 text-center"> {{ hotelCodCRT === 1 ? 'CSOSN' : 'CST' }} </th>
+                    <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">CFOP</th>
+                    <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center"> {{ hotelCodCRT === 1 ? 'CSOSN' : 'CST' }} </th>
                     <th scope="col" class="px-6 py-3">Preço de venda</th>
-                    <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3">Quantidade</th>
+                    <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Quantidade</th>
 
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(product, id) in products" :key="id">
-                    <th v-if="widthScreen > 1080" scope="row" class="px-6 py-3">{{ product.id }}</th>
+                    <th v-if="witdhScreen > 1080" scope="row" class="px-6 py-3">{{ product.id }}</th>
                     <th scope="row" class="px-6 py-3 text-center">{{ product.product }}</th>
-                    <td v-if="widthScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.cfop }}</td>
-                    <td v-if="widthScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.csosn }}</td>
+                    <td v-if="witdhScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.cfop }}</td>
+                    <td v-if="witdhScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.csosn }}</td>
                     <td scope="row" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                    <td v-if="widthScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.amount }}</td>
+                    <td v-if="witdhScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.amount }}</td>
                     <td>
                         <input 
                             label="Teal" color="teal"
@@ -83,7 +83,7 @@
             v-if="checkBoxMarked"
             class="flex justify-end ml-4 mt-1 p-2 bg-slate-600 text-white rounded-lg"
             :class="{
-                'block text-sm': widthScreen <= 1080
+                'block text-sm': witdhScreen <= 1080
             }"
         >
             <p class="mt-auto mb-2 ml-2 mr-auto">Produtos selecionados: {{ selectedProducts.length }}</p>
@@ -123,7 +123,7 @@
         ],
 
         props: {
-            widthScreen: {
+            witdhScreen: {
                 type: Number
 
             },

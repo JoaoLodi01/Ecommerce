@@ -7,7 +7,7 @@
       <label for="client">Cliente:</label>
       <input 
       type="text" 
-      v-model="form.client" 
+      v-model="form.cliente" 
       id="client" 
       placeholder="Inserir..."/>
 

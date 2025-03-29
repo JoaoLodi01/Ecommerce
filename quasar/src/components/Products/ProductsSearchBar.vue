@@ -6,11 +6,6 @@
             @keydown.enter="setProduct(productsData)"
             placeholder="Buscar..."
             class="border-none outline-none ml-2 mt-1 mb-1 w-96"
-<<<<<<< HEAD
-            v-model="productData.name"
-            placeholder="Buscar.."
-=======
->>>>>>> a5cf082b9f9dd1d04ec1394362f5bce9b540ad48
         />
         
         <ul v-if="filteredProducts.length > 2" class="border border-gray-300 rounded mt-1">
@@ -35,27 +30,16 @@ import { api } from "boot/axios"
         data()
         {
             return {
-<<<<<<< HEAD
-                produtcData:{
-                    id:'',
-                    name: ''
-                },
-
-=======
                 products: [],
                 filteredProducts: [],
                 productsData: {
                     id: '',
                     product: ''
                 },
->>>>>>> a5cf082b9f9dd1d04ec1394362f5bce9b540ad48
             }
         },
         
         methods: {
-<<<<<<< HEAD
-            getProdutc
-=======
             async getProducts(){
                 try {
            
@@ -84,7 +68,6 @@ import { api } from "boot/axios"
                 this.filteredProducts = [];
                 this.$emit('update:selectProducts', this.productsData);
             },
->>>>>>> a5cf082b9f9dd1d04ec1394362f5bce9b540ad48
         }
     }
 </script>

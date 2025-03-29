@@ -36,12 +36,14 @@ export default defineConfig((/* ctx */) => {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#build
     build: {
+
       target: {
         browser: [ 'es2022', 'firefox115', 'chrome115', 'safari14' ],
         node: 'node20'
       },
 
       vueRouterMode: 'history', // available values: 'hash', 'history'
+      publicPath: '/',
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -86,7 +88,9 @@ export default defineConfig((/* ctx */) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Loading'
+      ]
     },
 
     // animations: 'all', // --- includes all animations
@@ -183,7 +187,7 @@ export default defineConfig((/* ctx */) => {
 
       builder: {
         // https://www.electron.build/configuration/configuration
-
+        
         appId: 'quasar'
       }
     },

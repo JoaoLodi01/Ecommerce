@@ -19,7 +19,7 @@ const routes = [
     path: '/login',
     name: 'LoginView',
     component: () => import('pages/Login/Login.vue')
-  }, 
+  },
   {
     path: '/sale/pdv',
     name: 'PDV',
@@ -57,6 +57,7 @@ const routes = [
 
   {
     path: '/:catchAll(.*)*',
+    name: '404',
     component: () => import('pages/ErrorNotFound.vue')
   },
  
