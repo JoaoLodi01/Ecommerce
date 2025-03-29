@@ -17,19 +17,17 @@
         </div>
 
         <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
-            <div>
-                <p>Saldo total de entrada: <span class="font-semibold">R$0,00</span></p>
-                <p>Saldo Total: <span class="font-semibold">R$0,00</span></p>
-                <p>Saldo total: <span class="font-semibold">R$0,00</span></p>
-            </div>
+            <div><p>Saldo total de entrada: <span class="font-semibold">R$0,00</span></p></div>
+
+            <div><p>Saldo Total: <span class="font-semibold">R$0,00</span></p></div>
+
+            <div><p>Saldo total: <span class="font-semibold">R$0,00</span></p></div>
         </div>
 
         <div class="overflow-x-auto">
             <table class="min-w-full table-auto border-collapse border border-gray-200">
                 <thead class="bg-gray-100">
                     <tr>
-                        <th class="px-6 py-3 text-left">Tipo</th>
-                        <th class="px-6 py-3 text-left">Ações</th>
                         <th class="px-6 py-3 text-left">Cód</th>
                         <th class="px-6 py-3 text-left">Documento</th>
                         <th class="px-6 py-3 text-left">Descrição</th>
@@ -39,6 +37,8 @@
                         <th class="px-6 py-3 text-left">Cód Espécie</th>
                         <th class="px-6 py-3 text-left">Espécie</th>
                         <th class="px-6 py-3 text-left">Origem</th>
+                        <th class="px-6 py-3 text-left">Tipo</th>
+                        <th class="px-6 py-3 text-left">Ações</th>
                     </tr>
                 </thead>
                 <tbody>

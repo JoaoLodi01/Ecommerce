@@ -60,11 +60,21 @@
       };
     },
     methods: {
+      resetForm(){
+        this.form = {
+          cliente: "",
+          cpf: "",
+          cnpj: "",
+          email: "",
+          phone: "",
+        }
+      },
+
       async submitForm() {
         try {
           const response = await axios.post(`${this.api}/consumers/create`, this.form);
-          this.form = { cliente: "", cpf: "", cnpj: "", email: "", phone: "" };
-        
+          this.resetForm();
+          console.log('Dados enviados!', response.data)
         } catch (error) {
             alert("Ocorreu um erro ao cadastrar o cliente.");
         }

@@ -101,7 +101,31 @@
           };
         },
         methods: {
-          
+            resetform(){
+                this.form = {
+                    description: "",
+                    name: "",
+                    user: "",
+                    cpf: "",
+                    especie: "",
+                    due_date: "",
+                    installment_number: "",
+                    installment_value: "",
+                    type_interest: "",
+                    interest_value: "",
+                    total_amount: ""
+                }
+            },
+
+            async submitForm() {
+                try {
+                    const response = await axios.post(`${this.api}`, this.form); // Lembrar de criar rota e inserir aqui
+                    this.resetform();
+                    console.log('Dados enviados!', response.data)
+                } catch (error) {
+                    alert("Ocorreu um erro ao cadastrar o registro")
+                }
+            },
         },
       };
       </script>
