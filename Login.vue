@@ -88,7 +88,6 @@
                 }
             },
         },
-        
         mounted(){
             const token = LocalStorage.getItem("auth_token")
             const auth = async () => {
