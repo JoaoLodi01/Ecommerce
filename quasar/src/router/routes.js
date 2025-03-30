@@ -1,3 +1,5 @@
+const financialPrefix = 'financial'
+
 const routes = [
   {
     path: '/',
@@ -39,22 +41,25 @@ const routes = [
 
   },
   {
-    path: '/financial/cash-register',
+    path: `/${financialPrefix}/cash-register`,
     name: 'CashRegister',
     component: () => import('src/pages/Ecommerce/Financial/CashRegisterView.vue')
   },
   {
-    path: '/financial/receive',
+    path: `/${financialPrefix}/receive`,
     name: 'ToReceiveView',
     component: () => import('src/pages/Ecommerce/Financial/ToReceiveView.vue')
   },
   {
-    path: '/financial/to-pay',
+    path: `/${financialPrefix}/to-pay`,
     name: 'ToPayView',
     component: () => import('src/pages/Ecommerce/Financial/ToPayView.vue')
   },
-
-
+  {
+    path: '/profile',
+    name: 'ProfileView',
+    component: () => import('src/pages/Profile/Profile.vue')
+  },
   {
     path: '/:catchAll(.*)*',
     name: '404',

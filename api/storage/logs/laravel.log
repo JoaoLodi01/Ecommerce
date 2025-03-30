@@ -224,3 +224,8 @@
 [2025-03-29 23:47:57] local.INFO: O hotel foi encontrado  
 [2025-03-29 23:47:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-03-29 23:47:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-30 02:03:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-30 02:03:27] local.INFO: O hotel foi encontrado  
+[2025-03-30 02:03:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-30 02:03:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-30 02:06:10] local.INFO: Acertou o login  

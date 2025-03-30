@@ -44,7 +44,8 @@
                         })
                         
                         LocalStorage.setItem("loged", true)
-                        
+                        LocalStorage.setItem("user_name", response.data.user.name)
+                    
                     } else {
                         console.log('Token não encontrado')
                         LocalStorage.remove("auth_token")

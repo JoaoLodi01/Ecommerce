@@ -19,9 +19,16 @@
                     filled 
                     v-model="details.password" 
                     label="Senha"
-                    type="password"
+                    :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
-                />
+                    
+                >
+                    <q-btn 
+                        :icon="showPassword ? 'visibility_on' : 'visibility_off'"
+                        @click="showPassword = !showPassword"
+                    />
+                </q-input>
+                
            
                 <q-btn 
                     @click=showLoading 
@@ -29,7 +36,8 @@
                     label="Entrar"
                     class="m-2"
                     flat 
-                    style="color: #1F2937"          
+                    style="color: #1F2937"   
+                    
                 />
 
                 <q-btn 
@@ -98,6 +106,7 @@
                 loged: LocalStorage.getItem("loged"),
                 showRegister: false,
                 showLogin: true,
+                showPassword: false,
             }
         },
 

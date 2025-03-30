@@ -187,9 +187,8 @@
               </button>
             </a>
             <div v-if="showProfile" class="ml-12 bg-gray-700 p-2 rounded-lg">
-                <p><a href="/financial/to-pay" class="hover:text-blue-400">Pagar</a></p>
-                <p><a href="/financial/receive" class="hover:text-blue-400">Receber</a></p>
-                <p><a href="/financial/cash-register" class="hover:text-blue-400">Caixa</a></p>
+                <p><a href="/profile" class="hover:text-blue-400">Editar perfil</a></p>
+                <p><a href="/#" class="hover:text-blue-400">Configurações</a></p>
 
             </div>
           </li>
