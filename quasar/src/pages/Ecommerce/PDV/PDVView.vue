@@ -255,7 +255,7 @@
                             />
                             <ul v-if="filteredClients.length" class="border border-gray-300 rounded mt-1">
                                 <li
-                                    v-for="client in filterClients"
+                                    v-for="client in filteredClients"
                                     :key="client.id"
                                     @click="setClient(client)"
                                     class="p-2 hover:bg-gray-200 cursor-pointer">
@@ -287,7 +287,7 @@
                         <br>
                         <label class="text-black" for="discount">Frete R$</label>
                         <input 
-                            id="discount"
+                            id="freight"
                             v-model.number="emitProducts.freight"
                             type="text"
                             class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
@@ -350,7 +350,7 @@
                         </button>
 
                         <div class="mb-auto ml-auto text-xl w-auto">
-                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount }}</span>
+                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}</span>
                         
                         </div>
                     </div>
@@ -383,18 +383,6 @@
         <!-- oder options -->
         
     </div>
-
-    <div
-        v-if="showGrid && witdhScreen > 1366"
-        class="flex border border-black w-9  ml-10"
-    >
-        <select id="textSize" v-model.number="textSize">
-            <option selected value=4>4</option>
-            <option value=8>8</option>
-            <option value=16>16</option>
-        </select>
-    </div>
-
     <div>
         <ProductsSelectionView
             v-if="show"
@@ -530,9 +518,10 @@
         
         methods: {
             async selectClient(){
-                    const response = await api.get('/customers/selectClient');
-                    this.clients = response.data;
-                    this.filterClients();
+                const response = await api.get('/customers/selectClient');
+                this.clients = response.data;
+                this.filterClients();
+
             },
 
             filterClients(){
@@ -541,7 +530,7 @@
                 );
             },
 
-            setClient(){
+            setClient(client){
                 this.clientsData.id = client.id;
                 this.clientsData.name = client.name;
                 this.filteredClients = [];

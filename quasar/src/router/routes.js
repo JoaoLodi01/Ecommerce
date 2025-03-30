@@ -1,4 +1,5 @@
-const financialPrefix = 'financial'
+const financialPrefix = 'financial';
+const salePrefix = 'sale';
 
 const routes = [
   {
@@ -23,19 +24,19 @@ const routes = [
     component: () => import('pages/Login/Login.vue')
   },
   {
-    path: '/sale/pdv',
+    path: `/${salePrefix}/pdv`,
     name: 'PDV',
     component: () => import('src/pages/Ecommerce/PDV/PDVView.vue') 
   },
   {
-    path: '/sale/save/pdv/:idPDV',
+    path: `/${salePrefix}/save/pdv/:idPDV`,
     name: 'PDVID',
     component: () => import('src/pages/Ecommerce/PDV/PDVView.vue'),
     props: true
 
   },
   {
-    path: '/sale/list-pdv',
+    path: `/${salePrefix}/list-pdv`,
     name: 'ListPDV',
     component: () => import('src/pages/Ecommerce/PDV/ListPDVView.vue')
 
@@ -54,6 +55,11 @@ const routes = [
     path: `/${financialPrefix}/to-pay`,
     name: 'ToPayView',
     component: () => import('src/pages/Ecommerce/Financial/ToPayView.vue')
+  },
+  {
+    path: `/customers`,
+    name: 'CustomersView',
+    component: () => import('src/pages/Others/CustomersView.vue')
   },
   {
     path: '/profile',

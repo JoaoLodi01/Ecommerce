@@ -34,8 +34,7 @@
                         <th class="px-6 py-3 text-left">Documento</th>
                         <th class="px-6 py-3 text-left">Descrição</th>
                         <th class="px-6 py-3 text-left">Valor entrada</th>
-                        <th class="px-6 py-3 text-left">Valor saída</th>
-                        <th class="px-6 py-3 text-left">Total</th>
+                        <th class="px-6 py-3 text-left">Cliente</th>
                         <th class="px-6 py-3 text-left">Cód Espécie</th>
                         <th class="px-6 py-3 text-left">Espécie</th>
                         <th class="px-6 py-3 text-left">Origem</th>
@@ -50,11 +49,10 @@
                             </svg>
                         </td>
                         <td class="px-6 py-3 text-center">{{ register.id }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.document }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.id }}</td>
                         <td class="px-6 py-3">{{ register.description }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.input_value }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.output_value }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.real_balance }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.installment_value }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.name }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
                         <td class="px-6 py-3">{{ register.especie }}</td>
                         <td class="px-6 py-3">{{ register.origem }}</td>
@@ -89,9 +87,9 @@ export default {
             try {
                 const response = await api.get('/ecommerce/cash-register/all/receive')
                 this.cashs = response.data.data
-                
+                console.log('response.data.data', response.data.data)
             } catch (error) {
-            console.error("Erro ao buscar registros:", error)
+                console.error("Erro ao buscar registros:", error)
                 
             }
         },

@@ -17,7 +17,6 @@ class UserRequest extends FormRequest
             'password' => [$required, 'string', 'max:120']
         ];
     }
-
     public function messages(): array
     {
         return [
