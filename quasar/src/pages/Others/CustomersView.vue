@@ -46,7 +46,7 @@
                     @click="editClient(client)"
                     class="px-4 py-2 rounded-lg hover:bg-blue-200 transition"
                     :class="{
-                        'text-gray-400 bg-slate-500': !client.active,
+                        'text-gray-400 bg-slate-500 hover:bg-slate-200': !client.active,
                         'text-blue-500 bg-blue-100': client.active,
                     }"    
                 >
@@ -56,7 +56,7 @@
                     @click="deleteClient(client.id)"
                     class="px-4 py-2 rounded-lg hover:bg-red-200 transition"
                     :class="{
-                        'text-gray-400 bg-slate-500': !client.active,
+                        'text-gray-400 bg-slate-500 hover:bg-slate-200': !client.active,
                         'text-red-500 bg-red-100': client.active,
                     }"    
                 >
