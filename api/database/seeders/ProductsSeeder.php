@@ -15,10 +15,10 @@ class ProductsSeeder extends Seeder
     {
         $groups = [
             [
-                "grupo" => "Grupo teste 1"
+                "group" => "Grupo teste 1"
             ],
             [
-                "grupo" => "Grupo teste 2"
+                "group" => "Grupo teste 2"
             ]
         ];
         foreach ($groups as $group) {
@@ -29,8 +29,8 @@ class ProductsSeeder extends Seeder
         $products = [
             [
                 "product" => "Jack Daniels Maça",
-                "grupo_id" => $id->id,
-                "grupo" => $id->grupo,
+                "group_id" => $id->id,
+                "group" => $id->group,
                 "amount" => 10,
                 "cost_price" => 10.00,
                 "sale_price" => 120.00,
@@ -42,8 +42,8 @@ class ProductsSeeder extends Seeder
             ],
             [
                 "product" => "Jack Daniels Honey",
-                "grupo_id" => $id->id,
-                "grupo" => $id->grupo,
+                "group_id" => $id->id,
+                "group" => $id->group,
                 "amount" => 10,
                 "cost_price" => 10.00,
                 "sale_price" => 130.00,
@@ -55,8 +55,8 @@ class ProductsSeeder extends Seeder
             ],
             [
                 "product" => "Jack Daniels Canela",
-                "grupo_id" => $id->id,
-                "grupo" => $id->grupo,
+                "group_id" => $id->id,
+                "group" => $id->group,
                 "amount" => 10,
                 "cost_price" => 10.00,
                 "sale_price" => 140.00,

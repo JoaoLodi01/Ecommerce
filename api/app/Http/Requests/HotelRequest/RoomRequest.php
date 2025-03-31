@@ -7,12 +7,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RoomRequest extends FormRequest
 {
-    protected $roomRepository;
-    public function __construct(RoomRepository $roomRepository)
-    {
-        $this->roomRepository = $roomRepository;
-
-    }
+    public function __construct(
+        protected RoomRepository $roomRepository
+    )
+    {}
     public function authorize(): bool
     {
         return true;

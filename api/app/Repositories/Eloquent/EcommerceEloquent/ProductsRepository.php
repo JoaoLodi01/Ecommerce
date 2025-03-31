@@ -18,7 +18,7 @@ class ProductsRepository
         Log::info('Dados recebidos');
         Log::info($data);
         $products = Products::where('active', 1)
-                    ->where('produto', 'like', '%' . $data['params'] . '%')
+                    ->where('product', 'like', '%' . $data['params'] . '%')
                     ->get();
 
         Log::info('O que achou: ');

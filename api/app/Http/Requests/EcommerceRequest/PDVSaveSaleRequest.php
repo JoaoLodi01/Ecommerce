@@ -3,13 +3,14 @@
 namespace App\Http\Requests\EcommerceRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PDVSaveSaleRequest extends FormRequest
 {
 
     public function authorize(): bool
     {
-        return true;
+        return Auth::check();
     }
 
     public function rules(): array

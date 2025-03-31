@@ -70,12 +70,14 @@
                     </tbody>
                 </table>
                 <div class="mt-2 bg-slate-600 rounded-lg">
-                    <button
-                        class="bg-slate-500 text-white rounded-lg p-1 mt-2 mb-2 mr-2 ml-2"
-                        type="submit"
-                    >
-                        {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Finalizar Venda" }}
-                    </button>
+                    <q-btn @click="showLoading">
+                        <button
+                            class="bg-slate-500 text-white rounded-lg p-1 mt-2 mb-2 mr-2 ml-2"
+                            type="submit"
+                        >
+                            {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Finalizar Venda" }}
+                        </button>
+                    </q-btn>
                     <button
                         @click="cancelOperation()" 
                         class="bg-slate-500 text-white rounded-lg p-1 mt-2 mb-2 mr-2 focus:text-red-500"
@@ -115,9 +117,34 @@
 
 <script>
 import { api } from "src/boot/axios";
-import { toRaw } from 'vue';
+import { onBeforeUnmount } from 'vue';
+import { useQuasar  } from "quasar";
 
 export default {
+    setup(){
+            const $q = useQuasar()
+            let timer
+            onBeforeUnmount(() => {
+                if(timer !== void 0) {
+                    clearTimeout(timer)
+                    $q.loading.hide()
+
+                }
+            })
+
+            return { 
+                showLoading () {
+                    $q.loading.show({
+                        message: 'Conferindo pagamento  ...'
+                    })
+
+                    timer = setTimeout(() => {
+                        $q.loading.hide()
+                        timer = void 0
+                    }, 3000)
+                }
+            }
+        },  
     data(){
         return {
             paymentsForms: [],

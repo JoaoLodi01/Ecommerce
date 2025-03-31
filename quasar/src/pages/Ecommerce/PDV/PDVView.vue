@@ -1,12 +1,11 @@
 <template>
     <div
-        class="w-max flex mx-auto border border-black rounded-lg mt-10" 
+        class="w-max mx-auto border border-black rounded-lg mt-10" 
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'ml-14': widthScreen > 1080 && widthScreen >= 1472,
-            'flex-col': widthScreen <= 1080,
-            'p-4': widthScreen <= 1080,
+            'flex ml-14': witdhScreen > 1080 && witdhScreen >= 1472,
+            'relative left-10': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
@@ -15,12 +14,12 @@
         }"   
     >
         <div :class="{
-            'absolute left-96 right-auto top-40 z-20': widthScreen > 1080,
-            'absolute right-auto top-5 z-50': widthScreen <= 1080
+            'absolute left-96 right-auto top-40 z-20': witdhScreen > 1080,
+            'absolute right-auto top-5 z-50': witdhScreen <= 1080
         }">
             <PaymentsForm
                 v-if="showPaymentsForm"
-                :widthScreen="this.widthScreen"
+                :witdhScreen="this.witdhScreen"
                 :typeOperation=this.typeOperation
                 :totalOperation=this.totalOperation
                 :pdvID=this.pdvID
@@ -32,21 +31,30 @@
 
             <CashClosing
                 v-if="showCashClosing"
+                @closeCashClosing="closeCashClosing($event)"
             />
+
+            <div v-if="errorMessages.length > 0" class="mt-10">
+                <p v-for="erroMessage in errorMessages">
+                    
+                        
+                </p>
+                <button @click="errorMessages = []">Fechar</button>
+            </div>
         </div>
         
         <div class="relative overflow-x-auto max-h-96 overflow-y-auto">
             <div 
                 class="border border-gray-500 m-3"
                 :class="{
-                    'w-14': widthScreen <= 1080,
+                    'w-14': witdhScreen <= 1080,
                     
                 }"
             >
                 <div class="inline-flex p-3">
                     <div 
                         class="mt-auto mb-auto mr-5 cursor-pointer"
-                        v-if="widthScreen !== 0"
+                        v-if="witdhScreen !== 0"
                         @click="showproductts"
                         
                     >
@@ -56,17 +64,17 @@
 
                     </div>
                     
-                    <div v-if="widthScreen > 1366" class="border border-black rounded-md mr-1">
+                    <div v-if="witdhScreen > 1366" class="border border-black rounded-md mr-1">
                         <ProductsSearchBar
                             :showProductsSearch
                             @update:selectProducts="updateProductsSeletion"
                         />
                     </div>
 
-                    <div v-if="widthScreen > 1366">
+                    <div v-if="witdhScreen > 1366">
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
-                        <button @click="showCashClosing = !showCashClosing" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
+                        <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
   
@@ -78,13 +86,13 @@
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
                             <tr class="bg-white">
-                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3">Cód.</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
-                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
-                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
-                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
-                                <th v-if="widthScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
                                 <th scope="col" class="px-6 py-3">Ações</th>
 
                         </tr>
@@ -97,10 +105,10 @@
                             class="border border-black"
                         >    
 
-                            <td v-if="widthScreen > 1080" class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                            <td v-if="witdhScreen > 1080" class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
 
-                            <td v-if="widthScreen > 1080"  class="px-6 py-3 text-center">
+                            <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.cfop"
                                     :placeholder=product.cfop
@@ -113,7 +121,7 @@
                                 />
                             </td>
 
-                            <td v-if="widthScreen > 1080" class="px-6 py-3 text-center">
+                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.csosn"
                                     :placeholder=product.csosn
@@ -127,7 +135,7 @@
                                 />
                             </td>
 
-                            <td v-if="widthScreen > 1080" class="px-6 py-3 text-center">
+                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.amount"
                                     :placeholder=product.amount 
@@ -137,8 +145,8 @@
                                     
                                 />
                             </td>
-                            <td v-if="widthScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                            <td v-if="widthScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
+                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                            <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
                             <td class="text-center">
                                 <div class="m-auto">
                                     <button @click="productOptions(product, 'delete')">
@@ -168,7 +176,7 @@
 
                                     <button @click="productOptions(product, 'view')">
                                         <svg 
-                                            v-if="widthScreen <= 1080"
+                                            v-if="witdhScreen <= 1080"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24" 
@@ -195,7 +203,7 @@
             <div @click="viewProduct.show = !viewProduct.show">X</div>
             <div class="text-left">
                 <p><span>Cód {{ viewProduct.id }}</span></p>
-                <p><span>Preço unitário: R${{ viewProduct.sale_price }}</span></p>
+                <p><span>Preço unitário: R${{ viewProduct.salePrice }}</span></p>
                 <p>
                     <input 
                         v-model="viewProduct.amount"
@@ -218,7 +226,7 @@
                     'text-xl': textSize === 4,
                     'text-2xl': textSize === 8,
                     'text-3xl': textSize === 16,
-                    'm-auto': widthScreen <= 1080
+                    'm-auto': witdhScreen <= 1080
                 }"   
             >
                 <div>
@@ -236,7 +244,13 @@
                             />
 
                             <br>
-
+                            <q-checkbox
+                                size="1.5rem"
+                                label="Cliente cadastrado"
+                                v-model="registredCustomer"
+                            />
+                            <br>
+                            
                             <label class="text-black" for="client">Cliente</label>
                             <input 
                                 v-model="clientsData.name"
@@ -245,9 +259,9 @@
                                 placeholder="Consumidor Padrão"
                                 class="text-black border border-black w-full"
                             />
-                            <ul v-if="filteredClients.length" class="border border-gray-300 rounded mt-1">
+                            <ul v-if="filteredClients.length > 0" class="border border-gray-300 rounded mt-1">
                                 <li
-                                    v-for="client in filterClients"
+                                    v-for="client in filteredClients"
                                     :key="client.id"
                                     @click="setClient(client)"
                                     class="p-2 hover:bg-gray-200 cursor-pointer">
@@ -279,7 +293,7 @@
                         <br>
                         <label class="text-black" for="discount">Frete R$</label>
                         <input 
-                            id="discount"
+                            id="freight"
                             v-model.number="emitProducts.freight"
                             type="text"
                             class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
@@ -342,7 +356,7 @@
                         </button>
 
                         <div class="mb-auto ml-auto text-xl w-auto">
-                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount }}</span>
+                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}</span>
                         
                         </div>
                     </div>
@@ -351,17 +365,21 @@
                         class="flex text-white p-1 rounded-lg border border-gray-700 w-full"
                     
                     >
+                    
+                    <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
                         <button
                             :class="{
-                                'ml-8': widthScreen > 1080 && widthScreen <= 1920
+                                'ml-8': witdhScreen > 1080 && witdhScreen <= 1920
                             }" 
                             @click="finalizeSale('nm')"
                             class="mr-1 ml-2 p-1 bg-slate-600 rounded-md"
                         >
                             Finalizar
                         </button>
+                    </q-btn>
+                    <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
                         <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
-                        
+                    </q-btn>
                     </div>
 
                 </div>
@@ -371,22 +389,10 @@
         <!-- oder options -->
         
     </div>
-
-    <div
-        v-if="showGrid && widthScreen > 1366"
-        class="flex border border-black w-9  ml-10"
-    >
-        <select id="textSize" v-model.number="textSize">
-            <option selected value=4>4</option>
-            <option value=8>8</option>
-            <option value=16>16</option>
-        </select>
-    </div>
-
     <div>
         <ProductsSelectionView
             v-if="show"
-            :widthScreen="this.widthScreen"
+            :witdhScreen="this.witdhScreen"
             :hotelCodCRT="this.hotelCodCRT"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion"
@@ -400,14 +406,40 @@
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing.vue'
     import { api } from "boot/axios"
-    import { toRaw } from 'vue'   
-    import { LocalStorage } from 'quasar';
+    import { onBeforeUnmount, toRaw } from 'vue'   
+    import { useQuasar, LocalStorage } from 'quasar';
     
     export default{
+        setup(){
+            const $q = useQuasar()
+            let timer
+            onBeforeUnmount(() => {
+                if(timer !== void 0) {
+                    clearTimeout(timer)
+                    $q.loading.hide()
+
+                }
+            })
+
+            return { 
+                showLoading () {
+                    $q.loading.show({
+                        message: 'Carregando pagamento e validando a venda ...'
+                    })
+
+                    timer = setTimeout(() => {
+                        $q.loading.hide()
+                        timer = void 0
+                    }, 3000)
+                }
+            }
+        },  
         data(){
             return {
                 productsSeletion: [],
-                hotelCodCRT: 0,
+                errorMessages: [],
+                clients: [],
+                filteredClients: [],
 
                 emitProducts: {
                     addition: 0,
@@ -416,19 +448,20 @@
                     userID: 0,
                     
                 },
+                hotelCodCRT: 0,
+
                 sellerData: {
                     id: '',
                     name: ''
                 },
 
-                clients: [],
-                filteredClients: [],
                 clientsData: {
-                    id: '',
+                    id: null,
                     name: ''
                 },
+
                 totalOperation: 0,
-                widthScreen: 0,
+                witdhScreen: 0,
                 textSize: 4,
                 pdvID: 0,
                 show: false,
@@ -437,15 +470,17 @@
                 showPaymentsForm: false,
                 showProductsSearch: true,
                 showCashClosing: false,
-
+                registredCustomer: false,
+                
                 viewProduct: {
                     show: false,
                     id: '',
                     amount: 0,
-                    sale_price: 0,
+                    salePrice: 0,
                     total: 0
                     
                 },
+
                 isOpenedPDV: false,
                 success: null,
                 typeOperation: '',
@@ -480,7 +515,7 @@
                 const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
                 const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
                 const freight = typeof this.emitProducts.freight === 'number' ? this.emitProducts.freight : 0
-
+                
                 return {
                     subtotal: subtotal,
                     addition: addition,
@@ -493,10 +528,10 @@
         
         methods: {
             async selectClient(){
-                const response = await api.get('/ecommerce/consumers/all');
+                const response = await api.get('/customers/selectClient');
                 this.clients = response.data;
-                console.log(this.clients)
                 this.filterClients();
+
             },
 
             filterClients(){
@@ -508,6 +543,7 @@
             setClient(client){
                 this.clientsData.id = client.id;
                 this.clientsData.name = client.name;
+                this.clients = []
                 this.filteredClients = [];
             },
 
@@ -522,7 +558,7 @@
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
-                                customer_id: this.clientData.id,
+                                customer_id: this.clientsData.id,
                                 sub_total: this.calculateTotal.subtotal,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 addition: this.calculateTotal.addition,
@@ -591,8 +627,9 @@
             
             async finalizeSale(type) // Só vai chamar a forma de pagamento
             {
+                
                 try {
-                    if(this.clientData.id && this.sellerData.id)
+                    if(this.clientsData.id && this.sellerData.id)
                     {
                         console.log('Pode calcular o total')
                         this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.freight + this.calculateTotal.addition - this.calculateTotal.discount
@@ -624,7 +661,7 @@
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.sellerData.id,
-                                customer_id: this.clientData.id,
+                                customer_id: this.clientsData.id,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 sub_total: this.calculateTotal.subtotal,
                                 addition: this.calculateTotal.addition,
@@ -651,7 +688,7 @@
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.sellerData.id,
-                                customer_id: this.clientData.id,
+                                customer_id: this.clientsData.id,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 sub_total: this.calculateTotal.subtotal,
                                 addition: this.calculateTotal.addition,
@@ -674,7 +711,9 @@
                     }
                     
                 } catch (error) {
-                    console.error('Erro finalizeSale', error.response.data)   
+                    console.error('Erro finalizeSale', error.response.data.errors)
+                    this.errorMessages.push(error.response.data.errors)
+                    
                 }
             },
 
@@ -709,7 +748,6 @@
                 this.showGrid = !this.showGrid
                 this.show = !this.show
                 
-
             },  
 
             changeAmount(id, newAmount)
@@ -822,7 +860,7 @@
                             this.viewProduct = {
                                 id: productDetail.id,
                                 amount: productDetail.amount,
-                                sale_price: productDetail.sale_price,
+                                salePrice: productDetail.salePrice,
                                 total: productDetail.amount * productDetail.sale_price
                             }
                             console.log(this.viewProduct)
@@ -843,6 +881,11 @@
                 }
             },
 
+            closeCashClosing(event)
+            {
+                this.showCashClosing = event
+            },
+
             resetSale(confirmed)
             {
                 if(confirmed)
@@ -851,8 +894,8 @@
                     this.productsSeletion = [],
                     this.emitProducts.addition = 0
                     this.emitProducts.discount = 0
-                    this.clientData.id = null
-                    this.clientData.name = null
+                    this.clientsData.id = null
+                    this.clientsData.name = null
                     
                 }
             },
@@ -900,7 +943,7 @@
 
         mounted(){
             this.getHotel()
-            this.widthScreen += screen.width
+            this.witdhScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
             const getUser = async () => { 
                 const response = await api.get('/auth/me', {
@@ -915,7 +958,7 @@
                 }
             }
             getUser()
-            
+
             if(this.idPDV)
             {
                 this.importSale()            

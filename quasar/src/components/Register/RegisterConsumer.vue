@@ -1,5 +1,5 @@
 <template>
-<div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
+  <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
     <h2 class="text-xl font-semibold mb-4">Cadastro de Cliente</h2>
     
     <form @submit.prevent="submitForm">
@@ -7,7 +7,7 @@
       <label for="client">Cliente:</label>
       <input 
       type="text" 
-      v-model="form.client" 
+      v-model="form.cliente" 
       id="client" 
       placeholder="Inserir..."/>
 
