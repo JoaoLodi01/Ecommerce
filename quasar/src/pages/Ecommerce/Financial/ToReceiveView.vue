@@ -21,7 +21,7 @@
 
             <div><p>Saldo Total: <span class="font-semibold">R$0,00</span></p></div>
 
-            <div><p>Saldo total: <span class="font-semibold">R$0,00</span></p></div>
+            <div><p>Saldo total de saída: <span class="font-semibold">R$0,00</span></p></div>
         </div>
 
         <div class="overflow-x-auto">
