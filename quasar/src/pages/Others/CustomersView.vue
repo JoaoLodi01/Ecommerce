@@ -71,6 +71,7 @@
                     :class="{
                         'text-gray-400 bg-slate-500': !client.active
                     }"
+                    @click="activeClient(client.id)"
                 >   
                     Ativar
                 </button>
@@ -109,7 +110,17 @@
             {
                 const response = await api.delete(`/customers/${id}/deactivate`)
                 console.log(response.data)
-            }
+                window.location.reload()
+
+            },
+
+            async activeClient(id)
+            {
+                const response = await api.put(`/customers/${id}/active`)
+                console.log(response.data)
+                window.location.reload()
+
+            },
         },
     };
 </script>

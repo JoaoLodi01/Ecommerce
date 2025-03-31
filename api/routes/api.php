@@ -114,7 +114,8 @@ Route::prefix('v1')->group( function (){
         Route::post('/create', [CustomerController::class, 'store']);
         Route::get('/{id}', [CustomerController::class, 'findByID']);
         Route::put('/{id}', [CustomerController::class, 'update']);
-        Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']);
+        Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
+        Route::put('/{id}/active', [CustomerController::class, 'active']);
         
     });
 
@@ -141,5 +142,3 @@ Route::get('/get-ip', [IPController::class, 'create']);
 Route::get('/php-info', function (){
     return phpinfo();
 })->name('php.info');
-
-Route::get('/all', [UserController::class, 'getAll']);

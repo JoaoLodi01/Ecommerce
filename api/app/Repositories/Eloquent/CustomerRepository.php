@@ -52,4 +52,10 @@ class CustomerRepository
                             'active' => 0,
         ]);
     }
+
+    public function active(int $id){
+        return Customer::where('id', $id)->update([
+            'active' => 1
+        ]);
+    }
 }

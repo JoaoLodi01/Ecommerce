@@ -39,4 +39,9 @@ class CustomerController extends Controller
     public function delete(int $id){
         return $this->customerService->delete($id);
     }
+
+    public function active(int $id)
+    {
+        return $this->customerService->active($id);
+    }
 }

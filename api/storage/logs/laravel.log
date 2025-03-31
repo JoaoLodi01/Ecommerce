@@ -638,3 +638,4 @@
 #36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
 #37 {main}
 "} 
+[2025-03-31 22:08:58] local.INFO: Acertou o login  
