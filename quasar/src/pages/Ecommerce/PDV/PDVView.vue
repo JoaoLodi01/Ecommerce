@@ -241,7 +241,7 @@
                             <input 
                                 v-model="clientsData.name"
                                 @input="selectClient()"
-                                @keydown.enter="setClient()"
+                                @keydown.enter="setClient(clientsData)"
                                 placeholder="Consumidor Padrão"
                                 class="text-black border border-black w-full"
                             />
@@ -401,7 +401,7 @@
     import CashClosing from 'src/components/PDV/CashClosing.vue'
     import { api } from "boot/axios"
     import { toRaw } from 'vue'   
-import { LocalStorage } from 'quasar';
+    import { LocalStorage } from 'quasar';
     
     export default{
         data(){
@@ -493,9 +493,10 @@ import { LocalStorage } from 'quasar';
         
         methods: {
             async selectClient(){
-                    const response = await api.get('/customers/selectClient');
-                    this.clients = response.data;
-                    this.filterClients();
+                const response = await api.get('/ecommerce/consumers/all');
+                this.clients = response.data;
+                console.log(this.clients)
+                this.filterClients();
             },
 
             filterClients(){
@@ -504,7 +505,7 @@ import { LocalStorage } from 'quasar';
                 );
             },
 
-            setClient(){
+            setClient(client){
                 this.clientsData.id = client.id;
                 this.clientsData.name = client.name;
                 this.filteredClients = [];

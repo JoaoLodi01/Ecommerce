@@ -1056,3 +1056,117 @@ porque o host conectado não respondeu at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_E
 [2025-03-28 10:32:22] local.INFO: O hotel foi encontrado  
 [2025-03-28 10:32:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-03-28 10:32:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 10:55:05] local.INFO: Acertou o login  
+[2025-03-28 11:19:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:19:42] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:19:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:19:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:19:44] local.INFO: bateu no getAll  
+[2025-03-28 11:19:44] local.INFO: bateu no getAll  
+[2025-03-28 11:19:45] local.INFO: bateu no getAll  
+[2025-03-28 11:20:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:20:02] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:20:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:20:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:20:06] local.INFO: bateu no getAll  
+[2025-03-28 11:20:13] local.INFO: bateu no getAll  
+[2025-03-28 11:20:19] local.INFO: bateu no getAll  
+[2025-03-28 11:20:20] local.INFO: bateu no getAll  
+[2025-03-28 11:20:20] local.INFO: bateu no getAll  
+[2025-03-28 11:20:20] local.INFO: bateu no getAll  
+[2025-03-28 11:20:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:20:31] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:20:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:20:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:20:52] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:20:53] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:20:54] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:20:54] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:20:55] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:20:55] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:20:56] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:21:00] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:21:01] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:21:01] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:21:01] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:21:02] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:21:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:21:41] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:21:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:21:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:21:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:21:42] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:21:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:21:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:23:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:23:52] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:23:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:23:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:24:03] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:24:04] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:24:04] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:24:04] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$i6ODUlJ.RZzZnmWfkQxPteq\/lZrGqH9Et363WLEy5dO3Dlp7rjFUi","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$2vsNoaUBSSnngglEM\/WxiOz.7waG1gd.oyKn\/mWMiScz\/bk01SpNe","phone":"+55 4244-4444","active":1,"created_at":"2025-03-27T11:04:26.000000Z","updated_at":"2025-03-27T11:04:26.000000Z"}]  
+[2025-03-28 11:24:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:24:18] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:24:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:24:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:25:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:25:50] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:25:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:25:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:25:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:25:56] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:25:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:25:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:26:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:26:31] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:26:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:26:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:27:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:27:12] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:27:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:27:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:27:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:27:34] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:27:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:27:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:32:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:32:29] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:32:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:32:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:35:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:35:46] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:35:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:35:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:35:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:35:51] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:35:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:35:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:36:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:36:00] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:36:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:36:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:36:12] local.INFO: bateu no getAll  
+[2025-03-28 11:37:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 11:37:01] local.INFO: O hotel foi encontrado  
+[2025-03-28 11:37:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 11:37:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 11:37:09] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-28 11:37:09] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-28 11:37:09] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-28 11:37:09] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-28 11:37:09] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-28 11:37:09] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-03-28 12:36:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 12:36:07] local.INFO: O hotel foi encontrado  
+[2025-03-28 12:36:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 12:36:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 12:37:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 12:37:21] local.INFO: O hotel foi encontrado  
+[2025-03-28 12:37:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 12:37:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-28 13:01:17] local.INFO: bateu no getAll  
+[2025-03-28 14:19:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-28 14:19:59] local.INFO: O hotel foi encontrado  
+[2025-03-28 14:19:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-28 14:19:59] local.INFO: Opção desativada, não vai alterar o endereço  

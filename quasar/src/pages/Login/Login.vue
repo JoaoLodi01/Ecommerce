@@ -24,35 +24,9 @@
 
 <script>
     import { api } from "boot/axios"
-    import { useQuasar, LocalStorage } from 'quasar';
-    import { onBeforeUnmount } from "vue";
+    import { LocalStorage } from 'quasar';
     
     export default {
-        setup () {
-            const $q = useQuasar()
-            let timer
-
-            onBeforeUnmount(() => {
-            if (timer !== void 0) {
-                clearTimeout(timer)
-                $q.loading.hide()
-            }
-            })
-
-            return {
-            showLoading () {
-                $q.loading.show({
-                    message: 'Some important process  is in progress. Hang on...'
-                })
-
-                    // hiding in 3s
-                timer = setTimeout(() => {
-                    $q.loading.hide()
-                    timer = void 0
-                    }, 3000)
-                }
-            }
-        },
         data(){
             return {
                 details: {

@@ -46,7 +46,7 @@
                         this.loged = LocalStorage.getItem("loged")
                         
                     } else {
-                        console.log('Token não encontrado')
+                        alert('É necessário fazer login para acessar essa página!')
                         LocalStorage.remove("auth_token")
                         this.$router.push('/login')
 
