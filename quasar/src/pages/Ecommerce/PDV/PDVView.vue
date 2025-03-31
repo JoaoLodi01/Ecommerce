@@ -203,7 +203,7 @@
             <div @click="viewProduct.show = !viewProduct.show">X</div>
             <div class="text-left">
                 <p><span>Cód {{ viewProduct.id }}</span></p>
-                <p><span>Preço unitário: R${{ viewProduct.sale_price }}</span></p>
+                <p><span>Preço unitário: R${{ viewProduct.salePrice }}</span></p>
                 <p>
                     <input 
                         v-model="viewProduct.amount"
@@ -244,7 +244,13 @@
                             />
 
                             <br>
-
+                            <q-checkbox
+                                size="1.5rem"
+                                label="Cliente cadastrado"
+                                v-model="registredCustomer"
+                            />
+                            <br>
+                            
                             <label class="text-black" for="client">Cliente</label>
                             <input 
                                 v-model="clientsData.name"
@@ -253,7 +259,7 @@
                                 placeholder="Consumidor Padrão"
                                 class="text-black border border-black w-full"
                             />
-                            <ul v-if="filteredClients.length" class="border border-gray-300 rounded mt-1">
+                            <ul v-if="filteredClients.length > 0" class="border border-gray-300 rounded mt-1">
                                 <li
                                     v-for="client in filteredClients"
                                     :key="client.id"
@@ -432,6 +438,9 @@
             return {
                 productsSeletion: [],
                 errorMessages: [],
+                clients: [],
+                filteredClients: [],
+
                 emitProducts: {
                     addition: 0,
                     discount: 0,
@@ -446,12 +455,11 @@
                     name: ''
                 },
 
-                clients: [],
-                filteredClients: [],
                 clientsData: {
                     id: null,
                     name: ''
                 },
+
                 totalOperation: 0,
                 witdhScreen: 0,
                 textSize: 4,
@@ -462,15 +470,17 @@
                 showPaymentsForm: false,
                 showProductsSearch: true,
                 showCashClosing: false,
-
+                registredCustomer: false,
+                
                 viewProduct: {
                     show: false,
                     id: '',
                     amount: 0,
-                    sale_price: 0,
+                    salePrice: 0,
                     total: 0
                     
                 },
+
                 isOpenedPDV: false,
                 success: null,
                 typeOperation: '',
@@ -505,7 +515,7 @@
                 const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
                 const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
                 const freight = typeof this.emitProducts.freight === 'number' ? this.emitProducts.freight : 0
-
+                
                 return {
                     subtotal: subtotal,
                     addition: addition,
@@ -533,6 +543,7 @@
             setClient(client){
                 this.clientsData.id = client.id;
                 this.clientsData.name = client.name;
+                this.clients = []
                 this.filteredClients = [];
             },
 
@@ -849,7 +860,7 @@
                             this.viewProduct = {
                                 id: productDetail.id,
                                 amount: productDetail.amount,
-                                sale_price: productDetail.sale_price,
+                                salePrice: productDetail.salePrice,
                                 total: productDetail.amount * productDetail.sale_price
                             }
                             console.log(this.viewProduct)

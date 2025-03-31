@@ -52,17 +52,7 @@ Route::prefix('v1')->group( function (){
                 Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
         
             });
-        
-            // Consumer routes
-            Route::prefix('consumers')->group( function(){
-                Route::get('/all', [CustomerController::class, 'getAll']);
-                Route::post('/create', [CustomerController::class, 'store']);
-                Route::get('/{id}', [CustomerController::class, 'findByID']);
-                Route::put('/{id}', [CustomerController::class, 'update']);
-                Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']);
-                
-            });
-        
+
             // CashRegister routes
             Route::prefix('cash-register')->group( function(){
                 Route::get('/all', [CashRegisterController::class, 'getAll']);
