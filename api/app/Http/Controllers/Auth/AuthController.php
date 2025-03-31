@@ -19,7 +19,8 @@ class AuthController extends Controller
         {
             Log::info('Acertou o login');
 
-            $user = Auth::user();                
+            $user = Auth::user();
+                      
             $currenteDate = carbon::now('America/Sao_Paulo')->addHour(8);
             $token = $user->createToken('auth_token', ['*'], $currenteDate)->plainTextToken;
         

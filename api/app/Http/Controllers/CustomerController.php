@@ -12,9 +12,7 @@ class CustomerController extends Controller
     public function __construct(
         protected CustomerService $customerService
     )
-    {
-        $this->customerService = $customerService;
-    }
+    {}
 
     public function getAll(){
         return $this->customerService->getAll();

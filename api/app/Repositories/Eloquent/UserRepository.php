@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Hash;
 class UserRepository
 {
     public function getAll(int $active){
-        return User::where('active', $active)
+        /*return User::where('active', $active)
                     ->get();
+        */
+        return $this->getAccessProfile(1);
     }
 
     public function selectSeller(array $search){
@@ -47,5 +49,13 @@ class UserRepository
                     ->update([
                         'active' => 0,
                     ]);
+    }
+
+    public function getAccessProfile(int $id)
+    {
+        $user = $this->findByID($id);
+
+        return $user->accessProfile()->get();
+        
     }
 }

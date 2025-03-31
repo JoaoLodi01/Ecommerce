@@ -120,7 +120,7 @@ Route::prefix('v1')->group( function (){
 
     // User routes
     Route::prefix('users')->group( function(){
-        Route::get('/all', [UserController::class, 'getAll']);
+        //Route::get('/all', [UserController::class, 'getAll']);
         Route::get('/selectSeller', [UserController::class, 'selectSeller']);
         Route::post('/create', [UserController::class, 'create']);
         Route::get('/{id}', [UserController::class, 'findByID']);
@@ -141,3 +141,5 @@ Route::get('/get-ip', [IPController::class, 'create']);
 Route::get('/php-info', function (){
     return phpinfo();
 })->name('php.info');
+
+Route::get('/all', [UserController::class, 'getAll']);
