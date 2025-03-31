@@ -56,7 +56,7 @@
                     }
                     
                 } catch (error) {
-                    console.error('Erro no checkAuth App.vue', error.response.data || error)
+                    console.error('Erro no checkAuth App.vue', error)
                     
                     if(error.response.status)
                     {

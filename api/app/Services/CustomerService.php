@@ -15,7 +15,7 @@ class CustomerService
 
     public function getAll(){
         try {
-            return $this->customerRepository->getAll(1);
+            return $this->customerRepository->getAll();
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }

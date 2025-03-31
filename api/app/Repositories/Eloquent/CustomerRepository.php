@@ -3,15 +3,11 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Customer;
-use App\Models\CustomerCredit;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
-
 class CustomerRepository
 {
-    public function getAll(int $active){
-        return Customer::where('active', $active)
-                        ->get();
+    public function getAll(){
+        return Customer::paginate(10);
 
     }
 
