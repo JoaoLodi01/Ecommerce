@@ -1,18 +1,25 @@
 <template>
-  <div class="clientes-container px-20">
-    <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
-    <button 
-      @click="toggleRegisterClientVisibility"
-      class="w-96 py-2 absolute right-2 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
-      <span v-if="!showRegisterClients">Cadastrar</span>
-      <span v-else>Voltar</span>
-    </button>
-  <!-- GRID CLIENTES -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" v-if="showClients">
-      <div
-        v-for="(client, id) in clients" :key="id" 
-        class="bg-white p-6 shadow-lg rounded-lg border border-gray-200"
-    >
+  <div class="px-20 h-max w-full">
+    <div>
+        <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
+        
+        
+ 
+        <button 
+            @click="toggleRegisterClientVisibility"
+            class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
+            <span v-if="!showRegisterClients">Cadastrar</span>
+            <span v-else>Voltar</span>
+        </button>
+    </div>
+    
+  </div>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" v-if="showClients">
+        <div
+            v-for="(client, id) in clients" :key="id" 
+            class="bg-white p-6 shadow-lg rounded-lg border border-gray-200"
+        >
         <div>
             <div class="text-sm text-gray-500 mb-2">
                 <span class="font-semibold">ID:</span> {{ client.id }}
@@ -79,8 +86,7 @@
         </div>
       </div>
     </div>
-    
-  </div>
+  
 </template>
   
 <script>

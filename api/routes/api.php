@@ -142,3 +142,6 @@ Route::get('/get-ip', [IPController::class, 'create']);
 Route::get('/php-info', function (){
     return phpinfo();
 })->name('php.info');
+
+
+Route::get('/teste', [CustomerController::class, 'exportClients']);
