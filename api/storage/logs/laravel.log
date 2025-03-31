@@ -1,0 +1,411 @@
+[2025-03-31 15:05:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:05:44] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:05:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:05:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:05:46] local.INFO: Dados recebidos  
+[2025-03-31 15:05:46] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-03-31 15:05:46] local.INFO: O que achou:   
+[2025-03-31 15:05:46] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:05:46] local.INFO: Dados recebidos  
+[2025-03-31 15:05:46] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-03-31 15:05:46] local.INFO: O que achou:   
+[2025-03-31 15:05:46] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:05:46] local.INFO: Dados recebidos  
+[2025-03-31 15:05:46] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-03-31 15:05:46] local.INFO: O que achou:   
+[2025-03-31 15:05:46] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:05:47] local.INFO: Dados recebidos  
+[2025-03-31 15:05:47] local.INFO: array (
+  'params' => 'jack',
+)  
+[2025-03-31 15:05:47] local.INFO: O que achou:   
+[2025-03-31 15:05:47] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:05:48] local.INFO: Dados recebidos  
+[2025-03-31 15:05:48] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-03-31 15:05:48] local.INFO: O que achou:   
+[2025-03-31 15:05:48] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:07:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:07:13] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:07:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:07:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:07:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:07:18] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:07:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:07:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:10:04] local.INFO: Dados recebidos  
+[2025-03-31 15:10:04] local.INFO: array (
+  'params' => 'a',
+)  
+[2025-03-31 15:10:04] local.INFO: O que achou:   
+[2025-03-31 15:10:04] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:10:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:10:21] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:10:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:10:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:10:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:10:22] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:10:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:10:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:10:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:10:23] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:10:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:10:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:10:44] local.INFO: Dados recebidos  
+[2025-03-31 15:10:44] local.INFO: array (
+  'params' => 'a',
+)  
+[2025-03-31 15:10:44] local.INFO: O que achou:   
+[2025-03-31 15:10:44] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:10:48] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:10:48] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:10:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:10:48] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:11:14] local.INFO: Dados recebidos  
+[2025-03-31 15:11:14] local.INFO: array (
+  'params' => 'a',
+)  
+[2025-03-31 15:11:14] local.INFO: O que achou:   
+[2025-03-31 15:11:14] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:11:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:11:53] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:11:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:11:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:12:02] local.INFO: Dados recebidos  
+[2025-03-31 15:12:02] local.INFO: array (
+  'params' => 'a',
+)  
+[2025-03-31 15:12:02] local.INFO: O que achou:   
+[2025-03-31 15:12:02] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:12:04] local.INFO: Dados recebidos  
+[2025-03-31 15:12:04] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-03-31 15:12:04] local.INFO: O que achou:   
+[2025-03-31 15:12:04] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:12:11] local.INFO: Dados recebidos  
+[2025-03-31 15:12:11] local.INFO: array (
+  'params' => 'd',
+)  
+[2025-03-31 15:12:11] local.INFO: O que achou:   
+[2025-03-31 15:12:11] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:12:11] local.INFO: Dados recebidos  
+[2025-03-31 15:12:11] local.INFO: array (
+  'params' => 'dd',
+)  
+[2025-03-31 15:12:11] local.INFO: O que achou:   
+[2025-03-31 15:12:11] local.INFO: []  
+[2025-03-31 15:12:11] local.INFO: Dados recebidos  
+[2025-03-31 15:12:11] local.INFO: array (
+  'params' => 'ddd',
+)  
+[2025-03-31 15:12:11] local.INFO: O que achou:   
+[2025-03-31 15:12:11] local.INFO: []  
+[2025-03-31 15:12:19] local.INFO: Dados recebidos  
+[2025-03-31 15:12:19] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-03-31 15:12:19] local.INFO: O que achou:   
+[2025-03-31 15:12:19] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:12:20] local.INFO: Dados recebidos  
+[2025-03-31 15:12:20] local.INFO: array (
+  'params' => 'jc',
+)  
+[2025-03-31 15:12:20] local.INFO: O que achou:   
+[2025-03-31 15:12:20] local.INFO: []  
+[2025-03-31 15:12:21] local.INFO: Dados recebidos  
+[2025-03-31 15:12:21] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-03-31 15:12:21] local.INFO: O que achou:   
+[2025-03-31 15:12:21] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:12:21] local.INFO: Dados recebidos  
+[2025-03-31 15:12:21] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-03-31 15:12:21] local.INFO: O que achou:   
+[2025-03-31 15:12:21] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:12:22] local.INFO: Dados recebidos  
+[2025-03-31 15:12:22] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-03-31 15:12:22] local.INFO: O que achou:   
+[2025-03-31 15:12:22] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:12:26] local.INFO: Dados recebidos  
+[2025-03-31 15:12:26] local.INFO: array (
+  'params' => 'm',
+)  
+[2025-03-31 15:12:26] local.INFO: O que achou:   
+[2025-03-31 15:12:26] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-03-31 15:12:27] local.INFO: Dados recebidos  
+[2025-03-31 15:12:27] local.INFO: array (
+  'params' => 'ma',
+)  
+[2025-03-31 15:12:27] local.INFO: O que achou:   
+[2025-03-31 15:12:27] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-03-31 15:12:27] local.INFO: Dados recebidos  
+[2025-03-31 15:12:27] local.INFO: array (
+  'params' => 'maç',
+)  
+[2025-03-31 15:12:27] local.INFO: O que achou:   
+[2025-03-31 15:12:27] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-03-31 15:12:27] local.INFO: Dados recebidos  
+[2025-03-31 15:12:27] local.INFO: array (
+  'params' => 'maça',
+)  
+[2025-03-31 15:12:27] local.INFO: O que achou:   
+[2025-03-31 15:12:27] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-03-31 15:12:31] local.INFO: Dados recebidos  
+[2025-03-31 15:12:31] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-03-31 15:12:31] local.INFO: O que achou:   
+[2025-03-31 15:12:31] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:25:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:25:32] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:25:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:25:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:26:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:26:00] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:26:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:26:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:26:28] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-03-31 15:26:28] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-03-31 15:26:28] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-03-31 15:26:28] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-03-31 15:26:28] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-03-31 15:26:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:26:36] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:26:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:26:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:26:38] local.INFO: []  
+[2025-03-31 15:26:39] local.INFO: []  
+[2025-03-31 15:26:39] local.INFO: []  
+[2025-03-31 15:26:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:26:43] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:26:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:26:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:26:44] local.INFO: []  
+[2025-03-31 15:26:44] local.INFO: []  
+[2025-03-31 15:26:44] local.INFO: []  
+[2025-03-31 15:26:46] local.INFO: []  
+[2025-03-31 15:26:53] local.INFO: []  
+[2025-03-31 15:26:53] local.INFO: []  
+[2025-03-31 15:26:54] local.INFO: []  
+[2025-03-31 15:27:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:27:10] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:27:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:27:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:27:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:27:10] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:27:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:27:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:27:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:27:27] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:27:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:27:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:27:58] local.INFO: []  
+[2025-03-31 15:27:59] local.INFO: []  
+[2025-03-31 15:27:59] local.INFO: []  
+[2025-03-31 15:27:59] local.INFO: []  
+[2025-03-31 15:27:59] local.INFO: []  
+[2025-03-31 15:28:00] local.INFO: []  
+[2025-03-31 15:28:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:28:02] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:28:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:28:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:28:04] local.INFO: Dados recebidos  
+[2025-03-31 15:28:04] local.INFO: array (
+  'params' => 'd',
+)  
+[2025-03-31 15:28:04] local.INFO: O que achou:   
+[2025-03-31 15:28:04] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:28:05] local.INFO: Dados recebidos  
+[2025-03-31 15:28:05] local.INFO: array (
+  'params' => 'da',
+)  
+[2025-03-31 15:28:05] local.INFO: O que achou:   
+[2025-03-31 15:28:05] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:28:05] local.INFO: Dados recebidos  
+[2025-03-31 15:28:05] local.INFO: array (
+  'params' => 'dan',
+)  
+[2025-03-31 15:28:05] local.INFO: O que achou:   
+[2025-03-31 15:28:05] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:28:06] local.INFO: Dados recebidos  
+[2025-03-31 15:28:06] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-03-31 15:28:06] local.INFO: O que achou:   
+[2025-03-31 15:28:06] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:28:10] local.INFO: Dados recebidos  
+[2025-03-31 15:28:10] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-03-31 15:28:10] local.INFO: O que achou:   
+[2025-03-31 15:28:10] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:28:10] local.INFO: Dados recebidos  
+[2025-03-31 15:28:10] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-03-31 15:28:10] local.INFO: O que achou:   
+[2025-03-31 15:28:10] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:28:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:28:27] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:28:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:28:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:28:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:28:28] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:28:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:28:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:28:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:28:57] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:28:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:28:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:29:00] local.INFO: Dados recebidos  
+[2025-03-31 15:29:00] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-03-31 15:29:00] local.INFO: O que achou:   
+[2025-03-31 15:29:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:29:00] local.INFO: Dados recebidos  
+[2025-03-31 15:29:00] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-03-31 15:29:00] local.INFO: O que achou:   
+[2025-03-31 15:29:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:29:00] local.INFO: Dados recebidos  
+[2025-03-31 15:29:00] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-03-31 15:29:00] local.INFO: O que achou:   
+[2025-03-31 15:29:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:29:31] local.INFO: Dados recebidos  
+[2025-03-31 15:29:31] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-03-31 15:29:31] local.INFO: O que achou:   
+[2025-03-31 15:29:31] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:29:31] local.INFO: Dados recebidos  
+[2025-03-31 15:29:31] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-03-31 15:29:31] local.INFO: O que achou:   
+[2025-03-31 15:29:31] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:29:31] local.INFO: Dados recebidos  
+[2025-03-31 15:29:31] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-03-31 15:29:31] local.INFO: O que achou:   
+[2025-03-31 15:29:31] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:29:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:29:45] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:29:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:29:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:30:09] local.INFO: Dados recebidos  
+[2025-03-31 15:30:09] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-03-31 15:30:09] local.INFO: O que achou:   
+[2025-03-31 15:30:09] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:30:09] local.INFO: Dados recebidos  
+[2025-03-31 15:30:09] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-03-31 15:30:09] local.INFO: O que achou:   
+[2025-03-31 15:30:09] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:30:09] local.INFO: Dados recebidos  
+[2025-03-31 15:30:09] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-03-31 15:30:09] local.INFO: O que achou:   
+[2025-03-31 15:30:09] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:30:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:30:58] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:30:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:30:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:30:59] local.INFO: Dados recebidos  
+[2025-03-31 15:30:59] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-03-31 15:30:59] local.INFO: O que achou:   
+[2025-03-31 15:30:59] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:30:59] local.INFO: Dados recebidos  
+[2025-03-31 15:30:59] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-03-31 15:30:59] local.INFO: O que achou:   
+[2025-03-31 15:30:59] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:31:00] local.INFO: Dados recebidos  
+[2025-03-31 15:31:00] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-03-31 15:31:00] local.INFO: O que achou:   
+[2025-03-31 15:31:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:31:00] local.INFO: Dados recebidos  
+[2025-03-31 15:31:00] local.INFO: array (
+  'params' => 'jack',
+)  
+[2025-03-31 15:31:00] local.INFO: O que achou:   
+[2025-03-31 15:31:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-03-31 15:31:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:31:09] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:31:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:31:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:31:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:31:34] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:31:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:31:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:33:03] local.INFO: []  
+[2025-03-31 15:33:04] local.INFO: []  
+[2025-03-31 15:33:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:33:11] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:33:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:33:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:33:15] local.INFO: []  
+[2025-03-31 15:33:15] local.INFO: []  
+[2025-03-31 15:33:15] local.INFO: []  
+[2025-03-31 15:33:17] local.INFO: []  
+[2025-03-31 15:33:22] local.INFO: Dados recebidos  
+[2025-03-31 15:33:22] local.INFO: array (
+  'params' => 'm',
+)  
+[2025-03-31 15:33:22] local.INFO: O que achou:   
+[2025-03-31 15:33:22] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-03-31 15:33:22] local.INFO: Dados recebidos  
+[2025-03-31 15:33:22] local.INFO: array (
+  'params' => 'ma',
+)  
+[2025-03-31 15:33:22] local.INFO: O que achou:   
+[2025-03-31 15:33:22] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-03-31 15:33:23] local.INFO: Dados recebidos  
+[2025-03-31 15:33:23] local.INFO: array (
+  'params' => 'maç',
+)  
+[2025-03-31 15:33:23] local.INFO: O que achou:   
+[2025-03-31 15:33:23] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-03-31 15:33:23] local.INFO: Dados recebidos  
+[2025-03-31 15:33:23] local.INFO: array (
+  'params' => 'maça',
+)  
+[2025-03-31 15:33:23] local.INFO: O que achou:   
+[2025-03-31 15:33:23] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-03-31 15:37:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:37:49] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:37:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:37:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:37:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:37:49] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:37:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:37:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-03-31 15:40:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-03-31 15:40:19] local.INFO: O hotel foi encontrado  
+[2025-03-31 15:40:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-03-31 15:40:19] local.INFO: Opção desativada, não vai alterar o endereço  

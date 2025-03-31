@@ -65,10 +65,16 @@
                     </div>
                     
                     <div v-if="witdhScreen > 1366" class="border border-black rounded-md mr-1">
-                        <ProductsSearchBar
-                            :showProductsSearch
-                            @update:selectProducts="updateProductsSeletion"
-                        />
+                        <div class="bg-white">
+                            <ProductsSearchBar
+                                :showProductsSearch
+                                @update:selectProducts="updateProductsSeletion"
+    
+                            />
+
+                        </div>
+
+                        <!--Busca de produto-->
                     </div>
 
                     <div v-if="witdhScreen > 1366">
@@ -264,7 +270,7 @@
                                     v-for="client in filteredClients"
                                     :key="client.id"
                                     @click="setClient(client)"
-                                    class="p-2 hover:bg-gray-200 cursor-pointer">
+                                    class="fixed z-50 p-3 bg-white hover:bg-gray-200 cursor-pointer">
                                 
                                     {{ client.name }}
                                 </li>
@@ -434,6 +440,7 @@
                 }
             }
         },  
+
         data(){
             return {
                 productsSeletion: [],
@@ -528,16 +535,18 @@
         
         methods: {
             async selectClient(){
-                const response = await api.get('/customers/selectClient');
+                //const response = await api.get('/customers/selectClient');
+                const response = await api.get('/customers/all');
                 this.clients = response.data;
                 this.filterClients();
-
+                
             },
 
             filterClients(){
                 this.filteredClients = this.clients.filter(client =>
                     client.name.toLowerCase().includes(this.clientsData.name.toLowerCase())
                 );
+
             },
 
             setClient(client){
@@ -545,6 +554,7 @@
                 this.clientsData.name = client.name;
                 this.clients = []
                 this.filteredClients = [];
+                console.log(this.clientsData)
             },
 
             async saveSale()
@@ -567,7 +577,10 @@
                                 is_nfce_nm: null
                                 
                             })
-                        
+
+                            console.log(this.clientsData.id,)
+                            console.log(response)
+
                             if(response.data.success === true)
                             {
                                 alert('Venda guardarda para enviar posteriormente!')

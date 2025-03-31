@@ -1,5 +1,5 @@
 <template>
-    <div class="mr-20 text-center">
+    <div class="mr-20 ">
         <input
             v-model="search.name"
             @input="getProducts()"
@@ -7,15 +7,16 @@
             class="border-none outline-none ml-2 mt-1 mb-1 w-96"
         />
         
-        <ul v-if="filteredProducts.length > 2" class="border border-gray-300 rounded mt-1">
+        <ul v-if="filteredProducts.length > 0 && search.name !== ''" class="fixed z-50 p-3 bg-white border border-gray-300 rounded mt-1">
             <li
                 v-for="product in filteredProducts"
                 :key="product.id"
                 @click="setProduct(product)"
                 
                 class="p-2 hover:bg-gray-200 cursor-pointer">
+                <span>{{ product.id }}</span> -
+                <span> {{ product.product }}</span>
 
-                {{ product.product }}
             </li>
         </ul>
     </div>
@@ -49,6 +50,7 @@
                     this.products = toRaw(response.data);
                     console.log('produtos', toRaw(this.products))
                     this.filterProducts();
+
                 } catch (error) {
                     console.error('erro getProducts', error)
                 }
@@ -59,7 +61,7 @@
                     product.product.toLowerCase()
                     
                 );
-                
+                console.log(this.filteredProducts.length, ' this.search.name', this.search.name)
             },
 
             setProduct(product){
