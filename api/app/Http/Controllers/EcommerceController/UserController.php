@@ -9,11 +9,12 @@ use App\Services\EcommerceService\UserService;
 
 class UserController extends Controller
 {
-    protected $userService;
+   
+    public function __construct(
+        protected UserService $userService
 
-    public function __construct(UserService $userService){
-        $this->userService = $userService;
-    }
+    )
+    {}
 
     public function getAll(){
         return $this->userService->getAll();
@@ -23,16 +24,16 @@ class UserController extends Controller
         return $this->userService->selectSeller($request->all());
     }
 
-    public function store($request){
+    public function create(UserRequest $request){
         $data = $request->validated();
-        return $this->userService->store($data);
+        return $this->userService->create($data);
     }
 
     public function findByID(int $id){
         return $this->userService->findByID($id);
     }
 
-    public function update($request, int $id){
+    public function update(UserRequest $request, int $id){
         $data = $request->validated();
         return $this->userService->update($data, $id);
     }

@@ -9,10 +9,10 @@ class Products extends Model
     protected $table = 'Products';
     
     protected $fillable = [
-        'produto',
+        'product',
         'amount',
-        'grupo_id',
-        'grupo',
+        'group_id',
+        'group',
         'price_cost',
         'sale_price',
         'ncm',

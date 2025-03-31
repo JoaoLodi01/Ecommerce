@@ -4,8 +4,7 @@
         
     </div>
 
-    <div v-if="!loged">
-        <span class="">loged: {{ loged }}</span>
+    <div v-if="!loged" class="mt-20">
         <Login />
     </div>
 </template>
@@ -33,13 +32,10 @@
         methods: {
             async checkAuth(){      
                 try {
-                    console.log('Puxou aqui 36, this.loged:', this.loged)
                     const token = LocalStorage.getItem("auth_token");
-                    console.log(token)
-                    console.log(LocalStorage.getItem("auth_token") !== null || '' ? LocalStorage.getItem("loged") : false)
+
                     if(token)
                     {
-                        console.log('Puxou aqui 42')
                         const response = await api.get('/auth/me', {
                             headers: {
                                 'Authorization': `Bearer ${token}`
@@ -48,19 +44,20 @@
                         })
                         
                         LocalStorage.setItem("loged", true)
-                        
+                        LocalStorage.setItem("user_name", response.data.user.name)
+                    
                     } else {
-                        console.log('Puxou aqui 51')
                         console.log('Token não encontrado')
                         LocalStorage.remove("auth_token")
-                        this.$router.push('/login')
+                        LocalStorage.setItem("loged", false)
+                        
+                        this.$router.push('/start')
 
                     }
                     
                 } catch (error) {
-                    console.log('Puxou aqui 60')
-                    console.error('Erro no checkAuth App.vue', error.response.data || error)
-                    this.$router.push('/login')
+                    console.error('Erro no checkAuth App.vue', error)
+                    
                     if(error.response.status)
                     {
                         LocalStorage.remove("auth_token")
@@ -71,9 +68,8 @@
         },
 
         mounted(){
-            console.log('Puxou aqui 73, this.loged:', this.loged)
             this.widthScreen += screen.width
-            console.log(this.loged, ' token', LocalStorage.getItem("auth_token"))
+
             if(this.widthScreen <= 1080)
             {   
                 this.sidebarActive = false   

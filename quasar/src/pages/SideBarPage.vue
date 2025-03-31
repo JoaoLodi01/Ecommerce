@@ -4,7 +4,7 @@
     />
 
     <div class="flex transition" id="q-app" :class="{
-        'top-10 right-10': widthScreen <= 1080,
+        'top-10 left-0': widthScreen <= 1080,
         'ml-52': widthScreen > 1080,
         'mr-44': widthScreen > 1080 && widthScreen < 1600,
         'transform -translate-x-24': !sidebarActive

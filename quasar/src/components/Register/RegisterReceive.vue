@@ -9,7 +9,8 @@
           type="text" 
           v-model="form.description" 
           id="description" 
-          placeholder="Inserir..."/>
+          placeholder="Inserir..."
+          class=""/>
     
           <label for="name">Cliente:</label>
           <input 
@@ -27,7 +28,7 @@
     
           <label for="especie">Especie:</label>
           <input 
-          type="select" 
+          type="text" 
           v-model="form.especie" 
           id="especie" 
           placeholder="Inserir..."/>
@@ -54,11 +55,13 @@
           placeholder="Inserir..."/>
 
           <label for="type_interest">Tipo juros:</label>
-          <input
-          type="select" 
-          v-model="form.type_interest" 
-          id="type_interest" 
-          placeholder="Inserir..."/>
+          <select 
+            v-model="form.type_interest" 
+            id="especie">
+            <option disabled value="">Selecionar...</option>
+            <option value="especie1">%</option>
+            <option value="especie2">R$</option>
+          </select>
 
           <label for="interest_value">Valor juros:</label>
           <input 
@@ -73,7 +76,12 @@
           v-model="form.total_amount" 
           id="total_amount" 
           placeholder="Inserir..."/>
-    
+          
+          <button 
+            type="submit"
+            class="bg-slate-600 text-white p-1 mr-5 rounded-lg">
+            Cadastrar
+          </button>
         </form>
       </div>
     </template>

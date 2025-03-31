@@ -3,12 +3,12 @@
 namespace App\Http\Requests\HotelRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Support\Facades\Auth;
 class HotelDetailRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return Auth::check();
     }
 
     /**

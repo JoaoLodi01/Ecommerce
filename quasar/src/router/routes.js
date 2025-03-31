@@ -1,3 +1,6 @@
+const financialPrefix = 'financial';
+const salePrefix = 'sale';
+
 const routes = [
   {
     path: '/',
@@ -16,45 +19,53 @@ const routes = [
     component: () => import('src/pages/Profile/Profile.vue')
   },
   {
-    path: '/login',
+    path: '/start',
     name: 'LoginView',
     component: () => import('pages/Login/Login.vue')
   },
   {
-    path: '/sale/pdv',
+    path: `/${salePrefix}/pdv`,
     name: 'PDV',
     component: () => import('src/pages/Ecommerce/PDV/PDVView.vue') 
   },
   {
-    path: '/sale/save/pdv/:idPDV',
+    path: `/${salePrefix}/save/pdv/:idPDV`,
     name: 'PDVID',
     component: () => import('src/pages/Ecommerce/PDV/PDVView.vue'),
     props: true
 
   },
   {
-    path: '/sale/list-pdv',
+    path: `/${salePrefix}/list-pdv`,
     name: 'ListPDV',
     component: () => import('src/pages/Ecommerce/PDV/ListPDVView.vue')
 
   },
   {
-    path: '/financial/cash-register',
+    path: `/${financialPrefix}/cash-register`,
     name: 'CashRegister',
     component: () => import('src/pages/Ecommerce/Financial/CashRegisterView.vue')
   },
   {
-    path: '/financial/receive',
+    path: `/${financialPrefix}/receive`,
     name: 'ToReceiveView',
     component: () => import('src/pages/Ecommerce/Financial/ToReceiveView.vue')
   },
   {
-    path: '/financial/to-pay',
+    path: `/${financialPrefix}/to-pay`,
     name: 'ToPayView',
     component: () => import('src/pages/Ecommerce/Financial/ToPayView.vue')
   },
-
-
+  {
+    path: `/customers`,
+    name: 'CustomersView',
+    component: () => import('src/pages/Others/CustomersView.vue')
+  },
+  {
+    path: '/profile',
+    name: 'ProfileView',
+    component: () => import('src/pages/Profile/Profile.vue')
+  },
   {
     path: '/:catchAll(.*)*',
     name: '404',

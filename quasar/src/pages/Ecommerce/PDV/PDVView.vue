@@ -1,12 +1,11 @@
 <template>
     <div
-        class="w-max flex mx-auto border border-black rounded-lg mt-10" 
+        class="w-max mx-auto border border-black rounded-lg mt-10" 
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'ml-14': witdhScreen > 1080 && witdhScreen >= 1472,
-            'flex-col': witdhScreen <= 1080,
-            'p-4': witdhScreen <= 1080,
+            'flex ml-14': witdhScreen > 1080 && witdhScreen >= 1472,
+            'relative left-10': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
@@ -32,7 +31,16 @@
 
             <CashClosing
                 v-if="showCashClosing"
+                @closeCashClosing="closeCashClosing($event)"
             />
+
+            <div v-if="errorMessages.length > 0" class="mt-10">
+                <p v-for="erroMessage in errorMessages">
+                    
+                        
+                </p>
+                <button @click="errorMessages = []">Fechar</button>
+            </div>
         </div>
         
         <div class="relative overflow-x-auto max-h-96 overflow-y-auto">
@@ -66,7 +74,7 @@
                     <div v-if="witdhScreen > 1366">
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
-                        <button @click="showCashClosing = !showCashClosing" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
+                        <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
   
@@ -195,7 +203,7 @@
             <div @click="viewProduct.show = !viewProduct.show">X</div>
             <div class="text-left">
                 <p><span>Cód {{ viewProduct.id }}</span></p>
-                <p><span>Preço unitário: R${{ viewProduct.sale_price }}</span></p>
+                <p><span>Preço unitário: R${{ viewProduct.salePrice }}</span></p>
                 <p>
                     <input 
                         v-model="viewProduct.amount"
@@ -236,7 +244,13 @@
                             />
 
                             <br>
-
+                            <q-checkbox
+                                size="1.5rem"
+                                label="Cliente cadastrado"
+                                v-model="registredCustomer"
+                            />
+                            <br>
+                            
                             <label class="text-black" for="client">Cliente</label>
                             <input 
                                 v-model="clientsData.name"
@@ -245,9 +259,9 @@
                                 placeholder="Consumidor Padrão"
                                 class="text-black border border-black w-full"
                             />
-                            <ul v-if="filteredClients.length" class="border border-gray-300 rounded mt-1">
+                            <ul v-if="filteredClients.length > 0" class="border border-gray-300 rounded mt-1">
                                 <li
-                                    v-for="client in filterClients"
+                                    v-for="client in filteredClients"
                                     :key="client.id"
                                     @click="setClient(client)"
                                     class="p-2 hover:bg-gray-200 cursor-pointer">
@@ -279,7 +293,7 @@
                         <br>
                         <label class="text-black" for="discount">Frete R$</label>
                         <input 
-                            id="discount"
+                            id="freight"
                             v-model.number="emitProducts.freight"
                             type="text"
                             class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
@@ -342,7 +356,7 @@
                         </button>
 
                         <div class="mb-auto ml-auto text-xl w-auto">
-                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount }}</span>
+                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}</span>
                         
                         </div>
                     </div>
@@ -352,7 +366,7 @@
                     
                     >
                     
-                    <q-btn @click="showLoading">
+                    <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
                         <button
                             :class="{
                                 'ml-8': witdhScreen > 1080 && witdhScreen <= 1920
@@ -362,8 +376,8 @@
                         >
                             Finalizar
                         </button>
-                    
-                        
+                    </q-btn>
+                    <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
                         <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
                     </q-btn>
                     </div>
@@ -375,18 +389,6 @@
         <!-- oder options -->
         
     </div>
-
-    <div
-        v-if="showGrid && witdhScreen > 1366"
-        class="flex border border-black w-9  ml-10"
-    >
-        <select id="textSize" v-model.number="textSize">
-            <option selected value=4>4</option>
-            <option value=8>8</option>
-            <option value=16>16</option>
-        </select>
-    </div>
-
     <div>
         <ProductsSelectionView
             v-if="show"
@@ -435,7 +437,9 @@
         data(){
             return {
                 productsSeletion: [],
-                hotelCodCRT: 0,
+                errorMessages: [],
+                clients: [],
+                filteredClients: [],
 
                 emitProducts: {
                     addition: 0,
@@ -444,17 +448,18 @@
                     userID: 0,
                     
                 },
+                hotelCodCRT: 0,
+
                 sellerData: {
                     id: '',
                     name: ''
                 },
 
-                clients: [],
-                filteredClients: [],
                 clientsData: {
-                    id: 1,
+                    id: null,
                     name: ''
                 },
+
                 totalOperation: 0,
                 witdhScreen: 0,
                 textSize: 4,
@@ -465,15 +470,17 @@
                 showPaymentsForm: false,
                 showProductsSearch: true,
                 showCashClosing: false,
-
+                registredCustomer: false,
+                
                 viewProduct: {
                     show: false,
                     id: '',
                     amount: 0,
-                    sale_price: 0,
+                    salePrice: 0,
                     total: 0
                     
                 },
+
                 isOpenedPDV: false,
                 success: null,
                 typeOperation: '',
@@ -508,7 +515,7 @@
                 const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
                 const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
                 const freight = typeof this.emitProducts.freight === 'number' ? this.emitProducts.freight : 0
-
+                
                 return {
                     subtotal: subtotal,
                     addition: addition,
@@ -521,9 +528,10 @@
         
         methods: {
             async selectClient(){
-                    const response = await api.get('/customers/selectClient');
-                    this.clients = response.data;
-                    this.filterClients();
+                const response = await api.get('/customers/selectClient');
+                this.clients = response.data;
+                this.filterClients();
+
             },
 
             filterClients(){
@@ -532,9 +540,10 @@
                 );
             },
 
-            setClient(){
+            setClient(client){
                 this.clientsData.id = client.id;
                 this.clientsData.name = client.name;
+                this.clients = []
                 this.filteredClients = [];
             },
 
@@ -702,7 +711,9 @@
                     }
                     
                 } catch (error) {
-                    console.error('Erro finalizeSale', error)   
+                    console.error('Erro finalizeSale', error.response.data.errors)
+                    this.errorMessages.push(error.response.data.errors)
+                    
                 }
             },
 
@@ -737,7 +748,6 @@
                 this.showGrid = !this.showGrid
                 this.show = !this.show
                 
-
             },  
 
             changeAmount(id, newAmount)
@@ -850,7 +860,7 @@
                             this.viewProduct = {
                                 id: productDetail.id,
                                 amount: productDetail.amount,
-                                sale_price: productDetail.sale_price,
+                                salePrice: productDetail.salePrice,
                                 total: productDetail.amount * productDetail.sale_price
                             }
                             console.log(this.viewProduct)
@@ -869,6 +879,11 @@
                     default:
                         break;
                 }
+            },
+
+            closeCashClosing(event)
+            {
+                this.showCashClosing = event
             },
 
             resetSale(confirmed)
@@ -943,7 +958,7 @@
                 }
             }
             getUser()
-            
+
             if(this.idPDV)
             {
                 this.importSale()            
