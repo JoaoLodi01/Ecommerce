@@ -25,7 +25,6 @@ class PayMentMethodService
         Log::info('Memória usada PayMentMethodService::class, payment: ' . memory_get_usage(true));
         
         Log::info('$forms');
-        Log::info($forms);
 
         Log::info('$paymentValues');
         Log::info($paymentValues);

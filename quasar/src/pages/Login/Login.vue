@@ -1,54 +1,118 @@
 <template>
-    <div class="flex justify-center">
-        <form @submit.prevent="loginMethod">
-            <input
-                placeholder="E-mail" 
-                v-model="details.email"
-                type="text"
-            />
-
-            <input 
-                placeholder="Senha" 
-                v-model="details.password"
-                type="password"
+    <div class="flex justify-center" v-if="!loged">
+        <div class="login-form border border-black p-5 rounded-lg shadow-xl">
+            <q-form
+                @submit.prevent="loginMethod"
+                v-if="showLogin"
+            >
+                <h1 class="text-xl border-b border-black w-max mb-4">Login</h1>
                 
-            />
-            <div class="q-pa-md">
-                <q-btn @click=showLoading type="submit" label="Entrar"/>
-            </div>
-        </form>
-        <q-btn>Criar login</q-btn>
-    </div>
+                <q-input 
+                    filled 
+                    v-model="details.email" 
+                    label="E-mail" 
+                    class="mb-4"
+                />
+                
+                <q-input 
+                    filled 
+                    v-model="details.password" 
+                    label="Senha"
+                    :type="showPassword ? 'text' : 'password'"
+                    class="mb-4"
+                    
+                >
+                    <svg 
+                        @click="showPassword = !showPassword" 
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke-width="1.5" 
+                        stroke="currentColor" 
+                        class="size-4 mt-5"
+                        v-if="showPassword"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
 
+                    <svg 
+                        @click="showPassword = !showPassword"         
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke-width="1.5" 
+                        stroke="currentColor" 
+                        class="size-4 mt-5 text-gray-600"
+                        v-if="!showPassword"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    </svg>
+                </q-input>                
+           
+                <q-btn  
+                    @click=showLoading 
+                    type="submit" 
+                    class="m-2"
+                    flat 
+                    style="color: #1F2937"   
+                    
+                >
+                    <button>Entrar</button>
+                </q-btn>
+
+                <q-btn 
+                    @click=showLoading 
+                    type="button"
+                    flat 
+                    style="color: #1F2937"    
+                >   
+                    <button @click="showRegisterForm">Não possui uma conta?</button>
+                </q-btn>
+                <span class="flex justify-end cursor-pointer hover:">Esqueceu sua senha?</span>
+            </q-form>
+
+
+            <Register 
+                v-if="showRegister"
+                @close="hideFormRegister($event)"
+            />
+        </div> 
+        
+    </div>
 </template>
 
 <script>
     import { api } from "boot/axios"
     import { useQuasar, LocalStorage } from 'quasar';
     import { onBeforeUnmount } from "vue";
-    
+    import Register from '../Login/Register.vue'
+
     export default {
+        components: {
+            Register
+        },
+
         setup () {
             const $q = useQuasar()
             let timer
 
             onBeforeUnmount(() => {
-            if (timer !== void 0) {
-                clearTimeout(timer)
-                $q.loading.hide()
-            }
+                if (timer !== void 0) {
+                    clearTimeout(timer)
+                    $q.loading.hide()
+                }
             })
 
             return {
-            showLoading () {
-                $q.loading.show({
-                    message: 'Carregando...'
-                })
+                showLoading () {
+                    $q.loading.show({
+                        message: 'Carregando...'
+                    })
 
-                    // hiding in 3s
-                timer = setTimeout(() => {
-                    $q.loading.hide()
-                    timer = void 0
+                    timer = setTimeout(() => {
+                        $q.loading.hide()
+                        timer = void 0
                     }, 3000)
                 }
             }
@@ -59,47 +123,64 @@
                     email: '',
                     password: ''
                 },
-                
+
+                loged: LocalStorage.getItem("loged"),
+                showRegister: false,
+                showLogin: true,
+                showPassword: false,
             }
         },
 
         methods: {
-            async loginMethod() {
-                try {
-                    
-                    const response = await api.post("/auth/auth", this.details);
-                    
-                    console.log("Resposta:", response.data);
+            hideFormRegister(event)
+            {
+                this.showLogin = true
+                this.showRegister = false
+                console.log('event', event)
 
+            },
+
+            forgetPassword()
+            {
+
+            },
+
+            async loginMethod() {
+                try {                    
+                    const response = await api.post("/auth/auth", this.details);
+              
                     if (response.data.status && response.data.token) {
+                        console.log('Vai enviar para o /')
+                        alert('Login bem sucedido!')
                         
-                        localStorage.setItem("auth_token", response.data.token);
-                        this.$router.push('/home')
+                        LocalStorage.setItem("auth_token", response.data.token);
+                        LocalStorage.setItem("loged", response.data.status);
                         
+                        this.$router.push('/')
+                        window.location.reload()
+                 
                     } else {
                         alert("Credenciais inválidas!");
 
                     }
-
+                    
+                    
                 } catch (error) {
                     console.error("Erro no login:", error);
                     alert("Erro ao tentar fazer login. Verifique suas credenciais e tente novamente.");
 
                 }
             },
-        },
-        mounted(){
-            const token = LocalStorage.getItem("auth_token")
-            const auth = async () => {
-                const response = api.get('/auth/me', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-            
-                console.log(response)
+
+            showRegisterForm()
+            {
+                this.showRegister = !this.showRegister
+                this.showLogin = false
             }
-            auth()
+        },
+        
+        mounted(){
+           
         }
     }
 

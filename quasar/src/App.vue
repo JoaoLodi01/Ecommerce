@@ -4,8 +4,7 @@
         
     </div>
 
-    <div v-if="!loged">
-        <span>loged: {{ loged }}</span>
+    <div v-if="!loged" class="mt-20">
         <Login />
     </div>
 </template>
@@ -19,7 +18,7 @@
     export default {
         data(){
             return {
-                loged: false,
+                loged: LocalStorage.getItem("loged")
                 
             }
         },
@@ -34,6 +33,7 @@
             async checkAuth(){      
                 try {
                     const token = LocalStorage.getItem("auth_token");
+
                     if(token)
                     {
                         const response = await api.get('/auth/me', {
@@ -42,18 +42,22 @@
                                 
                             }
                         })
-                        LocalStorage.setItem("loged", true)
-                        this.loged = LocalStorage.getItem("loged")
                         
+                        LocalStorage.setItem("loged", true)
+                        LocalStorage.setItem("user_name", response.data.user.name)
+                    
                     } else {
                         console.log('Token não encontrado')
                         LocalStorage.remove("auth_token")
-                        this.$router.push('/login')
+                        LocalStorage.setItem("loged", false)
+                        
+                        this.$router.push('/start')
 
                     }
                     
                 } catch (error) {
                     console.error('Erro no checkAuth App.vue', error)
+                    
                     if(error.response.status)
                     {
                         LocalStorage.remove("auth_token")
@@ -65,7 +69,7 @@
 
         mounted(){
             this.widthScreen += screen.width
-            
+
             if(this.widthScreen <= 1080)
             {   
                 this.sidebarActive = false   

@@ -4,7 +4,7 @@
     />
 
     <div class="flex transition" id="q-app" :class="{
-        'top-10 right-10': widthScreen <= 1080,
+        'top-10 left-0': widthScreen <= 1080,
         'ml-52': widthScreen > 1080,
         'mr-44': widthScreen > 1080 && widthScreen < 1600,
         'transform -translate-x-24': !sidebarActive
@@ -17,15 +17,12 @@
 </template>
 
 <script>
-    import { LocalStorage } from 'quasar';
-    import { api } from 'src/boot/axios';
     import Sidebar from 'src/components/Sidebar.vue';
 
     export default {
         data()
         {
             return {
-                loged: false,
                 sidebarActive: true,
                 widthScreen: 0
             }
@@ -46,6 +43,11 @@
         mounted(){
             this.widthScreen += screen.width
             
+            if(this.$route.path === '/login')
+            {
+                this.$router.push('/')
+                
+            }
         }
     }
 

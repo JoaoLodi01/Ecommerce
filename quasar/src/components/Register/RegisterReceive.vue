@@ -1,90 +1,139 @@
 <template>
     <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
-        <h2 class="text-xl font-semibold mb-4">Movimento Financeiro</h2>
+        <h2 class="text-xl font-semibold mb-4">Registro Financeiro</h2>
         
         <form @submit.prevent="submitForm">
     
-          <label for="client">Cliente:</label>
+          <label for="description">Descrição:</label>
           <input 
           type="text" 
-          v-model="form.client" 
-          id="client" 
-          placeholder="Inserir..."/>
+          v-model="form.description" 
+          id="description" 
+          placeholder="Inserir..."
+          class=""/>
     
-          <label for="cpf">CPF:</label>
+          <label for="name">Cliente:</label>
           <input 
           type="text" 
-          v-model="form.cpf" 
-          id="cpf" 
+          v-model="form.name" 
+          id="name" 
           placeholder="Inserir..."/>
-    
-          <label for="cnpj">CNPJ:</label>
+
+          <label for="user">Usuário:</label>
           <input 
           type="text" 
-          v-model="form.cnpj" 
-          id="cnpj" 
+          v-model="form.user" 
+          id="user" 
           placeholder="Inserir..."/>
     
-          <label for="email">E-mail:</label>
+          <label for="especie">Especie:</label>
           <input 
-          type="email" 
-          v-model="form.email" 
-          id="email" 
+          type="text" 
+          v-model="form.especie" 
+          id="especie" 
           placeholder="Inserir..."/>
     
-          <label for="phone">Fone:</label>
+          <label for="due_date">Data de Vencimento:</label>
+          <input 
+          type="date" 
+          v-model="form.due_date" 
+          id="due_date" 
+          placeholder="Inserir..."/>
+    
+          <label for="installment_number">Número de parcelas:</label>
           <input 
           type="number" 
-          v-model="form.phone" 
-          id="phone" 
+          v-model="form.installment_number" 
+          id="installment_number" 
           placeholder="Inserir..."/>
-        </form>
-        <div class="inline-flex">
-            <button
-                class="bg-slate-600 text-white p-1 mr-5 rounded-lg"
-                @click="showReceiveView = !showReceiveView">Fechar
-            </button>
-            <button
-                class="bg-slate-600 text-white p-1 mr-5 rounded-lg"
-                @click="">Cadastrar
-            </button>
-        </div>
-        
-    </div>
-</template>
-    
-<script>
-    import axios from "axios";
-    import ToReceiveView from 
-    
-    export default {
-    data() {
-        return {
-        form: {
-            cliente: "",
-            cpf: "",
-            cnpj: "",
-            email: "",
-            phone: "",
-        },
-        showReceiveView: false,
-        api: process.env.VUE_APP_API_URL_ECOMMERCE,
-        };
-    },
-    methods: {
-        async submitForm() {
-        try {
-            const response = await axios.post(`${this.api}/consumers/create`, this.form);
-            this.form = { cliente: "", cpf: "", cnpj: "", email: "", phone: "" };
-        
-        } catch (error) {
-            alert("Ocorreu um erro ao cadastrar o cliente.");
-        }
-        },
-    },
 
-    components: {
-        ToReceiveView
-    },
-    };
-</script>
+          <label for="installment_value">Valor das parcelas:</label>
+          <input 
+          type="number" 
+          v-model="form.installment_value" 
+          id="installment_value" 
+          placeholder="Inserir..."/>
+
+          <label for="type_interest">Tipo juros:</label>
+          <select 
+            v-model="form.type_interest" 
+            id="especie">
+            <option disabled value="">Selecionar...</option>
+            <option value="especie1">%</option>
+            <option value="especie2">R$</option>
+          </select>
+
+          <label for="interest_value">Valor juros:</label>
+          <input 
+          type="number" 
+          v-model="form.interest_value" 
+          id="interest_value" 
+          placeholder="Inserir..."/>
+
+          <label for="total_amount">Total:</label>
+          <input 
+          type="number" 
+          v-model="form.total_amount" 
+          id="total_amount" 
+          placeholder="Inserir..."/>
+          
+          <button 
+            type="submit"
+            class="bg-slate-600 text-white p-1 mr-5 rounded-lg">
+            Cadastrar
+          </button>
+        </form>
+      </div>
+    </template>
+    
+    <script>
+      import axios from "axios";
+      
+      export default {
+        data() {
+          return {
+            form: {
+                description: "",
+                name: "",
+                user: "",
+                cpf: "",
+                especie: "",
+                due_date: "",
+                installment_number: "",
+                installment_value: "",
+                type_interest: "",
+                interest_value: "",
+                total_amount: ""
+            },
+            api: process.env.VUE_APP_API_URL_ECOMMERCE,
+          };
+        },
+        methods: {
+            resetform(){
+                this.form = {
+                    description: "",
+                    name: "",
+                    user: "",
+                    cpf: "",
+                    especie: "",
+                    due_date: "",
+                    installment_number: "",
+                    installment_value: "",
+                    type_interest: "",
+                    interest_value: "",
+                    total_amount: ""
+                }
+            },
+
+            async submitForm() {
+                try {
+                    const response = await axios.post(`${this.api}`, this.form); // Lembrar de criar rota e inserir aqui
+                    this.resetform();
+                    console.log('Dados enviados!', response.data)
+                } catch (error) {
+                    alert("Ocorreu um erro ao cadastrar o registro")
+                }
+            },
+        },
+      };
+      </script>
