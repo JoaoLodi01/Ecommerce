@@ -1,641 +1,98 @@
-[2025-03-31 15:05:44] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:05:44] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:05:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:05:44] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:05:46] local.INFO: Dados recebidos  
-[2025-03-31 15:05:46] local.INFO: array (
-  'params' => 'j',
-)  
-[2025-03-31 15:05:46] local.INFO: O que achou:   
-[2025-03-31 15:05:46] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:05:46] local.INFO: Dados recebidos  
-[2025-03-31 15:05:46] local.INFO: array (
-  'params' => 'ja',
-)  
-[2025-03-31 15:05:46] local.INFO: O que achou:   
-[2025-03-31 15:05:46] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:05:46] local.INFO: Dados recebidos  
-[2025-03-31 15:05:46] local.INFO: array (
-  'params' => 'jac',
-)  
-[2025-03-31 15:05:46] local.INFO: O que achou:   
-[2025-03-31 15:05:46] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:05:47] local.INFO: Dados recebidos  
-[2025-03-31 15:05:47] local.INFO: array (
-  'params' => 'jack',
-)  
-[2025-03-31 15:05:47] local.INFO: O que achou:   
-[2025-03-31 15:05:47] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:05:48] local.INFO: Dados recebidos  
-[2025-03-31 15:05:48] local.INFO: array (
-  'params' => NULL,
-)  
-[2025-03-31 15:05:48] local.INFO: O que achou:   
-[2025-03-31 15:05:48] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:07:13] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:07:13] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:07:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:07:13] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:07:18] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:07:18] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:07:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:07:18] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:10:04] local.INFO: Dados recebidos  
-[2025-03-31 15:10:04] local.INFO: array (
-  'params' => 'a',
-)  
-[2025-03-31 15:10:04] local.INFO: O que achou:   
-[2025-03-31 15:10:04] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:10:21] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:10:21] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:10:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:10:21] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:10:22] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:10:22] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:10:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:10:22] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:10:23] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:10:23] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:10:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:10:23] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:10:44] local.INFO: Dados recebidos  
-[2025-03-31 15:10:44] local.INFO: array (
-  'params' => 'a',
-)  
-[2025-03-31 15:10:44] local.INFO: O que achou:   
-[2025-03-31 15:10:44] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:10:48] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:10:48] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:10:48] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:10:48] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:11:14] local.INFO: Dados recebidos  
-[2025-03-31 15:11:14] local.INFO: array (
-  'params' => 'a',
-)  
-[2025-03-31 15:11:14] local.INFO: O que achou:   
-[2025-03-31 15:11:14] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:11:53] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:11:53] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:11:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:11:53] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:12:02] local.INFO: Dados recebidos  
-[2025-03-31 15:12:02] local.INFO: array (
-  'params' => 'a',
-)  
-[2025-03-31 15:12:02] local.INFO: O que achou:   
-[2025-03-31 15:12:02] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:12:04] local.INFO: Dados recebidos  
-[2025-03-31 15:12:04] local.INFO: array (
-  'params' => NULL,
-)  
-[2025-03-31 15:12:04] local.INFO: O que achou:   
-[2025-03-31 15:12:04] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:12:11] local.INFO: Dados recebidos  
-[2025-03-31 15:12:11] local.INFO: array (
-  'params' => 'd',
-)  
-[2025-03-31 15:12:11] local.INFO: O que achou:   
-[2025-03-31 15:12:11] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:12:11] local.INFO: Dados recebidos  
-[2025-03-31 15:12:11] local.INFO: array (
-  'params' => 'dd',
-)  
-[2025-03-31 15:12:11] local.INFO: O que achou:   
-[2025-03-31 15:12:11] local.INFO: []  
-[2025-03-31 15:12:11] local.INFO: Dados recebidos  
-[2025-03-31 15:12:11] local.INFO: array (
-  'params' => 'ddd',
-)  
-[2025-03-31 15:12:11] local.INFO: O que achou:   
-[2025-03-31 15:12:11] local.INFO: []  
-[2025-03-31 15:12:19] local.INFO: Dados recebidos  
-[2025-03-31 15:12:19] local.INFO: array (
-  'params' => 'j',
-)  
-[2025-03-31 15:12:19] local.INFO: O que achou:   
-[2025-03-31 15:12:19] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:12:20] local.INFO: Dados recebidos  
-[2025-03-31 15:12:20] local.INFO: array (
-  'params' => 'jc',
-)  
-[2025-03-31 15:12:20] local.INFO: O que achou:   
-[2025-03-31 15:12:20] local.INFO: []  
-[2025-03-31 15:12:21] local.INFO: Dados recebidos  
-[2025-03-31 15:12:21] local.INFO: array (
-  'params' => 'j',
-)  
-[2025-03-31 15:12:21] local.INFO: O que achou:   
-[2025-03-31 15:12:21] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:12:21] local.INFO: Dados recebidos  
-[2025-03-31 15:12:21] local.INFO: array (
-  'params' => 'ja',
-)  
-[2025-03-31 15:12:21] local.INFO: O que achou:   
-[2025-03-31 15:12:21] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:12:22] local.INFO: Dados recebidos  
-[2025-03-31 15:12:22] local.INFO: array (
-  'params' => 'jac',
-)  
-[2025-03-31 15:12:22] local.INFO: O que achou:   
-[2025-03-31 15:12:22] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:12:26] local.INFO: Dados recebidos  
-[2025-03-31 15:12:26] local.INFO: array (
-  'params' => 'm',
-)  
-[2025-03-31 15:12:26] local.INFO: O que achou:   
-[2025-03-31 15:12:26] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
-[2025-03-31 15:12:27] local.INFO: Dados recebidos  
-[2025-03-31 15:12:27] local.INFO: array (
-  'params' => 'ma',
-)  
-[2025-03-31 15:12:27] local.INFO: O que achou:   
-[2025-03-31 15:12:27] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
-[2025-03-31 15:12:27] local.INFO: Dados recebidos  
-[2025-03-31 15:12:27] local.INFO: array (
-  'params' => 'maç',
-)  
-[2025-03-31 15:12:27] local.INFO: O que achou:   
-[2025-03-31 15:12:27] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
-[2025-03-31 15:12:27] local.INFO: Dados recebidos  
-[2025-03-31 15:12:27] local.INFO: array (
-  'params' => 'maça',
-)  
-[2025-03-31 15:12:27] local.INFO: O que achou:   
-[2025-03-31 15:12:27] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
-[2025-03-31 15:12:31] local.INFO: Dados recebidos  
-[2025-03-31 15:12:31] local.INFO: array (
-  'params' => NULL,
-)  
-[2025-03-31 15:12:31] local.INFO: O que achou:   
-[2025-03-31 15:12:31] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:25:32] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:25:32] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:25:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:25:32] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:26:00] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:26:00] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:26:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:26:00] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:26:28] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
-[2025-03-31 15:26:28] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-03-31 15:26:28] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-03-31 15:26:28] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-03-31 15:26:28] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-03-31 15:26:36] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:26:36] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:26:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:26:36] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:26:38] local.INFO: []  
-[2025-03-31 15:26:39] local.INFO: []  
-[2025-03-31 15:26:39] local.INFO: []  
-[2025-03-31 15:26:43] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:26:43] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:26:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:26:43] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:26:44] local.INFO: []  
-[2025-03-31 15:26:44] local.INFO: []  
-[2025-03-31 15:26:44] local.INFO: []  
-[2025-03-31 15:26:46] local.INFO: []  
-[2025-03-31 15:26:53] local.INFO: []  
-[2025-03-31 15:26:53] local.INFO: []  
-[2025-03-31 15:26:54] local.INFO: []  
-[2025-03-31 15:27:10] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:27:10] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:27:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:27:10] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:27:10] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:27:10] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:27:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:27:10] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:27:27] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:27:27] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:27:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:27:27] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:27:58] local.INFO: []  
-[2025-03-31 15:27:59] local.INFO: []  
-[2025-03-31 15:27:59] local.INFO: []  
-[2025-03-31 15:27:59] local.INFO: []  
-[2025-03-31 15:27:59] local.INFO: []  
-[2025-03-31 15:28:00] local.INFO: []  
-[2025-03-31 15:28:02] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:28:02] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:28:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:28:02] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:28:04] local.INFO: Dados recebidos  
-[2025-03-31 15:28:04] local.INFO: array (
-  'params' => 'd',
-)  
-[2025-03-31 15:28:04] local.INFO: O que achou:   
-[2025-03-31 15:28:04] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:28:05] local.INFO: Dados recebidos  
-[2025-03-31 15:28:05] local.INFO: array (
-  'params' => 'da',
-)  
-[2025-03-31 15:28:05] local.INFO: O que achou:   
-[2025-03-31 15:28:05] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:28:05] local.INFO: Dados recebidos  
-[2025-03-31 15:28:05] local.INFO: array (
-  'params' => 'dan',
-)  
-[2025-03-31 15:28:05] local.INFO: O que achou:   
-[2025-03-31 15:28:05] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:28:06] local.INFO: Dados recebidos  
-[2025-03-31 15:28:06] local.INFO: array (
-  'params' => NULL,
-)  
-[2025-03-31 15:28:06] local.INFO: O que achou:   
-[2025-03-31 15:28:06] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:28:10] local.INFO: Dados recebidos  
-[2025-03-31 15:28:10] local.INFO: array (
-  'params' => 'j',
-)  
-[2025-03-31 15:28:10] local.INFO: O que achou:   
-[2025-03-31 15:28:10] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:28:10] local.INFO: Dados recebidos  
-[2025-03-31 15:28:10] local.INFO: array (
-  'params' => 'ja',
-)  
-[2025-03-31 15:28:10] local.INFO: O que achou:   
-[2025-03-31 15:28:10] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:28:27] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:28:27] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:28:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:28:27] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:28:28] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:28:28] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:28:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:28:28] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:28:57] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:28:57] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:28:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:28:57] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:29:00] local.INFO: Dados recebidos  
-[2025-03-31 15:29:00] local.INFO: array (
-  'params' => 'j',
-)  
-[2025-03-31 15:29:00] local.INFO: O que achou:   
-[2025-03-31 15:29:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:29:00] local.INFO: Dados recebidos  
-[2025-03-31 15:29:00] local.INFO: array (
-  'params' => 'ja',
-)  
-[2025-03-31 15:29:00] local.INFO: O que achou:   
-[2025-03-31 15:29:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:29:00] local.INFO: Dados recebidos  
-[2025-03-31 15:29:00] local.INFO: array (
-  'params' => 'jac',
-)  
-[2025-03-31 15:29:00] local.INFO: O que achou:   
-[2025-03-31 15:29:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:29:31] local.INFO: Dados recebidos  
-[2025-03-31 15:29:31] local.INFO: array (
-  'params' => 'j',
-)  
-[2025-03-31 15:29:31] local.INFO: O que achou:   
-[2025-03-31 15:29:31] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:29:31] local.INFO: Dados recebidos  
-[2025-03-31 15:29:31] local.INFO: array (
-  'params' => 'ja',
-)  
-[2025-03-31 15:29:31] local.INFO: O que achou:   
-[2025-03-31 15:29:31] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:29:31] local.INFO: Dados recebidos  
-[2025-03-31 15:29:31] local.INFO: array (
-  'params' => 'jac',
-)  
-[2025-03-31 15:29:31] local.INFO: O que achou:   
-[2025-03-31 15:29:31] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:29:45] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:29:45] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:29:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:29:45] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:30:09] local.INFO: Dados recebidos  
-[2025-03-31 15:30:09] local.INFO: array (
-  'params' => 'j',
-)  
-[2025-03-31 15:30:09] local.INFO: O que achou:   
-[2025-03-31 15:30:09] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:30:09] local.INFO: Dados recebidos  
-[2025-03-31 15:30:09] local.INFO: array (
-  'params' => 'ja',
-)  
-[2025-03-31 15:30:09] local.INFO: O que achou:   
-[2025-03-31 15:30:09] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:30:09] local.INFO: Dados recebidos  
-[2025-03-31 15:30:09] local.INFO: array (
-  'params' => 'jac',
-)  
-[2025-03-31 15:30:09] local.INFO: O que achou:   
-[2025-03-31 15:30:09] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:30:58] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:30:58] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:30:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:30:58] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:30:59] local.INFO: Dados recebidos  
-[2025-03-31 15:30:59] local.INFO: array (
-  'params' => 'j',
-)  
-[2025-03-31 15:30:59] local.INFO: O que achou:   
-[2025-03-31 15:30:59] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:30:59] local.INFO: Dados recebidos  
-[2025-03-31 15:30:59] local.INFO: array (
-  'params' => 'ja',
-)  
-[2025-03-31 15:30:59] local.INFO: O que achou:   
-[2025-03-31 15:30:59] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:31:00] local.INFO: Dados recebidos  
-[2025-03-31 15:31:00] local.INFO: array (
-  'params' => 'jac',
-)  
-[2025-03-31 15:31:00] local.INFO: O que achou:   
-[2025-03-31 15:31:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:31:00] local.INFO: Dados recebidos  
-[2025-03-31 15:31:00] local.INFO: array (
-  'params' => 'jack',
-)  
-[2025-03-31 15:31:00] local.INFO: O que achou:   
-[2025-03-31 15:31:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
-[2025-03-31 15:31:09] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:31:09] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:31:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:31:09] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:31:34] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:31:34] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:31:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:31:34] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:33:03] local.INFO: []  
-[2025-03-31 15:33:04] local.INFO: []  
-[2025-03-31 15:33:11] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:33:11] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:33:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:33:11] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:33:15] local.INFO: []  
-[2025-03-31 15:33:15] local.INFO: []  
-[2025-03-31 15:33:15] local.INFO: []  
-[2025-03-31 15:33:17] local.INFO: []  
-[2025-03-31 15:33:22] local.INFO: Dados recebidos  
-[2025-03-31 15:33:22] local.INFO: array (
-  'params' => 'm',
-)  
-[2025-03-31 15:33:22] local.INFO: O que achou:   
-[2025-03-31 15:33:22] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
-[2025-03-31 15:33:22] local.INFO: Dados recebidos  
-[2025-03-31 15:33:22] local.INFO: array (
-  'params' => 'ma',
-)  
-[2025-03-31 15:33:22] local.INFO: O que achou:   
-[2025-03-31 15:33:22] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
-[2025-03-31 15:33:23] local.INFO: Dados recebidos  
-[2025-03-31 15:33:23] local.INFO: array (
-  'params' => 'maç',
-)  
-[2025-03-31 15:33:23] local.INFO: O que achou:   
-[2025-03-31 15:33:23] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
-[2025-03-31 15:33:23] local.INFO: Dados recebidos  
-[2025-03-31 15:33:23] local.INFO: array (
-  'params' => 'maça',
-)  
-[2025-03-31 15:33:23] local.INFO: O que achou:   
-[2025-03-31 15:33:23] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","perc_lucro":"100.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
-[2025-03-31 15:37:49] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:37:49] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:37:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:37:49] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:37:49] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:37:49] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:37:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:37:49] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 15:40:19] local.INFO: Vai buscar o hotel e as configurações  
-[2025-03-31 15:40:19] local.INFO: O hotel foi encontrado  
-[2025-03-31 15:40:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-03-31 15:40:19] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-03-31 16:33:10] local.ERROR: Route [login] not defined. {"exception":"[object] (Symfony\\Component\\Routing\\Exception\\RouteNotFoundException(code: 0): Route [login] not defined. at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:517)
+[2025-04-01 09:34:33] local.ERROR: Unresolvable dependency resolving [Parameter #2 [ <required> $sheet ]] in class App\Http\Controllers\Reports\ReportCustomersController {"userId":1,"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Unresolvable dependency resolving [Parameter #2 [ <required> $sheet ]] in class App\\Http\\Controllers\\Reports\\ReportCustomersController at D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1233)
 [stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(853): Illuminate\\Routing\\UrlGenerator->route()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Configuration\\ApplicationBuilder.php(278): route()
-#2 [internal function]: Illuminate\\Foundation\\Configuration\\ApplicationBuilder->Illuminate\\Foundation\\Configuration\\{closure}()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(118): call_user_func()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(105): Illuminate\\Auth\\Middleware\\Authenticate->redirectTo()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(88): Illuminate\\Auth\\Middleware\\Authenticate->unauthenticated()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(62): Illuminate\\Auth\\Middleware\\Authenticate->authenticate()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#37 {main}
+#0 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1119): Illuminate\\Container\\Container->unresolvablePrimitive()
+#1 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1043): Illuminate\\Container\\Container->resolvePrimitive()
+#2 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(995): Illuminate\\Container\\Container->resolveDependencies()
+#3 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(833): Illuminate\\Container\\Container->build()
+#4 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve()
+#5 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(764): Illuminate\\Foundation\\Application->resolve()
+#6 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make()
+#7 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(285): Illuminate\\Foundation\\Application->make()
+#8 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(267): Illuminate\\Routing\\Route->getController()
+#9 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#10 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#11 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#12 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#14 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#16 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#18 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#19 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#20 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#21 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#22 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#23 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#25 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#26 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#29 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#31 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#33 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#35 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#37 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#39 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#41 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#42 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#43 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#44 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#45 {main}
 "} 
-[2025-03-31 16:34:25] local.ERROR: Route [login] not defined. {"exception":"[object] (Symfony\\Component\\Routing\\Exception\\RouteNotFoundException(code: 0): Route [login] not defined. at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:517)
+[2025-04-01 09:35:14] local.ERROR: Unresolvable dependency resolving [Parameter #2 [ <required> $sheet ]] in class App\Http\Controllers\Reports\ReportCustomersController {"userId":1,"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Unresolvable dependency resolving [Parameter #2 [ <required> $sheet ]] in class App\\Http\\Controllers\\Reports\\ReportCustomersController at D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1233)
 [stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(853): Illuminate\\Routing\\UrlGenerator->route()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Configuration\\ApplicationBuilder.php(278): route()
-#2 [internal function]: Illuminate\\Foundation\\Configuration\\ApplicationBuilder->Illuminate\\Foundation\\Configuration\\{closure}()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(118): call_user_func()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(105): Illuminate\\Auth\\Middleware\\Authenticate->redirectTo()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(88): Illuminate\\Auth\\Middleware\\Authenticate->unauthenticated()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(62): Illuminate\\Auth\\Middleware\\Authenticate->authenticate()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#37 {main}
+#0 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1119): Illuminate\\Container\\Container->unresolvablePrimitive()
+#1 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1043): Illuminate\\Container\\Container->resolvePrimitive()
+#2 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(995): Illuminate\\Container\\Container->resolveDependencies()
+#3 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(833): Illuminate\\Container\\Container->build()
+#4 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve()
+#5 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(764): Illuminate\\Foundation\\Application->resolve()
+#6 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make()
+#7 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(285): Illuminate\\Foundation\\Application->make()
+#8 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(267): Illuminate\\Routing\\Route->getController()
+#9 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#10 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#11 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#12 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#14 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#16 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#18 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#19 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#20 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#21 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#22 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#23 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#25 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#26 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#29 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#31 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#33 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#35 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#37 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#39 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#41 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#42 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#43 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#44 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#45 {main}
 "} 
-[2025-03-31 16:39:42] local.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '12345678910' for key 'customers_cpf_unique' (Connection: mariadb, SQL: insert into `customers` (`name`, `cpf`, `cnpj`, `cep`, `address`, `number`, `email`, `password`, `phone`, `updated_at`, `created_at`) values (Teste 1, 12345678910, ?, 89711226, aaaaaa, aaaaaaaa, teste1@teste.com, $2y$12$Yl66UPlCRlsinp24Y8y7qObYem5TivEn8C3vYTs/anw0cRgSu0sVa, +55 4244-4444, 2025-03-31 16:39:39, 2025-03-31 16:39:39)) {"exception":"[object] (Illuminate\\Database\\UniqueConstraintViolationException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '12345678910' for key 'customers_cpf_unique' (Connection: mariadb, SQL: insert into `customers` (`name`, `cpf`, `cnpj`, `cep`, `address`, `number`, `email`, `password`, `phone`, `updated_at`, `created_at`) values (Teste 1, 12345678910, ?, 89711226, aaaaaa, aaaaaaaa, teste1@teste.com, $2y$12$Yl66UPlCRlsinp24Y8y7qObYem5TivEn8C3vYTs/anw0cRgSu0sVa, +55 4244-4444, 2025-03-31 16:39:39, 2025-03-31 16:39:39)) at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:820)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2120): Illuminate\\Database\\Query\\Builder->insertGetId()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1128): Illuminate\\Database\\Eloquent\\Model->save()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1127): tap()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2372): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2384): Illuminate\\Database\\Eloquent\\Model->__call()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\seeders\\CostumerSeeder.php(46): Illuminate\\Database\\Eloquent\\Model::__callStatic()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\CostumerSeeder->run()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(61): Illuminate\\Database\\Seeder->__invoke()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\seeders\\DatabaseSeeder.php(17): Illuminate\\Database\\Seeder->call()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\DatabaseSeeder->run()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Seeder->__invoke()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#45 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#46 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#47 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#48 {main}
-
-[previous exception] [object] (PDOException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '12345678910' for key 'customers_cpf_unique' at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php:53)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(53): PDOStatement->execute()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\MySqlConnection->Illuminate\\Database\\{closure}()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2120): Illuminate\\Database\\Query\\Builder->insertGetId()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1128): Illuminate\\Database\\Eloquent\\Model->save()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1127): tap()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2372): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2384): Illuminate\\Database\\Eloquent\\Model->__call()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\seeders\\CostumerSeeder.php(46): Illuminate\\Database\\Eloquent\\Model::__callStatic()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\CostumerSeeder->run()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(61): Illuminate\\Database\\Seeder->__invoke()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\seeders\\DatabaseSeeder.php(17): Illuminate\\Database\\Seeder->call()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\DatabaseSeeder->run()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Seeder->__invoke()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#45 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#46 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#47 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#48 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#49 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#50 {main}
-"} 
-[2025-03-31 16:44:23] local.ERROR: Symfony\Component\HttpFoundation\Response::setContent(): Argument #1 ($content) must be of type ?string, Illuminate\Database\Eloquent\Relations\HasMany given, called in C:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\vendor\laravel\framework\src\Illuminate\Http\Response.php on line 82 {"exception":"[object] (TypeError(code: 0): Symfony\\Component\\HttpFoundation\\Response::setContent(): Argument #1 ($content) must be of type ?string, Illuminate\\Database\\Eloquent\\Relations\\HasMany given, called in C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php on line 82 at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\http-foundation\\Response.php:418)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(82): Symfony\\Component\\HttpFoundation\\Response->setContent()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(920): Illuminate\\Http\\Response->__construct()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(887): Illuminate\\Routing\\Router::toResponse()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Routing\\Router->prepareResponse()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#37 {main}
-"} 
-[2025-03-31 22:08:58] local.INFO: Acertou o login  

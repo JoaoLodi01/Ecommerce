@@ -2,9 +2,8 @@
   <div class="px-20 h-max w-full">
     <div>
         <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
+        <ReportCustomer/>
         
-        
- 
         <button 
             @click="toggleRegisterClientVisibility"
             class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
@@ -34,7 +33,7 @@
             </div>
 
             <div class="text-sm text-gray-500 mb-2" v-if="client.cnpj">
-               <span class="font-semibold">CNPJ:</span> {{ client.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') }}
+                   <span class="font-semibold">CNPJ:</span> {{ client.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') }}
             
             </div>
 
@@ -91,13 +90,15 @@
   
 <script>
     import { api } from 'src/boot/axios';
-
+    import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
+    
     export default {
         data() {
-        return {
+            return {
                 clients: [],
                 showClients: true,
                 showRegisterClients: false,
+                
             };
         },
 
@@ -108,8 +109,8 @@
         methods: {
             async getClients() {
                 const response = await api.get('/customers/all');
-                console.log(response);
                 this.clients = response.data.data;
+
             },
 
             async deleteClient(id)
@@ -127,6 +128,12 @@
                 window.location.reload()
 
             },
+
+            
         },
+
+        components: {
+            ReportCustomer
+        }
     };
 </script>

@@ -22,6 +22,9 @@ use App\Http\Controllers\{
     CustomerController
 
 };
+
+use App\Http\Controllers\Reports\ReportCustomersController;
+
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
 
@@ -116,6 +119,8 @@ Route::prefix('v1')->group( function (){
         Route::put('/{id}', [CustomerController::class, 'update']);
         Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
         Route::put('/{id}/active', [CustomerController::class, 'active']);
+        Route::get('/report/all', [ReportCustomersController::class, 'exportAllClients']);
+        Route::get('/report/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
         
     });
 
@@ -142,6 +147,3 @@ Route::get('/get-ip', [IPController::class, 'create']);
 Route::get('/php-info', function (){
     return phpinfo();
 })->name('php.info');
-
-
-Route::get('/teste', [CustomerController::class, 'exportClients']);

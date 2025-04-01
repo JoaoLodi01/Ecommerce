@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-Kochem',
         'version' => 'dev-Kochem',
-        'reference' => '03ee32bc4eb859c91fd56901f92d86d28c72c6a9',
+        'reference' => '096817c4fa23fa19c66d7eec7689ade8abe9aed0',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -415,7 +415,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-Kochem',
             'version' => 'dev-Kochem',
-            'reference' => '03ee32bc4eb859c91fd56901f92d86d28c72c6a9',
+            'reference' => '096817c4fa23fa19c66d7eec7689ade8abe9aed0',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
