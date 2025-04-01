@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Reports;
 
 use App\Http\Controllers\Controller;
 use App\Services\CustomerService;
-
+use App\Services\ReportsService\ReportCustomerService;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
@@ -14,7 +14,8 @@ class ReportCustomersController extends Controller
 {
     public function __construct(
         protected CustomerService $customerService,
-        protected Spreadsheet $spreadsheet
+        protected Spreadsheet $spreadsheet,
+        protected ReportCustomerService $reportCustomerService
     )
     {
         $this->spreadsheet = new Spreadsheet();
@@ -54,6 +55,30 @@ class ReportCustomersController extends Controller
 
     public function exportAllDisabledClients()
     {
-        
+        $sheet = $this->spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'Cliente');
+        $sheet->setCellValue('B1', 'CNPJ');
+        $sheet->setCellValue('C1', 'CPF');
+        $sheet->setCellValue('D1', 'E-mail');
+        $sheet->setCellValue('E1', 'Status');
+
+        $customersData = $this->reportCustomerService->exportAllDisabledClients();
+        foreach ($customersData as $i => $value) {
+            $row = $i + 2;
+            
+            $sheet->getCell("A$row")->setValue($customersData[$i]['name']);
+            $sheet->getCell("B$row")->setValue($customersData[$i]['cnpj']);
+            $sheet->getCell("C$row")->setValue($customersData[$i]['cpf']);
+            $sheet->getCell("D$row")->setValue($customersData[$i]['email']);
+            $sheet->getCell("E$row")->setValue('Inativo');
+
+        }
+
+        $writer = new Xlsx($this->spreadsheet);
+        $fileName = 'clientes_inativos.xlsx';
+        $writer->save($fileName);
+
+        return response()->download(public_path($fileName));
+
     }
 }

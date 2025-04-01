@@ -1,20 +1,24 @@
 <template>
-  <div class="px-20 h-max w-full">
-    <div>
-        <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
-        <ReportCustomer/>
-        
-        <button 
-            @click="toggleRegisterClientVisibility"
-            class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
-            <span v-if="!showRegisterClients">Cadastrar</span>
-            <span v-else>Voltar</span>
-        </button>
+    <div class="px-20 h-max w-full">
+        <div>
+            <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
+            <div class="mb-5">
+                <ReportCustomer
+                    v-if="!showRegisterClients"
+                />
+
+            </div>
+            
+            <button 
+                @click="showRegisterClients = !showRegisterClients"
+                class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
+                <span v-if="!showRegisterClients">Cadastrar um novo cliente</span>
+                <span v-else>Voltar</span>
+            </button>
+        </div>
     </div>
-    
-  </div>
   
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" v-if="showClients">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" v-if="!showRegisterClients">
         <div
             v-for="(client, id) in clients" :key="id" 
             class="bg-white p-6 shadow-lg rounded-lg border border-gray-200"
@@ -29,11 +33,11 @@
             </div>
 
             <div class="text-sm text-gray-500 mb-2" v-if="client.cpf">
-              <span class="font-semibold">CPF:</span> {{ client.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                <span class="font-semibold">CPF:</span> {{ client.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
             </div>
 
             <div class="text-sm text-gray-500 mb-2" v-if="client.cnpj">
-                   <span class="font-semibold">CNPJ:</span> {{ client.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') }}
+                <span class="font-semibold">CNPJ:</span> {{ client.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') }}
             
             </div>
 
@@ -85,11 +89,16 @@
         </div>
       </div>
     </div>
+
+    <div class="mb-8 ml-20" v-if="showRegisterClients">
+        <RegisterConsumer/>
+    </div>
   
 </template>
   
 <script>
     import { api } from 'src/boot/axios';
+    import RegisterConsumer from 'src/components/Register/RegisterConsumer.vue';
     import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
     
     export default {
@@ -133,7 +142,9 @@
         },
 
         components: {
+            RegisterConsumer,
             ReportCustomer
+
         }
     };
 </script>
