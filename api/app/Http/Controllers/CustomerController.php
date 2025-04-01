@@ -7,10 +7,6 @@ use App\Services\CustomerService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CostumerRequest;
 
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-
 class CustomerController extends Controller
 {
     public function __construct(
@@ -47,19 +43,5 @@ class CustomerController extends Controller
     public function active(int $id)
     {
         return $this->customerService->active($id);
-    }
-
-    function exportClients()
-    {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-
-        $sheet->setCellValue('A1', 'Nome');
-
-        $writer = new Xlsx($spreadsheet);
-        $fileName = 'clientes.xlsx';
-
-        $writer->save(public_path($fileName));
-        return response()->download(public_path($fileName));
     }
 }
