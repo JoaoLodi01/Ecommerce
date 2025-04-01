@@ -62,8 +62,8 @@
         />
         
         <div>
-            <q-btn type="submit" label="Criar">
-
+            <q-btn type="submit" class="mr-5">
+                <button>Criar</button>
             </q-btn>
             
             <q-btn label="Limpar">
