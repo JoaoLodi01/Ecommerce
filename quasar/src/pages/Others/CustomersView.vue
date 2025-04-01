@@ -98,6 +98,7 @@
                 clients: [],
                 showClients: true,
                 showRegisterClients: false,
+                
             };
         },
 

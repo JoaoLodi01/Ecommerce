@@ -1,78 +1,4 @@
-[2025-04-01 00:07:16] local.INFO: Teste 1  
-[2025-04-01 00:07:16] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:07:16] local.INFO: Teste 2  
-[2025-04-01 00:07:16] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:43:06] local.INFO: Errou o login  
-[2025-04-01 00:43:56] local.INFO: Acertou o login  
-[2025-04-01 00:44:33] local.INFO: Teste 1  
-[2025-04-01 00:44:33] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:44:33] local.INFO: Teste 2  
-[2025-04-01 00:44:33] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:44:49] local.INFO: Teste 1  
-[2025-04-01 00:44:49] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:44:49] local.INFO: Teste 2  
-[2025-04-01 00:44:49] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:47:03] local.INFO: Teste 1  
-[2025-04-01 00:47:03] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:47:03] local.INFO: Teste 2  
-[2025-04-01 00:47:03] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:47:19] local.INFO: Teste 1  
-[2025-04-01 00:47:19] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:47:19] local.INFO: Teste 2  
-[2025-04-01 00:47:19] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:48:20] local.INFO: Teste 1  
-[2025-04-01 00:48:20] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:48:20] local.INFO: Teste 2  
-[2025-04-01 00:48:20] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:48:34] local.INFO: Teste 1  
-[2025-04-01 00:48:34] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:48:34] local.INFO: Teste 2  
-[2025-04-01 00:48:34] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:48:50] local.INFO: Teste 1  
-[2025-04-01 00:48:50] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:48:50] local.INFO: Teste 2  
-[2025-04-01 00:48:50] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:49:24] local.INFO: Teste 1  
-[2025-04-01 00:49:24] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:49:24] local.INFO: Teste 2  
-[2025-04-01 00:49:24] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:51:07] local.INFO: Teste 1  
-[2025-04-01 00:51:07] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:51:07] local.INFO: Teste 2  
-[2025-04-01 00:51:07] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:51:41] local.INFO: Teste 1  
-[2025-04-01 00:51:41] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:51:41] local.INFO: Teste 2  
-[2025-04-01 00:51:41] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:52:07] local.INFO: Teste 1  
-[2025-04-01 00:52:07] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:52:07] local.INFO: Teste 2  
-[2025-04-01 00:52:07] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:53:04] local.INFO: Teste 1  
-[2025-04-01 00:53:04] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:53:04] local.INFO: Teste 2  
-[2025-04-01 00:53:04] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:54:30] local.INFO: Teste 1  
-[2025-04-01 00:54:30] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:54:30] local.INFO: Teste 2  
-[2025-04-01 00:54:30] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:58:37] local.INFO: Teste 1  
-[2025-04-01 00:58:37] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 00:58:37] local.INFO: Teste 2  
-[2025-04-01 00:58:37] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 01:03:26] local.INFO: Teste 1  
-[2025-04-01 01:03:26] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 01:03:26] local.INFO: Teste 2  
-[2025-04-01 01:03:26] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 01:09:31] local.INFO: Teste 1  
-[2025-04-01 01:09:31] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 01:09:31] local.INFO: Teste 2  
-[2025-04-01 01:09:31] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 01:09:38] local.INFO: Teste 1  
-[2025-04-01 01:09:38] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 01:09:38] local.INFO: Teste 2  
-[2025-04-01 01:09:38] local.INFO: $sheet->getCell(A$i)->setValue($customersArray[$i][name])  
-[2025-04-01 02:11:42] local.ERROR: Unresolvable dependency resolving [Parameter #1 [ <required> $spreadsheet ]] in class App\Http\Controllers\Reports\ReportCustomersController {"userId":1,"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Unresolvable dependency resolving [Parameter #1 [ <required> $spreadsheet ]] in class App\\Http\\Controllers\\Reports\\ReportCustomersController at D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1233)
+[2025-04-01 09:34:33] local.ERROR: Unresolvable dependency resolving [Parameter #2 [ <required> $sheet ]] in class App\Http\Controllers\Reports\ReportCustomersController {"userId":1,"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Unresolvable dependency resolving [Parameter #2 [ <required> $sheet ]] in class App\\Http\\Controllers\\Reports\\ReportCustomersController at D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1233)
 [stacktrace]
 #0 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1119): Illuminate\\Container\\Container->unresolvablePrimitive()
 #1 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1043): Illuminate\\Container\\Container->resolvePrimitive()
@@ -121,7 +47,7 @@
 #44 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
 #45 {main}
 "} 
-[2025-04-01 02:12:11] local.ERROR: Unresolvable dependency resolving [Parameter #1 [ <required> $spreadsheet ]] in class App\Http\Controllers\Reports\ReportCustomersController {"userId":1,"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Unresolvable dependency resolving [Parameter #1 [ <required> $spreadsheet ]] in class App\\Http\\Controllers\\Reports\\ReportCustomersController at D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1233)
+[2025-04-01 09:35:14] local.ERROR: Unresolvable dependency resolving [Parameter #2 [ <required> $sheet ]] in class App\Http\Controllers\Reports\ReportCustomersController {"userId":1,"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Unresolvable dependency resolving [Parameter #2 [ <required> $sheet ]] in class App\\Http\\Controllers\\Reports\\ReportCustomersController at D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1233)
 [stacktrace]
 #0 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1119): Illuminate\\Container\\Container->unresolvablePrimitive()
 #1 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1043): Illuminate\\Container\\Container->resolvePrimitive()

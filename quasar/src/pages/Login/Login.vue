@@ -72,7 +72,6 @@
                 <span class="flex justify-end cursor-pointer hover:">Esqueceu sua senha?</span>
             </q-form>
 
-
             <Register 
                 v-if="showRegister"
                 @close="hideFormRegister($event)"
@@ -89,6 +88,7 @@
     import Register from '../Login/Register.vue'
 
     export default {
+        name: "LoginPage",
         components: {
             Register
         },
@@ -117,7 +117,9 @@
                 }
             }
         },
+        
         data(){
+            
             return {
                 details: {
                     email: '',
@@ -136,7 +138,6 @@
             {
                 this.showLogin = true
                 this.showRegister = false
-                console.log('event', event)
 
             },
 
@@ -149,14 +150,13 @@
                 try {                    
                     const response = await api.post("/auth/auth", this.details);
               
-                    if (response.data.status && response.data.token) {
-                        console.log('Vai enviar para o /')
+                    if (response.data.status && response.data.token) {                        
+                        this.$router.push('/')
                         alert('Login bem sucedido!')
-                        
+
                         LocalStorage.setItem("auth_token", response.data.token);
                         LocalStorage.setItem("loged", response.data.status);
                         
-                        this.$router.push('/')
                         window.location.reload()
                  
                     } else {
@@ -177,10 +177,6 @@
                 this.showRegister = !this.showRegister
                 this.showLogin = false
             }
-        },
-        
-        mounted(){
-           
         }
     }
 

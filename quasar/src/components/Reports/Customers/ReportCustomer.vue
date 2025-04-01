@@ -10,29 +10,48 @@
 
     export default {
         methods: {
+            downloadFile(response, type)
+            {
+                const blob = new Blob([response.data], { type: response.headers['content-type'] });
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+
+                link.href = url;
+                link.setAttribute('download', 'Listagem de Clientes.xlsx');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+            },
+
             async reportCustomer(type) {
-                switch (key) {
-                    case 'exportAllClients':
-                        const response = await api.get('/customers/report/all', {
-                            responseType: 'blob',
-                        });
+                try {
+                    switch (type) {
+                        case 'exportAllClients':
+                            let responseAll = await api.get('/customers/report/all', {
+                                responseType: 'blob',
+                            });
 
-                        const blob = new Blob([response.data], { type: response.headers['content-type'] });
-                        const url = window.URL.createObjectURL(blob);
-                        const link = document.createElement('a');
+                            this.downloadFile(responseAll, type)
 
-                        link.href = url;
-                        
-                        link.setAttribute('download', 'Listagem de Clientes.xlsx');
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
+                            break;
 
-                        
-                        break;
-                
-                    default:
-                        break;
+                        case 'exportAllDesactiveClients':
+                            const responseAllDisabled = await api.get('/customers/report/all-disabled', {
+                                responseType: 'blob',
+                            });
+                            
+                            this.downloadFile(responseAllDisabled, type)
+    
+                            break;
+                    
+                    
+                        default:
+                            break;
+                    }
+                    
+                } catch (error) {
+                    console.error('Erro', error)
                 }
             }
         }
