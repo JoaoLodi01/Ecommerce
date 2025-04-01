@@ -47,7 +47,7 @@
                         LocalStorage.setItem("user_name", response.data.user.name)
                     
                     } else {
-                        console.log('Token não encontrado')
+                        alert('É necessário fazer login para acessar essa página!')
                         LocalStorage.remove("auth_token")
                         LocalStorage.setItem("loged", false)
                         

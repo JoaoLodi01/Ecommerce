@@ -12,9 +12,7 @@ class CustomerController extends Controller
     public function __construct(
         protected CustomerService $customerService
     )
-    {
-        $this->customerService = $customerService;
-    }
+    {}
 
     public function getAll(){
         return $this->customerService->getAll();
@@ -40,5 +38,10 @@ class CustomerController extends Controller
 
     public function delete(int $id){
         return $this->customerService->delete($id);
+    }
+
+    public function active(int $id)
+    {
+        return $this->customerService->active($id);
     }
 }

@@ -18,23 +18,23 @@
         </div>
 
         <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
-            <div><p>Saldo total de entrada: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
+            <div><p>Total Quitadas: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
 
-            <div><p>Saldo Total: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
+            <div><p>Total Vencidas: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
 
-            <div><p>Saldo total de saída: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
+            <div><p>Total Em aberto: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
         </div>
 
         <div class="overflow-x-auto">
             <table class="min-w-full table-auto border-collapse border border-gray-200">
                 <thead class="bg-gray-100">
                     <tr>
-                        <th class="px-6 py-3 text-left">Cód</th>
+                        <th class="px-6 py-3 text-left">Controle</th>
                         <th class="px-6 py-3 text-left">Documento</th>
                         <th class="px-6 py-3 text-left">Descrição</th>
                         <th class="px-6 py-3 text-left">Valor entrada</th>
                         <th class="px-6 py-3 text-left">Cliente</th>
-                        <th class="px-6 py-3 text-left">Cód Espécie</th>
+                        <th class="px-6 py-3 text-left">Cód. Espécie</th>
                         <th class="px-6 py-3 text-left">Espécie</th>
                         <th class="px-6 py-3 text-left">Origem</th>
                         <th class="px-6 py-3 text-left">Ações</th>
@@ -60,12 +60,7 @@
                 </tbody>
             </table>
         </div>
-        <RegisterReceive v-if="showReceiveClosing" />
-    </div>
-    <div v-if="showReceiveRegister" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 backdrop-blur-sm z-50">
-        <RegisterReceive
-            class="bg-white rounded-xl p-4 shadow-lg w-[90%] max-w-2xl"
-        />
+        <RegisterReceive v-if="showReceiveClosing"/>
     </div>
 </template>
 

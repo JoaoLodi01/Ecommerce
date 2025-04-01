@@ -92,12 +92,36 @@
                 
               </button>
             </a>
-            <div v-if="showFinancial" class="ml-12 bg-gray-700 p-2 rounded-lg m-2">
-              <p><a href="/financial/to-pay" class="hover:text-blue-400">Pagar</a></p>
-                <p><a href="/financial/receive" class="hover:text-blue-400">Receber</a></p>
-                <p><a href="/financial/cash-register" class="hover:text-blue-400">Caixa</a></p>
 
+            <div v-if="showFinancial" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
+              <p class="flex items-center gap-2">
+                <a href="/financial/to-pay" class="hover:text-blue-400 flex items-center gap-2">
+                  Pagar
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                  </svg>
+                </a>
+              </p>
+              
+              <p class="flex items-center gap-2">
+                <a href="/financial/receive" class="hover:text-blue-400 flex items-center gap-2">
+                  Receber
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                  </svg>
+                </a>
+              </p>
+
+              <p class="flex items-center gap-2">
+                <a href="/financial/cash-register" class="hover:text-blue-400 flex items-center gap-2">
+                  Caixa
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                </a>
+              </p>
             </div>
+
           </li>
           <li class="w-max">
             <a class="ml-5 hover:text-blue-300 flex items-center">
@@ -130,13 +154,33 @@
                 </span>
               </button>
             </a>
-            <div v-if="showPDV" class="ml-12 bg-gray-700 p-2 rounded-lg m-2">
-                <p><a href="/sale/pdv" class="hover:text-blue-400 m-1">PDV</a></p>
-                <p><a href="/sale/list-pdv" class="hover:text-blue-400 m-1">Listagem PDV</a></p>
-                <p><a href="/#" class="hover:text-blue-400 m-1">DAV</a></p>
-                <p><a href="/#" class="hover:text-blue-400 m-1">Devolução</a></p>
 
+            <div v-if="showPDV" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
+              <p class="flex items-center gap-2">
+                <a href="/sale/pdv" class="hover:text-blue-400 flex items-center gap-2">
+                  PDV
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                  </svg>
+                </a>
+              </p>
+              <p class="flex items-center gap-2">
+                <a href="/sale/list-pdv" class="hover:text-blue-400 flex items-center gap-2">
+                  Listagem PDV
+                </a>
+              </p>
+              <p class="flex items-center gap-2">
+                <a href="/#" class="hover:text-blue-400 flex items-center gap-2">
+                  DAV
+                </a>
+              </p>
+              <p class="flex items-center gap-2">
+                <a href="/#" class="hover:text-blue-400 flex items-center gap-2">
+                  Devolução
+                </a>
+              </p>
             </div>
+
           </li>
           <li>
             <router-link to="/hotel" class="ml-5 hover:text-blue-300 flex items-center">
@@ -186,11 +230,20 @@
                 
               </button>
             </a>
+            
             <div v-if="showProfile" class="ml-12 bg-gray-700 p-2 rounded-lg">
-                <p><a href="/profile" class="hover:text-blue-400">Editar perfil</a></p>
-                <p><a href="/#" class="hover:text-blue-400">Configurações</a></p>
-
+              <p class="flex items-center gap-2">
+                <a href="/profile" class="hover:text-blue-400">
+                  Editar perfil
+                </a>
+              </p>
+              <p class="flex items-center gap-2">
+                <a href="/#" class="hover:text-blue-400">
+                  Configurações
+                </a>
+              </p>
             </div>
+
           </li>
           <li class="fixed bottom-auto">
             <button>

@@ -63,13 +63,18 @@ class CustomerService
     }
 
     public function delete($id){
-        try {
-            $this->customerRepository->delete($id);
-            return response()->json(true);
+        $this->customerRepository->delete($id);
+        return response()->json([
+            'success' => true,
+        ], 200);
+    }
 
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+    public function active($id)
+    {
+        $this->customerRepository->active($id);
+        return response()->json([
+            'success' => true
+        ], 200);
     }
 
     public function returnResponse($th){

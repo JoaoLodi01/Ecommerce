@@ -114,13 +114,14 @@ Route::prefix('v1')->group( function (){
         Route::post('/create', [CustomerController::class, 'store']);
         Route::get('/{id}', [CustomerController::class, 'findByID']);
         Route::put('/{id}', [CustomerController::class, 'update']);
-        Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']);
+        Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
+        Route::put('/{id}/active', [CustomerController::class, 'active']);
         
     });
 
     // User routes
     Route::prefix('users')->group( function(){
-        Route::get('/all', [UserController::class, 'getAll']);
+        //Route::get('/all', [UserController::class, 'getAll']);
         Route::get('/selectSeller', [UserController::class, 'selectSeller']);
         Route::post('/create', [UserController::class, 'create']);
         Route::get('/{id}', [UserController::class, 'findByID']);

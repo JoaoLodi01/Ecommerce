@@ -44,23 +44,36 @@
             <div class="flex space-x-2" >
                 <button
                     @click="editClient(client)"
-                    class="px-4 py-2 rounded-lg hover:bg-blue-200 transition"
+                    class="px-4 py-2 rounded-lg  transition"
+                    :disabled=!client.active
                     :class="{
-                        'text-gray-400 bg-slate-500 hover:bg-slate-200': !client.active,
-                        'text-blue-500 bg-blue-100': client.active,
+                        'text-gray-400 bg-slate-500': !client.active,
+                        'text-blue-500 bg-blue-100 hover:bg-blue-200': client.active,
                     }"    
                 >
                     Editar
                 </button>
                 <button
                     @click="deleteClient(client.id)"
-                    class="px-4 py-2 rounded-lg hover:bg-red-200 transition"
+                    class="px-4 py-2 rounded-lg transition"
+                    :disabled=!client.active
                     :class="{
-                        'text-gray-400 bg-slate-500 hover:bg-slate-200': !client.active,
-                        'text-red-500 bg-red-100': client.active,
+                        'text-gray-400 bg-slate-500': !client.active,
+                        'text-red-500 bg-red-100 hover:bg-red-200': client.active,
                     }"    
+                    v-if="client.active"
                 >
                     Excluir
+                </button>
+                <button
+                    v-else
+                    class="px-4 py-2 rounded-lg transition"
+                    :class="{
+                        'text-gray-400 bg-slate-500': !client.active
+                    }"
+                    @click="activeClient(client.id)"
+                >   
+                    Ativar
                 </button>
             </div>
         </div>
@@ -97,7 +110,17 @@
             {
                 const response = await api.delete(`/customers/${id}/deactivate`)
                 console.log(response.data)
-            }
+                window.location.reload()
+
+            },
+
+            async activeClient(id)
+            {
+                const response = await api.put(`/customers/${id}/active`)
+                console.log(response.data)
+                window.location.reload()
+
+            },
         },
     };
 </script>
