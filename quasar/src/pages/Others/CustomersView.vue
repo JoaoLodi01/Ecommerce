@@ -53,7 +53,7 @@
             <!-- Ações -->
             <div class="flex space-x-2" >
                 <button
-                    @click="editClient(client)"
+                    @click="editClient(client.id)"
                     class="px-4 py-2 rounded-lg  transition"
                     :disabled=!client.active
                     :class="{
@@ -98,7 +98,7 @@
   
 <script>
     import { api } from 'src/boot/axios';
-    import RegisterConsumer from 'src/components/Register/RegisterConsumer.vue';
+    import RegisterConsumer from 'src/components/Register/Customers/RegisterCustomer.vue';
     import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
     
     export default {
@@ -138,7 +138,10 @@
 
             },
 
-            
+            editClient(id)
+            {
+
+            }
         },
 
         components: {

@@ -114,7 +114,7 @@ Route::prefix('v1')->group( function (){
     Route::prefix('customers')->group( function(){
         Route::get('/all', [CustomerController::class, 'getAll']);
         Route::get('/selectClient', [CustomerController::class, 'selectClient']);
-        Route::post('/create', [CustomerController::class, 'store']);
+        Route::post('/create', [CustomerController::class, 'create']);
         Route::get('/{id}', [CustomerController::class, 'findByID']);
         Route::put('/{id}', [CustomerController::class, 'update']);
         Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive

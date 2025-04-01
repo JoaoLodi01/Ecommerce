@@ -34,7 +34,7 @@ class CustomerRepository
                     ->where('customer_id', $id)
                     ->first();*/
     
-    public function store(array $data){
+    public function create(array $data){
         return Customer::create([
             'name' => $data['name'],
             'email' => $data['email'],

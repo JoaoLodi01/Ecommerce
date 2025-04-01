@@ -42,9 +42,9 @@ class CustomerService
         }
     }
 
-    public function store(array $data){
+    public function create(array $data){
         try {
-            $this->customerRepository->store($data);
+            $this->customerRepository->create($data);
             return response()->json(true);
 
         } catch (\Throwable $th) {
