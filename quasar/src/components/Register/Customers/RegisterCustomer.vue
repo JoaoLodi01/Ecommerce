@@ -100,12 +100,12 @@
             try {
                 const response = await api.post(`/customers/create`, this.form);
                 console.log(response)
-            
+                //replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
             } catch (error) {
-                alert("Ocorreu um erro ao cadastrar o cliente.");
-                console.error('Erro', error)
-            }
+                    alert("Ocorreu um erro ao cadastrar o cliente.");
+                    console.error('Erro', error)
+                }
+            },
         },
-    },
     };
 </script>
