@@ -75,10 +75,12 @@ class ReportCustomersController extends Controller
         }
 
         $writer = new Xlsx($this->spreadsheet);
-        $fileName = 'clientes_inativos.xlsx';
-        $writer->save($fileName);
+        $path = public_path('/xlsx');
+        $fileName = "clientes_inativos.xlsx";
+        $filePat = "$path/$fileName";
+        $writer->save($filePat);
 
-        return response()->download(public_path($fileName));
+        return response()->download($filePat);
 
     }
 }
