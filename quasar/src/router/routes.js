@@ -62,6 +62,11 @@ const routes = [
     component: () => import('src/pages/Others/CustomersView.vue')
   },
   {
+    path: `/products`,
+    name: 'ProductsView',
+    component: () => import('src/pages/Products/ProductsView.vue')
+  },
+  {
     path: '/profile',
     name: 'ProfileView',
     component: () => import('src/pages/Profile/Profile.vue')

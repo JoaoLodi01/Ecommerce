@@ -11,60 +11,69 @@
             v-model="form.name" 
             type="text" 
             label="Nome" 
+            maxlength="120" 
         />
 
         <q-input 
             v-model="form.cpf" 
             @update:modelValue="formatCPF"
-            maxlength="14"
             type="text" 
             label="CPF"
+            maxlength="14"
+            
         />
 
         <q-input 
             v-model="form.cnpj" 
             @update:modelValue="formatCNPJ"
-            maxlength="18"
             type="text" 
             label="CNPJ" 
+            maxlength="18"
+
         />
 
         <q-input 
             v-model="form.cep"
             @update:model-value="formatCEP"
-            maxlength="8"
             type="text" 
-            label="CEP" 
+            label="CEP"
+            maxlength="8"
+
         />
 
         <q-input 
             v-model="form.address" 
             type="text" 
             label="Endereço" 
+            maxlength="120"
         />
 
         <q-input 
             v-model="form.number" 
             type="text" 
             label="Número" 
+            maxlength="30"
         />
         
         <q-input 
             v-model="form.email" 
             type="email" 
-            label="E-mail" 
+            label="E-mail"
+            maxlength="120" 
         />
         
         <q-input 
             v-model="form.phone" 
             type="tel"
             label="Número de telefone" 
+            maxlength="24"
         />
 
         <q-input 
             v-model="form.password" 
             :type="showPassword ? 'text' : 'password'"
             label="Senha" 
+            maxlength="120" 
         >
             <svg 
                 @click="showPassword = !showPassword" 

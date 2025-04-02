@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Reports;
 use App\Http\Controllers\Controller;
 use App\Services\CustomerService;
 use App\Services\ReportsService\ReportCustomerService;
+use Illuminate\Support\Facades\Log;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
@@ -35,11 +36,11 @@ class ReportCustomersController extends Controller
         foreach ($customersArray as $i => $value) {
             $row = $i + 2;
 
-            $sheet->getCell("A$row")->setValue($customersArray[$i]['name']);
-            $sheet->getCell("B$row")->setValue($customersArray[$i]['cnpj']);
-            $sheet->getCell("C$row")->setValue($customersArray[$i]['cpf']);
-            $sheet->getCell("D$row")->setValue($customersArray[$i]['email']);
-            $sheet->getCell("E$row")->setValue($customersArray[$i]['active'] ? 'Ativo' : 'Inativo');
+            $sheet->getCell("A$row")->setValue($value['name']);
+            $sheet->getCell("B$row")->setValue($value['cnpj']);
+            $sheet->getCell("C$row")->setValue($value['cpf']);
+            $sheet->getCell("D$row")->setValue($value['email']);
+            $sheet->getCell("E$row")->setValue($value['active'] ? 'Ativo' : 'Inativo');
 
         }
         
@@ -66,10 +67,10 @@ class ReportCustomersController extends Controller
         foreach ($customersData as $i => $value) {
             $row = $i + 2;
             
-            $sheet->getCell("A$row")->setValue($customersData[$i]['name']);
-            $sheet->getCell("B$row")->setValue($customersData[$i]['cnpj']);
-            $sheet->getCell("C$row")->setValue($customersData[$i]['cpf']);
-            $sheet->getCell("D$row")->setValue($customersData[$i]['email']);
+            $sheet->getCell("A$row")->setValue($value['name']);
+            $sheet->getCell("B$row")->setValue($value['cnpj']);
+            $sheet->getCell("C$row")->setValue($value['cpf']);
+            $sheet->getCell("D$row")->setValue($value['email']);
             $sheet->getCell("E$row")->setValue('Inativo');
 
         }

@@ -30,7 +30,8 @@
     <div class="customer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" v-if="showCustomers">
         <div
             v-for="(customer, id) in customers" :key="id" 
-            class="bg-white p-6 shadow-lg rounded-lg border border-gray-200"
+            class="bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+            @click="editCustomer(customer.id, customer.name)"
         >
         <div>
             <div class="text-sm text-gray-500 mb-2">
@@ -58,7 +59,6 @@
                <span class="font-semibold">Status:</span> {{ customer.active === 1 ? 'Ativo' : 'Inativo' }}
             </div>
             
-
             <!-- Ações -->
             <div class="flex space-x-2" >
                 <button
