@@ -72,7 +72,7 @@
                     }"    
                     v-if="product.active"
                 >
-                    Excluir
+                    Desativar
                 </button>
                 <button
                     v-else

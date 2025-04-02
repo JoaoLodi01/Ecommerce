@@ -1,7 +1,7 @@
 <template>
     <div class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded">
         <div class="flex">
-            <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Edição do Cliente: {{ customerName }}</h2>
+            <h2 class="text-xl font-semibold mb-4 w-max">Edição do Cliente: {{ customerName }}</h2>
             <span @click="closeUpdate()" class="cursor-pointer text-xl ml-auto">X</span>
         </div>
 

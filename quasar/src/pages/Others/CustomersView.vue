@@ -82,7 +82,7 @@
                     }"    
                     v-if="customer.active"
                 >
-                    Excluir
+                    Desativar
                 </button>
                 <button
                     v-else
@@ -174,11 +174,11 @@
 
             closeRegister()
             {
-                console.log('Chamou closeRegister')
-                this.showRegisterCustomers = false
-                this.showUpdateCustomers = false
                 this.showCustomers = true
                 this.showReportCustomer = true
+                this.showRegisterCustomers = false
+                this.showUpdateCustomers = false
+                
             },
 
             closeReload(event)

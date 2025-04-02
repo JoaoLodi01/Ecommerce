@@ -48,6 +48,7 @@
                             <th scope="col" class="px-6 py-3">Cód Espécie</th>
                             <th scope="col" class="px-6 py-3">Espécie</th>
                             <th scope="col" class="px-6 py-3">Origem</th>
+                            <th scope="col" class="px-6 py-3">Cliente</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,6 +78,7 @@
                             <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
                             <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
                             <td scope="row" class="px-6 py-3">{{ register.origem }}</td>
+                            <td scope="row" class="px-6 py-3">{{ register.name }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -103,36 +105,7 @@ export default {
     },
 
     methods: {
-        async submitForm(){
-            try {
-                if (!this.cash.description || !this.cash.valor_entrada && !this.cash.valor_saida){
-                    alert("Descrição e pelo menos um valor (entrada ou saída) são obrigatórios!");
-                    return;
-                }
-
-                const response = await api.post('/cash-register/create', this.cash, {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
-
-                this.cashs.push({ ...this.cash});
-                this.cash = {
-                    description: "",
-                    valor_entrada: "",
-                    valor_saida: "",
-                }
-
-                console.log("Resposta da API:", response.data);
-                alert("Cadastro realizado com sucesso!");
-
-            } catch (error) {
-                console.log("Erro ao cadastrar:", error);
-                alert("Erro ao cadastrar!");
-
-            }
-        },
-
+    
         async getRegister(){
             try {
                 const response = await api.get('/ecommerce/cash-register/all')

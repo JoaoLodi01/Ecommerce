@@ -537,7 +537,8 @@
             async selectClient(){
                 //const response = await api.get('/customers/selectClient');
                 const response = await api.get('/customers/all');
-                this.clients = response.data;
+                console.log(response.data)
+                this.clients = response.data.data;
                 this.filterClients();
                 
             },
