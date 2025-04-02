@@ -63,3 +63,15 @@
   'password' => '123',
   'phone' => '4242',
 )  
+[2025-04-02 11:15:33] local.INFO: array (
+  'name' => 'teste cpf e cnpj',
+  'cpf' => '11111111111',
+  'cnpj' => '11111111111111',
+  'cep' => '99999999',
+  'address' => 'aaaaaaaaaa',
+  'number' => '1',
+  'email' => 'aaaaaaaaa@a',
+  'password' => '11111',
+  'phone' => '11111111',
+)  
+[2025-04-02 11:17:29] local.INFO: Acertou o login  

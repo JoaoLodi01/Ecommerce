@@ -2,7 +2,7 @@
     <div class="px-20 h-max w-full">
         <div>
             <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
-            <div class="mb-5">
+            <div class="ml-2 mb-5">
                 <ReportCustomer
                     v-if="showReportCustomer"
                 />
