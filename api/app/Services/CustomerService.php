@@ -46,7 +46,7 @@ class CustomerService
         try {
             $customer = $this->customerRepository->create($data);
             return response()->json([
-                'success' => 'true',
+                'success' => true,
                 'customer' => $customer
                 
             ], 201);
@@ -58,8 +58,12 @@ class CustomerService
 
     public function update(array $data, int $id){
         try {
-            $this->customerRepository->update($data, $id);
-            return response()->json(true);
+            $customer = $this->customerRepository->update($data, $id);
+            return response()->json([
+                'success' => true,
+                'customer' => $customer
+                
+            ], 201);
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);

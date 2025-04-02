@@ -33,3 +33,10 @@
   'password' => '123',
   'phone' => '49999482859',
 )  
+[2025-04-02 08:45:59] local.INFO: Errou o login  
+[2025-04-02 08:46:39] local.INFO: Errou o login  
+[2025-04-02 08:50:49] local.INFO: Acertou o login  
+[2025-04-02 09:19:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-02 09:19:33] local.INFO: O hotel foi encontrado  
+[2025-04-02 09:19:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-02 09:19:33] local.INFO: Opção desativada, não vai alterar o endereço  
