@@ -22,8 +22,8 @@ class CostumerRequest extends FormRequest
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
             'name' => [$required, 'string', 'max:120'],
-            'cpf' => [$required, 'required_without:cnpj'],
-            'cnpj' => [$required, 'required_without:cpf'],
+            'cpf' => ['nullable', 'required_without:cnpj'],
+            'cnpj' => ['nullable', 'required_without:cpf'],
             'cep' => [$required],
             'address' => [$required],
             'number' => [$required],

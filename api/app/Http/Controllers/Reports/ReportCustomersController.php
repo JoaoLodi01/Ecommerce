@@ -8,8 +8,6 @@ use App\Services\ReportsService\ReportCustomerService;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
-use Illuminate\Support\Facades\Log;
-
 class ReportCustomersController extends Controller
 {
     public function __construct(
@@ -46,10 +44,12 @@ class ReportCustomersController extends Controller
         }
         
         $writer = new Xlsx($this->spreadsheet);
-        $fileName = 'clientes.xlsx';
-        $writer->save($fileName);
+        $path = public_path('/xlsx/ativos');
+        $fileName = "clientes_ativos.xlsx";
+        $filePath = "$path/$fileName";
+        $writer->save($filePath);
 
-        return response()->download(public_path($fileName));
+        return response()->download($filePath);
 
     }
 
@@ -75,12 +75,12 @@ class ReportCustomersController extends Controller
         }
 
         $writer = new Xlsx($this->spreadsheet);
-        $path = public_path('/xlsx');
+        $path = public_path('/xlsx/inativos');
         $fileName = "clientes_inativos.xlsx";
-        $filePat = "$path/$fileName";
-        $writer->save($filePat);
+        $filePath = "$path/$fileName";
+        $writer->save($filePath);
 
-        return response()->download($filePat);
+        return response()->download($filePath);
 
     }
 }

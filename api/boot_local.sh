@@ -6,7 +6,7 @@ main()
 	cd $frontend_path
 	start bash -c "quasar dev"
 	cd $api_path
-	start bash -c "php artisan serve --host=192.168.1.104"
+	start bash -c "php artisan serve --host=192.168.1.103"
 	bash -c "sh artisan_util.sh"
 
 }

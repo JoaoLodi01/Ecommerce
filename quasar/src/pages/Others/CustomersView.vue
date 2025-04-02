@@ -90,15 +90,21 @@
       </div>
     </div>
 
-    <div class="mb-8 ml-20" v-if="showRegisterClients">
-        <RegisterConsumer/>
+    <div class="ml-96 mb-8" v-if="showRegisterClients">
+        <RegisterConsumer
+            @close="closeReload($event)"
+        />
+
+        <UpdateCustomer
+            @customerID=""
+        />
     </div>
-  
 </template>
   
 <script>
     import { api } from 'src/boot/axios';
     import RegisterConsumer from 'src/components/Register/Customers/RegisterCustomer.vue';
+    import UpdateCustomer from 'src/components/Register/Customers/UpdateCustomer.vue';    
     import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
     
     export default {
@@ -119,7 +125,7 @@
             async getClients() {
                 const response = await api.get('/customers/all');
                 this.clients = response.data.data;
-
+                console.log(this.clients)
             },
 
             async deleteClient(id)
@@ -138,6 +144,12 @@
 
             },
 
+            closeReload(event)
+            {
+                this.showRegisterClients = event
+                window.location.reload()
+            },
+
             editClient(id)
             {
 
@@ -146,7 +158,8 @@
 
         components: {
             RegisterConsumer,
-            ReportCustomer
+            ReportCustomer,
+            UpdateCustomer
 
         }
     };

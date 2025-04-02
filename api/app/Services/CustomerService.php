@@ -44,8 +44,12 @@ class CustomerService
 
     public function create(array $data){
         try {
-            $this->customerRepository->create($data);
-            return response()->json(true);
+            $customer = $this->customerRepository->create($data);
+            return response()->json([
+                'success' => 'true',
+                'customer' => $customer
+                
+            ], 201);
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
