@@ -69,7 +69,7 @@
                 >   
                     <button @click="showRegisterForm">Não possui uma conta?</button>
                 </q-btn>
-                <span class="flex justify-end cursor-pointer hover:">Esqueceu sua senha?</span>
+                <span class="flex justify-end cursor-pointer mr-5">Esqueceu sua senha?</span>
             </q-form>
 
             <Register 

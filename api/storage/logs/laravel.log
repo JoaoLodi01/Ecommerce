@@ -40,3 +40,26 @@
 [2025-04-02 09:19:33] local.INFO: O hotel foi encontrado  
 [2025-04-02 09:19:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-04-02 09:19:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-02 10:34:22] local.INFO: Acertou o login  
+[2025-04-02 11:08:18] local.INFO: array (
+  'name' => 'Teste',
+  'cpf' => '60880519111',
+  'cnpj' => NULL,
+  'cep' => '89711226',
+  'address' => 'aaaaaaaaaaaaa',
+  'number' => '44',
+  'email' => 'ga@a',
+  'password' => '3',
+  'phone' => '12',
+)  
+[2025-04-02 11:08:45] local.INFO: array (
+  'name' => 'teste grid',
+  'cpf' => '42442424024',
+  'cnpj' => NULL,
+  'cep' => '20404025',
+  'address' => '4wgegetgetg',
+  'number' => '2342',
+  'email' => 'dgfg#@aa',
+  'password' => '123',
+  'phone' => '4242',
+)  

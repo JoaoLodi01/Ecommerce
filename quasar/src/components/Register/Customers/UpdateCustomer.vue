@@ -65,7 +65,7 @@
             />
     
             <q-input 
-                v-model="form.password" 
+                v-model="form.oldPassword" 
                 :type="showPassword ? 'text' : 'password'"
                 label="Senha" 
             >
@@ -100,11 +100,11 @@
             
             <div>
                 <q-btn type="submit" class="mr-5">
-                    <button>Criar</button>
+                    <button @click="showLoading('Alterando')">Alterar</button>
                 </q-btn>
                 
-                <q-btn @click="onReset()">   
-                    <button>Limpar</button>
+                <q-btn type="button" @click="showLoading('Recarregando')">   
+                    <button @click="onReset()">Cancelar</button>
                 </q-btn>
             </div>
         </q-form>
@@ -119,30 +119,31 @@
       export default {
           setup()
           {
-              let $q = useQuasar();
-              let timer
-  
-              onBeforeUnmount(() => { 
-                  if(timer !== void 0)
-                  {
-                      clearTimeout(timer)
-                      $q.loading.hide()
-                  }
-              })
-  
-              return {
-                  showLoading()
-                  {
-                      $q.loading.show({
-                          message: 'Criando cliente ...'
-  
-                      })
-                      timer = setTimeout(() => {
-                          $q.loading.hide()
-                          timer = void 0
-                      }, 3000)
-                  }
-              }
+            let $q = useQuasar();
+            let timer
+
+            onBeforeUnmount(() => { 
+                if(timer !== void 0)
+                {
+                    clearTimeout(timer)
+                    $q.loading.hide()
+                }
+            })
+
+            return {
+                showLoading(message)
+                {
+                    $q.loading.show({
+                        message: `${message} dados do cliente ...`
+
+                    })
+
+                    timer = setTimeout(() => {
+                        $q.loading.hide()
+                        timer = void 0
+                    }, 4000)
+                }
+            }
           },
   
           data() {
@@ -155,7 +156,8 @@
                     address: '',
                     number: '',
                     email: '',
-                    password: '',
+                    oldPassword: '',
+                    newPassword: '',
                     phone: '',
                 },
                 showPassword: false,
@@ -232,24 +234,14 @@
                     address: data.address,
                     number: data.number,
                     email: data.email,
-                    password: data.password,
+                    oldPassword: data.password,
                     phone: data.phone,
                 }
             },      
 
             onReset()
             {
-                this.form = {
-                    name: '',
-                    cpf: '',
-                    cnpj: '',
-                    cep: '',
-                    address: '',
-                    number: '',
-                    email: '',
-                    password: '',
-                    phone: '',
-                }
+                this.getCustomer()
             },
 
             closeUpdate()

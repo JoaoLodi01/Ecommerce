@@ -76,6 +76,10 @@ class ReportCustomersController extends Controller
 
         $writer = new Xlsx($this->spreadsheet);
         $path = public_path('/xlsx/inativos');
+        if(!is_dir($path))
+        {
+            mkdir($path, 0775, true);
+        }
         $fileName = "clientes_inativos.xlsx";
         $filePath = "$path/$fileName";
         $writer->save($filePath);

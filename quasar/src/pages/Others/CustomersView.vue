@@ -4,21 +4,30 @@
             <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
             <div class="mb-5">
                 <ReportCustomer
-                    v-if="!showRegisterCustomers, !showUpdateCustomers"
+                    v-if="showReportCustomer"
                 />
 
             </div>
             
             <button 
-                @click="showRegisterCustomers = !showRegisterCustomers, showCustomers = !showCustomers "
+                v-if="!showUpdateCustomers, showCustomers"
+                @click="openRegister()"
                 class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
-                <span v-if="!showRegisterCustomers">Cadastrar um novo cliente</span>
-                <span v-else>Voltar</span>
+                <span>Cadastrar um novo cliente</span>
+                
+            </button>
+
+            <button 
+                v-else
+                @click="closeRegister()"
+                class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+            >
+                <span>Voltar</span>
             </button>
         </div>
     </div>
   
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" v-if="showCustomers">
+    <div class="customer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" v-if="showCustomers">
         <div
             v-for="(customer, id) in customers" :key="id" 
             class="bg-white p-6 shadow-lg rounded-lg border border-gray-200"
@@ -90,7 +99,7 @@
       </div>
     </div>
 
-    <div class="ml-96 mb-8" v-if="!showCustomers">
+    <div class="ml-72 mb-8" v-if="!showCustomers">
         <RegisterCustomer
             v-if="showRegisterCustomers"
             @close="closeReload($event)"
@@ -118,6 +127,7 @@
                 showCustomers: true,
                 showRegisterCustomers: false,
                 showUpdateCustomers: false,
+                showReportCustomer: true,
                 customerID: '',
                 customerName: '',
                 
@@ -126,6 +136,7 @@
 
         mounted(){
             this.getCustomers();
+            
         },
 
         methods: {
@@ -151,6 +162,25 @@
 
             },
 
+            openRegister()
+            {
+                this.showRegisterCustomers = true
+                this.showUpdateCustomers = false
+                this.showCustomers = false
+                this.showReportCustomer = false
+                console.log('showRegisterCustomers', this.showRegisterCustomers, ' this.showUpdateCustomers', this.showUpdateCustomers)
+            
+            },  
+
+            closeRegister()
+            {
+                console.log('Chamou closeRegister')
+                this.showRegisterCustomers = false
+                this.showUpdateCustomers = false
+                this.showCustomers = true
+                this.showReportCustomer = true
+            },
+
             closeReload(event)
             {
                 this.showUpdateCustomers = event
@@ -160,8 +190,10 @@
 
             editCustomer(id, name)
             {
+                this.showUpdateCustomers = true
                 this.showCustomers = false
-                this.showUpdateCustomers = !this.showUpdateCustomers
+                this.showRegisterCustomers = false
+                this.showReportCustomer = false
                 this.customerID = id
                 this.customerName = name
 
@@ -176,3 +208,10 @@
         }
     };
 </script>
+
+<style>
+    .customer-grid {
+        width: 83%;
+        padding: 5px;
+    }
+</style>
