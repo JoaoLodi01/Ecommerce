@@ -8,6 +8,7 @@
     >
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de produtos</h2>
         <q-form
+            @submit="onSubmit"
             class="p-1"
             :class="{ 
                 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
@@ -117,42 +118,50 @@
 </template>
 
 <script>
-  export default {
-      computed: {
-          calculateSalePrice()
-          {
-            return this.productDetails.salePrice = this.productDetails.costPrice * (1 + this.productDetails.profitPercentage / 
-            100).toFixed(2)
+    import { api } from 'src/boot/axios'
+    export default {
+        computed: {
+            calculateSalePrice()
+            {
+                return this.productDetails.salePrice = this.productDetails.costPrice * (1 + this.productDetails.profitPercentage / 
+                100).toFixed(2)
 
-          }            
-      },  
+            }            
+        },  
 
-      props: {
-        widthScreen: {
-            type: Number,
-            required: true
-        }
-      },
-
-      data()
-      {
-          return {
-            productDetails: {
-                product: '',
-                groupID: '',
-                amount: '',
-                costPrice: 0,
-                profitPercentage: 0,
-                salePrice: 0,
-                cfop: '',
-                csosncst: '',
-                ncm: '',
-                cest: '',
-                unit: 'UN',
-                
+        props: {
+            widthScreen: {
+                type: Number,
+                required: true
             }
-          }
-      }
-  }
+        },
 
+        data()
+        {
+            return {
+                productDetails: {
+                    product: '',
+                    groupID: '',
+                    amount: '',
+                    costPrice: 0,
+                    profitPercentage: 0,
+                    salePrice: 0,
+                    cfop: '',
+                    csosncst: '',
+                    ncm: '',
+                    cest: '',
+                    unit: 'UN',
+                    
+                }
+            }
+        },
+
+        methods: {
+            async onSubmit()
+            {
+                const response = await api.post('/ecommerce/products/create', this.productDetails)
+                console.log(response)
+            }
+        }
+    }
 </script>

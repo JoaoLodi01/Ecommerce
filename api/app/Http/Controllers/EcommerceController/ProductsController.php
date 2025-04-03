@@ -23,9 +23,12 @@ class ProductsController extends Controller
         return $this->productsService->search($request->all());
     }
 
-    public function create(Request $request){
-       
-        return $this->productsService->create($request->all());
+    public function create(ProductsRequest $request)
+    {
+        $data = $request->validated();
+        Log::info('data');
+        Log::info($data);
+        return $this->productsService->create($data);
     }
 
     public function findByID(int $id){

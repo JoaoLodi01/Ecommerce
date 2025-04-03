@@ -55,7 +55,7 @@
                     <div 
                         class="mt-auto mb-auto mr-5 cursor-pointer"
                         v-if="witdhScreen !== 0"
-                        @click="showproductts"
+                        @click="showProductsSelection"
                         
                     >
                         <div class="border border-red-500 w-6 mb-1"></div>
@@ -78,7 +78,7 @@
                     </div>
 
                     <div v-if="witdhScreen > 1366">
-                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
+                        <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
                         <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
@@ -396,6 +396,11 @@
         
     </div>
     <div>
+        <ConfigPDV
+            v-if="showOptionsPDV"
+
+        />
+
         <ProductsSelectionView
             v-if="show"
             :witdhScreen="this.witdhScreen"
@@ -411,6 +416,7 @@
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing.vue'
+    import ConfigPDV from 'src/components/PDV/ConfigPDV.vue';
     import { api } from "boot/axios"
     import { onBeforeUnmount, toRaw } from 'vue'   
     import { useQuasar, LocalStorage } from 'quasar';
@@ -478,6 +484,7 @@
                 showProductsSearch: true,
                 showCashClosing: false,
                 registredCustomer: false,
+                showOptionsPDV: false,
                 
                 viewProduct: {
                     show: false,
@@ -750,13 +757,20 @@
                 console.log('this.emitProducts.customerID', clientID)
             },
 
-            showproductts(){
+            showOptions(){
+                this.showOptionsPDV = true
+                this.showPaymentsForm = false
+                this.showGrid = false
+                this.show = false
+                
+            },
+
+            showProductsSelection(){
                 this.showPaymentsForm = false
                 this.showGrid = !this.showGrid
                 this.show = !this.show
                 
             },
-
             
             showGridEmit(){
                 this.showGrid = !this.showGrid
@@ -946,7 +960,8 @@
             ProductsSelectionView,
             PaymentsForm,
             ProductsSearchBar,
-            CashClosing
+            CashClosing,
+            ConfigPDV
 
         },
 
