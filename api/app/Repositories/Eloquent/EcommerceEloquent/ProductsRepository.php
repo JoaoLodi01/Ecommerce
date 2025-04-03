@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Log;
 
 class ProductsRepository
 {
+    public function __construct(
+        protected 
+    )
+    {
+        
+    }
     public function getAll(int $active){
         //return Products::where('active', $active)->get();
         return Products::paginate(10);
@@ -39,7 +45,7 @@ class ProductsRepository
             'amount' => $data['amount'],
             'group_id' => $group->id,
             'group' => $group->group,
-             
+
         ]);
     }
 
