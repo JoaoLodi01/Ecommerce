@@ -1,196 +1,158 @@
 <template>
-    <form @submit.prevent="addProduct" class="bg-white shadow-lg rounded-lg border border-gray-300">
-      <!--border-gray-300" para retornar como estava, deixo assim-->
-      <h2 class="text-2xl text-center font-semibold mb-4">Cadastrar Novo Produto</h2>
-  
-      <div class="max-w-md mx-auto mt-5 p-6 bg-white shadow-md rounded">
-        <!-- Nome do produto -->
-        <div>
-          <label for="name" class="block text-sm font-medium">Produto:</label>
-          <input 
-            v-model="product.name" 
-            type="text" 
-            id="name" 
-            placeholder="Nome do produto..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-  
-        <!-- Quantidade -->
-        <div>
-          <label for="quantity" class="block text-sm font-medium">Quantidade:</label>
-          <input 
-            v-model="product.quantity" 
-            type="number" 
-            id="quantity" 
-            placeholder="Quantidade..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-  
-        <!-- Preço de Custo -->
-        <div>
-          <label for="cost" class="block text-sm font-medium">Preço de Custo:</label>
-          <input 
-            v-model="product.cost" 
-            type="number" 
-            id="cost" 
-            placeholder="Preço de custo..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-  
-        <!-- Preço de Venda -->
-        <div>
-          <label for="sale" class="block text-sm font-medium">Preço de Venda:</label>
-          <input 
-            v-model="product.sale" 
-            type="number" 
-            id="sale" 
-            placeholder="Preço de venda..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-  
-        <!-- Percentual de Lucro -->
-        <div>
-          <label for="profit" class="block text-sm font-medium">% de Lucro:</label>
-          <input 
-            v-model="product.profit" 
-            type="number" 
-            id="profit" 
-            placeholder="% de lucro..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-  
-        <!-- NCM -->
-        <div>
-          <label for="ncm" class="block text-sm font-medium">NCM:</label>
-          <input 
-            v-model="product.ncm" 
-            type="number" 
-            id="ncm" 
-            placeholder="NCM..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-  
-        <!-- CEST -->
-        <div>
-          <label for="cest" class="block text-sm font-medium">CEST:</label>
-          <input 
-            v-model="product.cest" 
-            type="number" 
-            id="cest" 
-            placeholder="CEST..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-  
-        <!-- CSOSN -->
-        <div>
-          <label for="csosn" class="block text-sm font-medium">CSOSN:</label>
-          <input 
-            v-model="product.csosn" 
-            type="number" 
-            id="csosn" 
-            placeholder="CSOSN..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-  
-        <!-- CFOP -->
-        <div>
-          <label for="cfop" class="block text-sm font-medium">CFOP:</label>
-          <input 
-            v-model="product.cfop" 
-            type="number" 
-            id="cfop" 
-            placeholder="CFOP..." 
-            class="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-          />
-        </div>
-  
-        <!-- Botão de cadastro -->
-        <div>
-          <button class="mt-2 ml-1 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500" @click="cancelOperation()">Voltar</button>
-          <button class="mt-2 ml-9 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500" type="submit" >Cadastrar Produto</button>
-        </div>
-      </div>
-    </form>
-  </template>
-  
-  <script>
-  import axios from 'axios';
-  
+    <div 
+        class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
+        :class="{
+            'relative top-12 left-12': widthScreen <= 1080,
+            'ml-72': widthScreen > 1080
+        }"
+    >
+        <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de produtos</h2>
+        <q-form
+            class="p-1"
+            :class="{ 
+                'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
+            }"
+        >
+            <q-input    
+                v-model="productDetails.product" 
+                type="text" 
+                label="Produto"
+                color="grey-7"
+            />
+
+            <q-select 
+                v-model="productDetails.groupID" 
+                :options="[1, 2, 3]"
+                label="Grupo" 
+                filled 
+                color="grey-7"
+            />
+
+            <q-input    
+                v-model="productDetails.amount" 
+                type="text" 
+                label="Quantidade"
+                color="grey-7"
+            />
+
+            <q-input    
+                v-model="productDetails.costPrice" 
+                type="text" 
+                label="Preço de custo"
+                color="grey-7"
+                
+            />
+
+            <q-input    
+                v-model="productDetails.profitPercentage" 
+                type="text" 
+                label="Percentual de lucrp"
+                color="grey-7"
+            />
+            
+            <q-input    
+                v-model="calculateSalePrice"
+                type="text" 
+                label="Preço de venda R$"
+                color="grey-7"
+                readonly 
+            />
+
+            <q-input    
+                v-model="productDetails.cfop" 
+                type="text" 
+                label="CFOP"
+                color="grey-7"
+                maxlength="4"
+            />
+            
+            <q-input    
+                v-model="productDetails.csosncst" 
+                type="text" 
+                label="CSOSN/CST"
+                color="grey-7"
+                maxlength="4"
+            />
+            
+            <q-input    
+                v-model="productDetails.ncm" 
+                type="text" 
+                label="NCM"
+                color="grey-7"
+                maxlength="8"
+            />
+            
+            <q-input    
+                v-model="productDetails.cest" 
+                type="text" 
+                label="CEST"
+                color="grey-7"
+                maxlength="7"
+            />
+            
+            <q-input    
+                v-model="productDetails.unit" 
+                type="text" 
+                label="Produto"
+                color="grey-7"
+                maxlength="4"
+            />
+
+            <div>
+                <q-btn
+                    type="submit" 
+                    class="mr-5"
+                > 
+                    <button>Criar</button> 
+                </q-btn>
+                    
+                <q-btn 
+                    @click="onReset()"
+                >   
+                    <button>Limpar</button>
+                </q-btn>
+            </div>
+        </q-form>
+    </div>
+</template>
+
+<script>
   export default {
-    props: {
-      products: Array,
-      apiUrl: String,
-    },
-    data() {
-      return {
-        product: {
-          name: '',
-          quantity: '1',
-          cost: '',
-          sale: '',
-          profit: '100',
-          ncm: '',
-          cest: '',
-          csosn: '',
-          cfop: '',
-        },
-        api: process.env.VUE_APP_API_URL,
-      };
-    },
-    emits: [
-      'close'
-    ],  
-  
-    methods: {
-      async addProduct() {
-        try {
-          if (
-            !this.product.name ||
-            !this.product.quantity ||
-            !this.product.cost ||
-            !this.product.sale ||
-            !this.product.profit
-          ) {
-            alert("Nome, quantidade, preço custo, preço venda, perc lucro são obrigatórios!");
-            return;
-          }
-  
-          const response = await axios.post(`${this.api}/ecommerce/products/create`);
-  
-          this.$emit('productAdded', { ...this.product });
-          this.product = {
-            name: '',
-            quantity: '',
-            cost: '',
-            sale: '',
-            profit: '',
-            ncm: '',
-            cest: '',
-            csosn: '',
-            cfop: '',
-          };
-  
-          console.log("Resposta da API:", response.data);
-          alert("Cadastro realizado com sucesso!");
-        } catch (error) {
-          console.log("Erro ao cadastrar:", error);
-          alert("Erro ao cadastrar!");
+      computed: {
+          calculateSalePrice()
+          {
+            return this.productDetails.salePrice = this.productDetails.costPrice * (1 + this.productDetails.profitPercentage / 
+            100).toFixed(2)
+
+          }            
+      },  
+
+      props: {
+        widthScreen: {
+            type: Number,
+            required: true
         }
       },
 
-      cancelOperation()
+      data()
       {
-        this.$emit('close')
+          return {
+              productDetails: {
+                  product: '',
+                  groupID: '',
+                  amount: '',
+                  costPrice: 0,
+                  profitPercentage: 0,
+                  salePrice: 0,
+                  cfop: '',
+                  csosncst: '',
+                  ncm: '',
+                  cest: '',
+                  unit: 'UN',
+                  
+              }
+          }
       }
-    },
-  };
-  </script>
-  
+  }
+
+</script>

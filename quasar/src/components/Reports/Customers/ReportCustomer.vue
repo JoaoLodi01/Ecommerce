@@ -1,11 +1,15 @@
 <template>
-    <q-btn @click="showLoading" class="mr-5">    
+    <q-btn @click="showLoading" class="mr-5" :class="{
+        'mb-5': widthScreen <= 1080
+    }">    
         <button @click="reportCustomer('Listagem_Completa')">Listagem completa de todos clientes</button>
     </q-btn>
 
     <q-btn @click="showLoading">
         <button @click="reportCustomer('Listagem_Completa_Inativos')">Listagem completa de todos os clientes inativos</button>
     </q-btn>
+
+
 </template>
 
 <script>
@@ -86,6 +90,14 @@
                     console.error('Erro', error)
                 }
             }
-        }
+        },
+
+        props: {
+            widthScreen: {
+                type: Number,
+                required: true
+            }
+        },
+
     }
 </script>

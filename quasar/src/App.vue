@@ -4,7 +4,7 @@
         
     </div>
 
-    <div v-if="!loged" class="mt-20">
+    <div v-if="!loged" class="mt-48">
         <Login />
     </div>
 </template>
