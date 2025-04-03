@@ -3326,3 +3326,8 @@
 [2025-04-02 18:53:51] local.INFO: Memória usada PDVController::class, __construct: 23068672  
 [2025-04-02 18:53:51] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
 [2025-04-02 19:16:08] local.INFO: Acertou o login  
+[2025-04-02 22:21:04] local.INFO: Acertou o login  
+[2025-04-02 22:41:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-02 22:41:45] local.INFO: O hotel foi encontrado  
+[2025-04-02 22:41:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-02 22:41:45] local.INFO: Opção desativada, não vai alterar o endereço  

@@ -50,10 +50,10 @@
           </div>
 
           <!-- Ações -->
-          <div class="flex space-x-2">
+          <div class="flex">
                 <button
                     @click="editProduct(product.id, product.name)"
-                    class="px-4 py-2 rounded-lg  transition"
+                    class="px-4 py-2 rounded-lg transition mr-2"
                     :disabled=!product.active
                     :class="{
                         'text-gray-400 bg-slate-500': !product.active,
@@ -87,20 +87,24 @@
             </div>
         </div>
       </div>
-     
+
+      <div class="ml-72 mb-8" v-if="!showProducts">
+        <RegisterProduct/>
+      </div>
   </div>
 </template>
 
 <script>
     import { api } from 'src/boot/axios';
+    import RegisterProduct from 'src/components/Products/RegisterProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
 
     export default {
         data() {
             return {
                 products: [],
-                showProducts: true,
-                showRegisterProduct: false,
+                showProducts: false,
+                showRegisterProduct: true,
 
             };
         },
@@ -112,8 +116,16 @@
                 
             },
 
+            openRegister()
+            {
+                this.showRegisterProduct = true
+                this.showProducts = false
+
+            },
+
             async deleteproduct(id) {
                 const product = await api.delete(`/ecommerce/${id}/deactivate`)  
+                console.log(product.data)
                 window.location.reload()
             },
 
@@ -133,7 +145,8 @@
         },
 
         components: {
-            ReportProduct
+            ReportProduct,
+            RegisterProduct
         }
     };
 
@@ -141,7 +154,7 @@
 
 <style>
     .products-grid {
-        width: 83%;
+        width: 95%;
         padding: 5px;
     }
 </style>

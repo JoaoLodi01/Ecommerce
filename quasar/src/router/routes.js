@@ -59,7 +59,7 @@ const routes = [
   {
     path: `/customers`,
     name: 'CustomersView',
-    component: () => import('src/pages/Others/CustomersView.vue')
+    component: () => import('src/pages/Customers/CustomersView.vue')
   },
   {
     path: `/products`,

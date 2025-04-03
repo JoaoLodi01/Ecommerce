@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('product', 255);
-            $table->unsignedBigInteger('group_id');
+            $table->string('product', 120);
+            $table->unsignedBigInteger('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
-            $table->string('group', 255);
+            $table->string('group', 120)->nullable();
             $table->integer('amount');
             $table->decimal('cost_price', 16,2);
             $table->decimal('sale_price', 16,2);
-            $table->decimal('perc_lucro', 16,2);
+            $table->decimal('profit_percentage', 16,2);
             $table->string('cfop', 4);
-            $table->string('csosn', 3);
+            $table->string('csosncst', 3);
             $table->string('ncm', 8);
             $table->string('cest', 7);
             $table->string('unit', 4)->default('UN');
