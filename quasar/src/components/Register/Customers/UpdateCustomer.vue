@@ -1,5 +1,10 @@
 <template>
-    <div class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded">
+    <div 
+        class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded" 
+        :class="{
+            'relative top-10 left-6': widthScreen <= 1080
+        }"
+    >
         <div class="flex">
             <h2 class="text-xl font-semibold mb-4 w-max">Edição do Cliente: {{ customerName }}</h2>
             <span @click="closeUpdate()" class="cursor-pointer text-xl ml-auto">X</span>
@@ -98,7 +103,11 @@
     
             </q-input>
             
-            <div>
+            <div
+                :class="{
+                    'ml-7': widthScreen <= 1080
+                }"
+            >
                 <q-btn type="submit" class="mr-5">
                     <button @click="showLoading('Alterando')">Alterar</button>
                 </q-btn>
@@ -252,6 +261,12 @@
   
         props: {
             customerID: {
+                type: Number,
+                required: true
+                
+            },
+
+            widthScreen: {
                 type: Number,
                 required: true
                 

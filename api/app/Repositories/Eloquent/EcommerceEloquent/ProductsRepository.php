@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Log;
 
 class ProductsRepository
 {
+    public function __construct(
+        protected GroupRepository $groupRepository
+    )
+    {
+        
+    }
     public function getAll(int $active){
         //return Products::where('active', $active)->get();
         return Products::paginate(10);
@@ -31,12 +37,44 @@ class ProductsRepository
         return Products::where('id', $id)->first();
     }
 
-    public function store(array $data){
-        return Products::create($data);
+    public function create(array $data)
+    {
+        Log::info("data[groupID]");
+        Log::info($data['groupID']);
+        $group = $this->groupRepository->findByID($data['groupID']);
+        return Products::create([
+            'product' => $data['product'],
+            'amount' => $data['amount'],
+            'group_id' => $group->id,
+            'group' => $group->group,
+            'cost_price' => $data['costPrice'],
+            'sale_price' => $data['salePrice'],
+            'profit_percentage' => $data['profitPercentage'],
+            'cfop' => $data['cfop'],
+            'csosncst' => $data['csosncst'],
+            'ncm' => $data['ncm'],
+            'cest' => $data['cest'],
+            'unit' => $data['unit']
+
+        ]);
     }
 
     public function update(array $data, int $id){
-        return Products::where('id', $id)->update($data, $id);
+        $group = $this->groupRepository->findByID($data['groupID']);
+        return Products::where('id', $id)->update([
+            'product' => $data['product'],
+            'amount' => $data['amount'],
+            'group_id' => $group->id,
+            'group' => $group->group,
+            'cost_price' => $data['costPrice'],
+            'sale_price' => $data['salePrice'],
+            'profit_percentage' => $data['profitPercentage'],
+            'cfop' => $data['cfop'],
+            'csosncst' => $data['csosncst'],
+            'ncm' => $data['ncm'],
+            'cest' => $data['cest'],
+            'unit' => $data['unit']
+        ]);
     }
 
     public function delete(int $id){

@@ -1,10 +1,16 @@
 <template>
-    <div class="px-20 h-max w-full">
+    <div 
+        class="ml-14 h-max w-full"
+        :class="{
+            'relative top-12': widthScreen <= 1080
+        }"    
+    >
         <div>
-            <h1 class="text-3xl font-semibold mb-6 pt-2">Clientes</h1>
-            <div class="ml-2 mb-5">
+            <h1 class="text-3xl font-semibold mb-6 pt-2 ml-2">Clientes</h1>
+            <div class="mb-5">
                 <ReportCustomer
                     v-if="showReportCustomer"
+                    :widthScreen="widthScreen"
                 />
 
             </div>
@@ -12,7 +18,11 @@
             <button 
                 v-if="!showUpdateCustomers, showCustomers"
                 @click="openRegister()"
-                class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
+                :class="{
+                    'w-44 p-1 mr-5': widthScreen <= 1080,
+                    'w-72': widthScreen > 1080
+                }"
+                class="py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
                 <span>Cadastrar um novo cliente</span>
                 
             </button>
@@ -20,6 +30,9 @@
             <button 
                 v-else
                 @click="closeRegister()"
+                :class="{
+                    'w-44 p-1 mr-5': widthScreen <= 1080
+                }"
                 class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
             >
                 <span>Voltar</span>
@@ -27,7 +40,13 @@
         </div>
     </div>
   
-    <div class="customer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" v-if="showCustomers">
+    <div 
+        class="customer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-14" 
+        v-if="showCustomers"
+        :class="{
+            'relative right-2 top-10': widthScreen <= 1080
+        }"    
+    >
         <div
             v-for="(customer, id) in customers" :key="id" 
             class="bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
@@ -61,7 +80,7 @@
             
             <!-- Ações -->
             <div class="flex space-x-2" >
-                <button
+                <q-btn
                     @click="editCustomer(customer.id, customer.name)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
@@ -71,8 +90,8 @@
                     }"    
                 >
                     Editar
-                </button>
-                <button
+                </q-btn>
+                <q-btn
                     @click="deleteCustomer(customer.id)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
@@ -82,9 +101,9 @@
                     }"    
                     v-if="customer.active"
                 >
-                    Desativar
-                </button>
-                <button
+                    Excluir
+                </q-btn>
+                <q-btn
                     v-else
                     class="px-4 py-2 rounded-lg transition"
                     :class="{
@@ -93,22 +112,25 @@
                     @click="activeCustomer(customer.id)"
                 >   
                     Ativar
-                </button>
+                </q-btn>
             </div>
         </div> <!-- For acaba aqui-->
       </div>
     </div>
 
-    <div class="ml-72 mb-8" v-if="!showCustomers">
+    <div class="mb-8" v-if="!showCustomers">
         <RegisterCustomer
             v-if="showRegisterCustomers"
             @close="closeReload($event)"
+            :widthScreen="widthScreen"
+            
         />
 
         <UpdateCustomer
             v-if="showUpdateCustomers"
             :customerID="customerID"
             :customerName="customerName"
+            :widthScreen="widthScreen"
             @close="closeReload($event)"
         />
     </div>
@@ -130,13 +152,14 @@
                 showReportCustomer: true,
                 customerID: '',
                 customerName: '',
-                
+                widthScreen: 0                
             };
         },
 
         mounted(){
             this.getCustomers();
-            
+            this.widthScreen += screen.width
+
         },
 
         methods: {
@@ -173,11 +196,11 @@
 
             closeRegister()
             {
-                this.showCustomers = true
-                this.showReportCustomer = true
+                console.log('Chamou closeRegister')
                 this.showRegisterCustomers = false
                 this.showUpdateCustomers = false
-                
+                this.showCustomers = true
+                this.showReportCustomer = true
             },
 
             closeReload(event)
