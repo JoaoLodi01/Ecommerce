@@ -59,7 +59,7 @@
         <div 
           v-for="(product, id) in products" :key="product.id" 
           class="bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
-          @click="editProduct(id)"
+          @click="editProduct(product.product, product.id)"
         >
 
           <div class="text-sm text-gray-500 mb-2">
@@ -81,7 +81,7 @@
           <!-- Ações -->
           <div class="flex space-x-2">
             <q-btn
-                @click="editProduct(product.id, product.name)"
+                @click="editProduct(product.product, product.id)"
                 class="px-4 py-2 mr-2 rounded-lg transition"
                 :disabled=!product.active
                 :class="{
@@ -121,22 +121,35 @@
                 v-if="showRegisterProduct"
                 :widthScreen="widthScreen"
             />
+
+            <UpdateProduct
+                v-if="showUpdateProduct"
+                :widthScreen="widthScreen"
+                :productName="productName"
+                :productID="productID"
+                @close="closeReload($event)"
+            />            
       </div>
   </div>
 </template>
 
 <script>
     import { api } from 'src/boot/axios';
-    import RegisterProduct from 'src/components/Register/RegisterProduct.vue';
+    import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
+    import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
+
 
     export default {
         data() {
             return {
                 products: [],
                 showProducts: true,
+                showUpdateProduct: false,
                 showRegisterProduct: false,
-                widthScreen: 0
+                widthScreen: 0,
+                productName: '',
+                productID: ''
 
             };
         },
@@ -157,6 +170,7 @@
             openRegister()
             {
                 this.showRegisterProduct = true
+                this.showUpdateProduct = false
                 this.showProducts = false
 
             },
@@ -167,16 +181,29 @@
                 this.showProducts = true
             },
 
-            toggleRegisterProductVisibility(){
+            toggleRegisterProductVisibility()
+            {
                 this.showRegisterProduct = !this.showRegisterProduct;
                 this.showProducts = !this.showProducts;
             },
 
-            editProduct(productID) {
+            editProduct(name, id) 
+            {
+                this.productName = name
+                this.productID = id
+                this.showUpdateProduct = true
                 this.showRegisterProduct = false
                 this.showProducts = false
 
             },
+
+            closeReload(event)
+            {
+                this.showUpdateProduct = event
+                this.showRegisterProduct = event
+                window.location.reload()
+            },
+
         },
 
         mounted() {
@@ -187,7 +214,9 @@
 
         components: {
             RegisterProduct,
-            ReportProduct
+            ReportProduct,
+            UpdateProduct
+
         }
     };
 

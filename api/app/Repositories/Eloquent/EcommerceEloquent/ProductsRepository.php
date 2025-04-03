@@ -31,8 +31,16 @@ class ProductsRepository
         return Products::where('id', $id)->first();
     }
 
-    public function store(array $data){
-        return Products::create($data);
+    public function create(array $data)
+    {
+        $group = $this->groupsRepository->findByID($data['groupID']);
+        return Products::create([
+            'product' => $data['product'],
+            'amount' => $data['amount'],
+            'group_id' => $group->id,
+            'group' => $group->group,
+             
+        ]);
     }
 
     public function update(array $data, int $id){

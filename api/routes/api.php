@@ -49,7 +49,7 @@ Route::prefix('v1')->group( function (){
             Route::prefix('products')->group( function(){
                 Route::get('/all', [ProductsController::class, 'getAll']);
                 Route::post('/search', [ProductsController::class, 'search']);
-                Route::post('/create', [ProductsController::class, 'store']);
+                Route::post('/create', [ProductsController::class, 'create']);
                 Route::get('/{id}', [ProductsController::class, 'findByID']);
                 Route::put('/{id}', [ProductsController::class, 'update']);
                 Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);

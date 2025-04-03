@@ -137,20 +137,20 @@
       data()
       {
           return {
-              productDetails: {
-                  product: '',
-                  groupID: '',
-                  amount: '',
-                  costPrice: 0,
-                  profitPercentage: 0,
-                  salePrice: 0,
-                  cfop: '',
-                  csosncst: '',
-                  ncm: '',
-                  cest: '',
-                  unit: 'UN',
-                  
-              }
+            productDetails: {
+                product: '',
+                groupID: '',
+                amount: '',
+                costPrice: 0,
+                profitPercentage: 0,
+                salePrice: 0,
+                cfop: '',
+                csosncst: '',
+                ncm: '',
+                cest: '',
+                unit: 'UN',
+                
+            }
           }
       }
   }

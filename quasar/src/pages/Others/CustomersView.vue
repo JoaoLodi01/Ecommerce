@@ -19,9 +19,10 @@
                 v-if="!showUpdateCustomers, showCustomers"
                 @click="openRegister()"
                 :class="{
-                    'w-44 p-1 mr-5': widthScreen <= 1080
+                    'w-44 p-1 mr-5': widthScreen <= 1080,
+                    'w-72': widthScreen > 1080
                 }"
-                class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
+                class="py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition">
                 <span>Cadastrar um novo cliente</span>
                 
             </button>
