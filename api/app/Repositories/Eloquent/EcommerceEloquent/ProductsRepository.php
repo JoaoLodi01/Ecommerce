@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 class ProductsRepository
 {
     public function __construct(
-        protected 
+        
     )
     {
         
