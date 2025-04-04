@@ -29,6 +29,7 @@ class ProductsSeeder extends Seeder
         $products = [
             [
                 "product" => "Jack Daniels Maça",
+                "barcode" => "82184004364",
                 "group_id" => $id->id,
                 "group" => $id->group,
                 "amount" => 10,
@@ -42,6 +43,7 @@ class ProductsSeeder extends Seeder
             ],
             [
                 "product" => "Jack Daniels Honey",
+                "barcode" => "8218400032",
                 "group_id" => $id->id,
                 "group" => $id->group,
                 "amount" => 10,
@@ -55,6 +57,7 @@ class ProductsSeeder extends Seeder
             ],
             [
                 "product" => "Jack Daniels Canela",
+                "barcode" => "07898945131315",
                 "group_id" => $id->id,
                 "group" => $id->group,
                 "amount" => 10,

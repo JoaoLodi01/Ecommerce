@@ -15,6 +15,8 @@ class ConfigSeeder extends Seeder
     public function run(): void
     {
         ConfigHotel::create();
-        ConfigPDV::create();
+        ConfigPDV::create([
+            'filter_search' => 'Cód barras interno'
+        ]);
     }
 }

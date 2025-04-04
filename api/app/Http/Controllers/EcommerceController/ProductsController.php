@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductsRequest;
+use App\Http\Requests\Products\{
+    ProductsRequest,
+    SearchProducts
+};
 use Illuminate\Http\Request;
 use App\Services\EcommerceService\ProductsService;
 use Illuminate\Support\Facades\Log;
@@ -19,15 +22,16 @@ class ProductsController extends Controller
         return $this->productsService->getAll();
     }
 
-    public function search(Request $request){
-        return $this->productsService->search($request->all());
+    public function search(SearchProducts $request){
+        $data = $request->validated();
+        Log::info('Controller');
+        Log::info($data);
+        return $this->productsService->search($data);
     }
 
     public function create(ProductsRequest $request)
     {
         $data = $request->validated();
-        Log::info('data');
-        Log::info($data);
         return $this->productsService->create($data);
     }
 
@@ -38,8 +42,6 @@ class ProductsController extends Controller
     public function update(ProductsRequest $request, int $id)
     {
         $data = $request->validated();
-        Log::info('ProductsRequest - update');
-        Log::info($data);
         return $this->productsService->update($data, $id);
     }
 

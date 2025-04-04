@@ -62,7 +62,8 @@
                 },
                 searchOptions: [
                     'Cód barras',
-                    'Cód barras interno'
+                    'Cód barras interno',
+                    'Padrão (cód.barras ou cód.produto)'
                 ]
             }
         },
@@ -88,7 +89,8 @@
 
                 if(data.success)
                 {
-                       
+                    alert('Configurações gravadas com sucesso!')
+                    this.onClose()
                 }
             },
 

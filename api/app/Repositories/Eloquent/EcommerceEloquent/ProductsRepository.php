@@ -21,15 +21,43 @@ class ProductsRepository
 
     public function search(array $data)
     {
-        Log::info('Dados recebidos');
+        Log::info('-- Vai começar a busca --');
         Log::info($data);
-        $products = Products::where('active', 1)
-                    ->where('product', 'like', '%' . $data['params'] . '%')
+        $products = null;
+        $search = $data['search'];
+        
+        switch ($data['fillter']) {
+            case 'Cód barras interno':
+                $products = Products::where('active', 1)
+                    ->where('product', 'like', '%' . $search . '%')
                     ->get();
 
-        Log::info('O que achou: ');
-        Log::info($products);
+                    Log::info('O que achou: ');
+                    Log::info($products);
 
+                break;
+            
+            case 'Cód barras':
+
+                break;
+
+            case 'Padrão (cód.barras ou cód.produto)':
+                $products = Products::where('active', 1)
+                    ->where('product', 'like', '%' . $search . '%')
+                    ->orWhere('barcode', $search)
+                    ->orWhere('id', $search)
+                    ->get();
+
+                    Log::info('O que achou: ');
+                    Log::info($products);
+
+                break;
+
+            default:
+                # code...
+                break;
+        }
+        
         return $products;
     }
 

@@ -549,7 +549,7 @@
             async selectClient(){
                 //const response = await api.get('/customers/selectClient');
                 const response = await api.get('/customers/all');
-                console.log(response.data)
+                
                 this.clients = response.data.data;
                 this.filterClients();
                 
@@ -567,7 +567,7 @@
                 this.clientsData.name = client.name;
                 this.clients = []
                 this.filteredClients = [];
-                console.log(this.clientsData)
+                
             },
 
             async saveSale()
@@ -591,9 +591,6 @@
                                 
                             })
 
-                            console.log(this.clientsData.id,)
-                            console.log(response)
-
                             if(response.data.success === true)
                             {
                                 alert('Venda guardarda para enviar posteriormente!')
@@ -602,7 +599,7 @@
                             }
 
                         } else {
-                            console.log('Já era uma venda que estava guardada')
+
                             alert('Venda guardarda para enviar posteriormente!')
                             this.productsSeletion = []
                             this.$router.push({ name: "PDV" })
@@ -677,9 +674,7 @@
                             this.showPaymentsForm = !this.showPaymentsForm
                             this.pdvID = Number(this.idPDV)
                         }
-                        
-                        console.log('Falhou')
-                        
+                    
                     } else {
                         console.log('Finalizar venda')
                         if(type === 'nm')   
@@ -696,8 +691,6 @@
                                 is_nfce_nm: type,
                                 
                             })
-
-                            console.log('response.dat PDVView, line 581: ', response.data)
 
                             if(response.data.success === true)
                             {
@@ -748,7 +741,6 @@
             {
                 try {
                     const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
-                    console.log(response.data.pdvs.get_itens)
                     
                     this.updateProductsSeletion(response.data.pdvs.get_itens)
 
@@ -796,9 +788,6 @@
                         
 
                     }
-                    
-                    console.log('chamou getConfig PDVView')
-                    console.log(this.configs)
                 }
                 getConfig()
             },
