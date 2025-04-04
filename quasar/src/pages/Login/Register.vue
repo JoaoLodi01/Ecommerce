@@ -104,16 +104,15 @@
             <q-btn 
                 @click=showLoading 
                 type="submit"
-                label="Criar conta"
-            />
+            
+            ><button> Criar conta </button></q-btn>
 
             <q-btn
                 type="button"
                 @click="hideForm" 
-                label="Já possui uma conta?"
                 class="m-2"
-
-            />
+                
+            ><button> Já possui uma conta?</button></q-btn>
             </q-form>
             <div v-if="messages.length > 0 ">
                 <p v-for="message in messages">

@@ -29,16 +29,18 @@
                 <table class="min-w-full table-auto border-collapse border border-gray-200">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="px-6 py-3 text-left">Controle</th>
-                            <th class="px-6 py-3 text-left">Documento</th>
-                            <th class="px-6 py-3 text-left">Descrição</th>
-                            <th class="px-6 py-3 text-left">Valor entrada</th>
-                            <th class="px-6 py-3 text-left">Valor saída</th>
-                            <th class="px-6 py-3 text-left">Total</th>
-                            <th class="px-6 py-3 text-left">Cód. Espécie</th>
-                            <th class="px-6 py-3 text-left">Espécie</th>
-                            <th class="px-6 py-3 text-left">Origem</th>
-                            <th class="px-6 py-3 text-left">Ações</th>
+                            <th scope="col" class="px-6 py-3 sticky right-0 bg-gray-200">Tipo</th>
+                            <th scope="col" class="px-6 py-3 sticky left-0 bg-gray-200">Ações</th>
+                            <th scope="col" class="px-6 py-3">Cód</th>
+                            <th scope="col" class="px-3 py-4">Documento</th>
+                            <th scope="col" class="px-6 py-3">Descrição</th>
+                            <th scope="col" class="px-6 py-3">Valor entrada</th>
+                            <th scope="col" class="px-6 py-3">Valor saída</th>
+                            <th scope="col" class="px-6 py-3">Total</th>
+                            <th scope="col" class="px-6 py-3">Cód Espécie</th>
+                            <th scope="col" class="px-6 py-3">Espécie</th>
+                            <th scope="col" class="px-6 py-3">Origem</th>
+                            <th scope="col" class="px-6 py-3">Cliente</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,15 +59,16 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                                 </svg>
                             </td>
-                            <td class="px-6 py-3 text-center">{{ register.id }}</td>
-                            <td class="px-6 py-3 text-center">{{ register.document }}</td>
-                            <td class="px-3 py-3">{{ register.description }}</td>
-                            <td class="px-5 py-3 text-center">{{ register.input_value }}</td>
-                            <td class="px-6 py-3 text-center">{{ register.output_value }}</td>
-                            <td class="px-6 py-3 text-center">{{ register.real_balance }}</td>
-                            <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
-                            <td class="px-6 py-3">{{ register.especie }}</td>
-                            <td class="px-6 py-3">{{ register.origem }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.document }}</td>
+                            <td scope="row" class="px-3 py-4">{{ register.description }}</td>
+                            <td scope="row" class="px-5 py-3 text-center">{{ register.input_value }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.real_balance }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
+                            <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
+                            <td scope="row" class="px-6 py-3">{{ register.origem }}</td>
+                            <td scope="row" class="px-6 py-3">{{ register.name }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -76,7 +79,7 @@
 
 <script>
 import { api } from "src/boot/axios";
-import RegisterCash from "src/components/Register/RegisterCash.vue";
+import RegisterCash from "src/components/Register/Financial/RegisterCash.vue";
 
 export default {
     data(){
@@ -97,36 +100,7 @@ export default {
     },
 
     methods: {
-        async submitForm(){
-        try {
-                if (!this.cash.description || !this.cash.valor_entrada && !this.cash.valor_saida){
-                    alert("Descrição e pelo menos um valor (entrada ou saída) são obrigatórios!");
-                    return;
-                }
-
-                const response = await api.post('/cash-register/create', this.cash, {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
-
-                this.cashs.push({ ...this.cash});
-                this.cash = {
-                    description: "",
-                    valor_entrada: "",
-                    valor_saida: "",
-                }
-
-                console.log("Resposta da API:", response.data);
-                alert("Cadastro realizado com sucesso!");
-
-            } catch (error) {
-                console.log("Erro ao cadastrar:", error);
-                alert("Erro ao cadastrar!");
-
-            }
-        },
-
+    
         async getRegister(){
             try {
                 const response = await api.get('/ecommerce/cash-register/all')

@@ -7,7 +7,7 @@
         'top-10 left-0': widthScreen <= 1080,
         'ml-52': widthScreen > 1080,
         'mr-44': widthScreen > 1080 && widthScreen < 1600,
-        'transform -translate-x-24': !sidebarActive
+        'transform -translate-x-24': !sidebarActive && widthScreen > 1080,
         
     }">   
         <router-view></router-view>

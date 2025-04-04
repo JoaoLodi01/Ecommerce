@@ -43,10 +43,15 @@ class ProductsService{
         }
     }
 
-    public function store(array $data){
+    public function create(array $data){
         try {
-            Log::info("Vai chamar checkGTIN");
-            $this->checkGTIN($data);
+           /* Log::info("Vai chamar checkGTIN");
+            $this->checkGTIN($data);*/
+            $product = $this->productsRepository->create($data);
+            return response()->json([
+                'success' => true,
+                'product' => $product 
+            ], 201);
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
@@ -55,8 +60,11 @@ class ProductsService{
 
     public function update(array $data, int $id){
         try {
-            $this->productsRepository->update($data, $id);
-            return response()->json(true);
+            $product = $this->productsRepository->update($data, $id);
+            return response()->json([
+                'success' => true,
+                'product' => $product
+            ], 200);
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
@@ -80,8 +88,8 @@ class ProductsService{
             $url = 'https://api.cosmos.bluesoft.com.br/gtins/' . $gtin['gtin'] . '.json';
             $agent = 'Cosmos-API-Request';
             $headers = array(
-            "Content-Type: application/json",
-            "X-Cosmos-Token:".env('BLUESOFT_TOKEN')
+                "Content-Type: application/json",
+                "X-Cosmos-Token:".env('BLUESOFT_TOKEN')
             );
 
             $curl = curl_init($url);
@@ -102,8 +110,11 @@ class ProductsService{
 
             curl_close($curl);
 
-            $this->productsRepository->store($gtin);
-            return response()->json(true);
+            $product = $this->productsRepository->create($gtin);
+            return response()->json([
+                'success' => true,
+                'product' => $product 
+            ], 201);
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);

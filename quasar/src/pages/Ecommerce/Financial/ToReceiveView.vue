@@ -66,7 +66,7 @@
 
 <script>
 import { api } from "src/boot/axios";
-import RegisterReceive from "src/components/Register/RegisterReceive.vue";
+import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
 
 export default {
     data(){

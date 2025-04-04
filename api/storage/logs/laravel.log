@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2025-03-31 22:19:20] local.INFO: Acertou o login  
 [2025-03-31 22:19:29] local.INFO: Vai buscar o hotel e as configurações  
 [2025-03-31 22:19:29] local.INFO: O hotel foi encontrado  
@@ -52,3 +53,102 @@
 [2025-04-01 00:14:40] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
 [2025-04-01 00:14:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
 [2025-04-01 00:14:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+=======
+[2025-04-03 16:55:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 16:55:17] local.INFO: O hotel foi encontrado  
+[2025-04-03 16:55:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 16:55:17] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 16:56:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 16:56:07] local.INFO: O hotel foi encontrado  
+[2025-04-03 16:56:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 16:56:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 16:56:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 16:56:58] local.INFO: O hotel foi encontrado  
+[2025-04-03 16:56:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 16:56:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 16:56:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 16:56:59] local.INFO: O hotel foi encontrado  
+[2025-04-03 16:56:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 16:56:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 16:57:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 16:57:09] local.INFO: O hotel foi encontrado  
+[2025-04-03 16:57:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 16:57:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 16:58:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 16:58:25] local.INFO: O hotel foi encontrado  
+[2025-04-03 16:58:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 16:58:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 16:58:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 16:58:37] local.INFO: O hotel foi encontrado  
+[2025-04-03 16:58:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 16:58:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 17:00:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 17:00:00] local.INFO: O hotel foi encontrado  
+[2025-04-03 17:00:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 17:00:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 17:10:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 17:10:14] local.INFO: O hotel foi encontrado  
+[2025-04-03 17:10:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 17:10:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 17:10:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 17:10:28] local.INFO: O hotel foi encontrado  
+[2025-04-03 17:10:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 17:10:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 17:13:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 17:13:31] local.INFO: O hotel foi encontrado  
+[2025-04-03 17:13:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 17:13:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 17:14:18] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 17:14:18] local.INFO: O hotel foi encontrado  
+[2025-04-03 17:14:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 17:14:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 17:16:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 17:16:30] local.INFO: O hotel foi encontrado  
+[2025-04-03 17:16:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 17:16:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 17:16:50] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 17:16:50] local.INFO: O hotel foi encontrado  
+[2025-04-03 17:16:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 17:16:50] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-03 17:20:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-03 17:20:59] local.INFO: O hotel foi encontrado  
+[2025-04-03 17:20:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-03 17:20:59] local.INFO: Opção desativada, não vai alterar o endereço  
+>>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
+[2025-04-04 00:50:37] local.INFO: Errou o login  
+[2025-04-04 00:50:54] local.INFO: Acertou o login  
+[2025-04-04 00:51:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 00:51:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 00:51:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 00:51:11] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 00:51:11] local.INFO: O hotel foi encontrado  
+[2025-04-04 00:51:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 00:51:11] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 00:51:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 00:51:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 00:51:22] local.INFO: O hotel foi encontrado  
+[2025-04-04 00:51:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 00:51:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 00:51:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 00:51:47] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 00:56:28] local.INFO: ProductsRequest - update  
+[2025-04-04 00:56:29] local.INFO: array (
+  'product' => 'Jack Daniels Canela',
+  'groupID' => 2,
+  'amount' => 10,
+  'costPrice' => '10.00',
+  'salePrice' => 20,
+  'profitPercentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '123456',
+  'unit' => 'UN',
+)  
+[2025-04-04 00:56:46] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-04 00:57:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 00:58:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 01:11:50] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 01:29:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 01:33:15] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 01:35:24] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  

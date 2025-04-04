@@ -4,7 +4,7 @@
         
     </div>
 
-    <div v-if="!loged" class="mt-20">
+    <div v-if="!loged" class="mt-48">
         <Login />
     </div>
 </template>
@@ -47,7 +47,7 @@
                         LocalStorage.setItem("user_name", response.data.user.name)
                     
                     } else {
-                        alert('É necessário fazer login para acessar essa página!')
+                        
                         LocalStorage.remove("auth_token")
                         LocalStorage.setItem("loged", false)
                         
@@ -69,7 +69,7 @@
 
         mounted(){
             this.widthScreen += screen.width
-
+            
             if(this.widthScreen <= 1080)
             {   
                 this.sidebarActive = false   
@@ -79,8 +79,3 @@
     }
 
 </script>
-
-<style>
-
-    
-</style>

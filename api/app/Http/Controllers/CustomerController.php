@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\CustomerService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CostumerRequest;
+use Illuminate\Support\Facades\Log;
 
 class CustomerController extends Controller
 {
@@ -22,9 +23,10 @@ class CustomerController extends Controller
         return $this->customerService->selectClient($request->all());
     }
 
-    public function store(CostumerRequest $request){
+    public function create(CostumerRequest $request){
         $data = $request->validated();
-        return $this->customerService->store($data);
+        Log::info($data);
+        return $this->customerService->create($data);
     }
 
     public function findByID(int $id){

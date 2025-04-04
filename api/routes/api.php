@@ -22,6 +22,9 @@ use App\Http\Controllers\{
     CustomerController
 
 };
+
+use App\Http\Controllers\Reports\ReportCustomersController;
+
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
 
@@ -46,7 +49,7 @@ Route::prefix('v1')->group( function (){
             Route::prefix('products')->group( function(){
                 Route::get('/all', [ProductsController::class, 'getAll']);
                 Route::post('/search', [ProductsController::class, 'search']);
-                Route::post('/create', [ProductsController::class, 'store']);
+                Route::post('/create', [ProductsController::class, 'create']);
                 Route::get('/{id}', [ProductsController::class, 'findByID']);
                 Route::put('/{id}', [ProductsController::class, 'update']);
                 Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
@@ -102,8 +105,13 @@ Route::prefix('v1')->group( function (){
         
     Route::prefix('config')->group( function () {
         Route::prefix('config-hotel')->group( function () {
-            Route::put('/set-config', [ConfigController::class, 'update']);
-            Route::get('/get-config', [ConfigController::class, 'getConfigs']);
+            Route::put('/set-config', [ConfigController::class, 'updateHotel']);
+            Route::get('/get-config', [ConfigController::class, 'getConfigsHotel']);
+        });
+
+        Route::prefix('config-pdv')->group( function () {
+            Route::put('/set-config', [ConfigController::class, 'updatePDV']);
+            Route::get('/get-config', [ConfigController::class, 'getConfigsPDV']);
         });
     });
 
@@ -111,11 +119,13 @@ Route::prefix('v1')->group( function (){
     Route::prefix('customers')->group( function(){
         Route::get('/all', [CustomerController::class, 'getAll']);
         Route::get('/selectClient', [CustomerController::class, 'selectClient']);
-        Route::post('/create', [CustomerController::class, 'store']);
+        Route::post('/create', [CustomerController::class, 'create']);
         Route::get('/{id}', [CustomerController::class, 'findByID']);
         Route::put('/{id}', [CustomerController::class, 'update']);
         Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
         Route::put('/{id}/active', [CustomerController::class, 'active']);
+        Route::get('/report/all', [ReportCustomersController::class, 'exportAllClients']);
+        Route::get('/report/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
         
     });
 

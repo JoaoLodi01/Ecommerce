@@ -66,7 +66,7 @@
 
 <script>
 import { api } from "src/boot/axios";
-import RegisterPay from "src/components/Register/RegisterPay.vue";
+import RegisterPay from "src/components/Register/Financial/RegisterPay.vue";
 
 export default {
     data(){
