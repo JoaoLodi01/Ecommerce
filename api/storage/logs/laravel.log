@@ -153,3 +153,217 @@
 [2025-04-04 01:33:15] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
 [2025-04-04 01:35:24] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
 [2025-04-04 01:39:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 16:43:27] local.INFO: Errou o login  
+[2025-04-04 16:43:54] local.INFO: Acertou o login  
+[2025-04-04 16:44:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 16:44:49] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-04 16:44:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 16:45:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 16:45:04] local.INFO: O hotel foi encontrado  
+[2025-04-04 16:45:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 16:45:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 16:45:15] local.INFO: Dados recebidos  
+[2025-04-04 16:45:15] local.INFO: array (
+  'params' => 't',
+)  
+[2025-04-04 16:45:15] local.INFO: O que achou:   
+[2025-04-04 16:45:15] local.INFO: []  
+[2025-04-04 16:45:15] local.INFO: Dados recebidos  
+[2025-04-04 16:45:15] local.INFO: array (
+  'params' => 'te',
+)  
+[2025-04-04 16:45:15] local.INFO: O que achou:   
+[2025-04-04 16:45:15] local.INFO: []  
+[2025-04-04 16:45:16] local.INFO: Dados recebidos  
+[2025-04-04 16:45:16] local.INFO: array (
+  'params' => 't',
+)  
+[2025-04-04 16:45:16] local.INFO: O que achou:   
+[2025-04-04 16:45:16] local.INFO: []  
+[2025-04-04 16:45:17] local.INFO: Dados recebidos  
+[2025-04-04 16:45:17] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-04-04 16:45:17] local.INFO: O que achou:   
+[2025-04-04 16:45:17] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 16:45:17] local.INFO: Dados recebidos  
+[2025-04-04 16:45:17] local.INFO: array (
+  'params' => 'k',
+)  
+[2025-04-04 16:45:17] local.INFO: O que achou:   
+[2025-04-04 16:45:17] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 16:45:17] local.INFO: Dados recebidos  
+[2025-04-04 16:45:17] local.INFO: array (
+  'params' => 'kj',
+)  
+[2025-04-04 16:45:17] local.INFO: O que achou:   
+[2025-04-04 16:45:17] local.INFO: []  
+[2025-04-04 16:45:17] local.INFO: Dados recebidos  
+[2025-04-04 16:45:17] local.INFO: array (
+  'params' => 'kja',
+)  
+[2025-04-04 16:45:17] local.INFO: O que achou:   
+[2025-04-04 16:45:17] local.INFO: []  
+[2025-04-04 16:45:18] local.INFO: Dados recebidos  
+[2025-04-04 16:45:18] local.INFO: array (
+  'params' => 'kj',
+)  
+[2025-04-04 16:45:18] local.INFO: O que achou:   
+[2025-04-04 16:45:18] local.INFO: []  
+[2025-04-04 16:45:18] local.INFO: Dados recebidos  
+[2025-04-04 16:45:18] local.INFO: array (
+  'params' => 'k',
+)  
+[2025-04-04 16:45:18] local.INFO: O que achou:   
+[2025-04-04 16:45:18] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 16:45:19] local.INFO: Dados recebidos  
+[2025-04-04 16:45:19] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-04-04 16:45:19] local.INFO: O que achou:   
+[2025-04-04 16:45:19] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 16:45:19] local.INFO: Dados recebidos  
+[2025-04-04 16:45:19] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-04-04 16:45:19] local.INFO: O que achou:   
+[2025-04-04 16:45:19] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 16:45:19] local.INFO: Dados recebidos  
+[2025-04-04 16:45:19] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-04-04 16:45:19] local.INFO: O que achou:   
+[2025-04-04 16:45:19] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 16:45:19] local.INFO: Dados recebidos  
+[2025-04-04 16:45:19] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-04-04 16:45:19] local.INFO: O que achou:   
+[2025-04-04 16:45:19] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 16:45:19] local.INFO: Dados recebidos  
+[2025-04-04 16:45:19] local.INFO: array (
+  'params' => 'jack',
+)  
+[2025-04-04 16:45:19] local.INFO: O que achou:   
+[2025-04-04 16:45:19] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 16:45:29] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-04 16:45:29] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-04 16:45:29] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-04 16:45:29] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-04 16:45:29] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-04 16:45:29] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-04 16:45:29] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-04 16:45:29] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 2,
+  'customer_id' => 2,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-04 16:45:29] local.INFO: Memória usada PDVRepository::class, saveSale: 25165824  
+[2025-04-04 16:45:29] local.INFO: Busca pelo customer  
+[2025-04-04 16:45:29] local.INFO: Busca pelo user  
+[2025-04-04 16:45:29] local.INFO: {"id":2,"name":"Lodi","email":"joaolodi01@gmail.com","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-04T16:43:45.000000Z","updated_at":"2025-04-04T16:43:45.000000Z"}  
+[2025-04-04 16:45:29] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 2,
+  'client' => 'Teste 2',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 2,
+  'user' => 'Lodi',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-04 16:45:29] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-04-04 16:45:29] local.INFO: Memória usada PDVRepository::class, saveProducts: 25165824  
+[2025-04-04 16:45:29] local.INFO: User: {"id":2,"name":"Lodi","email":"joaolodi01@gmail.com","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-04T16:43:45.000000Z","updated_at":"2025-04-04T16:43:45.000000Z"}  
+[2025-04-04 16:45:29] local.INFO: $products 11  
+[2025-04-04 16:45:29] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+    ),
+  ),
+)  
+[2025-04-04 16:45:29] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 25165824  
+[2025-04-04 16:45:29] local.INFO: $product, type: array  
+[2025-04-04 16:45:29] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+  ),
+)  
+[2025-04-04 16:45:29] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 25165824  
+[2025-04-04 16:45:29] local.INFO: $product[$i]  
+[2025-04-04 16:45:29] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+)  
