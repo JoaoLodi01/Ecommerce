@@ -161,6 +161,13 @@
                 
             },
 
+            openRegister()
+            {
+                this.showRegisterProduct = true
+                this.showProducts = false
+
+            },
+
             async deleteproduct(id) {
                 const product = await api.delete(`/ecommerce/${id}/deactivate`)  
                 console.log(product)

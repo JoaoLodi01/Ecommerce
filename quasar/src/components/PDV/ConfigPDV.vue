@@ -2,28 +2,38 @@
     <div
         class="ml-14"
     >
-        <h1>Configuarações</h1>
+        <div class="flex">
+            <h1>Configuarações</h1>
+            <q-btn 
+                icon="close" 
+                label="Voltar" 
+                @click="onClose" 
+                class="h-4 mt-auto mb-auto ml-5"
+            />
+        </div>
+
         <q-form
             @submit="onSubmit"
+            @reset="onReset"
             class="q-gutter-md"
         >
 
             <q-checkbox 
                 left-label 
-                v-model="nmFinaly" 
+                v-model="configs.nmFinaly" 
                 :label="'Permitir venda sem emissão fiscal ( Nota Manual )'"
                 label="Orange" 
             />
 
             <q-checkbox 
                 left-label 
-                v-model="saleNegativeorReset" 
+                v-model="configs.saleNegativeorReset" 
                 :label="'Permitir venda com estoque negativo ou zerado'"
                 label="Orange" 
             />
 
             <q-select 
-                v-model="model" 
+                v-model="configs.searchOption" 
                 :options="searchOptions" 
                 label="Busca" 
                 filled 
@@ -44,12 +54,16 @@
         data()
         {
             return {
-                model: null,
-                nmFinaly: true,
-                saleNegativeorReset: false,
+                configs: {
+                    searchOption: null,
+                    nmFinaly: true,
+                    saleNegativeorReset: false,
+                   
+                },
                 searchOptions: [
                     'Cód barras',
-                    'Cód barras interno'
+                    'Cód barras interno',
+                    'Padrão (cód.barras ou cód.produto)'
                 ]
             }
         },
@@ -57,19 +71,47 @@
         methods: {
             async getConfig()
             {
-                const response = await api.get('');
+                const response = await api.get('/config/all-configs');
+                const data = response.data.configPDV[0]
                 
+                this.configs = {
+                    nmFinaly: data.nm_finaly === 1 ? true : false,
+                    saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
+                    searchOption: data.filter_search
+                }
+
             },
         
-            onSubmit()
+            async onSubmit()
             {
-                console.log('model', this.model)
-                console.log('orange', this.orange)
+                const response = await api.put('/config/config-pdv/update-config', this.configs)
+                const data = response.data
+
+                if(data.success)
+                {
+                    alert('Configurações gravadas com sucesso!')
+                    this.onClose()
+                }
+            },
+
+            onReset()
+            {
+                this.getConfig()
+            },
+
+            onClose()
+            {
+                this.$emit("close", false)
             }
         },
+
+        emits: [
+            'close'
+        ],
         
         mounted()
         {
+            this.getConfig()
             
         }
     }

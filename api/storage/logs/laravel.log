@@ -1,60 +1,95 @@
-[2025-04-03 16:55:17] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 16:55:17] local.INFO: O hotel foi encontrado  
-[2025-04-03 16:55:17] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 16:55:17] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 16:56:07] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 16:56:07] local.INFO: O hotel foi encontrado  
-[2025-04-03 16:56:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 16:56:07] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 16:56:58] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 16:56:58] local.INFO: O hotel foi encontrado  
-[2025-04-03 16:56:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 16:56:58] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 16:56:59] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 16:56:59] local.INFO: O hotel foi encontrado  
-[2025-04-03 16:56:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 16:56:59] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 16:57:09] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 16:57:09] local.INFO: O hotel foi encontrado  
-[2025-04-03 16:57:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 16:57:09] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 16:58:25] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 16:58:25] local.INFO: O hotel foi encontrado  
-[2025-04-03 16:58:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 16:58:25] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 16:58:37] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 16:58:37] local.INFO: O hotel foi encontrado  
-[2025-04-03 16:58:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 16:58:37] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 17:00:00] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 17:00:00] local.INFO: O hotel foi encontrado  
-[2025-04-03 17:00:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 17:00:00] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 17:10:14] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 17:10:14] local.INFO: O hotel foi encontrado  
-[2025-04-03 17:10:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 17:10:14] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 17:10:28] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 17:10:28] local.INFO: O hotel foi encontrado  
-[2025-04-03 17:10:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 17:10:28] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 17:13:31] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 17:13:31] local.INFO: O hotel foi encontrado  
-[2025-04-03 17:13:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 17:13:31] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 17:14:18] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 17:14:18] local.INFO: O hotel foi encontrado  
-[2025-04-03 17:14:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 17:14:18] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 17:16:30] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 17:16:30] local.INFO: O hotel foi encontrado  
-[2025-04-03 17:16:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 17:16:30] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 17:16:50] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 17:16:50] local.INFO: O hotel foi encontrado  
-[2025-04-03 17:16:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 17:16:50] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-03 17:20:59] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-03 17:20:59] local.INFO: O hotel foi encontrado  
-[2025-04-03 17:20:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-03 17:20:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 11:14:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-04 11:14:17] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-04 11:14:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-04 11:14:35] local.INFO: Controller  
+[2025-04-04 11:14:35] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-04 11:14:35] local.INFO: -- Vai começar a busca --  
+[2025-04-04 11:14:35] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-04 11:14:35] local.INFO: O que achou:   
+[2025-04-04 11:14:35] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-04 11:14:38] local.INFO: Controller  
+[2025-04-04 11:14:38] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-04 11:14:38] local.INFO: -- Vai começar a busca --  
+[2025-04-04 11:14:38] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-04 11:14:38] local.INFO: O que achou:   
+[2025-04-04 11:14:38] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 11:14:39] local.INFO: Controller  
+[2025-04-04 11:14:39] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jack',
+)  
+[2025-04-04 11:14:39] local.INFO: -- Vai começar a busca --  
+[2025-04-04 11:14:39] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jack',
+)  
+[2025-04-04 11:14:39] local.INFO: O que achou:   
+[2025-04-04 11:14:39] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 11:16:05] local.INFO: Controller  
+[2025-04-04 11:16:05] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'd',
+)  
+[2025-04-04 11:16:05] local.INFO: -- Vai começar a busca --  
+[2025-04-04 11:16:05] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'd',
+)  
+[2025-04-04 11:16:05] local.INFO: O que achou:   
+[2025-04-04 11:16:05] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 11:16:08] local.INFO: Controller  
+[2025-04-04 11:16:08] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'm',
+)  
+[2025-04-04 11:16:08] local.INFO: -- Vai começar a busca --  
+[2025-04-04 11:16:08] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'm',
+)  
+[2025-04-04 11:16:08] local.INFO: O que achou:   
+[2025-04-04 11:16:08] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-04 11:16:09] local.INFO: Controller  
+[2025-04-04 11:16:09] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'maça',
+)  
+[2025-04-04 11:16:09] local.INFO: -- Vai começar a busca --  
+[2025-04-04 11:16:09] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'maça',
+)  
+[2025-04-04 11:16:09] local.INFO: O que achou:   
+[2025-04-04 11:16:09] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-04 11:16:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 11:16:15] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 11:16:20] local.INFO: Controller  
+[2025-04-04 11:16:20] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'm',
+)  
+[2025-04-04 11:16:20] local.INFO: -- Vai começar a busca --  
+[2025-04-04 11:16:20] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'm',
+)  
+[2025-04-04 11:16:20] local.INFO: O que achou:   
+[2025-04-04 11:16:20] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-04 11:16:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 11:16:31] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-04 11:16:31] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-04 11:16:31] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-04 11:16:31] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-04 11:16:31] local.INFO: Memória usada PDVController::class, __construct: 23068672  

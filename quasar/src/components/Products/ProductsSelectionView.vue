@@ -62,12 +62,11 @@
                     <th v-if="witdhScreen > 1080" scope="row" class="px-6 py-3">{{ product.id }}</th>
                     <th scope="row" class="px-6 py-3 text-center">{{ product.product }}</th>
                     <td v-if="witdhScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.cfop }}</td>
-                    <td v-if="witdhScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.csosn }}</td>
+                    <td v-if="witdhScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.csosncst }}</td>
                     <td scope="row" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
                     <td v-if="witdhScreen > 1080" scope="row" class="px-6 py-3 text-center">{{ product.amount }}</td>
                     <td>
                         <input 
-                            label="Teal" color="teal"
                             type="checkbox"
                             v-model="product.isSelected"
                             @change="selectProducts(product)"
@@ -108,7 +107,9 @@
                 products: [],
                 selectedProducts: [],
                 checkBoxMarked: false,
-                
+                configs: {
+                    saleNegativeorReset: false
+                }
             }
         },
 
@@ -155,26 +156,35 @@
 
             selectProducts(product)
             {
-                this.checkBoxMarked = this.products.some(filterProduct => filterProduct.isSelected)
-
-                if(product.isSelected)
+                console.log('Qtde do produto: ', product.amount, ' opção: ', this.configs.saleNegativeorReset)
+                if(product.amount <= 0 && this.configs.saleNegativeorReset)
                 {
-                    if(!this.selectedProducts.some(p => p.id === product.id)) {
-                            this.selectedProducts.push({ 
-                            ...product,
-                            amount: 1
-                        
-                        })                        
-                    }
+                    alert('Venda com estoque negativo/zerado bloqueada!')
+                    product.isSelected = false
                     
                 } else {
-                    this.selectedProducts = this.selectedProducts.filter(p => p.id !== product.id)
-                }
+                    this.checkBoxMarked = this.products.some(filterProduct => filterProduct.isSelected)
 
-                if(!this.checkBoxMarked)
-                {
-                    this.selectedProducts = []
-                }
+                    if(product.isSelected)
+                    {
+                        if(!this.selectedProducts.some(p => p.id === product.id)) {
+                                this.selectedProducts.push({ 
+                                ...product,
+                                amount: 1
+                            
+                            })                        
+                        }
+                        
+                    } else {
+                        this.selectedProducts = this.selectedProducts.filter(p => p.id !== product.id)
+                    }
+
+                    if(!this.checkBoxMarked)
+                    {
+                        this.selectedProducts = []
+                    }
+
+                } 
             },
 
             emitProducts()
@@ -187,7 +197,16 @@
         
         mounted(){
             this.getProducts()
-       
+            const getConfig = async () => {
+
+                const response = await api.get('/config/all-configs');
+                this.configs = {
+                    saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset === 1 ? true : false,
+                }
+
+                console.log('this.configs 2', this.configs)
+            }
+            getConfig()
         }
     }
 

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('configs', function (Blueprint $table) {
+        Schema::create('config_pdvs', function (Blueprint $table) {
             $table->id();
-            $table->boolean('address_by_cep', 1)->default(0);
-            $table->boolean('partial_registration', 1)->default(0);
-            $table->float('room_service_limit', 16, 2)->default(0);
+            $table->string('filter_search', 40)->default('');
+            $table->boolean('nm_finaly', 1)->default(1);
+            $table->boolean('sale_negative_or_reset', 1)->default(0);
             $table->boolean('active', 1)->default(1);
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('config_hotels');
+        Schema::dropIfExists('config_pdvs');
     }
 };

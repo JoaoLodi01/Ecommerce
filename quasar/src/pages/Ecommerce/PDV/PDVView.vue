@@ -64,7 +64,7 @@
 
                     </div>
                     
-                    <div v-if="witdhScreen > 1366" class="border border-black rounded-md mr-1">
+                    <div v-if="witdhScreen > 1366" class="rounded-lg border border-black mr-1">
                         <div class="bg-white">
                             <ProductsSearchBar
                                 :showProductsSearch
@@ -129,8 +129,8 @@
 
                             <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
-                                    v-model="product.csosn"
-                                    :placeholder=product.csosn
+                                    v-model="product.csosncst"
+                                    :placeholder=product.csosncst
                                     type="number"
                                     :maxlength="maxlength(csosncst)"
                                     :minlength="maxlength(csosncst)"
@@ -374,6 +374,7 @@
                     
                     <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
                         <button
+                            v-if="configs.nmFinaly"
                             :class="{
                                 'ml-8': witdhScreen > 1080 && witdhScreen <= 1920
                             }" 
@@ -398,7 +399,7 @@
     <div>
         <ConfigPDV
             v-if="showOptionsPDV"
-
+            @close="closeConfig($event)"
         />
 
         <ProductsSelectionView
@@ -499,7 +500,11 @@
                 success: null,
                 typeOperation: '',
                 csosncst: '',
-                
+            
+                configs: {
+                    nmFinaly: false,
+                    saleNegativeorReset: false
+                }
             }
         },
 
@@ -544,7 +549,7 @@
             async selectClient(){
                 //const response = await api.get('/customers/selectClient');
                 const response = await api.get('/customers/all');
-                console.log(response.data)
+                
                 this.clients = response.data.data;
                 this.filterClients();
                 
@@ -562,7 +567,7 @@
                 this.clientsData.name = client.name;
                 this.clients = []
                 this.filteredClients = [];
-                console.log(this.clientsData)
+                
             },
 
             async saveSale()
@@ -586,9 +591,6 @@
                                 
                             })
 
-                            console.log(this.clientsData.id,)
-                            console.log(response)
-
                             if(response.data.success === true)
                             {
                                 alert('Venda guardarda para enviar posteriormente!')
@@ -597,7 +599,7 @@
                             }
 
                         } else {
-                            console.log('Já era uma venda que estava guardada')
+
                             alert('Venda guardarda para enviar posteriormente!')
                             this.productsSeletion = []
                             this.$router.push({ name: "PDV" })
@@ -672,9 +674,7 @@
                             this.showPaymentsForm = !this.showPaymentsForm
                             this.pdvID = Number(this.idPDV)
                         }
-                        
-                        console.log('Falhou')
-                        
+                    
                     } else {
                         console.log('Finalizar venda')
                         if(type === 'nm')   
@@ -691,8 +691,6 @@
                                 is_nfce_nm: type,
                                 
                             })
-
-                            console.log('response.dat PDVView, line 581: ', response.data)
 
                             if(response.data.success === true)
                             {
@@ -733,6 +731,7 @@
                     
                 } catch (error) {
                     console.error('Erro finalizeSale', error.response.data.errors)
+                    alert('DEU ERRO NESSA KARALHA')
                     this.errorMessages.push(error.response.data.errors)
                     
                 }
@@ -742,7 +741,6 @@
             {
                 try {
                     const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
-                    console.log(response.data.pdvs.get_itens)
                     
                     this.updateProductsSeletion(response.data.pdvs.get_itens)
 
@@ -777,6 +775,22 @@
                 this.show = !this.show
                 
             },  
+
+            closeConfig(event)
+            {
+                this.showOptionsPDV = event
+                this.showGrid = !event
+
+                const getConfig = async () => {
+                    const config = await api.get('/config/all-configs');
+                    this.configs = {
+                        nmFinaly: config.data.configPDV[0].nm_finaly,
+                        
+
+                    }
+                }
+                getConfig()
+            },
 
             changeAmount(id, newAmount)
             {
@@ -895,8 +909,7 @@
 
                             this.viewProduct.show = !this.viewProduct.show
                             console.log(this.viewProduct.show)
-                        }
-                        
+                        } 
                         
                         break;
 
@@ -981,12 +994,21 @@
                     }
                 })
                 const details = response.data   
+
                 this.sellerData = {
                     id: details.user.id,
                     name: details.user.name,
                 }
+
             }
             getUser()
+
+            const getConfig = async () => {
+                const config = await api.get('/config/all-configs');
+                this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
+                console.log('chamou getConfig PDVView')
+            }
+            getConfig()
 
             if(this.idPDV)
             {

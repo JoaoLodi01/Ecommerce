@@ -82,7 +82,7 @@
             <div class="flex space-x-2" >
                 <q-btn
                     @click="editCustomer(customer.id, customer.name)"
-                    class="px-4 py-2 rounded-lg  transition"
+                    class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
                         'text-gray-400 bg-slate-500': !customer.active,
@@ -191,8 +191,7 @@
                 this.showUpdateCustomers = false
                 this.showCustomers = false
                 this.showReportCustomer = false
-                console.log('showRegisterCustomers', this.showRegisterCustomers, ' this.showUpdateCustomers', this.showUpdateCustomers)
-            
+                
             },  
 
             closeRegister()

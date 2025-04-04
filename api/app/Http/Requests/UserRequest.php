@@ -8,6 +8,12 @@ use Illuminate\Validation\Rule;
 
 class UserRequest extends FormRequest
 {
+
+    public function authorize(): bool
+    {
+        return true;
+    }
+
     public function rules(): array
     {
         $required = $this->method('POST') ? 'required' : 'sometimes';
