@@ -101,7 +101,7 @@
                     }"    
                     v-if="customer.active"
                 >
-                    Excluir
+                    Desativar
                 </q-btn>
                 <q-btn
                     v-else

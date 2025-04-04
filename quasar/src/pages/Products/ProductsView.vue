@@ -51,7 +51,7 @@
     <!-- GRID PRODUTOS -->
       <div 
         class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" 
-        v-if="showProducts"
+        v-if="showProducts && products.length > 0"
         :class="{
             'relative right-7 top-10': widthScreen <= 1080
         }" 
@@ -68,6 +68,10 @@
 
           <div class="text-sm text-gray-500 mb-2">
             <span class="font-semibold">Produto:</span> {{ product.product }}
+          </div>
+          
+          <div class="text-sm text-gray-500 mb-2">
+            <span class="font-semibold">Cód barras:</span> {{ product.barcode }}
           </div>  
 
           <div class="text-sm text-gray-500 mb-2">
@@ -115,6 +119,14 @@
             </q-btn>
         </div>
     </div>
+    
+    </div>
+    <div 
+        v-else
+        class="ml-24"
+    >
+        <h1>Carregando ... </h1>
+
     </div>
       <div class="mb-8" v-if="!showProducts">
             <RegisterProduct

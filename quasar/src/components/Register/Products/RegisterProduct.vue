@@ -72,7 +72,7 @@
                 type="text" 
                 label="CSOSN/CST"
                 color="grey-7"
-                maxlength="4"
+                maxlength="3"
             />
             
             <q-input    
@@ -127,7 +127,38 @@
 
 <script>
     import { api } from 'src/boot/axios'
+    import { useQuasar } from 'quasar'
+    import { onBeforeUnmount } from 'vue'
+    
     export default {
+        setup()
+        {
+            const $q = useQuasar()
+            let timer
+
+            onBeforeUnmount(() => {
+                if(timer !== void 0)
+                {
+                    clearTimeout(timer)
+                    $q.loading.hide()
+
+                }
+            })
+            return {
+                showLoading () {
+                    $q.loading.show({
+                        message: `Criando produto ...`
+                    })
+
+                    timer = setTimeout(() => {
+                        $q.loading.hide()
+                        timer = void 0
+
+                    }, 2000)
+                }
+            }
+        },
+
         computed: {
             calculateSalePrice()
             {
@@ -168,10 +199,14 @@
         methods: {
             async onSubmit()
             {
+                this.showLoading()
                 const response = await api.post('/ecommerce/products/create', this.productDetails)
+                
                 if(response.data.success)
                 {
                     this.$emit("close", false)
+                } else {
+                    console.log(response.data)
                 }
             }
         },

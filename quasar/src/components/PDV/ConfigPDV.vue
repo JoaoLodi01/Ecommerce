@@ -49,8 +49,38 @@
 </template>
 <script>
     import { api } from 'src/boot/axios'
+    import { useQuasar } from 'quasar';
+    import { onBeforeUnmount } from 'vue';
 
     export default {
+        setup()
+        {
+            const $q = useQuasar()
+            let timer
+
+            onBeforeUnmount(() => {
+                if(timer !== void 0)
+                {
+                    clearTimeout(timer)
+                    $q.loading.hide()
+
+                }
+            })
+            return {
+                showLoading (messageValue) {
+                    $q.loading.show({
+                        message: `${messageValue} configurações ...`
+                    })
+
+                    timer = setTimeout(() => {
+                        $q.loading.hide()
+                        timer = void 0
+
+                    }, 2000)
+                }
+            }
+        },
+        
         data()
         {
             return {
@@ -85,6 +115,7 @@
         
             async onSubmit()
             {
+                this.showLoading('Salvando')
                 console.log('Dados de envio:', this.configs)
 
                 const response = await api.put('/config/config-pdv/update-config', this.configs)
@@ -100,6 +131,7 @@
 
             onReset()
             {
+                this.showLoading('Restaurando')
                 this.getConfig()
             },
 
