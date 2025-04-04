@@ -5,7 +5,9 @@
 
       <div class="text-h2 mt-5" style="opacity:.4">
         Em construção!
+        <span>404 not found</span>
       </div>
+      
 
       <q-btn
         class="q-mt-xl"
