@@ -16,12 +16,12 @@ class ConfigController extends Controller
         Log::info('Memória usada ConfigController::class, __construct: ' . memory_get_usage(true));
     }
 
-    public function getConfigs()
+    public function getConfigsHotel()
     {
         return $this->configService->getConfigs();
     }
 
-    public function update(Request $request)
+    public function updateHotel(Request $request)
     {
         $data = $request->all();
 

@@ -13,7 +13,7 @@ class Products extends Model
         'amount',
         'group_id',
         'group',
-        'price_cost',
+        'cost_price',
         'sale_price',
         'profit_percentage',
         'ncm',

@@ -105,8 +105,13 @@ Route::prefix('v1')->group( function (){
         
     Route::prefix('config')->group( function () {
         Route::prefix('config-hotel')->group( function () {
-            Route::put('/set-config', [ConfigController::class, 'update']);
-            Route::get('/get-config', [ConfigController::class, 'getConfigs']);
+            Route::put('/set-config', [ConfigController::class, 'updateHotel']);
+            Route::get('/get-config', [ConfigController::class, 'getConfigsHotel']);
+        });
+
+        Route::prefix('config-pdv')->group( function () {
+            Route::put('/set-config', [ConfigController::class, 'updatePDV']);
+            Route::get('/get-config', [ConfigController::class, 'getConfigsPDV']);
         });
     });
 

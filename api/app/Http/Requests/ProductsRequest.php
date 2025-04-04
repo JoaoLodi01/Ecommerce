@@ -17,16 +17,16 @@ class ProductsRequest extends FormRequest
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
             'product' => [$required, 'string', 'max:120'],
-            'groupID' => ['nullable', 'integer', 'exists:groups'],
+            'groupID' => ['nullable', 'integer'],
             'amount' => [$required, 'numeric', 'min:1'],
             'costPrice' => [$required, 'numeric'],
             'salePrice' => [$required, 'numeric'],
             'profitPercentage' => [$required, 'numeric'],
-            'cfop' => [$required, 'numeric', 'min:4', 'max:4'],
-            'csosncst' => [$required, 'numeric', 'min:2', 'max:4'],
-            'ncm' => [$required, 'numeric', 'min:8', 'max:8'],
-            'cest' => [$required, 'numeric', 'min:7', 'max:7'],
-            'unit' => [$required, 'numeric', 'max:4'],
+            'cfop' => [$required, 'numeric'],
+            'csosncst' => [$required, 'numeric'],
+            'ncm' => [$required, 'numeric'],
+            'cest' => [$required, 'numeric'],
+            'unit' => [$required, 'string'],
         ];
     }
 }

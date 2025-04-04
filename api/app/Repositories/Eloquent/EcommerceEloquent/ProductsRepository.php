@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Log;
 class ProductsRepository
 {
     public function __construct(
+<<<<<<< HEAD
         
+=======
+        protected GroupRepository $groupRepository
+>>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
     )
     {
         
@@ -39,18 +43,42 @@ class ProductsRepository
 
     public function create(array $data)
     {
-        $group = $this->groupsRepository->findByID($data['groupID']);
+        Log::info("data[groupID]");
+        Log::info($data['groupID']);
+        $group = $this->groupRepository->findByID($data['groupID']);
         return Products::create([
             'product' => $data['product'],
             'amount' => $data['amount'],
             'group_id' => $group->id,
             'group' => $group->group,
+            'cost_price' => $data['costPrice'],
+            'sale_price' => $data['salePrice'],
+            'profit_percentage' => $data['profitPercentage'],
+            'cfop' => $data['cfop'],
+            'csosncst' => $data['csosncst'],
+            'ncm' => $data['ncm'],
+            'cest' => $data['cest'],
+            'unit' => $data['unit']
 
         ]);
     }
 
     public function update(array $data, int $id){
-        return Products::where('id', $id)->update($data, $id);
+        $group = $this->groupRepository->findByID($data['groupID']);
+        return Products::where('id', $id)->update([
+            'product' => $data['product'],
+            'amount' => $data['amount'],
+            'group_id' => $group->id,
+            'group' => $group->group,
+            'cost_price' => $data['costPrice'],
+            'sale_price' => $data['salePrice'],
+            'profit_percentage' => $data['profitPercentage'],
+            'cfop' => $data['cfop'],
+            'csosncst' => $data['csosncst'],
+            'ncm' => $data['ncm'],
+            'cest' => $data['cest'],
+            'unit' => $data['unit']
+        ]);
     }
 
     public function delete(int $id){
