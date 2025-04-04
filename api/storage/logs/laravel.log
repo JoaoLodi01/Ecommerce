@@ -1830,3 +1830,1660 @@
 [2025-04-04 01:54:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
 [2025-04-04 01:54:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
 [2025-04-04 01:54:18] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 02:22:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 02:22:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 02:22:36] local.INFO: O hotel foi encontrado  
+[2025-04-04 02:22:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 02:22:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 02:22:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 02:22:37] local.INFO: O hotel foi encontrado  
+[2025-04-04 02:22:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 02:22:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 02:22:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 02:22:38] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:02] local.INFO: Acertou o login  
+[2025-04-04 09:26:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:26:07] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:26:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:26:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:26:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:26:13] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:26:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:26:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:26:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:26:36] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:26:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:26:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:26:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:49] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:26:52] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:26:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:26:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:26:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:26:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:27:33] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:27:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:27:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:27:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:27:34] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:27:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:27:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:27:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:27:40] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:27:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:27:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:27:40] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:40] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:27:57] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:27:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:27:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:27:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:27:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:28:02] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:28:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:28:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:28:02] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:28:10] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:28:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:28:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:28:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:26] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:27] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:27] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:43] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:28:43] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:29:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:29:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:29:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:29:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:30:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:30:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:30:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:45] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:45] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 09:31:56] local.INFO: O hotel foi encontrado  
+[2025-04-04 09:31:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 09:31:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 09:31:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:31:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:32:05] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:32:05] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:32:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:32:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:32:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:32:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:32:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:32:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:32:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:34:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:34:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:34:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:34:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:34:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:34:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:34:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:34:57] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-04 09:34:57] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-04 09:34:57] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-04 09:34:57] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-04 09:34:57] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-04 09:34:57] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-04 09:34:57] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-04 09:34:57] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => '9',
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 2,
+  'total' => 1080,
+  'sub_total' => 1080,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-04 09:34:57] local.INFO: Memória usada PDVRepository::class, saveSale: 23068672  
+[2025-04-04 09:34:57] local.INFO: Busca pelo customer  
+[2025-04-04 09:34:57] local.INFO: Busca pelo user  
+[2025-04-04 09:34:57] local.INFO: {"id":1,"name":"admin","email":"1","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-03T23:33:22.000000Z","updated_at":"2025-04-03T23:33:22.000000Z"}  
+[2025-04-04 09:34:57] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 2,
+  'client' => 'Teste 2',
+  'gross_value' => 1080,
+  'net_value' => 1080,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-04 09:34:57] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-04-04 09:34:57] local.INFO: Memória usada PDVRepository::class, saveProducts: 25165824  
+[2025-04-04 09:34:57] local.INFO: User: {"id":1,"name":"admin","email":"1","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-03T23:33:22.000000Z","updated_at":"2025-04-03T23:33:22.000000Z"}  
+[2025-04-04 09:34:57] local.INFO: $products 11  
+[2025-04-04 09:34:57] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => '9',
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-04-04 09:34:57] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 25165824  
+[2025-04-04 09:34:57] local.INFO: $product, type: array  
+[2025-04-04 09:34:57] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => '9',
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-04-04 09:34:57] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 25165824  
+[2025-04-04 09:34:57] local.INFO: $product[$i]  
+[2025-04-04 09:34:57] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => '9',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-04-04 09:34:57] local.INFO: itensPDV   
+[2025-04-04 09:34:57] local.INFO: array (
+  'pdv_id' => 11,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => '9',
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'admin',
+)  
+[2025-04-04 09:34:57] local.INFO: $ipdv  
+[2025-04-04 09:34:57] local.INFO: {"pdv_id":11,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":"9","addition":0,"discount":0,"user_id":1,"seller":"admin","id":2}  
+[2025-04-04 09:34:58] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-04 09:35:12] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-04 09:35:12] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-04 09:35:12] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-04 09:35:12] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-04 09:35:12] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-04 09:35:12] local.INFO: Dados recebidos nos controllers  
+[2025-04-04 09:35:12] local.INFO: array (
+  'type_operation' => 'nfce',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => '1080',
+  ),
+  'pdv_id' => 11,
+)  
+[2025-04-04 09:35:12] local.INFO: PDVService.php, class:finalizeSale, $total: 1080  
+[2025-04-04 09:35:12] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-04-04 09:35:12] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-04-04 09:35:12] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-04-04 09:35:12] local.INFO: Buscando a espécie pelo ID.  
+[2025-04-04 09:35:12] local.INFO: $result  
+[2025-04-04 09:35:12] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-04 09:35:12] local.INFO: Vai conferir se o $total: R$ 1080 é maior que o $pdv->net_value, R$1080.00  
+[2025-04-04 09:35:12] local.INFO: Foi maior  
+[2025-04-04 09:35:12] local.INFO: nfce  
+[2025-04-04 09:35:12] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-04-04 09:35:12] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-04-04 09:35:12] local.INFO: $paymentValues  
+[2025-04-04 09:35:12] local.INFO: array (
+  0 => '1080',
+)  
+[2025-04-04 09:35:12] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-04-04 09:35:12] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-04-04 09:35:12] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-04-04 09:35:12] local.INFO: forms  
+[2025-04-04 09:35:12] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-04 09:35:12] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-04 09:35:12] local.INFO: paymentValues linha 124 - : 1080  
+[2025-04-04 09:35:12] local.INFO: Vai conferir os tipos de lançamento  
+[2025-04-04 09:35:12] local.INFO: $form->tipo_lancamento  
+[2025-04-04 09:35:12] local.INFO: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-04 09:35:12] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-04-04 09:35:12] local.INFO: Dados:   
+[2025-04-04 09:35:12] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 11',
+    'document' => 11,
+    'pdv_id' => 11,
+    'customer_id' => 2,
+    'name' => 'Teste 2',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-04-04',
+    'input_value' => '1080',
+    'output_value' => 0,
+    'real_balance' => '1080',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-04-04 09:35:12] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-04-04 09:35:12] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-04-04 09:35:12] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-04-04 09:35:12] local.INFO: Quantia: 1  
+[2025-04-04 09:35:12] local.INFO: Tipo de dado: array  
+[2025-04-04 09:35:12] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 11',
+    'document' => 11,
+    'pdv_id' => 11,
+    'customer_id' => 2,
+    'name' => 'Teste 2',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-04-04',
+    'input_value' => '1080',
+    'output_value' => 0,
+    'real_balance' => '1080',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-04-04 09:35:12] local.INFO: Vai criar 1 registro:   
+[2025-04-04 09:35:12] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-04-04 09:35:12] local.INFO: $lastCashBox  
+[2025-04-04 09:35:12] local.INFO: 3  
+[2025-04-04 09:35:12] local.INFO: $actualCashBox  
+[2025-04-04 09:35:12] local.INFO: {"id":1,"description":"Venda NFC-e N\u00b0 10","document":"10","pdv_id":10,"customer_id":2,"name":"Teste 2","especie_id":1,"especie":"Dinheiro","date_register":"2025-04-04","input_value":"120.00","output_value":"0.00","real_balance":"120.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-04-04 09:35:12] local.INFO: Novo valor: R$ 120.00 + 1080.00 = 1200  
+[2025-04-04 09:35:12] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-04-04 09:35:12] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-04-04 09:35:12] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-04-04 09:35:12] local.INFO: payMentMethodService  
+[2025-04-04 09:35:12] local.INFO: array (
+  'line' => 215,
+  'success' => true,
+)  
+[2025-04-04 09:35:12] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":11,"description":"Venda NFC-e N\u00b0","cliente_id":2,"client":"Teste 2","gross_value":"1080.00","net_value":"1080.00","discount":"0.00","addition":"0.00","user_id":1,"user":"admin","finished":0,"canceled":0,"is_nfce_nm":"nfce","active":1}  
+[2025-04-04 09:35:12] local.INFO: $type nfce  
+[2025-04-04 09:35:12] local.INFO: Buscar e alterar os produtos, pdv_id = 11  
+[2025-04-04 09:35:12] local.INFO: Alteração dentro do for = 11  
+[2025-04-04 09:35:12] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-04-04 09:35:12] local.INFO: Produto encontrado 1  
+[2025-04-04 09:35:12] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-04-04 09:35:12] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-04 09:35:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:35:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:35:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:35:19] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-04 09:35:19] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-04 09:35:19] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-04 09:35:19] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-04 09:35:19] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-04 09:35:27] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-04 09:35:27] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-04 09:35:27] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-04 09:35:27] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-04 09:35:27] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-04 09:35:27] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-04 09:35:27] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-04 09:35:27] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 2,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-04 09:35:27] local.INFO: Memória usada PDVRepository::class, saveSale: 23068672  
+[2025-04-04 09:35:27] local.INFO: Busca pelo customer  
+[2025-04-04 09:35:27] local.INFO: Busca pelo user  
+[2025-04-04 09:35:27] local.INFO: {"id":1,"name":"admin","email":"1","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-03T23:33:22.000000Z","updated_at":"2025-04-03T23:33:22.000000Z"}  
+[2025-04-04 09:35:27] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 2,
+  'client' => 'Teste 2',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-04 09:35:27] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-04-04 09:35:27] local.INFO: Memória usada PDVRepository::class, saveProducts: 25165824  
+[2025-04-04 09:35:27] local.INFO: User: {"id":1,"name":"admin","email":"1","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-03T23:33:22.000000Z","updated_at":"2025-04-03T23:33:22.000000Z"}  
+[2025-04-04 09:35:27] local.INFO: $products 11  
+[2025-04-04 09:35:27] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-04-04 09:35:27] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 25165824  
+[2025-04-04 09:35:27] local.INFO: $product, type: array  
+[2025-04-04 09:35:27] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-04-04 09:35:27] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 25165824  
+[2025-04-04 09:35:27] local.INFO: $product[$i]  
+[2025-04-04 09:35:27] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-04-04 09:35:27] local.INFO: itensPDV   
+[2025-04-04 09:35:27] local.INFO: array (
+  'pdv_id' => 12,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'admin',
+)  
+[2025-04-04 09:35:27] local.INFO: $ipdv  
+[2025-04-04 09:35:27] local.INFO: {"pdv_id":12,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"admin","id":3}  
+[2025-04-04 09:35:28] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-04 09:35:33] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-04 09:35:33] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-04 09:35:33] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-04 09:35:33] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-04 09:35:33] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-04 09:35:33] local.INFO: Dados recebidos nos controllers  
+[2025-04-04 09:35:33] local.INFO: array (
+  'type_operation' => 'nfce',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => NULL,
+    1 => '120',
+  ),
+  'pdv_id' => 12,
+)  
+[2025-04-04 09:35:33] local.INFO: PDVService.php, class:finalizeSale, $total: 120  
+[2025-04-04 09:35:33] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-04-04 09:35:33] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-04-04 09:35:33] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-04-04 09:35:33] local.INFO: Buscando a espécie pelo ID.  
+[2025-04-04 09:35:33] local.INFO: $result  
+[2025-04-04 09:35:33] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'original' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-04 09:35:33] local.INFO: Vai conferir se o $total: R$ 120 é maior que o $pdv->net_value, R$120.00  
+[2025-04-04 09:35:33] local.INFO: Foi maior  
+[2025-04-04 09:35:33] local.INFO: nfce  
+[2025-04-04 09:35:33] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-04-04 09:35:33] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-04-04 09:35:33] local.INFO: $paymentValues  
+[2025-04-04 09:35:33] local.INFO: array (
+  0 => NULL,
+  1 => '120',
+)  
+[2025-04-04 09:35:33] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-04-04 09:35:33] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-04-04 09:35:33] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-04-04 09:35:33] local.INFO: $paymentValues[$i] linha - 118: i = 1  
+[2025-04-04 09:35:33] local.INFO: Vai pegar as posições maiores que zero, vezes: 1  
+[2025-04-04 09:35:33] local.INFO: forms  
+[2025-04-04 09:35:33] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'original' => 
+    array (
+      'id' => 2,
+      'especie' => 'PIX',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-04 09:35:33] local.INFO: ID linha 120 - : {"id":2,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
+[2025-04-04 09:35:33] local.INFO: paymentValues linha 124 - : 120  
+[2025-04-04 09:35:33] local.INFO: Vai conferir os tipos de lançamento  
+[2025-04-04 09:35:33] local.INFO: $form->tipo_lancamento  
+[2025-04-04 09:35:33] local.INFO: {"id":2,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
+[2025-04-04 09:35:33] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-04-04 09:35:33] local.INFO: Dados:   
+[2025-04-04 09:35:33] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 12',
+    'document' => 12,
+    'pdv_id' => 12,
+    'customer_id' => 2,
+    'name' => 'Teste 2',
+    'especie_id' => 2,
+    'especie' => 'PIX',
+    'date_register' => '2025-04-04',
+    'input_value' => '120',
+    'output_value' => 0,
+    'real_balance' => '120',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-04-04 09:35:33] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-04-04 09:35:33] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-04-04 09:35:33] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-04-04 09:35:33] local.INFO: Quantia: 1  
+[2025-04-04 09:35:33] local.INFO: Tipo de dado: array  
+[2025-04-04 09:35:33] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 12',
+    'document' => 12,
+    'pdv_id' => 12,
+    'customer_id' => 2,
+    'name' => 'Teste 2',
+    'especie_id' => 2,
+    'especie' => 'PIX',
+    'date_register' => '2025-04-04',
+    'input_value' => '120',
+    'output_value' => 0,
+    'real_balance' => '120',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-04-04 09:35:33] local.INFO: Vai criar 1 registro:   
+[2025-04-04 09:35:33] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-04-04 09:35:33] local.INFO: $lastCashBox  
+[2025-04-04 09:35:33] local.INFO: 4  
+[2025-04-04 09:35:33] local.INFO: $actualCashBox  
+[2025-04-04 09:35:33] local.INFO: {"id":2,"description":"Venda NFC-e N\u00b0 11","document":"11","pdv_id":11,"customer_id":2,"name":"Teste 2","especie_id":1,"especie":"Dinheiro","date_register":"2025-04-04","input_value":"1080.00","output_value":"0.00","real_balance":"1200.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-04-04 09:35:33] local.INFO: Novo valor: R$ 1080.00 + 120.00 = 1200  
+[2025-04-04 09:35:33] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-04-04 09:35:33] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-04-04 09:35:33] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-04-04 09:35:33] local.INFO: payMentMethodService  
+[2025-04-04 09:35:33] local.INFO: array (
+  'line' => 215,
+  'success' => true,
+)  
+[2025-04-04 09:35:33] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":12,"description":"Venda NFC-e N\u00b0","cliente_id":2,"client":"Teste 2","gross_value":"120.00","net_value":"120.00","discount":"0.00","addition":"0.00","user_id":1,"user":"admin","finished":0,"canceled":0,"is_nfce_nm":"nfce","active":1}  
+[2025-04-04 09:35:33] local.INFO: $type nfce  
+[2025-04-04 09:35:33] local.INFO: Buscar e alterar os produtos, pdv_id = 12  
+[2025-04-04 09:35:33] local.INFO: Alteração dentro do for = 12  
+[2025-04-04 09:35:33] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-04-04 09:35:33] local.INFO: Produto encontrado 1  
+[2025-04-04 09:35:33] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":0,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-04-04 09:35:33] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-04 09:35:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:35:38] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:36:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:36:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:36:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:36:15] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:36:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:36:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:36:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:36:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:36:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:37:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:37:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:37:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:37:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:37:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:37:51] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-04 09:37:51] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-04 09:37:51] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-04 09:37:51] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-04 09:37:51] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-04 09:37:51] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-04 09:37:51] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-04 09:37:51] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 2,
+        'product' => 'Jack Daniels Honey',
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '130.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 2,
+  'total' => 130,
+  'sub_total' => 130,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-04 09:37:51] local.INFO: Memória usada PDVRepository::class, saveSale: 23068672  
+[2025-04-04 09:37:51] local.INFO: Busca pelo customer  
+[2025-04-04 09:37:51] local.INFO: Busca pelo user  
+[2025-04-04 09:37:51] local.INFO: {"id":1,"name":"admin","email":"1","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-03T23:33:22.000000Z","updated_at":"2025-04-03T23:33:22.000000Z"}  
+[2025-04-04 09:37:51] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 2,
+  'client' => 'Teste 2',
+  'gross_value' => 130,
+  'net_value' => 130,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-04 09:37:51] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-04-04 09:37:51] local.INFO: Memória usada PDVRepository::class, saveProducts: 25165824  
+[2025-04-04 09:37:51] local.INFO: User: {"id":1,"name":"admin","email":"1","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-03T23:33:22.000000Z","updated_at":"2025-04-03T23:33:22.000000Z"}  
+[2025-04-04 09:37:51] local.INFO: $products 11  
+[2025-04-04 09:37:51] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 2,
+      'product' => 'Jack Daniels Honey',
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '130.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-04-04 09:37:51] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 25165824  
+[2025-04-04 09:37:51] local.INFO: $product, type: array  
+[2025-04-04 09:37:51] local.INFO: array (
+  0 => 
+  array (
+    'id' => 2,
+    'product' => 'Jack Daniels Honey',
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '130.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-04-04 09:37:51] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 25165824  
+[2025-04-04 09:37:51] local.INFO: $product[$i]  
+[2025-04-04 09:37:51] local.INFO: array (
+  'id' => 2,
+  'product' => 'Jack Daniels Honey',
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '130.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-04-04 09:37:51] local.INFO: itensPDV   
+[2025-04-04 09:37:51] local.INFO: array (
+  'pdv_id' => 13,
+  'product_id' => 2,
+  'product' => 'Jack Daniels Honey',
+  'cost_price' => '10.00',
+  'sale_price' => '130.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'admin',
+)  
+[2025-04-04 09:37:51] local.INFO: $ipdv  
+[2025-04-04 09:37:51] local.INFO: {"pdv_id":13,"product_id":2,"product":"Jack Daniels Honey","cost_price":"10.00","sale_price":"130.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"admin","id":4}  
+[2025-04-04 09:37:51] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-04 09:37:55] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-04 09:37:55] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-04 09:37:55] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-04 09:37:55] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-04 09:37:55] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-04 09:37:55] local.INFO: Dados recebidos nos controllers  
+[2025-04-04 09:37:55] local.INFO: array (
+  'type_operation' => 'nfce',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => '130',
+  ),
+  'pdv_id' => 13,
+)  
+[2025-04-04 09:37:55] local.INFO: PDVService.php, class:finalizeSale, $total: 130  
+[2025-04-04 09:37:55] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-04-04 09:37:55] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-04-04 09:37:55] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-04-04 09:37:55] local.INFO: Buscando a espécie pelo ID.  
+[2025-04-04 09:37:55] local.INFO: $result  
+[2025-04-04 09:37:55] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-04 09:37:55] local.INFO: Vai conferir se o $total: R$ 130 é maior que o $pdv->net_value, R$130.00  
+[2025-04-04 09:37:55] local.INFO: Foi maior  
+[2025-04-04 09:37:55] local.INFO: nfce  
+[2025-04-04 09:37:55] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-04-04 09:37:55] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-04-04 09:37:55] local.INFO: $paymentValues  
+[2025-04-04 09:37:55] local.INFO: array (
+  0 => '130',
+)  
+[2025-04-04 09:37:55] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-04-04 09:37:55] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-04-04 09:37:55] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-04-04 09:37:55] local.INFO: forms  
+[2025-04-04 09:37:55] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-03 23:33:21',
+      'updated_at' => '2025-04-03 23:33:21',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-04 09:37:55] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-04 09:37:55] local.INFO: paymentValues linha 124 - : 130  
+[2025-04-04 09:37:55] local.INFO: Vai conferir os tipos de lançamento  
+[2025-04-04 09:37:55] local.INFO: $form->tipo_lancamento  
+[2025-04-04 09:37:55] local.INFO: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-04 09:37:55] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-04-04 09:37:55] local.INFO: Dados:   
+[2025-04-04 09:37:55] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 13',
+    'document' => 13,
+    'pdv_id' => 13,
+    'customer_id' => 2,
+    'name' => 'Teste 2',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-04-04',
+    'input_value' => '130',
+    'output_value' => 0,
+    'real_balance' => '130',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-04-04 09:37:55] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-04-04 09:37:55] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-04-04 09:37:55] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-04-04 09:37:55] local.INFO: Quantia: 1  
+[2025-04-04 09:37:55] local.INFO: Tipo de dado: array  
+[2025-04-04 09:37:55] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 13',
+    'document' => 13,
+    'pdv_id' => 13,
+    'customer_id' => 2,
+    'name' => 'Teste 2',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-04-04',
+    'input_value' => '130',
+    'output_value' => 0,
+    'real_balance' => '130',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-04-04 09:37:55] local.INFO: Vai criar 1 registro:   
+[2025-04-04 09:37:55] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-04-04 09:37:55] local.INFO: $lastCashBox  
+[2025-04-04 09:37:55] local.INFO: 5  
+[2025-04-04 09:37:55] local.INFO: $actualCashBox  
+[2025-04-04 09:37:55] local.INFO: {"id":3,"description":"Venda NFC-e N\u00b0 12","document":"12","pdv_id":12,"customer_id":2,"name":"Teste 2","especie_id":2,"especie":"PIX","date_register":"2025-04-04","input_value":"120.00","output_value":"0.00","real_balance":"1320.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-04-04 09:37:55] local.INFO: Novo valor: R$ 120.00 + 130.00 = 250  
+[2025-04-04 09:37:55] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-04-04 09:37:55] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-04-04 09:37:55] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-04-04 09:37:55] local.INFO: payMentMethodService  
+[2025-04-04 09:37:55] local.INFO: array (
+  'line' => 215,
+  'success' => true,
+)  
+[2025-04-04 09:37:55] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":13,"description":"Venda NFC-e N\u00b0","cliente_id":2,"client":"Teste 2","gross_value":"130.00","net_value":"130.00","discount":"0.00","addition":"0.00","user_id":1,"user":"admin","finished":0,"canceled":0,"is_nfce_nm":"nfce","active":1}  
+[2025-04-04 09:37:55] local.INFO: $type nfce  
+[2025-04-04 09:37:55] local.INFO: Buscar e alterar os produtos, pdv_id = 13  
+[2025-04-04 09:37:55] local.INFO: Alteração dentro do for = 13  
+[2025-04-04 09:37:55] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-04-04 09:37:55] local.INFO: Produto encontrado 2  
+[2025-04-04 09:37:55] local.INFO: {"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-04-04 09:37:55] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-04 09:38:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:38:26] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:10] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:24] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:26] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:26] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:27] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:39:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:40:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:40:47] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:40:47] local.INFO: Dados recebidos  
+[2025-04-04 09:40:47] local.INFO: array (
+  'params' => '1',
+)  
+[2025-04-04 09:40:47] local.INFO: O que achou:   
+[2025-04-04 09:40:47] local.INFO: []  
+[2025-04-04 09:40:50] local.INFO: Dados recebidos  
+[2025-04-04 09:40:50] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-04-04 09:40:50] local.INFO: O que achou:   
+[2025-04-04 09:40:50] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:40:51] local.INFO: Dados recebidos  
+[2025-04-04 09:40:51] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-04-04 09:40:51] local.INFO: O que achou:   
+[2025-04-04 09:40:51] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:40:51] local.INFO: Dados recebidos  
+[2025-04-04 09:40:51] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-04-04 09:40:51] local.INFO: O que achou:   
+[2025-04-04 09:40:51] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:40:51] local.INFO: Dados recebidos  
+[2025-04-04 09:40:51] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-04-04 09:40:51] local.INFO: O que achou:   
+[2025-04-04 09:40:51] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:40:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:40:55] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:40:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:40:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:40:57] local.INFO: Dados recebidos  
+[2025-04-04 09:40:57] local.INFO: array (
+  'params' => '1',
+)  
+[2025-04-04 09:40:57] local.INFO: O que achou:   
+[2025-04-04 09:40:57] local.INFO: []  
+[2025-04-04 09:40:59] local.INFO: Dados recebidos  
+[2025-04-04 09:40:59] local.INFO: array (
+  'params' => 'h',
+)  
+[2025-04-04 09:40:59] local.INFO: O que achou:   
+[2025-04-04 09:40:59] local.INFO: [{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-04 09:40:59] local.INFO: Dados recebidos  
+[2025-04-04 09:40:59] local.INFO: array (
+  'params' => 'ha',
+)  
+[2025-04-04 09:40:59] local.INFO: O que achou:   
+[2025-04-04 09:40:59] local.INFO: []  
+[2025-04-04 09:40:59] local.INFO: Dados recebidos  
+[2025-04-04 09:40:59] local.INFO: array (
+  'params' => 'hac',
+)  
+[2025-04-04 09:40:59] local.INFO: O que achou:   
+[2025-04-04 09:40:59] local.INFO: []  
+[2025-04-04 09:41:00] local.INFO: Dados recebidos  
+[2025-04-04 09:41:00] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-04-04 09:41:00] local.INFO: O que achou:   
+[2025-04-04 09:41:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:00] local.INFO: Dados recebidos  
+[2025-04-04 09:41:00] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-04-04 09:41:00] local.INFO: O que achou:   
+[2025-04-04 09:41:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:01] local.INFO: Dados recebidos  
+[2025-04-04 09:41:01] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-04-04 09:41:01] local.INFO: O que achou:   
+[2025-04-04 09:41:01] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 09:41:15] local.INFO: Dados recebidos  
+[2025-04-04 09:41:15] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-04-04 09:41:15] local.INFO: O que achou:   
+[2025-04-04 09:41:15] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:16] local.INFO: Dados recebidos  
+[2025-04-04 09:41:16] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-04-04 09:41:16] local.INFO: O que achou:   
+[2025-04-04 09:41:16] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:16] local.INFO: Dados recebidos  
+[2025-04-04 09:41:16] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-04-04 09:41:16] local.INFO: O que achou:   
+[2025-04-04 09:41:16] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:16] local.INFO: Dados recebidos  
+[2025-04-04 09:41:16] local.INFO: array (
+  'params' => 'jack',
+)  
+[2025-04-04 09:41:16] local.INFO: O que achou:   
+[2025-04-04 09:41:16] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:32] local.INFO: Dados recebidos  
+[2025-04-04 09:41:32] local.INFO: array (
+  'params' => '2',
+)  
+[2025-04-04 09:41:32] local.INFO: O que achou:   
+[2025-04-04 09:41:32] local.INFO: []  
+[2025-04-04 09:41:33] local.INFO: Dados recebidos  
+[2025-04-04 09:41:33] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-04-04 09:41:33] local.INFO: O que achou:   
+[2025-04-04 09:41:33] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:34] local.INFO: Dados recebidos  
+[2025-04-04 09:41:34] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-04-04 09:41:34] local.INFO: O que achou:   
+[2025-04-04 09:41:34] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:34] local.INFO: Dados recebidos  
+[2025-04-04 09:41:34] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-04-04 09:41:34] local.INFO: O que achou:   
+[2025-04-04 09:41:34] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:34] local.INFO: Dados recebidos  
+[2025-04-04 09:41:34] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-04-04 09:41:34] local.INFO: O que achou:   
+[2025-04-04 09:41:34] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:35] local.INFO: Dados recebidos  
+[2025-04-04 09:41:35] local.INFO: array (
+  'params' => 'jack',
+)  
+[2025-04-04 09:41:35] local.INFO: O que achou:   
+[2025-04-04 09:41:35] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:41:47] local.INFO: Dados recebidos  
+[2025-04-04 09:41:47] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-04-04 09:41:47] local.INFO: O que achou:   
+[2025-04-04 09:41:47] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:00] local.INFO: Dados recebidos  
+[2025-04-04 09:42:00] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-04-04 09:42:00] local.INFO: O que achou:   
+[2025-04-04 09:42:00] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:01] local.INFO: Dados recebidos  
+[2025-04-04 09:42:01] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-04-04 09:42:01] local.INFO: O que achou:   
+[2025-04-04 09:42:01] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:01] local.INFO: Dados recebidos  
+[2025-04-04 09:42:01] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-04-04 09:42:01] local.INFO: O que achou:   
+[2025-04-04 09:42:01] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:01] local.INFO: Dados recebidos  
+[2025-04-04 09:42:01] local.INFO: array (
+  'params' => 'jack',
+)  
+[2025-04-04 09:42:01] local.INFO: O que achou:   
+[2025-04-04 09:42:01] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:02] local.INFO: Dados recebidos  
+[2025-04-04 09:42:02] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-04-04 09:42:02] local.INFO: O que achou:   
+[2025-04-04 09:42:02] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:43] local.INFO: Dados recebidos  
+[2025-04-04 09:42:43] local.INFO: array (
+  'params' => 'j',
+)  
+[2025-04-04 09:42:43] local.INFO: O que achou:   
+[2025-04-04 09:42:43] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:43] local.INFO: Dados recebidos  
+[2025-04-04 09:42:43] local.INFO: array (
+  'params' => 'ja',
+)  
+[2025-04-04 09:42:43] local.INFO: O que achou:   
+[2025-04-04 09:42:43] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:43] local.INFO: Dados recebidos  
+[2025-04-04 09:42:43] local.INFO: array (
+  'params' => 'jac',
+)  
+[2025-04-04 09:42:43] local.INFO: O que achou:   
+[2025-04-04 09:42:43] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:44] local.INFO: Dados recebidos  
+[2025-04-04 09:42:44] local.INFO: array (
+  'params' => 'jack',
+)  
+[2025-04-04 09:42:44] local.INFO: O que achou:   
+[2025-04-04 09:42:44] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-04 09:42:44] local.INFO: Dados recebidos  
+[2025-04-04 09:42:44] local.INFO: array (
+  'params' => NULL,
+)  
+[2025-04-04 09:42:44] local.INFO: O que achou:   
+[2025-04-04 09:42:44] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","group_id":2,"group":"Grupo teste 2","amount":-1,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
