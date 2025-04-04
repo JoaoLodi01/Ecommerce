@@ -1,13 +1,13 @@
 <template>
     <div 
-        class="ml-14 h-max w-full"
+        class="ml-14 h-max w-full mt-8"
         :class="{
             'relative top-12': widthScreen <= 1080
         }"    
     >
         <div>
             <h1 class="text-3xl font-semibold mb-6 pt-2 ml-2">Clientes</h1>
-            <div class="mb-5">
+            <div class="mb-5 ml-2">
                 <ReportCustomer
                     v-if="showReportCustomer"
                     :widthScreen="widthScreen"

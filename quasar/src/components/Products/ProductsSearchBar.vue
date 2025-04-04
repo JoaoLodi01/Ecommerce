@@ -1,5 +1,5 @@
 <template>
-    <div class="mr-20">
+    <div class="">
         <input
             v-model="search.name"
             @input="getProducts()"

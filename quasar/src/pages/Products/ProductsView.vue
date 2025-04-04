@@ -1,12 +1,12 @@
 <template>
     <div
-        class="px-20 h-max w-full"
+        class="ml-20 h-max mt-8"
         :class="{
             'relative top-12 right-5': widthScreen <= 1080
         }"  
     >
         <div>
-            <h1 class="text-3xl font-semibold mb-6 pt-2">Produtos</h1>
+            <h1 class="text-3xl font-semibold mb-6 pt-2 ml-2">Produtos</h1>
             <div 
                 class="mb-5"
                 :class="{
@@ -58,7 +58,7 @@
     >
         <div 
           v-for="(product, id) in products" :key="product.id" 
-          class="bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+          class="relative overflow-x-auto max-h-96 overflow-y-auto 2    bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
           @click="editProduct(product.product, product.id)"
         >
 
@@ -84,65 +84,58 @@
 
           <!-- Ações -->
           <div class="flex space-x-2">
-            <q-btn
-                @click="editProduct(product.product, product.id)"
-                class="px-4 py-2 mr-2 rounded-lg transition"
-                :disabled=!product.active
-                :class="{
-                    'text-gray-400 bg-slate-500': !product.active,
-                    'text-blue-500 bg-blue-100 hover:bg-blue-200': product.active,
-                }"    
-            >
-                Editar
-            </q-btn>
-            <q-btn
-                @click="deleteproduct(product.id)"
-                class="px-4 py-2 rounded-lg transition"
-                :disabled=!product.active
-                :class="{
-                    'text-gray-400 bg-slate-500': !product.active,
-                    'text-red-500 bg-red-100 hover:bg-red-200': product.active,
-                }"    
-                v-if="product.active"
-            >
-                Desativar
-            </q-btn>
-            <q-btn
-                v-else
-                class="px-4 py-2 rounded-lg transition"
-                :class="{
-                    'text-gray-400 bg-slate-500': !product.active
-                }"
-                @click="activeproduct(product.id)"
-            >   
-                Ativar
-            </q-btn>
+                <q-btn
+                    @click="editProduct(product.product, product.id)"
+                    class="px-4 py-2 mr-2 rounded-lg transition"
+                    :disabled=!product.active
+                    :class="{
+                        'text-gray-400 bg-slate-500': !product.active,
+                        'text-blue-500 bg-blue-100 hover:bg-blue-200': product.active,
+                    }"    
+                >
+                    Editar
+                </q-btn>
+                <q-btn
+                    @click="deleteproduct(product.id)"
+                    class="px-4 py-2 rounded-lg transition"
+                    :disabled=!product.active
+                    :class="{
+                        'text-gray-400 bg-slate-500': !product.active,
+                        'text-red-500 bg-red-100 hover:bg-red-200': product.active,
+                    }"    
+                    v-if="product.active"
+                >
+                    Desativar
+                </q-btn>
+                <q-btn
+                    v-else
+                    class="px-4 py-2 rounded-lg transition"
+                    :class="{
+                        'text-gray-400 bg-slate-500': !product.active
+                    }"
+                    @click="activeproduct(product.id)"
+                >   
+                    Ativar
+                </q-btn>
+            </div>
         </div>
     </div>
-    
-    </div>
-    <div 
-        v-else
-        class="ml-24"
-    >
-        <h1>Carregando ... </h1>
 
-    </div>
-      <div class="mb-8" v-if="!showProducts">
-            <RegisterProduct
-                v-if="showRegisterProduct"
-                :widthScreen="widthScreen"
-                @close="closeReload($event)"
-            />
+    <div class="mb-8" v-if="!showProducts">
+        <RegisterProduct
+            v-if="showRegisterProduct"
+            :widthScreen="widthScreen"
+            @close="closeReload($event)"
+        />
 
-            <UpdateProduct
-                v-if="showUpdateProduct"
-                :widthScreen="widthScreen"
-                :productName="productName"
-                :productID="productID"
-                @close="closeReload($event)"
-            />            
-      </div>
+        <UpdateProduct
+            v-if="showUpdateProduct"
+            :widthScreen="widthScreen"
+            :productName="productName"
+            :productID="productID"
+            @close="closeReload($event)"
+        />            
+    </div>
   </div>
 </template>
 

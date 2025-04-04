@@ -43,14 +43,14 @@ class ProductsRepository
 
             case 'Padrão (cód.barras ou cód.produto)':
                 $products = Products::where('active', 1)
-                    ->where('product', 'like', '%' . $search . '%')
-                    ->orWhere('barcode', $search)
-                    ->orWhere('id', $search)
-                    ->get();
+                            ->where(function($query) use ($search){
+                                $query->where('id', $search)
+                                        ->orWhere('barcode', $search)
+                                        ->orWhere('product', 'like', '%' . $search . '%');
+                            })->get();
 
-                    Log::info('O que achou: ');
-                    Log::info($products);
-
+                Log::info('O que achou: ');
+                Log::info($products);
                 break;
 
             default:
