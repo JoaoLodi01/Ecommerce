@@ -1,4 +1,4 @@
-<template>
+4<template>
     <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
         <h2 class="text-xl font-semibold mb-4">Registro Financeiro</h2>
         
