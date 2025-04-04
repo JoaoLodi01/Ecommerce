@@ -1,12 +1,19 @@
 <template>
-    <div class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded">
+    <div 
+        class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
+        :class="{
+            'relative top-12 left-12': widthScreen <= 1080,
+            'ml-72': widthScreen > 1080
+        }"
+    >
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de produtos</h2>
-
         <q-form
-            
-            class="p-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            @submit="onSubmit"
+            class="p-1"
+            :class="{ 
+                'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
+            }"
         >
-
             <q-input    
                 v-model="productDetails.product" 
                 type="text" 
@@ -106,12 +113,12 @@
                     <button>Limpar</button>
                 </q-btn>
             </div>
-            
         </q-form>
     </div>
 </template>
-  
+
 <script>
+    import { api } from 'src/boot/axios'
     export default {
         computed: {
             calculateSalePrice()
@@ -121,6 +128,13 @@
 
             }            
         },  
+
+        props: {
+            widthScreen: {
+                type: Number,
+                required: true
+            }
+        },
 
         data()
         {
@@ -140,7 +154,14 @@
                     
                 }
             }
+        },
+
+        methods: {
+            async onSubmit()
+            {
+                const response = await api.post('/ecommerce/products/create', this.productDetails)
+                console.log(response)
+            }
         }
     }
-
 </script>

@@ -90,6 +90,14 @@
                 color="grey-7"
                 maxlength="7"
             />
+
+            <q-input    
+                v-model="productDetails.barcode" 
+                type="text" 
+                label="Cód. Barras"
+                color="grey-7"
+                maxlength="14"
+            />
             
             <q-input    
                 v-model="productDetails.unit" 
@@ -141,6 +149,7 @@
             return {
                 productDetails: {
                     product: '',
+                    barcode: '',
                     groupID: '',
                     amount: '',
                     costPrice: 0,
@@ -160,8 +169,15 @@
             async onSubmit()
             {
                 const response = await api.post('/ecommerce/products/create', this.productDetails)
-                console.log(response)
+                if(response.data.success)
+                {
+                    this.$emit("close", false)
+                }
             }
-        }
+        },
+
+        emits: [
+            'close'
+        ]
     }
 </script>

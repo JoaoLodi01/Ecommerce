@@ -120,6 +120,7 @@
             <RegisterProduct
                 v-if="showRegisterProduct"
                 :widthScreen="widthScreen"
+                @close="closeReload($event)"
             />
 
             <UpdateProduct

@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\Log;
 class ProductsRepository
 {
     public function __construct(
-<<<<<<< HEAD
-        
-=======
         protected GroupRepository $groupRepository
->>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
     )
     {
         
@@ -76,6 +72,7 @@ class ProductsRepository
         $group = $this->groupRepository->findByID($data['groupID']);
         return Products::create([
             'product' => $data['product'],
+            'barcode' => $data['barcode'],
             'amount' => $data['amount'],
             'group_id' => $group->id,
             'group' => $group->group,

@@ -44,7 +44,7 @@ class ConfigService
     {
         $config = $this->configPDVRepository->update($data);
         return response()->json([
-            'true' => true,
+            'success' => true,
             'message' => $this->message,
             'config' => $config
 

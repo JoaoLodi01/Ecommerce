@@ -40,7 +40,7 @@
             />
             
             <div>
-                <q-btn label="Salvar" type="submit" color="primary"/>
+                <q-btn label="Salvar" type="submit" color="primary" :disable="configs.searchOption === null"/>
                 <q-btn label="Padrão" type="reset" color="primary" flat class="q-ml-sm" />
             </div>
         </q-form>
@@ -60,6 +60,7 @@
                     saleNegativeorReset: false,
                    
                 },
+                
                 searchOptions: [
                     'Cód barras',
                     'Cód barras interno',
@@ -84,8 +85,11 @@
         
             async onSubmit()
             {
+                console.log('Dados de envio:', this.configs)
+
                 const response = await api.put('/config/config-pdv/update-config', this.configs)
                 const data = response.data
+                console.log('Data', data)
 
                 if(data.success)
                 {

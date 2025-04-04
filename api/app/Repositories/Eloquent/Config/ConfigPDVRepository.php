@@ -20,8 +20,7 @@ class ConfigPDVRepository
         ConfigPDV::where('active', 1)->update([
             'nm_finaly' => $data['nmFinaly'],
             'sale_negative_or_reset' => (float) $data['saleNegativeorReset'],
-            'filter_search' => $data['searchOption'] ? $data['searchOption'] : $data['model']
-        
+            'filter_search' => $data['searchOption']        
         ]);
 
         return $this->getConfigs();
