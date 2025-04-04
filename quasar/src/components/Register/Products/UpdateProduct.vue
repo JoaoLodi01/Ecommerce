@@ -95,6 +95,14 @@
             />
             
             <q-input    
+                v-model="productDetails.barcode" 
+                type="text" 
+                label="Cód. Barras"
+                color="grey-7"
+                maxlength="14"
+            />
+
+            <q-input    
                 v-model="productDetails.unit" 
                 type="text" 
                 label="Produto"
@@ -168,6 +176,7 @@
             return {
                 productDetails: {
                     product: '',
+                    barcode: '',
                     groupID: '',
                     amount: '',
                     costPrice: 0,
@@ -209,6 +218,7 @@
                 
                 this.productDetails = {
                     product: data.product,
+                    barcode: data.barcode,
                     groupID: data.group_id,
                     amount: data.amount,
                     costPrice: data.cost_price,

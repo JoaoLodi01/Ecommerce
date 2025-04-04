@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             ProductsSeeder::class,
             CostumerSeeder::class,
             UserSeeder::class,
-            HotelSeeder::class
+            HotelSeeder::class,
+            ConfigSeeder::class
             
         ]);
 

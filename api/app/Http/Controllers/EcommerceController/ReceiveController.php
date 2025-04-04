@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Http\Controllers\EcommerceController;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class ReceiveController extends Controller
+{
+    public function __construct(
+        protected ReceiveService $receiveService
+    ){}
+
+    public function getAll(){
+        return $this->receiveService->getAll();
+    }
+
+    public function store(ReceiveRequest $request){
+        $data = $request->validated();
+        return $this->receiveService->store($data);
+    }
+
+    public function findByID(int $id){
+        return $this->receiveService->findByID($id);
+    }
+
+    public function update(ReceiveRequest $request, int $id){
+        $data = $request->validated();
+        return $this->receiveService->update($data, $id);
+    }
+
+    public function delete(int $id){
+        return $this->receiveService->delete($id);
+    }
+}

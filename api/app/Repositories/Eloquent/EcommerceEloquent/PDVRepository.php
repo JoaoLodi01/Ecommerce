@@ -135,7 +135,7 @@ class PDVRepository
                     'cost_price' => $product[$i]['cost_price'],
                     'sale_price' => $product[$i]['sale_price'],
                     'cfop' => $product[$i]['cfop'],
-                    'csosn' => $product[$i]['csosn'],
+                    'csosn' => $product[$i]['csosncst'],
                     'ncm' => $product[$i]['ncm'],
                     'cest' => $product[$i]['cest'],
                     'unit' => $product[$i]['unit'],

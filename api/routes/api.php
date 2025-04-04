@@ -18,10 +18,11 @@ use App\Http\Controllers\HotelController\{
 
 use App\Http\Controllers\{
     IPController,
-    ConfigController,
     CustomerController
 
 };
+
+use App\Http\Controllers\Config\ConfigController;
 
 use App\Http\Controllers\Reports\ReportCustomersController;
 
@@ -65,7 +66,16 @@ Route::prefix('v1')->group( function (){
                 Route::put('/{id}', [CashRegisterController::class, 'update']);
                 Route::delete('/{id}/deactivate', [CashRegisterController::class, 'delete']);
                 
-            });        
+            });
+            
+            Route::prefix('receive')->group( function(){
+                Route::get('/all', [ReceiveController::class, 'getAll']);
+                Route::post('/create', [ReceiveController::class, 'store']);
+                Route::get('/{id}', [ReceiveController::class, 'findByID']);
+                Route::put('/{id}', [ReceiveController::class, 'update']);
+                Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
+                
+            });
         
             // NFC-e routes
             Route::prefix('pdv')->group( function(){
@@ -104,14 +114,10 @@ Route::prefix('v1')->group( function (){
     });
         
     Route::prefix('config')->group( function () {
-        Route::prefix('config-hotel')->group( function () {
-            Route::put('/set-config', [ConfigController::class, 'updateHotel']);
-            Route::get('/get-config', [ConfigController::class, 'getConfigsHotel']);
-        });
+        Route::get('/all-configs', [ConfigController::class, 'getConfigs']);
 
-        Route::prefix('config-pdv')->group( function () {
-            Route::put('/set-config', [ConfigController::class, 'updatePDV']);
-            Route::get('/get-config', [ConfigController::class, 'getConfigsPDV']);
+        Route::prefix('config-pdv')->group( function() {
+            Route::put('/update-config', [ConfigController::class, 'updatePDV']);
         });
     });
 

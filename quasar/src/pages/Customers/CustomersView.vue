@@ -1,13 +1,13 @@
 <template>
     <div 
-        class="ml-14 h-max w-full"
+        class="ml-14 h-max w-full mt-8"
         :class="{
             'relative top-12': widthScreen <= 1080
         }"    
     >
         <div>
             <h1 class="text-3xl font-semibold mb-6 pt-2 ml-2">Clientes</h1>
-            <div class="mb-5">
+            <div class="mb-5 ml-2">
                 <ReportCustomer
                     v-if="showReportCustomer"
                     :widthScreen="widthScreen"
@@ -82,7 +82,7 @@
             <div class="flex space-x-2" >
                 <q-btn
                     @click="editCustomer(customer.id, customer.name)"
-                    class="px-4 py-2 rounded-lg  transition"
+                    class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
                         'text-gray-400 bg-slate-500': !customer.active,
@@ -101,7 +101,7 @@
                     }"    
                     v-if="customer.active"
                 >
-                    Excluir
+                    Desativar
                 </q-btn>
                 <q-btn
                     v-else
@@ -191,8 +191,7 @@
                 this.showUpdateCustomers = false
                 this.showCustomers = false
                 this.showReportCustomer = false
-                console.log('showRegisterCustomers', this.showRegisterCustomers, ' this.showUpdateCustomers', this.showUpdateCustomers)
-            
+                
             },  
 
             closeRegister()

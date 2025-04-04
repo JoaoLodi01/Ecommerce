@@ -21,15 +21,43 @@ class ProductsRepository
 
     public function search(array $data)
     {
-        Log::info('Dados recebidos');
+        Log::info('-- Vai começar a busca --');
         Log::info($data);
-        $products = Products::where('active', 1)
-                    ->where('product', 'like', '%' . $data['params'] . '%')
+        $products = null;
+        $search = $data['search'];
+        
+        switch ($data['fillter']) {
+            case 'Cód barras interno':
+                $products = Products::where('active', 1)
+                    ->where('product', 'like', '%' . $search . '%')
                     ->get();
 
-        Log::info('O que achou: ');
-        Log::info($products);
+                    Log::info('O que achou: ');
+                    Log::info($products);
 
+                break;
+            
+            case 'Cód barras':
+
+                break;
+
+            case 'Padrão (cód.barras ou cód.produto)':
+                $products = Products::where('active', 1)
+                            ->where(function($query) use ($search){
+                                $query->where('id', $search)
+                                        ->orWhere('barcode', $search)
+                                        ->orWhere('product', 'like', '%' . $search . '%');
+                            })->get();
+
+                Log::info('O que achou: ');
+                Log::info($products);
+                break;
+
+            default:
+                # code...
+                break;
+        }
+        
         return $products;
     }
 
@@ -44,6 +72,7 @@ class ProductsRepository
         $group = $this->groupRepository->findByID($data['groupID']);
         return Products::create([
             'product' => $data['product'],
+            'barcode' => $data['barcode'],
             'amount' => $data['amount'],
             'group_id' => $group->id,
             'group' => $group->group,

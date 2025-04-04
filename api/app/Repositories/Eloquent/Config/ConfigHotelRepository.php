@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\Config;
 
-use App\Models\Config;
+use App\Models\ConfigHotel;
 
-class ConfigRepository
+class ConfigHotelRepository
 {
     public function getConfigs()
     {
-        return Config::paginate(20);
+        return ConfigHotel::all();
         
     }
 
     public function update(array $data)
     {
-        $configUpdate = Config::where('active', 1)->update([
+        ConfigHotel::where('active', 1)->update([
             'address_by_cep' => $data['address_by_cep'],
             'room_service_limit' => (float) $data['room_service_limit'],
             'partial_registration' => $data['partial_registration']
@@ -23,4 +23,6 @@ class ConfigRepository
 
         return $this->getConfigs();
     }
+
+
 }
