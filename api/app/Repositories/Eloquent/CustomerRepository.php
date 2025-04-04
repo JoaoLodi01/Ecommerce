@@ -31,7 +31,7 @@ class CustomerRepository
     /*return CustomerCredit::join('customers', 'customers.id', 'customer_credits.customer_id')
                     ->where('customer_id', $id)
                     ->first();*/
-    
+
     public function create(array $data){
         return Customer::create([
             'name' => $data['name'],
