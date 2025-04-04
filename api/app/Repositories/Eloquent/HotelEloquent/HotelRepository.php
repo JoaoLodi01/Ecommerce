@@ -8,7 +8,7 @@ use App\Models\HotelModels\{
     Capacity
 };
 
-use App\Models\Config as ConfigHotel;
+use App\Models\ConfigHotel;
 
 use App\Repositories\Contracts\HotelContract\HotelDetailContract;
 

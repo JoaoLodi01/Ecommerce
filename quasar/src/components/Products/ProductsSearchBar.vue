@@ -7,7 +7,7 @@
             class="border-none outline-none ml-2 mt-1 mb-1 w-96"
         />
         
-        <ul v-if="filteredProducts.length > 0 && search.name !== ''" class="fixed z-50 p-3 bg-white border border-gray-300 rounded mt-1">
+        <ul v-if="filteredProducts.length > 0 && search.name !== ''" class="fixed z-50 p-3 bg-white border border-gray-300 mt-1">
             <li
                 v-for="product in filteredProducts"
                 :key="product.id"
@@ -27,6 +27,19 @@
     import { toRaw } from "vue";
 
     export default {
+        mounted()
+        {
+            const getConfig = async () => {
+                const response = await api.get('/config/all-configs');
+                this.configs = {
+                    fieldSearch: response.data.configPDV[0].filter_search,
+                    saleNegativeorReset: config.data.configPDV[0].sale_negative_or_reset,
+                }
+            }
+            getConfig()
+            
+        },
+
         data()
         {
             return {
@@ -35,6 +48,11 @@
                 productsData: [],
                 search: {
                     name: ''
+                },
+
+                configs: {
+                    saleNegativeorReset: false,
+                    fieldSearch: false
                 }
             }
         },

@@ -79,43 +79,6 @@
           </div>
 
           <!-- Ações -->
-<<<<<<< HEAD
-          <div class="flex">
-                <button
-                    @click="editProduct(product.id, product.name)"
-                    class="px-4 py-2 rounded-lg transition mr-2"
-                    :disabled=!product.active
-                    :class="{
-                        'text-gray-400 bg-slate-500': !product.active,
-                        'text-blue-500 bg-blue-100 hover:bg-blue-200': product.active,
-                    }"    
-                >
-                    Editar
-                </button>
-                <button
-                    @click="deleteproduct(product.id)"
-                    class="px-4 py-2 rounded-lg transition"
-                    :disabled=!product.active
-                    :class="{
-                        'text-gray-400 bg-slate-500': !product.active,
-                        'text-red-500 bg-red-100 hover:bg-red-200': product.active,
-                    }"    
-                    v-if="product.active"
-                >
-                    Desativar
-                </button>
-                <button
-                    v-else
-                    class="px-4 py-2 rounded-lg transition"
-                    :class="{
-                        'text-gray-400 bg-slate-500': !product.active
-                    }"
-                    @click="activeproduct(product.id)"
-                >   
-                    Ativar
-                </button>
-            </div>
-=======
           <div class="flex space-x-2">
             <q-btn
                 @click="editProduct(product.product, product.id)"
@@ -150,7 +113,6 @@
             >   
                 Ativar
             </q-btn>
->>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
         </div>
     </div>
     </div>
@@ -168,24 +130,13 @@
                 @close="closeReload($event)"
             />            
       </div>
-<<<<<<< HEAD
-
-      <div class="ml-72 mb-8" v-if="!showProducts">
-        <RegisterProduct/>
-      </div>
-=======
->>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
   </div>
 </template>
 
 <script>
     import { api } from 'src/boot/axios';
-<<<<<<< HEAD
-    import RegisterProduct from 'src/components/Products/RegisterProduct.vue';
-=======
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
->>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
 
 
@@ -193,17 +144,12 @@
         data() {
             return {
                 products: [],
-<<<<<<< HEAD
-                showProducts: false,
-                showRegisterProduct: true,
-=======
                 showProducts: true,
                 showUpdateProduct: false,
                 showRegisterProduct: false,
                 widthScreen: 0,
                 productName: '',
                 productID: ''
->>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
 
             };
         },
@@ -224,11 +170,7 @@
 
             async deleteproduct(id) {
                 const product = await api.delete(`/ecommerce/${id}/deactivate`)  
-<<<<<<< HEAD
-                console.log(product.data)
-=======
                 console.log(product)
->>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
                 window.location.reload()
             },
 
@@ -278,15 +220,10 @@
         },
 
         components: {
-<<<<<<< HEAD
-            ReportProduct,
-            RegisterProduct
-=======
             RegisterProduct,
             ReportProduct,
             UpdateProduct
 
->>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
         }
     };
 
@@ -294,11 +231,7 @@
 
 <style>
     .products-grid {
-<<<<<<< HEAD
-        width: 95%;
-=======
         width: 100%;
->>>>>>> 7379b8a8295023b2ae5f593467c261a05f769442
         padding: 5px;
     }
 </style>

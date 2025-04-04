@@ -64,7 +64,7 @@
 
                     </div>
                     
-                    <div v-if="witdhScreen > 1366" class="border border-black rounded-md mr-1">
+                    <div v-if="witdhScreen > 1366" class="rounded-lg border border-black mr-1">
                         <div class="bg-white">
                             <ProductsSearchBar
                                 :showProductsSearch
@@ -129,8 +129,8 @@
 
                             <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
-                                    v-model="product.csosn"
-                                    :placeholder=product.csosn
+                                    v-model="product.csosncst"
+                                    :placeholder=product.csosncst
                                     type="number"
                                     :maxlength="maxlength(csosncst)"
                                     :minlength="maxlength(csosncst)"
@@ -374,6 +374,7 @@
                     
                     <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
                         <button
+                            v-if="configs.nmFinaly"
                             :class="{
                                 'ml-8': witdhScreen > 1080 && witdhScreen <= 1920
                             }" 
@@ -398,7 +399,7 @@
     <div>
         <ConfigPDV
             v-if="showOptionsPDV"
-
+            @close="closeConfig($event)"
         />
 
         <ProductsSelectionView
@@ -499,7 +500,11 @@
                 success: null,
                 typeOperation: '',
                 csosncst: '',
-                
+            
+                configs: {
+                    nmFinaly: false,
+                    saleNegativeorReset: false
+                }
             }
         },
 
@@ -733,6 +738,7 @@
                     
                 } catch (error) {
                     console.error('Erro finalizeSale', error.response.data.errors)
+                    alert('DEU ERRO NESSA KARALHA')
                     this.errorMessages.push(error.response.data.errors)
                     
                 }
@@ -777,6 +783,25 @@
                 this.show = !this.show
                 
             },  
+
+            closeConfig(event)
+            {
+                this.showOptionsPDV = event
+                this.showGrid = !event
+
+                const getConfig = async () => {
+                    const config = await api.get('/config/all-configs');
+                    this.configs = {
+                        nmFinaly: config.data.configPDV[0].nm_finaly,
+                        
+
+                    }
+                    
+                    console.log('chamou getConfig PDVView')
+                    console.log(this.configs)
+                }
+                getConfig()
+            },
 
             changeAmount(id, newAmount)
             {
@@ -895,8 +920,7 @@
 
                             this.viewProduct.show = !this.viewProduct.show
                             console.log(this.viewProduct.show)
-                        }
-                        
+                        } 
                         
                         break;
 
@@ -981,12 +1005,21 @@
                     }
                 })
                 const details = response.data   
+
                 this.sellerData = {
                     id: details.user.id,
                     name: details.user.name,
                 }
+
             }
             getUser()
+
+            const getConfig = async () => {
+                const config = await api.get('/config/all-configs');
+                this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
+                console.log('chamou getConfig PDVView')
+            }
+            getConfig()
 
             if(this.idPDV)
             {
