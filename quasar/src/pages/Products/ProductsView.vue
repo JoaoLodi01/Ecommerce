@@ -47,8 +47,6 @@
         </div>
     </div>
 
-    <div>
-    <!-- GRID PRODUTOS -->
       <div 
         class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" 
         v-if="showProducts && products.length > 0"
@@ -80,6 +78,11 @@
 
           <div class="text-sm text-gray-500 mb-4">
             <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
+          </div>
+
+          <div class="text-sm text-gray-500 mb-4">
+            <span class="font-semibold">teste imagem:</span>
+
           </div>
 
           <!-- Ações -->
@@ -136,7 +139,6 @@
             @close="closeReload($event)"
         />            
     </div>
-  </div>
 </template>
 
 <script>
@@ -144,7 +146,6 @@
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
-
 
     export default {
         data() {
@@ -163,7 +164,7 @@
         methods: {
             async getProducts() {
                 const response = await api.get(`/ecommerce/products/all`);
-                this.products = response.data.data;
+                this.products = response.data.all.data;
                 
             },
 

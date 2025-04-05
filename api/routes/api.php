@@ -52,6 +52,7 @@ Route::prefix('v1')->group( function (){
                 Route::post('/search', [ProductsController::class, 'search']);
                 Route::post('/create', [ProductsController::class, 'create']);
                 Route::get('/{id}', [ProductsController::class, 'findByID']);
+                Route::get('/imagem/{id}', [ProductsController::class, 'findImage']);
                 Route::put('/{id}', [ProductsController::class, 'update']);
                 Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
         

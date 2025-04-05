@@ -11,11 +11,10 @@ class ProductsRepository
     public function __construct(
         protected GroupRepository $groupRepository
     )
+    {}
+
+    public function getAll()
     {
-        
-    }
-    public function getAll(int $active){
-        //return Products::where('active', $active)->get();
         return Products::paginate(10);
     }
 
@@ -64,14 +63,24 @@ class ProductsRepository
     public function findByID(int $id){
         return Products::where('id', $id)->first();
     }
+    
+    public function findImage(int $id){
+        $product = Products::where('id', $id)->first();
+
+        Log::info($product->image);
+
+        return response($product->image)->header('Content-Type', 'image/jpeg');
+    }
 
     public function create(array $data)
     {
         Log::info("data[groupID]");
         Log::info($data['groupID']);
         $group = $this->groupRepository->findByID($data['groupID']);
+
         return Products::create([
             'product' => $data['product'],
+            'image' => $data['image']->getClientOriginalName(),
             'barcode' => $data['barcode'],
             'amount' => $data['amount'],
             'group_id' => $group->id,

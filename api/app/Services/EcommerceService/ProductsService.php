@@ -5,19 +5,20 @@ namespace App\Services\EcommerceService;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
 use Illuminate\Support\Facades\Log;
 
-class ProductsService{
-    
-    protected $productsRepository;
-
-    public function __construct(ProductsRepository $productsRepository)
-    {
-        $this->productsRepository = $productsRepository;
-    }
+class ProductsService
+{
+    public function __construct(
+        protected ProductsRepository $productsRepository
+    )
+    {}
     
     public function getAll(){
-        $all = $this->productsRepository->getAll(1);
+        $all = $this->productsRepository->getAll();
         try {
-            return response()->json($all);
+            return response()->json([
+                'success' => true,
+                'all' => $all
+            ], 200);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
@@ -32,15 +33,14 @@ class ProductsService{
     }
 
     public function findByID(int $id){
-        try {
-            return response()->json([
-                'success' => true,
-                'product' => $this->productsRepository->findByID($id)
-            ]);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        return response()->json([
+            'success' => true,
+            'product' => $this->productsRepository->findByID($id)
+        ]);
+    }
+    
+    public function findImage(int $id){
+        $this->productsRepository->findImage($id);
     }
 
     public function create(array $data){
