@@ -2593,3 +2593,753 @@
 [2025-04-04 18:13:44] local.INFO: {"id":4,"product":"teste","barcode":"11111111111111","group_id":1,"group":"Grupo teste 1","amount":11,"cost_price":"100.00","sale_price":"200.00","profit_percentage":"100.00","cfop":"1111","csosncst":"111","ncm":"11111111","cest":"1111111","unit":"UN","active":1}  
 [2025-04-04 18:13:44] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
 [2025-04-04 18:13:56] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 22:33:36] local.INFO: Acertou o login  
+[2025-04-04 22:34:21] local.INFO: Acertou o login  
+[2025-04-04 22:34:45] local.INFO: Acertou o login  
+[2025-04-04 22:43:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 22:43:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-04 22:44:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:44:01] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:44:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:44:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:44:02] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:44:02] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:44:30] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:44:30] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:44:30] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:44:30] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:44:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:44:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:44:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:44:33] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:44:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:44:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:44:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:44:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:44:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:44:38] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:44:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:44:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:44:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:44:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:44:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:44:46] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:44:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:44:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:44:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:44:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:45:03] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:45:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:45:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:45:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:45:05] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:45:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:45:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:45:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:45:40] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:45:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:45:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:45:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:45:53] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:45:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:45:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:45:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:45:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:46:19] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:46:19] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:46:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:46:19] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:46:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:46:20] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:46:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:46:35] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:46:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:46:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:46:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:46:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:46:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:46:37] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:46:37] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:46:37] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:46:38] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:46:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:46:38] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:46:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:46:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:46:38] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-04 22:46:39] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-04 22:46:39] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-04 22:47:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-04 22:47:58] local.INFO: O hotel foi encontrado  
+[2025-04-04 22:47:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-04 22:47:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-04 22:47:58] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-04 22:47:59] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 00:09:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-05 00:09:03] local.INFO: O hotel foi encontrado  
+[2025-04-05 00:09:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-05 00:09:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-05 00:09:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 00:09:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 00:11:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-05 00:11:28] local.INFO: O hotel foi encontrado  
+[2025-04-05 00:11:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-05 00:11:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-05 00:11:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 00:11:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 00:13:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-05 00:13:39] local.INFO: O hotel foi encontrado  
+[2025-04-05 00:13:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-05 00:13:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-05 00:13:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 00:13:40] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 00:16:00] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-05 00:16:00] local.INFO: O hotel foi encontrado  
+[2025-04-05 00:16:00] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-05 00:16:00] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-05 00:16:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 00:16:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:29:12] local.INFO: Acertou o login  
+[2025-04-05 01:31:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-05 01:31:13] local.INFO: O hotel foi encontrado  
+[2025-04-05 01:31:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-05 01:31:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-05 01:31:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:31:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:31:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:31:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:31:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:31:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:31:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:31:24] local.INFO: Controller  
+[2025-04-05 01:31:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-05 01:31:24] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-05 01:31:24] local.INFO: O que achou:   
+[2025-04-05 01:31:24] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:25] local.INFO: Controller  
+[2025-04-05 01:31:25] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-05 01:31:25] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:25] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-05 01:31:25] local.INFO: O que achou:   
+[2025-04-05 01:31:25] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:27] local.INFO: Controller  
+[2025-04-05 01:31:27] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'c',
+)  
+[2025-04-05 01:31:27] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:27] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'c',
+)  
+[2025-04-05 01:31:27] local.INFO: O que achou:   
+[2025-04-05 01:31:27] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:28] local.INFO: Controller  
+[2025-04-05 01:31:28] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'caqn',
+)  
+[2025-04-05 01:31:28] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:28] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'caqn',
+)  
+[2025-04-05 01:31:28] local.INFO: O que achou:   
+[2025-04-05 01:31:28] local.INFO: []  
+[2025-04-05 01:31:28] local.INFO: Controller  
+[2025-04-05 01:31:28] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'caqne',
+)  
+[2025-04-05 01:31:28] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:28] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'caqne',
+)  
+[2025-04-05 01:31:28] local.INFO: O que achou:   
+[2025-04-05 01:31:28] local.INFO: []  
+[2025-04-05 01:31:29] local.INFO: Controller  
+[2025-04-05 01:31:29] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'caqnel',
+)  
+[2025-04-05 01:31:29] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:29] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'caqnel',
+)  
+[2025-04-05 01:31:29] local.INFO: O que achou:   
+[2025-04-05 01:31:29] local.INFO: []  
+[2025-04-05 01:31:29] local.INFO: Controller  
+[2025-04-05 01:31:29] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'caqnela',
+)  
+[2025-04-05 01:31:29] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:29] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'caqnela',
+)  
+[2025-04-05 01:31:29] local.INFO: O que achou:   
+[2025-04-05 01:31:29] local.INFO: []  
+[2025-04-05 01:31:30] local.INFO: Controller  
+[2025-04-05 01:31:30] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'c',
+)  
+[2025-04-05 01:31:30] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:30] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'c',
+)  
+[2025-04-05 01:31:30] local.INFO: O que achou:   
+[2025-04-05 01:31:30] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:30] local.INFO: Controller  
+[2025-04-05 01:31:30] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'cane',
+)  
+[2025-04-05 01:31:30] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:30] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'cane',
+)  
+[2025-04-05 01:31:30] local.INFO: O que achou:   
+[2025-04-05 01:31:30] local.INFO: [{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:30] local.INFO: Controller  
+[2025-04-05 01:31:30] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'canel',
+)  
+[2025-04-05 01:31:30] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:30] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'canel',
+)  
+[2025-04-05 01:31:30] local.INFO: O que achou:   
+[2025-04-05 01:31:30] local.INFO: [{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:31:35] local.INFO: Controller  
+[2025-04-05 01:31:35] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'c',
+)  
+[2025-04-05 01:31:35] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:35] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'c',
+)  
+[2025-04-05 01:31:35] local.INFO: O que achou:   
+[2025-04-05 01:31:35] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1},{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:36] local.INFO: Controller  
+[2025-04-05 01:31:36] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'cane',
+)  
+[2025-04-05 01:31:36] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:36] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'cane',
+)  
+[2025-04-05 01:31:36] local.INFO: O que achou:   
+[2025-04-05 01:31:36] local.INFO: [{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:36] local.INFO: Controller  
+[2025-04-05 01:31:36] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'canel',
+)  
+[2025-04-05 01:31:36] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:36] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'canel',
+)  
+[2025-04-05 01:31:36] local.INFO: O que achou:   
+[2025-04-05 01:31:36] local.INFO: [{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:36] local.INFO: Controller  
+[2025-04-05 01:31:36] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'canela',
+)  
+[2025-04-05 01:31:36] local.INFO: -- Vai começar a busca --  
+[2025-04-05 01:31:36] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'canela',
+)  
+[2025-04-05 01:31:36] local.INFO: O que achou:   
+[2025-04-05 01:31:36] local.INFO: [{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-05 01:31:43] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-05 01:31:43] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-05 01:31:43] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-05 01:31:43] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-05 01:31:43] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-05 01:31:44] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-05 01:31:44] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-05 01:31:44] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 3,
+        'product' => 'Jack Daniels Canela',
+        'barcode' => '07898945131315',
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '140.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '123456',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 2,
+  'customer_id' => 2,
+  'total' => 140,
+  'sub_total' => 140,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-05 01:31:44] local.INFO: Memória usada PDVRepository::class, saveSale: 23068672  
+[2025-04-05 01:31:44] local.INFO: Busca pelo customer  
+[2025-04-05 01:31:44] local.INFO: Busca pelo user  
+[2025-04-05 01:31:44] local.INFO: {"id":2,"name":"Gabriel Kochem","email":"gabikochem55@gmail.com","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-05T01:28:58.000000Z","updated_at":"2025-04-05T01:28:58.000000Z"}  
+[2025-04-05 01:31:44] local.INFO: array (
+  'description' => 'Venda NFC-e N°',
+  'cliente_id' => 2,
+  'client' => 'Teste 2',
+  'gross_value' => 140,
+  'net_value' => 140,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 2,
+  'user' => 'Gabriel Kochem',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-05 01:31:44] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-04-05 01:31:44] local.INFO: Memória usada PDVRepository::class, saveProducts: 25165824  
+[2025-04-05 01:31:44] local.INFO: User: {"id":2,"name":"Gabriel Kochem","email":"gabikochem55@gmail.com","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-05T01:28:58.000000Z","updated_at":"2025-04-05T01:28:58.000000Z"}  
+[2025-04-05 01:31:44] local.INFO: $products 11  
+[2025-04-05 01:31:44] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 3,
+      'product' => 'Jack Daniels Canela',
+      'barcode' => '07898945131315',
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '140.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '123456',
+      'unit' => 'UN',
+      'active' => 1,
+    ),
+  ),
+)  
+[2025-04-05 01:31:44] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 25165824  
+[2025-04-05 01:31:44] local.INFO: $product, type: array  
+[2025-04-05 01:31:44] local.INFO: array (
+  0 => 
+  array (
+    'id' => 3,
+    'product' => 'Jack Daniels Canela',
+    'barcode' => '07898945131315',
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '140.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '123456',
+    'unit' => 'UN',
+    'active' => 1,
+  ),
+)  
+[2025-04-05 01:31:44] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 25165824  
+[2025-04-05 01:31:44] local.INFO: $product[$i]  
+[2025-04-05 01:31:44] local.INFO: array (
+  'id' => 3,
+  'product' => 'Jack Daniels Canela',
+  'barcode' => '07898945131315',
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '140.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '123456',
+  'unit' => 'UN',
+  'active' => 1,
+)  
+[2025-04-05 01:31:44] local.INFO: itensPDV   
+[2025-04-05 01:31:44] local.INFO: array (
+  'pdv_id' => 1,
+  'product_id' => 3,
+  'product' => 'Jack Daniels Canela',
+  'cost_price' => '10.00',
+  'sale_price' => '140.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '123456',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 2,
+  'seller' => 'Gabriel Kochem',
+)  
+[2025-04-05 01:31:44] local.INFO: $ipdv  
+[2025-04-05 01:31:44] local.INFO: {"pdv_id":1,"product_id":3,"product":"Jack Daniels Canela","cost_price":"10.00","sale_price":"140.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":2,"seller":"Gabriel Kochem","id":1}  
+[2025-04-05 01:31:44] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-05 01:31:49] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-05 01:31:49] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-05 01:31:49] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-05 01:31:49] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-05 01:31:49] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-05 01:31:49] local.INFO: Dados recebidos nos controllers  
+[2025-04-05 01:31:49] local.INFO: array (
+  'type_operation' => 'nfce',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => '140',
+  ),
+  'pdv_id' => 1,
+)  
+[2025-04-05 01:31:49] local.INFO: PDVService.php, class:finalizeSale, $total: 140  
+[2025-04-05 01:31:49] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-04-05 01:31:49] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-04-05 01:31:49] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-04-05 01:31:49] local.INFO: Buscando a espécie pelo ID.  
+[2025-04-05 01:31:49] local.INFO: $result  
+[2025-04-05 01:31:49] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-04 22:32:21',
+      'updated_at' => '2025-04-04 22:32:21',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-04 22:32:21',
+      'updated_at' => '2025-04-04 22:32:21',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-05 01:31:49] local.INFO: Vai conferir se o $total: R$ 140 é maior que o $pdv->net_value, R$140.00  
+[2025-04-05 01:31:49] local.INFO: Foi maior  
+[2025-04-05 01:31:49] local.INFO: nfce  
+[2025-04-05 01:31:49] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-04-05 01:31:49] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-04-05 01:31:49] local.INFO: $paymentValues  
+[2025-04-05 01:31:49] local.INFO: array (
+  0 => '140',
+)  
+[2025-04-05 01:31:49] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-04-05 01:31:49] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-04-05 01:31:49] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-04-05 01:31:49] local.INFO: forms  
+[2025-04-05 01:31:49] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-04 22:32:21',
+      'updated_at' => '2025-04-04 22:32:21',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-04 22:32:21',
+      'updated_at' => '2025-04-04 22:32:21',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-05 01:31:49] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-05 01:31:49] local.INFO: paymentValues linha 124 - : 140  
+[2025-04-05 01:31:49] local.INFO: Vai conferir os tipos de lançamento  
+[2025-04-05 01:31:49] local.INFO: $form->tipo_lancamento  
+[2025-04-05 01:31:49] local.INFO: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-05 01:31:49] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-04-05 01:31:49] local.INFO: Dados:   
+[2025-04-05 01:31:49] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 1',
+    'document' => 1,
+    'pdv_id' => 1,
+    'customer_id' => 2,
+    'name' => 'Teste 2',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-04-05',
+    'input_value' => '140',
+    'output_value' => 0,
+    'real_balance' => '140',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-04-05 01:31:49] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-04-05 01:31:49] local.INFO: Vai iniciar criação no CAIXA, dados:  
+[2025-04-05 01:31:49] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-04-05 01:31:49] local.INFO: Quantia: 1  
+[2025-04-05 01:31:49] local.INFO: Tipo de dado: array  
+[2025-04-05 01:31:49] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 1',
+    'document' => 1,
+    'pdv_id' => 1,
+    'customer_id' => 2,
+    'name' => 'Teste 2',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-04-05',
+    'input_value' => '140',
+    'output_value' => 0,
+    'real_balance' => '140',
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-04-05 01:31:49] local.INFO: Vai criar 1 registro:   
+[2025-04-05 01:31:49] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-04-05 01:31:49] local.INFO: $lastCashBox  
+[2025-04-05 01:31:49] local.INFO: 2  
+[2025-04-05 01:31:49] local.INFO: $actualCashBox  
+[2025-04-05 01:31:49] local.INFO:   
+[2025-04-05 01:31:49] local.INFO: Não foi encontrado um registro anterior do segundo registro no caixa  
+[2025-04-05 01:31:49] local.INFO: $lastCashBoxashBox 2  
+[2025-04-05 01:31:49] local.INFO: {"id":1,"description":"Venda NFC-e N\u00b0 1","document":"1","pdv_id":1,"customer_id":2,"name":"Teste 2","especie_id":1,"especie":"Dinheiro","date_register":"2025-04-05","input_value":"140.00","output_value":"0.00","real_balance":"140.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-04-05 01:31:49] local.INFO: $actualCashBox 2  
+[2025-04-05 01:31:49] local.INFO:   
+[2025-04-05 01:31:49] local.INFO: Vai retornar  
+[2025-04-05 01:31:49] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-04-05 01:31:49] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-04-05 01:31:49] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-04-05 01:31:49] local.INFO: payMentMethodService  
+[2025-04-05 01:31:49] local.INFO: array (
+  'line' => 215,
+  'success' => true,
+)  
+[2025-04-05 01:31:49] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":1,"description":"Venda NFC-e N\u00b0","cliente_id":2,"client":"Teste 2","gross_value":"140.00","net_value":"140.00","discount":"0.00","addition":"0.00","user_id":2,"user":"Gabriel Kochem","finished":0,"canceled":0,"is_nfce_nm":"nfce","active":1}  
+[2025-04-05 01:31:49] local.INFO: $type nfce  
+[2025-04-05 01:31:49] local.INFO: Buscar e alterar os produtos, pdv_id = 1  
+[2025-04-05 01:31:49] local.INFO: Alteração dentro do for = 1  
+[2025-04-05 01:31:49] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-04-05 01:31:49] local.INFO: Produto encontrado 3  
+[2025-04-05 01:31:49] local.INFO: {"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}  
+[2025-04-05 01:31:49] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-05 01:40:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-05 01:40:03] local.INFO: O hotel foi encontrado  
+[2025-04-05 01:40:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-05 01:40:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-05 01:40:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:40:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:41:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-05 01:41:22] local.INFO: O hotel foi encontrado  
+[2025-04-05 01:41:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-05 01:41:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-05 01:41:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-05 01:41:22] local.INFO: O hotel foi encontrado  
+[2025-04-05 01:41:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-05 01:41:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-05 01:41:24] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 01:41:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-05 01:41:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  

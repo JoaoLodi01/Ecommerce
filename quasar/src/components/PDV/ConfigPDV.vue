@@ -116,11 +116,9 @@
             async onSubmit()
             {
                 this.showLoading('Salvando')
-                console.log('Dados de envio:', this.configs)
 
                 const response = await api.put('/config/config-pdv/update-config', this.configs)
-                const data = response.data
-                console.log('Data', data)
+                const data = response.data                
 
                 if(data.success)
                 {

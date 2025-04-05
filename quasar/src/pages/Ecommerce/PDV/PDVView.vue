@@ -260,19 +260,20 @@
                             <label class="text-black" for="client">Cliente</label>
                             <input 
                                 v-model="clientsData.name"
-                                @input="selectClient()"
                                 @keydown.enter="setClient(clientsData)"
+                                @input="selectClient()"
                                 placeholder="Consumidor Padrão"
                                 class="text-black border border-black w-full"
                             />
-                            <ul v-if="filteredClients.length > 0" class="border border-gray-300 rounded mt-1">
+                            <ul v-if="filteredClients.length > 0" class=" border border-gray-300 rounded mt-1">
                                 <li
                                     v-for="client in filteredClients"
                                     :key="client.id"
                                     @click="setClient(client)"
-                                    class="fixed z-50 p-3 bg-white hover:bg-gray-200 cursor-pointer">
-                                
+                                    class="fixed bg-black text-white z-50 p-3 hover:bg-gray-200 cursor-pointer"
+                                >
                                     {{ client.name }}
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -548,11 +549,16 @@
         methods: {
             async selectClient(){
                 //const response = await api.get('/customers/selectClient');
-                const response = await api.get('/customers/all');
+                if(clientsData.name.length > 0)
+                {
+                    const response = await api.get('/customers/all');
+                    
+                    this.clients = response.data.data;
+                    this.filterClients();
                 
-                this.clients = response.data.data;
-                this.filterClients();
-                
+
+                }
+
             },
 
             filterClients(){
@@ -1006,7 +1012,8 @@
             const getConfig = async () => {
                 const config = await api.get('/config/all-configs');
                 this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
-                console.log('chamou getConfig PDVView')
+                
+                
             }
             getConfig()
 

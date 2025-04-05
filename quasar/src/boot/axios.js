@@ -9,16 +9,15 @@ const api = axios.create({
 });
 
 const token = LocalStorage.getItem("auth_token");
-console.log('De axios.js: ', token)  
+
 if(!token)
 {
-    console.log('Estado atual: deslogado')
     
 } else {
     api.interceptors.request.use((config) => {
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
-            console.log('Estado atual: logado')   
+            
         } 
 
         return config;
