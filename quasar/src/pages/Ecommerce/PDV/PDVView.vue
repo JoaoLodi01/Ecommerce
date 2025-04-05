@@ -555,7 +555,6 @@
                     
                     this.clients = response.data.data;
                     this.filterClients();
-                
 
                 }
 
@@ -563,7 +562,7 @@
 
             filterClients(){
                 this.filteredClients = this.clients.filter(client =>
-                    client.name.toLowerCase().includes(this.clientsData.name.toLowerCase())
+                    client.name.toLowerCase()
                 );
 
             },

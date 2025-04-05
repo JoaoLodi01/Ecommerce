@@ -3343,3 +3343,13 @@
 [2025-04-05 01:41:24] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
 [2025-04-05 01:41:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
 [2025-04-05 01:41:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-05 03:01:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-05 03:01:07] local.INFO: O hotel foi encontrado  
+[2025-04-05 03:01:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-05 03:01:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-05 03:01:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 03:01:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-05 12:08:10] local.INFO: Acertou o login  
+[2025-04-05 12:10:10] local.INFO: Acertou o login  
+[2025-04-05 12:12:15] local.INFO: Acertou o login  
+[2025-04-05 12:14:35] local.INFO: Acertou o login  
