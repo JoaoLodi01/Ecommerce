@@ -8,6 +8,7 @@ main()
     echo "5 - Route:cache: php artisan route:ca"
     echo "6 - Route:list: php artisan route:li"
     echo "7 - Apagar as logs"
+    echo "8 - Migrate (table): php artisan migrate"
     echo "R - Reiniciar"
     echo "E - Sair"
     read -p "Selecione uma opção: " option
@@ -66,23 +67,33 @@ main()
 
         7)
             clear
-            echo "1 - C:/Gabriel/Codes/Projeto_3_Hotel_Ecommerce/api"
-            echo "2 - D:/SGBR/Projeto_3_Hotel_Ecommerce/api/storage/logs"
+            echo "1 - C:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/api/storage/logs"
+            echo "2 - D:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/api/storage/logs"
             read local
             case $local in
                 1 ) 
-                    cd "C:Gabriel/Codes/Projeto_3_Hotel_Ecommerce/api" || { "Caminho não encontrado! ";}
+                    cd "C:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/api/storage/logs" || { "Caminho não encontrado! ";}
                     ;;
 
                 2 ) 
-                    cd "D:SGBR/Projeto_3_Hotel_Ecommerce/api/storage/logs" || { "Caminho não encontrado! ";}
+                    cd "D:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/api/storage/logs" || { "Caminho não encontrado! ";}
+                    ;;
+                *)
+                    echo "Opção inválida!"
+                    main
                     ;;
             esac
-
 
             echo "Apagando logs..."
             sleep 1
             rm "laravel.log"
+            main
+            ;;
+
+        8)
+            clear
+            echo "Recriando banco de dados..."
+            bash -c "php artisan migrate"
             main
             ;;
 

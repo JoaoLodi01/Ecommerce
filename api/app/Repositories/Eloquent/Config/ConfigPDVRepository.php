@@ -18,9 +18,11 @@ class ConfigPDVRepository
         Log::info('data no repository');
         Log::info($data);
         ConfigPDV::where('active', 1)->update([
+            'filter_search' => $data['searchOptionProduct'],
+            'filter_search_customer' => $data['searchOptionCustomers'],
             'nm_finaly' => $data['nmFinaly'],
-            'sale_negative_or_reset' => (float) $data['saleNegativeorReset'],
-            'filter_search' => $data['searchOption']        
+            'sale_negative_or_reset' => (float) $data['saleNegativeorReset']
+            
         ]);
 
         return $this->getConfigs();

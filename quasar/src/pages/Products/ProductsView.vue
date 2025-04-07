@@ -15,7 +15,7 @@
             >
                 <ReportProduct
                     :widthScreen="widthScreen"
-                    v-if="!showRegisterProduct"
+                    v-if="showReportProducts"
                 />
 
             </div>
@@ -154,6 +154,7 @@
                 showProducts: true,
                 showUpdateProduct: false,
                 showRegisterProduct: false,
+                showReportProducts: true,
                 widthScreen: 0,
                 productName: '',
                 productID: ''
@@ -168,13 +169,6 @@
                 
             },
 
-            openRegister()
-            {
-                this.showRegisterProduct = true
-                this.showProducts = false
-
-            },
-
             async deleteproduct(id) {
                 const product = await api.delete(`/ecommerce/${id}/deactivate`)  
                 console.log(product)
@@ -186,6 +180,7 @@
                 this.showRegisterProduct = true
                 this.showUpdateProduct = false
                 this.showProducts = false
+                this.showReportProducts = false
 
             },
 
@@ -193,6 +188,7 @@
             {
                 this.showRegisterProduct = false 
                 this.showProducts = true
+                this.showReportProducts = true
             },
 
             toggleRegisterProductVisibility()
@@ -208,11 +204,13 @@
                 this.showUpdateProduct = true
                 this.showRegisterProduct = false
                 this.showProducts = false
+                this.showReportProducts = false
 
             },
 
             closeReload(event)
             {
+                this.showReportProducts = true
                 this.showUpdateProduct = event
                 this.showRegisterProduct = event
                 window.location.reload()

@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\CustomerService;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CostumerRequest;
+use App\Http\Requests\Customers\{
+    CostumerRequest,
+    SearchCustomer
+};
+
 use Illuminate\Support\Facades\Log;
 
 class CustomerController extends Controller
@@ -19,13 +23,13 @@ class CustomerController extends Controller
         return $this->customerService->getAll();
     }
 
-    public function selectClient(Request $request){
-        return $this->customerService->selectClient($request->all());
+    public function search(SearchCustomer $request){
+        $data = $request->validated();
+        return $this->customerService->search($data['search']);
     }
 
     public function create(CostumerRequest $request){
         $data = $request->validated();
-        Log::info($data);
         return $this->customerService->create($data);
     }
 
