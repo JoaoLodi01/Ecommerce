@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\EcommerceRequest;
+namespace App\Http\Requests\PDV;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;

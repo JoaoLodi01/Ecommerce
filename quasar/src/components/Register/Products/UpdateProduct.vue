@@ -1,20 +1,23 @@
 <template>
      <div 
-        class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
+        class="mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
         :class="{
             'relative top-12 left-12': widthScreen <= 1080,
-            'ml-72': widthScreen > 1080
+            'low relative top-28 text-xl': widthScreen > 1080
         }"
     >
-        <div class="flex">
-            <h2 class="text-xl font-semibold mb-4 w-max">Edição do produto: {{ productName }}</h2>
+        <!--div class="flex">
+            
             <span @click="closeUpdate()" class="cursor-pointer text-xl ml-auto">X</span>
-        </div>
-
+        </div-->
+        <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Edição do produto: {{ productName }}</h2>
         <q-form
             @submit="submitForm()"
             @reset="onReset"
-            class="p-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            class="p-1"
+            :class="{ 
+                'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
+            }"
         >
 
         <q-input    
@@ -125,45 +128,45 @@
                 </q-btn>
             </div>
         </q-form>
-        </div>
-  </template>
+    </div>
+</template>
   
-  <script>
-      import { api } from 'src/boot/axios';
-      import { useQuasar } from 'quasar';
-      import { onBeforeUnmount } from 'vue';
-  
-      export default {
-          setup()
-          {
-            let $q = useQuasar();
-            let timer
+<script>
+    import { api } from 'src/boot/axios';
+    import { useQuasar } from 'quasar';
+    import { onBeforeUnmount } from 'vue';
 
-            onBeforeUnmount(() => { 
-                if(timer !== void 0)
-                {
-                    clearTimeout(timer)
-                    $q.loading.hide()
-                }
-            })
+    export default {
+        setup()
+        {
+        let $q = useQuasar();
+        let timer
 
-            return {
-                showLoading(message)
-                {
-                    $q.loading.show({
-                        message: `${message} dados do produto ...`
-
-                    })
-
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 4000)
-                }
+        onBeforeUnmount(() => { 
+            if(timer !== void 0)
+            {
+                clearTimeout(timer)
+                $q.loading.hide()
             }
-          },
-  
-          computed: {
+        })
+
+        return {
+            showLoading(message)
+            {
+                $q.loading.show({
+                    message: `${message} dados do produto ...`
+
+                })
+
+                timer = setTimeout(() => {
+                    $q.loading.hide()
+                    timer = void 0
+                }, 4000)
+            }
+        }
+        },
+
+        computed: {
             calculateSalePrice()
             {
                 return this.productDetails.salePrice = this.productDetails.costPrice * (1 + this.productDetails.profitPercentage / 
@@ -171,8 +174,8 @@
 
             }            
         },  
-          
-          data() {
+            
+            data() {
             return {
                 productDetails: {
                     product: '',
@@ -192,8 +195,8 @@
                 showPassword: false,
                 
             };
-          },
-  
+        },
+
         methods: {
             async submitForm() {
                 try {
@@ -202,7 +205,7 @@
                     console.log(response)
                     if(response.data.success)
                     {
-                        alert(`Produto: ${this.form.name}, alterado com sucesso!`)
+                        alert(`Produto: ${this.productDetails.product}, alterado com sucesso!`)
                         this.$emit("close", false)
                     }
                         
@@ -243,7 +246,7 @@
                 this.$emit("close", false)
             }
         },
-  
+
         props: {
             productID: {
                 type: Number,
@@ -271,5 +274,11 @@
         {
             this.getProduct()
         }
-      };
-  </script>
+    };
+</script>
+
+<style>
+    .low {
+        right: 7.5rem;
+    }
+</style>
