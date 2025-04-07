@@ -1,24 +1,354 @@
-[2025-04-05 15:41:05] local.INFO:   
-[2025-04-05 15:41:05] local.INFO:   
-[2025-04-05 15:41:05] local.INFO:   
-[2025-04-05 15:41:06] local.INFO:   
-[2025-04-05 15:41:06] local.INFO:   
-[2025-04-05 15:41:06] local.INFO: C:\Users\User\AppData\Local\Temp\phpC286.tmp  
-[2025-04-05 15:41:07] local.INFO: php2801.tmp  
-[2025-04-05 15:41:07] local.INFO: Mamis.jpg  
-[2025-04-05 15:41:08] local.INFO:   
-[2025-04-05 15:41:09] local.INFO:   
-[2025-04-05 15:41:09] local.INFO:   
-[2025-04-05 15:41:09] local.INFO:   
-[2025-04-05 15:41:09] local.INFO:   
-[2025-04-05 15:41:10] local.INFO: C:\Users\User\AppData\Local\Temp\phpC286.tmp  
-[2025-04-05 15:41:10] local.INFO: php2801.tmp  
-[2025-04-05 15:41:10] local.INFO: Mamis.jpg  
-[2025-04-05 15:41:47] local.INFO:   
-[2025-04-05 15:41:47] local.INFO:   
-[2025-04-05 15:41:48] local.INFO:   
-[2025-04-05 15:41:48] local.INFO:   
-[2025-04-05 15:41:48] local.INFO:   
-[2025-04-05 15:41:48] local.INFO: C:\Users\User\AppData\Local\Temp\phpC286.tmp  
-[2025-04-05 15:41:48] local.INFO: php2801.tmp  
-[2025-04-05 15:41:49] local.INFO: Mamis.jpg  
+[2025-04-06 16:31:20] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-06 16:31:20] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-06 16:31:20] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-06 16:31:20] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-06 16:31:20] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-06 16:31:20] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-06 16:31:20] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-06 16:31:20] local.INFO: array (
+  'description' => 'Venda guardada',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 0,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => NULL,
+)  
+[2025-04-06 16:31:20] local.INFO: Memória usada PDVRepository::class, saveSale: 23068672  
+[2025-04-06 16:31:20] local.INFO: Busca pelo customer  
+[2025-04-06 16:31:20] local.INFO: Busca pelo user  
+[2025-04-06 16:31:20] local.INFO:   
+[2025-04-06 16:31:58] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-06 16:31:58] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-06 16:31:58] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-06 16:31:58] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-06 16:31:58] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-06 16:31:58] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-06 16:31:58] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-06 16:31:58] local.INFO: array (
+  'description' => 'Venda guardada',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 0,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => NULL,
+)  
+[2025-04-06 16:31:58] local.INFO: Memória usada PDVRepository::class, saveSale: 23068672  
+[2025-04-06 16:31:58] local.INFO: Busca pelo customer  
+[2025-04-06 16:31:58] local.INFO: Busca pelo user  
+[2025-04-06 16:31:58] local.INFO: {"id":1,"name":"admin","email":"1","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-06T16:19:37.000000Z","updated_at":"2025-04-06T16:19:37.000000Z"}  
+[2025-04-06 16:31:58] local.INFO: array (
+  'description' => 'Venda guardada',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => NULL,
+)  
+[2025-04-06 16:31:58] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-04-06 16:31:58] local.INFO: Memória usada PDVRepository::class, saveProducts: 25165824  
+[2025-04-06 16:31:58] local.INFO: User: {"id":1,"name":"admin","email":"1","perfil_photo":null,"email_verified_at":null,"active":1,"created_at":"2025-04-06T16:19:37.000000Z","updated_at":"2025-04-06T16:19:37.000000Z"}  
+[2025-04-06 16:31:58] local.INFO: $products 11  
+[2025-04-06 16:31:58] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'barcode' => '82184004364',
+      'image' => NULL,
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-04-06 16:31:58] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 25165824  
+[2025-04-06 16:31:58] local.INFO: $product, type: array  
+[2025-04-06 16:31:58] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'barcode' => '82184004364',
+    'image' => NULL,
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-04-06 16:31:58] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 25165824  
+[2025-04-06 16:31:58] local.INFO: $product[$i]  
+[2025-04-06 16:31:58] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'barcode' => '82184004364',
+  'image' => NULL,
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-04-06 16:31:58] local.INFO: itensPDV   
+[2025-04-06 16:31:58] local.INFO: array (
+  'pdv_id' => 2,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'admin',
+)  
+[2025-04-06 16:31:58] local.INFO: $ipdv  
+[2025-04-06 16:31:58] local.INFO: {"pdv_id":2,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"admin","id":3}  
+[2025-04-06 16:32:03] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-06 16:32:03] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-06 16:32:03] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-06 16:32:03] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-06 16:32:03] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-06 16:32:03] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-04-06 16:32:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-06 16:32:08] local.INFO: O hotel foi encontrado  
+[2025-04-06 16:32:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-06 16:32:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-06 16:32:08] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-06 16:32:08] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-06 16:32:08] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-06 16:32:08] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-06 16:32:08] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-06 16:32:08] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-04-06 16:32:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-06 16:32:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-06 16:32:19] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-06 16:32:25] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-06 16:32:25] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-06 16:32:25] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-06 16:32:25] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-06 16:32:25] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-06 16:32:25] local.INFO: Dados recebidos nos controllers  
+[2025-04-06 16:32:25] local.INFO: array (
+  'type_operation' => 'nfce',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => '120',
+  ),
+  'pdv_id' => 2,
+)  
+[2025-04-06 16:32:25] local.INFO: PDVService.php, class:finalizeSale, $total: 120  
+[2025-04-06 16:32:25] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-04-06 16:32:25] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-04-06 16:32:25] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-04-06 16:32:25] local.INFO: Buscando a espécie pelo ID.  
+[2025-04-06 16:32:25] local.INFO: $result  
+[2025-04-06 16:32:25] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-06 16:19:35',
+      'updated_at' => '2025-04-06 16:19:35',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-06 16:19:35',
+      'updated_at' => '2025-04-06 16:19:35',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-06 16:32:25] local.INFO: Vai conferir se o $total: R$ 120 é maior que o $pdv->net_value, R$120.00  
+[2025-04-06 16:32:25] local.INFO: Foi maior  
+[2025-04-06 16:32:25] local.INFO:   
+[2025-04-06 16:32:40] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-06 16:32:40] local.INFO: O hotel foi encontrado  
+[2025-04-06 16:32:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-06 16:32:40] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-06 16:32:40] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-06 16:32:41] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-06 16:32:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-06 16:32:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-06 16:32:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-06 16:32:41] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-06 16:32:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-04-06 16:32:41] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-06 16:32:43] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-06 16:32:43] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-06 16:32:43] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-06 16:32:43] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-06 16:32:43] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-06 16:32:43] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-04-06 16:32:45] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-06 16:32:45] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-06 16:32:45] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-06 16:32:45] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-06 16:32:45] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-06 16:32:45] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  

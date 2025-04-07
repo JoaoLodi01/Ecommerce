@@ -466,12 +466,12 @@
                 hotelCodCRT: 0,
 
                 sellerData: {
-                    id: '',
+                    id: 0,
                     name: ''
                 },
 
                 clientsData: {
-                    id: null,
+                    id: 0,
                     name: ''
                 },
 
@@ -596,6 +596,7 @@
                                 
                             })
 
+                            console.log(response.data)
                             if(response.data.success === true)
                             {
                                 alert('Venda guardarda para enviar posteriormente!')

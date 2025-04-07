@@ -21,7 +21,7 @@
                     label="Senha"
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
-                    color="grey-7"
+                    color="grey-7"git ad
                 >
                     <svg 
                         @click="showPassword = !showPassword" 
