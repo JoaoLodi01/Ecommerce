@@ -78,7 +78,7 @@
                     </div>
 
                     <div v-if="witdhScreen > 1366">
-                        <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configuarações</button>
+                        <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configurações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
                         <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 

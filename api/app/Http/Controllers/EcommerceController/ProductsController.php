@@ -19,7 +19,7 @@ class ProductsController extends Controller
     }
 
     public function getAll(){
-        return $this->productsService->getAll();
+        return $this->productsService->getAll(1);
     }
 
     public function search(SearchProducts $request){

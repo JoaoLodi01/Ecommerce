@@ -1,15 +1,18 @@
-<template>
+4<template>
     <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
         <h2 class="text-xl font-semibold mb-4">Registro Financeiro</h2>
         
-        <form @submit.prevent="submitForm">
+        <form 
+          @submit.prevent="submitForm"
+          @reset="onReset">
     
           <label for="description">Descrição:</label>
           <input 
           type="text" 
           v-model="form.description" 
           id="description" 
-          placeholder="Inserir..."/>
+          placeholder="Inserir..."
+          class=""/>
     
           <label for="name">Cliente:</label>
           <input 
@@ -27,7 +30,7 @@
     
           <label for="especie">Especie:</label>
           <input 
-          type="select" 
+          type="text" 
           v-model="form.especie" 
           id="especie" 
           placeholder="Inserir..."/>
@@ -54,11 +57,13 @@
           placeholder="Inserir..."/>
 
           <label for="type_interest">Tipo juros:</label>
-          <input
-          type="select" 
-          v-model="form.type_interest" 
-          id="type_interest" 
-          placeholder="Inserir..."/>
+          <select 
+            v-model="form.type_interest" 
+            id="especie">
+            <option disabled value="">Selecionar...</option>
+            <option value="especie1">%</option>
+            <option value="especie2">R$</option>
+          </select>
 
           <label for="interest_value">Valor juros:</label>
           <input 
@@ -73,7 +78,15 @@
           v-model="form.total_amount" 
           id="total_amount" 
           placeholder="Inserir..."/>
-    
+          
+          <button 
+            type="submit"
+            class="bg-slate-600 text-white p-1 mr-5 rounded-lg">
+            Cadastrar
+          </button>
+          <button>
+            
+          </button>
         </form>
       </div>
     </template>
@@ -101,7 +114,31 @@
           };
         },
         methods: {
-          
+          onReset(){
+                this.form = {
+                    description: "",
+                    name: "",
+                    user: "",
+                    cpf: "",
+                    especie: "",
+                    due_date: "",
+                    installment_number: "",
+                    installment_value: "",
+                    type_interest: "",
+                    interest_value: "",
+                    total_amount: ""
+                }
+            },
+
+            async submitForm() {
+                try {
+                    const response = await axios.post(`${this.api}`, this.form); // Lembrar de criar rota e inserir aqui
+                    this.resetform();
+                    console.log('Dados enviados!', response.data)
+                } catch (error) {
+                    alert("Ocorreu um erro ao cadastrar o registro")
+                }
+            },
         },
       };
       </script>

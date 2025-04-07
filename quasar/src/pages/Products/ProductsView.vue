@@ -49,7 +49,7 @@
 
       <div 
         class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" 
-        v-if="showProducts && products.length > 0"
+        v-if="showProducts && products && products.length > 0"
         :class="{
             'relative right-7 top-10': widthScreen <= 1080
         }" 
@@ -166,6 +166,7 @@
             async getProducts() {
                 const response = await api.get(`/ecommerce/products/all`);
                 this.products = response.data.all.data;
+                
                 
             },
 
