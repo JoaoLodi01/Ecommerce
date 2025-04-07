@@ -67,16 +67,7 @@ Route::prefix('v1')->group( function (){
                 Route::put('/{id}', [CashRegisterController::class, 'update']);
                 Route::delete('/{id}/deactivate', [CashRegisterController::class, 'delete']);
                 
-            });
-            
-            Route::prefix('receive')->group( function(){
-                Route::get('/all', [ReceiveController::class, 'getAll']);
-                Route::post('/create', [ReceiveController::class, 'store']);
-                Route::get('/{id}', [ReceiveController::class, 'findByID']);
-                Route::put('/{id}', [ReceiveController::class, 'update']);
-                Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
-                
-            });
+            });        
         
             // NFC-e routes
             Route::prefix('pdv')->group( function(){
@@ -148,6 +139,10 @@ Route::prefix('v1')->group( function (){
     });
 });
 
+Route::prefix('users')->group( function(){
+    Route::post('/create', [UserController::class, 'create']);
+    
+});
 
 Route::get('/get-ip', [IPController::class, 'create']);
 });

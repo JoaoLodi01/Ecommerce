@@ -396,3 +396,235 @@
 #33 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
 #34 {main}
 "} 
+[2025-04-07 09:13:50] local.INFO: Errou o login  
+[2025-04-07 09:15:19] local.INFO: Acertou o login  
+[2025-04-07 09:15:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:15:35] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:15:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:15:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:15:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:15:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:15:37] local.INFO: Controller  
+[2025-04-07 09:15:37] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-07 09:15:37] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:15:37] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-07 09:15:37] local.INFO: O que achou:   
+[2025-04-07 09:15:37] local.INFO: []  
+[2025-04-07 09:15:41] local.INFO: Controller  
+[2025-04-07 09:15:41] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 't',
+)  
+[2025-04-07 09:15:41] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:15:41] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 't',
+)  
+[2025-04-07 09:15:41] local.INFO: O que achou:   
+[2025-04-07 09:15:41] local.INFO: []  
+[2025-04-07 09:15:41] local.INFO: Controller  
+[2025-04-07 09:15:41] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'tste',
+)  
+[2025-04-07 09:15:41] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:15:41] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'tste',
+)  
+[2025-04-07 09:15:41] local.INFO: O que achou:   
+[2025-04-07 09:15:41] local.INFO: []  
+[2025-04-07 09:15:42] local.INFO: Controller  
+[2025-04-07 09:15:42] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 't',
+)  
+[2025-04-07 09:15:42] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:15:42] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 't',
+)  
+[2025-04-07 09:15:42] local.INFO: O que achou:   
+[2025-04-07 09:15:42] local.INFO: []  
+[2025-04-07 09:15:42] local.INFO: Controller  
+[2025-04-07 09:15:42] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'test',
+)  
+[2025-04-07 09:15:42] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:15:42] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'test',
+)  
+[2025-04-07 09:15:42] local.INFO: O que achou:   
+[2025-04-07 09:15:42] local.INFO: []  
+[2025-04-07 09:15:42] local.INFO: Controller  
+[2025-04-07 09:15:42] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'teste',
+)  
+[2025-04-07 09:15:42] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:15:42] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'teste',
+)  
+[2025-04-07 09:15:42] local.INFO: O que achou:   
+[2025-04-07 09:15:42] local.INFO: []  
+[2025-04-07 09:15:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:15:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:16:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-07 09:17:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:17:05] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:17:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:17:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:17:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:17:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:17:53] local.INFO: Controller  
+[2025-04-07 09:17:53] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-07 09:17:53] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:17:53] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-07 09:17:53] local.INFO: O que achou:   
+[2025-04-07 09:17:53] local.INFO: []  
+[2025-04-07 09:17:56] local.INFO: Controller  
+[2025-04-07 09:17:56] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 't',
+)  
+[2025-04-07 09:17:56] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:17:56] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 't',
+)  
+[2025-04-07 09:17:56] local.INFO: O que achou:   
+[2025-04-07 09:17:56] local.INFO: []  
+[2025-04-07 09:17:57] local.INFO: Controller  
+[2025-04-07 09:17:57] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'test',
+)  
+[2025-04-07 09:17:57] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:17:57] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'test',
+)  
+[2025-04-07 09:17:57] local.INFO: O que achou:   
+[2025-04-07 09:17:57] local.INFO: []  
+[2025-04-07 09:17:57] local.INFO: Controller  
+[2025-04-07 09:17:57] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'teste',
+)  
+[2025-04-07 09:17:57] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:17:57] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'teste',
+)  
+[2025-04-07 09:17:57] local.INFO: O que achou:   
+[2025-04-07 09:17:57] local.INFO: []  
+[2025-04-07 09:18:00] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$DXDD\/V31Ucg2a68IkJFzsOEcf1DRh25s4Tl7Wi\/6GeiQE037FhkmG","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$UXwbaMlYm0rVBWc7vzL\/t.tyTQ7TQ6VnDFjmO\/dEBBGfmeZjP40pS","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"}]  
+[2025-04-07 09:18:00] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$DXDD\/V31Ucg2a68IkJFzsOEcf1DRh25s4Tl7Wi\/6GeiQE037FhkmG","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$UXwbaMlYm0rVBWc7vzL\/t.tyTQ7TQ6VnDFjmO\/dEBBGfmeZjP40pS","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"}]  
+[2025-04-07 09:18:00] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$DXDD\/V31Ucg2a68IkJFzsOEcf1DRh25s4Tl7Wi\/6GeiQE037FhkmG","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$UXwbaMlYm0rVBWc7vzL\/t.tyTQ7TQ6VnDFjmO\/dEBBGfmeZjP40pS","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"}]  
+[2025-04-07 09:18:06] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$DXDD\/V31Ucg2a68IkJFzsOEcf1DRh25s4Tl7Wi\/6GeiQE037FhkmG","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$UXwbaMlYm0rVBWc7vzL\/t.tyTQ7TQ6VnDFjmO\/dEBBGfmeZjP40pS","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"}]  
+[2025-04-07 09:18:06] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$DXDD\/V31Ucg2a68IkJFzsOEcf1DRh25s4Tl7Wi\/6GeiQE037FhkmG","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$UXwbaMlYm0rVBWc7vzL\/t.tyTQ7TQ6VnDFjmO\/dEBBGfmeZjP40pS","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"}]  
+[2025-04-07 09:18:07] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$DXDD\/V31Ucg2a68IkJFzsOEcf1DRh25s4Tl7Wi\/6GeiQE037FhkmG","phone":"+55 4244-4444","active":1,"created_at":"2025-04-07T08:35:11.000000Z","updated_at":"2025-04-07T08:35:11.000000Z"}]  
+[2025-04-07 09:18:38] local.INFO: []  
+[2025-04-07 09:18:38] local.INFO: []  
+[2025-04-07 09:18:40] local.INFO: []  
+[2025-04-07 09:19:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:19:29] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:19:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:19:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:19:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:19:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:19:30] local.INFO: Controller  
+[2025-04-07 09:19:30] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 't',
+)  
+[2025-04-07 09:19:30] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:19:30] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 't',
+)  
+[2025-04-07 09:19:30] local.INFO: O que achou:   
+[2025-04-07 09:19:30] local.INFO: []  
+[2025-04-07 09:19:31] local.INFO: Controller  
+[2025-04-07 09:19:31] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'test',
+)  
+[2025-04-07 09:19:31] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:19:31] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'test',
+)  
+[2025-04-07 09:19:31] local.INFO: O que achou:   
+[2025-04-07 09:19:31] local.INFO: []  
+[2025-04-07 09:19:31] local.INFO: Controller  
+[2025-04-07 09:19:31] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'teste',
+)  
+[2025-04-07 09:19:31] local.INFO: -- Vai começar a busca --  
+[2025-04-07 09:19:31] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'teste',
+)  
+[2025-04-07 09:19:31] local.INFO: O que achou:   
+[2025-04-07 09:19:31] local.INFO: []  
+[2025-04-07 09:19:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:19:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:20:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:20:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:22:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:22:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:22:08] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:22:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:22:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:22:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-07 09:22:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-07 09:22:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:22:14] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:22:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:22:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:22:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:15] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:22:16] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:22:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:22:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:22:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:28] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:22:28] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:22:28] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:22:28] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:22:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:22:31] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:22:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:22:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:22:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:22:32] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:23:16] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:23:16] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:23:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:23:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:23:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:23:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
