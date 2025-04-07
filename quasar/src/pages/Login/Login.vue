@@ -12,6 +12,7 @@
                     v-model="details.email" 
                     label="E-mail" 
                     class="mb-4"
+                    color="grey-7"
                 />
                 
                 <q-input 
@@ -20,7 +21,7 @@
                     label="Senha"
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
-                    
+                    color="grey-7"
                 >
                     <svg 
                         @click="showPassword = !showPassword" 

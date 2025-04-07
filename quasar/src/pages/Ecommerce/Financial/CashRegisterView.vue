@@ -29,7 +29,6 @@
                 <table class="min-w-full table-auto border-collapse border border-gray-200">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th scope="col" class="px-6 py-3 sticky right-0 bg-gray-200">Tipo</th>
                             <th scope="col" class="px-6 py-3 sticky left-0 bg-gray-200">Ações</th>
                             <th scope="col" class="px-6 py-3">Cód</th>
                             <th scope="col" class="px-3 py-4">Documento</th>
