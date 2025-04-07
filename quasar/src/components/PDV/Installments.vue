@@ -32,27 +32,46 @@
         </q-card-section>
   
         <q-card-section v-else>
-          <q-banner class="q-mb-md bg-blue-1 text-black">
-            Parcelas geradas em base no valor total: R$ {{ totalAmount.toFixed(2) }}
-          </q-banner>
-  
-          <div v-for="(installment, i) in installments" :key="i" class="q-mb-sm">
-            <q-input
-                v-model.number="installment.amount"
-                label="Total"
-                type="number"
-                outlined
-                dense
-            />
-            <q-input
-                v-model="installment.dueDate"
-                label="Data de vencimento"
-                type="date"
-                outlined
-                dense
-                class="q-mt-xs"
-            />
-          </div>
+            <q-banner class="q-mb-md bg-blue-1 text-black">
+                Parcelas geradas com base no valor total: <b>R$ {{ totalAmount.toFixed(2) }}</b>
+            </q-banner>
+
+            <div class="q-gutter-md">
+                <q-card
+                v-for="(installment, i) in installments"
+                :key="i"
+                class="bg-grey-1 q-pa-md"
+                flat
+                bordered
+                >
+                <div class="text-subtitle2 q-mb-sm">
+                    Parcela {{ i + 1 }}
+                </div>
+
+                <div class="row q-col-gutter-md">
+                    <div class="col-6">
+                    <q-input
+                        v-model.number="installment.amount"
+                        label="Valor da parcela"
+                        type="number"
+                        prefix="R$"
+                        outlined
+                        dense
+                    />
+                    </div>
+
+                    <div class="col-6">
+                    <q-input
+                        v-model="installment.dueDate"
+                        label="Data de vencimento"
+                        type="date"
+                        outlined
+                        dense
+                    />
+                    </div>
+                </div>
+                </q-card>
+            </div>
         </q-card-section>
   
         <q-card-actions align="right">
