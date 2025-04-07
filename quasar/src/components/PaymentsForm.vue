@@ -1,124 +1,133 @@
 <template>
-    <div
-        class="payment bg-slate-600 text-white m-auto p-3 mr-5 rounded-lg"
-        :class="{
-            'ml-8': witdhScreen > 1366,
-            'mt-12 text-2xl': witdhScreen <= 1080
-        }"
-    >
-        <div :class="{
-            'flex': witdhScreen > 1366
-
-        }">
-            <form @submit.prevent="finalizeSale" class="m-auto">
-                <table class="text-black">
-                    <tbody>
-                        <tr
-                            v-for="(payment, i) in paymentsForms" :key="payment.i"
-                            class="bg-white border border-black focus:border-none"
-                        >
-                            <td> 
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 16 16"
-                                    fill="currentColor"
-                                    class="size-4 inline-flex"
-                                    v-if="payment.tipo_lancamento == 'Receber' && payment.especie !== 'Boleto'"
-                                    
-                                >
-                                    <path fill-rule="evenodd" d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3Zm9 3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-6.25-.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM11.5 6A.75.75 0 1 1 13 6a.75.75 0 0 1-1.5 0Z" clip-rule="evenodd" />
-                                    <path d="M13 11.75a.75.75 0 0 0-1.5 0v.179c0 .15-.138.28-.306.255A65.277 65.277 0 0 0 1.75 11.5a.75.75 0 0 0 0 1.5c3.135 0 6.215.228 9.227.668A1.764 1.764 0 0 0 13 11.928v-.178Z" />
-                                </svg>
-
-                                <svg 
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor" 
-                                    class="size-4 inline-flex"
-                                    v-if="payment.tipo_lancamento == 'Caixa'"
-                                >
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
-                                </svg>
-
-                                <svg 
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 16 16"
-                                    fill="currentColor" 
-                                    class="size-4 inline-flex"
-                                    v-if="payment.especie == 'Boleto'"
-                                >
-                                    <path fill-rule="evenodd" d="M1 4.5A1.5 1.5 0 0 1 2.5 3h11A1.5 1.5 0 0 1 15 4.5v1c0 .276-.227.494-.495.562a2 2 0 0 0 0 3.876c.268.068.495.286.495.562v1a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 11.5v-1c0-.276.227-.494.495-.562a2 2 0 0 0 0-3.876C1.227 5.994 1 5.776 1 5.5v-1Zm9 1.25a.75.75 0 0 1 1.5 0v1a.75.75 0 0 1-1.5 0v-1Zm.75 2.75a.75.75 0 0 0-.75.75v1a.75.75 0 0 0 1.5 0v-1a.75.75 0 0 0-.75-.75Z" clip-rule="evenodd" />
-
-                                </svg>
-                                
-                                {{ payment.especie }} 
-                            
-
-1                            </td>
-                            <td>
-                                <input
-                                    type="text"
-                                    class="text-end w-20"
-                                    v-model="paymentsValues[i]"
-                                    placeholder="0,00"
-                                    
-                                />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="mt-2 bg-slate-600 rounded-lg">
-                    <q-btn @click="showLoading">
-                        <button
-                            class="bg-slate-500 text-white rounded-lg p-1 mt-2 mb-2 mr-2 ml-2"
-                            type="submit"
-                        >
-                            {{ typeOperation === 'reservation' ? "Concluir Reserva" : "Finalizar Venda" }}
-                        </button>
-                    </q-btn>
-                    <button
-                        @click="cancelOperation()" 
-                        class="bg-slate-500 text-white rounded-lg p-1 mt-2 mb-2 mr-2 focus:text-red-500"
-                    >
-                        Cancelar
-                    </button>
-                    
+    <q-card class="q-pa-md bg-slate-600 text-white shadow-2xl">
+        <q-card-section>
+            <div class="text-h6">Formas de Pagamento</div>
+        </q-card-section>
+    
+        <q-separator />
+    
+        <q-card-section>
+            <q-form @submit.prevent="finalizeSale">
+            <q-list bordered separator class="bg-white text-black rounded-borders">
+                <q-item v-for="(payment, i) in paymentsForms" :key="i">
+                <q-item-section>
+                    <q-icon
+                    v-if="payment.tipo_lancamento === 'Receber' && payment.especie !== 'Boleto'"
+                    name="mdi-credit-card-outline"
+                    color="primary"
+                    class="q-mr-sm"
+                    />
+                    <q-icon
+                    v-else-if="payment.tipo_lancamento === 'Caixa'"
+                    name="mdi-cash-register"
+                    color="green"
+                    class="q-mr-sm"
+                    />
+                    <q-icon
+                    v-else-if="payment.especie === 'Boleto'"
+                    name="mdi-barcode"
+                    color="deep-orange"
+                    class="q-mr-sm"
+                    />
+                    {{ payment.especie }}
+                </q-item-section>
+    
+                <q-item-section side>
+                    <q-input
+                    v-model="paymentsValues[i]"
+                    type="text"
+                    input-class="text-right"
+                    dense
+                    outlined
+                    placeholder="0,00"
+                    class="w-24"
+                    />
+                </q-item-section>
+                </q-item>
+            </q-list>
+    
+            <div class="q-mt-md">
+                <q-btn
+                :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
+                color="primary"
+                class="q-mr-sm"
+                @click="showLoading"
+                type="submit"
+                />
+                <q-btn
+                label="Cancelar"
+                color="negative"
+                flat
+                @click="cancelOperation"
+                />
+            </div>
+            </q-form>
+        </q-card-section>
+    
+        <q-separator />
+    
+        <q-card-section class="bg-slate-700 text-white rounded-borders q-mt-md">
+            <q-banner class="bg-slate-800 q-mb-sm">
+            <div class="text-subtitle2">Total: R$ {{ totalOperation.toFixed(2) }}</div>
+            </q-banner>
+            <div class="row q-gutter-sm">
+            <q-chip color="red-6" text-color="white">
+                Valor ausente: R$
+                {{
+                totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) > 0
+                    ? (totalOperation - calculateValueInformed.total).toFixed(2)
+                    : '0.00'
+                }}
+            </q-chip>
+            <q-chip color="green-6" text-color="white">
+                Valor pago: R$ {{ calculateValueInformed.total.toFixed(2) }}
+            </q-chip>
+            <q-chip color="blue-6" text-color="white">
+                Troco: R$ {{ calculateValueChange.change.toFixed(2) }}
+            </q-chip>
+            </div>
+        </q-card-section>
+    
+        <q-inner-loading :showing="isLoanding" label="Processando..." />
+    
+        <q-dialog v-model="bigger">
+            <q-card>
+            <q-card-section>
+                <div class="text-h6">
+                Pagamento maior que o valor
                 </div>
-            </form>     
-              
-            <div class="flex-col">
-                <h4 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-1">Total <span>R${{ totalOperation.toFixed(2) }}</span></h4>
-                <h4 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-0.5">Valor ausente <span>R$ {{ totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) > 0 ? totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) : '0.00' }}</span></h4>
-                <h4 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-0.5">Valor pago <span>R$ {{ calculateValueInformed.total.toFixed(2) }}</span></h4>
-                <h4 class="flex justify-between bg-slate-500 text-white rounded-lg m-2 p-1">Troco <span>R$ {{ calculateValueChange.change.toFixed(2) }}</span></h4>
-            </div>
+                <div class="q-mt-sm">
+                Deseja gerar crédito de <strong>R$ {{ extraAmount }}</strong>?
+                </div>
+            </q-card-section>
+            <q-card-actions align="right">
+                <q-btn flat label="Não" @click="generateCredit(false)" />
+                <q-btn color="primary" label="Sim" @click="generateCredit(true, extraAmount)" />
+            </q-card-actions>
+            </q-card>
+        </q-dialog>
+    
+        <q-card-section v-if="message">
+            <q-banner dense class="bg-yellow-9 text-white">
+            {{ message }}
+            </q-banner>
+        </q-card-section>
 
-            <div class="" v-if="isLoanding">
-                <h2>Carregando...</h2>
-            </div>    
-
-            <div class="" v-if="message">
-                {{ message }} <br>
-
-            </div>
-          
-        </div>
-    </div>
-
-    <div v-if="bigger">
-        <h3>Pagamento efetuado maior que o valor do quarto</h3>
-        <h3>Deseja gerar crédito no valor de: R$ {{extraAmount }}?</h3>
-        <button @click="generateCredit(true, extraAmount)">Sim</button>
-        <button @click="generateCredit(false)">Não</button>
-    </div>
+        <Installments
+            v-if="showInstallments"
+            v-model:show="showInstallments"
+            :payments="paymentsReceive"
+            :total-amount="totalOperation"
+            @installments-saved="handleInstallments"
+        />
+    </q-card>
 </template>
 
 <script>
 import { api } from "src/boot/axios";
 import { onBeforeUnmount } from 'vue';
 import { useQuasar  } from "quasar";
+import Installments from "./PDV/Installments.vue";
 
 export default {
     setup(){
@@ -147,8 +156,11 @@ export default {
         },  
     data(){
         return {
-            paymentsForms: [],
+            generatedInstallments: false,
+            showInstallments: false,
+            paymentsReceive: [],
             paymentsValues: [],
+            paymentsForms: [],
             valueInformed: [],
             message: null,
             isLoanding: false,
@@ -166,6 +178,10 @@ export default {
         'update:selectProducts'        
 
     ],
+
+    components: {
+        Installments
+    },
 
     props: {
         // Para o ecommerce
@@ -232,6 +248,13 @@ export default {
     },
 
     methods: {
+        handleInstallments(installments) {
+            this.installments = installments;
+            this.generatedInstallments = true;
+            this.showInstallments = false;
+            this.finalizeSale();
+        },
+
         async getPayments() {
             try {
                 const response = await api.get('/ecommerce/payments/all');
@@ -247,6 +270,21 @@ export default {
             this.isLoanding = true
             this.message = ''
 
+            if (this.installments && this.installments.length > 0) {
+                console.log('Parcelas geradas:', this.installments);
+            }
+
+            const paymentsReceive = this.paymentsForms.filter((payment, index) => {
+                return payment.tipo_lancamento === 'Receber' && parseFloat(this.paymentsValues[index]) > 0;
+            })
+
+            if (paymentsReceive.length > 0 && !this.generatedInstallments) {
+                this.paymentsReceive = paymentsReceive;
+                this.paymentsValues = this.paymentsValues;
+                this.showInstallments = true;
+                return;
+            }
+
             try {
                 switch (this.typeOperation) {
                     case 'reservation':
@@ -257,6 +295,7 @@ export default {
                         
                         const response = await api.post('/hotel/stay/reservation', {
                             customer_id: 1,
+                            installments: this.installments,
                             payments_values: this.paymentsValues,
                             room_id: this.roomID,
                             generate_credit: generateCredit
@@ -275,8 +314,9 @@ export default {
                             type_operation: 'nfce',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues,
-                            pdv_id: this.pdvID
-                            
+                            pdv_id: this.pdvID,
+                            installments: this.installments
+
                         })
 
                         if(response_nfce.data.success === true)
@@ -295,7 +335,8 @@ export default {
                             type_operation: 'nm',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues,
-                            pdv_id: this.pdvID
+                            pdv_id: this.pdvID,
+                            installments: this.installments
 
                         })
                         

@@ -143,7 +143,7 @@
                     }));
 
                 } catch (error) {
-                    console.error('Erro ao buscar todos os produtos', error)
+                    console.error('Erro ao buscar todos os produtos', error.response)
                         
                 }
             },
