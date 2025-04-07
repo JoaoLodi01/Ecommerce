@@ -104,7 +104,6 @@ export default {
     },
 
     methods: {
-    
         async getRegister(){
             try {
                 const response = await api.get('/ecommerce/cash-register/all')
