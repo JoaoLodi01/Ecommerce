@@ -136,7 +136,7 @@
                 try {
                     const response = await api.get('/ecommerce/products/all')
                     
-                    this.products = response.data.data.map(product => ({
+                    this.products = response.data.all.data.map(product => ({
                         ...product,
                         isSelected: false
 

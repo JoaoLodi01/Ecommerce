@@ -52,6 +52,7 @@ Route::prefix('v1')->group( function (){
                 Route::post('/search', [ProductsController::class, 'search']);
                 Route::post('/create', [ProductsController::class, 'create']);
                 Route::get('/{id}', [ProductsController::class, 'findByID']);
+                Route::get('/imagem/{id}', [ProductsController::class, 'findImage']);
                 Route::put('/{id}', [ProductsController::class, 'update']);
                 Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
         
@@ -124,7 +125,7 @@ Route::prefix('v1')->group( function (){
     // Customers Routes
     Route::prefix('customers')->group( function(){
         Route::get('/all', [CustomerController::class, 'getAll']);
-        Route::get('/selectClient', [CustomerController::class, 'selectClient']);
+        Route::post('/search', [CustomerController::class, 'search']);
         Route::post('/create', [CustomerController::class, 'create']);
         Route::get('/{id}', [CustomerController::class, 'findByID']);
         Route::put('/{id}', [CustomerController::class, 'update']);
@@ -147,10 +148,6 @@ Route::prefix('v1')->group( function (){
     });
 });
 
-Route::prefix('users')->group( function(){
-    Route::post('/create', [UserController::class, 'create']);
-    
-});
 
 Route::get('/get-ip', [IPController::class, 'create']);
 });

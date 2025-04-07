@@ -7,6 +7,9 @@ use App\Services\Config\ConfigService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
+use App\Http\Requests\HotelRequest\Config\ConfigHotelRequest;
+use App\Http\Requests\PDV\Config\ConfigPDVRequest;
+
 class ConfigController extends Controller
 {
     public function __construct(
@@ -21,17 +24,18 @@ class ConfigController extends Controller
         return $this->configService->getConfigs();
     }
 
-    public function updateHotel(Request $request)
+    public function updateHotel(ConfigHotelRequest $request)
     {
         $data = $request->all();
-
         return $this->configService->updateHotel($data);
  
     }
 
-    public function updatePDV(Request $request)
+    public function updatePDV(ConfigPDVRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
+        Log::info('$data');
+        Log::info($data);
         return $this->configService->updatePDV($data);
     }
 }

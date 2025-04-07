@@ -11,8 +11,9 @@ class ReceiveService
     ){}
 
     public function getAll(){
+        $all = $this->receiveRepository->getAll(1);
         try {
-            return $this->receiveRepository->getAll(1);
+            
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }

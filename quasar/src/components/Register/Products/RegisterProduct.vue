@@ -65,6 +65,8 @@
                 label="CFOP"
                 color="grey-7"
                 maxlength="4"
+                minlength="4"
+                
             />
             
             <q-input    
@@ -73,6 +75,7 @@
                 label="CSOSN/CST"
                 color="grey-7"
                 maxlength="3"
+                minlength="3"
             />
             
             <q-input    
@@ -81,6 +84,7 @@
                 label="NCM"
                 color="grey-7"
                 maxlength="8"
+                minlength="8"
             />
             
             <q-input    
@@ -89,6 +93,7 @@
                 label="CEST"
                 color="grey-7"
                 maxlength="7"
+                minlength="7"
             />
 
             <q-input    
@@ -97,6 +102,7 @@
                 label="Cód. Barras"
                 color="grey-7"
                 maxlength="14"
+                minlength="14"
             />
             
             <q-input    
@@ -105,6 +111,14 @@
                 label="Produto"
                 color="grey-7"
                 maxlength="4"
+                
+            />
+
+            <q-file    
+                v-model="productDetails.image"   
+                label="Imagem"
+                color="grey-7"                
+                @change="handleFileUpload($event)"
             />
 
             <div>
@@ -180,6 +194,7 @@
             return {
                 productDetails: {
                     product: '',
+                    image: null,
                     barcode: '',
                     groupID: '',
                     amount: '',
@@ -197,10 +212,31 @@
         },
 
         methods: {
+            handleFileUpload(event) {
+                const file = event.target.files[0];
+                this.productDetails.image = file;
+
+            },
             async onSubmit()
             {
                 this.showLoading()
-                const response = await api.post('/ecommerce/products/create', this.productDetails)
+                const form = new FormData;
+                form.append("product", this.productDetails.product)
+                form.append("image", this.productDetails.image)
+                form.append("barcode", this.productDetails.barcode)
+                form.append("groupID", this.productDetails.groupID)
+                form.append("amount", this.productDetails.amount)
+                form.append("costPrice", this.productDetails.costPrice)
+                form.append("profitPercentage", this.productDetails.profitPercentage)
+                form.append("salePrice", this.productDetails.salePrice)
+                form.append("cfop", this.productDetails.cfop)
+                form.append("csosncst", this.productDetails.csosncst)
+                form.append("ncm", this.productDetails.ncm)
+                form.append("cest", this.productDetails.cest)
+                form.append("unit", this.productDetails.unit)
+                console.log('form', form)
+
+                const response = await api.post('/ecommerce/products/create', form)
                 
                 if(response.data.success)
                 {
