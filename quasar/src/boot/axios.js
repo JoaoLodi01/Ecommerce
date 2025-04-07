@@ -16,13 +16,14 @@ if(!token)
 
 } else {
     api.interceptors.request.use((config) => {
+        const token = LocalStorage.getItem("auth_token");
+    
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
-            
         } else {
-            console.log('Está deslogado line 23')
+            console.log('Está deslogado - token ausente');
         }
-
+    
         return config;
     });
 }

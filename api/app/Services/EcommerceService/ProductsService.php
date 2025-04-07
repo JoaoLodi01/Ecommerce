@@ -13,7 +13,7 @@ class ProductsService
     {}
     
     public function getAll(){
-        $all = $this->productsRepository->getAll();
+        $all = $this->productsRepository->getAll(1);
         try {
             return response()->json([
                 'success' => true,

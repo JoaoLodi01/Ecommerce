@@ -49,7 +49,7 @@
                     } else {
                         console.log('Falo que n ta deslogado aqui')
                         LocalStorage.remove("auth_token")
-                        LocalStorage.setItem("loged", false)
+                        LocalStorage.setItem("loged", false) 
                         
                         this.$router.push('/start')
 
@@ -58,7 +58,7 @@
                 } catch (error) {
                     console.error('Erro no checkAuth App.vue', error.status)
                     
-                    if(error.response.status === 401)
+                    if(error.response.status === 401)           
                     {
                         LocalStorage.remove("auth_token")
                         this.$router.push('/start')
