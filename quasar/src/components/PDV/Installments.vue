@@ -44,8 +44,18 @@
                 flat
                 bordered
                 >
-                <div class="text-subtitle2 q-mb-sm">
+                <div class="row items-center justify-between q-mb-sm">
+                    <div class="text-subtitle2">
                     Parcela {{ i + 1 }}
+                    </div>
+                    <q-btn
+                    dense
+                    round
+                    color="red"
+                    icon="delete"
+                    size="sm"
+                    @click="removeInstallment(i)"
+                    />
                 </div>
 
                 <div class="row q-col-gutter-md">
@@ -72,6 +82,16 @@
                 </div>
                 </q-card>
             </div>
+
+            <q-separator spaced="md" />
+
+            <div class="text-right text-subtitle2 q-mt-md">
+                <b>Total das parcelas:</b>
+                R$
+                {{
+                installments.reduce((acc, item) => acc + parseFloat(item.amount || 0), 0).toFixed(2)
+                }}
+            </div>
         </q-card-section>
   
         <q-card-actions align="right">
@@ -92,50 +112,57 @@
     </q-dialog>
   </template>
   
-  <script>
-  export default {
-    props: {
-      show: Boolean,
-      totalAmount: Number
-    },
-    emits: ['update:show', 'installmentsGenerated'],
-    data() {
-      return {
-        showDialog: this.show,
-        installmentCount: 1,
-        firstDueDate: '',
-        installments: [],
-        generatedInstallments: false
-      }
-    },
-    watch: {
-      show(val) {
-        this.showDialog = val;
-      },
-      showDialog(val) {
-        this.$emit('update:show', val);
-      }
-    },
-    methods: {
-      generateInstallments() {
-        if (!this.installmentCount || !this.firstDueDate) return;
-        const baseAmount = (this.totalAmount / this.installmentCount).toFixed(2);
-  
-        this.installments = Array.from({ length: this.installmentCount }, (_, i) => {
-          const dueDate = new Date(this.firstDueDate);
-          dueDate.setMonth(dueDate.getMonth() + i);
-          return {
-            amount: parseFloat(baseAmount),
-            dueDate: dueDate.toISOString().split('T')[0]
-          };
-        });
-  
-        this.generatedInstallments = true;
-      },
-      saveInstallments() {
-        this.$emit('installments-saved', this.installments);
-        this.$emit('update:show', false);
-      }
+<script>
+    export default {
+        data() {
+            return {
+                showDialog: this.show,
+                installmentCount: 1,
+                firstDueDate: '',
+                installments: [],
+                generatedInstallments: false
+            }
+        },
+        props: {
+            show: Boolean,
+            totalAmount: Number
+            },
+
+        emits: ['update:show', 'installmentsGenerated'],
+        
+        watch: {
+            show(val) {
+                this.showDialog = val;
+            },
+            showDialog(val) {
+                this.$emit('update:show', val);
+            }
+        },
+        methods: {
+            generateInstallments() {
+                if (!this.installmentCount || !this.firstDueDate) return;
+                const baseAmount = (this.totalAmount / this.installmentCount).toFixed(2);
+        
+                this.installments = Array.from({ length: this.installmentCount }, (_, i) => {
+                const dueDate = new Date(this.firstDueDate);
+                dueDate.setMonth(dueDate.getMonth() + i);
+                return {
+                    amount: parseFloat(baseAmount),
+                    dueDate: dueDate.toISOString().split('T')[0]
+                };
+                });
+        
+                this.generatedInstallments = true;
+            },
+            
+            saveInstallments() {
+                this.$emit('installments-saved', this.installments);
+                this.$emit('update:show', false);
+            },
+
+            removeInstallment(index) {
+                this.installments.splice(index, 1);
+            }
+        }
     }
-  }
-  </script>
+</script>
