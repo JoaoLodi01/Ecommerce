@@ -12,10 +12,11 @@ class CustomerRepository
 
     }
 
-    public function selectClient(array $search){
+    public function search(string|int $search){
         $cusotmer = Customer::where('active', 1)
-                        ->when(function ($query) use ($search){
-                            $query->where('name', 'like', '%' . $search . '%');
+                        ->where(function ($query) use ($search){
+                            $query->where('id', $search)
+                                  ->orWhere('name', 'like', '%' . $search . '%');
                         })
                         ->get();
 

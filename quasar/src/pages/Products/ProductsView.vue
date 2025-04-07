@@ -15,7 +15,7 @@
             >
                 <ReportProduct
                     :widthScreen="widthScreen"
-                    v-if="!showRegisterProduct"
+                    v-if="showReportProducts"
                 />
 
             </div>
@@ -47,8 +47,6 @@
         </div>
     </div>
 
-    <div>
-    <!-- GRID PRODUTOS -->
       <div 
         class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" 
         v-if="showProducts && products.length > 0"
@@ -80,6 +78,11 @@
 
           <div class="text-sm text-gray-500 mb-4">
             <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
+          </div>
+
+          <div class="text-sm text-gray-500 mb-4">
+            <span class="font-semibold">teste imagem:</span>
+
           </div>
 
           <!-- Ações -->
@@ -136,7 +139,6 @@
             @close="closeReload($event)"
         />            
     </div>
-  </div>
 </template>
 
 <script>
@@ -145,7 +147,6 @@
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
 
-
     export default {
         data() {
             return {
@@ -153,6 +154,7 @@
                 showProducts: true,
                 showUpdateProduct: false,
                 showRegisterProduct: false,
+                showReportProducts: true,
                 widthScreen: 0,
                 productName: '',
                 productID: ''
@@ -163,15 +165,8 @@
         methods: {
             async getProducts() {
                 const response = await api.get(`/ecommerce/products/all`);
-                this.products = response.data.data;
+                this.products = response.data.all.data;
                 
-            },
-
-            openRegister()
-            {
-                this.showRegisterProduct = true
-                this.showProducts = false
-
             },
 
             async deleteproduct(id) {
@@ -185,6 +180,7 @@
                 this.showRegisterProduct = true
                 this.showUpdateProduct = false
                 this.showProducts = false
+                this.showReportProducts = false
 
             },
 
@@ -192,6 +188,7 @@
             {
                 this.showRegisterProduct = false 
                 this.showProducts = true
+                this.showReportProducts = true
             },
 
             toggleRegisterProductVisibility()
@@ -207,11 +204,13 @@
                 this.showUpdateProduct = true
                 this.showRegisterProduct = false
                 this.showProducts = false
+                this.showReportProducts = false
 
             },
 
             closeReload(event)
             {
+                this.showReportProducts = true
                 this.showUpdateProduct = event
                 this.showRegisterProduct = event
                 window.location.reload()

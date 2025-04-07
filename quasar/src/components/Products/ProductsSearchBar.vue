@@ -40,7 +40,6 @@
                     saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset === 1 ? true : false,
                 }
 
-                console.log('this.configs 1', this.configs)
             }
             getConfig()
             

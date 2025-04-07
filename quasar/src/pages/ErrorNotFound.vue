@@ -1,13 +1,13 @@
 <template>
   <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
     <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
+      <img src="https://blog.superbid.net/wp-content/uploads/2018/09/escavadeira.png" alt="" srcset="">
 
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nada aqui
+      <div class="text-h2 mt-5" style="opacity:.4">
+        Em construção!
+        <span>404 not found</span>
       </div>
+      
 
       <q-btn
         class="q-mt-xl"

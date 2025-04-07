@@ -33,14 +33,21 @@
             />
 
             <q-select 
-                v-model="configs.searchOption" 
-                :options="searchOptions" 
-                label="Busca" 
+                v-model="configs.searchOptionProduct" 
+                :options="searchOptionProducts" 
+                label="Busca de produtos" 
+                filled 
+            />
+
+            <q-select 
+                v-model="configs.searchOptionCustomer" 
+                :options="searchOptionCustomers" 
+                label="Busca de clientes" 
                 filled 
             />
             
             <div>
-                <q-btn label="Salvar" type="submit" color="primary" :disable="configs.searchOption === null"/>
+                <q-btn label="Salvar" type="submit" color="primary" :disable="configs.searchOptionProduct === null"/>
                 <q-btn label="Padrão" type="reset" color="primary" flat class="q-ml-sm" />
             </div>
         </q-form>
@@ -85,16 +92,23 @@
         {
             return {
                 configs: {
-                    searchOption: null,
+                    searchOptionProduct: null,
+                    searchOptionCustomer: null,
                     nmFinaly: true,
                     saleNegativeorReset: false,
                    
                 },
                 
-                searchOptions: [
+                searchOptionProducts: [
                     'Cód barras',
                     'Cód barras interno',
                     'Padrão (cód.barras ou cód.produto)'
+
+                ],
+
+                searchOptionCustomers: [
+                    'Padrão (cód.cliente ou nome)'
+                    
                 ]
             }
         },
@@ -108,19 +122,25 @@
                 this.configs = {
                     nmFinaly: data.nm_finaly === 1 ? true : false,
                     saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
-                    searchOption: data.filter_search
-                }
+                    searchOptionProduct: data.filter_search,
+                    searchOptionCustomer: data.filter_search_customer
 
+                }
             },
         
             async onSubmit()
             {
                 this.showLoading('Salvando')
-                console.log('Dados de envio:', this.configs)
 
-                const response = await api.put('/config/config-pdv/update-config', this.configs)
-                const data = response.data
-                console.log('Data', data)
+                const response = await api.put('/config/config-pdv/update-config', {
+                    searchOptionProduct: this.configs.searchOptionProduct,
+                    searchOptionCustomers: this.configs.searchOptionCustomer,
+                    nmFinaly: this.configs.nmFinaly,
+                    saleNegativeorReset: this.configs.saleNegativeorReset,
+
+                })
+
+                const data = response.data                
 
                 if(data.success)
                 {

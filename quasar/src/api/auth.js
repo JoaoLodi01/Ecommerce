@@ -17,7 +17,7 @@ export default async function login(email, password) {
         return response.data
 
     } catch (error) {
-        console.error("Erro no login:", error);
+        console.error("Erro no login src/api/auth:", error);
         throw error;
     }
 }

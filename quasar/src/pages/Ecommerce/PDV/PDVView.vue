@@ -68,7 +68,7 @@
                         <div class="bg-white">
                             <ProductsSearchBar
                                 :showProductsSearch
-                                @update:selectProducts="updateProductsSeletion"
+                                @update:selectProducts="updateProductsSeletion($event)"
     
                             />
 
@@ -257,24 +257,11 @@
                             />
                             <br>
                             
-                            <label class="text-black" for="client">Cliente</label>
-                            <input 
-                                v-model="clientsData.name"
-                                @input="selectClient()"
-                                @keydown.enter="setClient(clientsData)"
-                                placeholder="Consumidor Padrão"
-                                class="text-black border border-black w-full"
+                            <CustomerSearchBar
+                                @update:selectCustomer="updateCustomerSelection($event)"
+
                             />
-                            <ul v-if="filteredClients.length > 0" class="border border-gray-300 rounded mt-1">
-                                <li
-                                    v-for="client in filteredClients"
-                                    :key="client.id"
-                                    @click="setClient(client)"
-                                    class="fixed z-50 p-3 bg-white hover:bg-gray-200 cursor-pointer">
-                                
-                                    {{ client.name }}
-                                </li>
-                            </ul>
+                            <!-- COMPONENTE BUSCA DE CLIENTE -->                            
                         </div>
                     <div
                         class="m-2 p-2 rounded-lg border border-gray-700" 
@@ -407,17 +394,19 @@
             :witdhScreen="this.witdhScreen"
             :hotelCodCRT="this.hotelCodCRT"
             @close="showGridEmit()"
-            @update:selectProducts="updateProductsSeletion"
+            @update:selectProducts="updateProductsSeletion($event)"
         />
     </div>
 </template>
 
 <script>
     import PaymentsForm from 'src/components/PaymentsForm.vue';
-    import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing.vue'
     import ConfigPDV from 'src/components/PDV/ConfigPDV.vue';
+    import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
+    import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
+    
     import { api } from "boot/axios"
     import { onBeforeUnmount, toRaw } from 'vue'   
     import { useQuasar, LocalStorage } from 'quasar';
@@ -453,7 +442,7 @@
                 productsSeletion: [],
                 errorMessages: [],
                 clients: [],
-                filteredClients: [],
+                
 
                 emitProducts: {
                     addition: 0,
@@ -546,30 +535,6 @@
         },
         
         methods: {
-            async selectClient(){
-                //const response = await api.get('/customers/selectClient');
-                const response = await api.get('/customers/all');
-                
-                this.clients = response.data.data;
-                this.filterClients();
-                
-            },
-
-            filterClients(){
-                this.filteredClients = this.clients.filter(client =>
-                    client.name.toLowerCase().includes(this.clientsData.name.toLowerCase())
-                );
-
-            },
-
-            setClient(client){
-                this.clientsData.id = client.id;
-                this.clientsData.name = client.name;
-                this.clients = []
-                this.filteredClients = [];
-                
-            },
-
             async saveSale()
             {
                 const saveSale = confirm('Deseja salvar a venda?')
@@ -861,6 +826,14 @@
                 
             },
 
+            updateCustomerSelection(client)
+            {  
+                this.clientsData = {
+                    id: client.id,
+                    name: client.name
+                }
+            },
+
             cancelOperation()
             {
                 this.showPaymentsForm = false
@@ -972,9 +945,10 @@
         components: {
             ProductsSelectionView,
             PaymentsForm,
-            ProductsSearchBar,
             CashClosing,
-            ConfigPDV
+            ConfigPDV,
+            ProductsSearchBar,
+            CustomerSearchBar
 
         },
 
@@ -1006,7 +980,8 @@
             const getConfig = async () => {
                 const config = await api.get('/config/all-configs');
                 this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
-                console.log('chamou getConfig PDVView')
+                
+                
             }
             getConfig()
 

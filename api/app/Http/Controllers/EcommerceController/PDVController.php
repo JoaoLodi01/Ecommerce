@@ -4,8 +4,11 @@ namespace App\Http\Controllers\EcommerceController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\EcommerceRequest\PDVSaleRequest;
-use App\Http\Requests\EcommerceRequest\PDVSaveSaleRequest;
+
+use App\Http\Requests\PDV\{
+    PDVSaleRequest,
+    PDVSaveSaleRequest}
+;
 use App\Services\EcommerceService\PDVService;
 use Illuminate\Support\Facades\Log;
 
@@ -35,8 +38,8 @@ class PDVController extends Controller
         $data = $request->validated();
         Log::info('Dados recebidos nos controllers');
         Log::info($data);
-        return $this->pdvService->finalizeSale($request->input('payments_values'), $request->input('type_operation'), $id, $data['pdv_id']);
-        
+        return $this->pdvService->finalizeSale($data['payments_values'], $data['type_operation'], $id, $data['pdv_id']);
+        // Se der errado, voltar para $request->input()
     }
 
     public function findSavePDV()

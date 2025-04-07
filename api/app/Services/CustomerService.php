@@ -9,9 +9,7 @@ class CustomerService
     public function __construct(
         protected CustomerRepository $customerRepository
     )
-    {
-        $this->customerRepository = $customerRepository;
-    }
+    {}
 
     public function getAll(){
         try {
@@ -21,12 +19,8 @@ class CustomerService
         }
     }
 
-    public function selectClient(array $search){
-        try {
-            return $this->customerRepository->selectClient($search);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+    public function search(string|int $search){
+        return $this->customerRepository->search($search);
     }
 
     public function findByID(int $id){

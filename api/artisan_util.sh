@@ -8,6 +8,7 @@ main()
     echo "5 - Route:cache: php artisan route:ca"
     echo "6 - Route:list: php artisan route:li"
     echo "7 - Apagar as logs"
+    echo "8 - Migrate (table): php artisan migrate"
     echo "R - Reiniciar"
     echo "E - Sair"
     read -p "Selecione uma opção: " option
@@ -83,6 +84,13 @@ main()
             echo "Apagando logs..."
             sleep 1
             rm "laravel.log"
+            main
+            ;;
+
+        8)
+            clear
+            echo "Recriando banco de dados..."
+            bash -c "php artisan migrate"
             main
             ;;
 
