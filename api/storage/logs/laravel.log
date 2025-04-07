@@ -545,3 +545,13 @@
 [2025-04-07 09:23:34] local.INFO: Produto encontrado 3  
 [2025-04-07 09:23:34] local.INFO: {"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}  
 [2025-04-07 09:23:34] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-07 09:27:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:27:13] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:27:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:27:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-07 09:27:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:27:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-07 09:29:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-07 09:29:14] local.INFO: O hotel foi encontrado  
+[2025-04-07 09:29:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-07 09:29:14] local.INFO: Opção desativada, não vai alterar o endereço  

@@ -822,19 +822,16 @@
 
             updateProductsSeletion(selectedProducts)
             {
-                console.log('selectedProducts', selectedProducts)
                 this.productsSeletion = [...this.productsSeletion, selectedProducts]
                 
             },
 
             updateCustomerSelection(client)
             {  
-                console.log('updateCustomerSelection: client', client)
                 this.clientsData = {
                     id: client.id,
                     name: client.name
                 }
-                
             },
 
             cancelOperation()
