@@ -21,7 +21,7 @@
                     label="Senha"
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
-                    color="grey-7"
+                    color="grey-7"git ad
                 >
                     <svg 
                         @click="showPassword = !showPassword" 
@@ -71,7 +71,7 @@
                     <button @click="showRegisterForm">Não possui uma conta?</button>
                 </q-btn>
                 
-                <span class="flex justify-end cursor-pointer mr-4"><a href="http://192.168.1.100:8000/forgot-password">Esqueceu sua senha?</a></span>
+                <span class="flex justify-end cursor-pointer mr-4"><a href="http://192.168.98.18:8000/forgot-password">Esqueceu sua senha?</a></span>
             </q-form>
 
             <Register 

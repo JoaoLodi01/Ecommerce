@@ -3,10 +3,10 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
-
+use App\Repositories\Contracts\EcommerceContract\Products as C;
 use Illuminate\Support\Facades\Log;
 
-class ProductsRepository
+class ProductsRepository 
 {
     public function __construct(
         protected GroupRepository $groupRepository

@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    @php dump(session()->all()) @endphp
-    <form action="{{ route('password.update') }}" method="post">
-        @csrf
-        <h1>Token do reset-password.blade.php {{ $token }}, </h1>
-        <input type="hidden" name="token" value="{{ $token }}">
+    <?php dump(session()->all()) ?>
+    <form action="<?php echo e(route('password.update')); ?>" method="post">
+        <?php echo csrf_field(); ?>
+        <h1>Token do reset-password.blade.php <?php echo e($token); ?>, </h1>
+        <input type="hidden" name="token" value="<?php echo e($token); ?>">
 
         <label for="email">E-mail</label>
         <input 
@@ -33,4 +33,4 @@
         <button type="submit">Alterar senha</button>
     </form>
 </body>
-</html>
+</html><?php /**PATH C:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\resources\views/auth/reset-password.blade.php ENDPATH**/ ?>
