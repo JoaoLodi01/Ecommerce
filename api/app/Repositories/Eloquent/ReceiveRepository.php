@@ -2,13 +2,20 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Models\{
-    Receive
-};
+use App\Models\Receive;
 use Illuminate\Support\Facades\Log;
 
 class ReceiveRepository
 {
+    public function getAll(){
+        Log::info('Memória utilizada ReceiveRepository::class, getAll: ' . memory_get_usage(true));
+        return Receive::paginate(20);
+    }
+
+    public function findByID(string $params){
+
+    }
+
     public function create(array $cashRegister)
     {
         Log::info('Memória usada ReceiveRepository::class, create: ' . memory_get_usage(true));

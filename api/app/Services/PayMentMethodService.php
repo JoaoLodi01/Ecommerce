@@ -30,7 +30,7 @@ class PayMentMethodService
         $currentDate = new Carbon();
         $cashRegisters = [];
         if(count($forms) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $forms
-        {  
+        {   
             Log::info('Possui mais de uma espécie informada: ' . count($forms));
             Log::info('Total de pagamentos: ' . count($paymentValues));
             // Percore todo o array enviado de valores
@@ -50,8 +50,7 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
-                                'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual 
-                                N° $pdv->id",
+                                'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
                                 'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
@@ -71,6 +70,7 @@ class PayMentMethodService
                           
                         }
 
+                        Log::info('-- Iniciou registro no Receber -- ');
                         if($form->tipo_lancamento === 'Receber')
                         {
                             $bodyCash = array(
@@ -96,7 +96,7 @@ class PayMentMethodService
                                 'origem' => $origem
                             
                             );  
-                            
+                            Log::info('-- Terminou o registro -- ');
                             Log::info('-- Vai chamar o receiveRepository -- ');
                             $receive = $this->receiveRepository->create($bodyCash);
                             return array(

@@ -40,6 +40,7 @@ class CustomerController extends Controller
     public function update(CostumerRequest $request, int $id){
         $data = $request->validated();
         return $this->customerService->update($data, $id);
+        
     }
 
     public function delete(int $id){

@@ -3,7 +3,7 @@
         class="ml-14"
     >
         <div class="flex">
-            <h1>Configuarações</h1>
+            <h1>Configurações</h1>
             <q-btn 
                 icon="close" 
                 label="Voltar" 
@@ -134,7 +134,7 @@
 
                 const response = await api.put('/config/config-pdv/update-config', {
                     searchOptionProduct: this.configs.searchOptionProduct,
-                    searchOptionCustomers: this.configs.searchOptionCustomer,
+                    searchOptionCustomer: this.configs.searchOptionCustomer,
                     nmFinaly: this.configs.nmFinaly,
                     saleNegativeorReset: this.configs.saleNegativeorReset,
 
