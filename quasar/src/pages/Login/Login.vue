@@ -71,7 +71,7 @@
                     <button @click="showRegisterForm">Não possui uma conta?</button>
                 </q-btn>
                 
-                <span @click="forgetPassword()" class="flex justify-end cursor-pointer mr-4">Esqueceu sua senha?</span>
+                <span class="flex justify-end cursor-pointer mr-4"><a href="http://192.168.98.18:8000/forgot-password">Esqueceu sua senha?</a></span>
             </q-form>
 
             <Register 
