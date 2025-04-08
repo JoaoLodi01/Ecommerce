@@ -28,6 +28,8 @@ use App\Http\Controllers\Reports\ReportCustomersController;
 
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Password;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
@@ -138,13 +140,29 @@ Route::prefix('v1')->group( function (){
         
     });
 });
+    Route::prefix('users')->group( function(){
+        Route::post('/create', [UserController::class, 'create']);
+        
+    });
 
-Route::prefix('users')->group( function(){
-    Route::post('/create', [UserController::class, 'create']);
-    
-});
+    Route::post('/forgot-password', function(Request $request){
+        $request->validate(['email' => 'required|email']);
 
-Route::get('/get-ip', [IPController::class, 'create']);
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+        Log::info('Vai enviar');
+        return $status === Password::RESET_LINK_SENT
+                        ? back()->with(['status' => __($status)])
+                        : back()->withErrors(['status' => __($status)]);
+    });
+   
+    Route::get('/reset-passowrd/{token}', function(string $token){
+        Log::info('token', $token);
+        return view('auth.reset-password',['token' => $token]);
+    })->name('password.reset');
+
+    Route::get('/get-ip', [IPController::class, 'create']);
 });
 
 Route::get('/php-info', function (){
