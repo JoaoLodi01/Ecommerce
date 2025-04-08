@@ -71,12 +71,17 @@
                     <button @click="showRegisterForm">Não possui uma conta?</button>
                 </q-btn>
                 
-                <span class="flex justify-end cursor-pointer mr-4">Esqueceu sua senha?</span>
+                <span @click="forgetPassword()" class="flex justify-end cursor-pointer mr-4">Esqueceu sua senha?</span>
             </q-form>
 
             <Register 
                 v-if="showRegister"
                 @close="hideFormRegister($event)"
+            />
+            
+            <ForgotPassword 
+                v-if="showForget"
+                
             />
         </div> 
         
@@ -88,11 +93,13 @@
     import { useQuasar, LocalStorage } from 'quasar';
     import { onBeforeUnmount } from "vue";
     import Register from '../Login/Register.vue'
+    import ForgotPassword from "./ForgotPassword.vue";
 
     export default {
         name: "LoginPage",
         components: {
-            Register
+            Register,
+            ForgotPassword
         },
 
         setup () {
@@ -130,6 +137,7 @@
 
                 loged: LocalStorage.getItem("loged"),
                 showRegister: false,
+                showForget: false,
                 showLogin: true,
                 showPassword: false,
             }
@@ -145,6 +153,9 @@
 
             forgetPassword()
             {
+                this.showForget = true
+                this.showLogin = false
+                this.showRegister = false
 
             },
 
@@ -181,7 +192,8 @@
             {
                 this.showRegister = !this.showRegister
                 this.showLogin = false
-            }
+            },
+
         }
     }
 
