@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
@@ -14,10 +15,12 @@ class AuthController extends Controller
     public function auth(LoginRequest $request)
     {
         $data = $request->validated();
+        $email = $data['email'];
 
         if(Auth::attempt($data))
         {
             Log::info('Acertou o login');
+            Cache::forget("login_attempts_{$email}");
 
             $user = Auth::user();
                       
@@ -30,10 +33,25 @@ class AuthController extends Controller
                 'token' => $token
             ]);
 
-        }
-
-        Log::info('Errou o login');
-        
+        } else {
+            $attempts = Cache::get("login_attempts_{$email}", 0);
+            $attempts++;
+            Cache::put("login_attempts_{$email}", $attempts, now()->addMinutes(1));
+            
+            if($attempts >= 3)
+            {
+                return response()->json([
+                    'success' => false,
+                    'blocked' => true,
+                    'message' => 'Muitas tentativas de login, tente novamente mais tarde.'
+                ], 429);
+            }
+            return response()->json([
+                'success' => false,
+                'message' => 'Credenciais inválidas!',
+                'attempts' => $attempts
+            ]);
+        }        
     }
 
     public function logout()

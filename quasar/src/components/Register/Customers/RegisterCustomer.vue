@@ -75,7 +75,7 @@
                 v-model="form.phone" 
                 type="tel"
                 label="Número de telefone" 
-                maxlength="24"
+                maxlength="16"
             />
 
             <q-input 
@@ -219,6 +219,15 @@
                 this.form.cep = cep.replace(/(\d{5})(\d{3})/, '$1-$2');
             },
 
+            formatPhone() {
+                let phone = this.form.phone.replace(/\D/g, ''); 
+
+                if (phone.length > 14) {
+                    phone = phone.substring(0, 8);
+                }
+
+                this.form.phone = phone.replace(/(\d{2})(\d{3})/, '$1-$2');
+            },
 
             async submitForm() {
                 try {

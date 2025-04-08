@@ -1,402 +1,157 @@
+[2025-04-08 16:50:30] local.ERROR: syntax error, unexpected token "}", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"}\", expecting \";\" at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Auth\\AuthController.php:41)
+[stacktrace]
+#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1117): is_a()
+#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1054): Illuminate\\Routing\\Route->controllerMiddleware()
+#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(820): Illuminate\\Routing\\Route->gatherMiddleware()
+#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(802): Illuminate\\Routing\\Router->gatherRouteMiddleware()
+#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#33 {main}
+"} 
+[2025-04-08 16:50:35] local.ERROR: syntax error, unexpected token "}", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"}\", expecting \";\" at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Auth\\AuthController.php:41)
+[stacktrace]
+#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1117): is_a()
+#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1054): Illuminate\\Routing\\Route->controllerMiddleware()
+#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(820): Illuminate\\Routing\\Route->gatherMiddleware()
+#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(802): Illuminate\\Routing\\Router->gatherRouteMiddleware()
+#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#33 {main}
+"} 
+[2025-04-08 16:50:45] local.ERROR: syntax error, unexpected token "}", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"}\", expecting \";\" at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Auth\\AuthController.php:41)
+[stacktrace]
+#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1117): is_a()
+#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1054): Illuminate\\Routing\\Route->controllerMiddleware()
+#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(820): Illuminate\\Routing\\Route->gatherMiddleware()
+#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(802): Illuminate\\Routing\\Router->gatherRouteMiddleware()
+#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#33 {main}
+"} 
+[2025-04-08 16:51:19] local.INFO: Errou o login  
+[2025-04-08 16:51:46] local.INFO: Errou o login  
+[2025-04-08 16:52:00] local.INFO: Errou o login  
+[2025-04-08 16:52:10] local.INFO: Errou o login  
+[2025-04-08 16:52:15] local.INFO: Errou o login  
+[2025-04-08 17:06:09] local.ERROR: syntax error, unexpected token "}", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"}\", expecting \";\" at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Auth\\AuthController.php:48)
+[stacktrace]
+#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1117): is_a()
+#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1054): Illuminate\\Routing\\Route->controllerMiddleware()
+#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(820): Illuminate\\Routing\\Route->gatherMiddleware()
+#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(802): Illuminate\\Routing\\Router->gatherRouteMiddleware()
+#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#33 {main}
+"} 
 <<<<<<< HEAD
-[2025-04-07 02:11:40] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:11:40] local.INFO: $data  
-[2025-04-07 02:11:40] local.INFO: array (
-  'searchOptionProduct' => 'Cód barras interno',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-)  
-[2025-04-07 02:11:40] local.INFO: data no repository  
-[2025-04-07 02:11:40] local.INFO: array (
-  'searchOptionProduct' => 'Cód barras interno',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-)  
-[2025-04-07 02:11:40] local.ERROR: Undefined array key "searchOption" {"userId":1,"exception":"[object] (ErrorException(code: 0): Undefined array key \"searchOption\" at D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php:23)
-[stacktrace]
-#0 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
-#1 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php(23): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}()
-#2 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Services\\Config\\ConfigService.php(45): App\\Repositories\\Eloquent\\Config\\ConfigPDVRepository->update()
-#3 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Config\\ConfigController.php(39): App\\Services\\Config\\ConfigService->updatePDV()
-#4 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->updatePDV()
-#5 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#6 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#7 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#8 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#9 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#10 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#11 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#12 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#13 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#14 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#15 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#16 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#17 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#18 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#19 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#20 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#21 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#22 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#23 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#24 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#25 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#26 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#27 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#28 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#29 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#30 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#31 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#32 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#33 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#34 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#35 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#36 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#37 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#38 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#39 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
-#40 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#41 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#42 {main}
-"} 
-[2025-04-07 02:12:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:12:12] local.INFO: $data  
-[2025-04-07 02:12:12] local.INFO: array (
-  'searchOptionProduct' => 'Cód barras interno',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-)  
-[2025-04-07 02:12:12] local.INFO: data no repository  
-[2025-04-07 02:12:12] local.INFO: array (
-  'searchOptionProduct' => 'Cód barras interno',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-)  
-[2025-04-07 02:12:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:12:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:12:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:12:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:40] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:43] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:13:43] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:13:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:13:43] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:13:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:48] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:48] local.INFO: $data  
-[2025-04-07 02:13:48] local.INFO: array (
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-)  
-[2025-04-07 02:13:48] local.INFO: data no repository  
-[2025-04-07 02:13:48] local.INFO: array (
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-)  
-[2025-04-07 02:13:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:13:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:19:19] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:19:19] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:19:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:19:19] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:19:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:19:23] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:19:23] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:19:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:19:23] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:19:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:19:35] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:19:35] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:19:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:19:35] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:19:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:19:56] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:19:56] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:19:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:19:56] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:19:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:19:57] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:19:57] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:19:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:19:57] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:19:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:20:01] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:20:01] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:20:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:20:01] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:20:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:20:02] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:20:02] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:20:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:20:02] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:20:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:20:05] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:20:05] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:20:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:20:05] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:20:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:20:42] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:20:42] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:20:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:20:42] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:20:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:20:58] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:20:58] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:20:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:20:58] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:20:59] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:21:09] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:21:09] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:21:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:21:09] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:21:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:23:38] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:23:38] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:23:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:23:38] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:23:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:23:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:23:46] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:23:46] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:23:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:23:46] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:23:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:23:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:23:57] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:23:58] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:24:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:24:08] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:24:08] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:24:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:24:08] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:24:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:24:09] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:24:09] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:24:10] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:24:22] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:24:22] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:24:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:24:22] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:24:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:24:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:25:27] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:25:27] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:25:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:25:27] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:25:27] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:25:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:25:40] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:25:40] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:25:40] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:25:40] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:25:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:25:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:26:43] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:26:43] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:26:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:26:43] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:26:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:26:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:26:48] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:26:48] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:27:11] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:27:11] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:27:11] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:27:11] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:27:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:13] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:27:13] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:27:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:27:13] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:27:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:15] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:27:15] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:27:15] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:27:15] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:27:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:17] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:27:17] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:27:31] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:27:31] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:27:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:27:31] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:27:34] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:27:34] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:27:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:27:34] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:27:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:35] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:27:35] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$4gk0UpnKhsr1sSsyntXJjuhgtuzWNTJjJugg6T2O4P3zBvXaa7HUW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","password":"$2y$12$cSZhxHtZiL1hQ7LFupPJ0.c\/2Rfwg8aDHnTrgIfYQzhVRnxPW0nvW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-05T13:33:58.000000Z","updated_at":"2025-04-05T13:33:58.000000Z"}]  
-[2025-04-07 02:27:50] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:27:50] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:27:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:27:50] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:27:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:53] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:27:53] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:27:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:27:53] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:27:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:27:55] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:20] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:29:20] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:29:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:29:20] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:29:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:29] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:29:29] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:29:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:29:29] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:29:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:53] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:29:53] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:29:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:29:53] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:29:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:55] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:29:55] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:02] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:30:02] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:30:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:30:02] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:30:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:23] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:30:23] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:30:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:30:23] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:30:24] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:24] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:30:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:31:19] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:31:19] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:31:19] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:31:19] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:31:20] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:31:20] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:31:21] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:31:21] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:31:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:31:21] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:31:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:31:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:31:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:31:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:32:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:32:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:32:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:32:07] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-07 02:32:07] local.INFO: O hotel foi encontrado  
-[2025-04-07 02:32:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-07 02:32:07] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-07 02:32:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 02:32:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-07 08:33:42] local.ERROR: SQLSTATE[HY000] [1049] Unknown database 'hoteldb' (Connection: mariadb, SQL: select exists (select 1 from information_schema.tables where table_schema = 'hotelDB' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'hoteldb' (Connection: mariadb, SQL: select exists (select 1 from information_schema.tables where table_schema = 'hotelDB' and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
-[stacktrace]
-#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
-#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(344): Illuminate\\Database\\Connection->select()
-#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(361): Illuminate\\Database\\Connection->selectOne()
-#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
-#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
-#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
-#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
-#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
-#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
-#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
-#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
-#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#16 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#18 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#19 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#20 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#23 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#24 {main}
-
-[previous exception] [object] (PDOException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'hoteldb' at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:67)
-[stacktrace]
-#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(67): PDO::connect()
-#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection()
-#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection()
-#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(185): Illuminate\\Database\\Connectors\\MySqlConnector->connect()
-#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->{closure:Illuminate\\Database\\Connectors\\ConnectionFactory::createPdoResolverWithHosts():180}()
-#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1231): call_user_func()
-#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1267): Illuminate\\Database\\Connection->getPdo()
-#7 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(512): Illuminate\\Database\\Connection->getReadPdo()
-#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
-#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::select():398}()
-#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
-#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(344): Illuminate\\Database\\Connection->select()
-#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(361): Illuminate\\Database\\Connection->selectOne()
-#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(45): Illuminate\\Database\\Connection->scalar()
-#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\MySqlBuilder->hasTable()
-#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(742): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
-#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(68): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
-#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\FreshCommand->{closure:Illuminate\\Database\\Console\\Migrations\\FreshCommand::handle():67}()
-#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(67): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
-#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
-#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
-#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#26 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#28 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#29 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#30 D:\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#33 D:\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#34 {main}
-"} 
 [2025-04-07 09:13:50] local.INFO: Errou o login  
 [2025-04-07 09:15:19] local.INFO: Acertou o login  
 [2025-04-07 09:15:35] local.INFO: Vai buscar o hotel e as configurações  
@@ -10029,3 +9784,5 @@
 [2025-04-07 17:17:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
 [2025-04-07 17:17:38] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
 [2025-04-07 17:17:40] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+=======
+>>>>>>> Kochem
