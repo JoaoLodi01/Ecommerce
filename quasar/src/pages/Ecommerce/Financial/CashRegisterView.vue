@@ -116,7 +116,7 @@ export default {
                 });
                 this.total = this.input_total - this.output_total                
             } catch (error) {
-            console.error("Erro ao buscar registros:", error)
+                console.error("Erro ao buscar registros:", error)
                 
             }
         },

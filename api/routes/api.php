@@ -28,6 +28,8 @@ use App\Http\Controllers\Reports\ReportCustomersController;
 
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Password;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
@@ -138,13 +140,12 @@ Route::prefix('v1')->group( function (){
         
     });
 });
+    Route::prefix('users')->group( function(){
+        Route::post('/create', [UserController::class, 'create']);
+        
+    });
 
-Route::prefix('users')->group( function(){
-    Route::post('/create', [UserController::class, 'create']);
-    
-});
-
-Route::get('/get-ip', [IPController::class, 'create']);
+    Route::get('/get-ip', [IPController::class, 'create']);
 });
 
 Route::get('/php-info', function (){

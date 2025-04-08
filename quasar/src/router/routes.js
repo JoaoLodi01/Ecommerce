@@ -24,6 +24,11 @@ const routes = [
     component: () => import('pages/Login/Login.vue')
   },
   {
+    path: '/forgot-password',
+    name: 'ForgotPassowrd',
+    component: () => import('pages/Login/ForgotPassword.vue')
+  },
+  {
     path: `/${salePrefix}/pdv`,
     name: 'PDV',
     component: () => import('src/pages/Ecommerce/PDV/PDVView.vue') 
