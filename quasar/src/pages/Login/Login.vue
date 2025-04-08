@@ -71,7 +71,17 @@
                     <button @click="showRegisterForm">Não possui uma conta?</button>
                 </q-btn>
                 
-                <span class="flex justify-end cursor-pointer mr-4"><a href="http://192.168.98.18:8000/forgot-password">Esqueceu sua senha?</a></span>
+                <!--spaqn class="flex justify-end cursor-pointer mr-4"><a href="http://192.168.98.18:8000/forgot-password">Esqueceu sua senha?</a></span-->
+                <br>
+                <q-btn
+                    type="button"   
+                    flat 
+                    style="color: #1F2937"
+                    class="btn-forgot"
+                >
+                    <button><a href="http://192.168.1.100:8000/forgot-password">Esqueceu sua senha?</a></button>
+
+                </q-btn>
             </q-form>
 
             <Register 
@@ -84,7 +94,6 @@
                 
             />
         </div> 
-        
     </div>
 </template>
 
@@ -171,7 +180,7 @@
                         LocalStorage.setItem("loged", response.data.status);
                         
                         window.location.reload()
-                 
+                        
                     } else {
                         console.log(response.data)
                         alert(`${response.data.message}`);
@@ -183,9 +192,14 @@
                     
                     
                 } catch (error) {
-                    console.error("Erro no login:", error);
-                    alert("Erro ao tentar fazer login. Verifique suas credenciais e tente novamente.");
-
+                    if(error.status === 429)
+                    {
+                        alert('Muitas tentativas de login mal sucedidas! Tente novamente mais tarde')
+                    } else {
+                        console.error("Erro no login:", error, ' status: ', error.status);
+                        alert("Erro ao tentar fazer login. Verifique suas credenciais e tente novamente.");
+                    }
+                    
                 }
             },
 
@@ -199,3 +213,8 @@
     }
 
 </script>
+<style>
+    .btn-forgot{
+        margin-left: 6.2rem;
+    }
+</style>

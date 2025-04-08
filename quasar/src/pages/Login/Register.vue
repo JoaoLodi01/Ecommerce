@@ -113,14 +113,14 @@
                 class="m-2"
                 
             ><button> Já possui uma conta?</button></q-btn>
-            </q-form>
-            <div v-if="messages.length > 0 ">
-                <p v-for="message in messages">
-                    {{ message }}
-                </p>
-            </div>
-            
+        </q-form>
+        <div v-if="messages.length > 0 ">
+            <p v-for="message in messages">
+                {{ message }}
+            </p>
         </div>
+            
+    </div>
 </template>
 
 <script>

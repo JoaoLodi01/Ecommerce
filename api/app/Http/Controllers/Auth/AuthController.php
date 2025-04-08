@@ -36,7 +36,7 @@ class AuthController extends Controller
         } else {
             $attempts = Cache::get("login_attempts_{$email}", 0);
             $attempts++;
-            Cache::put("login_attempts_{$email}", $attempts, now()->addMinutes(1));
+            Cache::put("login_attempts_{$email}", $attempts, now()->addMinutes(2));
             
             if($attempts >= 3)
             {
