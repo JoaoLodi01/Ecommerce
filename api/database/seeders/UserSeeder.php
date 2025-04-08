@@ -18,8 +18,13 @@ class UserSeeder extends Seeder
                 'password' => Hash::make(1)  
             ],
             [
-                'name' => 'Gabriel Kochem',
+                'name' => 'Gabriel Kochem - Roxo',
                 'email' => 'roxosgbr@gmail.com',
+                'password' => Hash::make(2)
+            ],
+            [
+                'name' => 'Gabriel Kochem',
+                'email' => 'gabikochem55@gmail.com',
                 'password' => Hash::make(2)
             ],
            

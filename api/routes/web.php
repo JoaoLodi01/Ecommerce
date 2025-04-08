@@ -55,8 +55,8 @@ Route::post('/reset-passowrd', function(Request $request){
             event(new PasswordReset($user));
         }
     );
-
+    
     return $status === Password::PasswordReset
-                    ? response()->json('Senha alterado com sucesso!')->with('status', __($status))
+                    ? redirect(env('FRONT_URL')) 
                     : back()->withErrors(['email' => [__($status)]]);
 })->name('password.update');
