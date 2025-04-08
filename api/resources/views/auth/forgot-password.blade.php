@@ -6,19 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    @php dump(session()->all()) @endphp
+    @php dump(session()->all('status')) @endphp
     <form action="{{ route('password.email') }}" method="post">
         @csrf
-        @error('email')
-            <div class="">Erro: {{ $message }}</div>
-        @enderror
+
         <label for="email">E-mail</label>
         <input 
             type="email" 
             name="email" 
             id="email"
         />
-        <button type="submit">Enviar</button>
+        <button type="submit">Enviar</button>  
     </form>
+
+    @if(session('status') === null)
+        <div class="">Carregando...</div>
+    @endif
+    @if(session('status') === 'We have emailed your password reset link.')
+        <div>Verifique a sua caixe de seu e-mail</div>
+    @endif
 </body>
 </html>
