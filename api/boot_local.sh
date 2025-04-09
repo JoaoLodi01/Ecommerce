@@ -10,9 +10,9 @@ main()
 
 	cd $api_path
 
-	start bash -c "php artisan serve --host=192.168.1.100"
+	#start bash -c "php artisan serve --host=192.168.1.100"
 	#start bash -c "php artisan serve --host=192.168.1.103"
-	#start bash -c "php artisan serve --host=192.168.98.18"
+	start bash -c "php artisan serve --host=192.168.98.18"
 	#start bash -c "php artisan serve --host=192.168.48.204"
 
 	bash -c "sh artisan_util.sh"

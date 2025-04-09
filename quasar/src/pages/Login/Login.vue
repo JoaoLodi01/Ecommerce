@@ -79,7 +79,7 @@
                     style="color: #1F2937"
                     class="btn-forgot"
                 >
-                    <button><a href="http://192.168.1.100:8000/forgot-password">Esqueceu sua senha?</a></button>
+                    <button><a href="http://192.168.98.18:8000/forgot-password">Esqueceu sua senha?</a></button>
 
                 </q-btn>
             </q-form>
