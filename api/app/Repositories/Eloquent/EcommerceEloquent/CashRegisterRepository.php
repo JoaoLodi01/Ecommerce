@@ -27,11 +27,8 @@ class CashRegisterRepository
     }
 
     public function create(array $cashRegisters){
-        Log::info('Vai iniciar criação no CAIXA, dados:');
+        Log::info('-- Vai iniciar criação no CAIXA, dados: --');
         Log::info('Memória usada CashRegisterRepository::class, create: ' . memory_get_usage(true));
-        Log::info('Quantia: '. count($cashRegisters));
-        Log::info('Tipo de dado: ' . gettype($cashRegisters));
-        Log::info($cashRegisters);
 
         if(count($cashRegisters) >= 2)
         {
@@ -61,12 +58,6 @@ class CashRegisterRepository
     Log::info('Memória usada CashRegisterRepository::class, updateCurrentCash: ' . memory_get_usage(true));
         $lastCashBox = CashRegister::where('canceled', 0)->latest('id')->first();
         $actualCashBox = CashRegister::where('id', $lastCashBox->id - 1)->first();
-
-        Log::info('$lastCashBox');
-        Log::info($lastCashBox->id + 1);
-
-        Log::info('$actualCashBox');
-        Log::info($actualCashBox);
         
         if(!$actualCashBox)
         {
