@@ -17,8 +17,7 @@ class ReportCustomersController extends Controller
         protected ReportCustomerService $reportCustomerService
     )
     {
-        $this->spreadsheet = new Spreadsheet();
-        
+        $this->spreadsheet = new Spreadsheet();        
     }
 
     public function exportAllClients()

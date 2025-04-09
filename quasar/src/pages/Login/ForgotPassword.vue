@@ -1,6 +1,6 @@
 <template>
     <div class="Register-form">
-        
+
     </div>
 </template>
 
@@ -8,7 +8,7 @@
     import { useQuasar } from 'quasar'
     import { onBeforeUnmount } from 'vue'
     import { api } from 'src/boot/axios'
-    
+
     export default {
         setup()
         {
@@ -19,7 +19,7 @@
                 if(timer !== void 0)
                 {
                     clearTimeout(timer)
-                    $q.loading.hide   
+                    $q.loading.hide
                 }
             })
 
@@ -32,7 +32,7 @@
                     timer = setTimeout(() => {
                         $q.loading.hide()
                         timer = void 0
-            
+
                     }, 2000)
                 }
             }
@@ -43,18 +43,20 @@
             return {
                 userDetail: {
                     email: '',
-                    
+
                 },
                 messages: []
             }
         },
+
         methods: {
             async emitForgotPassword(){
                 this.messages = []
-                
+
                 const response = await api.get('http://192.168.1.100:8000/forgot-password');
 
                 console.log(response)
+
             },
         },
 
