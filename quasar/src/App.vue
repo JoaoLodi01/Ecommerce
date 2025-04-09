@@ -50,8 +50,10 @@
                         console.log('Falo que n ta deslogado aqui')
                         LocalStorage.remove("auth_token")
                         LocalStorage.setItem("loged", false) 
-                        
-                        this.$router.push('/start')
+                        if(this.$route.name !== 'ForgotPassowrd')
+                        {
+                            this.$router.push('/start')
+                        }
 
                     }
                     

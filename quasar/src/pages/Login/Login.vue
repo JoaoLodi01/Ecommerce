@@ -79,7 +79,7 @@
                     style="color: #1F2937"
                     class="btn-forgot"
                 >
-                    <button><a href="http://192.168.98.18:8000/forgot-password">Esqueceu sua senha?</a></button>
+                    <button><a href="http://192.168.98.18:9000/forgot-password">Esqueceu sua senha?</a></button>
 
                 </q-btn>
             </q-form>
@@ -102,7 +102,7 @@
     import { useQuasar, LocalStorage } from 'quasar';
     import { onBeforeUnmount } from "vue";
     import Register from '../Login/Register.vue'
-    import ForgotPassword from "./ForgotPassword.vue";
+    import ForgotPassword from "./Forgot/ForgotPassword.vue";
 
     export default {
         name: "LoginPage",

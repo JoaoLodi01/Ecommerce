@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EcommerceController\{
     ProductsController,
     CashRegisterController,
@@ -28,14 +27,21 @@ use App\Http\Controllers\Reports\ReportCustomersController;
 
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Password;
+
+use Illuminate\Support\Facades\{
+    Hash,
+    Log,
+    Route,
+    Password
+};
+
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Str;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
-
         Route::get('/me', function (Request $request) {
             return response()->json([
                 'success' => $request->header('Authorization') ? true : false,
@@ -48,7 +54,6 @@ Route::prefix('v1')->group( function (){
     
     Route::middleware('auth:sanctum')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
-            // Products routes
             Route::prefix('products')->group( function(){
                 Route::get('/all', [ProductsController::class, 'getAll']);
                 Route::post('/search', [ProductsController::class, 'search']);
@@ -92,62 +97,100 @@ Route::prefix('v1')->group( function (){
             });
         });
         
-    Route::prefix('hotel')->group( function (){
-        Route::get('/all', [HotelController::class, 'allHotel']);
-        Route::get('/find', [HotelController::class, 'findHotel']);
-        Route::post('/create', [HotelController::class, 'create']);
-        Route::get('/room', [RoomController::class, 'find']);
+        Route::prefix('hotel')->group( function (){
+            Route::get('/all', [HotelController::class, 'allHotel']);
+            Route::get('/find', [HotelController::class, 'findHotel']);
+            Route::post('/create', [HotelController::class, 'create']);
+            Route::get('/room', [RoomController::class, 'find']);
 
-        Route::prefix('stay')->group(function () {
-            Route::get('/rooms', [RoomController::class, 'allRooms']);
-            Route::post('/room', [RoomController::class, 'create']);
-            Route::put('/check-in', [RoomController::class, 'checkIn']);
-            Route::post('/reservation', [RoomController::class, 'reservation']);
-            Route::post('/check-reservation', [RoomController::class, 'checkReservation']);
+            Route::prefix('stay')->group(function () {
+                Route::get('/rooms', [RoomController::class, 'allRooms']);
+                Route::post('/room', [RoomController::class, 'create']);
+                Route::put('/check-in', [RoomController::class, 'checkIn']);
+                Route::post('/reservation', [RoomController::class, 'reservation']);
+                Route::post('/check-reservation', [RoomController::class, 'checkReservation']);
+            });
+        });
+            
+        Route::prefix('config')->group( function () {
+            Route::get('/all-configs', [ConfigController::class, 'getConfigs']);
+
+            Route::prefix('config-pdv')->group( function() {
+                Route::put('/update-config', [ConfigController::class, 'updatePDV']);
+            });
+        });
+
+        // Customers Routes
+        Route::prefix('customers')->group( function(){
+            Route::get('/all', [CustomerController::class, 'getAll']);
+            Route::post('/search', [CustomerController::class, 'search']);
+            Route::post('/create', [CustomerController::class, 'create']);
+            Route::get('/{id}', [CustomerController::class, 'findByID']);
+            Route::put('/{id}', [CustomerController::class, 'update']);
+            Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
+            Route::put('/{id}/active', [CustomerController::class, 'active']);
+            Route::get('/report/all', [ReportCustomersController::class, 'exportAllClients']);
+            Route::get('/report/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
+            
+        });
+
+        // User routes
+        Route::prefix('users')->group( function(){
+            //Route::get('/all', [UserController::class, 'getAll']);
+            Route::get('/selectSeller', [UserController::class, 'selectSeller']);
+            Route::post('/create', [UserController::class, 'create']);
+            Route::get('/{id}', [UserController::class, 'findByID']);
+            Route::put('/{id}', [UserController::class, 'update']);
+            Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
+        
         });
     });
-        
-    Route::prefix('config')->group( function () {
-        Route::get('/all-configs', [ConfigController::class, 'getConfigs']);
 
-        Route::prefix('config-pdv')->group( function() {
-            Route::put('/update-config', [ConfigController::class, 'updatePDV']);
-        });
-    });
-
-    // Customers Routes
-    Route::prefix('customers')->group( function(){
-        Route::get('/all', [CustomerController::class, 'getAll']);
-        Route::post('/search', [CustomerController::class, 'search']);
-        Route::post('/create', [CustomerController::class, 'create']);
-        Route::get('/{id}', [CustomerController::class, 'findByID']);
-        Route::put('/{id}', [CustomerController::class, 'update']);
-        Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
-        Route::put('/{id}/active', [CustomerController::class, 'active']);
-        Route::get('/report/all', [ReportCustomersController::class, 'exportAllClients']);
-        Route::get('/report/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
-        
-    });
-
-    // User routes
-    Route::prefix('users')->group( function(){
-        //Route::get('/all', [UserController::class, 'getAll']);
-        Route::get('/selectSeller', [UserController::class, 'selectSeller']);
-        Route::post('/create', [UserController::class, 'create']);
-        Route::get('/{id}', [UserController::class, 'findByID']);
-        Route::put('/{id}', [UserController::class, 'update']);
-        Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
-        
-    });
-});
     Route::prefix('users')->group( function(){
         Route::post('/create', [UserController::class, 'create']);
         
     });
 
-    Route::get('/get-ip', [IPController::class, 'create']);
+    Route::get('/get-ip', [IPController::class, 'create']); 
+
+    Route::post('/forgot-password', function(Request $request){
+        $request->validate(['email' => 'required|email']);
+    
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+        Log::info('Vai enviar');
+        return $status === Password::RESET_LINK_SENT
+                        ? back()->with(['status' => __($status)])
+                        : back()->withErrors(['status' => __($status)]);
+    })->name('password.email');
+    
+    Route::post('/reset-passowrd', function(Request $request){
+        $request->validate([
+            'token' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'confirmed']
+    
+        ]);
+    
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function (User $user, string $password)
+            {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+    
+                ])->setRememberToken(Str::random(60));
+    
+                $user->save();
+    
+                event(new PasswordReset($user));
+            }
+        );
+        
+        return $status === Password::PASSWORD_RESET
+                        ? redirect(env('FRONT_URL')) 
+                        : back()->withErrors(['email' => [__($status)]]);
+    })->name('password.update');    
 });
 
-Route::get('/php-info', function (){
-    return phpinfo();
-})->name('php.info');
