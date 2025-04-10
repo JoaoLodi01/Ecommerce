@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center" v-if="!loged">
+    <div class="flex justify-center">
         <div class="login-form border border-black p-5 rounded-lg shadow-xl">
             <q-form
                 @submit.prevent="forgotMethod"
@@ -8,7 +8,7 @@
                 
                 <q-input 
                     filled 
-                    v-model="details.email" 
+                    v-model="email" 
                     label="E-mail" 
                     class="mb-4"
                     color="grey-7"
@@ -24,15 +24,14 @@
                 >
                     <span>Enviar e-mail de recuperação</span>
                 </q-btn>
-                <br>
-                <q-btn
-                    type="button"   
-                    flat 
-                    style="color: #1F2937"
-                    class="btn-forgot"
-                >
-                    <button><a href="http://192.168.98.18:8000/forgot-password">Esqueceu sua senha?</a></button>
 
+                <q-btn
+                    class="m-2"
+                    flat 
+                    style="color: #1F2937"   
+                    
+                >
+                    <a href="/login"><span>Voltar</span></a>
                 </q-btn>
             </q-form>
         </div> 
@@ -40,9 +39,36 @@
 </template>
 
 <script>
+    import { useQuasar } from 'quasar';
+    import { onBeforeUnmount } from 'vue';
     import { api } from 'src/boot/axios';
 
     export default {
+        setup () {
+            const $q = useQuasar()
+            let timer
+
+            onBeforeUnmount(() => {
+                if (timer !== void 0) {
+                    clearTimeout(timer)
+                    $q.loading.hide()
+                }
+            })
+
+            return {
+                showLoading () {
+                    $q.loading.show({
+                        message: 'Carregando...'
+                    })
+
+                    timer = setTimeout(() => {
+                        $q.loading.hide()
+                        timer = void 0
+                    }, 3000)
+                }
+            }
+        },
+
         data() {
             return {
                 email: ''

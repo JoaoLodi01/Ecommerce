@@ -1,18 +1,11 @@
 <template>
-    <div
-        class="ml-14" 
-        
-    >
-        <h1>De fato é essa a home page</h1>
-    </div>
+    <h1>HomePage</h1>
 </template>
 
 <script>
+
     export default {
-        mounted()
-        {
-            
-        }
+        
     }
 
 </script>

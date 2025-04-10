@@ -8,27 +8,24 @@ const api = axios.create({
     baseURL: process.env.API_URL 
 });
 
-const token = LocalStorage.getItem("auth_token");
+export default defineBoot(({ app, router }) => {
+    const token = LocalStorage.getItem("auth_token");
 
-if(!token)
-{
-    console.log('Está deslogado line 15')
-
-} else {
     api.interceptors.request.use((config) => {
         const token = LocalStorage.getItem("auth_token");
     
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-        } else {
+        if (!token) {
+            router.replace({path: '/login'})
             console.log('Está deslogado - token ausente');
+            
+        } else {
+            config.headers.Authorization = `Bearer ${token}`;
+
         }
     
         return config;
     });
-}
 
-export default defineBoot(({ app }) => {
     app.config.globalProperties.$api = api;
 });
 

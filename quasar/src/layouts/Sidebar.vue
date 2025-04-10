@@ -267,7 +267,18 @@
           </ul>
         </div>
     </div>
-  
+
+    <div class="flex transition" id="q-app" :class="{
+        'top-10 left-0': widthScreen <= 1080,
+        'ml-52': widthScreen > 1080,
+        'mr-44': widthScreen > 1080 && widthScreen < 1600,
+        'transform -translate-x-24': !sidebarActive && widthScreen > 1080,
+        
+    }">   
+        <router-view></router-view>
+      
+    </div>
+
     <!-- Botão da Sidebar fechada -->
     <button  
       @click="toggleSidebar"
@@ -311,23 +322,22 @@
         const ofCourse = confirm('Deseja realmente sair?')
         if(ofCourse)
         {
-            const token = LocalStorage.getItem("auth_token")
-            console.log('token: ', token)
-            const response = await api.post('/auth/logout', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                    
-                }
-            })
+          const token = LocalStorage.getItem("auth_token")
+          console.log('token: ', token)
+          const response = await api.post('/auth/logout', {
+              headers: {
+                  'Authorization': `Bearer ${token}`
+                  
+              }
+          })
 
-            console.log('Response.logout', response)
-            if(response.data.success)
-            {
-                LocalStorage.remove("auth_token")
-                LocalStorage.setItem("loged", false)
-                window.location.reload()
-                this.$router.push('/start')
-            }
+          if(response.data.success)
+          {
+              LocalStorage.remove("auth_token")
+              LocalStorage.setItem("loged", false)
+              window.location.reload()
+              this.$router.push('/login')
+          }
         }
         
       },
