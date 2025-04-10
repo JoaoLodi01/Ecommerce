@@ -5,19 +5,20 @@ export default async function login(email, password) {
     try {
         const response = await api.post('/login', {
             email,
-            password 
-            
+            password
+
         })
 
         if(response.data.success)
         {
             LocalStorage.set("auth_token", response.data.token)
 
-        }   
+        }
         return response.data
 
     } catch (error) {
         console.error("Erro no login src/api/auth:", error);
         throw error;
+
     }
 }
