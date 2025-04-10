@@ -9,8 +9,6 @@ const api = axios.create({
 });
 
 export default defineBoot(({ app, router }) => {
-    const token = LocalStorage.getItem("auth_token");
-
     api.interceptors.request.use((config) => {
         const token = LocalStorage.getItem("auth_token");
     
