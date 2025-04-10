@@ -429,3 +429,11 @@
 [2025-04-10 09:43:20] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
 [2025-04-10 09:43:20] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
 [2025-04-10 09:43:24] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-10 10:24:49] local.INFO: Acertou o login  
+[2025-04-10 10:27:27] local.INFO: Acertou o login  
+[2025-04-10 10:29:04] local.INFO: Acertou o login  
+[2025-04-10 10:29:41] local.INFO: Acertou o login  
+[2025-04-10 10:32:00] local.INFO: Acertou o login  
+[2025-04-10 10:36:03] local.INFO: Acertou o login  
+[2025-04-10 10:48:26] local.INFO: Acertou o login  
+[2025-04-10 11:05:19] local.INFO: Acertou o login  

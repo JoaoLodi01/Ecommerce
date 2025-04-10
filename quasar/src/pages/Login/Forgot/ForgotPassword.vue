@@ -31,7 +31,7 @@
                     style="color: #1F2937"   
                     
                 >
-                    <a href="/login"><span>Voltar</span></a>
+                    <button><router-link to="/login">Voltar</router-link></button>
                 </q-btn>
             </q-form>
         </div> 

@@ -4,9 +4,19 @@ const salePrefix = 'sale';
 
 const routes = [
   {
+    path: '/',
+    name: 'Home',
+    component: () => import('src/pages/Home/HomePage.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('pages/Login/Login.vue')
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('pages/Login/Register.vue')
   },
   {
     path: '/forgot-password',
@@ -70,14 +80,14 @@ const routes = [
         name: 'ProfileView',
         component: () => import('src/pages/Profile/Profile.vue')
       },
-      {
-        path: '/:catchAll(.*)*',
-        name: '404',
-        component: () => import('pages/ErrorNotFound.vue')
-      },
+      
     ]
-  }
- 
+  },
+  {
+    path: '/:catchAll(.*)*',
+    name: '404',
+    component: () => import('pages/ErrorNotFound.vue')
+  },
 ]
 
 export default routes

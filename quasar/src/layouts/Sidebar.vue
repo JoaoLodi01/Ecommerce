@@ -322,24 +322,22 @@
         const ofCourse = confirm('Deseja realmente sair?')
         if(ofCourse)
         {
-          const token = LocalStorage.getItem("auth_token")
-          console.log('token: ', token)
-          const response = await api.post('/auth/logout', {
-              headers: {
-                  'Authorization': `Bearer ${token}`
-                  
-              }
-          })
+            const token = LocalStorage.getItem("auth_token")
+            const response = await api.post('/auth/logout', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
 
-          if(response.data.success)
-          {
-              LocalStorage.remove("auth_token")
-              LocalStorage.setItem("loged", false)
-              window.location.reload()
-              this.$router.push('/login')
-          }
-        }
-        
+                }
+            })  
+
+            if(response.data.success)
+            {
+                LocalStorage.remove("auth_token")
+                LocalStorage.setItem("loged", false)
+                
+                this.$router.push('/login')
+            }
+        }        
       },
       toggleSidebar() {
           this.sidebarActive = !this.sidebarActive;

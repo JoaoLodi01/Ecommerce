@@ -1,9 +1,16 @@
 <template>
-    <div class="flex justify-center mt-36">
+    <div class="p-10 flex">
+        <router-link to="/" class="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            <span class="mt-0.5 ml-2">Voltar</span>
+        </router-link>
+    </div>
+    <div class="flex justify-center">
         <div class="login-form border border-black p-5 rounded-lg shadow-xl">
             <q-form
                 @submit.prevent="loginMethod"
-                v-if="showLogin"
             >
                 <h1 class="text-xl border-b border-black w-max mb-4">Login</h1>
                 
@@ -57,37 +64,20 @@
                     class="m-2"
                     flat 
                     style="color: #1F2937"   
+                    label="Entrar"
                     
-                >
-                    <button>Entrar</button>
-                </q-btn>
+                />
 
-                <q-btn 
-                    @click=showLoading 
-                    type="button"
-                    flat 
-                    style="color: #1F2937"    
-                >   
-                    <button @click="showRegisterForm">Não possui uma conta?</button>
-                </q-btn>
-                
-                <!--spaqn class="flex justify-end cursor-pointer mr-4"><a href="http://192.168.98.18:8000/forgot-password">Esqueceu sua senha?</a></span-->
-                <br>
-                <q-btn
-                    type="button"   
-                    flat 
-                    style="color: #1F2937"
-                    class="btn-forgot"
-                >
-                    <button><a href="/forgot-password">Esqueceu sua senha?</a></button>
-
-                </q-btn>
+                <router-link to="/forgot-password">
+                    <q-btn
+                        type="button"   
+                        flat 
+                        style="color: #1F2937"
+                        class="btn-forgot"
+                        label="Esqueceu sua senha?"
+                    />
+                </router-link>
             </q-form>
-
-            <Register 
-                v-if="showRegister"
-                @close="hideFormRegister($event)"
-            />
         </div> 
     </div>
 </template>
@@ -96,13 +86,9 @@
     import { api } from "boot/axios"
     import { useQuasar, LocalStorage } from 'quasar';
     import { onBeforeUnmount } from "vue";
-    import Register from '../Login/Register.vue'
 
     export default {
-        name: "LoginPage",
-        components: {
-            Register,
-        },
+        name: "LoginPage",        
 
         setup () {
             const $q = useQuasar()
@@ -137,29 +123,11 @@
                     password: ''
                 },
 
-                showRegister: false,
-                showForget: false,
-                showLogin: true,
                 showPassword: false,
             }
         },
 
         methods: {
-            hideFormRegister(event)
-            {
-                this.showLogin = true
-                this.showRegister = false
-
-            },
-
-            forgetPassword()
-            {
-                this.showForget = true
-                this.showLogin = false
-                this.showRegister = false
-
-            },
-
             async loginMethod() {
                 try {                    
                     const response = await api.post("/auth/auth", this.details);
@@ -189,19 +157,12 @@
                     
                 }
             },
-
-            showRegisterForm()
-            {
-                this.showRegister = !this.showRegister
-                this.showLogin = false
-            },
-
         }
     }
 
 </script>
 <style>
     .btn-forgot{
-        margin-left: 6.2rem;
+        margin-left: .5rem;
     }
 </style>
