@@ -173,7 +173,6 @@
             {
                 const response = await api.delete(`/customers/${id}/deactivate`)
                 console.log(response.data)
-                window.location.reload()
 
             },
 
@@ -181,7 +180,7 @@
             {
                 const response = await api.put(`/customers/${id}/active`)
                 console.log(response.data)
-                window.location.reload()
+                
 
             },
 

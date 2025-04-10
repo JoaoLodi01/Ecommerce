@@ -41,13 +41,13 @@ class ReceiveService
 
     public function update(array $data, int $id){
         try {
-            $this-receiveRepository->update($data, $id);
+            $this->receiveRepository->update($data, $id);
             return response()->json([
                 'success' => true,
             ]);
 
         } catch (\Throwable $th) {
-            return $this-returnResponse($th);
+            return $this->returnResponse($th);
         }
     }
 

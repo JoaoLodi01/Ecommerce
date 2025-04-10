@@ -20,19 +20,19 @@
                     class="m-2"
                     flat 
                     style="color: #1F2937"   
-                    
-                >
-                    <span>Enviar e-mail de recuperação</span>
-                </q-btn>
+                    label="Enviar e-mail de recuperação"   
+                />
 
-                <q-btn
-                    class="m-2"
-                    flat 
-                    style="color: #1F2937"   
-                    
-                >
-                    <button><router-link to="/login">Voltar</router-link></button>
-                </q-btn>
+                <router-link to="/login">
+                    <q-btn
+                        class="m-2"
+                        flat 
+                        type="button" 
+                        style="color: #1F2937"   
+                        label="Voltar"
+                    />
+
+                </router-link>
             </q-form>
         </div> 
     </div>
@@ -77,17 +77,14 @@
 
         methods: {
             async forgotMethod(){
-                const response = await api.post('/api/v1/forgot-password', {
+                const response = await api.post('/forgot-password', {
                     email: this.email
+
                 })
 
                 console.log(response)
 
             }
-        },
-        mounted()
-        {
-            console.log(this.$route.name)
         }
     }
 </script>

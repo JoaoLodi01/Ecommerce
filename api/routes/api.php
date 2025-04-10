@@ -26,6 +26,7 @@ use App\Http\Controllers\Config\ConfigController;
 use App\Http\Controllers\Reports\ReportCustomersController;
 
 use App\Http\Controllers\Auth\AuthController;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\{

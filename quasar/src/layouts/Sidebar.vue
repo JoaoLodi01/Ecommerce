@@ -323,32 +323,26 @@
         if(ofCourse)
         {
             const token = LocalStorage.getItem("auth_token")
-            const response = await api.post('/auth/logout', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-
-                }
-            })  
+            
 
             if(response.data.success)
             {
-                LocalStorage.remove("auth_token")
-                LocalStorage.setItem("loged", false)
-                
+                LocalStorage.remove("auth_token")                
                 this.$router.push('/login')
+              
             }
         }        
       },
       toggleSidebar() {
-          this.sidebarActive = !this.sidebarActive;
-          this.$emit('toggleSidebar', this.sidebarActive)
+        this.sidebarActive = !this.sidebarActive;
+        this.$emit('toggleSidebar', this.sidebarActive)
       },
 
       showFinancialFn()
       {
-          this.showFinancial = !this.showFinancial
-          this.showPDV = false
-          this.downRow = false
+        this.showFinancial = !this.showFinancial
+        this.showPDV = false
+        this.downRow = false
       },
 
       showProfileFn()
