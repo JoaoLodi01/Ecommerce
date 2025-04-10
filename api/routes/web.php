@@ -22,16 +22,7 @@ Route::post('/forgot-password', function(Request $request){
     return $status === Password::RESET_LINK_SENT
                     ? back()->with(['status' => __($status)])
                     : back()->withErrors(['status' => __($status)]);
-})->name('password.email');
-
-Route::get('/forgot-password', function(){
-    return view('auth.forgot-password');
-})->name('password.request');
-
-Route::get('/reset-passowrd/{token}', function(string $token){
-    return view('auth.reset-password',['token' => $token]);
-
-})->name('password.reset');
+});
 
 Route::post('/reset-passowrd', function(Request $request){
     $request->validate([
@@ -59,4 +50,4 @@ Route::post('/reset-passowrd', function(Request $request){
     return $status === Password::PASSWORD_RESET
                     ? redirect(env('FRONT_URL')) 
                     : back()->withErrors(['email' => [__($status)]]);
-})->name('password.update');
+});

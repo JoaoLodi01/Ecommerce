@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center" v-if="!loged">
+    <div class="flex justify-center mt-36">
         <div class="login-form border border-black p-5 rounded-lg shadow-xl">
             <q-form
                 @submit.prevent="loginMethod"
@@ -79,7 +79,7 @@
                     style="color: #1F2937"
                     class="btn-forgot"
                 >
-                    <button><a href="http://192.168.98.18:8000/forgot-password">Esqueceu sua senha?</a></button>
+                    <button><a href="/forgot-password">Esqueceu sua senha?</a></button>
 
                 </q-btn>
             </q-form>
@@ -87,11 +87,6 @@
             <Register 
                 v-if="showRegister"
                 @close="hideFormRegister($event)"
-            />
-            
-            <ForgotPassword 
-                v-if="showForget"
-                
             />
         </div> 
     </div>
@@ -102,13 +97,11 @@
     import { useQuasar, LocalStorage } from 'quasar';
     import { onBeforeUnmount } from "vue";
     import Register from '../Login/Register.vue'
-    import ForgotPassword from "./ForgotPassword.vue";
 
     export default {
         name: "LoginPage",
         components: {
             Register,
-            ForgotPassword
         },
 
         setup () {
@@ -144,7 +137,6 @@
                     password: ''
                 },
 
-                loged: LocalStorage.getItem("loged"),
                 showRegister: false,
                 showForget: false,
                 showLogin: true,
@@ -173,16 +165,11 @@
                     const response = await api.post("/auth/auth", this.details);
               
                     if (response.data.status && response.data.token) {                        
-                        this.$router.push('/')
+                        this.$router.push('/home')
                         alert('Login bem sucedido!')
-
                         LocalStorage.setItem("auth_token", response.data.token);
-                        LocalStorage.setItem("loged", response.data.status);
-                        
-                        window.location.reload()
                         
                     } else {
-                        console.log(response.data)
                         alert(`${response.data.message}`);
                         this.details = {
                             email: '',
