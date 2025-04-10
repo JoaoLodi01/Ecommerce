@@ -9,13 +9,11 @@ const api = axios.create({
 
 });
 
-
-
 export default defineBoot(({ app, router }) => {
     api.interceptors.request.use((config) => {
         const token = LocalStorage.getItem("auth_token");
         // Não checar aqui, vai criar um laço infinito
-
+        console.log('Token axios line 16: ', token)
         const publicAPIRoutes = ['/forgot-password']
         if (!token) {
             router.replace({path: '/login'})

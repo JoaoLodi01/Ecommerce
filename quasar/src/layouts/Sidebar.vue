@@ -321,17 +321,19 @@
         const ofCourse = confirm('Deseja realmente sair?')
         if(ofCourse)
         {
+            LocalStorage.remove("auth_token")
             const token = LocalStorage.getItem("auth_token")
-            
-
-            if(response.data.success)
+            console.log('Token side bar line 325: ', token)
+            this.$router.push('/login')
+            /*if(response.data.success)
             {
                 LocalStorage.remove("auth_token")                
                 this.$router.push('/login')
               
-            }
+            }*/
         }        
       },
+      
       toggleSidebar() {
         this.sidebarActive = !this.sidebarActive;
         this.$emit('toggleSidebar', this.sidebarActive)
