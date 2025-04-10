@@ -15,6 +15,7 @@ export default defineBoot(({ app, router }) => {
         // Não checar aqui, vai criar um laço infinito
         console.log('Token axios line 16: ', token)
         const publicAPIRoutes = ['/forgot-password']
+
         if (!token) {
             router.replace({path: '/login'})
             console.log('Está deslogado - token ausente');
