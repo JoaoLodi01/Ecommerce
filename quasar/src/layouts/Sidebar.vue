@@ -275,8 +275,7 @@
         'transform -translate-x-24': !sidebarActive && widthScreen > 1080,
         
     }">   
-        <router-view></router-view>
-      
+        <router-view/>
     </div>
 
     <!-- Botão da Sidebar fechada -->
