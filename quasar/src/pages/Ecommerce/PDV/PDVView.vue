@@ -36,9 +36,9 @@
 
         </div>
         
-        <div class="products-grid relative overflow-x-auto overflow-y-auto ">
+        <div class="products-grid relative overflow-x-auto overflow-y-auto">
             <div 
-                class="borderborder-gray-500 m-3"
+                class="m-3 border border-black"
                 :class="{
                     'w-14': witdhScreen <= 1080,
                     
@@ -249,7 +249,7 @@
                                 v-model="registredCustomer"
                             />
                             <br>
-                            
+                            <span>Cliente</span>
                             <CustomerSearchBar
                                 @update:selectCustomer="updateCustomerSelection($event)"
 

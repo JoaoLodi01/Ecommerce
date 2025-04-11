@@ -4,7 +4,7 @@
             v-model="search.name"
             @input="getProducts()"
             placeholder="Buscar..."
-            class="border border-black outline-none rounded-md ml-2 mt-1 mb-1 w-auto"
+            class="border border-black outline-none rounded-md ml-2 mt-1 mb-1"
         />
         
         <ul 
@@ -14,9 +14,10 @@
             <li
                 v-for="product in filteredProducts"
                 :key="product.id"
-                @click="setProduct(product)"
+                @click="setProduct(product)"    
+                class="p-2 hover:bg-gray-200 cursor-pointer"
                 
-                class="p-2 hover:bg-gray-200 cursor-pointer">
+            >
                 <span>{{ product.id }}</span> -
                 <span> {{ product.product }}</span> -
                 <span> Qtde: {{ product.amount }}</span>

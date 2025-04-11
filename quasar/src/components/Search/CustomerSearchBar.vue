@@ -1,23 +1,27 @@
 <template>
-    <label class="text-black" for="client">Cliente</label>
-    <input 
-        v-model="clientsData.name"
-        @click="setClient(clientsData)"
-        @input="selectClient()"
-        placeholder="Consumidor Padrão"
-        class="text-black border border-black w-full"
-    />
-    <ul v-if="filteredClients.length > 0" class=" border border-gray-300 rounded mt-1">
-        <li
-            v-for="client in filteredClients"
-            :key="client.id"
-            @click="setClient(client)"
-            class="fixed bg-black text-white z-50 p-3 hover:bg-gray-200 cursor-pointer"
+    <div class="">
+        <input 
+            v-model="clientsData.name"
+            @click="setClient(clientsData)"
+            @input="selectClient()"
+            placeholder="Consumidor Padrão"
+            class="text-black border border-black w-full"
+        />
+        <ul 
+            v-if="filteredClients.length > 0 && clientsData.name !== ''" 
+            class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
         >
-        {{ client.name }}
+            <li
+                v-for="client in filteredClients "
+                :key="client.id"
+                @click="setClient(client)"
+                class="p-2 hover:bg-gray-200 cursor-pointer"
+            >
+            {{ client.name }}
 
-        </li>
-    </ul>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
