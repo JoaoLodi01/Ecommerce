@@ -26,6 +26,7 @@ use App\Http\Controllers\Config\ConfigController;
 use App\Http\Controllers\Reports\ReportCustomersController;
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\ForgotPassword;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -156,7 +157,6 @@ Route::prefix('v1')->group( function (){
 
     Route::post('/forgot-password', function(Request $request){
         Log::info('Bateu no: /forgot-password');
-
         $request->validate(['email' => 'required|email']);
     
         $status = Password::sendResetLink(
@@ -194,11 +194,9 @@ Route::prefix('v1')->group( function (){
             }
         );
         
+        Log::info('env(FRONT_URL) ' . env('FRONT_URL'));
         return $status === Password::PASSWORD_RESET
                         ? redirect(env('FRONT_URL')) 
                         : back()->withErrors(['email' => [__($status)]]);
     })->name('password.update');    
-
-    
 });
-
