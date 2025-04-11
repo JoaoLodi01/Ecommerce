@@ -299,7 +299,6 @@
 
 <script>
   import { LocalStorage } from 'quasar';
-  import { api } from 'src/boot/axios';
 
   export default {
     data() {

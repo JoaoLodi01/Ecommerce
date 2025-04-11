@@ -39,7 +39,7 @@
                     class="m-2"
                     flat 
                     style="color: #1F2937"   
-                    label="Enviar e-mail de recuperação"   
+                    label="Alterar senha"   
                 />
 
                 <router-link to="/login">
@@ -109,14 +109,12 @@
         methods: {
             async updatePassword()
             {
-                try {
-                    const response = await api.post('/reset-passowrd', this.data)
-                    console.log(response)   
-                    
-                } catch (error) {
-                    console.log('Erro updatePassword', error)   
-                    
+                const response = await api.post('/reset-passowrd', this.data)
+                if(response.data.success)
+                {
+                    this.$router.push({path: '/login'})   
                 }
+                
             },
 
             checkPassword()
@@ -126,7 +124,7 @@
                     this.message = 'As senhas são diferentes'
                     console.log('As senhas são diferentes')
                 }
-                console.log('As senhas são diferentes')
+                
             }
         }
     }

@@ -122,7 +122,6 @@
                     email: '',
                     password: ''
                 },
-
                 showPassword: false,
             }
         },
@@ -156,7 +155,7 @@
                     }
                     
                 }
-            },
+            }
         }
     }
 

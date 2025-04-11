@@ -14,8 +14,7 @@
                     color="grey-7"
                 />
                 
-                <q-btn  
-                    @click=showLoading 
+                <q-btn 
                     type="submit" 
                     class="m-2"
                     flat 
@@ -35,6 +34,9 @@
                 </router-link>
             </q-form>
         </div> 
+        <div class="mt-8" v-if="message">
+            {{ message }}
+        </div>
     </div>
 </template>
 
@@ -71,22 +73,22 @@
 
         data() {
             return {
-                email: ''
+                email: '',
+                message: ''
             }
         },
 
         methods: {
             async forgotMethod(){
-                try {
-                    const response = await api.post('/forgot-password', {
-                        email: this.email
+                this.showLoading()
+                const response = await api.post('/forgot-password', {
+                    email: this.email
 
-                    })
-                    console.log(response)
-                    
-                } catch (error) {
-                    console.error('Erro', error)
-                    
+                })
+
+                if(response.data.success)
+                {
+                    this.message = 'Confirme a sua caixa de e-mail, você já pode fechar essa página!'
                 }
             }
         }

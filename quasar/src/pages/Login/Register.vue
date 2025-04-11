@@ -113,12 +113,17 @@
                     @click=showLoading 
                     type="submit"
                     label="Criar conta"
+                    class="m-2"
+                    flat 
+                    style="color: #1F2937"   
                 />
                 
                 <router-link to="/login">
                     <q-btn
                         type="button"
                         class="m-2"
+                        flat 
+                        style="color: #1F2937"   
                         label="Já possui uma conta?"
                     />
                 </router-link>

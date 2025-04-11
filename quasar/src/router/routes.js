@@ -5,6 +5,11 @@ const salePrefix = 'sale';
 
 const routes = [
   {
+    path: '/',
+    name: 'Home',
+    component: () => import('src/pages/Home/HomePage.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('pages/Login/Login.vue')
@@ -21,18 +26,13 @@ const routes = [
   },
   {
     path: '/reset-password/:token',
-    name: 'Teste',
-    component: () => import('pages/Login/Forgot/teste.vue')
+    name: 'FormResetPassword',
+    component: () => import('src/pages/Login/Forgot/FormResetPassword.vue')
   },
   {
     path: '/home',
     component: Sidebar,
     children: [
-      {
-        path: '/home',
-        name: 'Home',
-        component: () => import('src/pages/Home/HomePage.vue')
-      },
       {
         path: `/${salePrefix}/pdv`,
         name: 'PDV',
