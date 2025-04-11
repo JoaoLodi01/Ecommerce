@@ -2,15 +2,34 @@
     <div class="flex justify-center">
         <div class="login-form border border-black p-5 rounded-lg shadow-xl">
             <q-form
-                @submit.prevent="forgotMethod"
+                @submit.prevent="updatePassword()"
             >
                 <h1 class="text-xl border-b border-black w-max mb-4">Recuperar senha</h1>
                 
                 <q-input 
                     filled 
-                    v-model="email" 
+                    v-model="data.email" 
                     label="E-mail" 
                     class="mb-4"
+                    color="grey-7"
+                />
+
+                <q-input 
+                    filled 
+                    v-model="data.password" 
+                    label="Nova senha" 
+                    class="mb-4"
+                    type="password"
+                    color="grey-7"
+                />
+
+                <q-input 
+                    filled 
+                    v-model="data.password_confirmation" 
+                    @change="checkPassword()"
+                    label="Confirme a nova senha" 
+                    class="mb-4"
+                    type="password"
                     color="grey-7"
                 />
                 
@@ -36,12 +55,15 @@
             </q-form>
         </div> 
     </div>
+    <div class="" v-if="message">
+        {{ message }}
+    </div>
 </template>
 
 <script>
+    import { api } from 'src/boot/axios';
     import { useQuasar } from 'quasar';
     import { onBeforeUnmount } from 'vue';
-    import { api } from 'src/boot/axios';
 
     export default {
         setup () {
@@ -69,26 +91,42 @@
             }
         },
 
-        data() {
-            return {
-                email: ''
+        data()
+        {
+            return{ 
+                data: {
+                    token: this.$route.params.token,
+                    email: '',
+                    password: '',
+                    password_confirmation: ''
+                    
+                },
+                message: ''
+                
             }
         },
 
         methods: {
-            async forgotMethod(){
+            async updatePassword()
+            {
                 try {
-                    const response = await api.post('/forgot-password', {
-                        email: this.email
-
-                    })
-
-                    console.log(response)
+                    const response = await api.post('/reset-passowrd', this.data)
+                    console.log(response)   
                     
                 } catch (error) {
-                    console.error('Erro', error)
+                    console.log('Erro updatePassword', error)   
                     
                 }
+            },
+
+            checkPassword()
+            {
+                if(this.data.password !== this.data.password)
+                {
+                    this.message = 'As senhas são diferentes'
+                    console.log('As senhas são diferentes')
+                }
+                console.log('As senhas são diferentes')
             }
         }
     }

@@ -155,18 +155,23 @@ Route::prefix('v1')->group( function (){
     Route::get('/get-ip', [IPController::class, 'create']); 
 
     Route::post('/forgot-password', function(Request $request){
+        Log::info('Bateu no: /forgot-password');
+
         $request->validate(['email' => 'required|email']);
     
         $status = Password::sendResetLink(
             $request->only('email')
-        );
-        Log::info('Vai enviar');
+
+        ); 
+
         return $status === Password::RESET_LINK_SENT
                         ? back()->with(['status' => __($status)])
                         : back()->withErrors(['status' => __($status)]);
+
     })->name('password.email');
     
     Route::post('/reset-passowrd', function(Request $request){
+        Log::info('Bateu no: /reset-passowrd');
         $request->validate([
             'token' => ['required'],
             'email' => ['required', 'email'],
@@ -194,9 +199,6 @@ Route::prefix('v1')->group( function (){
                         : back()->withErrors(['email' => [__($status)]]);
     })->name('password.update');    
 
-    Route::get('/reset-password/{token}', function (string $token) {
-        //return ['token' => $token];
-        return redirect(env('FRONT_URL_'));
-    })->middleware('guest')->name('password.reset');
+    
 });
 

@@ -20,6 +20,11 @@ const routes = [
     component: () => import('pages/Login/Forgot/ForgotPassword.vue')
   },
   {
+    path: '/reset-password/:token',
+    name: 'Teste',
+    component: () => import('pages/Login/Forgot/teste.vue')
+  },
+  {
     path: '/home',
     component: Sidebar,
     children: [
