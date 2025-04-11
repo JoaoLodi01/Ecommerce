@@ -134,7 +134,7 @@
 
                 const response = await api.put('/config/config-pdv/update-config', {
                     searchOptionProduct: this.configs.searchOptionProduct,
-                    searchOptionCustomer: this.configs.searchOptionCustomer,
+                    searchOptionCustomers: this.configs.searchOptionCustomer,
                     nmFinaly: this.configs.nmFinaly,
                     saleNegativeorReset: this.configs.saleNegativeorReset,
 

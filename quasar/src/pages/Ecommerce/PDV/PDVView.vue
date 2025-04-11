@@ -34,18 +34,11 @@
                 @closeCashClosing="closeCashClosing($event)"
             />
 
-            <div v-if="errorMessages.length > 0" class="mt-10">
-                <p v-for="erroMessage in errorMessages">
-                    
-                        
-                </p>
-                <button @click="errorMessages = []">Fechar</button>
-            </div>
         </div>
         
-        <div class="relative overflow-x-auto max-h-96 overflow-y-auto">
+        <div class="products-grid relative overflow-x-auto overflow-y-auto ">
             <div 
-                class="border border-gray-500 m-3"
+                class="borderborder-gray-500 m-3"
                 :class="{
                     'w-14': witdhScreen <= 1080,
                     
@@ -54,7 +47,6 @@
                 <div class="inline-flex p-3">
                     <div 
                         class="mt-auto mb-auto mr-5 cursor-pointer"
-                        v-if="witdhScreen !== 0"
                         @click="showProductsSelection"
                         
                     >
@@ -64,10 +56,11 @@
 
                     </div>
                     
-                    <div v-if="witdhScreen > 1366" class="rounded-lg border border-black mr-1">
+                    <div class="mr-1">
                         <div class="bg-white">
                             <ProductsSearchBar
                                 :showProductsSearch
+                                :witdhScreen="witdhScreen"
                                 @update:selectProducts="updateProductsSeletion($event)"
     
                             />
@@ -88,7 +81,7 @@
 
             </div>
 
-            <div class="m-5 w-max shadow-lg">                
+            <div class="m-5 shadow-lg">                
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
                             <tr class="bg-white">
@@ -182,7 +175,7 @@
 
                                     <button @click="productOptions(product, 'view')">
                                         <svg 
-                                            v-if="witdhScreen <= 1080"
+                                            v-if="witdhScreen < 1080"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24" 
@@ -871,18 +864,17 @@
                         for (let i = 0; i < rawProducts.length; i++) {
                             const products = rawProducts[i];
                             const productDetail = products.find(p => p.id === product.id)
-                            console.log(productDetail.id)
-
+                        
                             this.viewProduct = {
                                 id: productDetail.id,
                                 amount: productDetail.amount,
-                                salePrice: productDetail.salePrice,
+                                salePrice: productDetail.sale_price,
                                 total: productDetail.amount * productDetail.sale_price
                             }
                             console.log(this.viewProduct)
 
                             this.viewProduct.show = !this.viewProduct.show
-                            console.log(this.viewProduct.show)
+                            
                         } 
                         
                         break;
@@ -1029,4 +1021,7 @@
 
     }
 
+    .products-grid {
+        height: 36rem;
+    }
 </style>

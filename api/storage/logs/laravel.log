@@ -630,3 +630,521 @@
 [2025-04-11 12:28:34] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
 [2025-04-11 12:28:53] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
 [2025-04-11 12:52:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-11 16:02:20] local.INFO: Acertou o login  
+[2025-04-11 16:02:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:02:31] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:02:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:02:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:02:32] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:02:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:02:35] local.INFO: Controller  
+[2025-04-11 16:02:35] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-11 16:02:35] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:02:35] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-11 16:02:35] local.INFO: O que achou:   
+[2025-04-11 16:02:35] local.INFO: []  
+[2025-04-11 16:02:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:02:43] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:03:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:03:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:03:51] local.INFO: $data  
+[2025-04-11 16:03:51] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+)  
+[2025-04-11 16:03:51] local.INFO: data no repository  
+[2025-04-11 16:03:51] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+)  
+[2025-04-11 16:03:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:03:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:03:59] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:04:02] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:04:02] local.INFO: $data  
+[2025-04-11 16:04:02] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+)  
+[2025-04-11 16:04:02] local.INFO: data no repository  
+[2025-04-11 16:04:02] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+)  
+[2025-04-11 16:04:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:04:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:05:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:05:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:06:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:06:32] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:06:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:06:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:06:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:06:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:06:48] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:06:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:06:49] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:06:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:06:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:06:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:06:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:06:54] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:06:54] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:06:54] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:06:54] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:06:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:06:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:06:58] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:06:58] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:06:58] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:06:58] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:06:59] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:06:59] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:08:10] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:08:13] local.INFO: Controller  
+[2025-04-11 16:08:13] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:08:13] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:08:13] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:08:13] local.INFO: O que achou:   
+[2025-04-11 16:08:13] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:08:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:08:46] local.INFO: Controller  
+[2025-04-11 16:08:46] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '2',
+)  
+[2025-04-11 16:08:46] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:08:46] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '2',
+)  
+[2025-04-11 16:08:46] local.INFO: O que achou:   
+[2025-04-11 16:08:46] local.INFO: [{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:10:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:10:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:10:22] local.INFO: $data  
+[2025-04-11 16:10:22] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => false,
+  'saleNegativeorReset' => false,
+)  
+[2025-04-11 16:10:22] local.INFO: data no repository  
+[2025-04-11 16:10:22] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => false,
+  'saleNegativeorReset' => false,
+)  
+[2025-04-11 16:10:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:10:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:11:01] local.INFO: Acertou o login  
+[2025-04-11 16:11:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:11:10] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:11:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:11:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:11:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:11:13] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","password":"$2y$12$1mm1w0d9aEMX5ntKg\/hnNeNJvwbDAfE\/sth4s\/PmPOCsptfOsfxjW","phone":"+55 4244-4444","active":1,"created_at":"2025-04-11T08:53:12.000000Z","updated_at":"2025-04-11T08:53:12.000000Z"}]  
+[2025-04-11 16:11:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:11:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:11:48] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:12:48] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:12:49] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:13:45] local.INFO: Controller  
+[2025-04-11 16:13:45] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:13:45] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:13:45] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:13:45] local.INFO: O que achou:   
+[2025-04-11 16:13:45] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:14:02] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:14:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:14:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:14:29] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:14:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:14:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:14:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:14:37] local.INFO: Controller  
+[2025-04-11 16:14:37] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:14:37] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:14:37] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:14:37] local.INFO: O que achou:   
+[2025-04-11 16:14:37] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:14:40] local.INFO: Controller  
+[2025-04-11 16:14:40] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '2',
+)  
+[2025-04-11 16:14:40] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:14:40] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '2',
+)  
+[2025-04-11 16:14:40] local.INFO: O que achou:   
+[2025-04-11 16:14:40] local.INFO: [{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:14:42] local.INFO: Controller  
+[2025-04-11 16:14:42] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '2',
+)  
+[2025-04-11 16:14:42] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:14:42] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '2',
+)  
+[2025-04-11 16:14:42] local.INFO: O que achou:   
+[2025-04-11 16:14:42] local.INFO: [{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:14:44] local.INFO: Controller  
+[2025-04-11 16:14:44] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '3',
+)  
+[2025-04-11 16:14:44] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:14:44] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '3',
+)  
+[2025-04-11 16:14:44] local.INFO: O que achou:   
+[2025-04-11 16:14:44] local.INFO: [{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-11 16:14:46] local.INFO: Controller  
+[2025-04-11 16:14:46] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '3',
+)  
+[2025-04-11 16:14:46] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:14:46] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '3',
+)  
+[2025-04-11 16:14:46] local.INFO: O que achou:   
+[2025-04-11 16:14:46] local.INFO: [{"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}]  
+[2025-04-11 16:14:50] local.INFO: Controller  
+[2025-04-11 16:14:50] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '4',
+)  
+[2025-04-11 16:14:50] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:14:50] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '4',
+)  
+[2025-04-11 16:14:50] local.INFO: O que achou:   
+[2025-04-11 16:14:50] local.INFO: []  
+[2025-04-11 16:14:52] local.INFO: Controller  
+[2025-04-11 16:14:52] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:14:52] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:14:52] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:14:52] local.INFO: O que achou:   
+[2025-04-11 16:14:52] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:14:55] local.INFO: Controller  
+[2025-04-11 16:14:55] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '2',
+)  
+[2025-04-11 16:14:55] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:14:55] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '2',
+)  
+[2025-04-11 16:14:55] local.INFO: O que achou:   
+[2025-04-11 16:14:55] local.INFO: [{"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:15:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:15:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:15:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:19:45] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:19:45] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:19:45] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:19:45] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:19:45] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:19:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:19:47] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:19:47] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:19:47] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:19:47] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:19:47] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:19:48] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:20:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:20:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:20:35] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:20:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:20:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:20:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:20:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:20:44] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:20:44] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:20:44] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:20:44] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:20:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:21:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:21:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:21:20] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:21:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:21:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:21:20] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:22:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:22:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:23:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:23:15] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:23:15] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:23:15] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:23:15] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:23:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:23:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:23:38] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:23:38] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:23:38] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:23:38] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:23:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:23:40] local.INFO: Controller  
+[2025-04-11 16:23:40] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:23:40] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:23:40] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:23:40] local.INFO: O que achou:   
+[2025-04-11 16:23:40] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:23:42] local.INFO: Controller  
+[2025-04-11 16:23:42] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:23:42] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:23:42] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:23:42] local.INFO: O que achou:   
+[2025-04-11 16:23:42] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:24:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:24:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:24:31] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:24:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:24:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:24:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:24:44] local.INFO: Controller  
+[2025-04-11 16:24:44] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:24:44] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:24:44] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:24:44] local.INFO: O que achou:   
+[2025-04-11 16:24:44] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:25:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:25:12] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:25:12] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:25:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:25:12] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:25:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:25:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:25:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:25:18] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:25:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:25:18] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:25:18] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:26:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:26:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:26:07] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:26:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:26:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:26:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:26:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:26:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:26:23] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:26:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:26:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:26:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:26:27] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:26:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:26:27] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:26:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:26:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:26:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:26:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:26:29] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:26:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:26:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:26:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:08] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:27:08] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:27:08] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:27:08] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:27:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:27:09] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:27:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:27:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:27:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:13] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:27:13] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:27:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:27:13] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:27:15] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:27:25] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:27:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:27:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:27:27] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:27:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:28:26] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:28:26] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:28:26] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:28:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:28:26] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:28:27] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:28:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:28:27] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:28:27] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:28:27] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:28:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:28:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:28:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:28:29] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:28:29] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:28:29] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:28:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:28:34] local.INFO: Controller  
+[2025-04-11 16:28:34] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:28:34] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:28:34] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:28:34] local.INFO: O que achou:   
+[2025-04-11 16:28:34] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:28:59] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:28:59] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:28:59] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:28:59] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:28:59] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:29:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:29:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:29:01] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:29:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:29:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:29:02] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:29:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:29:04] local.INFO: Controller  
+[2025-04-11 16:29:04] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:29:04] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:29:04] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:29:04] local.INFO: O que achou:   
+[2025-04-11 16:29:04] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:30:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:31] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:30:31] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:30:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:30:31] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:30:32] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:30:32] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:30:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:30:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:30:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:30:46] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:30:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:30:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:30:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:30:46] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:30:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:30:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:30:47] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:47] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:49] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:30:49] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:30:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:30:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:30:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:30:53] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:30:53] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:30:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:30:53] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:30:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:32:01] local.INFO: Controller  
+[2025-04-11 16:32:01] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:32:01] local.INFO: -- Vai começar a busca --  
+[2025-04-11 16:32:01] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-11 16:32:01] local.INFO: O que achou:   
+[2025-04-11 16:32:01] local.INFO: [{"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":10,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}]  
+[2025-04-11 16:32:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:32:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:32:36] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:32:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:32:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:32:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:32:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-11 16:32:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-11 16:32:41] local.INFO: O hotel foi encontrado  
+[2025-04-11 16:32:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-11 16:32:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-11 16:32:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  

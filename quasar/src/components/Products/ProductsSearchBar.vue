@@ -4,7 +4,7 @@
             v-model="search.name"
             @input="getProducts()"
             placeholder="Buscar..."
-            class="border-none outline-none ml-2 mt-1 mb-1 w-96"
+            class="border border-black outline-none rounded-md ml-2 mt-1 mb-1 w-auto"
         />
         
         <ul 
@@ -36,7 +36,7 @@
             const getConfig = async () => {
                 const response = await api.get('/config/all-configs');
                 this.configs = {
-                    fieldSearch: response.data.configPDV[0].filter_search,
+                    fillter: response.data.configPDV[0].filter_search,
                     saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset === 1 ? true : false,
                 }
 
@@ -57,7 +57,7 @@
 
                 configs: {
                     saleNegativeorReset: false,
-                    fieldSearch: ''
+                    fillter: ''
                 }
             }
         },
@@ -68,10 +68,9 @@
 
                     if(this.search.name.length >= 4 || this.search.name.length === 1)
                     {
-                        const response = await api.post(`/ecommerce/products/search`, {
-                            fillter: this.configs.fieldSearch,
+                        const response = await api.post(`/ecommerce/products/search`,{
+                            fillter: this.configs.fillter,
                             search: this.search.name
-
                         });
 
                         this.products = toRaw(response.data);
@@ -113,6 +112,12 @@
                 }
                 
             },
+        },
+        props: {
+            witdhScreen: {
+                tpye: Number,
+                required: true
+            }
         }
     }
 </script>
