@@ -82,7 +82,6 @@
                         email: this.email
 
                     })
-
                     console.log(response)
                     
                 } catch (error) {

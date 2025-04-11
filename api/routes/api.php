@@ -193,10 +193,9 @@ Route::prefix('v1')->group( function (){
                 event(new PasswordReset($user));
             }
         );
-        
-        Log::info('env(FRONT_URL) ' . env('FRONT_URL'));
+
         return $status === Password::PASSWORD_RESET
-                        ? redirect(env('FRONT_URL')) 
+                        ? redirect('/') 
                         : back()->withErrors(['email' => [__($status)]]);
     })->name('password.update');    
 });

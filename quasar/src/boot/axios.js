@@ -23,7 +23,6 @@ export default defineBoot(({ app, router }) => {
             
         } else {
             config.headers.Authorization = `Bearer ${token}`;
-            console.log(token);
         }
     
         return config;
