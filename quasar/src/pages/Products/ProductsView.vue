@@ -214,7 +214,7 @@
                 this.showReportProducts = true
                 this.showUpdateProduct = event
                 this.showRegisterProduct = event
-                window.location.reload()
+                
             },
 
         },

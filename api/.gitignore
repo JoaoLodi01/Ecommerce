@@ -24,3 +24,4 @@ yarn-error.log
 node_modules/
 
 artisan_util.sh
+boot_local.sh

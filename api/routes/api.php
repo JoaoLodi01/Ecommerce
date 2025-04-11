@@ -26,6 +26,7 @@ use App\Http\Controllers\Config\ConfigController;
 use App\Http\Controllers\Reports\ReportCustomersController;
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\{
@@ -192,5 +193,10 @@ Route::prefix('v1')->group( function (){
                         ? redirect(env('FRONT_URL')) 
                         : back()->withErrors(['email' => [__($status)]]);
     })->name('password.update');    
+
+    Route::get('/reset-password/{token}', function (string $token) {
+        //return ['token' => $token];
+        return redirect(env('FRONT_URL_'));
+    })->middleware('guest')->name('password.reset');
 });
 

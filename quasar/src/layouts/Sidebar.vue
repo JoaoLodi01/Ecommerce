@@ -275,8 +275,7 @@
         'transform -translate-x-24': !sidebarActive && widthScreen > 1080,
         
     }">   
-        <router-view></router-view>
-      
+        <router-view/>
     </div>
 
     <!-- Botão da Sidebar fechada -->
@@ -322,35 +321,29 @@
         const ofCourse = confirm('Deseja realmente sair?')
         if(ofCourse)
         {
-          const token = LocalStorage.getItem("auth_token")
-          console.log('token: ', token)
-          const response = await api.post('/auth/logout', {
-              headers: {
-                  'Authorization': `Bearer ${token}`
-                  
-              }
-          })
-
-          if(response.data.success)
-          {
-              LocalStorage.remove("auth_token")
-              LocalStorage.setItem("loged", false)
-              window.location.reload()
-              this.$router.push('/login')
-          }
-        }
-        
+            LocalStorage.remove("auth_token")
+            const token = LocalStorage.getItem("auth_token")
+            console.log('Token side bar line 325: ', token)
+            this.$router.push('/login')
+            /*if(response.data.success)
+            {
+                LocalStorage.remove("auth_token")                
+                this.$router.push('/login')
+              
+            }*/
+        }        
       },
+      
       toggleSidebar() {
-          this.sidebarActive = !this.sidebarActive;
-          this.$emit('toggleSidebar', this.sidebarActive)
+        this.sidebarActive = !this.sidebarActive;
+        this.$emit('toggleSidebar', this.sidebarActive)
       },
 
       showFinancialFn()
       {
-          this.showFinancial = !this.showFinancial
-          this.showPDV = false
-          this.downRow = false
+        this.showFinancial = !this.showFinancial
+        this.showPDV = false
+        this.downRow = false
       },
 
       showProfileFn()

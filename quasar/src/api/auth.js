@@ -1,24 +1,27 @@
 import { api } from 'boot/axios';
 import { LocalStorage } from 'quasar';
+import routes from '../router/routes'
 
-export default async function login(email, password) {
-    try {
-        const response = await api.post('/login', {
-            email,
-            password
+const auth = async () => {
+  const token = LocalStorage.getItem("auth_token");
 
-        })
+  if (!token) {
+    routes.push({ path: '/login' });
+    return;
+  }
 
-        if(response.data.success)
-        {
-            LocalStorage.set("auth_token", response.data.token)
-
-        }
-        return response.data
-
-    } catch (error) {
-        console.error("Erro no login src/api/auth:", error);
-        throw error;
-
+  try {
+    await api.get('/auth/me', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+  } catch (error) {
+    if (error.response && error.response.status === 401) {
+      LocalStorage.removeItem("auth_token");
+      routes.push({ path: '/login' });
     }
-}
+  }
+};
+
+export { auth };

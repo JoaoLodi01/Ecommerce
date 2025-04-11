@@ -9,6 +9,7 @@ main()
     echo "6 - Route:list: php artisan route:li"
     echo "7 - Apagar as logs"
     echo "8 - Migrate (table): php artisan migrate"
+    echo "9 - Subir servidores novamente"
     echo "R - Reiniciar"
     echo "E - Sair"
     read -p "Selecione uma opção: " option
@@ -95,6 +96,10 @@ main()
             echo "Recriando banco de dados..."
             bash -c "php artisan migrate"
             main
+            ;;
+
+        9)
+            bash -c "sh boot_local.sh"
             ;;
 
         'R' | 'r')

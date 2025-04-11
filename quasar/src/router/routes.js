@@ -1,4 +1,5 @@
 import Sidebar from 'src/layouts/Sidebar.vue';
+
 const financialPrefix = 'financial';
 const salePrefix = 'sale';
 
@@ -7,6 +8,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: () => import('pages/Login/Login.vue')
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('pages/Login/Register.vue')
   },
   {
     path: '/forgot-password',
@@ -18,10 +24,10 @@ const routes = [
     component: Sidebar,
     children: [
       {
-        path: '/profile',
-        name: 'Profile',
-        component: () => import('src/pages/Profile/Profile.vue')
-      },  
+        path: '/home',
+        name: 'Home',
+        component: () => import('src/pages/Home/HomePage.vue')
+      },
       {
         path: `/${salePrefix}/pdv`,
         name: 'PDV',
@@ -74,10 +80,9 @@ const routes = [
         path: '/:catchAll(.*)*',
         name: '404',
         component: () => import('pages/ErrorNotFound.vue')
-      },
+      },  
     ]
-  }
- 
+  },
 ]
 
 export default routes
