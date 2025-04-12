@@ -13,8 +13,8 @@
                 
         }"   
     >
-        <div :class="{
-            'absolute left-96 right-auto top-40 z-20': witdhScreen > 1080,
+        <div class="payMentForm" :class="{
+            'absolute top-24 z-20': witdhScreen > 1080,
             'absolute right-auto top-5 z-50': witdhScreen <= 1080
         }">
             <PaymentsForm
@@ -85,7 +85,7 @@
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
                             <tr class="bg-white">
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Cód.</th>
+                                <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
@@ -104,7 +104,7 @@
                             class="border border-black"
                         >    
 
-                            <td v-if="witdhScreen > 1080" class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
 
                             <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
@@ -198,17 +198,20 @@
             </div>
         </div>
 
-        <div v-if="viewProduct.show" class="absolute top-32 left-9 w-64 p-2 mr-5 ml-auto bg-slate-500 text-white z-50">
-            <div @click="viewProduct.show = !viewProduct.show">X</div>
+        <div v-if="viewProduct.show" class="absolute top-40 left-9 w-64 p-2 mr-5 ml-autobg-white z-50 rounded-lg bg-slate-700 text-white">
+            <div class="flex justify-end">
+                <div @click="viewProduct.show = !viewProduct.show">Voltar</div>
+
+            </div>
             <div class="text-left">
-                <p><span>Cód {{ viewProduct.id }}</span></p>
+                <p><span>Cód: {{ viewProduct.id }}</span></p>
                 <p><span>Preço unitário: R${{ viewProduct.salePrice }}</span></p>
                 <p>
                     <input 
                         v-model="viewProduct.amount"
                         :placeholder=viewProduct.amount
                         type="text"
-                        class="w-10 text-center border-b-4 border-b-gray-500 bg-black text-white"
+                        class="w-10 text-center border-b-4 border-b-gray-500 text-black"
                         @input="changeAmount(viewProduct.id, viewProduct.amount)"
                         
                     />
@@ -285,7 +288,6 @@
                             class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
                         />
                     </div>
-        
                 <div
                     class="m-2 p-2 rounded-lg border border-gray-700"
                     id="total"
@@ -444,6 +446,7 @@
                     userID: 0,
                     
                 },
+
                 hotelCodCRT: 0,
 
                 sellerData: {
@@ -472,6 +475,7 @@
                 viewProduct: {
                     show: false,
                     id: '',
+                    name: '',
                     amount: 0,
                     salePrice: 0,
                     total: 0
@@ -836,7 +840,6 @@
 
             productOptions(product, action)
             {
-                console.log('action:', action)
                 let rawProducts = toRaw(this.productsSeletion)
 
                 switch (action) {
@@ -861,21 +864,14 @@
                         break;
                         
                     case 'view':
-                        for (let i = 0; i < rawProducts.length; i++) {
-                            const products = rawProducts[i];
-                            const productDetail = products.find(p => p.id === product.id)
-                        
-                            this.viewProduct = {
-                                id: productDetail.id,
-                                amount: productDetail.amount,
-                                salePrice: productDetail.sale_price,
-                                total: productDetail.amount * productDetail.sale_price
-                            }
-                            console.log(this.viewProduct)
-
-                            this.viewProduct.show = !this.viewProduct.show
-                            
-                        } 
+                        this.viewProduct ={
+                            id: product.id,
+                            name: product.product,
+                            amount: product.amount,
+                            salePrice: product.sale_price,
+                            total: product.amount * product.sale_price
+                        }
+                        this.viewProduct.show = !this.viewProduct.show
                         
                         break;
 
@@ -998,11 +994,31 @@
         -webkit-appearance: none !important; 
 
     }
+    
+    @media (max-width: 1366px) {
+        .products-grid {
+            height: 36rem;
+        }
+
+        .payMentForm{
+            position: absolute;
+            left: 90rem;
+        }
+    }
 
     @media (max-width: 1080px) {
         * {
             position: relative;
 
+        }
+        
+        .payMentForm{
+            position: absolute;
+            left: 90rem;
+        }
+
+        .products-grid {
+            height: 26rem;
         }
 
         body{
@@ -1021,7 +1037,8 @@
 
     }
 
-    .products-grid {
-        height: 36rem;
+    #pdv-view .payMentForm{
+        left: 50rem;
     }
+
 </style>

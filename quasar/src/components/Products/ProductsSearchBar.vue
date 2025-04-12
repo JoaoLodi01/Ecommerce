@@ -52,6 +52,7 @@
                 products: [],
                 filteredProducts: [],
                 productsData: [],
+                
                 search: {
                     name: ''
                 },
