@@ -12,35 +12,36 @@
                 <q-item v-for="(payment, i) in paymentsForms" :key="i">
                 <q-item-section>
                     <q-icon
-                    v-if="payment.tipo_lancamento === 'Receber' && payment.especie !== 'Boleto'"
-                    name="mdi-credit-card-outline"
-                    color="primary"
-                    class="q-mr-sm"
+                        v-if="payment.tipo_lancamento === 'Receber' && payment.especie !== 'Boleto'"
+                        name="mdi-credit-card-outline"
+                        color="primary"
+                        class="q-mr-sm"
                     />
                     <q-icon
-                    v-else-if="payment.tipo_lancamento === 'Caixa'"
-                    name="mdi-cash-register"
-                    color="green"
-                    class="q-mr-sm"
+                        v-else-if="payment.tipo_lancamento === 'Caixa'"
+                        name="mdi-cash-register"
+                        color="green"
+                        class="q-mr-sm"
                     />
                     <q-icon
-                    v-else-if="payment.especie === 'Boleto'"
-                    name="mdi-barcode"
-                    color="deep-orange"
-                    class="q-mr-sm"
+                        v-else-if="payment.especie === 'Boleto'"
+                        name="mdi-barcode"
+                        color="deep-orange"
+                        class="q-mr-sm"
                     />
                     {{ payment.especie }}
                 </q-item-section>
     
                 <q-item-section side>
                     <q-input
-                    v-model="paymentsValues[i]"
-                    type="text"
-                    input-class="text-right"
-                    dense
-                    outlined
-                    placeholder="0,00"
-                    class="w-24"
+                        @update:model-value="formatValue()"
+                        v-model="paymentsValues[i]"
+                        type="text"
+                        input-class="text-right"
+                        dense
+                        outlined
+                        placeholder="0,00"
+                        class="w-24"
                     />
                 </q-item-section>
                 </q-item>
@@ -48,17 +49,17 @@
     
             <div class="q-mt-md">
                 <q-btn
-                :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
-                color="primary"
-                class="q-mr-sm"
-                @click="showLoading"
-                type="submit"
-                />
-                <q-btn
-                label="Cancelar"
-                color="negative"
-                flat
-                @click="cancelOperation"
+                    :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
+                    color="primary"
+                    class="q-mr-sm"
+                    @click="showLoading"
+                    type="submit"
+                    />
+                    <q-btn
+                    label="Cancelar"
+                    color="negative"
+                    flat
+                    @click="cancelOperation"
                 />
             </div>
             </q-form>
@@ -69,22 +70,22 @@
         <q-card-section class="bg-slate-700 text-white rounded-borders q-mt-md">
             <q-banner class="bg-slate-800 q-mb-sm">
             <div class="text-subtitle2">Total: R$ {{ totalOperation.toFixed(2) }}</div>
-            </q-banner>
-            <div class="row q-gutter-sm">
-            <q-chip color="red-6" text-color="white">
-                Valor ausente: R$
-                {{
-                totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) > 0
-                    ? (totalOperation - calculateValueInformed.total).toFixed(2)
-                    : '0.00'
-                }}
-            </q-chip>
-            <q-chip color="green-6" text-color="white">
-                Valor pago: R$ {{ calculateValueInformed.total.toFixed(2) }}
-            </q-chip>
-            <q-chip color="blue-6" text-color="white">
-                Troco: R$ {{ calculateValueChange.change.toFixed(2) }}
-            </q-chip>
+                </q-banner>
+                <div class="row q-gutter-sm">
+                <q-chip color="red-6" text-color="white">
+                    Valor ausente: R$
+                    {{
+                    totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) > 0
+                        ? (totalOperation - calculateValueInformed.total).toFixed(2)
+                        : '0.00'
+                    }}
+                </q-chip>
+                <q-chip color="green-6" text-color="white">
+                    Valor pago: R$ {{ calculateValueInformed.total.toFixed(2) }}
+                </q-chip>
+                <q-chip color="blue-6" text-color="white">
+                    Troco: R$ {{ calculateValueChange.change.toFixed(2) }}
+                </q-chip>
             </div>
         </q-card-section>
     
@@ -397,6 +398,15 @@ export default {
         closeOperation(){
             this.$emit("close")
 
+        },
+        
+        formatValue()
+        {
+            for (let i = 0; i < this.paymentsValues.length; i++) {
+                const element = this.paymentsValues[i];
+                element.replace(/./, ',')
+
+            }
         }
     },
     mounted(){
