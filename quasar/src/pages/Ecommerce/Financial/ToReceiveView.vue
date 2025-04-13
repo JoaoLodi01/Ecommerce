@@ -4,16 +4,25 @@
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-semibold">Receber</h2>
             <div class="flex space-x-4">
-                <button class="bg-slate-600 text-white p-2 rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-2">
+                <q-btn class="bg-slate-600 text-white p-2 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
                     </svg>
-                </button>
-                <button 
+                </q-btn>
+
+                <q-btn
                     class="bg-slate-600 text-white p-1 mr-5 rounded-lg"
                     @click="showReceiveClosing = !showReceiveClosing"
-                    >Cadastrar
-                </button>
+                    label="Cadastrar"
+                />
+
+                <q-btn
+                    class="bg-slate-600 text-white p-1 mr-5 rounded-lg"
+                    @click="getRegister()"
+                    label="Atualizar receber"
+                
+                />
+
             </div>
         </div>
 
@@ -65,45 +74,74 @@
 </template>
 
 <script>
-import { api } from "src/boot/axios";
-import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
+    import { api } from "src/boot/axios";
+    import { useQuasar } from "quasar";
+    import { onBeforeUnmount } from "vue";
+    import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
 
-export default {
-    data(){
-        return{
-            cash:{
-                description: "",
-                valor_entrada: "",
-                valor_saida: "",
-            },
-            cashs: [],
-            withScreen: 0,
-            showReceiveClosing: false,
-        };
-    },
+    export default {
+        setup(){
+            const $q = useQuasar()
+            let timer
 
-    methods: {
-        async getRegister(){
-            try {
-                const response = await api.get('/ecommerce/cash-register/all/receive')
-                this.cashs = response.data.data
-                console.log('response.data.data', response.data.data)
-            } catch (error) {
-                console.error("Erro ao buscar registros:", error)
-                
+            onBeforeUnmount(() => {
+                if(timer !== void 0){
+                    clearTimeout(timer)
+                    $q.loading.hide()
+
+                }
+
+            })
+            return { 
+                showLoading () {
+                    $q.loading.show({
+                        message: 'Carregando registros do receber ...'
+                    })
+
+                    timer = setTimeout(() => {
+                        $q.loading.hide()
+                        timer = void 0
+                    }, 1200)
+                }
             }
         },
-    },
-    components: {
-        RegisterReceive
-    },
 
-    mounted(){
-        this.getRegister()
-        this.withScreen += screen.width
+        data(){
+            return{
+                cash:{
+                    description: "",
+                    valor_entrada: "",
+                    valor_saida: "",
+                },
+                cashs: [],
+                withScreen: 0,
+                showReceiveClosing: false,
+            };
+        },
 
-    }
-};
+        methods: {
+            async getRegister(){
+                this.showLoading()
+                try {
+                    const response = await api.get('/ecommerce/cash-register/all/receive')
+                    this.cashs = response.data.data
+                    console.log('response.data.data', response.data.data)
+                } catch (error) {
+                    console.error("Erro ao buscar registros:", error)
+                    
+                }
+            },
+        },
+        components: {
+            RegisterReceive
+        },
+
+        mounted(){
+            this.getRegister()
+            this.withScreen += screen.width
+
+        }
+    };
 
 </script>
 

@@ -57,20 +57,19 @@
                     </div>
                     
                     <div class="mr-1">
-                        <div class="bg-white">
-                            <ProductsSearchBar
-                                :showProductsSearch
-                                :witdhScreen="witdhScreen"
-                                @update:selectProducts="updateProductsSeletion($event)"
-    
-                            />
+                        <ProductsSearchBar
+                            :showProductsSearch
+                            :witdhScreen="witdhScreen"
+                            @update:selectProducts="updateProductsSeletion($event)"
 
-                        </div>
-
+                        />
                         <!--Busca de produto-->
                     </div>
 
-                    <div v-if="witdhScreen > 1366">
+                    <div 
+                        v-if="witdhScreen > 1366"
+                        class="mr-16"
+                    >
                         <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configurações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
                         <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
