@@ -896,6 +896,7 @@
                     this.productsSeletion = [],
                     this.emitProducts.addition = 0
                     this.emitProducts.discount = 0
+                    this.emitProducts.freight = 0
                     this.clientsData.id = null
                     this.clientsData.name = null
                     

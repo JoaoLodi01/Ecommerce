@@ -31,6 +31,7 @@ class AuthController extends Controller
                 'status' => true,
                 'user' => $user,
                 'token' => $token
+                
             ]);
 
         } else {

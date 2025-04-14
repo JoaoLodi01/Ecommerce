@@ -82,6 +82,7 @@ class ProductsRepository
             'product' => $data['product'],
             'image' => $data['image']->getClientOriginalName(),
             'barcode' => $data['barcode'],
+            'barcode_internal' => $data['barcode_internal'],
             'amount' => $data['amount'],
             'group_id' => $group->id,
             'group' => $group->group,

@@ -104,14 +104,21 @@
                 maxlength="14"
                 minlength="14"
             />
-            
+
             <q-input    
-                v-model="productDetails.unit" 
+                v-model="productDetails.barcode_internal" 
                 type="text" 
-                label="Produto"
+                label="Cód. Barras"
                 color="grey-7"
-                maxlength="4"
+                maxlength="16"
                 
+            />
+        
+            <q-select 
+                v-model="productDetails.unit" 
+                :options="options" 
+                label="Unidade" 
+                filled 
             />
 
             <q-file    
@@ -196,6 +203,7 @@
                     product: '',
                     image: null,
                     barcode: '',
+                    barcode_internal: '',
                     groupID: '',
                     amount: '',
                     costPrice: 0,
