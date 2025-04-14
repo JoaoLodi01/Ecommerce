@@ -28,18 +28,30 @@ class ProductsRepository
         switch ($data['fillter']) {
             case 'Cód barras interno':
                 $products = Products::where('active', 1)
-                    ->where('product', 'like', '%' . $search . '%')
-                    ->get();
+                    ->where(function($query) use ($search){
+                        $query->where('barcode_internal', $search);
 
-                    Log::info('O que achou: ');
-                    Log::info($products);
-
+                    })->get();
                 break;
             
             case 'Cód barras':
+                $products = Products::where('active', 1)
+                    ->where(function($query) use ($search){
+                        $query->where('barcode', $search);
+
+                    })->get();
 
                 break;
 
+            case 'Cód barras & Cód barras interno':
+                $products = Products::where('active', 1)
+                    ->where(function($query) use ($search){
+                        $query->where('barcode', $search)
+                              ->orWhere('barcode_internal');
+
+                    })->get();
+                break;
+    
             case 'Padrão (cód.barras ou cód.produto)':
                 $products = Products::where('active', 1)
                             ->where(function($query) use ($search){
@@ -48,8 +60,6 @@ class ProductsRepository
                                         ->orWhere('product', 'like', '%' . $search . '%');
                             })->get();
 
-                Log::info('O que achou: ');
-                Log::info($products);
                 break;
 
             default:
@@ -74,8 +84,8 @@ class ProductsRepository
 
     public function create(array $data)
     {
-        Log::info("data[groupID]");
-        Log::info($data['groupID']);
+        Log::info("data");
+        Log::info($data);
         $group = $this->groupRepository->findByID($data['groupID']);
 
         return Products::create([

@@ -1,15 +1,11 @@
 <template>
-     <div 
+    <div 
         class="mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
         :class="{
             'relative top-12 left-12': widthScreen <= 1080,
-            'low relative top-28 text-xl': widthScreen > 1080
+            'relative top-28 text-xl': widthScreen > 1080
         }"
     >
-        <!--div class="flex">
-            
-            <span @click="closeUpdate()" class="cursor-pointer text-xl ml-auto">X</span>
-        </div-->
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Edição do produto: {{ productName }}</h2>
         <q-form
             @submit="submitForm()"
@@ -106,13 +102,27 @@
             />
 
             <q-input    
-                v-model="productDetails.unit" 
+                v-model="productDetails.barcode_internal" 
                 type="text" 
-                label="Produto"
+                label="Cód. Barras Interno"
                 color="grey-7"
-                maxlength="4"
+                maxlength="16"
+                
+            />
+        
+            <q-select 
+                v-model="productDetails.unit" 
+                :options="['UN', 'KG', 'MG', 'ML', 'L']"
+                label="Unidade" 
+                filled
             />
 
+            <q-file     
+                v-model="productDetails.image"   
+                label="Imagem"
+                color="grey-7"                
+                @change="handleFileUpload($event)"
+            />
             
             <div
                 :class="{
@@ -136,9 +146,9 @@
     import { useQuasar } from 'quasar';
     import { onBeforeUnmount } from 'vue';
 
-    export default {
-        setup()
-        {
+export default {
+    setup()
+    {
         let $q = useQuasar();
         let timer
 
@@ -164,22 +174,24 @@
                 }, 4000)
             }
         }
-        },
+    },
 
-        computed: {
-            calculateSalePrice()
-            {
-                return this.productDetails.salePrice = this.productDetails.costPrice * (1 + this.productDetails.profitPercentage / 
-                100).toFixed(2)
+    computed: {
+        calculateSalePrice()
+        {
+            return this.productDetails.salePrice = this.productDetails.costPrice * (1 + this.productDetails.profitPercentage / 
+            100).toFixed(2)
 
-            }            
-        },  
+        }            
+    },  
             
-            data() {
+        data() {
             return {
                 productDetails: {
                     product: '',
+                    image: null,
                     barcode: '',
+                    barcode_internal: '',
                     groupID: '',
                     amount: '',
                     costPrice: 0,
@@ -191,90 +203,87 @@
                     cest: '',
                     unit: 'UN',
                     
-                },
-                showPassword: false,
-                
-            };
-        },
-
-        methods: {
-            async submitForm() {
-                try {
-                    const response = await api.put(`/ecommerce/products/${this.productID}`, this.productDetails);
-
-                    console.log(response)
-                    if(response.data.success)
-                    {
-                        alert(`Produto: ${this.productDetails.product}, alterado com sucesso!`)
-                        this.$emit("close", false)
-                    }
-                        
-                } catch (error) {
-                    alert("Ocorreu um erro ao alterar o produto.");
-                    console.error('Erro', error)
-                }
             },
+            showPassword: false,
+            
+        };
+    },
+    
+    methods: {
+        async submitForm() {
+            const response = await api.put(`/ecommerce/products/${this.productID}`, this.productDetails);
 
-            async getProduct() {
-                const product = await api.get(`/ecommerce/products/${this.productID}`)
-                const data = product.data.product
-                
-                this.productDetails = {
-                    product: data.product,
-                    barcode: data.barcode,
-                    groupID: data.group_id,
-                    amount: data.amount,
-                    costPrice: data.cost_price,
-                    profitPercentage: data.profit_percentage,
-                    salePrice: data.sale_price,
-                    cfop: data.cfop,
-                    csosncst: data.csosncst,
-                    ncm: data.ncm,
-                    cest: data.cest,
-                    unit: data.unit,
-                }
-                
-            },      
-
-            onReset()
+            console.log(response)
+            if(response.data.success)
             {
-                this.getCustomer()
-            },
-
-            closeUpdate()
-            {
+                alert(`Produto: ${this.productDetails.product}, alterado com sucesso!`)
                 this.$emit("close", false)
+            } else {
+                console.log(this.productDetails.groupID)
+                console.error(response.data)
             }
         },
 
-        props: {
-            productID: {
-                type: Number,
-                required: true
-                
-            },
+        async getProduct() {
+            const product = await api.get(`/ecommerce/products/${this.productID}`)
+            const data = product.data.product
             
-            productName: {
-                type: String,
-                required: true
-            },
+            this.productDetails = {
+                product: data.product,
+                barcode: data.barcode,
+                barcode_internal: data.barcode_internal,
+                groupID: data.group_id,
+                amount: data.amount,
+                costPrice: data.cost_price,
+                profitPercentage: data.profit_percentage,
+                salePrice: data.sale_price,
+                cfop: data.cfop,
+                csosncst: data.csosncst,
+                ncm: data.ncm,
+                cest: data.cest,
+                unit: data.unit,
+            }                
+        },      
 
-            widthScreen: {
-                type: Number,
-                required: true
-                
-            },
-        },
-
-        emits: [
-            'close'
-        ],
-
-        mounted()
+        onReset()
         {
             this.getProduct()
+        },
+
+        closeUpdate()
+        {
+            this.$emit("close", false)
         }
-    };
+    },
+
+    props: {
+        productID: {
+            type: Number,
+            required: true
+            
+        },
+            
+        productName: {
+            type: String,
+            required: true
+        },
+
+        widthScreen: {
+            type: Number,
+            required: true
+            
+        },
+    },
+
+    emits: [
+        'close'
+    ],
+
+    mounted()
+    {
+        this.getProduct()
+    }
+};
 </script>
 
 <style>

@@ -3,8 +3,10 @@
         <input
             v-model="search.name"
             @input="getProducts()"
-            placeholder="Buscar..."
+            placeholder="Buscar..." 
             class="border border-black outline-none rounded-md mt-1 mb-1 w-96"
+            maxlength="16"
+            
         />
         
         <ul 

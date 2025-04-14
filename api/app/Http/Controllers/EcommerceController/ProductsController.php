@@ -32,9 +32,6 @@ class ProductsController extends Controller
     public function create(ProductsRequest $request)
     {
         $data = $request->validated();
-        Log::info('Data');
-        Log::info($data);
-        
         return $this->productsService->create($data);
     }
 
@@ -49,6 +46,9 @@ class ProductsController extends Controller
     public function update(ProductsRequest $request, int $id)
     {
         $data = $request->validated();
+        Log::info('Data');
+        Log::info($data);
+        
         return $this->productsService->update($data, $id);
     }
 
