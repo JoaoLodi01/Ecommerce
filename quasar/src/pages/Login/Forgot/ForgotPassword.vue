@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center">
+    <div class="flex justify-center mt-40">
         <div class="login-form border border-black p-5 rounded-lg shadow-xl">
             <q-form
                 @submit.prevent="forgotMethod"

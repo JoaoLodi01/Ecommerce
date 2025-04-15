@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('product', 120);
             $table->string('barcode', 14);
+            $table->string('barcode_internal', 16);
             $table->binary('image')->nullable();
             $table->unsignedBigInteger('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');

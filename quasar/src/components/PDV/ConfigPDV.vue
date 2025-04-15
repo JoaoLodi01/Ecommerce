@@ -102,12 +102,16 @@
                 searchOptionProducts: [
                     'Cód barras',
                     'Cód barras interno',
+                    'Cód barras & Cód barras interno',
                     'Padrão (cód.barras ou cód.produto)'
 
                 ],
 
                 searchOptionCustomers: [
-                    'Padrão (cód.cliente ou nome)'
+                    'Padrão (cód.cliente ou nome)',
+                    'CPF ou Cód cliente',
+                    'CNPJ ou Cód cliente',
+                    'CNPJ, CPF ou Cód cliente',
                     
                 ]
             }

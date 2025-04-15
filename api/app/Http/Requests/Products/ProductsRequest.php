@@ -19,6 +19,7 @@ class ProductsRequest extends FormRequest
             'product' => [$required, 'string', 'max:120'],
             'image' => [$required, 'max:512'],
             'barcode' => [$required, 'string'],
+            'barcode_internal' => ['sometimes', 'string'],
             'groupID' => ['nullable', 'integer'],
             'amount' => [$required, 'numeric', 'min:1'],
             'costPrice' => [$required, 'numeric'],

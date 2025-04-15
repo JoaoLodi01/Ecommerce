@@ -12,6 +12,7 @@ class Products extends Model
         'product',
         'image',
         'barcode',
+        'barcode_internal',
         'amount',
         'group_id',
         'group',

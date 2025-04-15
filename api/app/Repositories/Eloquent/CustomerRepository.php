@@ -13,12 +13,22 @@ class CustomerRepository
     }
 
     public function search(string|int $search){
-        $cusotmer = Customer::where('active', 1)
+        $variable = 1;
+        switch ($variable) {
+            case 'value':
+                $cusotmer = Customer::where('active', 1)
                         ->where(function ($query) use ($search){
                             $query->where('id', $search)
                                   ->orWhere('name', 'like', '%' . $search . '%');
                         })
                         ->get();
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        
 
         Log::info($cusotmer);
         return $cusotmer;
