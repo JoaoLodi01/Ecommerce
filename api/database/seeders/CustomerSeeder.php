@@ -9,7 +9,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class CostumerSeeder extends Seeder
+class CustomerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,7 +17,7 @@ class CostumerSeeder extends Seeder
     public function run(): void
     {
         $current = new Carbon();
-        $consumers = [
+        $customers = [
             [
                 'name' => 'Teste 1',
                 'cpf' => '12345678910',
@@ -42,8 +42,8 @@ class CostumerSeeder extends Seeder
             ],
         ];
 
-        foreach ($consumers as $consumer) {
-            $customer = Customer::create($consumer);
+        foreach ($customers as $customerData) {
+            $customer = Customer::create($customerData);
             
             CustomerCredit::create([
                 'customer_id' => $customer->id,

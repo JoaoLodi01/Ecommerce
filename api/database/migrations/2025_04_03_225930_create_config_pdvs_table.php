@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('filter_search_customer', 40)->default('');
             $table->boolean('nm_finaly', 1)->default(1);
             $table->boolean('sale_negative_or_reset', 1)->default(0);
+            $table->boolean('supervisor_password_cancel_sale', 1)->default(0);
+            $table->boolean('supervisor_password_delete_item', 1)->default(0);
             $table->boolean('active', 1)->default(1);
             $table->timestamps();
         });

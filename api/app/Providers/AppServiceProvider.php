@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(CashRegisterRepository::class, CashRegister::class);
+        //$this->app->bind(CashRegisterRepository::class, CashRegister::class);
     }
 
     /**

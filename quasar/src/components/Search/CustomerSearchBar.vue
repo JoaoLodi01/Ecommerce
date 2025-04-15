@@ -6,21 +6,29 @@
             @input="selectClient()"
             placeholder="Consumidor Padrão"
             class="text-black border border-black w-full"
+            :disabled="!fillter"
         />
-        <ul 
-            v-if="filteredClients.length > 0 && clientsData.name !== ''" 
-            class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
-        >
-            <li
-                v-for="client in filteredClients "
-                :key="client.id"
-                @click="setClient(client)"
-                class="p-2 hover:bg-gray-200 cursor-pointer"
+            <ul 
+                v-if="filteredClients.length > 0 && clientsData.name !== ''" 
+                class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
             >
-            {{ client.name }}
+                <li
+                    v-for="client in filteredClients "
+                    :key="client.id"
+                    @click="setClient(client)"
+                    class="p-2 hover:bg-gray-200 cursor-pointer"
+                >
+                {{ client.name }}
 
-            </li>
-        </ul>
+                </li>
+
+                <li 
+                    v-if="message"
+                    class="p-2 hover:bg-gray-200 cursor-pointer"
+                >
+                    {{ message }}
+                </li>
+            </ul>
     </div>
 </template>
 
@@ -36,6 +44,7 @@
                 this.fillter = response.data.configPDV[0].filter_search_customer
             }    
             getConfig()
+            
         },
 
         data()
@@ -45,7 +54,9 @@
                     id: null,
                     name: ''
                 },
+
                 fillter: '',
+                message: '',
                 filteredClients: [],
 
             }
@@ -59,10 +70,10 @@
                         fillter: this.fillter,
                         search: this.clientsData.name
                     });
-                    
+
                     this.clients = toRaw(response.data);
-                    console.log('Cliente', response)
-                    this.filterClients()
+                    typeof response.data === 'string' ? this.message = response.data : this.filterClients()
+
                 }
 
             },
@@ -71,7 +82,6 @@
                 this.filteredClients = this.clients.filter(client =>
                     client.name.toLowerCase()
                 );
-
             },
 
             setClient(client){

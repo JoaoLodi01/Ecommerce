@@ -5,7 +5,7 @@ namespace App\Http\Requests\Customers;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CostumerRequest extends FormRequest
+class CustomerRequest extends FormRequest
 {
     public function authorize(): bool
     {

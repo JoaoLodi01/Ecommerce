@@ -1,14 +1,14 @@
 <template>
     <div
-        class="ml-20 h-max mt-8"
+        class="ml-20 h-max mt-5"
         :class="{
             'relative top-12 right-5': widthScreen <= 1080
         }"  
     >
         <div>
             <h1 class="text-3xl font-semibold mb-6 pt-2 ml-2">Produtos</h1>
-            <div 
-                class="mb-5"
+            <div
+                class="mb-4"
                 :class="{
                     'ml-2': widthScreen > 1080
                 }"
@@ -20,21 +20,22 @@
 
             </div>
             
-            <button 
+            <q-btn
                 v-if="showProducts"
                 @click="openRegister()"
                 :class="{
-                    'w-44 p-1 mr-5': widthScreen <= 1080
+                    'w-40 p-1 mr-5': widthScreen <= 1080,
+                    'w-96 mt-4': widthScreen > 1080,
                     
                 }"
-                class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                class="py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
             >
                 <span v-if="widthScreen <= 1080">Novo produto</span>
                 <span v-else>Cadastrar um novo produto</span>
                 
-            </button>
+            </q-btn>
 
-            <button 
+            <q-btn 
                 v-else
                 @click="closeRegister()"
                 :class="{
@@ -43,7 +44,7 @@
                 class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
             >
                 <span>Voltar</span>
-            </button>
+            </q-btn>
         </div>
     </div>
 

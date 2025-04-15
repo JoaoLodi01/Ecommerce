@@ -18,7 +18,10 @@ class ConfigPDVRequest extends FormRequest
             'searchOptionProduct' => ['required'],
             'searchOptionCustomers' => ['required'],
             'nmFinaly' => ['required'],
-            'saleNegativeorReset' => ['required']
+            'saleNegativeorReset' => ['required'],
+            'supervisorPasswordCancelSale' => ['required'],
+            'supervisorPasswordDeleteItem' => ['required'],
+            
         ];
     }
 }

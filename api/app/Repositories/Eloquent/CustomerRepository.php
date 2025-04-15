@@ -17,26 +17,54 @@ class CustomerRepository
         Log::info('data - customer');
         Log::info($data);
         
-        $cusotmer = null;
+        $customer = null;
         $search = $data['search'];
         switch ($data['fillter']) {
-            case 'value':
-                $cusotmer = Customer::where('active', 1)
+            case 'Padrão (cód.cliente ou nome)':
+                $customer = Customer::where('active', 1)
                         ->where(function ($query) use ($search){
                             $query->where('id', $search)
                                   ->orWhere('name', 'like', '%' . $search . '%');
                         })
                         ->get();
                 break;
+
+            case 'CPF ou Cód cliente':
+                $customer = Customer::where('active', 1)
+                           ->where(function($query) use ($search){
+                             $query->where('cpf', 'like', '%' . $search . '%')
+                                   ->orWhere('id', $search);
+                           })
+                           ->get();
+                break;
+
+            case 'CNPJ ou Cód cliente':
+                $customer = Customer::where('active', 1)
+                            ->where(function($query) use ($search){
+                            $query->where('cnpj', 'like', '%' . $search . '%')
+                                    ->orWhere('id', $search);
+                            })
+                            ->get();
+                break;
             
+            case 'CNPJ, CPF ou Cód cliente':
+                $customer = Customer::where('active', 1)
+                           ->where(function($query) use ($search){
+                             $query->where('cpf', 'like', '%' . $search . '%')
+                                   ->orWhere('cnpj', 'like', '%' . $search . '%')
+                                   ->orWhere('id', $search);
+                           })
+                           ->get();
+                break;
+        
             default:
-                # code...
+                
                 break;
         }
 
         Log::info('cusotmer');
-        Log::info($cusotmer);
-        return $cusotmer;
+        Log::info(count($customer) === 0 ? 'Cliente não encontrado' : $customer);
+        return count($customer) === 0 ? 'Cliente não encontrado' : $customer;
     }
 
     public function findByID(int $id){

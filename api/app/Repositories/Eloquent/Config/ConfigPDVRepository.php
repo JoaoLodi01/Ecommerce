@@ -21,7 +21,9 @@ class ConfigPDVRepository
             'filter_search' => $data['searchOptionProduct'],
             'filter_search_customer' => $data['searchOptionCustomers'],
             'nm_finaly' => $data['nmFinaly'],
-            'sale_negative_or_reset' => (float) $data['saleNegativeorReset']
+            'sale_negative_or_reset' => $data['saleNegativeorReset'],
+            'supervisor_password_delete_item' => $data['supervisorPasswordCancelSale'],
+            'supervisor_password_delete_item' => $data['supervisorPasswordDeleteItem'],
             
         ]);
 

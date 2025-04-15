@@ -6,11 +6,10 @@ use App\Models\{
     CashRegister,
     Receive
 };
-use App\Repositories\Contracts\CashRegister as ContractsCashRegister;
 
 use Illuminate\Support\Facades\Log;
 
-class CashRegisterRepository implements ContractsCashRegister
+class CashRegisterRepository
 {
     public function getAll(){ 
         Log::info('Memória usada CashRegisterRepository::class, getAll: ' . memory_get_usage(true));

@@ -21,28 +21,27 @@
                 left-label 
                 v-model="configs.nmFinaly" 
                 :label="'Permitir venda sem emissão fiscal ( Nota Manual )'"
-                label="Orange" 
             />
 
             <q-checkbox 
                 left-label 
                 v-model="configs.saleNegativeorReset" 
                 :label="'Permitir venda com estoque negativo ou zerado'"
-                label="Orange" 
+                
             />
 
             <q-checkbox 
                 left-label 
                 v-model="configs.supervisorPasswordDeleteItem" 
                 :label="'Exigir senha do supervisor para excluir item'"
-                label="Orange" 
+                
             />
 
             <q-checkbox 
                 left-label
                 v-model="configs.supervisorPasswordCancelSale"
                 :label="'Exigir senha do supervisor para cancelar a venda'"
-                label="Orange" 
+                
             />
 
             <q-select 
@@ -96,7 +95,7 @@
                         $q.loading.hide()
                         timer = void 0
 
-                    }, 2000)
+                    }, 1000)
                 }
             }
         },
@@ -123,10 +122,10 @@
                 ],
 
                 searchOptionCustomers: [
-                    'Padrão (cód.cliente ou nome)',
                     'CPF ou Cód cliente',
                     'CNPJ ou Cód cliente',
                     'CNPJ, CPF ou Cód cliente',
+                    'Padrão (cód.cliente ou nome)'
                     
                 ]
             }
@@ -135,6 +134,7 @@
         methods: {
             async getConfig()
             {
+                this.showLoading('Carregando as')
                 const response = await api.get('/config/all-configs');
                 const data = response.data.configPDV[0]
                 
@@ -143,8 +143,8 @@
                     saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
                     searchOptionProduct: data.filter_search,
                     searchOptionCustomer: data.filter_search_customer,
-                    supervisorPasswordDeleteItem: data.filter_search_customer,
-                    supervisorPasswordCancelSale: data.filter_search_customer,
+                    supervisorPasswordDeleteItem: data.supervisor_password_delete_item,
+                    supervisorPasswordCancelSale: data.supervisor_password_cancel_sale,
                     
                 }
             },
@@ -158,7 +158,8 @@
                     searchOptionCustomers: this.configs.searchOptionCustomer,
                     nmFinaly: this.configs.nmFinaly,
                     saleNegativeorReset: this.configs.saleNegativeorReset,
-
+                    supervisorPasswordCancelSale: this.configs.supervisorPasswordCancelSale,
+                    supervisorPasswordDeleteItem: this.configs.supervisorPasswordDeleteItem
                 })
 
                 const data = response.data                

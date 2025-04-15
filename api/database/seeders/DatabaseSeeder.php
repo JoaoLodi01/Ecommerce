@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PaymentsSeeder::class,
             ProductsSeeder::class,
-            CostumerSeeder::class,
+            CustomerSeeder::class,
             UserSeeder::class,
             HotelSeeder::class,
             ConfigSeeder::class
