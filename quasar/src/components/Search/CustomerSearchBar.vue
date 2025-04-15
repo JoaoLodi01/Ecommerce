@@ -29,6 +29,15 @@
     import { toRaw } from 'vue';
         
     export default {    
+        mounted()
+        {
+            const getConfig = async () => {
+                const response = await api.get('/config/all-configs')
+                this.fillter = response.data.configPDV[0].filter_search_customer
+            }    
+            getConfig()
+        },
+
         data()
         {
             return {
@@ -36,8 +45,9 @@
                     id: null,
                     name: ''
                 },
-
+                fillter: '',
                 filteredClients: [],
+
             }
         },
 
@@ -46,10 +56,12 @@
                 if(this.clientsData.name.length > 0)
                 {
                     const response = await api.post('/customers/search', {
+                        fillter: this.fillter,
                         search: this.clientsData.name
                     });
                     
                     this.clients = toRaw(response.data);
+                    console.log('Cliente', response)
                     this.filterClients()
                 }
 

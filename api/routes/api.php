@@ -6,7 +6,7 @@ use App\Http\Controllers\EcommerceController\{
     UserController,
     PDVController,
     PaymentsController,
-
+    ReceiveController
 };
 
 use App\Http\Controllers\HotelController\{
@@ -31,10 +31,8 @@ use App\Http\Controllers\Auth\{
 };
 
 use Illuminate\Support\Facades\{
-    Hash,
-    Log,
     Route,
-    Password
+ 
 };
 use Illuminate\Http\Request;
 
@@ -56,6 +54,7 @@ Route::prefix('v1')->group( function (){
         Route::prefix('ecommerce')->group( function (){
             Route::prefix('products')->group( function(){
                 Route::get('/all', [ProductsController::class, 'getAll']);
+                Route::get('/all-groups', [ProductsController::class, 'allGroup']);
                 Route::post('/search', [ProductsController::class, 'search']);
                 Route::post('/create', [ProductsController::class, 'create']);
                 Route::get('/{id}', [ProductsController::class, 'findByID']);
@@ -74,7 +73,25 @@ Route::prefix('v1')->group( function (){
                 Route::put('/{id}', [CashRegisterController::class, 'update']);
                 Route::delete('/{id}/deactivate', [CashRegisterController::class, 'delete']);
                 
-            });        
+            });
+            
+            // Receive routes
+            Route::prefix('receive')->group( function(){
+                Route::get('/all', [ReceiveController::class, 'getAll']);
+                Route::post('/create', [ReceiveController::class, 'store']);
+                Route::get('/{id}', [ReceiveController::class, 'findByID']);
+                Route::put('/{id}', [ReceiveController::class, 'update']);
+                Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
+            });
+
+            // Pay routes
+            Route::prefix('pay')->group( function(){
+                Route::get('/all', [ReceiveController::class, 'getAll']);
+                Route::post('/create', [ReceiveController::class, 'store']);
+                Route::get('/{id}', [ReceiveController::class, 'findByID']);
+                Route::put('/{id}', [ReceiveController::class, 'update']);
+                Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
+            });
         
             // NFC-e routes
             Route::prefix('pdv')->group( function(){

@@ -1,8 +1,11 @@
-[2025-04-14 11:14:26] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-14 11:15:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-14 11:15:43] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-14 11:15:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-14 11:16:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-14 11:16:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-14 11:16:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-14 11:16:21] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-15 20:37:28] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => '2',
+)  
+[2025-04-15 20:37:28] local.INFO: data - customer  
+[2025-04-15 20:37:28] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => '2',
+)  
+[2025-04-15 20:37:28] local.INFO: cusotmer  
+[2025-04-15 20:37:28] local.INFO:   

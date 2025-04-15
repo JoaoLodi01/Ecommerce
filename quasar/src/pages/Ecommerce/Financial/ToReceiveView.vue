@@ -20,7 +20,7 @@
                     class="bg-slate-600 text-white p-1 mr-5 rounded-lg"
                     @click="getRegister()"
                     label="Atualizar receber"
-                
+
                 />
 
             </div>
@@ -69,7 +69,10 @@
                 </tbody>
             </table>
         </div>
-        <RegisterReceive v-if="showReceiveClosing"/>
+        <RegisterReceive
+            v-if="showReceiveClosing"
+            :width-screen="withScreen"
+        />
     </div>
 </template>
 
@@ -92,7 +95,7 @@
                 }
 
             })
-            return { 
+            return {
                 showLoading () {
                     $q.loading.show({
                         message: 'Carregando registros do receber ...'
@@ -128,7 +131,7 @@
                     console.log('response.data.data', response.data.data)
                 } catch (error) {
                     console.error("Erro ao buscar registros:", error)
-                    
+
                 }
             },
         },

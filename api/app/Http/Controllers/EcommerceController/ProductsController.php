@@ -7,7 +7,7 @@ use App\Http\Requests\Products\{
     ProductsRequest,
     SearchProducts
 };
-use Illuminate\Http\Request;
+
 use App\Services\EcommerceService\ProductsService;
 use Illuminate\Support\Facades\Log;
 
@@ -53,5 +53,10 @@ class ProductsController extends Controller
 
     public function delete(int $id){
         return $this->productsService->delete($id);
+    }
+
+    public function allGroup()
+    {
+        return $this->productsService->allGroup();
     }
 }

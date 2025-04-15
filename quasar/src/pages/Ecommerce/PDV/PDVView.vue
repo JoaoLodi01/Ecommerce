@@ -46,7 +46,7 @@
             >
                 <div class="inline-flex p-3">
                     <div 
-                        class="mt-auto mb-auto mr-5 cursor-pointer"
+                        class="mt-4 mb-auto mr-5 cursor-pointer"
                         @click="showProductsSelection"
                         
                     >
@@ -68,7 +68,7 @@
 
                     <div 
                         v-if="witdhScreen > 1366"
-                        class="mr-16"
+                        class="mr-16 mt-1"
                     >
                         <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configurações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>

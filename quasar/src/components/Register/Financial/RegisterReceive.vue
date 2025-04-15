@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <div
     class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
     :class="{
       'relative top-12 left-12': widthScreen <=1080,
@@ -7,47 +7,47 @@
     }">
 
     <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Registro Financeiro</h2>
-    
-    <form 
+
+    <form
       @submit.prevent="submitForm"
       @reset="onReset"
       class="p-1"
-        :class="{ 
+        :class="{
             'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
         }">
-      
+
       <q-input
-        type="text" 
-        v-model="form.description" 
+        type="text"
+        v-model="form.description"
         label="Descrição"
-        color="grey-7"  
+        color="grey-7"
       />
 
-      <q-input 
-        type="text" 
-        v-model="form.name" 
+      <q-input
+        type="text"
+        v-model="form.name"
         label="Cliente"
         color="grey-7"
       />
 
-      <q-input 
-        type="text" 
-        v-model="form.user" 
+      <q-input
+        type="text"
+        v-model="form.user"
         label="Usuário"
         color="grey-7"
         readonly
       />
 
-      <q-input 
-        type="text" 
-        v-model="form.especie" 
+      <q-input
+        type="text"
+        v-model="form.especie"
         label="Espécie"
         color="grey-7"
       />
 
-      <q-input 
-        v-model="form.due_date" 
-        label="Data de Vencimento" 
+      <q-input
+        v-model="form.due_date"
+        label="Data de Vencimento"
         mask="##/##/####">
 
         <template v-slot:append>
@@ -59,16 +59,16 @@
         </template>
       </q-input>
 
-      <q-input 
-        type="number" 
-        v-model="form.installment_number" 
+      <q-input
+        type="number"
+        v-model="form.installment_number"
         label="Nº Parcelas"
         color="grey-7"
       />
 
-      <q-input 
-        type="number" 
-        v-model="form.installment_value" 
+      <q-input
+        type="number"
+        v-model="form.installment_value"
         label="Valor Parcelas"
         color="grey-7"
       />
@@ -84,39 +84,47 @@
         map-options
       />
 
-      <q-input 
-        type="number" 
-        v-model="form.interest_value" 
+      <q-input
+        type="number"
+        v-model="form.interest_value"
         label="Valor juros"
         color="grey-7"
       />
 
-      <q-input 
-        type="number" 
-        v-model="form.total_amount" 
+      <q-input
+        type="number"
+        v-model="form.total_amount"
         label="Valor total"
         color="grey=7"
       />
-      
+
       <div>
             <q-btn
-                type="submit" 
-                class="mr-5"> 
-                <button>Criar</button> 
+                type="submit"
+                class="mr-5">
+                <button>Criar</button>
             </q-btn>
-                
-            <q-btn 
-                @click="onReset()">   
+
+            <q-btn
+                @click="onReset()">
                 <button>Limpar</button>
             </q-btn>
         </div>
     </form>
   </div>
 </template>
-    
+
 <script>
   import { api } from "boot/axios"
+  import {LocalStorage} from "quasar";
   export default {
+    props: {
+      widthScreen: {
+        required: true,
+        type: Number,
+      }
+    },
+
     data() {
       return {
         form: {
@@ -164,16 +172,8 @@
     },
 
     mounted(){
-      const getUser = async () => { 
-                const response = await api.get('/auth/me', {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem("auth_token")}`
-                    }
-                })
-                const details = response.data   
-                this.form.user = details.user.name
-            }
-            getUser()
+      //this.form.user = details.user.name
+      this.form.user = LocalStorage.getItem("user_name");
     }
   };
 </script>

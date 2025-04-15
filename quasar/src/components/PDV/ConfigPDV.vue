@@ -17,7 +17,6 @@
             @reset="onReset"
             class="q-gutter-md"
         >
-
             <q-checkbox 
                 left-label 
                 v-model="configs.nmFinaly" 
@@ -29,6 +28,20 @@
                 left-label 
                 v-model="configs.saleNegativeorReset" 
                 :label="'Permitir venda com estoque negativo ou zerado'"
+                label="Orange" 
+            />
+
+            <q-checkbox 
+                left-label 
+                v-model="configs.supervisorPasswordDeleteItem" 
+                :label="'Exigir senha do supervisor para excluir item'"
+                label="Orange" 
+            />
+
+            <q-checkbox 
+                left-label
+                v-model="configs.supervisorPasswordCancelSale"
+                :label="'Exigir senha do supervisor para cancelar a venda'"
                 label="Orange" 
             />
 
@@ -94,8 +107,10 @@
                 configs: {
                     searchOptionProduct: null,
                     searchOptionCustomer: null,
-                    nmFinaly: true,
                     saleNegativeorReset: false,
+                    supervisorPasswordDeleteItem: false,
+                    supervisorPasswordCancelSale: false,
+                    nmFinaly: true,
                    
                 },
                 
@@ -127,8 +142,10 @@
                     nmFinaly: data.nm_finaly === 1 ? true : false,
                     saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
                     searchOptionProduct: data.filter_search,
-                    searchOptionCustomer: data.filter_search_customer
-
+                    searchOptionCustomer: data.filter_search_customer,
+                    supervisorPasswordDeleteItem: data.filter_search_customer,
+                    supervisorPasswordCancelSale: data.filter_search_customer,
+                    
                 }
             },
         
