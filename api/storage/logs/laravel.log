@@ -1496,3 +1496,22 @@
 [2025-04-15 10:57:13] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
 [2025-04-15 10:57:13] local.INFO: Opção desativada, não vai alterar o endereço  
 [2025-04-15 10:57:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-15 13:16:58] local.INFO: Acertou o login  
+[2025-04-15 13:17:30] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:17:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:17:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:19:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:20:14] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:21:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:22:14] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:25:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:25:08] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:25:15] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:25:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:28:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:28:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:29:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:29:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:29:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:29:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-15 13:29:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  

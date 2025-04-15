@@ -100,14 +100,18 @@
 
       <div>
             <q-btn
-                type="submit"
-                class="mr-5">
-                <button>Criar</button>
+              type="submit"
+              class="mr-5">
+              <button>Criar</button>
             </q-btn>
 
             <q-btn
-                @click="onReset()">
-                <button>Limpar</button>
+              @click="onReset()">
+              <button>Limpar</button>
+            </q-btn>
+
+            <q-btn>
+              
             </q-btn>
         </div>
     </form>
