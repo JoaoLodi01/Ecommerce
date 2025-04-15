@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Log;
 
 class ProductsController extends Controller
 {
-
     public function __construct(protected ProductsService $productsService){
         $this->productsService = $productsService;
     }
