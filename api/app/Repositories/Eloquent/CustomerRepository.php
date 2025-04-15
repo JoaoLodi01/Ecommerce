@@ -12,9 +12,14 @@ class CustomerRepository
 
     }
 
-    public function search(string|int $search){
-        $variable = 1;
-        switch ($variable) {
+    public function search(array $data)
+    {
+        Log::info('data - customer');
+        Log::info($data);
+        
+        $cusotmer = null;
+        $search = $data['search'];
+        switch ($data['fillter']) {
             case 'value':
                 $cusotmer = Customer::where('active', 1)
                         ->where(function ($query) use ($search){
@@ -28,8 +33,8 @@ class CustomerRepository
                 # code...
                 break;
         }
-        
 
+        Log::info('cusotmer');
         Log::info($cusotmer);
         return $cusotmer;
     }
