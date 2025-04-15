@@ -6,7 +6,7 @@ use App\Http\Controllers\EcommerceController\{
     UserController,
     PDVController,
     PaymentsController,
-
+    ReceiveController
 };
 
 use App\Http\Controllers\HotelController\{
@@ -31,10 +31,8 @@ use App\Http\Controllers\Auth\{
 };
 
 use Illuminate\Support\Facades\{
-    Hash,
-    Log,
     Route,
-    Password
+ 
 };
 use Illuminate\Http\Request;
 

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\EcommerceController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Services\EcommerceService\ReceiveService;
+use App\Http\Requests\ReceiveRequest;
 class ReceiveController extends Controller
 {
     public function __construct(
