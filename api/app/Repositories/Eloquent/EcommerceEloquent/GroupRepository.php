@@ -6,6 +6,10 @@ use App\Models\EcommerceModels\Grupos;
 
 class GroupRepository
 {
+    public function all()
+    {
+        return Grupos::paginate(10);
+    }
 
     public function findByID(int $id)
     {

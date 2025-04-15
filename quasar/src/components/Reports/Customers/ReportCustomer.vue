@@ -1,4 +1,4 @@
-<template>
+    <template>
     <q-btn @click="showLoading" class="mr-5" :class="{
         'mb-5': widthScreen <= 1080
     }">    

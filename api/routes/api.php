@@ -54,6 +54,7 @@ Route::prefix('v1')->group( function (){
         Route::prefix('ecommerce')->group( function (){
             Route::prefix('products')->group( function(){
                 Route::get('/all', [ProductsController::class, 'getAll']);
+                Route::get('/all-groups', [ProductsController::class, 'allGroup']);
                 Route::post('/search', [ProductsController::class, 'search']);
                 Route::post('/create', [ProductsController::class, 'create']);
                 Route::get('/{id}', [ProductsController::class, 'findByID']);

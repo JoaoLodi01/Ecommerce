@@ -2,13 +2,15 @@
 
 namespace App\Services\EcommerceService;
 
+use App\Repositories\Eloquent\EcommerceEloquent\GroupRepository;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
 use Illuminate\Support\Facades\Log;
 
 class ProductsService
 {
     public function __construct(
-        protected ProductsRepository $productsRepository
+        protected ProductsRepository $productsRepository,
+        protected GroupRepository $groupRepository
     )
     {}
     
@@ -72,13 +74,12 @@ class ProductsService
     }
 
     public function delete(int $id){
-        try {
-            $this->productsRepository->delete($id);
-            return response()->json(true);
+        $this->productsRepository->delete($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Produto desativado com sucesso!'
+        ], 200);
             
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
     }
 
     public function checkGTIN(array $gtin){
@@ -119,6 +120,11 @@ class ProductsService
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
+    }
+
+    public function allGroup()
+    {
+        return $this->groupRepository->all();
     }
 
     public function returnResponse($th){
