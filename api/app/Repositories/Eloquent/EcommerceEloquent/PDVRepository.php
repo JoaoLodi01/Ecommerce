@@ -167,6 +167,7 @@ class PDVRepository
         $customer = $this->customerRepository->findByID($details['customer_id']);
         Log::info('Busca pelo user');
         $user = $this->userRepository->findByID($details['user_id']); // "user"
+        Log::info($details);
         Log::info($user);
 
         $pdvData = array(

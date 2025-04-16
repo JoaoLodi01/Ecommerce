@@ -12,10 +12,6 @@ class ReceiveRepository
         return Receive::paginate(20);
     }
 
-    public function findByID(string $params){
-
-    }
-
     public function create(array $cashRegister)
     {
         Log::info('Memória usada ReceiveRepository::class, create: ' . memory_get_usage(true));

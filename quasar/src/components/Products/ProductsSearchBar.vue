@@ -40,7 +40,7 @@
                 const response = await api.get('/config/all-configs');
                 this.configs = {
                     fillter: response.data.configPDV[0].filter_search,
-                    saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset === 1 ? true : false,
+                    saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset >= 1 ? true : false,
                 }
 
             }

@@ -140,7 +140,7 @@
             interest_value: "",
             total_amount: ""
         },
-        api: process.env.VUE_APP_API_URL_ECOMMERCE,
+       
       };
     },
     methods: {
