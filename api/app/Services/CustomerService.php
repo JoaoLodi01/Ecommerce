@@ -12,28 +12,19 @@ class CustomerService
     {}
 
     public function getAll(){
-        try {
-            return $this->customerRepository->getAll();
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        return $this->customerRepository->getAll();
     }
 
-    public function search(string|int $search){
+    public function search(array $search){
         return $this->customerRepository->search($search);
     }
 
     public function findByID(int $id){
-        try {
-            return response()->json([
-                'success' => true,
-                'customer' => $this->customerRepository->findByID($id)
-            ]);
-            
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-            
-        }
+        return response()->json([
+            'success' => true,
+            'customer' => $this->customerRepository->findByID($id)
+        ], 200);
+        
     }
 
     public function create(array $data){

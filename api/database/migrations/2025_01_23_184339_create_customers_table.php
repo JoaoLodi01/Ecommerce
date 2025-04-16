@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('cnpj', 14)->nullable()->unique();
             $table->string('cpf', 11)->nullable()->unique();
             $table->string('cep', 8);
-            $table->string('address', 120);
-            $table->string('number', 120);
+            $table->string('address', 120)->nullable();
+            $table->string('number', 120)->nullable();
             $table->string('email', 100)->unique();
-            $table->string('password', 120);
-            $table->string('phone', 50);
+            $table->string('phone', 50)->nullable();
+            $table->string('type')->nullable()->default('cliente');
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

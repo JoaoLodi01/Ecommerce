@@ -3,7 +3,6 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Customer;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 class CustomerRepository
 {
@@ -12,26 +11,59 @@ class CustomerRepository
 
     }
 
-    public function search(string|int $search){
-        $variable = 1;
-        switch ($variable) {
-            case 'value':
-                $cusotmer = Customer::where('active', 1)
+    public function search(array $data)
+    {
+        Log::info('data - customer');
+        Log::info($data);
+        
+        $customer = null;
+        $search = $data['search'];
+        switch ($data['fillter']) {
+            case 'Padrão (cód.cliente ou nome)':
+                $customer = Customer::where('active', 1)
                         ->where(function ($query) use ($search){
                             $query->where('id', $search)
                                   ->orWhere('name', 'like', '%' . $search . '%');
                         })
                         ->get();
                 break;
+
+            case 'CPF ou Cód cliente':
+                $customer = Customer::where('active', 1)
+                           ->where(function($query) use ($search){
+                             $query->where('cpf', 'like', '%' . $search . '%')
+                                   ->orWhere('id', $search);
+                           })
+                           ->get();
+                break;
+
+            case 'CNPJ ou Cód cliente':
+                $customer = Customer::where('active', 1)
+                            ->where(function($query) use ($search){
+                            $query->where('cnpj', 'like', '%' . $search . '%')
+                                    ->orWhere('id', $search);
+                            })
+                            ->get();
+                break;
             
+            case 'CNPJ, CPF ou Cód cliente':
+                $customer = Customer::where('active', 1)
+                           ->where(function($query) use ($search){
+                             $query->where('cpf', 'like', '%' . $search . '%')
+                                   ->orWhere('cnpj', 'like', '%' . $search . '%')
+                                   ->orWhere('id', $search);
+                           })
+                           ->get();
+                break;
+        
             default:
-                # code...
+                
                 break;
         }
-        
 
-        Log::info($cusotmer);
-        return $cusotmer;
+        Log::info('cusotmer');
+        Log::info(count($customer) === 0 ? 'Cliente não encontrado' : $customer);
+        return count($customer) === 0 ? 'Cliente não encontrado' : $customer;
     }
 
     public function findByID(int $id){
@@ -52,7 +84,7 @@ class CustomerRepository
             'address' => $data['address'],
             'number' => $data['number'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'type' => $data['type'],
             'phone' => $data['phone'],
         ]);
     }

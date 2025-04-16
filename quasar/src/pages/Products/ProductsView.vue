@@ -1,54 +1,54 @@
 <template>
     <div
-        class="ml-20 h-max mt-8"
+        class="ml-20 mt-5 mb-5"
         :class="{
             'relative top-12 right-5': widthScreen <= 1080
         }"  
     >
-        <div>
-            <h1 class="text-3xl font-semibold mb-6 pt-2 ml-2">Produtos</h1>
-            <div 
-                class="mb-5"
-                :class="{
-                    'ml-2': widthScreen > 1080
-                }"
+        <div 
+            class="flex"
+            :class="{
+                'div1': widthScreen > 1080
+            }"
+        >
+            <h1 class="text-3xl font-semibold m-5 ">Produtos</h1>
+
+            <div
+                class="ml-auto mt-auto mb-auto"
+                
             >
-                <ReportProduct
-                    :widthScreen="widthScreen"
-                    v-if="showReportProducts"
-                />
+                <q-btn
+                    v-if="showProducts"
+                    @click="openRegister()"
+                    class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                >
+                    <span v-if="widthScreen <= 1080">Novo produto</span>
+                    <span v-else>Cadastrar um novo produto</span>
+                    
+                </q-btn>
+
+                <q-btn 
+                    v-else
+                    @click="closeRegister()"
+                    class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                >
+                    <span>Voltar</span>
+
+                </q-btn>
 
             </div>
-            
-            <button 
-                v-if="showProducts"
-                @click="openRegister()"
-                :class="{
-                    'w-44 p-1 mr-5': widthScreen <= 1080
-                    
-                }"
-                class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
-            >
-                <span v-if="widthScreen <= 1080">Novo produto</span>
-                <span v-else>Cadastrar um novo produto</span>
-                
-            </button>
+        </div>
+        <div v-if="widthScreen > 1080" class="mt-2 ml-2">
+            <ReportProduct
+                :widthScreen="widthScreen"
+                v-if="showReportProducts"
+            />
 
-            <button 
-                v-else
-                @click="closeRegister()"
-                :class="{
-                    'w-44 p-1 mr-5': widthScreen <= 1080
-                }"
-                class="w-72 py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
-            >
-                <span>Voltar</span>
-            </button>
         </div>
     </div>
-
-      <div 
-        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 ml-20" 
+    
+    <div 
+        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8 ml-20" 
         v-if="showProducts && products && products.length > 0"
         :class="{
             'relative right-7 top-10': widthScreen <= 1080
@@ -239,5 +239,9 @@
     .products-grid {
         width: 100%;
         padding: 5px;
+    }
+
+    .div1 {
+        width: 184%;
     }
 </style>

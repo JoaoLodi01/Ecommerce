@@ -20,7 +20,8 @@ class UserRequest extends FormRequest
         return [
             'name' => [$required, 'string', 'max:120'],
             'email' => [$required, 'string', 'lowercase', 'email', 'max:120', 'unique:users'],
-            'password' => [$required, 'string', 'max:120']
+            'password' => [$required, 'string', 'max:120'],
+            'access' => [$required, 'string', 'max:20'],
         ];
     }
     public function messages(): array

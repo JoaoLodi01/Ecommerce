@@ -2,7 +2,7 @@
     <div
         class="ml-14"
     >
-        <div class="flex">
+        <div class="flex justify-between">
             <h1>Configurações</h1>
             <q-btn 
                 icon="close" 
@@ -10,6 +10,7 @@
                 @click="onClose" 
                 class="h-4 mt-auto mb-auto ml-5"
             />
+            
         </div>
 
         <q-form
@@ -17,19 +18,36 @@
             @reset="onReset"
             class="q-gutter-md"
         >
-
             <q-checkbox 
                 left-label 
                 v-model="configs.nmFinaly" 
                 :label="'Permitir venda sem emissão fiscal ( Nota Manual )'"
-                label="Orange" 
+                color="grey"
+                
             />
 
             <q-checkbox 
                 left-label 
                 v-model="configs.saleNegativeorReset" 
                 :label="'Permitir venda com estoque negativo ou zerado'"
-                label="Orange" 
+                color="grey"
+                
+            />
+
+            <q-checkbox 
+                left-label 
+                v-model="configs.supervisorPasswordDeleteItem" 
+                :label="'Exigir senha do supervisor para excluir item'"
+                color="grey"
+
+            />
+
+            <q-checkbox 
+                left-label
+                v-model="configs.supervisorPasswordCancelSale"
+                :label="'Exigir senha do supervisor para cancelar a venda'"
+                color="grey"
+                
             />
 
             <q-select 
@@ -37,6 +55,8 @@
                 :options="searchOptionProducts" 
                 label="Busca de produtos" 
                 filled 
+                color="grey"
+                
             />
 
             <q-select 
@@ -44,11 +64,13 @@
                 :options="searchOptionCustomers" 
                 label="Busca de clientes" 
                 filled 
+                color="grey"
+                
             />
             
             <div>
-                <q-btn label="Salvar" type="submit" color="primary" :disable="configs.searchOptionProduct === null"/>
-                <q-btn label="Padrão" type="reset" color="primary" flat class="q-ml-sm" />
+                <q-btn label="Salvar" type="submit" color="grey" :disable="configs.searchOptionProduct === null"/>
+                <q-btn label="Padrão" type="reset" color="black" flat class="q-ml-sm" />
             </div>
         </q-form>
     </div>
@@ -83,22 +105,9 @@
                         $q.loading.hide()
                         timer = void 0
 
-                    }, 2000)
-                }
-            }
-        },
-        
-        data()
-        {
-            return {
-                configs: {
-                    searchOptionProduct: null,
-                    searchOptionCustomer: null,
-                    nmFinaly: true,
-                    saleNegativeorReset: false,
-                   
+                    }, 1000)
                 },
-                
+
                 searchOptionProducts: [
                     'Cód barras',
                     'Cód barras interno',
@@ -108,18 +117,35 @@
                 ],
 
                 searchOptionCustomers: [
-                    'Padrão (cód.cliente ou nome)',
                     'CPF ou Cód cliente',
                     'CNPJ ou Cód cliente',
                     'CNPJ, CPF ou Cód cliente',
+                    'Padrão (cód.cliente ou nome)'
                     
                 ]
+            }
+        },
+        
+        data()
+        {
+            return {
+                configs: {
+                    searchOptionProduct: null,
+                    searchOptionCustomer: null,
+                    saleNegativeorReset: false,
+                    supervisorPasswordDeleteItem: false,
+                    supervisorPasswordCancelSale: false,
+                    nmFinaly: true,
+                   
+                },
+                
             }
         },
 
         methods: {
             async getConfig()
             {
+                this.showLoading('Carregando as')
                 const response = await api.get('/config/all-configs');
                 const data = response.data.configPDV[0]
                 
@@ -127,8 +153,10 @@
                     nmFinaly: data.nm_finaly === 1 ? true : false,
                     saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
                     searchOptionProduct: data.filter_search,
-                    searchOptionCustomer: data.filter_search_customer
-
+                    searchOptionCustomer: data.filter_search_customer,
+                    supervisorPasswordDeleteItem: data.supervisor_password_delete_item === 1 ? true : false,
+                    supervisorPasswordCancelSale: data.supervisor_password_cancel_sale === 1 ? true : false,
+                    
                 }
             },
         
@@ -141,7 +169,8 @@
                     searchOptionCustomers: this.configs.searchOptionCustomer,
                     nmFinaly: this.configs.nmFinaly,
                     saleNegativeorReset: this.configs.saleNegativeorReset,
-
+                    supervisorPasswordCancelSale: this.configs.supervisorPasswordCancelSale,
+                    supervisorPasswordDeleteItem: this.configs.supervisorPasswordDeleteItem
                 })
 
                 const data = response.data                

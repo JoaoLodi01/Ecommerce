@@ -8,42 +8,35 @@
     
         <q-card-section>
             <q-form @submit.prevent="finalizeSale">
-            <q-list bordered separator class="bg-white text-black rounded-borders">
-                <q-item v-for="(payment, i) in paymentsForms" :key="i">
-                <q-item-section>
-                    <q-icon
-                        v-if="payment.tipo_lancamento === 'Receber' && payment.especie !== 'Boleto'"
-                        name="mdi-credit-card-outline"
-                        color="primary"
-                        class="q-mr-sm"
-                    />
-                    <q-icon
-                        v-else-if="payment.tipo_lancamento === 'Caixa'"
-                        name="mdi-cash-register"
-                        color="green"
-                        class="q-mr-sm"
-                    />
-                    <q-icon
-                        v-else-if="payment.especie === 'Boleto'"
-                        name="mdi-barcode"
-                        color="deep-orange"
-                        class="q-mr-sm"
-                    />
-                    {{ payment.especie }}
-                </q-item-section>
-    
-                <q-item-section side>
-                    <q-input
-                        @update:model-value="formatValue()"
-                        v-model="paymentsValues[i]"
-                        type="text"
-                        input-class="text-right"
-                        dense
-                        outlined
-                        placeholder="0,00"
-                        class="w-24"
-                    />
-                </q-item-section>
+                <q-list bordered separator class="bg-white text-black rounded-borders">
+                    <q-item v-for="(payment, i) in paymentsForms" :key="i">
+                        <q-item-section>
+                            <q-icon
+                                v-if="payment.tipo_lancamento === 'Receber'"
+                                name="mdi-credit-card-outline"
+                                color="primary"
+                                class="q-mr-sm"
+                            />
+                            <q-icon
+                                v-else-if="payment.tipo_lancamento === 'Caixa'"
+                                name="mdi-cash-register"
+                                color="green"
+                                class="q-mr-sm"
+                            />
+                            {{ payment.especie }}
+                        </q-item-section>
+        
+                        <q-item-section side>
+                            <q-input
+                                v-model="paymentsValues[i]"
+                                type="text"
+                                input-class="text-right"
+                                dense
+                                outlined
+                                placeholder="0,00"
+                                class="w-24"
+                            />
+                        </q-item-section>
                 </q-item>
             </q-list>
     
@@ -73,7 +66,7 @@
                 </q-banner>
                 <div class="row q-gutter-sm">
                 <q-chip color="red-6" text-color="white">
-                    Valor ausente: R$
+                    Valor faltante: R$
                     {{
                     totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) > 0
                         ? (totalOperation - calculateValueInformed.total).toFixed(2)
@@ -217,7 +210,7 @@ export default {
         calculateValueInformed()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value.replace(/\D/g, '')) || 0;
+                const num = parseFloat(value.replace(/\D/, '')) || 0;
                 return sum + num
             }, 0);
 
@@ -229,7 +222,7 @@ export default {
         calculateValueChange()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value.replace(/\D/g, '')) || 0;
+                const num = parseFloat(value.replace(/\D/, '')) || 0;
                 return num + sum 
             }, 0);
 
@@ -289,7 +282,6 @@ export default {
             try {
                 switch (this.typeOperation) {
                     case 'reservation':
-                        console.log('Começou reserva')
                         const generateCredit = this.calculeCredit(this.paymentsValues);
                         
                         this.isLoanding = !this.isLoanding
@@ -310,7 +302,6 @@ export default {
                         break;
 
                     case 'nfce':
-                        console.log('Começou venda NFCe')
                         const response_nfce = await api.put(`ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nfce',
                             change: this.calculateValueChange.change,
@@ -329,9 +320,6 @@ export default {
                         break
 
                     case 'nm':
-                        console.log('Começou venda NM')
-                        console.log('this.typeOperation:', this.typeOperation)
-
                         const response_nm = await api.put(`/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nm',
                             change: this.calculateValueChange.change,
@@ -340,8 +328,6 @@ export default {
                             installments: this.installments
 
                         })
-                        
-                        console.log('Response NM: ', response_nm.data)
                         
                         if(response_nm.data.success === true)
                         {
@@ -363,8 +349,7 @@ export default {
                 {
                     this.isLoanding = !this.isLoanding
                     this.message = error.response.data.message
-
-                    
+          
                 }
                     
             }
@@ -383,7 +368,6 @@ export default {
             
             if(total > this.totalOperation)
             {   
-                console.log('Passou o valor do total: R$', this.totalOperation);
                 let option = confirm(`Deseja gerar crédito no valor de: R$ ${extraAmount}?`);
                 return option;
             } 
@@ -399,15 +383,6 @@ export default {
             this.$emit("close")
 
         },
-        
-        formatValue()
-        {
-            for (let i = 0; i < this.paymentsValues.length; i++) {
-                const element = this.paymentsValues[i];
-                element.replace(/./, ',')
-
-            }
-        }
     },
     mounted(){
         this.getPayments();

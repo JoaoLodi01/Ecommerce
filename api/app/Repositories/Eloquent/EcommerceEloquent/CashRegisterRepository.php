@@ -6,7 +6,9 @@ use App\Models\{
     CashRegister,
     Receive
 };
+
 use Illuminate\Support\Facades\Log;
+
 class CashRegisterRepository
 {
     public function getAll(){ 

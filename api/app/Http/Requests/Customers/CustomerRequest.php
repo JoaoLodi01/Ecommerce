@@ -5,7 +5,7 @@ namespace App\Http\Requests\Customers;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CostumerRequest extends FormRequest
+class CustomerRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -28,7 +28,7 @@ class CostumerRequest extends FormRequest
             'address' => [$required],
             'number' => [$required],
             'email' => [$required, 'email', 'max:120'],
-            'password' => ['sometimes', 'max:120'],
+            'type' => [$required, 'max:120'],
             'phone' => [$required, 'max:120']
 
         ];

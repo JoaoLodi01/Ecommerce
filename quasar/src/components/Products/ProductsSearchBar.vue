@@ -4,9 +4,9 @@
             v-model="search.name"
             @input="getProducts()"
             placeholder="Buscar..." 
-            class="border border-black outline-none rounded-md mt-1 mb-1 w-96"
+            class="border border-black outline-none rounded-md mt-1 mb-1 w-96 p-1"
             maxlength="16"
-            
+            :disabled="!configs.fillter"
         />
         
         <ul 

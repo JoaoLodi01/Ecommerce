@@ -12,7 +12,7 @@
             <q-form
                 @submit.prevent="loginMethod"
             >
-                <h1 class="text-xl border-b border-black w-max mb-4">Login</h1>
+                <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Login</h1>
 
                 <q-input
                     filled

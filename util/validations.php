@@ -1,4 +1,6 @@
-0 => "accepted"
+<?php
+  return array(
+  0 => "accepted"
   1 => "active_url"
   2 => "bail"
   3 => "before"
@@ -66,3 +68,4 @@
   68 => "timezone"
   69 => "url"
   70 => "uuid"
+);

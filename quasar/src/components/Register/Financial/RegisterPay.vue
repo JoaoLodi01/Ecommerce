@@ -1,106 +1,167 @@
-4<template>
-    <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
-        <h2 class="text-xl font-semibold mb-4">Registro Financeiro</h2>
-        
-        <form 
-          @submit.prevent="submitForm"
-          @reset="onReset">
-    
-          <label for="description">Descrição:</label>
-          <input 
-          type="text" 
-          v-model="form.description" 
-          id="description" 
-          placeholder="Inserir..."
-          class=""/>
-    
-          <label for="name">Cliente:</label>
-          <input 
-          type="text" 
-          v-model="form.name" 
-          id="name" 
-          placeholder="Inserir..."/>
+<template>
+  <div
+    class="mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded"
+    :class="{
+      'relative top-12 left-12': widthScreen <=1080,
+      'ml-14': widthScreen > 1080
+    }">
 
-          <label for="user">Usuário:</label>
-          <input 
-          type="text" 
-          v-model="form.user" 
-          id="user" 
-          placeholder="Inserir..."/>
-    
-          <label for="especie">Especie:</label>
-          <input 
-          type="text" 
-          v-model="form.especie" 
-          id="especie" 
-          placeholder="Inserir..."/>
-    
-          <label for="due_date">Data de Vencimento:</label>
-          <input 
-          type="date" 
-          v-model="form.due_date" 
-          id="due_date" 
-          placeholder="Inserir..."/>
-    
-          <label for="installment_number">Número de parcelas:</label>
-          <input 
-          type="number" 
-          v-model="form.installment_number" 
-          id="installment_number" 
-          placeholder="Inserir..."/>
+    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastrar pagamentos</h2>
 
-          <label for="installment_value">Valor das parcelas:</label>
-          <input 
-          type="number" 
-          v-model="form.installment_value" 
-          id="installment_value" 
-          placeholder="Inserir..."/>
+    <form
+      @submit.prevent="submitForm"
+      @reset="onReset"
+      class="p-1"
+        :class="{
+            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
+        }">
 
-          <label for="type_interest">Tipo juros:</label>
-          <select 
-            v-model="form.type_interest" 
-            id="especie">
-            <option disabled value="">Selecionar...</option>
-            <option value="especie1">%</option>
-            <option value="especie2">R$</option>
-          </select>
+      <q-input
+        type="text"
+        v-model="form.description"
+        label="Descrição"
+        color="grey-7"
+      />
 
-          <label for="interest_value">Valor juros:</label>
-          <input 
-          type="number" 
-          v-model="form.interest_value" 
-          id="interest_value" 
-          placeholder="Inserir..."/>
+      <q-input
+        type="text"
+        v-model="form.name"
+        label="Cliente"
+        color="grey-7"
+      />
 
-          <label for="total_amount">Total:</label>
-          <input 
-          type="number" 
-          v-model="form.total_amount" 
-          id="total_amount" 
-          placeholder="Inserir..."/>
-          
-          <button 
-            type="submit"
-            class="bg-slate-600 text-white p-1 mr-5 rounded-lg">
-            Cadastrar
-          </button>
-          <button>
-            
-          </button>
-        </form>
+      <q-input
+        type="text"
+        v-model="form.user"
+        label="Usuário"
+        color="grey-7"
+        readonly
+      />
+
+      <q-input
+        type="text"
+        v-model="form.especie"
+        label="Espécie"
+        color="grey-7"
+      />
+
+      <q-input
+        v-model="form.due_date"
+        label="Data de Vencimento"
+        mask="##/##/####">
+
+        <template v-slot:append>
+          <q-icon name="event" class="cursor-pointer">
+            <q-popup-proxy>
+            <q-date v-model="form.due_date" mask="DD/MM/YYYY" />
+            </q-popup-proxy>
+          </q-icon>
+        </template>
+      </q-input>
+
+      <q-input
+        type="number"
+        v-model="form.installment_number"
+        label="Nº Parcelas"
+        color="grey-7"
+      />
+
+      <q-input
+        type="number"
+        v-model="form.installment_value"
+        label="Valor Parcelas"
+        color="grey-7"
+      />
+
+      <q-select
+        v-model="form.type_interest"
+        label="Tipo de Juros"
+        :options="[
+          { label: '%', value: 'Porcentagem' },
+          { label: 'R$', value: 'Valor'}
+        ]"
+        emit-value
+        map-options
+      />
+
+      <q-input
+        type="number"
+        v-model="form.interest_value"
+        label="Valor juros"
+        color="grey-7"
+      />
+
+      <q-input
+        type="number"
+        v-model="form.total_amount"
+        label="Valor total"
+        color="grey=7"
+      />
+
+      <q-input
+        type="text"
+        label="Luiz que pediu"
+        color="grey=7"
+      />      
+
+      <div class="flex items-center ">
+        <q-btn
+          type="submit"
+          label="Registrar"
+          class="bg-slate-600 text-white">
+        </q-btn>
+
+        <q-btn
+          @click="onReset()"
+          label="Limpar"
+          class="ml-5 bg-slate-600 text-white">
+        </q-btn>
+
+        <q-btn
+          @click="close()"
+          label="Voltar"
+          class="ml-5 bg-slate-600 text-white">
+        </q-btn>
       </div>
-    </template>
-    
-    <script>
-      import axios from "axios";
-      
-      export default {
-        data() {
-          return {
-            form: {
+    </form>
+  </div>
+</template>
+
+<script>
+  import { api } from "boot/axios"
+  import {LocalStorage} from "quasar";
+  export default {
+    props: {
+      widthScreen: {
+        required: true,
+        type: Number,
+      }
+    },
+
+    data() {
+      return {
+        form: {
+            description: "",
+            name: "",
+            user: LocalStorage.getItem("user_name"),
+            cpf: "",
+            especie: "",
+            due_date: "",
+            installment_number: "",
+            installment_value: "",
+            type_interest: "",
+            interest_value: "",
+            total_amount: ""
+        },
+        api: process.env.VUE_APP_API_URL_ECOMMERCE,
+      };
+    },
+    methods: {
+      onReset(){
+            this.form = {
                 description: "",
                 name: "",
-                user: "",
+                user: LocalStorage.getItem("user_name"),
                 cpf: "",
                 especie: "",
                 due_date: "",
@@ -109,36 +170,27 @@
                 type_interest: "",
                 interest_value: "",
                 total_amount: ""
-            },
-            api: process.env.VUE_APP_API_URL_ECOMMERCE,
-          };
+            }
         },
-        methods: {
-          onReset(){
-                this.form = {
-                    description: "",
-                    name: "",
-                    user: "",
-                    cpf: "",
-                    especie: "",
-                    due_date: "",
-                    installment_number: "",
-                    installment_value: "",
-                    type_interest: "",
-                    interest_value: "",
-                    total_amount: ""
-                }
-            },
 
-            async submitForm() {
-                try {
-                    const response = await axios.post(`${this.api}`, this.form); // Lembrar de criar rota e inserir aqui
-                    this.resetform();
-                    console.log('Dados enviados!', response.data)
-                } catch (error) {
-                    alert("Ocorreu um erro ao cadastrar o registro")
-                }
-            },
+        close(){
+          this.$emit('close', false)
         },
-      };
-      </script>
+
+        async submitForm() {
+            try {
+                const response = await api.post(`${this.api}`, this.form); // Lembrar de criar rota e inserir aqui
+                this.onReset();
+                console.log('Dados enviados!', response.data)
+            } catch (error) {
+                alert("Ocorreu um erro ao cadastrar o registro")
+            }
+        },
+    },
+    
+    emits:[
+      'close'
+    ],
+
+  };
+</script>

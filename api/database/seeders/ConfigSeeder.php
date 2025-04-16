@@ -16,7 +16,8 @@ class ConfigSeeder extends Seeder
     {
         ConfigHotel::create();
         ConfigPDV::create([
-            'filter_search' => 'Cód barras interno'
+            'filter_search' => 'Cód barras interno',
+            'filter_search_customer' => 'Padrão (cód.cliente ou nome)'
         ]);
     }
 }

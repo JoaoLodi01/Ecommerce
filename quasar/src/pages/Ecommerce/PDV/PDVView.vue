@@ -46,7 +46,7 @@
             >
                 <div class="inline-flex p-3">
                     <div 
-                        class="mt-auto mb-auto mr-5 cursor-pointer"
+                        class="mt-4 mb-auto mr-5 cursor-pointer"
                         @click="showProductsSelection"
                         
                     >
@@ -68,7 +68,7 @@
 
                     <div 
                         v-if="witdhScreen > 1366"
-                        class="mr-16"
+                        class="mr-16 mt-1"
                     >
                         <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configurações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
@@ -397,7 +397,7 @@
     import PaymentsForm from 'src/components/PaymentsForm.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing.vue'
-    import ConfigPDV from 'src/components/PDV/ConfigPDV.vue';
+    import ConfigPDV from 'src/components/Config/ConfigPDV.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
     
@@ -538,7 +538,6 @@
                     try {
                         if(!this.isOpenedPDV)
                         {
-                            console.log('É uma nova venda')
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.emitProducts.userID,
@@ -552,7 +551,6 @@
                                 
                             })
 
-                            console.log(response.data)
                             if(response.data.success === true)
                             {
                                 alert('Venda guardarda para enviar posteriormente!')
@@ -599,7 +597,6 @@
 
                     }
                 } catch (error) {
-                    console.log('erro ao buscar o hotel: ', error)
                     if(error.response.data.message === 'Hotel não encontrado')
                     {
                         alert(error.response.data.message)
@@ -693,7 +690,7 @@
                     
                 } catch (error) {
                     console.error('Erro finalizeSale', error.response.data.errors)
-                    alert('DEU ERRO NESSA KARALHA')
+                    alert('error.response.data.errors')
                     this.errorMessages.push(error.response.data.errors)
                     
                 }
@@ -710,11 +707,6 @@
                     console.error('Erro importSale', error)
                     
                 }
-            },
-
-            async findCustomer(clientID)
-            {
-                console.log('this.emitProducts.customerID', clientID)
             },
 
             showOptions(){
@@ -743,15 +735,6 @@
                 this.showOptionsPDV = event
                 this.showGrid = !event
 
-                const getConfig = async () => {
-                    const config = await api.get('/config/all-configs');
-                    this.configs = {
-                        nmFinaly: config.data.configPDV[0].nm_finaly,
-                        
-
-                    }
-                }
-                getConfig()
             },
 
             changeAmount(id, newAmount)
@@ -843,8 +826,6 @@
 
                 switch (action) {
                     case 'delete':
-                        console.log('delete')
-
                         for (let i = 0; i < rawProducts.length; i++) {
                             const products = rawProducts[i];
                             const index = products.findIndex(p => p.id === product.id)                            
@@ -950,6 +931,7 @@
             this.getHotel()
             this.witdhScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
+            
             const getUser = async () => { 
                 const response = await api.get('/auth/me', {
                     headers: {
@@ -969,7 +951,6 @@
             const getConfig = async () => {
                 const config = await api.get('/config/all-configs');
                 this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
-                
                 
             }
             getConfig()
