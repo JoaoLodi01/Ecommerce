@@ -1,76 +1,54 @@
 <template>
     <div
-        class="ml-20 h-max mt-5"
+        class="ml-20 mt-5 mb-5"
         :class="{
             'relative top-12 right-5': widthScreen <= 1080
         }"  
     >
-        <div>
-            <h1 class="text-3xl font-semibold mb-6 pt-2 ml-2">Produtos</h1>
+        <div 
+            class="flex"
+            :class="{
+                'div1': widthScreen > 1080
+            }"
+        >
+            <h1 class="text-3xl font-semibold m-5 ">Produtos</h1>
+
             <div
-                class="mb-4"
-                :class="{
-                    'ml-2': widthScreen > 1080
-                }"
+                class="ml-auto mt-auto mb-auto"
+                
             >
-                <div v-if="widthScreen > 1080">
-                    <ReportProduct
-                        :widthScreen="widthScreen"
-                        v-if="showReportProducts"
-                    />
-
-                </div>
-                <div v-else class="ml-2">
-                    <q-btn 
-                        color="primary" 
-                        class="" 
-                        @click="onClick" 
-                        
-                    >
-                        <div class="h-0.5 bg-black w-7 m-1"></div>
-                        <div class="h-0.5 bg-black w-7 m-1"></div>
-                        <div class="h-0.5 bg-black w-7 m-1"></div>
-
-                    </q-btn>
-                </div>
-
-            </div>
-            
-            <div class="relative mb-7 bottom-14 left-48 z-50 ">
                 <q-btn
                     v-if="showProducts"
                     @click="openRegister()"
-                    :class="{
-                        'w-40 p-1 mr-5': widthScreen <= 1080,
-                        '-top-20 w-72 mt-4': widthScreen > 1080,
-                        
-                    }"
-                    class="absolute py-2 right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                    class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
                 >
                     <span v-if="widthScreen <= 1080">Novo produto</span>
                     <span v-else>Cadastrar um novo produto</span>
                     
                 </q-btn>
-    
+
                 <q-btn 
                     v-else
                     @click="closeRegister()"
-                    :class="{
-                        'w-40 p-1 mr-5': widthScreen <= 1080,
-                        'w-96 mt-4 ': widthScreen > 1080,
-                        
-                    }"
-                    class="py-2 absolute right-0 top-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                    class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
                 >
                     <span>Voltar</span>
+
                 </q-btn>
-                
+
             </div>
         </div>
-    </div>
+        <div v-if="widthScreen > 1080" class="mt-2 ml-2">
+            <ReportProduct
+                :widthScreen="widthScreen"
+                v-if="showReportProducts"
+            />
 
-      <div 
-        class="products-grid flex mb-8 ml-20" 
+        </div>
+    </div>
+    
+    <div 
+        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8 ml-20" 
         v-if="showProducts && products && products.length > 0"
         :class="{
             'relative right-7 top-10': widthScreen <= 1080
@@ -78,7 +56,7 @@
     >
         <div 
           v-for="(product, id) in products" :key="product.id" 
-          class="relative overflow-x-auto max-h-96 overflow-y-auto m-5 bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+          class="relative overflow-x-auto max-h-96 overflow-y-auto 2    bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
           @click="editProduct(product.product, product.id)"
         >
 
@@ -261,5 +239,9 @@
     .products-grid {
         width: 100%;
         padding: 5px;
+    }
+
+    .div1 {
+        width: 184%;
     }
 </style>

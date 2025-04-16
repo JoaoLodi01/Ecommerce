@@ -397,7 +397,7 @@
     import PaymentsForm from 'src/components/PaymentsForm.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing.vue'
-    import ConfigPDV from 'src/components/PDV/ConfigPDV.vue';
+    import ConfigPDV from 'src/components/Config/ConfigPDV.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
     

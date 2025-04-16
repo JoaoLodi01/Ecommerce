@@ -20,10 +20,6 @@ class UserController extends Controller
         return $this->userService->getAll();
     }
 
-    public function selectSeller(Request $request){
-        return $this->userService->selectSeller($request->all());
-    }
-
     public function create(UserRequest $request){
         $data = $request->validated();
         return $this->userService->create($data);

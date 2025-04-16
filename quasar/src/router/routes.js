@@ -15,9 +15,14 @@ const routes = [
     component: () => import('pages/Login/Login.vue')
   },
   {
-    path: '/register',
-    name: 'Register',
-    component: () => import('pages/Login/Register.vue')
+    path: '/register-account',
+    name: 'RegisterAccount',
+    component: () => import('src/pages/Login/Register/RegisterAccount.vue')
+  },
+  {
+    path: '/register-issuer',
+    name: 'RegisterIssuer',
+    component: () => import('src/pages/Login/Register/RegisterIssuer.vue')
   },
   {
     path: '/forgot-password',

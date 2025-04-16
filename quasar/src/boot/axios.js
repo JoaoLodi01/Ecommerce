@@ -16,7 +16,6 @@ export default defineBoot(({ app, router }) => {
         const publicAPIRoutes = ['/forgot-password', '/reset-passowrd', '/auth']
         const isPublic = publicAPIRoutes.some(route => config.url.includes(route))
 
-
         if (!token && !isPublic) {
             router.replace({path: '/login'})
             console.log('Está deslogado - token ausente');

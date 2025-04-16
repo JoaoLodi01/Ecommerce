@@ -12,19 +12,7 @@ class UserService
     {}
 
     public function getAll(){
-        try {
-            return $this->userRepository->getAll(1);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
-    }
-
-    public function selectSeller(array $search){
-        try {
-            return $this->userRepository->selectSeller($search);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        return $this->userRepository->getAll();
     }
 
     public function findById(int $id){
@@ -53,23 +41,20 @@ class UserService
     }
 
     public function update(array $data, int $id){
-        try {
-            $this->userRepository->update($data, $id);
-            return response()->json(true);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        $this->userRepository->update($data, $id);
+        return response()->json([
+            'sucess' => true,
+            'message' => 'Usuário alterado com sucesso!'
+        ], 200);
     }
 
     public function delete(int $id){
-        try {
-            $this->userRepository->delete($id);
-            return response()->json(true);
+        $this->userRepository->delete($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Usuário desativado com sucesso!'
+        ], 200);
 
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
     }
 
     public function returnResponse($th){

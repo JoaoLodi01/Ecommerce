@@ -3,7 +3,6 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Customer;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 class CustomerRepository
 {
@@ -85,7 +84,7 @@ class CustomerRepository
             'address' => $data['address'],
             'number' => $data['number'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'type' => $data['type'],
             'phone' => $data['phone'],
         ]);
     }
