@@ -2,7 +2,7 @@
     <div
         class="ml-14"
     >
-        <div class="flex">
+        <div class="flex justify-between">
             <h1>Configurações</h1>
             <q-btn 
                 icon="close" 
@@ -10,6 +10,7 @@
                 @click="onClose" 
                 class="h-4 mt-auto mb-auto ml-5"
             />
+            
         </div>
 
         <q-form
@@ -21,12 +22,15 @@
                 left-label 
                 v-model="configs.nmFinaly" 
                 :label="'Permitir venda sem emissão fiscal ( Nota Manual )'"
+                color="grey"
+                
             />
 
             <q-checkbox 
                 left-label 
                 v-model="configs.saleNegativeorReset" 
                 :label="'Permitir venda com estoque negativo ou zerado'"
+                color="grey"
                 
             />
 
@@ -34,13 +38,15 @@
                 left-label 
                 v-model="configs.supervisorPasswordDeleteItem" 
                 :label="'Exigir senha do supervisor para excluir item'"
-                
+                color="grey"
+
             />
 
             <q-checkbox 
                 left-label
                 v-model="configs.supervisorPasswordCancelSale"
                 :label="'Exigir senha do supervisor para cancelar a venda'"
+                color="grey"
                 
             />
 
@@ -49,6 +55,8 @@
                 :options="searchOptionProducts" 
                 label="Busca de produtos" 
                 filled 
+                color="grey"
+                
             />
 
             <q-select 
@@ -56,11 +64,13 @@
                 :options="searchOptionCustomers" 
                 label="Busca de clientes" 
                 filled 
+                color="grey"
+                
             />
             
             <div>
-                <q-btn label="Salvar" type="submit" color="primary" :disable="configs.searchOptionProduct === null"/>
-                <q-btn label="Padrão" type="reset" color="primary" flat class="q-ml-sm" />
+                <q-btn label="Salvar" type="submit" color="grey" :disable="configs.searchOptionProduct === null"/>
+                <q-btn label="Padrão" type="reset" color="black" flat class="q-ml-sm" />
             </div>
         </q-form>
     </div>
@@ -96,23 +106,8 @@
                         timer = void 0
 
                     }, 1000)
-                }
-            }
-        },
-        
-        data()
-        {
-            return {
-                configs: {
-                    searchOptionProduct: null,
-                    searchOptionCustomer: null,
-                    saleNegativeorReset: false,
-                    supervisorPasswordDeleteItem: false,
-                    supervisorPasswordCancelSale: false,
-                    nmFinaly: true,
-                   
                 },
-                
+
                 searchOptionProducts: [
                     'Cód barras',
                     'Cód barras interno',
@@ -130,6 +125,22 @@
                 ]
             }
         },
+        
+        data()
+        {
+            return {
+                configs: {
+                    searchOptionProduct: null,
+                    searchOptionCustomer: null,
+                    saleNegativeorReset: false,
+                    supervisorPasswordDeleteItem: false,
+                    supervisorPasswordCancelSale: false,
+                    nmFinaly: true,
+                   
+                },
+                
+            }
+        },
 
         methods: {
             async getConfig()
@@ -143,8 +154,8 @@
                     saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
                     searchOptionProduct: data.filter_search,
                     searchOptionCustomer: data.filter_search_customer,
-                    supervisorPasswordDeleteItem: data.supervisor_password_delete_item,
-                    supervisorPasswordCancelSale: data.supervisor_password_cancel_sale,
+                    supervisorPasswordDeleteItem: data.supervisor_password_delete_item === 1 ? true : false,
+                    supervisorPasswordCancelSale: data.supervisor_password_cancel_sale === 1 ? true : false,
                     
                 }
             },

@@ -6,7 +6,7 @@
         }"  
     >
         <div 
-            class="flex border border-black"
+            class="flex"
             :class="{
                 'div1': widthScreen > 1080
             }"

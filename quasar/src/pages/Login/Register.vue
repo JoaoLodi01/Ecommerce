@@ -13,7 +13,7 @@
                 @submit.prevent="createAccount"
                 
             >
-                <h1 class="text-xl border-b border-black w-max mb-4">Registrar</h1>
+                <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Registrar</h1>
                 <q-input 
                     filled        
                     label="Nome" 

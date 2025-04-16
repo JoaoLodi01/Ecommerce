@@ -7,22 +7,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserRepository
 {
-    public function getAll(int $active){
-        /*return User::where('active', $active)
-                    ->get();
-        */
-        return $this->getAccessProfile(1);
-    }
-
-    public function selectSeller(array $search){
+    public function getAll(){
         return User::where('active', 1)
-                    ->when(isset($search['id']), function ($query) use ($search){
-                        return $query->where('id', $search['id']);
-                    })
-                    ->when(isset($search['name']), function ($query) use ($search){
-                        return $query->where('name', 'like', "%{$search['name']}%");
-                    })
                     ->get();
+        
+        
     }
 
     public function findByID(int $id)
@@ -35,13 +24,15 @@ class UserRepository
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password']),
+            'access' => $data['access']
+
         ]);
     }
 
     public function update(array $data, int $id){
         return User::where('id', $id)
-                    ->update($data, $id);
+                    ->update($data);
     }
 
     public function delete(int $id){
@@ -51,11 +42,11 @@ class UserRepository
                     ]);
     }
 
-    public function getAccessProfile(int $id)
-    {
-        $user = $this->findByID($id);
+    // public function getAccessProfile(int $id)
+    // {
+    //     $user = $this->findByID($id);
 
-        return $user->accessProfile()->get();
+    //     return $user->accessProfile()->get();
         
-    }
+    // }
 }

@@ -26,7 +26,6 @@ class CustomerSeeder extends Seeder
                 'address' => 'aaaaaa',
                 'number' => 'aaaaaaaa',
                 'email' => 'teste1@teste.com',
-                'password' => Hash::make('1'),
                 'phone' => '+55 4244-4444'
             ],
             [
@@ -37,7 +36,6 @@ class CustomerSeeder extends Seeder
                 'address' => 'aaaaa',
                 'number' => 'aaaaa',
                 'email' => 'teste2@teste.com',
-                'password' => Hash::make('1'),
                 'phone' => '+55 4244-4444'
             ],
         ];
