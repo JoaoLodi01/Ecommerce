@@ -49,7 +49,7 @@
                         <td class="px-6 py-3 text-center">{{ register.name }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
                         <td class="px-6 py-3">{{ register.especie }}</td>
-                        <td class="px-6 py-3">{{ register.origem }}</td>
+                        <td class="px-6 py-3">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3">
                             <q-btn @click="editRegister(register)" class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -63,7 +63,7 @@
         </div>
         <div
             v-if="showPayClosing"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
+            class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-10 backdrop-blur-sm">
 
             <div class="bg-white rounded-xl shadow-xl">
                 <RegisterPay 

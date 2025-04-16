@@ -100,6 +100,7 @@
 
       <q-input
         type="text"
+        readonly
         label="Luiz que pediu"
         color="grey=7"
       />      

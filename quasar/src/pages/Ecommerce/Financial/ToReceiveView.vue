@@ -58,7 +58,7 @@
                         <td class="px-6 py-3 text-center">{{ register.name }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.origem }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3">
                             <q-btn @click="editRegister(register)" class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

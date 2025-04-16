@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Services\EcommerceService\UserService;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -22,6 +23,7 @@ class UserController extends Controller
 
     public function create(UserRequest $request){
         $data = $request->validated();
+        Log::info($data);
         return $this->userService->create($data);
     }
 
