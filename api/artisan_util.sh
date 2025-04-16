@@ -93,7 +93,7 @@ main()
 
         8)
             clear
-            echo "Recriando banco de dados..."
+            echo "Carregando banco de dados..."
             bash -c "php artisan migrate"
             main
             ;;
