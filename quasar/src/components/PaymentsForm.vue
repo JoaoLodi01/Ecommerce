@@ -34,7 +34,6 @@
         
                         <q-item-section side>
                             <q-input
-                                @update:model-value="formatValue()"
                                 v-model="paymentsValues[i]"
                                 type="text"
                                 input-class="text-right"
@@ -217,7 +216,7 @@ export default {
         calculateValueInformed()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value.replace(/\D/g, '')) || 0;
+                const num = parseFloat(value.replace(/\D/, '')) || 0;
                 return sum + num
             }, 0);
 
@@ -229,7 +228,7 @@ export default {
         calculateValueChange()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value.replace(/\D/g, '')) || 0;
+                const num = parseFloat(value.replace(/\D/, '')) || 0;
                 return num + sum 
             }, 0);
 
@@ -390,15 +389,6 @@ export default {
             this.$emit("close")
 
         },
-        
-        formatValue()
-        {
-            for (let i = 0; i < this.paymentsValues.length; i++) {
-                const element = this.paymentsValues[i];
-                element.replace(/./, ',')
-
-            }
-        }
     },
     mounted(){
         this.getPayments();

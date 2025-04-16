@@ -39,17 +39,17 @@
                     <thead class="bg-gray-100">
                         <tr>
                             <th scope="col" class="px-6 py-3">Tipo</th>
-                            <th scope="col" class="px-6 py-3 sticky left-0 bg-gray-200">Ações</th>
                             <th scope="col" class="px-6 py-3">Cód</th>
                             <th scope="col" class="px-3 py-4">Documento</th>
                             <th scope="col" class="px-6 py-3">Descrição</th>
                             <th scope="col" class="px-6 py-3">Valor entrada</th>
                             <th scope="col" class="px-6 py-3">Valor saída</th>
                             <th scope="col" class="px-6 py-3">Total</th>
+                            <th scope="col" class="px-6 py-3">Cliente</th>
                             <th scope="col" class="px-6 py-3">Cód Espécie</th>
                             <th scope="col" class="px-6 py-3">Espécie</th>
                             <th scope="col" class="px-6 py-3">Origem</th>
-                            <th scope="col" class="px-6 py-3">Cliente</th>
+                            <th scope="col" class="px-6 py-3">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,27 +63,30 @@
                                 }">
                                 {{ register.input_value > 0 ? 'Entrada' : 'Saída'}}
                             </td>
-                            <td scope="row" class="px-12 sticky left-0 bg-gray-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                                </svg>
-                            </td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.document }}</td>
                             <td scope="row" class="px-3 py-4">{{ register.description }}</td>
                             <td scope="row" class="px-5 py-3 text-center">R$ {{ register.input_value }}</td>
-                            <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
-                            <td scope="row" class="px-6 py-3 text-center">{{ register.real_balance }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">R$ {{ register.output_value }}</td>
+                            <td scope="row" class="px-6 py-3 text-center">R$ {{ register.real_balance }}</td>
+                            <td scope="row" class="px-6 py-3">{{ register.name }}</td>
                             <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
                             <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
-                            <td scope="row" class="px-6 py-3">{{ register.origem }}</td>
-                            <td scope="row" class="px-6 py-3">{{ register.name }}</td>
+                            <td scope="row" class="px-6 py-3">{{ register.origem.toUpperCase() }}</td>
+                            <td class="px-6 py-3">
+                            <q-btn @click="editRegister(register)" class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                </svg>
+                            </q-btn>
+
+                        </td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <RegisterCash v-if="showCashClosing"/>
         </div>
-        <RegisterCash v-if="showCashClosing"/>
-    </div>
 </template>
 
 <script>
