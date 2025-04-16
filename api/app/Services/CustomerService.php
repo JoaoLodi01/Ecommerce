@@ -6,6 +6,7 @@ use App\Repositories\Eloquent\CustomerRepository;
 
 class CustomerService
 {
+    
     public function __construct(
         protected CustomerRepository $customerRepository
     )

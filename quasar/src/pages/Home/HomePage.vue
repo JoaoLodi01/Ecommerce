@@ -24,7 +24,7 @@
                 </div>
                 
                 <div>
-                    <router-link class="cursor-pointer hover:text-gray-300" to="/register">Criar conta</router-link>
+                    <router-link class="cursor-pointer hover:text-gray-300" to="/register-account">Criar conta</router-link>
                 </div>
             </div>
         </header>
