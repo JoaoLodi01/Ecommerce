@@ -12,7 +12,7 @@
                     <q-item v-for="(payment, i) in paymentsForms" :key="i">
                         <q-item-section>
                             <q-icon
-                                v-if="payment.tipo_lancamento === 'Receber' && payment.especie !== 'Boleto'"
+                                v-if="payment.tipo_lancamento === 'Receber'"
                                 name="mdi-credit-card-outline"
                                 color="primary"
                                 class="q-mr-sm"
@@ -21,12 +21,6 @@
                                 v-else-if="payment.tipo_lancamento === 'Caixa'"
                                 name="mdi-cash-register"
                                 color="green"
-                                class="q-mr-sm"
-                            />
-                            <q-icon
-                                v-else-if="payment.especie === 'Boleto'"
-                                name="mdi-barcode"
-                                color="deep-orange"
                                 class="q-mr-sm"
                             />
                             {{ payment.especie }}
@@ -72,7 +66,7 @@
                 </q-banner>
                 <div class="row q-gutter-sm">
                 <q-chip color="red-6" text-color="white">
-                    Valor ausente: R$
+                    Valor faltante: R$
                     {{
                     totalOperation.toFixed(2) - calculateValueInformed.total.toFixed(2) > 0
                         ? (totalOperation - calculateValueInformed.total).toFixed(2)

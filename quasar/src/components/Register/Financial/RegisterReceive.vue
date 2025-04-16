@@ -1,12 +1,12 @@
 <template>
   <div
-    class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
+    class="mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded"
     :class="{
       'relative top-12 left-12': widthScreen <=1080,
-      'ml-72': widthScreen > 1080
+      'ml-14': widthScreen > 1080
     }">
 
-    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Registro Financeiro</h2>
+    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastrar recebimentos</h2>
 
     <form
       @submit.prevent="submitForm"
@@ -98,18 +98,32 @@
         color="grey=7"
       />
 
-      <div>
-            <q-btn
-                type="submit"
-                class="mr-5">
-                <button>Criar</button>
-            </q-btn>
+      <q-input
+        type="text"
+        readonly
+        label="Luiz que pediu"
+        color="grey=7"
+      />  
 
-            <q-btn
-                @click="onReset()">
-                <button>Limpar</button>
-            </q-btn>
-        </div>
+      <div>
+        <q-btn
+          type="submit"
+          label="Registrar"
+          class="bg-slate-600 text-white">
+        </q-btn>
+
+        <q-btn
+          @click="onReset()"
+          label="Limpar"
+          class="ml-5 bg-slate-600 text-white">
+        </q-btn>
+
+        <q-btn
+          @click="close()"
+          label="Voltar"
+          class="ml-5 bg-slate-600 text-white">
+        </q-btn>
+      </div>
     </form>
   </div>
 </template>
@@ -130,7 +144,7 @@
         form: {
             description: "",
             name: "",
-            user: "",
+            user: LocalStorage.getItem("user_name"),
             cpf: "",
             especie: "",
             due_date: "",
@@ -148,7 +162,7 @@
             this.form = {
                 description: "",
                 name: "",
-                user: "",
+                user: LocalStorage.getItem("user_name"),
                 cpf: "",
                 especie: "",
                 due_date: "",
@@ -158,6 +172,10 @@
                 interest_value: "",
                 total_amount: ""
             }
+        },
+
+        close(){
+          this.$emit('close', false)
         },
 
         async submitForm() {
@@ -170,10 +188,10 @@
             }
         },
     },
+    
+    emits:[
+      'close'
+    ],
 
-    mounted(){
-      //this.form.user = details.user.name
-      this.form.user = LocalStorage.getItem("user_name");
-    }
   };
 </script>

@@ -70,7 +70,7 @@
             async getProducts(){
                 try {
 
-                    if(this.search.name.length >= 4 || this.search.name.length === 1)
+                    if(this.search.name.length >= 4 || this.search.name.length >= 1)
                     {
                         const response = await api.post(`/ecommerce/products/search`,{
                             fillter: this.configs.fillter,

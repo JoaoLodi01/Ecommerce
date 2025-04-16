@@ -2,44 +2,46 @@
     <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded">
         <h2 class="text-xl font-semibold mb-4">Registro Financeiro</h2>
         
-        <form 
+        <form  
             @submit.prevent="submitForm"
             @reset="onReset">
     
-          <label for="description">Descrição:</label>
-          <input 
-          type="text" 
-          v-model="form.description" 
-          id="description" 
-          placeholder="Inserir..."/>
-    
-          <label for="name">Cliente:</label>
-          <input 
-          type="text" 
-          v-model="form.name" 
-          id="name" 
-          placeholder="Inserir..."/>
+        <q-input
+        type="text"
+        v-model="form.description"
+        label="Descrição"
+        color="grey-7"
+        />
 
-          <label for="user">Usuário:</label>
-          <input 
-          type="text" 
-          v-model="form.user" 
-          id="user" 
-          placeholder="Inserir..."/>
     
-          <label for="especie">Especie:</label>
-          <input 
-          type="select" 
-          v-model="form.especie" 
-          id="especie" 
-          placeholder="Inserir..."/>
+        <q-input
+        type="text"
+        v-model="form.name"
+        label="Cliente"
+        color="grey-7"
+        />
 
-          <label for="total_amount">Total:</label>
-          <input 
-          type="number" 
-          v-model="form.total_amount" 
-          id="total_amount" 
-          placeholder="Inserir..."/>
+        <q-input
+        type="text"
+        v-model="form.user"
+        label="Usuário"
+        color="grey-7"
+        readonly
+        />
+    
+        <q-input
+        type="text"
+        v-model="form.especie"
+        label="Espécie"
+        color="grey-7"
+        />
+
+        <q-input 
+        type="number" 
+        v-model="form.total_amount" 
+        label="Total"
+        color="grey-7"
+        />
     
           <button
             type="submit"
