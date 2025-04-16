@@ -6498,3 +6498,1315 @@
 [2025-04-16 20:06:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
 >>>>>>> 1b9bf6b315684f40a823e043648c70cf97750f7a
 [2025-04-16 20:49:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:19:53] local.INFO: Acertou o login  
+[2025-04-16 23:20:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:20:03] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:20:03] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:20:03] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:20:03] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:20:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:20:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:20:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-16 23:20:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-16 23:21:08] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-16 23:42:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-16 23:42:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:42:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:42:07] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:42:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:42:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:42:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:42:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:42:09] local.INFO: Controller  
+[2025-04-16 23:42:09] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:42:09] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:09] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:42:09] local.INFO: Controller  
+[2025-04-16 23:42:09] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:42:09] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:09] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:42:09] local.INFO: Controller  
+[2025-04-16 23:42:09] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 23:42:09] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:09] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 23:42:10] local.INFO: Controller  
+[2025-04-16 23:42:10] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-16 23:42:10] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:10] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-16 23:42:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:42:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:42:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:42:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:42:23] local.INFO: Controller  
+[2025-04-16 23:42:23] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:42:23] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:23] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:42:23] local.INFO: Controller  
+[2025-04-16 23:42:23] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:42:23] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:23] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:42:24] local.INFO: Controller  
+[2025-04-16 23:42:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 23:42:24] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 23:42:24] local.INFO: Controller  
+[2025-04-16 23:42:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-16 23:42:24] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-16 23:42:24] local.INFO: Controller  
+[2025-04-16 23:42:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jackj',
+)  
+[2025-04-16 23:42:24] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jackj',
+)  
+[2025-04-16 23:42:24] local.INFO: Controller  
+[2025-04-16 23:42:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-16 23:42:24] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:24] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-16 23:42:25] local.INFO: Controller  
+[2025-04-16 23:42:25] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 23:42:25] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:25] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 23:42:25] local.INFO: Controller  
+[2025-04-16 23:42:25] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:42:25] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:25] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:42:26] local.INFO: Controller  
+[2025-04-16 23:42:26] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:42:26] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:26] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:42:26] local.INFO: Controller  
+[2025-04-16 23:42:26] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-16 23:42:26] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:42:26] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-16 23:42:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:42:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:42:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:42:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:43:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:43:06] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:43:06] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:43:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:43:06] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:43:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:43:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:43:07] local.INFO: Controller  
+[2025-04-16 23:43:07] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:43:07] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:43:07] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:43:09] local.INFO: Controller  
+[2025-04-16 23:43:09] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:43:09] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:43:09] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:43:10] local.INFO: Controller  
+[2025-04-16 23:43:10] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 23:43:10] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:43:10] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 23:43:11] local.INFO: Controller  
+[2025-04-16 23:43:11] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:43:11] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:43:11] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:43:11] local.INFO: Controller  
+[2025-04-16 23:43:11] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:43:11] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:43:11] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:43:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:43:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:43:14] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:43:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:43:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:43:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:43:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:43:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:43:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:43:19] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:43:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:43:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:09] local.INFO: $data  
+[2025-04-16 23:44:09] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:44:09] local.INFO: data no repository  
+[2025-04-16 23:44:09] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:44:09] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' (Connection: mariadb, SQL: update `config_pdvs` set `filter_search` = Cód barras interno, `filter_search_customer` = Padrão (cód.cliente ou nome), `nm_finaly` = 1, `sale_negative_or_reset` = 0, `supervisor_password_delete_item` = 0, `config_pdvs`.`updated_at` = 2025-04-16 23:44:09 where `active` = 1) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' (Connection: mariadb, SQL: update `config_pdvs` set `filter_search` = Cód barras interno, `filter_search_customer` = Padrão (cód.cliente ou nome), `nm_finaly` = 1, `sale_negative_or_reset` = 0, `supervisor_password_delete_item` = 0, `config_pdvs`.`updated_at` = 2025-04-16 23:44:09 where `active` = 1) at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(584): Illuminate\\Database\\Connection->run()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(536): Illuminate\\Database\\Connection->affectingStatement()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3830): Illuminate\\Database\\Connection->update()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1163): Illuminate\\Database\\Query\\Builder->update()
+#5 D:\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php(20): Illuminate\\Database\\Eloquent\\Builder->update()
+#6 D:\\ProjetoWeb\\api\\app\\Services\\Config\\ConfigService.php(45): App\\Repositories\\Eloquent\\Config\\ConfigPDVRepository->update()
+#7 D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\Config\\ConfigController.php(39): App\\Services\\Config\\ConfigService->updatePDV()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->updatePDV()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#36 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#38 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#39 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#40 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#42 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#45 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#46 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:592)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(592): PDO->prepare()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::affectingStatement():584}()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(584): Illuminate\\Database\\Connection->run()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(536): Illuminate\\Database\\Connection->affectingStatement()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3830): Illuminate\\Database\\Connection->update()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1163): Illuminate\\Database\\Query\\Builder->update()
+#7 D:\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php(20): Illuminate\\Database\\Eloquent\\Builder->update()
+#8 D:\\ProjetoWeb\\api\\app\\Services\\Config\\ConfigService.php(45): App\\Repositories\\Eloquent\\Config\\ConfigPDVRepository->update()
+#9 D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\Config\\ConfigController.php(39): App\\Services\\Config\\ConfigService->updatePDV()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->updatePDV()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#36 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#38 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#39 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#40 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#42 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#43 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#44 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#45 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#46 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#47 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#48 {main}
+"} 
+[2025-04-16 23:44:11] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:44:15] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:44:15] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:44:15] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:44:15] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:44:15] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:44:15] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:44:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:17] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:20] local.INFO: $data  
+[2025-04-16 23:44:20] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:44:20] local.INFO: data no repository  
+[2025-04-16 23:44:20] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:44:20] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' (Connection: mariadb, SQL: update `config_pdvs` set `filter_search` = Cód barras interno, `filter_search_customer` = Padrão (cód.cliente ou nome), `nm_finaly` = 1, `sale_negative_or_reset` = 0, `supervisor_password_delete_item` = 0, `config_pdvs`.`updated_at` = 2025-04-16 23:44:20 where `active` = 1) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' (Connection: mariadb, SQL: update `config_pdvs` set `filter_search` = Cód barras interno, `filter_search_customer` = Padrão (cód.cliente ou nome), `nm_finaly` = 1, `sale_negative_or_reset` = 0, `supervisor_password_delete_item` = 0, `config_pdvs`.`updated_at` = 2025-04-16 23:44:20 where `active` = 1) at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(584): Illuminate\\Database\\Connection->run()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(536): Illuminate\\Database\\Connection->affectingStatement()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3830): Illuminate\\Database\\Connection->update()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1163): Illuminate\\Database\\Query\\Builder->update()
+#5 D:\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php(20): Illuminate\\Database\\Eloquent\\Builder->update()
+#6 D:\\ProjetoWeb\\api\\app\\Services\\Config\\ConfigService.php(45): App\\Repositories\\Eloquent\\Config\\ConfigPDVRepository->update()
+#7 D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\Config\\ConfigController.php(39): App\\Services\\Config\\ConfigService->updatePDV()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->updatePDV()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#36 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#38 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#39 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#40 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#42 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#45 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#46 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:592)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(592): PDO->prepare()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::affectingStatement():584}()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(584): Illuminate\\Database\\Connection->run()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(536): Illuminate\\Database\\Connection->affectingStatement()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3830): Illuminate\\Database\\Connection->update()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1163): Illuminate\\Database\\Query\\Builder->update()
+#7 D:\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php(20): Illuminate\\Database\\Eloquent\\Builder->update()
+#8 D:\\ProjetoWeb\\api\\app\\Services\\Config\\ConfigService.php(45): App\\Repositories\\Eloquent\\Config\\ConfigPDVRepository->update()
+#9 D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\Config\\ConfigController.php(39): App\\Services\\Config\\ConfigService->updatePDV()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->updatePDV()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#36 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#38 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#39 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#40 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#42 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#43 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#44 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#45 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#46 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#47 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#48 {main}
+"} 
+[2025-04-16 23:44:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:25] local.INFO: $data  
+[2025-04-16 23:44:25] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:44:25] local.INFO: data no repository  
+[2025-04-16 23:44:25] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:44:25] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' (Connection: mariadb, SQL: update `config_pdvs` set `filter_search` = Cód barras interno, `filter_search_customer` = Padrão (cód.cliente ou nome), `nm_finaly` = 1, `sale_negative_or_reset` = 0, `supervisor_password_delete_item` = 0, `config_pdvs`.`updated_at` = 2025-04-16 23:44:25 where `active` = 1) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' (Connection: mariadb, SQL: update `config_pdvs` set `filter_search` = Cód barras interno, `filter_search_customer` = Padrão (cód.cliente ou nome), `nm_finaly` = 1, `sale_negative_or_reset` = 0, `supervisor_password_delete_item` = 0, `config_pdvs`.`updated_at` = 2025-04-16 23:44:25 where `active` = 1) at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(584): Illuminate\\Database\\Connection->run()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(536): Illuminate\\Database\\Connection->affectingStatement()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3830): Illuminate\\Database\\Connection->update()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1163): Illuminate\\Database\\Query\\Builder->update()
+#5 D:\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php(20): Illuminate\\Database\\Eloquent\\Builder->update()
+#6 D:\\ProjetoWeb\\api\\app\\Services\\Config\\ConfigService.php(45): App\\Repositories\\Eloquent\\Config\\ConfigPDVRepository->update()
+#7 D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\Config\\ConfigController.php(39): App\\Services\\Config\\ConfigService->updatePDV()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->updatePDV()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#36 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#38 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#39 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#40 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#42 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#45 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#46 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:592)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(592): PDO->prepare()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::affectingStatement():584}()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(584): Illuminate\\Database\\Connection->run()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(536): Illuminate\\Database\\Connection->affectingStatement()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3830): Illuminate\\Database\\Connection->update()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1163): Illuminate\\Database\\Query\\Builder->update()
+#7 D:\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php(20): Illuminate\\Database\\Eloquent\\Builder->update()
+#8 D:\\ProjetoWeb\\api\\app\\Services\\Config\\ConfigService.php(45): App\\Repositories\\Eloquent\\Config\\ConfigPDVRepository->update()
+#9 D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\Config\\ConfigController.php(39): App\\Services\\Config\\ConfigService->updatePDV()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->updatePDV()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#36 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#38 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#39 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#40 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#42 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#43 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#44 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#45 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#46 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#47 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#48 {main}
+"} 
+[2025-04-16 23:44:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:44:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:44:42] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:44:42] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:44:42] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:44:42] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:44:43] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:43] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:44] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:47] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:44:47] local.INFO: $data  
+[2025-04-16 23:44:47] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:44:47] local.INFO: data no repository  
+[2025-04-16 23:44:47] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:44:47] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' (Connection: mariadb, SQL: update `config_pdvs` set `filter_search` = Cód barras interno, `filter_search_customer` = Padrão (cód.cliente ou nome), `nm_finaly` = 1, `sale_negative_or_reset` = 0, `supervisor_password_delete_item` = 0, `config_pdvs`.`updated_at` = 2025-04-16 23:44:47 where `active` = 1) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' (Connection: mariadb, SQL: update `config_pdvs` set `filter_search` = Cód barras interno, `filter_search_customer` = Padrão (cód.cliente ou nome), `nm_finaly` = 1, `sale_negative_or_reset` = 0, `supervisor_password_delete_item` = 0, `config_pdvs`.`updated_at` = 2025-04-16 23:44:47 where `active` = 1) at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(584): Illuminate\\Database\\Connection->run()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(536): Illuminate\\Database\\Connection->affectingStatement()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3830): Illuminate\\Database\\Connection->update()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1163): Illuminate\\Database\\Query\\Builder->update()
+#5 D:\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php(20): Illuminate\\Database\\Eloquent\\Builder->update()
+#6 D:\\ProjetoWeb\\api\\app\\Services\\Config\\ConfigService.php(45): App\\Repositories\\Eloquent\\Config\\ConfigPDVRepository->update()
+#7 D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\Config\\ConfigController.php(39): App\\Services\\Config\\ConfigService->updatePDV()
+#8 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->updatePDV()
+#9 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#36 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#38 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#39 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#40 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#42 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#45 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#46 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'supervisor_password_delete_item' in 'field list' at D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:592)
+[stacktrace]
+#0 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(592): PDO->prepare()
+#1 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::affectingStatement():584}()
+#2 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(584): Illuminate\\Database\\Connection->run()
+#4 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(536): Illuminate\\Database\\Connection->affectingStatement()
+#5 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3830): Illuminate\\Database\\Connection->update()
+#6 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1163): Illuminate\\Database\\Query\\Builder->update()
+#7 D:\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\Config\\ConfigPDVRepository.php(20): Illuminate\\Database\\Eloquent\\Builder->update()
+#8 D:\\ProjetoWeb\\api\\app\\Services\\Config\\ConfigService.php(45): App\\Repositories\\Eloquent\\Config\\ConfigPDVRepository->update()
+#9 D:\\ProjetoWeb\\api\\app\\Http\\Controllers\\Config\\ConfigController.php(39): App\\Services\\Config\\ConfigService->updatePDV()
+#10 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->updatePDV()
+#11 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#12 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#13 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#14 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#15 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#16 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#17 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#18 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#19 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#20 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#21 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#22 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#23 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#24 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#25 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#26 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#27 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#29 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#30 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#32 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#34 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#36 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#38 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#39 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#40 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#42 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#43 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#44 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#45 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#46 D:\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#47 D:\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#48 {main}
+"} 
+[2025-04-16 23:45:58] local.INFO: Acertou o login  
+[2025-04-16 23:46:05] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:46:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:46:05] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:46:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:46:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:46:05] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:46:05] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:46:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:46:11] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:46:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:46:13] local.INFO: Controller  
+[2025-04-16 23:46:13] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:46:13] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:46:13] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:46:13] local.INFO: Controller  
+[2025-04-16 23:46:13] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:46:13] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:46:13] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 23:46:14] local.INFO: Controller  
+[2025-04-16 23:46:14] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:46:14] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:46:14] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 23:46:14] local.INFO: Controller  
+[2025-04-16 23:46:14] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-16 23:46:14] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:46:14] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-16 23:46:18] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:46:21] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:46:21] local.INFO: $data  
+[2025-04-16 23:46:21] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:46:21] local.INFO: data no repository  
+[2025-04-16 23:46:21] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-16 23:46:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:46:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:46:25] local.INFO: Controller  
+[2025-04-16 23:46:25] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-16 23:46:25] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:46:25] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-16 23:46:28] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-16 23:46:28] local.INFO: data - customer  
+[2025-04-16 23:46:28] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-16 23:46:28] local.INFO: cusotmer  
+[2025-04-16 23:46:28] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"}]  
+[2025-04-16 23:46:28] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-16 23:46:28] local.INFO: data - customer  
+[2025-04-16 23:46:28] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-16 23:46:28] local.INFO: cusotmer  
+[2025-04-16 23:46:28] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"}]  
+[2025-04-16 23:46:29] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'tes',
+)  
+[2025-04-16 23:46:29] local.INFO: data - customer  
+[2025-04-16 23:46:29] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'tes',
+)  
+[2025-04-16 23:46:29] local.INFO: cusotmer  
+[2025-04-16 23:46:29] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"}]  
+[2025-04-16 23:46:29] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'test',
+)  
+[2025-04-16 23:46:29] local.INFO: data - customer  
+[2025-04-16 23:46:29] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'test',
+)  
+[2025-04-16 23:46:29] local.INFO: cusotmer  
+[2025-04-16 23:46:29] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"}]  
+[2025-04-16 23:46:29] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'teste',
+)  
+[2025-04-16 23:46:29] local.INFO: data - customer  
+[2025-04-16 23:46:29] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'teste',
+)  
+[2025-04-16 23:46:29] local.INFO: cusotmer  
+[2025-04-16 23:46:29] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"}]  
+[2025-04-16 23:46:32] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-16 23:46:32] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-16 23:46:32] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-16 23:46:32] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-16 23:46:32] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-16 23:46:32] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-16 23:46:32] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-16 23:46:32] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 2,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-16 23:46:32] local.INFO: Memória usada PDVRepository::class, saveSale: 25165824  
+[2025-04-16 23:46:32] local.INFO: Busca pelo customer  
+[2025-04-16 23:46:32] local.INFO: Busca pelo user  
+[2025-04-16 23:46:32] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 2,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-16 23:46:32] local.INFO: {"id":1,"name":"admin","email":"1","perfil_photo":null,"access":"Adminstrador","email_verified_at":null,"active":1,"created_at":"2025-04-16T23:45:46.000000Z","updated_at":"2025-04-16T23:45:46.000000Z"}  
+[2025-04-16 23:46:32] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'cliente_id' => 2,
+  'client' => 'Teste 2',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-16 23:46:32] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-04-16 23:46:32] local.INFO: Memória usada PDVRepository::class, saveProducts: 25165824  
+[2025-04-16 23:46:32] local.INFO: User: {"id":1,"name":"admin","email":"1","perfil_photo":null,"access":"Adminstrador","email_verified_at":null,"active":1,"created_at":"2025-04-16T23:45:46.000000Z","updated_at":"2025-04-16T23:45:46.000000Z"}  
+[2025-04-16 23:46:32] local.INFO: $products 11  
+[2025-04-16 23:46:32] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'barcode' => '82184004364',
+      'barcode_internal' => '82184004364',
+      'image' => NULL,
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+    ),
+  ),
+)  
+[2025-04-16 23:46:32] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 25165824  
+[2025-04-16 23:46:32] local.INFO: $product, type: array  
+[2025-04-16 23:46:32] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'barcode' => '82184004364',
+    'barcode_internal' => '82184004364',
+    'image' => NULL,
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+  ),
+)  
+[2025-04-16 23:46:32] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 25165824  
+[2025-04-16 23:46:32] local.INFO: $product[$i]  
+[2025-04-16 23:46:32] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'barcode' => '82184004364',
+  'barcode_internal' => '82184004364',
+  'image' => NULL,
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+)  
+[2025-04-16 23:46:32] local.INFO: itensPDV   
+[2025-04-16 23:46:32] local.INFO: array (
+  'pdv_id' => 1,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'admin',
+)  
+[2025-04-16 23:46:32] local.INFO: $ipdv  
+[2025-04-16 23:46:32] local.INFO: {"pdv_id":1,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"admin","id":1}  
+[2025-04-16 23:46:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-16 23:46:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:46:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:46:56] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:46:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:46:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:46:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:46:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 23:46:58] local.INFO: Controller  
+[2025-04-16 23:46:58] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-16 23:46:58] local.INFO: -- Vai começar a busca --  
+[2025-04-16 23:46:58] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-16 23:47:00] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-16 23:47:00] local.INFO: data - customer  
+[2025-04-16 23:47:00] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-16 23:47:00] local.INFO: cusotmer  
+[2025-04-16 23:47:00] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"}]  
+[2025-04-16 23:47:00] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-16 23:47:00] local.INFO: data - customer  
+[2025-04-16 23:47:00] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-16 23:47:00] local.INFO: cusotmer  
+[2025-04-16 23:47:00] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T23:45:45.000000Z","updated_at":"2025-04-16T23:45:45.000000Z"}]  
+[2025-04-16 23:47:04] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-16 23:47:04] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-16 23:47:04] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-16 23:47:04] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-16 23:47:04] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-16 23:47:04] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-16 23:47:04] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-16 23:47:04] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-16 23:47:04] local.INFO: Memória usada PDVRepository::class, saveSale: 25165824  
+[2025-04-16 23:47:04] local.INFO: Busca pelo customer  
+[2025-04-16 23:47:04] local.INFO: Busca pelo user  
+[2025-04-16 23:47:04] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-16 23:47:04] local.INFO: {"id":1,"name":"admin","email":"1","perfil_photo":null,"access":"Adminstrador","email_verified_at":null,"active":1,"created_at":"2025-04-16T23:45:46.000000Z","updated_at":"2025-04-16T23:45:46.000000Z"}  
+[2025-04-16 23:47:04] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-16 23:47:04] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-04-16 23:47:04] local.INFO: Memória usada PDVRepository::class, saveProducts: 25165824  
+[2025-04-16 23:47:04] local.INFO: User: {"id":1,"name":"admin","email":"1","perfil_photo":null,"access":"Adminstrador","email_verified_at":null,"active":1,"created_at":"2025-04-16T23:45:46.000000Z","updated_at":"2025-04-16T23:45:46.000000Z"}  
+[2025-04-16 23:47:04] local.INFO: $products 11  
+[2025-04-16 23:47:04] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'barcode' => '82184004364',
+      'barcode_internal' => '82184004364',
+      'image' => NULL,
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+    ),
+  ),
+)  
+[2025-04-16 23:47:04] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 25165824  
+[2025-04-16 23:47:04] local.INFO: $product, type: array  
+[2025-04-16 23:47:04] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'barcode' => '82184004364',
+    'barcode_internal' => '82184004364',
+    'image' => NULL,
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+  ),
+)  
+[2025-04-16 23:47:04] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 25165824  
+[2025-04-16 23:47:04] local.INFO: $product[$i]  
+[2025-04-16 23:47:04] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'barcode' => '82184004364',
+  'barcode_internal' => '82184004364',
+  'image' => NULL,
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+)  
+[2025-04-16 23:47:04] local.INFO: itensPDV   
+[2025-04-16 23:47:04] local.INFO: array (
+  'pdv_id' => 2,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'admin',
+)  
+[2025-04-16 23:47:04] local.INFO: $ipdv  
+[2025-04-16 23:47:04] local.INFO: {"pdv_id":2,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"admin","id":2}  
+[2025-04-16 23:47:05] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-16 23:50:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:50:41] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:50:41] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:50:41] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:50:41] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:50:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:50:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:51:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:51:51] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-16 23:51:51] local.INFO: O hotel foi encontrado  
+[2025-04-16 23:51:51] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-16 23:51:51] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-16 23:51:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 23:51:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
