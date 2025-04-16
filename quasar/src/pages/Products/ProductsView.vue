@@ -78,7 +78,7 @@
     >
         <div 
           v-for="(product, id) in products" :key="product.id" 
-          class="relative overflow-x-auto max-h-96 overflow-y-auto m-5    bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+          class="relative overflow-x-auto max-h-96 overflow-y-auto m-5 bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
           @click="editProduct(product.product, product.id)"
         >
 
