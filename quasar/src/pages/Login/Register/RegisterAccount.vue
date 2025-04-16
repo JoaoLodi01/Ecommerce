@@ -20,6 +20,7 @@
                     v-model="registerDetails.name"
                     stack-label 
                     class="mb-4"
+                    color="grey"
                 />
 
                 <q-input 
@@ -28,6 +29,8 @@
                     v-model="registerDetails.email"
                     stack-label 
                     class="mb-4"
+                    color="grey"
+
                 />
 
                 <q-input 
@@ -36,6 +39,7 @@
                     v-model="registerDetails.email_"
                     stack-label
                     class="mb-4"
+                    color="grey"
                     
                 />
                 
@@ -45,6 +49,8 @@
                     v-model="registerDetails.password"
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
+                    color="grey"
+                    
                 >
                     <svg 
                         @click="showPassword = !showPassword" 
@@ -80,6 +86,7 @@
                     v-model="registerDetails.password_"
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
+                    color="grey"
                 >
                     <svg 
                         @click="showPassword = !showPassword" 
@@ -109,13 +116,12 @@
                     </svg>
                 </q-input>
 
-                <q-btn 
-                    @click=showLoading 
+                <q-btn  
                     type="submit"
                     label="Criar conta"
                     class="m-2"
                     flat 
-                    style="color: #1F2937"   
+                    color="grey"  
                 />
                 
                 <router-link to="/login">
@@ -123,7 +129,7 @@
                         type="button"
                         class="m-2"
                         flat 
-                        style="color: #1F2937"   
+                        color="grey"   
                         label="Já possui uma conta?"
                     />
                 </router-link>
@@ -190,6 +196,7 @@
         },
         methods: {
             async createAccount(){
+                this.showLoading()
                 this.messages = []
                 const email = this.checkEmail()
                 const password = this.checkPassword()
@@ -199,16 +206,23 @@
                         const response = await api.post('/users/create', {
                             name: this.registerDetails.name,
                             email: this.registerDetails.email.toLowerCase(),
-                            password: this.registerDetails.password
+                            password: this.registerDetails.password,
+                            access: 'Limitado'
                         })
-                        
+
+                        console.log(response.data)
+
                         if(response.data.success)
                         {
                             alert(`Bem vindo! ${response.data.user.name}`)
-                            
-                        } 
+                            this.$router.push({path: '/login'})
+
+                        }  else {
+                            alert(`Erro: ${response.data.th ?? response.data}`)
+                        }
                         
                     } catch (error) {
+                        console.error('Erro', error)
                         this.messages.push(error.response.data.message ?? null)
                         const register = this.registerDetails
                         switch (error.response.data.message) {

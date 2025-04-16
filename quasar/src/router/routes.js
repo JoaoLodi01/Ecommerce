@@ -39,6 +39,11 @@ const routes = [
     component: Sidebar,
     children: [
       {
+        path: '/home',
+        name: 'Start',
+        component: () => import('src/pages/Start.vue')
+      },
+      {
         path: `/${salePrefix}/pdv`,
         name: 'PDV',
         component: () => import('src/pages/Ecommerce/PDV/PDVView.vue') 
