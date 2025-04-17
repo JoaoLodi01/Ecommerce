@@ -6118,3 +6118,838 @@
 [2025-04-16 20:06:27] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
 [2025-04-16 20:06:27] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
 [2025-04-16 20:06:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 20:30:18] local.INFO: Controller  
+[2025-04-16 20:30:18] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-16 20:30:18] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:30:18] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-16 20:30:21] local.INFO: Controller  
+[2025-04-16 20:30:21] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 20:30:21] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:30:21] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 20:30:21] local.INFO: Controller  
+[2025-04-16 20:30:21] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 20:30:21] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:30:21] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 20:30:22] local.INFO: Controller  
+[2025-04-16 20:30:22] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 20:30:22] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:30:22] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 20:30:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 20:30:37] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 20:30:37] local.INFO: $data  
+[2025-04-16 20:30:37] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras & Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => true,
+  'supervisorPasswordCancelSale' => true,
+  'supervisorPasswordDeleteItem' => true,
+)  
+[2025-04-16 20:30:37] local.INFO: data no repository  
+[2025-04-16 20:30:37] local.INFO: array (
+  'searchOptionProduct' => 'Cód barras & Cód barras interno',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => true,
+  'supervisorPasswordCancelSale' => true,
+  'supervisorPasswordDeleteItem' => true,
+)  
+[2025-04-16 20:30:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 20:30:40] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 20:30:50] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-16 20:30:50] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-16 20:30:50] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-16 20:30:50] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-16 20:30:50] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-16 20:31:04] local.INFO: Controller  
+[2025-04-16 20:31:04] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 20:31:04] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:31:04] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 20:31:04] local.INFO: Controller  
+[2025-04-16 20:31:04] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 20:31:04] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:31:04] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 20:31:05] local.INFO: Controller  
+[2025-04-16 20:31:05] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 20:31:05] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:31:05] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 20:31:05] local.INFO: Controller  
+[2025-04-16 20:31:05] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-16 20:31:05] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:31:05] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-16 20:31:06] local.INFO: Controller  
+[2025-04-16 20:31:06] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 20:31:06] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:31:06] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-16 20:31:06] local.INFO: Controller  
+[2025-04-16 20:31:06] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 20:31:06] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:31:06] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-16 20:31:07] local.INFO: Controller  
+[2025-04-16 20:31:07] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 20:31:07] local.INFO: -- Vai começar a busca --  
+[2025-04-16 20:31:07] local.INFO: array (
+  'fillter' => 'Cód barras & Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-16 20:31:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 20:31:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 20:31:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-16 20:31:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-16 20:31:13] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-16 20:31:13] local.INFO: data - customer  
+[2025-04-16 20:31:13] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-16 20:31:13] local.INFO: cusotmer  
+[2025-04-16 20:31:13] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"}]  
+[2025-04-16 20:31:14] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-16 20:31:14] local.INFO: data - customer  
+[2025-04-16 20:31:14] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-16 20:31:14] local.INFO: cusotmer  
+[2025-04-16 20:31:14] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"}]  
+[2025-04-16 20:31:14] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'tes',
+)  
+[2025-04-16 20:31:14] local.INFO: data - customer  
+[2025-04-16 20:31:14] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'tes',
+)  
+[2025-04-16 20:31:14] local.INFO: cusotmer  
+[2025-04-16 20:31:14] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"}]  
+[2025-04-16 20:31:15] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'test',
+)  
+[2025-04-16 20:31:15] local.INFO: data - customer  
+[2025-04-16 20:31:15] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'test',
+)  
+[2025-04-16 20:31:15] local.INFO: cusotmer  
+[2025-04-16 20:31:15] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"}]  
+[2025-04-16 20:31:15] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'teste',
+)  
+[2025-04-16 20:31:15] local.INFO: data - customer  
+[2025-04-16 20:31:15] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'teste',
+)  
+[2025-04-16 20:31:15] local.INFO: cusotmer  
+[2025-04-16 20:31:15] local.INFO: [{"id":1,"name":"Teste 1","cnpj":null,"cpf":"12345678910","cep":"89711226","address":"aaaaaa","number":"aaaaaaaa","email":"teste1@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"},{"id":2,"name":"Teste 2","cnpj":null,"cpf":"12345678911","cep":"89711225","address":"aaaaa","number":"aaaaa","email":"teste2@teste.com","phone":"+55 4244-4444","type":"cliente","active":1,"created_at":"2025-04-16T17:35:01.000000Z","updated_at":"2025-04-16T17:35:01.000000Z"}]  
+[2025-04-16 20:31:15] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-16 20:31:15] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-16 20:31:15] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-16 20:31:15] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-16 20:31:15] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-16 20:31:15] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-16 20:31:15] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-16 20:31:15] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+      1 => 
+      array (
+        'id' => 2,
+        'product' => 'Jack Daniels Honey',
+        'barcode' => '8218400032',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '130.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+      2 => 
+      array (
+        'id' => 3,
+        'product' => 'Jack Daniels Canela',
+        'barcode' => '07898945131315',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '140.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '123456',
+        'unit' => 'UN',
+        'active' => 1,
+        'isSelected' => true,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 2,
+  'total' => 390,
+  'sub_total' => 390,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-16 20:31:15] local.INFO: Memória usada PDVRepository::class, saveSale: 25165824  
+[2025-04-16 20:31:15] local.INFO: Busca pelo customer  
+[2025-04-16 20:31:15] local.INFO: Busca pelo user  
+[2025-04-16 20:31:15] local.INFO: {"id":1,"name":"admin","email":"1","perfil_photo":null,"access":"Adminstrador","email_verified_at":null,"active":1,"created_at":"2025-04-16T17:35:02.000000Z","updated_at":"2025-04-16T17:35:02.000000Z"}  
+[2025-04-16 20:31:15] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'cliente_id' => 2,
+  'client' => 'Teste 2',
+  'gross_value' => 390,
+  'net_value' => 390,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-16 20:31:15] local.INFO: -- Iniciou o saveProducts() line 87 --   
+[2025-04-16 20:31:15] local.INFO: Memória usada PDVRepository::class, saveProducts: 25165824  
+[2025-04-16 20:31:15] local.INFO: User: {"id":1,"name":"admin","email":"1","perfil_photo":null,"access":"Adminstrador","email_verified_at":null,"active":1,"created_at":"2025-04-16T17:35:02.000000Z","updated_at":"2025-04-16T17:35:02.000000Z"}  
+[2025-04-16 20:31:15] local.INFO: $products 11  
+[2025-04-16 20:31:15] local.INFO: array (
+  0 => 
+  array (
+    0 => 
+    array (
+      'id' => 1,
+      'product' => 'Jack Daniels Maça',
+      'barcode' => '82184004364',
+      'barcode_internal' => '82184004364',
+      'image' => NULL,
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '120.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+    1 => 
+    array (
+      'id' => 2,
+      'product' => 'Jack Daniels Honey',
+      'barcode' => '8218400032',
+      'barcode_internal' => '82184004364',
+      'image' => NULL,
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '130.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '1234567',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+    2 => 
+    array (
+      'id' => 3,
+      'product' => 'Jack Daniels Canela',
+      'barcode' => '07898945131315',
+      'barcode_internal' => '82184004364',
+      'image' => NULL,
+      'group_id' => 2,
+      'group' => 'Grupo teste 2',
+      'amount' => 1,
+      'cost_price' => '10.00',
+      'sale_price' => '140.00',
+      'profit_percentage' => '100.00',
+      'cfop' => '5102',
+      'csosncst' => '102',
+      'ncm' => '12345678',
+      'cest' => '123456',
+      'unit' => 'UN',
+      'active' => 1,
+      'isSelected' => true,
+    ),
+  ),
+)  
+[2025-04-16 20:31:15] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do foreach: 25165824  
+[2025-04-16 20:31:15] local.INFO: $product, type: array  
+[2025-04-16 20:31:15] local.INFO: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product' => 'Jack Daniels Maça',
+    'barcode' => '82184004364',
+    'barcode_internal' => '82184004364',
+    'image' => NULL,
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '120.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  1 => 
+  array (
+    'id' => 2,
+    'product' => 'Jack Daniels Honey',
+    'barcode' => '8218400032',
+    'barcode_internal' => '82184004364',
+    'image' => NULL,
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '130.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '1234567',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+  2 => 
+  array (
+    'id' => 3,
+    'product' => 'Jack Daniels Canela',
+    'barcode' => '07898945131315',
+    'barcode_internal' => '82184004364',
+    'image' => NULL,
+    'group_id' => 2,
+    'group' => 'Grupo teste 2',
+    'amount' => 1,
+    'cost_price' => '10.00',
+    'sale_price' => '140.00',
+    'profit_percentage' => '100.00',
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'ncm' => '12345678',
+    'cest' => '123456',
+    'unit' => 'UN',
+    'active' => 1,
+    'isSelected' => true,
+  ),
+)  
+[2025-04-16 20:31:15] local.INFO: Memória usada PDVRepository::class, saveProducts dentro do for: 25165824  
+[2025-04-16 20:31:15] local.INFO: $product[$i]  
+[2025-04-16 20:31:15] local.INFO: array (
+  'id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'barcode' => '82184004364',
+  'barcode_internal' => '82184004364',
+  'image' => NULL,
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-04-16 20:31:15] local.INFO: itensPDV   
+[2025-04-16 20:31:15] local.INFO: array (
+  'pdv_id' => 2,
+  'product_id' => 1,
+  'product' => 'Jack Daniels Maça',
+  'cost_price' => '10.00',
+  'sale_price' => '120.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'admin',
+)  
+[2025-04-16 20:31:15] local.INFO: $ipdv  
+[2025-04-16 20:31:15] local.INFO: {"pdv_id":2,"product_id":1,"product":"Jack Daniels Ma\u00e7a","cost_price":"10.00","sale_price":"120.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"admin","id":4}  
+[2025-04-16 20:31:15] local.INFO: $product[$i]  
+[2025-04-16 20:31:15] local.INFO: array (
+  'id' => 2,
+  'product' => 'Jack Daniels Honey',
+  'barcode' => '8218400032',
+  'barcode_internal' => '82184004364',
+  'image' => NULL,
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '130.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-04-16 20:31:15] local.INFO: itensPDV   
+[2025-04-16 20:31:15] local.INFO: array (
+  'pdv_id' => 2,
+  'product_id' => 2,
+  'product' => 'Jack Daniels Honey',
+  'cost_price' => '10.00',
+  'sale_price' => '130.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '1234567',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'admin',
+)  
+[2025-04-16 20:31:15] local.INFO: $ipdv  
+[2025-04-16 20:31:15] local.INFO: {"pdv_id":2,"product_id":2,"product":"Jack Daniels Honey","cost_price":"10.00","sale_price":"130.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"1234567","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"admin","id":5}  
+[2025-04-16 20:31:15] local.INFO: $product[$i]  
+[2025-04-16 20:31:15] local.INFO: array (
+  'id' => 3,
+  'product' => 'Jack Daniels Canela',
+  'barcode' => '07898945131315',
+  'barcode_internal' => '82184004364',
+  'image' => NULL,
+  'group_id' => 2,
+  'group' => 'Grupo teste 2',
+  'amount' => 1,
+  'cost_price' => '10.00',
+  'sale_price' => '140.00',
+  'profit_percentage' => '100.00',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '12345678',
+  'cest' => '123456',
+  'unit' => 'UN',
+  'active' => 1,
+  'isSelected' => true,
+)  
+[2025-04-16 20:31:15] local.INFO: itensPDV   
+[2025-04-16 20:31:15] local.INFO: array (
+  'pdv_id' => 2,
+  'product_id' => 3,
+  'product' => 'Jack Daniels Canela',
+  'cost_price' => '10.00',
+  'sale_price' => '140.00',
+  'cfop' => '5102',
+  'csosn' => '102',
+  'ncm' => '12345678',
+  'cest' => '123456',
+  'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'admin',
+)  
+[2025-04-16 20:31:15] local.INFO: $ipdv  
+[2025-04-16 20:31:15] local.INFO: {"pdv_id":2,"product_id":3,"product":"Jack Daniels Canela","cost_price":"10.00","sale_price":"140.00","cfop":"5102","csosn":"102","ncm":"12345678","cest":"123456","unit":"UN","amount":1,"addition":0,"discount":0,"user_id":1,"seller":"admin","id":6}  
+[2025-04-16 20:31:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-16 20:31:55] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-16 20:31:55] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-16 20:31:55] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-16 20:31:55] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-16 20:31:55] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-16 20:31:55] local.INFO: Dados recebidos nos controllers  
+[2025-04-16 20:31:55] local.INFO: array (
+  'type_operation' => 'nm',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => NULL,
+    1 => NULL,
+    2 => '390',
+  ),
+  'pdv_id' => 2,
+)  
+[2025-04-16 20:31:55] local.INFO: PDVService.php, class:finalizeSale, $total: 390  
+[2025-04-16 20:31:55] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-04-16 20:31:55] local.INFO: Memória usada PDVRepository::class, finalizeSale: 25165824  
+[2025-04-16 20:31:55] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-04-16 20:31:55] local.INFO: Buscando a espécie pelo ID.  
+[2025-04-16 20:31:55] local.INFO: $result  
+[2025-04-16 20:31:55] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
+      'active' => 1,
+      'created_at' => '2025-04-16 17:35:01',
+      'updated_at' => '2025-04-16 17:35:01',
+    ),
+     'original' => 
+    array (
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
+      'active' => 1,
+      'created_at' => '2025-04-16 17:35:01',
+      'updated_at' => '2025-04-16 17:35:01',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-16 20:31:55] local.INFO: Vai conferir se o $total: R$ 390 é maior que o $pdv->net_value, R$390.00  
+[2025-04-16 20:31:55] local.INFO: Foi maior  
+[2025-04-16 20:31:55] local.INFO: nm  
+[2025-04-16 20:31:55] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-04-16 20:31:55] local.INFO: Memória usada PayMentMethodService::class, payment: 25165824  
+[2025-04-16 20:31:55] local.INFO: $paymentValues  
+[2025-04-16 20:31:55] local.INFO: array (
+  0 => NULL,
+  1 => NULL,
+  2 => '390',
+)  
+[2025-04-16 20:31:55] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-04-16 20:31:55] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-04-16 20:31:55] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-04-16 20:31:55] local.INFO: $paymentValues[$i] linha - 118: i = 1  
+[2025-04-16 20:31:55] local.INFO: Vai pegar as posições maiores que zero, vezes: 1  
+[2025-04-16 20:31:55] local.INFO: $paymentValues[$i] linha - 118: i = 2  
+[2025-04-16 20:31:55] local.INFO: Vai pegar as posições maiores que zero, vezes: 2  
+[2025-04-16 20:31:55] local.INFO: forms  
+[2025-04-16 20:31:55] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
+      'active' => 1,
+      'created_at' => '2025-04-16 17:35:01',
+      'updated_at' => '2025-04-16 17:35:01',
+    ),
+     'original' => 
+    array (
+      'id' => 3,
+      'especie' => 'Boleto',
+      'tipo_lancamento' => 'Receber',
+      'active' => 1,
+      'created_at' => '2025-04-16 17:35:01',
+      'updated_at' => '2025-04-16 17:35:01',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-16 20:31:55] local.INFO: ID linha 120 - : {"id":3,"especie":"Boleto","tipo_lancamento":"Receber","active":1}  
+[2025-04-16 20:31:55] local.INFO: paymentValues linha 124 - : 390  
+[2025-04-16 20:31:55] local.INFO: Vai conferir os tipos de lançamento  
+[2025-04-16 20:31:55] local.INFO: $form->tipo_lancamento  
+[2025-04-16 20:31:55] local.INFO: {"id":3,"especie":"Boleto","tipo_lancamento":"Receber","active":1}  
+[2025-04-16 20:31:55] local.INFO: -- Vai chamar o receiveRepository linha 170 --   
+[2025-04-16 20:31:55] local.INFO: Memória usada ReceiveRepository::class, create: 25165824  
+[2025-04-16 20:31:55] local.INFO: Vai iniciar criação no RECEBER, dados:   
+[2025-04-16 20:31:55] local.INFO: Quantia: 19  
+[2025-04-16 20:31:55] local.INFO: array (
+  'description' => 'Parcelamento Venda Nota Manual 
+                                N° 2',
+  'document' => 2,
+  'pdv_id' => 2,
+  'customer_id' => 2,
+  'name' => 'Teste 2',
+  'especie_id' => 3,
+  'especie' => 'Boleto',
+  'date_register' => '2025-04-16',
+  'due_date' => '2025-05-16',
+  'installment_number' => 1,
+  'installment_value' => '390',
+  'output_value' => 0,
+  'real_balance' => '390',
+  'type_interest' => '%',
+  'interest_value' => 10,
+  'total_amount' => 10,
+  'user_id' => 1,
+  'user' => 'aa',
+  'origem' => 'pdv',
+)  
+[2025-04-16 20:31:55] local.INFO: payMentMethodService  
+[2025-04-16 20:31:55] local.INFO: array (
+  'success' => true,
+)  
+[2025-04-16 20:31:55] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":2,"description":"Venda Nota Manual N\u00b0","cliente_id":2,"client":"Teste 2","gross_value":"390.00","net_value":"390.00","discount":"0.00","addition":"0.00","user_id":1,"user":"admin","finished":0,"canceled":0,"is_nfce_nm":"nm","active":1}  
+[2025-04-16 20:31:55] local.INFO: $type nm  
+[2025-04-16 20:31:55] local.INFO: Buscar e alterar os produtos, pdv_id = 2  
+[2025-04-16 20:31:55] local.INFO: Alteração dentro do for = 2  
+[2025-04-16 20:31:55] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-04-16 20:31:55] local.INFO: Produto encontrado 1  
+[2025-04-16 20:31:55] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","barcode_internal":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":5,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-04-16 20:31:55] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-16 20:31:55] local.INFO: Alteração dentro do for = 2  
+[2025-04-16 20:31:55] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-04-16 20:31:55] local.INFO: Produto encontrado 2  
+[2025-04-16 20:31:55] local.INFO: {"id":2,"product":"Jack Daniels Honey","barcode":"8218400032","barcode_internal":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"130.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-04-16 20:31:55] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-16 20:31:55] local.INFO: Alteração dentro do for = 2  
+[2025-04-16 20:31:55] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-04-16 20:31:55] local.INFO: Produto encontrado 3  
+[2025-04-16 20:31:55] local.INFO: {"id":3,"product":"Jack Daniels Canela","barcode":"07898945131315","barcode_internal":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":9,"cost_price":"10.00","sale_price":"140.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"123456","unit":"UN","active":1}  
+[2025-04-16 20:31:55] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-16 20:32:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-16 20:56:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-16 20:56:56] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-16 20:57:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
