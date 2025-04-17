@@ -1,6 +1,6 @@
 <template>
     <div
-        class="ml-20 mt-5 mb-5"
+        class="ml-20 mb-6"
         :class="{
             'relative top-12 right-5': widthScreen <= 1080
         }"  
@@ -64,7 +64,7 @@
                 <svg v-if="showReportCustomerMini" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 ml-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
-                <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 ml-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                 </svg>
 
@@ -76,7 +76,6 @@
                 />
 
             </div>
-
         </div>
     </div>
   
@@ -184,8 +183,7 @@
 </template>
   
 <script>
-    import { QBtnDropdown } from 'quasar';
-import { api } from 'src/boot/axios';
+    import { api } from 'src/boot/axios';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
     import UpdateCustomer from 'src/components/Register/Customers/UpdateCustomer.vue';
@@ -217,22 +215,19 @@ import { api } from 'src/boot/axios';
             async getCustomers() {
                 const response = await api.get('/customers/all');
                 this.customers = response.data.data;
-                console.log(this.customers)
+                
             },
 
             async deleteCustomer(id)
             {
                 const response = await api.delete(`/customers/${id}/deactivate`)
-                console.log(response.data)
-
+            
             },
 
             async activeCustomer(id)
             {
                 const response = await api.put(`/customers/${id}/active`)
-                console.log(response.data)
                 
-
             },
 
             openRegister()
@@ -241,6 +236,7 @@ import { api } from 'src/boot/axios';
                 this.showUpdateCustomers = false
                 this.showCustomers = false
                 this.showReportCustomer = false
+                this.showReportCustomerMini = false
                 
             },  
 
@@ -263,7 +259,7 @@ import { api } from 'src/boot/axios';
 
             openReportCustomerMini()
             {
-                this.showReportCustomerMini = !this.showReportCustomerMini 
+                this.showReportCustomerMini = !this.showReportCustomerMini
             },
 
             closeRegister()

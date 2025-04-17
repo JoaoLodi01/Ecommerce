@@ -63,12 +63,12 @@
             async reportCustomer(type) {
                 this.showLoading()
                 try {
-                    console.log('Vai começar a gerar')
+                    const prefix = '/report/customers'
                     switch (type) {
                         case 'Listagem_Completa':
-                            
-                            let responseAll = await api.get('/customers/report/all', {
+                            let responseAll = await api.get(`${prefix}/all`, {
                                 responseType: 'blob',
+
                             });
                             
                             this.downloadFile(responseAll, type)
@@ -76,7 +76,7 @@
                             break;
 
                         case 'Listagem_Completa_Inativos':
-                            const responseAllDisabled = await api.get('/customers/report/all-disabled', {
+                            const responseAllDisabled = await api.get(`${prefix}/all-disabled`, {
                                 responseType: 'blob',
                             });
                             

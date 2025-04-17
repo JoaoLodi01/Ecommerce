@@ -146,9 +146,7 @@ Route::prefix('v1')->group( function (){
             Route::put('/{id}', [CustomerController::class, 'update']);
             Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
             Route::put('/{id}/active', [CustomerController::class, 'active']);
-            Route::get('/report/all', [ReportCustomersController::class, 'exportAllClients']);
-            Route::get('/report/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
-            
+
         });
 
         // User routes
@@ -160,6 +158,18 @@ Route::prefix('v1')->group( function (){
             Route::put('/{id}', [UserController::class, 'update']);
             Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
         
+        });
+
+        Route::prefix('report')->group(function(){
+            Route::prefix('customers')->group(function(){
+                Route::get('/all', [ReportCustomersController::class, 'exportAllClients']);
+                Route::get('/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
+            });
+
+            Route::prefix('products')->group(function(){
+                Route::get('/all', [ReportCustomersController::class, 'exportAllClients']);
+                Route::get('/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
+            });
         });
     });
 

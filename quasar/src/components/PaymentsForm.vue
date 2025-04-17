@@ -315,6 +315,8 @@ export default {
                         {
                             this.cancelOperation()
                             this.$emit('update:selectProducts', true);
+                        } else {
+                            console.log(response_nfce)
                         }
 
                         break
@@ -333,6 +335,8 @@ export default {
                         {
                             this.cancelOperation()
                             this.$emit('update:selectProducts', []);
+                        } else {
+                            console.log(response_nm)
                         }
 
                         break
