@@ -259,12 +259,12 @@
                             <!-- COMPONENTE BUSCA DE CLIENTE -->                            
                         </div>
 
-                        <div class="p-4 ">
+                        <div class="p-4">
                             <img 
-                                src="https://imgs.search.brave.com/nJmykNUP9XwPUajqhDgGwIOVJBgf1x5N3Fi6go7pp04/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sbmNp/bWcubGFuY2UuY29t/LmJyL2Nkbi1jZ2kv/aW1hZ2Uvd2lkdGg9/ODUwLHF1YWxpdHk9/NzUsZm9ybWF0PXdl/YnAvdXBsb2Fkcy8y/MDI0LzA5L2VzY3Vk/by1wYWxtZWlyYXMu/anBn" 
+                                src="https://imgs.search.brave.com/MoYaYTNKcUf4WZ7AWmX_TQp1YL21SVA8qTSjj-_apNI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLnNk/ZS5nbG9iby5jb20v/bWVkaWEvb3JnYW5p/emF0aW9ucy8yMDE4/LzAzLzExL2ludGVy/bmFjaW9uYWwuc3Zn" 
                                 class="rounded-lg"
-                                height="420px"
-                                width="420px"
+                                height="236px"
+                                width="236px"
                             />
                         </div>
                     <div
