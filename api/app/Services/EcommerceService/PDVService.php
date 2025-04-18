@@ -72,7 +72,7 @@ class PDVService
 
             }
             
-            return 400;
+            return $saveSale;
 
         } catch (\Throwable $th) {
             return response()->json([
@@ -112,6 +112,12 @@ class PDVService
                     'pdv' => $pdv['pdv'],
                     'message' => 'Venda finalizada'
                 ], 200);
+            } else {
+                return response()->json([
+                    'success' => $pdv['success'],
+                    'message' => 'Erro ao finalizar'
+                ], 400);
+                
             }
 
             return response()->json([

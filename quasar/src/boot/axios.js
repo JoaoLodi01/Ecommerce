@@ -18,10 +18,10 @@ export default defineBoot(({ app, router }) => {
 
         if (!token && !isPublic) {
             router.replace({path: '/login'})
-            console.log('Está deslogado - token ausente');
             
         } else {
             config.headers.Authorization = `Bearer ${token}`;
+
         }
     
         return config;

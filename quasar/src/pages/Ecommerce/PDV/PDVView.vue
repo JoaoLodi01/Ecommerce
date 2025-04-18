@@ -4,7 +4,7 @@
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'flex ml-14': witdhScreen > 1080 && witdhScreen >= 1472,
+            'flex ml-24': witdhScreen > 1080 && witdhScreen >= 1472,
             'relative left-10': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
@@ -13,10 +13,13 @@
             
         }"   
     >
-        <div class="payMentForm" :class="{
-            'absolute top-24 z-20': witdhScreen > 1080,
-            'absolute right-auto top-5 z-50': witdhScreen <= 1080
-        }">
+        <div 
+            class="payMentForm" 
+            :class="{
+                'absolute top-24 z-20': witdhScreen > 1080,
+                'absolute right-auto top-5 z-50': witdhScreen <= 1080
+            }"
+        >
             <PaymentsForm
                 v-if="showPaymentsForm"
                 :witdhScreen="this.witdhScreen"
@@ -24,6 +27,7 @@
                 :totalOperation=this.totalOperation
                 :pdvID=this.pdvID
                 @resetTotal="totalOperation = $event"
+                @resetPDVID="pdvID = $event"
                 @close="cancelOperation"
                 @update:selectProducts="resetSale($event)"
 
@@ -38,7 +42,7 @@
         
         <div class="h-4">
             <div 
-                class="m-3 border border-black"
+                class="m-3 border border-black rounded-lg"
                 :class="{
                     'w-14': witdhScreen <= 1080,
                     
@@ -62,7 +66,7 @@
             <div class="flex m-3 border border-black">
                 <div 
                     class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
-                    @click="showProductsSelection"
+                    @click="showProductsSelection()"
                     
                 >
                     <div class="border border-red-500 w-6 mb-1"></div>
@@ -74,7 +78,7 @@
                 <div class="mr-1">
                     <ProductsSearchBar
                         v-if="showProductsSearch"
-                        :witdhScreen="witdhScreen"
+                        :witdhScreen="this.witdhScreen"
                         @update:selectProducts="updateProductsSeletion($event)"
 
                     />
@@ -129,8 +133,8 @@
                                     v-model="product.csosncst"
                                     :placeholder=product.csosncst
                                     type="number"
-                                    :maxlength="maxlength(csosncst)"
-                                    :minlength="maxlength(csosncst)"
+                                    :maxlength="maxlength(csosncst.toLowerCase)"
+                                    :minlength="maxlength(csosncst.toLowerCase)"
                                     class="w-10 text-center border-b-4 border-b-gray-500"
                                     id="csosnInput"
                                     @input="changeCSOSN(product.id, product.csosn)"
@@ -190,7 +194,6 @@
                                             view
                                             
                                         </svg>
-
                                     </button>
                                 </div>
                             </td>
@@ -362,7 +365,11 @@
                     
                     >
                     
-                    <q-btn class="ml-5" outline size="1.2rem">
+                    <q-btn 
+                        class="ml-5" 
+                        outline 
+                        size="1.2rem"
+                    >
                         <button
                             v-if="configs.nmFinaly"
                             :class="{
@@ -374,8 +381,13 @@
                             Finalizar
                         </button>
                     </q-btn>
-                    <q-btn class="ml-5" outline size="1.2rem">
+                    <q-btn 
+                        class="ml-5" 
+                        outline 
+                        size="1.2rem"
+                    >
                         <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
+
                     </q-btn>
                     </div>
 
@@ -394,7 +406,7 @@
 
         <ProductsSelectionView
             v-if="show"
-            :witdhScreen="witdhScreen"
+            :witdhScreen="this.witdhScreen"
             :hotelCodCRT="this.hotelCodCRT"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion($event)"
@@ -551,7 +563,7 @@
                                 const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
-                                    customer_id: this.clientsData.id,
+                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
                                     sub_total: this.calculateTotal.subtotal,
                                     total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                     addition: this.calculateTotal.addition,
@@ -628,12 +640,12 @@
                 try {
                     if(this.clientsData.id && this.sellerData.id)
                     {
-                        console.log('Pode calcular o total')
                         this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.freight + this.calculateTotal.addition - this.calculateTotal.discount
                     }
 
                     if(this.idPDV)
                     {
+                        console.log('Venda importada')
                         if(type === 'nm')
                         {
                             this.typeOperation = type
@@ -656,7 +668,7 @@
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id,
+                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 sub_total: this.calculateTotal.subtotal,
                                 addition: this.calculateTotal.addition,
@@ -668,9 +680,10 @@
 
                             if(response.data.success === true)
                             {
+                                LocalStorage.setItem("pdvID", response.data.pdvID)
                                 this.typeOperation = type
-                                this.showPaymentsForm = !this.showPaymentsForm
-                                this.pdvID = response.data.pdvID
+                                this.showPaymentsForm = true
+                                this.pdvID = LocalStorage.getItem("pdvID")
 
                             }
                         
@@ -681,7 +694,7 @@
                             const response = await api.post('/ecommerce/pdv/save-sale', {
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id,
+                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
                                 sub_total: this.calculateTotal.subtotal,
                                 addition: this.calculateTotal.addition,
@@ -690,13 +703,18 @@
                                 is_nfce_nm: type
                                 
                             })
-                            console.log('response.dat PDVView, line 686: ', response.data)
 
-                            if(response.data.success === true)
+                            console.log('response.dat PDVView, line 686: ', response)
+
+                            if(response.data.success)
                             {
+                                LocalStorage.setItem("pdvID", response.data.pdvID)
                                 this.typeOperation = type
-                                this.showPaymentsForm = !this.showPaymentsForm
-                                this.pdvID = response.data.pdvID
+                                this.showPaymentsForm = true
+                                this.pdvID = LocalStorage.getItem("pdvID")
+
+                            } else {
+                                alert('Erro no produto', response.data)
 
                             }
                         }
@@ -704,7 +722,7 @@
                     }
                     
                 } catch (error) {
-                    console.error('Erro finalizeSale', error.response.data.errors)
+                    console.error('Erro finalizeSale', error)
                     alert(error.response.data.errors)
                     this.errorMessages.push(error.response.data.errors)
                     
@@ -901,27 +919,27 @@
 
             maxlength(csosncst)
             {
-                if(csosncst === 'CSOSN')
+                if(csosncst == 'csosn')
                 {
-                    return 2
-                        
-                } else if (csosncst === 'CST'){
+                    return 3
+                } else if (csosncst == 'cst'){
                     return 2
                 }
-
             },
 
             cancelSale()
             {
                 const option = confirm('Deseja realmente cancelar a venda? ')
                 if (option === true) {
-                    this.emitProducts = [],
-                    this.productsSeletion = [],
-                    this.emitProducts.addition = 0
-                    this.emitProducts.discount = 0
+                    this.emitProducts = [];
+                    this.productsSeletion = [];
+                    this.emitProducts.addition = 0;
+                    this.emitProducts.discount = 0;
+                    this.emitProducts.freight = 0;
+
                     if(this.idPDV)
                     {
-                        this.$router.push({ name: 'PDV' })
+                        this.$router.push({ name: 'PDV' });
                     }
                 }
             }
@@ -975,6 +993,8 @@
                 this.importSale()            
                 
             }
+
+            console.log('pdvID pelo LocalStorage', LocalStorage.getItem("pdvID"))
         }
       }
 </script>

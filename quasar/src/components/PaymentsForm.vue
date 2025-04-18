@@ -160,7 +160,6 @@ export default {
             isLoanding: false,
             bigger: false,
             extraAmount: 0,
-            api: process.env.VUE_APP_API_URL,
 
         };
         
@@ -169,7 +168,8 @@ export default {
     emits: [
         'close',
         'resetTotal',
-        'update:selectProducts'        
+        'update:selectProducts',
+        'resetPDVID'      
 
     ],
 
@@ -314,7 +314,7 @@ export default {
                         if(response_nfce.data.success === true)
                         {
                             this.cancelOperation()
-                            this.$emit('update:selectProducts', true);
+                            this.$emit('update:selectProducts', []);
                         } else {
                             console.log(response_nfce)
                         }
@@ -379,18 +379,19 @@ export default {
 
         cancelOperation(){            
             this.$emit("close")
+            this.$emit("resetPDVID", null)
             this.$emit('resetTotal', 0);
    
         },
 
         closeOperation(){
             this.$emit("close")
-
+            
         },
     },
     mounted(){
         this.getPayments();
-        
+        console.log('this.pdvID', this.pdvID)
     },
 }
 </script>
