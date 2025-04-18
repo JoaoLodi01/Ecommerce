@@ -1014,11 +1014,11 @@
     }
 
     #pdv-view .products-grid{
-        height: 78vh;
+        height: 74vh;
     }
 
     #pdv-view{
-        height: 89vh;
+        height: auto;
     }
 
 </style>

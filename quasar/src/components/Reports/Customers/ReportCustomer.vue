@@ -1,21 +1,23 @@
-    <template>
-    <q-btn @click="showLoading" class="mr-5" :class="{
-        'mb-5': widthScreen <= 1080
-    }">    
-        <button @click="reportCustomer('Listagem_Completa')">Listagem completa de todos clientes</button>
-    </q-btn>
+<template>
+    <div class="">
+        <q-btn @click="reportCustomer('Listagem_Completa')" class="mr-5" :class="{
+            'mb-5': widthScreen <= 1080
+        }">    
+            <span v-if="widthScreen <= 1080">Listagem dos clientes ativos</span>
+            <span v-else>Listagem completa de todos clientes</span>
+        </q-btn>
 
-    <q-btn @click="showLoading">
-        <button @click="reportCustomer('Listagem_Completa_Inativos')">Listagem completa de todos os clientes inativos</button>
-    </q-btn>
-
-
+        <q-btn @click="reportCustomer('Listagem_Completa_Inativos')">
+            <span v-if="widthScreen <= 1080">Listagem dos clientes inativos</span>
+            <span v-else>Listagem completa de todos os clientes inativos</span>
+        </q-btn>
+    </div>
 </template>
 
 <script>
     import { api } from 'src/boot/axios';
     import { useQuasar } from 'quasar';
-    import { onBeforeUnmount } from "vue";
+    import { onBeforeUnmount } from 'vue';
 
     export default {
         setup () {
@@ -59,13 +61,14 @@
             },
 
             async reportCustomer(type) {
+                this.showLoading()
                 try {
-                    console.log('Vai começar a gerar')
+                    const prefix = '/report/customers'
                     switch (type) {
                         case 'Listagem_Completa':
-                            
-                            let responseAll = await api.get('/customers/report/all', {
+                            let responseAll = await api.get(`${prefix}/all`, {
                                 responseType: 'blob',
+
                             });
                             
                             this.downloadFile(responseAll, type)
@@ -73,7 +76,7 @@
                             break;
 
                         case 'Listagem_Completa_Inativos':
-                            const responseAllDisabled = await api.get('/customers/report/all-disabled', {
+                            const responseAllDisabled = await api.get(`${prefix}/all-disabled`, {
                                 responseType: 'blob',
                             });
                             
