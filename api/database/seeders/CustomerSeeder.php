@@ -19,6 +19,16 @@ class CustomerSeeder extends Seeder
         $current = new Carbon();
         $customers = [
             [
+                'name' => 'Consumidor Padrão',
+                'cpf' => null,
+                'cnpj' => null,
+                'cep' => '',
+                'address' => '',
+                'number' => '',
+                'email' => '',
+                'phone' => ''
+            ],
+            [
                 'name' => 'Teste 1',
                 'cpf' => '12345678910',
                 'cnpj' => null,

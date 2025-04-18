@@ -1,16 +1,24 @@
 <template>
-    <div class="">
+    <div class="flex">
+        <q-checkbox
+            size="1.6rem"
+            label="Cliente cadastrado"
+            v-model="registredCustomer"
+            right-label
+            @vue:updated="watchRegistredCustomer()"
+        />
+
         <input 
             v-model="clientsData.name"
             @click="setClient(clientsData)"
             @input="selectClient()"
-            placeholder="Consumidor Padrão"
             class="text-black border border-black w-full"
             :disabled="!fillter"
+
         />
             <ul 
                 v-if="filteredClients.length > 0 && clientsData.name !== ''" 
-                class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
+                class="fixed z-50 p-3 bg-white border border-gray-300 mt-14"
             >
                 <li
                     v-for="client in filteredClients "
@@ -21,20 +29,13 @@
                 {{ client.name }}
 
                 </li>
-
-                <li 
-                    v-if="message"
-                    class="p-2 hover:bg-gray-200 cursor-pointer"
-                >
-                    {{ message }}
-                </li>
             </ul>
     </div>
 </template>
 
 <script>
     import { api } from 'src/boot/axios';
-    import { toRaw } from 'vue';
+    import { toRaw, watch } from 'vue';
         
     export default {    
         mounted()
@@ -45,16 +46,24 @@
             }    
             getConfig()
             
+            this.clientsData.name = this.defaultCustomer.name
+
         },
 
         data()
         {
             return {
-                clientsData: {
-                    id: null,
-                    name: ''
+                defaultCustomer: {
+                    id: 1,
+                    name: 'Consumidor Padrão'
                 },
 
+                clientsData: {
+                    id: 0,
+                    name: ''
+                },
+                
+                registredCustomer: false,
                 fillter: '',
                 message: '',
                 filteredClients: [],
@@ -78,6 +87,18 @@
 
             },
 
+            watchRegistredCustomer()
+            {
+                if(this.registredCustomer)
+                {
+                    this.clientsData.name = ''
+                    
+                } else {
+                    this.clientsData.name = this.defaultCustomer.name
+
+                }
+            },
+
             filterClients(){
                 this.filteredClients = this.clients.filter(client =>
                     client.name.toLowerCase()
@@ -90,7 +111,6 @@
                 this.$emit('update:selectCustomer', this.clientsData)
                 this.clients = []
                 this.filteredClients = [];
-                
             },            
         }
     }

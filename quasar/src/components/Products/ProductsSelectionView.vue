@@ -150,7 +150,6 @@
 
             selectProducts(product)
             {
-                console.log('Qtde do produto: ', product.amount, ' opção: ', this.configs.saleNegativeorReset)
                 if(product.amount <= 0 && this.configs.saleNegativeorReset)
                 {
                     alert('Venda com estoque negativo/zerado bloqueada!')
@@ -197,8 +196,6 @@
                 this.configs = {
                     saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset === 1 ? true : false,
                 }
-
-                console.log('this.configs 2', this.configs)
             }
             getConfig()
         }
