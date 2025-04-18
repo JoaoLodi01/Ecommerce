@@ -5,8 +5,8 @@
         placeholder="Buscar..." 
         class="border border-black outline-none rounded-md mt-1 mb-1 p-1"
         :class="{
-            'w-96': widthScreen > 1080,
-            'w-40': widthScreen <= 1080,
+            'w-96': witdhScreen > 1080,
+            'w-40': witdhScreen <= 1080,
         }"
 
         maxlength="16"
@@ -122,7 +122,7 @@
             },
         },
         props: {
-            widthScreen: {
+            witdhScreen: {
                 tpye: Number,
                 required: true
             }

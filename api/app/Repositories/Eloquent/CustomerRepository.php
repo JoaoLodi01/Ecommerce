@@ -62,8 +62,7 @@ class CustomerRepository
         }
 
         Log::info('cusotmer');
-        Log::info(count($customer) === 0 ? 'Cliente não encontrado' : $customer);
-        return count($customer) === 0 ? 'Cliente não encontrado' : $customer;
+        return $customer;
     }
 
     public function findByID(int $id){

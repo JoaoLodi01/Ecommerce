@@ -4,13 +4,13 @@
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
+            'flex ml-14': witdhScreen > 1080 && witdhScreen >= 1472,
             'relative left-10': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
             'text-3xl': textSize === 16,
-                
+            
         }"   
     >
         <div class="payMentForm" :class="{
@@ -36,7 +36,7 @@
 
         </div>
         
-        <div class="products-grid">
+        <div class="h-4">
             <div 
                 class="m-3 border border-black"
                 :class="{
@@ -44,28 +44,9 @@
                     
                 }"
             >
-                <div class="inline-flex p-3">
-                    <div 
-                        class="mt-4 mb-auto mr-5 cursor-pointer"
-                        @click="showProductsSelection"
-                        
-                    >
-                        <div class="border border-red-500 w-6 mb-1"></div>
-                        <div class="border border-black w-5 mb-1"></div>
-                        <div class="border border-gray-500 w-4 mb-1"></div>        
-
-                    </div>
-                    
-                    <div class="mr-1">
-                        <ProductsSearchBar
-                            :showProductsSearch
-                            :witdhScreen="witdhScreen"
-                            @update:selectProducts="updateProductsSeletion($event)"
-
-                        />
-                        <!--Busca de produto-->
-                    </div>
-
+                <div 
+                    class="inline-flex p-3"
+                >
                     <div 
                         v-if="witdhScreen > 1366"
                         class="mr-16 mt-1"
@@ -75,12 +56,36 @@
                         <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
-  
                 </div>
 
             </div>
- 
-            <div class="products-grid m-5 shadow-lg relative overflow-y-auto">                
+            <div class="flex m-3 border border-black">
+                <div 
+                    class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
+                    @click="showProductsSelection"
+                    
+                >
+                    <div class="border border-red-500 w-6 mb-1"></div>
+                    <div class="border border-black w-5 mb-1"></div>
+                    <div class="border border-gray-500 w-4 mb-1"></div>        
+
+                </div>
+                
+                <div class="mr-1">
+                    <ProductsSearchBar
+                        v-if="showProductsSearch"
+                        :witdhScreen="witdhScreen"
+                        @update:selectProducts="updateProductsSeletion($event)"
+
+                    />
+                    <!--Busca de produto-->
+                </div>
+
+            </div>
+  
+            <div 
+                class="products-grid m-5 shadow-lg relative overflow-y-auto"
+            >
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
                             <tr class="bg-white">
@@ -245,12 +250,7 @@
                             />
 
                             <br>
-                            <q-checkbox
-                                size="1.5rem"
-                                label="Cliente cadastrado"
-                                v-model="registredCustomer"
-                            />
-                            <br>
+
                             <span>Cliente</span>
                             <CustomerSearchBar
                                 @update:selectCustomer="updateCustomerSelection($event)"
@@ -362,7 +362,7 @@
                     
                     >
                     
-                    <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
+                    <q-btn class="ml-5" outline size="1.2rem">
                         <button
                             v-if="configs.nmFinaly"
                             :class="{
@@ -374,7 +374,7 @@
                             Finalizar
                         </button>
                     </q-btn>
-                    <q-btn @click="showLoading" class="ml-5" outline size="1.2rem">
+                    <q-btn class="ml-5" outline size="1.2rem">
                         <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
                     </q-btn>
                     </div>
@@ -394,7 +394,7 @@
 
         <ProductsSelectionView
             v-if="show"
-            :witdhScreen="this.witdhScreen"
+            :witdhScreen="witdhScreen"
             :hotelCodCRT="this.hotelCodCRT"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion($event)"
@@ -477,7 +477,7 @@
                 showPaymentsForm: false,
                 showProductsSearch: true,
                 showCashClosing: false,
-                registredCustomer: false,
+                
                 showOptionsPDV: false,
                 
                 viewProduct: {
@@ -545,35 +545,39 @@
                 const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
-                        if(!this.isOpenedPDV)
-                        {
-                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id,
-                                sub_total: this.calculateTotal.subtotal,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
-                                description: 'Venda guardada',
-                                is_nfce_nm: null
-                                
-                            })
-
-                            if(response.data.success === true)
+                        if (this.totalOperation > 1000){
+                            if(!this.isOpenedPDV)
                             {
-                                alert('Venda guardarda para enviar posteriormente!')
-                                this.productsSeletion = []
+                                const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                    products: this.productsSeletion, // Produtos da 
+                                    user_id: this.sellerData.id,
+                                    customer_id: this.clientsData.id,
+                                    sub_total: this.calculateTotal.subtotal,
+                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                    addition: this.calculateTotal.addition,
+                                    discount: this.calculateTotal.discount,
+                                    description: 'Venda guardada',
+                                    is_nfce_nm: null
+                                    
+                                })
+
+                                if(response.data.success === true)
+                                {
+                                    alert('Venda guardarda para enviar posteriormente!')
+                                    this.productsSeletion = []
+
+                                } else {
+                                    console.log(response.data)
+                                }
 
                             } else {
-                                console.log(response.data)
+
+                                alert('Venda guardarda para enviar posteriormente!')
+                                this.productsSeletion = []
+                                this.$router.push({ name: "PDV" })
                             }
-
                         } else {
-
-                            alert('Venda guardarda para enviar posteriormente!')
-                            this.productsSeletion = []
-                            this.$router.push({ name: "PDV" })
+                            alert('Não calculou o total')
                         }
                         
                     } catch (error) {
@@ -620,7 +624,7 @@
             
             async finalizeSale(type) // Só vai chamar a forma de pagamento
             {
-                
+                this.showLoading()
                 try {
                     if(this.clientsData.id && this.sellerData.id)
                     {
@@ -674,7 +678,7 @@
                     
                         if(type === 'nfce')
                         {  
-                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                            const response = await api.post('/ecommerce/pdv/save-sale', {
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.sellerData.id,
                                 customer_id: this.clientsData.id,
@@ -686,7 +690,7 @@
                                 is_nfce_nm: type
                                 
                             })
-                            console.log('response.dat PDVView, line 607: ', response.data)
+                            console.log('response.dat PDVView, line 686: ', response.data)
 
                             if(response.data.success === true)
                             {
@@ -701,7 +705,7 @@
                     
                 } catch (error) {
                     console.error('Erro finalizeSale', error.response.data.errors)
-                    alert('error.response.data.errors')
+                    alert(error.response.data.errors)
                     this.errorMessages.push(error.response.data.errors)
                     
                 }
@@ -1009,16 +1013,16 @@
             display: flex;
             margin-right: 100px;
         }
-
         
     }
 
-    #pdv-view .products-grid{
-        height: 74vh;
+    #pdv-view .products-grid table{
+        max-height: 55vh;
     }
 
     #pdv-view{
         height: auto;
+        
     }
 
 </style>
