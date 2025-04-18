@@ -4,13 +4,13 @@
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
+            'flex': witdhScreen > 1080 && witdhScreen >= 1472,
             'relative left-10': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
             'text-3xl': textSize === 16,
-                
+            
         }"   
     >
         <div class="payMentForm" :class="{
@@ -36,7 +36,7 @@
 
         </div>
         
-        <div class="products-grid">
+        <div>
             <div 
                 class="m-3 border border-black"
                 :class="{
@@ -44,28 +44,9 @@
                     
                 }"
             >
-                <div class="inline-flex p-3">
-                    <div 
-                        class="mt-4 mb-auto mr-5 cursor-pointer"
-                        @click="showProductsSelection"
-                        
-                    >
-                        <div class="border border-red-500 w-6 mb-1"></div>
-                        <div class="border border-black w-5 mb-1"></div>
-                        <div class="border border-gray-500 w-4 mb-1"></div>        
-
-                    </div>
-                    
-                    <div class="mr-1">
-                        <ProductsSearchBar
-                            :showProductsSearch
-                            :witdhScreen="witdhScreen"
-                            @update:selectProducts="updateProductsSeletion($event)"
-
-                        />
-                        <!--Busca de produto-->
-                    </div>
-
+                <div 
+                    class="inline-flex p-3"
+                >
                     <div 
                         v-if="witdhScreen > 1366"
                         class="mr-16 mt-1"
@@ -75,7 +56,29 @@
                         <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
-  
+                </div>
+
+            </div>
+            <div class="flex m-3 border border-black">
+                <div 
+                    class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
+                    @click="showProductsSelection"
+                    
+                >
+                    <div class="border border-red-500 w-6 mb-1"></div>
+                    <div class="border border-black w-5 mb-1"></div>
+                    <div class="border border-gray-500 w-4 mb-1"></div>        
+
+                </div>
+                
+                <div class="mr-1">
+                    <ProductsSearchBar
+                        :showProductsSearch
+                        :witdhScreen="witdhScreen"
+                        @update:selectProducts="updateProductsSeletion($event)"
+
+                    />
+                    <!--Busca de produto-->
                 </div>
 
             </div>
@@ -1009,16 +1012,16 @@
             display: flex;
             margin-right: 100px;
         }
-
         
     }
 
     #pdv-view .products-grid{
-        height: 74vh;
+        height: 68vh;
     }
 
     #pdv-view{
         height: auto;
+        
     }
 
 </style>
