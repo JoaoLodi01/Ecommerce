@@ -16,13 +16,12 @@ class NFCeValidation
         Log::info('Produtos NFCeValidation');
         Log::info($products);
 
+        $erros = [];
         $productCFOP = $products['cfop'];
         $productCSON = $products['csosn'];
         
         $cfops = $this->findTributs->getCFOPs();
-        $csosncsts = $this->findTributs->getCSOSNCST($productCSON);
-
-        $erros = [];
+        $csosncsts = $this->findTributs->getCSOSNCST($productCSON);        
 
         $cfopValidate = array_key_exists($productCFOP, $cfops);
         
@@ -30,26 +29,22 @@ class NFCeValidation
 
         if(!$cfopValidate)
         {
-            $erros['produtoErroCFOP'] = "Produto: {$products['product']} com CFOP incorreto: {$products['cfop']}";
+            $erros['produtoErroCFOP'] = "Produto: {$products['product']} com CFOP incorreto: {$products['cfop']}|ID:[{$products['product_id']}]";
 
         }
         
         if(!$csosnValidate)
         {
-            $erros['produtoErroCSOSN'] = "Produto: {$products['product']} com CSOSN/CST incorreto: {$products['csosn']}";
+            $erros['produtoErroCSOSN'] = "Produto: {$products['product']} com CSOSN/CST incorreto: {$products['csosn']}|ID:[{$products['product_id']}]";
             
         }
 
-        Log::info('$cfopValidate no NFCeValidation');
-        Log::info($cfopValidate);
-
-        Log::info('$csosnValidate no NFCeValidation');
-        Log::info($csosnValidate);
-
+        Log::info('Quantia de erros: ' . count($erros));
         return array(
             'cfopValidate' => $cfopValidate,
             'csosnValidate' => $csosnValidate,
             'errors' => $erros
+
         );
     }
 }

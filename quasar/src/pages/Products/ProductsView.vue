@@ -73,7 +73,6 @@
                     v-if="showReportProductsMini"
                     :widthScreen="widthScreen"
                 />
-
                
             </div>
         </div>

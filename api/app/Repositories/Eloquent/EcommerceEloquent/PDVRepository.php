@@ -85,7 +85,7 @@ class PDVRepository
         return $pdvs;
     }
 
-    public function saveProducts(array $products, int $pdvID, object $user)
+    public function saveProducts(array $products, int $pdvID, object $user, string $type)
     {
         Log::info('-- Iniciou o saveProducts() line 90 -- ');     
         $errors = [];
@@ -133,6 +133,8 @@ class PDVRepository
                     array_push($errors, $nfceValidationRes['errors']);
 
                 }
+
+                
                 $ipdv = ItensPDV::create($itensPDV);
                 
             }
@@ -172,7 +174,7 @@ class PDVRepository
 
             if($pdv && $pdv->id)
             {            
-                $iPDV = $this->saveProducts($productsArray, $pdv->id, $user);
+                $iPDV = $this->saveProducts($productsArray, $pdv->id, $user, $details['is_nfce_nm']);
                 Log::info('$iPDV');
                 Log::info(count($iPDV['errors']));
 
@@ -188,12 +190,10 @@ class PDVRepository
                         'success' => false,
                         'message' => 'Erro no produto',
                         'pdvID' => $pdv->id,
-                        'iPDV' => $iPDV['errors']
+                        'errors' => $iPDV['errors']
     
                     );
-                }
-                
-                
+                }   
             }
         }
     }

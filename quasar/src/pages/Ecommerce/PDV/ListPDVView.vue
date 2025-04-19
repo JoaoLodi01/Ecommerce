@@ -1,11 +1,12 @@
 <template>
     <div
         class="flex borderborder-black mt-2 w-max ml-14" 
-
+        
     >
-        <div class="">
-            <h1>Listagem PDV <span class="text-sm">(NFC-e/Nota Manual)</span></h1>
+        <div class="p-2 ml-4" v-if="showListPDV">
+            <h1 class="text-xl">Listagem PDV <span class="text-sm">(NFC-e/Nota Manual)</span></h1>
             <div class="">
+                <!--
                 <input
                     type="checkbox"
                     v-model="searchFill.all"
@@ -25,7 +26,13 @@
                     v-model="searchFill.noFinaly"
                     @change="filterPDVs('noFinaly')"
 
-                /> <span>Não emitidas</span>
+                /> <span>Não emitidas</span>-->
+                <q-btn 
+                    color="grey" 
+                    @click="openReportErros()" 
+                    class="mb-5"
+
+                > <span>Conferir relatórios de erros</span> </q-btn>
             </div>
             
             <table>
@@ -52,18 +59,28 @@
                     </tr>
                 </tbody>
             </table>
+
         </div>        
+        <div class="" v-if="showReportPDV">
+            <ReportErros
+                @close="closeReportErros($event)"
+            />
+        </div>
     </div>
+    
 </template>
 
 <script>
     import { api } from "src/boot/axios";
-    import { toRaw } from 'vue';
+    import ReportErros from "src/components/PDV/Errors/ReportErros.vue";
     
     export default {
         data()
         {
             return {
+                showReportPDV: false,
+                showListPDV: true,
+
                 searchFill: {
                     all: true,
                     finaly: false,
@@ -93,22 +110,6 @@
                 }
             },
             
-            filterPDVs(key) // true || false
-            {   
-                const fillters = toRaw(this.searchFill)
-                const marked = [fillters]
-
-                marked.forEach(element => {
-                    Object.entries(element).forEach(([keyO, value]) => {
-                        console.log('Chave:', keyO !== key, ':', value)
-
-                    })
-                    
-                });
-  
-                console.log()
-            },
-        
             openPDV(pdv)
             {
                 this.$router.push({
@@ -116,12 +117,27 @@
                     params: { idPDV: pdv.id, },
                     state: { isOpenedPDV: true }
                 })
+            },
+
+            openReportErros()
+            {
+                this.showReportPDV = true
+                this.showListPDV = false
+            },
+            closeReportErros(event)
+            {
+                this.showReportPDV = event
+                this.showListPDV = !event
             }
         },
 
         mounted()
         {
             this.getPDVsSaved()   
+        },
+
+        components: {
+            ReportErros
         }
     }
 </script>

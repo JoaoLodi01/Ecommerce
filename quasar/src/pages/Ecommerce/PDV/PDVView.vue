@@ -38,6 +38,15 @@
                 @closeCashClosing="closeCashClosing($event)"
             />
 
+            <ErrorsModal
+                @close="chooseErrors($event)"
+                :errors="errorsOfSale.erros"
+                :class="{
+                    'transition-transform translate-y-4': errorsOfSale.showErrosModal,
+                    'opacity-0 -z-50': !errorsOfSale.showErrosModal
+                }"
+            />
+
         </div>
         
         <div class="h-4">
@@ -425,6 +434,7 @@
     import { api } from "boot/axios"
     import { onBeforeUnmount, toRaw } from 'vue'   
     import { useQuasar, LocalStorage } from 'quasar';
+import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     
     export default{
         setup(){
@@ -455,10 +465,14 @@
         data(){
             return {
                 productsSeletion: [],
-                errorMessages: [],
                 clients: [],
-                
 
+                errorsOfSale: {
+                    showErrosModal: false,
+                    erros: []
+                },
+                
+            
                 emitProducts: {
                     addition: 0,
                     discount: 0,
@@ -677,8 +691,9 @@
                                 is_nfce_nm: type,
                                 
                             })
+                            const data = response.data
 
-                            if(response.data.success === true)
+                            if(data.success)
                             {
                                 LocalStorage.setItem("pdvID", response.data.pdvID)
                                 this.typeOperation = type
@@ -687,6 +702,10 @@
 
                             }
                         
+                            if(!data.success)
+                            {
+                                alert(response.data)
+                            }
                         } 
                     
                         if(type === 'nfce')
@@ -704,9 +723,10 @@
                                 
                             })
 
-                            console.log('response.dat PDVView, line 686: ', response)
+                            console.log('response.dat PDVView, line 718: ', response)
+                            const data = response.data
 
-                            if(response.data.success)
+                            if(data.success)
                             {
                                 LocalStorage.setItem("pdvID", response.data.pdvID)
                                 this.typeOperation = type
@@ -714,17 +734,63 @@
                                 this.pdvID = LocalStorage.getItem("pdvID")
 
                             } else {
-                                alert('Erro no produto', response.data)
+                                this.errorsSale(data.errors)
 
                             }
+
                         }
-                    
                     }
                     
                 } catch (error) {
                     console.error('Erro finalizeSale', error)
                     alert(error.response.data.errors)
                     this.errorMessages.push(error.response.data.errors)
+                    
+                }
+            },
+
+            chooseErrors(choose)
+            {
+                console.log('chooseErrors: ', choose)
+                if(choose === 'after')
+                {
+                    console.log('Depois')
+                    this.productsSeletion = []
+                    this.errorsOfSale.showErrosModal = false
+                } 
+
+                if(choose === 'now')
+                {
+                    console.log('agora')
+                    this.productsSeletion = []
+                    this.$router.push({ path: '/sale/list-pdv' })
+                }
+
+            },
+
+            errorsSale(errors)
+            {
+                console.log('errors', errors, ' errors.length', errors.length)
+                if (errors.length === 1) {
+                    console.log('Teve menos de 1 erro, não vai chamar o modal')
+                    
+                    const error = errors[0]
+                    if(error.produtoErroCFOP && !error.produtoErroCSOSN)
+                    {
+                        alert(error.produtoErroCFOP)
+
+                    } else if(error.produtoErroCSOSN && !error.produtoErroCFOP){
+                        alert(error.produtoErroCSOSN)
+
+                    } else {
+                        alert(`${error.produtoErroCFOP} e ${error.produtoErroCSOSN}`)
+
+                    }
+
+                } else if (errors.length > 1)
+                {
+                    this.errorsOfSale.erros = errors
+                    this.errorsOfSale.showErrosModal = true
                     
                 }
             },
@@ -951,7 +1017,8 @@
             CashClosing,
             ConfigPDV,
             ProductsSearchBar,
-            CustomerSearchBar
+            CustomerSearchBar,
+            ErrorsModal
 
         },
 

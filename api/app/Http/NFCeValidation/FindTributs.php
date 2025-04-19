@@ -8,7 +8,7 @@ class FindTributs
 {
     public function getCFOPs()
     {        
-        $file = fopen('../public/tables/cfop/table-cfop.txt', 'r');
+        $file = fopen('../public/tables/cfop/table-cfop-nfce.txt', 'r');
         
         $cfops = [];
 
