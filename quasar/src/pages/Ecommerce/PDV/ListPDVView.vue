@@ -27,12 +27,18 @@
                     @change="filterPDVs('noFinaly')"
 
                 /> <span>Não emitidas</span>-->
-                <q-btn 
-                    color="grey" 
-                    @click="openReportErros()" 
-                    class="mb-5"
+                <div class="">
+                    <q-btn 
+                        color="grey" 
+                        @click="openReportErros()" 
+                        class="mb-5"
 
-                > <span>Conferir relatórios de erros</span> </q-btn>
+                    > 
+                        <span>Conferir relatórios de erros</span> 
+                    </q-btn>
+                    <span class="relative bottom-4 right-2 bg-gray-500 p-1 rounded-xl text-white">{{ '0' }}</span>
+                </div>
+                
             </div>
             
             <table>
@@ -86,6 +92,7 @@
                     finaly: false,
                     noFinaly: false
                 },
+                countErros: 0,
                 savedPDVs: [],
                 itensPDVs: [],                
 

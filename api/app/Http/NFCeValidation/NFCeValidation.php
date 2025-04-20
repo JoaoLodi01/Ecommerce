@@ -2,12 +2,14 @@
 
 namespace App\Http\NFCeValidation;
 
+use App\Repositories\Eloquent\EcommerceEloquent\ErrosPDVRepository;
 use Illuminate\Support\Facades\Log;
 
 class NFCeValidation
 {
     public function __construct(
-        protected FindTributs $findTributs
+        protected FindTributs $findTributs,
+        protected ErrosPDVRepository $errosPDVRepository
     ){}
 
     public function validation(array $products)

@@ -1,13 +1,13 @@
 <template>
-    <div>
+    <div class="mt-4">
+        <q-btn 
+            color="primary" 
+            icon="close"
+            @click="close()" 
+        />
         <h1>Relatório de erros</h1>
     </div>
-
-    <q-btn 
-        color="primary" 
-        icon="close"
-        @click="close()" 
-    />
+    
 </template>
 
 <script>

@@ -39,6 +39,7 @@
             />
 
             <ErrorsModal
+                v-if="errorsOfSale.showErrosModal"
                 @close="chooseErrors($event)"
                 :errors="errorsOfSale.erros"
                 :class="{
@@ -110,9 +111,7 @@
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
                                 <th scope="col" class="px-6 py-3">Ações</th>
-
                         </tr>
-                    
                     </thead>
 
                     <tbody v-for="products in productsSeletion">
@@ -142,8 +141,8 @@
                                     v-model="product.csosncst"
                                     :placeholder=product.csosncst
                                     type="number"
-                                    :maxlength="maxlength(csosncst.toLowerCase)"
-                                    :minlength="maxlength(csosncst.toLowerCase)"
+                                    :maxlength="maxlength(csosncst.toLowerCase())"
+                                    :minlength="maxlength(csosncst.toLowerCase())"
                                     class="w-10 text-center border-b-4 border-b-gray-500"
                                     id="csosnInput"
                                     @input="changeCSOSN(product.id, product.csosn)"
@@ -734,7 +733,8 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                                 this.pdvID = LocalStorage.getItem("pdvID")
 
                             } else {
-                                this.errorsSale(data.errors)
+                                this.errorsOfSale.erros = data.errors
+                                this.errorsOfSale.showErrosModal = true
 
                             }
 
@@ -766,33 +766,6 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                     this.$router.push({ path: '/sale/list-pdv' })
                 }
 
-            },
-
-            errorsSale(errors)
-            {
-                console.log('errors', errors, ' errors.length', errors.length)
-                if (errors.length === 1) {
-                    console.log('Teve menos de 1 erro, não vai chamar o modal')
-                    
-                    const error = errors[0]
-                    if(error.produtoErroCFOP && !error.produtoErroCSOSN)
-                    {
-                        alert(error.produtoErroCFOP)
-
-                    } else if(error.produtoErroCSOSN && !error.produtoErroCFOP){
-                        alert(error.produtoErroCSOSN)
-
-                    } else {
-                        alert(`${error.produtoErroCFOP} e ${error.produtoErroCSOSN}`)
-
-                    }
-
-                } else if (errors.length > 1)
-                {
-                    this.errorsOfSale.erros = errors
-                    this.errorsOfSale.showErrosModal = true
-                    
-                }
             },
 
             async importSale()
