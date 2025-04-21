@@ -66,12 +66,13 @@ class PDVService
     {
         try {
             $saveSale = $this->pdvRepository->saveSale($details, $productsArray);
+            Log::info('Save sale', ['data' => $saveSale]);
             if($saveSale['success'])
             {
                 return $saveSale;
 
             }
-            
+                        
             return $saveSale;
 
         } catch (\Throwable $th) {

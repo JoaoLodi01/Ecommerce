@@ -36,7 +36,7 @@
                     > 
                         <span>Conferir relatórios de erros</span> 
                     </q-btn>
-                    <span class="relative bottom-4 right-2 bg-gray-500 p-1 rounded-xl text-white">{{ '0' }}</span>
+                    <span class="relative bottom-4 right-2 bg-gray-500 p-1 rounded-xl text-white">{{ countErros }}</span>
                 </div>
                 
             </div>
@@ -141,6 +141,12 @@
         mounted()
         {
             this.getPDVsSaved()   
+            const countErrorsFun = async () => {
+                const response = await api.get('/ecommerce/pdv/get-all-errors')
+                this.countErros = response.data.all.count
+                console.log(response.data)
+            }
+            countErrorsFun()
         },
 
         components: {

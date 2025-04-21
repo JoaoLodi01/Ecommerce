@@ -14,7 +14,7 @@
         color="white"
         text-color="blue"
         unelevated
-        to="/"
+        to="/home"
         label="Voltar para a página inicial"
         no-caps
       />

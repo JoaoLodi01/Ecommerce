@@ -110,31 +110,32 @@ class PDVRepository
     
                 );
 
-                $nfceValidationRes = $this->nfceValidation->validation($itensPDV);
-                Log::info('$nfceValidationRes = $this->nfceValidation->validation($itensPDV);');
-                Log::info($nfceValidationRes);
-
-                if($nfceValidationRes['cfopValidate'] && $nfceValidationRes['csosnValidate'])
+                if($type === 'nfce')
                 {
-                    Log::info('CFOP e CSOSN/CST válidos');
-                    
-                } else if (!$nfceValidationRes['cfopValidate'])
-                {
-                    Log::info('CFOP inválido, item: ');
-                    array_push($errors, $nfceValidationRes['errors']);
+                    $nfceValidationRes = $this->nfceValidation->validation($itensPDV);
+                    Log::info('$nfceValidationRes = $this->nfceValidation->validation($itensPDV);', ['nfceValidation' => $nfceValidationRes]);
 
-                } else if (!$nfceValidationRes['csosnValidate'])
-                {
-                    Log::info('CSOSN / CST inválido');
-                    array_push($errors, $nfceValidationRes['errors']);
+                    if($nfceValidationRes['cfopValidate'] && $nfceValidationRes['csosnValidate'])
+                    {
+                        Log::info('CFOP e CSOSN/CST válidos');
+                        
+                    } else if (!$nfceValidationRes['cfopValidate'])
+                    {
+                        Log::info('CFOP inválido, item: ');
+                        array_push($errors, $nfceValidationRes['errors']);
 
-                } else {
-                    Log::info('CFOP e CSOSN/CST inválidos');
-                    array_push($errors, $nfceValidationRes['errors']);
+                    } else if (!$nfceValidationRes['csosnValidate'])
+                    {
+                        Log::info('CSOSN / CST inválido');
+                        array_push($errors, $nfceValidationRes['errors']);
 
+                    } else {
+                        Log::info('CFOP e CSOSN/CST inválidos');
+                        array_push($errors, $nfceValidationRes['errors']);
+
+                    }
                 }
-
-                
+            
                 $ipdv = ItensPDV::create($itensPDV);
                 
             }
@@ -153,49 +154,48 @@ class PDVRepository
         
         $user = $this->userRepository->findByID($details['user_id']); // "user"
 
-        if($details['is_nfce_nm'] === 'nfce')
+                  
+        $pdvData = array(
+            'description' => $details['description'],
+            'cliente_id' => $customer->id,
+            'client' => $customer->name,
+            'gross_value' => $details['sub_total'],
+            'net_value' => $details['total'],
+            'addition' => $details['addition'],
+            'discount' => $details['discount'],
+            'user_id' => $user->id,
+            'user' => $user->name, 
+            'is_nfce_nm' => $details['is_nfce_nm']
+        );
+
+        Log::info($pdvData);
+        
+        $pdv = PDV::create($pdvData);  
+
+        if($pdv && $pdv->id)
         {            
-            $pdvData = array(
-                'description' => $details['description'],
-                'cliente_id' => $customer->id,
-                'client' => $customer->name,
-                'gross_value' => $details['sub_total'],
-                'net_value' => $details['total'],
-                'addition' => $details['addition'],
-                'discount' => $details['discount'],
-                'user_id' => $user->id,
-                'user' => $user->name, 
-                'is_nfce_nm' => $details['is_nfce_nm']
-            );
+            $iPDV = $this->saveProducts($productsArray, $pdv->id, $user, $details['is_nfce_nm']);
+            Log::info('$iPDV');
+            Log::info(count($iPDV['errors']));
 
-            Log::info($pdvData);
-            
-            $pdv = PDV::create($pdvData);  
+            if(count($iPDV['errors']) === 0)
+            {
+                return array(
+                    'success' => true,
+                    'pdvID' => $pdv->id,
 
-            if($pdv && $pdv->id)
-            {            
-                $iPDV = $this->saveProducts($productsArray, $pdv->id, $user, $details['is_nfce_nm']);
-                Log::info('$iPDV');
-                Log::info(count($iPDV['errors']));
+                );
+            } else {
+                return array(
+                    'success' => false,
+                    'message' => 'Erro no produto',
+                    'pdvID' => $pdv->id,
+                    'errors' => $iPDV['errors']
 
-                if(count($iPDV['errors']) === 0)
-                {
-                    return array(
-                        'success' => true,
-                        'pdvID' => $pdv->id,
-    
-                    );
-                } else {
-                    return array(
-                        'success' => false,
-                        'message' => 'Erro no produto',
-                        'pdvID' => $pdv->id,
-                        'errors' => $iPDV['errors']
-    
-                    );
-                }   
-            }
+                );
+            }   
         }
+        
     }
 
     public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total)
@@ -271,5 +271,12 @@ class PDVRepository
             );
 
         }
+    }
+
+    public function incrementNFCe(int $id)
+    {
+        $lastPDV = PDV::where('id', $id)->latest('id')->first();
+        
+
     }
 }
