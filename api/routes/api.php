@@ -40,6 +40,8 @@ Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
+        Route::post('');
+
         Route::get('/me', function (Request $request) {
             return response()->json([
                 'success' => $request->header('Authorization') ? true : false,
@@ -102,6 +104,7 @@ Route::prefix('v1')->group( function (){
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
                 Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
 
+                Route::put('');
             });
         
             Route::prefix('payments')->group( function(){
