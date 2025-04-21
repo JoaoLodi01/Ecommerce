@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pdvs', function (Blueprint $table) {
             $table->id();
             $table->string('description', 120);
+            $table->integer('n_nfce', false)->nullable();
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('client', 120);

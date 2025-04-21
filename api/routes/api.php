@@ -3,6 +3,7 @@
 use App\Http\Controllers\EcommerceController\{
     ProductsController,
     CashRegisterController,
+    ErrorsPDVController,
     UserController,
     PDVController,
     PaymentsController,
@@ -104,7 +105,8 @@ Route::prefix('v1')->group( function (){
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
                 Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
 
-                Route::put('');
+                Route::get('/get-all-errors', [ErrorsPDVController::class, 'all']);
+
             });
         
             Route::prefix('payments')->group( function(){

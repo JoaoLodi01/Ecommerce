@@ -10,6 +10,7 @@ class PDV extends Model
 
     protected $fillable = [
         'description',
+        'n_nfce',
         'cliente_id',
         'client',
         'gross_value',

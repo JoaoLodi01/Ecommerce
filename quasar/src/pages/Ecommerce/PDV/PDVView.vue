@@ -703,6 +703,7 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                         
                             if(!data.success)
                             {
+                                console.log(response.data) 
                                 alert(response.data)
                             }
                         } 

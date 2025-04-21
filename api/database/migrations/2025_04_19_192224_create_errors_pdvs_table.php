@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('errors_pdvs', function (Blueprint $table) {
             $table->id();
             $table->string('title', 120);
-            $table->string('incorret_cfop', 4)->nullable();
-            $table->string('incorret_csosn_cst', 3)->nullable();
+            $table->string('incorret_cfop', 100)->nullable();
+            $table->string('incorret_csosn_cst', 100)->nullable();
             $table->boolean('completed', 1)->default(0);
             $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
             $table->unsignedBigInteger('pdv_id');

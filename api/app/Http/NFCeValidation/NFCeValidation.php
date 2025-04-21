@@ -2,14 +2,14 @@
 
 namespace App\Http\NFCeValidation;
 
-use App\Repositories\Eloquent\EcommerceEloquent\ErrosPDVRepository;
+use App\Repositories\Eloquent\EcommerceEloquent\ErrorsPDVRepository;
 use Illuminate\Support\Facades\Log;
 
 class NFCeValidation
 {
     public function __construct(
         protected FindTributs $findTributs,
-        protected ErrosPDVRepository $errosPDVRepository
+        protected ErrorsPDVRepository $errorsPDVRepository
     ){}
 
     public function validation(array $products)
@@ -18,7 +18,7 @@ class NFCeValidation
         Log::info('Produtos NFCeValidation');
         Log::info($products);
 
-        $erros = [];
+        $errors = [];
         $productCFOP = $products['cfop'];
         $productCSON = $products['csosn'];
         
@@ -31,21 +31,27 @@ class NFCeValidation
 
         if(!$cfopValidate)
         {
-            $erros['produtoErroCFOP'] = "Produto: {$products['product']} com CFOP incorreto: {$products['cfop']}|ID:[{$products['product_id']}]";
+            $errors['produtoErroCFOP'] = "Produto: {$products['product']} com CFOP incorreto: {$products['cfop']}[{$products['product_id']}]";
 
         }
         
         if(!$csosnValidate)
         {
-            $erros['produtoErroCSOSN'] = "Produto: {$products['product']} com CSOSN/CST incorreto: {$products['csosn']}|ID:[{$products['product_id']}]";
+            $errors['produtoErroCSOSN'] = "Produto: {$products['product']} com CSOSN/CST incorreto: {$products['csosn']}[{$products['product_id']}]";
             
         }
 
-        Log::info('Quantia de erros: ' . count($erros));
+        if(count($errors) >= 1)
+        {
+            Log::info('Vai criar registro de erro');
+            $this->errorsPDVRepository->create($errors, $products['pdv_id']);
+        }
+
+        Log::info('Quantia de errors: ' . count($errors));
         return array(
             'cfopValidate' => $cfopValidate,
             'csosnValidate' => $csosnValidate,
-            'errors' => $erros
+            'errors' => $errors
 
         );
     }
