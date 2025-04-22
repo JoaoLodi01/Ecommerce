@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto mt-12 p-6 ml-12">
+    <div class="container mx-auto mt-12 p-6 ml-16 bg-white rounded-xl shadow">
 
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>

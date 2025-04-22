@@ -1012,3 +1012,4 @@
 [2025-04-22 20:26:28] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
 [2025-04-22 20:26:29] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
 [2025-04-22 20:40:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-22 20:44:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
