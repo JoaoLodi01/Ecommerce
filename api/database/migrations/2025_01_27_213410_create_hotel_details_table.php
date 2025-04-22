@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('email', 170)->unique();
             $table->string('cep', 8)->unique();
             $table->string('address', 120);
-            $table->integer('number', false, 20);
-            $table->integer('number_of_rooms', false, 20);
-            $table->integer('number_of_employees', false, 20);
+            $table->integer('number', false, 20)->nullable();
+            $table->integer('number_of_rooms', false, 20)->nullable();
+            $table->integer('number_of_employees', false, 20)->nullable();
             $table->integer('cod_cnae', false, 1);
             $table->string('cnae', 7);
             $table->integer('cod_crt', false, 1);

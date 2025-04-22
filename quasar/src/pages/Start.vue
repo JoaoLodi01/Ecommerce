@@ -7,7 +7,7 @@
         
         <div>
             <div class="flex">
-                <CompleteOrNo :label="completeIssuer" class="mt-0.5"/><router-link to=''>Cadastrar seu emitente</router-link>
+                <CompleteOrNo :label="completeIssuer" class="mt-0.5"/><router-link to='/register-issuer'>Cadastrar seu emitente</router-link>
                 
             </div>
 

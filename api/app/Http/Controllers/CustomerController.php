@@ -21,7 +21,7 @@ class CustomerController extends Controller
 
     public function getAll(){
         return $this->customerService->getAll();
-        
+   
     }
 
     public function search(SearchCustomer $request){
