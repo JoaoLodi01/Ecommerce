@@ -28,6 +28,7 @@ return new class extends Migration
             $table->boolean('finished', 1)->default(0);
             $table->boolean('canceled', 1)->default(0);
             $table->string('is_nfce_nm', 4)->nullable();
+            $table->string('status')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
