@@ -233,11 +233,11 @@ class PayMentMethodService
 
     public function decreaseCash(object $customer, float $value, string $description, string $origem)
     {
-        Log::info('-- Inicio decreaseCash linha 194 --');
+        Log::info('-- Inicio decreaseCash --');
         Log::info('Memória usada PayMentMethodService::class, decreaseCash: ' . memory_get_usage(true));
         $currentDate = new Carbon();
         $cashRegisters = [];
-        $cashRegisters[] = array(
+        $cashRegisters[] = [
             'description' => $description,
             'document' => 1,
             'customer_id' => $customer->id,
@@ -251,17 +251,16 @@ class PayMentMethodService
             'user_id' => 1,
             'seller' => 'aa',
             'origem' => $origem
-        
-        );  
+        ];  
+
         Log::info('Corpo: ');
         Log::info($cashRegisters);    
-        Log::info('-- Vai chamar o cashRegisterRepository linha 214 -- ');
+        Log::info('-- Vai chamar o cashRegisterRepository -- ');
         $this->cashRegisterRepository->create($cashRegisters);
-        Log::info('-- Fim decreaseCash linha 264 --');
+        Log::info('-- Fim decreaseCash --');
         return array(
             'line' => 266,
             'success' => true
-
         );  
     }
 }

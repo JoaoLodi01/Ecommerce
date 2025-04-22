@@ -92,6 +92,7 @@ class PDVService
             $forms = [];
 
             foreach ($paymentsValues as $value) {
+                Log::info('Dentro d');
                 $total += (float) $value;
 
             }

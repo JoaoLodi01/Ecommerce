@@ -22,8 +22,25 @@
                     label="Atualizar receber"
 
                 />
-
             </div>
+        </div>
+
+        <div class="filterDate flex justify-start mb-6">
+            <q-input
+                class="mr-10"
+                type="date"
+                @keydown="dateSearch()"
+                v-model="startDate"
+                label="Data Inicial"
+            />
+
+            <q-input
+                class=""
+                @keydown="dateSearch()"
+                type="date"
+                v-model="endDate"
+                label="Data Final"
+            />
         </div>
 
         <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">

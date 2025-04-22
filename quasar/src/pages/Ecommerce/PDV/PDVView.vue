@@ -581,7 +581,8 @@
                                     addition: this.calculateTotal.addition,
                                     discount: this.calculateTotal.discount,
                                     description: 'Venda guardada',
-                                    is_nfce_nm: null
+                                    is_nfce_nm: null,
+                                    status: 'Em Aberto'
                                     
                                 })
 
@@ -691,6 +692,7 @@
                                 discount: this.calculateTotal.discount,
                                 description: 'Venda Nota Manual N°',
                                 is_nfce_nm: type,
+                                status: 'Finalizada'
                                 
                             })
                             const data = response.data
@@ -722,7 +724,8 @@
                                 addition: this.calculateTotal.addition,
                                 discount: this.calculateTotal.discount,
                                 description: 'Venda NFC-e N°',
-                                is_nfce_nm: type
+                                is_nfce_nm: type,
+                                status: 'Finalizada'
                                 
                             })
 
