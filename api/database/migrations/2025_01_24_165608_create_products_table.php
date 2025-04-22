@@ -11,8 +11,8 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('product', 120);
-            $table->string('barcode', 14);
-            $table->string('barcode_internal', 16);
+            $table->string('barcode', 14)->unique();
+            $table->string('barcode_internal', 16)->unique();
             $table->binary('image')->nullable();
             $table->unsignedBigInteger('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');

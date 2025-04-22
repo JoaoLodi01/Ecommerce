@@ -1,11 +1,12 @@
 <template>
-    <div
-        class="flex borderborder-black mt-2 w-max ml-14" 
-
-    >
-        <div class="">
-            <h1>Listagem PDV <span class="text-sm">(NFC-e/Nota Manual)</span></h1>
-            <div class="">
+    <div class="container mx-auto mt-12 p-6 ml-12">
+        
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-semibold">Listagem PDV
+                <span class="text-sm">(NFC-e/Nota Manual)</span>
+            </h1>
+            <div class="flx space-x-4">
+                <!--
                 <input
                     type="checkbox"
                     v-model="searchFill.all"
@@ -25,7 +26,19 @@
                     v-model="searchFill.noFinaly"
                     @change="filterPDVs('noFinaly')"
 
-                /> <span>Não emitidas</span>
+                /> <span>Não emitidas</span>-->
+                <div class="">
+                    <q-btn 
+                        color="grey" 
+                        @click="openReportErros()" 
+                        class="mb-5"
+
+                    > 
+                        <span>Conferir relatórios de erros</span> 
+                    </q-btn>
+                    <span class="relative bottom-4 right-2 bg-gray-500 p-1 rounded-xl text-white">{{ countErros }}</span>
+                </div>
+                
             </div>
             
             <table>
@@ -52,23 +65,34 @@
                     </tr>
                 </tbody>
             </table>
+
         </div>        
+        <div class="" v-if="showReportPDV">
+            <ReportErros
+                @close="closeReportErros($event)"
+            />
+        </div>
     </div>
+    
 </template>
 
 <script>
     import { api } from "src/boot/axios";
-    import { toRaw } from 'vue';
+    import ReportErros from "src/components/PDV/Errors/ReportErros.vue";
     
     export default {
         data()
         {
             return {
+                showReportPDV: false,
+                showListPDV: true,
+
                 searchFill: {
                     all: true,
                     finaly: false,
                     noFinaly: false
                 },
+                countErros: 0,
                 savedPDVs: [],
                 itensPDVs: [],                
 
@@ -93,22 +117,6 @@
                 }
             },
             
-            filterPDVs(key) // true || false
-            {   
-                const fillters = toRaw(this.searchFill)
-                const marked = [fillters]
-
-                marked.forEach(element => {
-                    Object.entries(element).forEach(([keyO, value]) => {
-                        console.log('Chave:', keyO !== key, ':', value)
-
-                    })
-                    
-                });
-  
-                console.log()
-            },
-        
             openPDV(pdv)
             {
                 this.$router.push({
@@ -116,12 +124,33 @@
                     params: { idPDV: pdv.id, },
                     state: { isOpenedPDV: true }
                 })
+            },
+
+            openReportErros()
+            {
+                this.showReportPDV = true
+                this.showListPDV = false
+            },
+            closeReportErros(event)
+            {
+                this.showReportPDV = event
+                this.showListPDV = !event
             }
         },
 
         mounted()
         {
             this.getPDVsSaved()   
+            const countErrorsFun = async () => {
+                const response = await api.get('/ecommerce/pdv/get-all-errors')
+                this.countErros = response.data.all.count
+                console.log(response.data)
+            }
+            countErrorsFun()
+        },
+
+        components: {
+            ReportErros
         }
     }
 </script>
