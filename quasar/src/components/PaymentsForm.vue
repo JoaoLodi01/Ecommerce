@@ -29,12 +29,14 @@
                         <q-item-section side>
                             <q-input
                                 v-model="paymentsValues[i]"
-                                type="text"
                                 input-class="text-right"
                                 dense
                                 outlined
                                 placeholder="0,00"
                                 class="w-24"
+                                mask="##,##"
+                                fill-mask="0"
+                                reverse-fill-mask
                             />
                         </q-item-section>
                 </q-item>
@@ -210,7 +212,8 @@ export default {
         calculateValueInformed()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value.replace(/\D/, '')) || 0;
+                
+                const num = parseFloat(value.replace(',', '.')) || 0;
                 return sum + num
             }, 0);
 
@@ -222,7 +225,7 @@ export default {
         calculateValueChange()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value.replace(/\D/, '')) || 0;
+                const num = parseFloat(value.replace(',', '.')) || 0;
                 return num + sum 
             }, 0);
 

@@ -92,7 +92,7 @@ class PDVService
             $forms = [];
 
             foreach ($paymentsValues as $value) {
-                $total += $value;
+                $total += (float) $value;
 
             }
             for ($i=0; $i < count($paymentsValues); $i++) { 
