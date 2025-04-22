@@ -156,8 +156,7 @@ Route::prefix('v1')->group( function (){
 
         // User routes
         Route::prefix('users')->group( function(){
-            //Route::get('/all', [UserController::class, 'getAll']);
-            Route::get('/selectSeller', [UserController::class, 'selectSeller']);
+            Route::get('/all', [UserController::class, 'getAll']);
             Route::post('/create', [UserController::class, 'create']);
             Route::get('/{id}', [UserController::class, 'findByID']);
             Route::put('/{id}', [UserController::class, 'update']);

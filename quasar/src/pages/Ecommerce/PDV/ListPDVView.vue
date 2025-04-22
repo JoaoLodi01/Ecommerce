@@ -1,11 +1,11 @@
 <template>
-    <div
-        class="flex borderborder-black mt-2 w-max ml-14" 
+    <div class="container mx-auto mt-12 p-6 ml-12">
         
-    >
-        <div class="p-2 ml-4" v-if="showListPDV">
-            <h1 class="text-xl">Listagem PDV <span class="text-sm">(NFC-e/Nota Manual)</span></h1>
-            <div class="">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-semibold">Listagem PDV
+                <span class="text-sm">(NFC-e/Nota Manual)</span>
+            </h1>
+            <div class="flx space-x-4">
                 <!--
                 <input
                     type="checkbox"
@@ -124,6 +124,8 @@
                     params: { idPDV: pdv.id, },
                     state: { isOpenedPDV: true }
                 })
+                
+
             },
 
             openReportErros()
@@ -147,6 +149,7 @@
                 console.log(response.data)
             }
             countErrorsFun()
+
         },
 
         components: {

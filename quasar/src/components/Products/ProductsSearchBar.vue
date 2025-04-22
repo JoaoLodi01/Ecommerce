@@ -3,13 +3,8 @@
         v-model="search.name"
         @input="getProducts()"
         placeholder="Buscar..." 
-        class="border border-black outline-none rounded-md mt-1 mb-1 p-1"
-        :class="{
-            'w-96': witdhScreen > 1080,
-            'w-40': witdhScreen <= 1080,
-        }"
-
-        maxlength="16"
+        class="outline-none rounded-md mt-1 mb-1 p-1.5"
+        id="searchBar"
         :disabled="!configs.fillter"
     />
     
@@ -129,3 +124,10 @@
         }
     }
 </script>
+
+<style>
+    #searchBar{ 
+        width: 100vh;
+    }
+
+</style>

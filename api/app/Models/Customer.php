@@ -25,7 +25,9 @@ class Customer extends Model
         'email',
         'phone',
         'active',
-        'type',
+        'is_customer',
+        'is_driver',
+        'is_supplier',
     ];
 
     public function joinCredit()

@@ -29,7 +29,7 @@ class FindTributs
 
         return $cfops;
     }
-
+    
     public function getCSOSNCST(string $csosncst)
     {
         $file = fopen('../public/tables/csosncst/table-' . count(str_split($csosncst)) . '.txt', 'r');

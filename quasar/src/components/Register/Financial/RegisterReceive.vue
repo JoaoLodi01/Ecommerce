@@ -23,11 +23,8 @@
         color="grey-7"
       />
 
-      <q-input
-        type="text"
-        v-model="form.name"
-        label="Cliente"
-        color="grey-7"
+      <CustomerSearchBar
+        @updated:selectCustomer="getCustumer($event)"
       />
 
       <q-input
@@ -131,6 +128,8 @@
 <script>
   import { api } from "boot/axios"
   import {LocalStorage} from "quasar";
+  import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+
   export default {
     props: {
       widthScreen: {
@@ -178,7 +177,14 @@
           this.$emit('close', false)
         },
 
+        getCustumer(event){
+          console.log('Chamou o getCustumer')
+          console.log(event)
+          this.form.name = event.name
+        },
+
         async submitForm() {
+          console.log(this.form)
             try {
                 const response = await api.post(`${this.api}`, this.form); // Lembrar de criar rota e inserir aqui
                 this.onReset();
@@ -187,6 +193,10 @@
                 alert("Ocorreu um erro ao cadastrar o registro")
             }
         },
+    },
+
+    components:{
+      CustomerSearchBar
     },
     
     emits:[

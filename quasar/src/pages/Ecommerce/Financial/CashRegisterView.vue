@@ -56,12 +56,15 @@
                     <tr class="border border-b-black" v-for="(register, id) in cashs" :key="id">
                         <td
                             scope="row"
-                            class="px-6 py-3 sticky right-0 bg-gray-200"
-                            :class="{
-                                'text-green-500 bg-green-200': register.input_value > 0,
-                                'text-red-500 bg-red-200': register.input_value < 1,
+                            class="px-6 py-3 sticky right-0"
+                        >
+                            <span class='p-4 rounded-xl' :class="{
+                                'bg-green-200': register.input_value > 0,
+                                'bg-red-200': register.input_value < 1,
                             }">
-                            {{ register.input_value > 0 ? 'Entrada' : 'Saída'}}
+                                {{ register.input_value > 0 ? 'Entrada' : 'Saída'}}
+
+                            </span>
                         </td>
                         <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
                         <td scope="row" class="px-6 py-3 text-center">{{ register.document }}</td>

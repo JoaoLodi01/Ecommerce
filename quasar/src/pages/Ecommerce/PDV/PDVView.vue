@@ -4,7 +4,7 @@
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'flex ml-24': witdhScreen > 1080 && witdhScreen >= 1472,
+            'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
             'relative left-10': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
@@ -102,15 +102,15 @@
             >
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
-                            <tr class="bg-white">
-                                <th scope="col" class="px-6 py-3">Cód.</th>
-                                <th scope="col" class="px-6 py-3 text-left">Produto</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
-                                <th scope="col" class="px-6 py-3">Ações</th>
+                        <tr class="bg-white">
+                            <th scope="col" class="px-6 py-3">Cód.</th>
+                            <th scope="col" class="px-6 py-3 text-left">Produto</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
+                            <th scope="col" class="px-6 py-3">Ações</th>
                         </tr>
                     </thead>
 
@@ -372,31 +372,31 @@
                         class="flex text-white p-1 rounded-lg border border-gray-700 w-full"
                     
                     >
-                    
-                    <q-btn 
-                        class="ml-5" 
-                        outline 
-                        size="1.2rem"
-                    >
-                        <button
-                            v-if="configs.nmFinaly"
-                            :class="{
-                                'ml-8': witdhScreen > 1080 && witdhScreen <= 1920
-                            }" 
-                            @click="finalizeSale('nm')"
-                            class="mr-1 ml-2 p-1 bg-slate-600 rounded-md"
+                        <q-btn 
+                            class="ml-5" 
+                            outline 
+                            size="1.2rem"
                         >
-                            Finalizar
-                        </button>
-                    </q-btn>
-                    <q-btn 
-                        class="ml-5" 
-                        outline 
-                        size="1.2rem"
-                    >
-                        <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
-
-                    </q-btn>
+                            <button
+                                v-if="configs.nmFinaly"
+                                :class="{
+                                    'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
+                                }" 
+                                @click="finalizeSale('nm')"
+                                class="mr-1 ml-2 p-1 bg-slate-600 rounded-md"
+                            >
+                                Finalizar
+                            </button>
+                        </q-btn>
+                        <q-btn 
+                            class="ml-5" 
+                            outline 
+                            size="1.2rem"
+                        >
+                            <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
+    
+                        </q-btn>
+                        
                     </div>
 
                 </div>
@@ -433,7 +433,7 @@
     import { api } from "boot/axios"
     import { onBeforeUnmount, toRaw } from 'vue'   
     import { useQuasar, LocalStorage } from 'quasar';
-import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
+    import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     
     export default{
         setup(){
@@ -470,7 +470,6 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                     showErrosModal: false,
                     erros: []
                 },
-                
             
                 emitProducts: {
                     addition: 0,
@@ -582,7 +581,8 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                                     addition: this.calculateTotal.addition,
                                     discount: this.calculateTotal.discount,
                                     description: 'Venda guardada',
-                                    is_nfce_nm: null
+                                    is_nfce_nm: null,
+                                    status: 'Em Aberto'
                                     
                                 })
 
@@ -651,9 +651,12 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
             {
                 this.showLoading()
                 try {
-                    if(this.clientsData.id && this.sellerData.id)
+                    if(this.sellerData.id)
                     {
                         this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.freight + this.calculateTotal.addition - this.calculateTotal.discount
+                        
+                    } else {
+                        console.log('Não deu, this.clientsData.id: ', this.clientsData.id, ' this.sellerData.id:', this.sellerData.id)
                     }
 
                     if(this.idPDV)
@@ -676,6 +679,7 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                     
                     } else {
                         console.log('Finalizar venda')
+                        console.log('Total', this.totalOperation)
                         if(type === 'nm')   
                         { 
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
@@ -688,6 +692,7 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                                 discount: this.calculateTotal.discount,
                                 description: 'Venda Nota Manual N°',
                                 is_nfce_nm: type,
+                                status: 'Finalizada'
                                 
                             })
                             const data = response.data
@@ -719,7 +724,8 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                                 addition: this.calculateTotal.addition,
                                 discount: this.calculateTotal.discount,
                                 description: 'Venda NFC-e N°',
-                                is_nfce_nm: type
+                                is_nfce_nm: type,
+                                status: 'Finalizada'
                                 
                             })
 
@@ -1035,7 +1041,6 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                 
             }
 
-            console.log('pdvID pelo LocalStorage', LocalStorage.getItem("pdvID"))
         }
       }
 </script>
@@ -1053,6 +1058,11 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     }
     
     @media (max-width: 1366px) {
+        #pdv-view {
+            margin-left: 5rem; 
+            
+        }
+        
         .payMentForm{
             position: absolute;
             left: 90rem;
@@ -1060,19 +1070,19 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     }
 
     @media (max-width: 1080px) {
+        #pdv-view {
+            margin-left: 5rem;   
+            
+        }
+
         * {
             position: relative;
-
+            
         }
         
         .payMentForm{
             position: absolute;
             left: 90rem;
-        }
-
-        body{
-            display: flex;
-            margin-right: 100px;
         }
         
     }
