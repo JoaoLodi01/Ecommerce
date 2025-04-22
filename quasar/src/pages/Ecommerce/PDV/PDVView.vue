@@ -4,7 +4,7 @@
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'flex ml-24': witdhScreen > 1080 && witdhScreen >= 1472,
+            'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
             'relative left-10': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
@@ -433,7 +433,7 @@
     import { api } from "boot/axios"
     import { onBeforeUnmount, toRaw } from 'vue'   
     import { useQuasar, LocalStorage } from 'quasar';
-import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
+    import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     
     export default{
         setup(){
@@ -470,7 +470,6 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                     showErrosModal: false,
                     erros: []
                 },
-                
             
                 emitProducts: {
                     addition: 0,
@@ -582,7 +581,8 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                                     addition: this.calculateTotal.addition,
                                     discount: this.calculateTotal.discount,
                                     description: 'Venda guardada',
-                                    is_nfce_nm: null
+                                    is_nfce_nm: null,
+                                    status: 'Em Aberto'
                                     
                                 })
 
@@ -651,9 +651,12 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
             {
                 this.showLoading()
                 try {
-                    if(this.clientsData.id && this.sellerData.id)
+                    if(this.sellerData.id)
                     {
                         this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.freight + this.calculateTotal.addition - this.calculateTotal.discount
+                        
+                    } else {
+                        console.log('Não deu, this.clientsData.id: ', this.clientsData.id, ' this.sellerData.id:', this.sellerData.id)
                     }
 
                     if(this.idPDV)
@@ -676,6 +679,7 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                     
                     } else {
                         console.log('Finalizar venda')
+                        console.log('Total', this.totalOperation)
                         if(type === 'nm')   
                         { 
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
@@ -688,6 +692,7 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                                 discount: this.calculateTotal.discount,
                                 description: 'Venda Nota Manual N°',
                                 is_nfce_nm: type,
+                                status: 'Finalizada'
                                 
                             })
                             const data = response.data
@@ -719,7 +724,8 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
                                 addition: this.calculateTotal.addition,
                                 discount: this.calculateTotal.discount,
                                 description: 'Venda NFC-e N°',
-                                is_nfce_nm: type
+                                is_nfce_nm: type,
+                                status: 'Finalizada'
                                 
                             })
 
@@ -1053,6 +1059,11 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     }
     
     @media (max-width: 1366px) {
+        #pdv-view {
+            margin-left: 5rem; 
+            
+        }
+        
         .payMentForm{
             position: absolute;
             left: 90rem;
@@ -1060,19 +1071,19 @@ import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     }
 
     @media (max-width: 1080px) {
+        #pdv-view {
+            margin-left: 5rem;   
+            
+        }
+
         * {
             position: relative;
-
+            
         }
         
         .payMentForm{
             position: absolute;
             left: 90rem;
-        }
-
-        body{
-            display: flex;
-            margin-right: 100px;
         }
         
     }

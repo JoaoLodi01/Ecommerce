@@ -22,6 +22,7 @@ class PDV extends Model
         'finished',
         'canceled',
         'is_nfce_nm',
+        'status'
     ];
 
     protected $hidden = [
