@@ -11,15 +11,15 @@
     "dev": "quasar dev",
     "build": "quasar build",
     "postinstall": "quasar prepare"
-    
   },
   "dependencies": {
-    "axios": "^1.2.1",
     "@quasar/extras": "^1.16.4",
+    "axios": "^1.2.1",
+    "dayjs": "^1.11.13",
     "quasar": "^2.16.0",
+    "tailwindcss": "^3",
     "vue": "^3.4.18",
-    "vue-router": "^4.0.0",
-    "tailwindcss": "^3"
+    "vue-router": "^4.0.0"
   },
   "devDependencies": {
     "@quasar/app-vite": "^2.1.0",

@@ -2,7 +2,7 @@
     <div class="container mx-auto mt-12 p-6 ml-12">
 
         <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-semibold">Receber</h2>
+            <h1 class="text-2xl font-semibold">Receber</h1>
             <div class="flex space-x-4">
                 <q-btn class="bg-slate-600 text-white p-2 rounded-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
@@ -25,9 +25,9 @@
             </div>
         </div>
 
-        <div class="filterDate flex justify-start mb-6">
+        <div class="filterDate flex justify-start mb-6 p-4 border border-gray-300 rounded-lg w-max">
             <q-input
-                class="mr-10"
+                class="mr-10 cursor-text"
                 type="date"
                 @keydown="dateSearch()"
                 v-model="startDate"
@@ -35,11 +35,17 @@
             />
 
             <q-input
-                class=""
+                class="cursor-pointer"
                 @keydown="dateSearch()"
                 type="date"
                 v-model="endDate"
                 label="Data Final"
+            />
+
+            <q-btn
+                class="bg-slate-600 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                label="Filtrar"
+                @click="dateSearch()"
             />
         </div>
 
@@ -74,7 +80,7 @@
                         <td class="px-6 py-3 text-center">{{ register.installment_value }}</td>
                         <td class="px-6 py-3 text-center">{{ register.name }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.especie }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.especie.toUpperCase() }}</td>
                         <td class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3">
                             <q-btn @click="editRegister(register)" class="">
@@ -106,6 +112,9 @@
     import { useQuasar } from "quasar";
     import { onBeforeUnmount } from "vue";
     import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
+    import dayjs from 'dayjs';
+    import isBetween from 'dayjs/plugin/isBetween';
+    dayjs.extend(isBetween);
 
     export default {
         setup(){
@@ -135,12 +144,17 @@
         },
 
         data(){
+            const today = dayjs();
+
             return{
                 cash:{
                     description: "",
                     valor_entrada: "",
                     valor_saida: "",
                 },
+                startDate: today.startOf('month').format('YYYY-MM-DD'),
+                endDate: today.endOf('month').format('YYYY-MM-DD'),
+                filteredCashs: [],
                 cashs: [],
                 withScreen: 0,
                 showReceiveClosing: false,
@@ -153,10 +167,21 @@
                 try {
                     const response = await api.get('/ecommerce/cash-register/all/receive')
                     this.cashs = response.data.data
+                    this.dateSearch()
                     console.log('response.data.data', response.data.data)
                 } catch (error) {
                     console.error("Erro ao buscar registros:", error)
 
+                }
+            },
+
+            dateSearch(){
+                if(this.startDate || this.endDate){
+                    this.filteredCashs = this.cashs.filter(register => {
+                        const registerDate = dayjs(register.created_at);
+                        return registerDate.isBetween(this.startDate, this.endDate, null, '[]')
+                    });
+                    this.cashs = this.filteredCashs;
                 }
             },
             
@@ -175,7 +200,7 @@
         mounted(){
             this.getRegister()
             this.withScreen += screen.width
-
+            
         }
     };
 
