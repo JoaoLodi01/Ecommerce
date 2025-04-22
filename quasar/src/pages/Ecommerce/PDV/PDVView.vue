@@ -1,10 +1,10 @@
 <template>
     <div
-        class="w-max mx-auto border border-black rounded-lg mt-10" 
+        class="w-max mx-auto border border-black rounded-lg mt-9" 
         id="pdv-view"
         v-if="showGrid"
         :class="{
-            'flex ml-14': witdhScreen > 1080 && witdhScreen >= 1472,
+            'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
             'relative left-10': witdhScreen <= 1080,
             
             'text-xl': textSize === 4,
@@ -36,7 +36,7 @@
 
         </div>
         
-        <div class="products-grid relative overflow-x-auto overflow-y-auto">
+        <div class="products-grid">
             <div 
                 class="m-3 border border-black"
                 :class="{
@@ -79,8 +79,8 @@
                 </div>
 
             </div>
-
-            <div class="m-5 shadow-lg">                
+ 
+            <div class="products-grid m-5 shadow-lg relative overflow-y-auto">                
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
                             <tr class="bg-white">
@@ -257,6 +257,15 @@
 
                             />
                             <!-- COMPONENTE BUSCA DE CLIENTE -->                            
+                        </div>
+
+                        <div class="p-4 ">
+                            <img 
+                                src="https://imgs.search.brave.com/nJmykNUP9XwPUajqhDgGwIOVJBgf1x5N3Fi6go7pp04/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sbmNp/bWcubGFuY2UuY29t/LmJyL2Nkbi1jZ2kv/aW1hZ2Uvd2lkdGg9/ODUwLHF1YWxpdHk9/NzUsZm9ybWF0PXdl/YnAvdXBsb2Fkcy8y/MDI0LzA5L2VzY3Vk/by1wYWxtZWlyYXMu/anBn" 
+                                class="rounded-lg"
+                                height="420px"
+                                width="420px"
+                            />
                         </div>
                     <div
                         class="m-2 p-2 rounded-lg border border-gray-700" 
@@ -540,7 +549,7 @@
                         {
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 products: this.productsSeletion, // Produtos da 
-                                user_id: this.emitProducts.userID,
+                                user_id: this.sellerData.id,
                                 customer_id: this.clientsData.id,
                                 sub_total: this.calculateTotal.subtotal,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
@@ -556,6 +565,8 @@
                                 alert('Venda guardarda para enviar posteriormente!')
                                 this.productsSeletion = []
 
+                            } else {
+                                console.log(response.data)
                             }
 
                         } else {
@@ -977,10 +988,6 @@
     }
     
     @media (max-width: 1366px) {
-        .products-grid {
-            height: 36rem;
-        }
-
         .payMentForm{
             position: absolute;
             left: 90rem;
@@ -998,28 +1005,20 @@
             left: 90rem;
         }
 
-        .products-grid {
-            height: 26rem;
-        }
-
         body{
             display: flex;
             margin-right: 100px;
         }
 
-        #pdv-view{
-            left: 0;
-            right: 100px;
-        }
+        
+    }
+
+    #pdv-view .products-grid{
+        height: 78vh;
     }
 
     #pdv-view{
-        height: 100%;
-
-    }
-
-    #pdv-view .payMentForm{
-        left: 50rem;
+        height: 89vh;
     }
 
 </style>

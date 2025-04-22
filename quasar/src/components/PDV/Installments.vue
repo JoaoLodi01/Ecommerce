@@ -124,9 +124,12 @@
             }
         },
         props: {
-            show: Boolean,
-            totalAmount: Number
-            },
+            totalAmount: {
+                type: Number,
+                required: true
+            }
+
+        },
 
         emits: ['update:show', 'installmentsGenerated'],
         
@@ -155,9 +158,19 @@
                 this.generatedInstallments = true;
             },
             
-            saveInstallments() {
-                this.$emit('installments-saved', this.installments);
-                this.$emit('update:show', false);
+            async saveInstallments() {
+                let success = false;
+                while(this.installmentCount !== 0)
+                {
+                    this.installmentCount--
+                    const response = await api.post('', )
+
+                    if(success === true)
+                    {
+                        this.$emit('installments-saved', this.installments);
+                        this.$emit('update:show', false);   
+                    }
+                }
             },
 
             removeInstallment(index) {

@@ -310,6 +310,7 @@ export default {
                             installments: this.installments
 
                         })
+                        console.log(response_nfce);
 
                         if(response_nfce.data.success === true)
                         {
@@ -328,7 +329,7 @@ export default {
                             installments: this.installments
 
                         })
-                        
+                        console.log(response_nm);
                         if(response_nm.data.success === true)
                         {
                             this.cancelOperation()
