@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="relative overflow-x-auto ml-16 border w-max text-xl p-5"
+        class="relative overflow-x-auto ml-16 mt-5 border w-max text-xl p-5"
         :class="{
             'w-screen top-10 right-12': witdhScreen <= 1080
         }"    

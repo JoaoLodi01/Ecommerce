@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\Eloquent\CustomerRepository;
+use Illuminate\Support\Facades\Log;
 
 class CustomerService
 {
@@ -29,17 +30,12 @@ class CustomerService
     }
 
     public function create(array $data){
-        try {
-            $customer = $this->customerRepository->create($data);
-            return response()->json([
-                'success' => true,
-                'customer' => $customer
-                
-            ], 201);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        $customer = $this->customerRepository->create($data);
+        return response()->json([
+            'success' => true,
+            'customer' => $customer
+            
+        ], 201);
     }
 
     public function update(array $data, int $id){
