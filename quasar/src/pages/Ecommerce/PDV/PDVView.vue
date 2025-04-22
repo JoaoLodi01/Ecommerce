@@ -102,15 +102,15 @@
             >
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
-                            <tr class="bg-white">
-                                <th scope="col" class="px-6 py-3">Cód.</th>
-                                <th scope="col" class="px-6 py-3 text-left">Produto</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
-                                <th scope="col" class="px-6 py-3">Ações</th>
+                        <tr class="bg-white">
+                            <th scope="col" class="px-6 py-3">Cód.</th>
+                            <th scope="col" class="px-6 py-3 text-left">Produto</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
+                            <th scope="col" class="px-6 py-3">Ações</th>
                         </tr>
                     </thead>
 
@@ -372,31 +372,31 @@
                         class="flex text-white p-1 rounded-lg border border-gray-700 w-full"
                     
                     >
-                    
-                    <q-btn 
-                        class="ml-5" 
-                        outline 
-                        size="1.2rem"
-                    >
-                        <button
-                            v-if="configs.nmFinaly"
-                            :class="{
-                                'ml-8': witdhScreen > 1080 && witdhScreen <= 1920
-                            }" 
-                            @click="finalizeSale('nm')"
-                            class="mr-1 ml-2 p-1 bg-slate-600 rounded-md"
+                        <q-btn 
+                            class="ml-5" 
+                            outline 
+                            size="1.2rem"
                         >
-                            Finalizar
-                        </button>
-                    </q-btn>
-                    <q-btn 
-                        class="ml-5" 
-                        outline 
-                        size="1.2rem"
-                    >
-                        <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
-
-                    </q-btn>
+                            <button
+                                v-if="configs.nmFinaly"
+                                :class="{
+                                    'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
+                                }" 
+                                @click="finalizeSale('nm')"
+                                class="mr-1 ml-2 p-1 bg-slate-600 rounded-md"
+                            >
+                                Finalizar
+                            </button>
+                        </q-btn>
+                        <q-btn 
+                            class="ml-5" 
+                            outline 
+                            size="1.2rem"
+                        >
+                            <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
+    
+                        </q-btn>
+                        
                     </div>
 
                 </div>
@@ -1041,7 +1041,6 @@
                 
             }
 
-            console.log('pdvID pelo LocalStorage', LocalStorage.getItem("pdvID"))
         }
       }
 </script>

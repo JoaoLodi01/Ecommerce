@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto mt-12 p-6 ml-16 bg-white rounded-xl shadow">
+    <div class="container mx-auto mt-12 p-6 ml-16 bg-white rounded-xl shadow ">
 
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>
@@ -57,7 +57,7 @@
             <div><p>Total Em aberto: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
         </div>
 
-        <div class="overflow-x-auto">
+        <div class="relative overflow-x-auto overflow-y-auto">
             <table class="min-w-full table-auto border-collapse border border-gray-200">
                 <thead class="bg-gray-100">
                     <tr>
@@ -210,6 +210,7 @@
 .container {
     max-width: 85%;
     width: 100%;
+    height: 90vh;
 }
 
 table {

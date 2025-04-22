@@ -32,6 +32,8 @@ class CustomerController extends Controller
 
     public function create(CustomerRequest $request){
         $data = $request->validated();
+        Log::info('Dados recebidos: ');
+        Log::info($data);
         return $this->customerService->create($data);
     }
 

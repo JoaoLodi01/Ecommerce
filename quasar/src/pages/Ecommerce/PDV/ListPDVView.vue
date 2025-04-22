@@ -124,6 +124,8 @@
                     params: { idPDV: pdv.id, },
                     state: { isOpenedPDV: true }
                 })
+                
+
             },
 
             openReportErros()
@@ -147,6 +149,7 @@
                 console.log(response.data)
             }
             countErrorsFun()
+
         },
 
         components: {

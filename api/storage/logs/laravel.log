@@ -1013,3 +1013,25 @@
 [2025-04-22 20:26:29] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
 [2025-04-22 20:40:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
 [2025-04-22 20:44:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-22 20:46:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-22 20:46:25] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-22 20:46:25] local.INFO: O hotel foi encontrado  
+[2025-04-22 20:46:25] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-22 20:46:25] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-22 20:46:26] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-22 20:46:26] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-22 20:47:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-22 20:47:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-22 20:47:01] local.INFO: O hotel foi encontrado  
+[2025-04-22 20:47:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-22 20:47:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-22 20:47:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-22 20:47:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-22 20:47:05] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-22 20:47:05] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-22 20:47:05] local.INFO: O hotel foi encontrado  
+[2025-04-22 20:47:05] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-22 20:47:05] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-22 20:47:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-22 20:47:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-22 20:47:10] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  

@@ -16,9 +16,7 @@
         class="absolute top-4 right-4 p-2 delay-75 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50">
         <span 
           v-if="!sidebarActive"
-        >
-          Open
-        </span>
+        />
 
         <span 
           v-else

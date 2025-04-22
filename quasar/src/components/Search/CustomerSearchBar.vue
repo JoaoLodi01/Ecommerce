@@ -26,7 +26,7 @@
                     @click="setClient(client)"
                     class="p-2 hover:bg-gray-200 cursor-pointer"
                 >
-                {{ client.name }}
+                    {{client.id}} - {{ client.name }}
 
                 </li>
             </ul>

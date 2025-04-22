@@ -28,8 +28,10 @@ class CustomerRequest extends FormRequest
             'address' => [$required],
             'number' => [$required],
             'email' => [$required, 'email', 'max:120'],
-            'type' => [$required, 'max:120'],
-            'phone' => [$required, 'max:120']
+            'phone' => [$required, 'max:120'],
+            'is_customer' => [$required],
+            'is_driver' => [$required],
+            'is_supplier' => [$required]
 
         ];
     }

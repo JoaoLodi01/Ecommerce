@@ -91,17 +91,26 @@
 
             />
 
-            <q-select 
-                v-model="form.type" 
-                :options="typeOptions" 
-                label="Tipo de cadastro" 
-                color="grey-7"
-                multiple
-                filled
-                stack-label 
+            <div class="mt-2">
+                <q-checkbox 
+                    left-label 
+                    v-model="form.is_customer" 
+                    label="Cliente" 
+                />
 
-            />
-            
+                <q-checkbox 
+                    left-label 
+                    v-model="form.is_supplier" 
+                    label="Fornecedor" 
+                />
+
+                <q-checkbox 
+                    left-label 
+                    v-model="form.is_driver" 
+                    label="Motorista" 
+                />
+            </div>
+
             <div
                 :class="{
                     'ml-2 mt-5': widthScreen <= 1080
@@ -139,12 +148,6 @@
             })
 
             return {
-                typeOptions: [
-                    'Cliente',
-                    'Fornecedor',
-                    'Motorista'
-                ],
-
                 showLoading()
                 {
                     $q.loading.show({
@@ -170,7 +173,9 @@
                     address: '',
                     number: '',
                     email: '',
-                    type: [],
+                    is_customer: false,
+                    is_driver: false,
+                    is_supplier: false,
                     phone: '',
                 },
             };
@@ -228,8 +233,11 @@
                     this.form.cpf = this.form.cpf.replace(/\D/g, '')
                     this.form.cnpj = this.form.cnpj.replace(/\D/g, '')
                     this.form.cep = this.form.cep.replace(/\D/g, '') 
-                    
+
+                    console.log('forms', this.form)
+
                     const response = await api.post(`/customers/create`, this.form);
+                    console.log(response.data)
                     if(response.data.success)
                     {
                         alert(`Cliente: ${this.form.name}, cadastrado com sucesso!`)

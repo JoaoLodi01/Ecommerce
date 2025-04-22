@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('number', 120)->nullable();
             $table->string('email', 100)->unique();
             $table->string('phone', 50)->nullable();
-            $table->string('type')->nullable()->default('cliente');
+            $table->string('is_customer', 1)->nullable()->default(1);
+            $table->string('is_driver', 1)->nullable()->default(0);
+            $table->boolean('is_supplier', 1)->nullable()->default(0);
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
