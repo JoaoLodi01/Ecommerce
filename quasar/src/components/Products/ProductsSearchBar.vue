@@ -20,8 +20,9 @@
             
         >
             <span>{{ product.id }}</span> -
-            <span> {{ product.product }}</span> -
-            <span> Qtde: {{ product.amount }}</span>
+            <span>{{ product.product }}</span> -
+            <span>Qtde: {{ product.amount }}</span> -
+            <span>R$ {{ product.sale_price }} </span>
 
         </li>
     </ul>

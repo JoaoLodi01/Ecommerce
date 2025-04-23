@@ -119,8 +119,8 @@ import { api } from 'src/boot/axios';
                     nfce: this.sales.nfce ? 'nfce' : null,
                     nm: this.sales.nm ? 'nm' : null,
                     seller: this.seller
+
                 });
-            
             }
         },
 

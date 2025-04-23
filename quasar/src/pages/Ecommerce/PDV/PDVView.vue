@@ -164,7 +164,7 @@
                             <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
                             <td class="text-center">
                                 <div class="m-auto">
-                                    <button @click="productOptions(product, 'delete')">
+                                    <button @click="productOptions(product, i, 'delete')">
                                         <svg 
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none" 
@@ -469,6 +469,7 @@
                 errorsOfSale: {
                     showErrosModal: false,
                     erros: []
+
                 },
             
                 emitProducts: {
@@ -678,73 +679,78 @@
                         }
                     
                     } else {
-                        console.log('Finalizar venda')
-                        console.log('Total', this.totalOperation)
-                        if(type === 'nm')   
-                        { 
-                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                sub_total: this.calculateTotal.subtotal,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
-                                description: 'Venda Nota Manual N°',
-                                is_nfce_nm: type,
-                                status: 'Finalizada'
-                                
-                            })
-                            const data = response.data
+                        const pdvID = LocalStorage.getItem("pdvID")
+                        if(pdvID)
+                        {
+                            console.log('Finalizar venda')
+                            console.log('Total', this.totalOperation)
+                            if(type === 'nm')   
+                            { 
+                                const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                    products: this.productsSeletion, // Produtos da 
+                                    user_id: this.sellerData.id,
+                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
+                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                    sub_total: this.calculateTotal.subtotal,
+                                    addition: this.calculateTotal.addition,
+                                    discount: this.calculateTotal.discount,
+                                    description: 'Venda Nota Manual N°',
+                                    is_nfce_nm: type,
+                                    status: 'Finalizada'
+                                    
+                                })
+                                const data = response.data
 
-                            if(data.success)
-                            {
-                                LocalStorage.setItem("pdvID", response.data.pdvID)
-                                this.typeOperation = type
-                                this.showPaymentsForm = true
-                                this.pdvID = LocalStorage.getItem("pdvID")
+                                if(data.success)
+                                {
+                                    LocalStorage.setItem("pdvID", response.data.pdvID)
+                                    this.typeOperation = type
+                                    this.showPaymentsForm = true
+                                    this.pdvID = pdvID
 
-                            }
+                                }
+                            
+                                if(!data.success)
+                                {
+                                    console.log(response.data) 
+                                    alert(response.data)
+                                }
+                            } 
                         
-                            if(!data.success)
-                            {
-                                console.log(response.data) 
-                                alert(response.data)
-                            }
-                        } 
-                    
-                        if(type === 'nfce')
-                        {  
-                            const response = await api.post('/ecommerce/pdv/save-sale', {
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                sub_total: this.calculateTotal.subtotal,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
-                                description: 'Venda NFC-e N°',
-                                is_nfce_nm: type,
-                                status: 'Finalizada'
-                                
-                            })
+                            if(type === 'nfce')
+                            {  
+                                const response = await api.post('/ecommerce/pdv/save-sale', {
+                                    products: this.productsSeletion, // Produtos da 
+                                    user_id: this.sellerData.id,
+                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
+                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                    sub_total: this.calculateTotal.subtotal,
+                                    addition: this.calculateTotal.addition,
+                                    discount: this.calculateTotal.discount,
+                                    description: 'Venda NFC-e N°',
+                                    is_nfce_nm: type,
+                                    status: 'Finalizada'
+                                    
+                                })
 
-                            console.log('response.dat PDVView, line 718: ', response)
-                            const data = response.data
+                                console.log('response.dat PDVView, line 718: ', response)
+                                const data = response.data
 
-                            if(data.success)
-                            {
-                                LocalStorage.setItem("pdvID", response.data.pdvID)
-                                this.typeOperation = type
-                                this.showPaymentsForm = true
-                                this.pdvID = LocalStorage.getItem("pdvID")
+                                if(data.success)
+                                {
+                                    LocalStorage.setItem("pdvID", response.data.pdvID)
+                                    this.typeOperation = type
+                                    this.showPaymentsForm = true
+                                    this.pdvID = LocalStorage.getItem("pdvID")
 
-                            } else {
-                                this.errorsOfSale.erros = data.errors
-                                this.errorsOfSale.showErrosModal = true
+                                } else {
+                                    this.errorsOfSale.erros = data.errors
+                                    this.errorsOfSale.showErrosModal = true
+
+                                }
 
                             }
-
+                               
                         }
                     }
                     
@@ -899,13 +905,14 @@
 
             },
 
-            productOptions(product, action)
+            productOptions(product, i, action)
             {
                 let rawProducts = toRaw(this.productsSeletion)
 
                 switch (action) {
                     case 'delete':
-                        for (let i = 0; i < rawProducts.length; i++) {
+                        /*for (let i = 0; i < rawProducts.length; i++) 
+                        {
                             const products = rawProducts[i];
                             const index = products.findIndex(p => p.id === product.id)                            
 
@@ -919,7 +926,8 @@
                                 }
                                 break
                             }
-                        }
+                        }*/
+                        console.log('product.id', product.id, ' i: ', i)
                         break;
                         
                     case 'view':
