@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
+setlocale(LC_TIME, 'ptb');
 
 use App\Models\EcommerceModels\{
     PDV,
@@ -19,6 +20,7 @@ use App\Services\PayMentMethodService;
 use Illuminate\Support\Facades\Log;
 
 use App\Http\NFCeValidation\NFCeValidation;
+use Carbon\Carbon;
 
 class PDVRepository
 {
@@ -154,9 +156,11 @@ class PDVRepository
         
         $user = $this->userRepository->findByID($details['user_id']); // "user"
 
+        $currentDate = new Carbon();
                   
         $pdvData = array(
             'description' => $details['description'],
+            'issue_date' => $currentDate->format('Y-m-d'),
             'cliente_id' => $customer->id,
             'client' => $customer->name,
             'gross_value' => $details['sub_total'],

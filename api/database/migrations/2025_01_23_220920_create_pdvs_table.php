@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pdvs', function (Blueprint $table) {
             $table->id();
             $table->string('description', 120);
+            $table->date('issue_date');
             $table->integer('n_nfce', false)->nullable();
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('customers')->onDelete('cascade');
@@ -28,7 +29,7 @@ return new class extends Migration
             $table->boolean('finished', 1)->default(0);
             $table->boolean('canceled', 1)->default(0);
             $table->string('is_nfce_nm', 4)->nullable();
-            $table->string('status')->nullable();
+            $table->string('status', 60)->nullable()->default('Pendente');
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

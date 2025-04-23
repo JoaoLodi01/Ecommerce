@@ -26,7 +26,6 @@ class CustomerController extends Controller
 
     public function search(SearchCustomer $request){
         $data = $request->validated();
-        Log::info($data);
         return $this->customerService->search($data);
     }
 

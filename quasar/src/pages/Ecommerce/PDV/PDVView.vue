@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-max mx-auto border border-black rounded-lg mt-9" 
+        class="w-max mx-auto border border-black rounded-lg mt-9 bg-white" 
         id="pdv-view"
         v-if="showGrid"
         :class="{
@@ -17,7 +17,7 @@
             class="payMentForm" 
             :class="{
                 'absolute top-24 z-20': witdhScreen > 1080,
-                'absolute right-auto top-5 z-50': witdhScreen <= 1080
+                'absolute right-auto left-auto top-5 z-50': witdhScreen <= 1080
             }"
         >
             <PaymentsForm
@@ -425,15 +425,15 @@
 <script>
     import PaymentsForm from 'src/components/PaymentsForm.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
-    import CashClosing from 'src/components/PDV/CashClosing.vue'
+    import CashClosing from 'src/components/PDV/CashClosing/CashClosing.vue'
     import ConfigPDV from 'src/components/Config/ConfigPDV.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
+    import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     
     import { api } from "boot/axios"
     import { onBeforeUnmount, toRaw } from 'vue'   
     import { useQuasar, LocalStorage } from 'quasar';
-    import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     
     export default{
         setup(){

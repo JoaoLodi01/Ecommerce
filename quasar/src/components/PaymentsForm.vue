@@ -283,6 +283,7 @@ export default {
             }
 
             try {
+                console.log('payments_values', this.paymentsValues)
                 switch (this.typeOperation) {
                     case 'reservation':
                         const generateCredit = this.calculeCredit(this.paymentsValues);
@@ -308,7 +309,7 @@ export default {
                         const response_nfce = await api.put(`ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nfce',
                             change: this.calculateValueChange.change,
-                            payments_values: this.paymentsValues,
+                            payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
                             pdv_id: this.pdvID,
                             installments: this.installments
 
@@ -329,7 +330,7 @@ export default {
                         const response_nm = await api.put(`/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nm',
                             change: this.calculateValueChange.change,
-                            payments_values: this.paymentsValues,
+                            payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
                             pdv_id: this.pdvID,
                             installments: this.installments
 

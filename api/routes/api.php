@@ -16,11 +16,7 @@ use App\Http\Controllers\HotelController\{
 
 };
 
-use App\Http\Controllers\{
-    IPController,
-    CustomerController
-
-};
+use App\Http\Controllers\CustomerController;
 
 use App\Http\Controllers\Config\ConfigController;
 
@@ -30,7 +26,7 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
-
+use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
 use Illuminate\Support\Facades\{
     Route,
  
@@ -174,6 +170,10 @@ Route::prefix('v1')->group( function (){
                 Route::get('/all', [ReportCustomersController::class, 'exportAllClients']);
                 Route::get('/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
             });
+
+            Route::prefix('pdv')->group(function(){
+                Route::post('/closing-period', [ReportCashClosingPeriodController::class, 'getData']);
+            });
         });
     });
 
@@ -181,8 +181,6 @@ Route::prefix('v1')->group( function (){
         Route::post('/create', [UserController::class, 'create']);
         
     });
-
-    Route::get('/get-ip', [IPController::class, 'create']); 
 
     Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('password.email');
     

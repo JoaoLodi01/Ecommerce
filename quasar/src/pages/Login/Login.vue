@@ -59,7 +59,6 @@
                 </q-input>
 
                 <q-btn
-                    @click=showLoading
                     type="submit"
                     class="m-2"
                     flat
@@ -128,6 +127,7 @@
 
         methods: {
             async loginMethod() {
+                this.showLoading()
                 try {
                     const response = await api.post("/auth/auth", this.details);
 
