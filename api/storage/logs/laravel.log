@@ -179,6 +179,7 @@
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
 )  
+<<<<<<< HEAD
 [2025-04-23 17:10:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
 [2025-04-23 17:10:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
 [2025-04-23 17:10:57] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
@@ -251,3 +252,1919 @@
 )  
 [2025-04-23 17:34:46] local.INFO: cusotmer  
 [2025-04-23 18:49:29] local.INFO: Acertou o login  
+=======
+[2025-04-23 01:54:21] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":4,"description":"Venda NFC-e N\u00b0","issue_date":"2025-04-23","n_nfce":null,"cliente_id":1,"client":"Consumidor Padr\u00e3o","gross_value":"120.00","net_value":"120.00","discount":"0.00","addition":"0.00","user_id":3,"user":"Gabriel Kochem","finished":0,"canceled":0,"is_nfce_nm":"nfce","status":"Pendente","active":1}  
+[2025-04-23 01:54:21] local.INFO: $type nfce  
+[2025-04-23 01:54:21] local.INFO: Buscar e alterar os produtos, pdv_id = 4  
+[2025-04-23 01:54:21] local.INFO: Alteração dentro do for = 4  
+[2025-04-23 01:54:21] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-04-23 01:54:21] local.INFO: Produto encontrado 1  
+[2025-04-23 01:54:21] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","barcode_internal":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":8,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-04-23 01:54:21] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-23 12:03:17] local.INFO: Acertou o login  
+[2025-04-23 12:03:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 12:03:30] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-23 12:03:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-23 12:03:36] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 14:27:08] local.INFO: Acertou o login  
+[2025-04-23 14:27:15] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 14:27:16] local.INFO: O hotel foi encontrado  
+[2025-04-23 14:27:16] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 14:27:16] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 14:27:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 14:27:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 14:27:17] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 14:27:19] local.INFO: Controller  
+[2025-04-23 14:27:19] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-23 14:27:19] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:27:19] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-23 14:27:19] local.INFO: Controller  
+[2025-04-23 14:27:19] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'ja',
+)  
+[2025-04-23 14:27:19] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:27:19] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'ja',
+)  
+[2025-04-23 14:27:20] local.INFO: Controller  
+[2025-04-23 14:27:20] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jac',
+)  
+[2025-04-23 14:27:20] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:27:20] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jac',
+)  
+[2025-04-23 14:27:20] local.INFO: Controller  
+[2025-04-23 14:27:20] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jack',
+)  
+[2025-04-23 14:27:20] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:27:20] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jack',
+)  
+[2025-04-23 14:27:22] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:27:22] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:27:22] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:27:22] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:27:22] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:27:22] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:27:22] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:27:22] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:27:23] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Teste 1',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:32:10] local.INFO: Acertou o login  
+[2025-04-23 14:32:15] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 14:32:15] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 14:32:15] local.INFO: O hotel foi encontrado  
+[2025-04-23 14:32:15] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 14:32:15] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 14:32:16] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 14:32:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 14:32:18] local.INFO: Controller  
+[2025-04-23 14:32:18] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-23 14:32:18] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:32:18] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'j',
+)  
+[2025-04-23 14:32:18] local.INFO: Controller  
+[2025-04-23 14:32:18] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-23 14:32:18] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:32:18] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'ja',
+)  
+[2025-04-23 14:32:19] local.INFO: Controller  
+[2025-04-23 14:32:19] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-23 14:32:19] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:32:19] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jac',
+)  
+[2025-04-23 14:32:19] local.INFO: Controller  
+[2025-04-23 14:32:19] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-23 14:32:19] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:32:19] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => 'jack',
+)  
+[2025-04-23 14:32:22] local.INFO: Controller  
+[2025-04-23 14:32:22] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-23 14:32:22] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:32:22] local.INFO: array (
+  'fillter' => 'Cód barras interno',
+  'search' => '1',
+)  
+[2025-04-23 14:32:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 14:32:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 14:32:30] local.INFO: $data  
+[2025-04-23 14:32:30] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-23 14:32:30] local.INFO: data no repository  
+[2025-04-23 14:32:30] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-23 14:32:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 14:32:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 14:32:34] local.INFO: Controller  
+[2025-04-23 14:32:34] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-23 14:32:34] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:32:34] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-23 14:32:35] local.INFO: Controller  
+[2025-04-23 14:32:35] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'ja',
+)  
+[2025-04-23 14:32:35] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:32:35] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'ja',
+)  
+[2025-04-23 14:32:42] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:32:42] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:32:42] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:32:42] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:32:42] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:32:42] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:32:42] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:32:42] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:32:42] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:32:42] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:32:42] local.INFO: $iPDV  
+[2025-04-23 14:32:42] local.INFO: 0  
+[2025-04-23 14:32:42] local.INFO: Save sale {"data":{"success":true,"pdvID":1}} 
+[2025-04-23 14:32:43] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:32:48] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:32:48] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:32:48] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:32:48] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:32:48] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:32:48] local.INFO: Dados recebidos nos controllers  
+[2025-04-23 14:32:48] local.INFO: array (
+  'type_operation' => 'nm',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => 0,
+  ),
+  'pdv_id' => 1,
+)  
+[2025-04-23 14:32:48] local.INFO: Dentro  
+[2025-04-23 14:32:48] local.INFO: PDVService.php, class:finalizeSale, $total: 0  
+[2025-04-23 14:32:48] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-04-23 14:32:48] local.INFO: Memória usada PDVRepository::class, finalizeSale: 25165824  
+[2025-04-23 14:32:48] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-04-23 14:32:48] local.INFO: Buscando a espécie pelo ID.  
+[2025-04-23 14:32:48] local.INFO: $result  
+[2025-04-23 14:32:48] local.INFO: array (
+)  
+[2025-04-23 14:32:48] local.INFO: Vai conferir se o $total: R$ 0 é maior que o $pdv->net_value, R$120.00  
+[2025-04-23 14:32:48] local.INFO: Foi menor  
+[2025-04-23 14:35:02] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:35:02] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:35:02] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:35:02] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:35:02] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:35:02] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:35:02] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:35:02] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:35:02] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:35:02] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:35:02] local.INFO: $iPDV  
+[2025-04-23 14:35:02] local.INFO: 0  
+[2025-04-23 14:35:02] local.INFO: Save sale {"data":{"success":true,"pdvID":2}} 
+[2025-04-23 14:35:02] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:47:01] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:47:01] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:47:01] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:47:01] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:47:01] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:47:01] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:47:01] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:47:01] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:47:01] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:47:01] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:47:01] local.INFO: $iPDV  
+[2025-04-23 14:47:01] local.INFO: 0  
+[2025-04-23 14:47:01] local.INFO: Save sale {"data":{"success":true,"pdvID":3}} 
+[2025-04-23 14:47:02] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:47:16] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:47:16] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:47:16] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:47:16] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:47:16] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:47:16] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:47:16] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:47:16] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:47:16] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:47:16] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:47:16] local.INFO: $iPDV  
+[2025-04-23 14:47:16] local.INFO: 0  
+[2025-04-23 14:47:16] local.INFO: Save sale {"data":{"success":true,"pdvID":4}} 
+[2025-04-23 14:47:17] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:50:20] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 14:50:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 14:50:21] local.INFO: O hotel foi encontrado  
+[2025-04-23 14:50:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 14:50:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 14:50:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 14:50:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 14:50:54] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:50:58] local.INFO: Controller  
+[2025-04-23 14:50:58] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-23 14:50:58] local.INFO: -- Vai começar a busca --  
+[2025-04-23 14:50:58] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-23 14:51:01] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:51:01] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:51:01] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:51:01] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:51:01] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:51:01] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:51:01] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:51:01] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:51:01] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:51:01] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:51:02] local.INFO: $iPDV  
+[2025-04-23 14:51:02] local.INFO: 0  
+[2025-04-23 14:51:02] local.INFO: Save sale {"data":{"success":true,"pdvID":5}} 
+[2025-04-23 14:51:02] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:52:16] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:52:16] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:52:16] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:52:16] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:52:16] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:52:16] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:52:16] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:52:16] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:52:16] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:52:16] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:52:16] local.INFO: $iPDV  
+[2025-04-23 14:52:16] local.INFO: 0  
+[2025-04-23 14:52:16] local.INFO: Save sale {"data":{"success":true,"pdvID":6}} 
+[2025-04-23 14:52:17] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:52:24] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:52:24] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:52:24] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:52:24] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:52:24] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:52:24] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:52:24] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:52:24] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:52:24] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:52:24] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:52:24] local.INFO: $iPDV  
+[2025-04-23 14:52:24] local.INFO: 0  
+[2025-04-23 14:52:24] local.INFO: Save sale {"data":{"success":true,"pdvID":7}} 
+[2025-04-23 14:52:25] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:55:14] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:55:14] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:55:14] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:55:14] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:55:14] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:55:14] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:55:14] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:55:14] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:55:14] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:55:14] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:55:14] local.INFO: $iPDV  
+[2025-04-23 14:55:14] local.INFO: 0  
+[2025-04-23 14:55:14] local.INFO: Save sale {"data":{"success":true,"pdvID":8}} 
+[2025-04-23 14:55:14] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:55:24] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:55:24] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:55:24] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:55:24] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:55:24] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:55:24] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:55:24] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:55:24] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:55:24] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:55:24] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:55:24] local.INFO: $iPDV  
+[2025-04-23 14:55:24] local.INFO: 0  
+[2025-04-23 14:55:24] local.INFO: Save sale {"data":{"success":true,"pdvID":9}} 
+[2025-04-23 14:55:25] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 14:55:36] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 14:55:36] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 14:55:36] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 14:55:36] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 14:55:36] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 14:55:36] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 14:55:36] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 14:55:36] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:55:36] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 14:55:36] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 14:55:36] local.INFO: $iPDV  
+[2025-04-23 14:55:36] local.INFO: 0  
+[2025-04-23 14:55:36] local.INFO: Save sale {"data":{"success":true,"pdvID":10}} 
+[2025-04-23 14:55:37] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:14:44] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:14:45] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:14:57] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 16:14:57] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 16:14:57] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 16:14:57] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 16:14:57] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 16:14:57] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 16:14:57] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 16:14:57] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:14:57] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:14:57] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 16:14:57] local.INFO: $iPDV  
+[2025-04-23 16:14:57] local.INFO: 0  
+[2025-04-23 16:14:57] local.INFO: Save sale {"data":{"success":true,"pdvID":11}} 
+[2025-04-23 16:14:59] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:20:51] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:20:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:20:58] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-23 16:21:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:21:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:21:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 16:21:07] local.INFO: O hotel foi encontrado  
+[2025-04-23 16:21:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 16:21:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 16:21:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 16:21:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 16:21:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:21:10] local.INFO: Controller  
+[2025-04-23 16:21:10] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-23 16:21:10] local.INFO: -- Vai começar a busca --  
+[2025-04-23 16:21:10] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-23 16:21:11] local.INFO: Controller  
+[2025-04-23 16:21:11] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'ja',
+)  
+[2025-04-23 16:21:11] local.INFO: -- Vai começar a busca --  
+[2025-04-23 16:21:11] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'ja',
+)  
+[2025-04-23 16:21:11] local.INFO: Controller  
+[2025-04-23 16:21:11] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jac',
+)  
+[2025-04-23 16:21:11] local.INFO: -- Vai começar a busca --  
+[2025-04-23 16:21:11] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jac',
+)  
+[2025-04-23 16:21:11] local.INFO: Controller  
+[2025-04-23 16:21:11] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jack',
+)  
+[2025-04-23 16:21:11] local.INFO: -- Vai começar a busca --  
+[2025-04-23 16:21:11] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jack',
+)  
+[2025-04-23 16:21:12] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 16:21:12] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 16:21:12] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 16:21:12] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 16:21:12] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 16:21:13] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 16:21:13] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 16:21:13] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:21:13] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:21:13] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 16:21:13] local.INFO: $iPDV  
+[2025-04-23 16:21:13] local.INFO: 0  
+[2025-04-23 16:21:13] local.INFO: Save sale {"data":{"success":true,"pdvID":12}} 
+[2025-04-23 16:21:13] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:28:41] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 16:28:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 16:28:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 16:28:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 16:28:41] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 16:28:41] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 16:28:41] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 16:28:41] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:28:41] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:28:41] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 16:28:41] local.INFO: $iPDV  
+[2025-04-23 16:28:41] local.INFO: 0  
+[2025-04-23 16:28:41] local.INFO: Save sale {"data":{"success":true,"pdvID":13}} 
+[2025-04-23 16:28:42] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:29:23] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 16:29:23] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 16:29:23] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 16:29:23] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 16:29:23] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 16:29:23] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 16:29:23] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 16:29:23] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:29:23] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:29:23] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 16:29:23] local.INFO: $iPDV  
+[2025-04-23 16:29:23] local.INFO: 0  
+[2025-04-23 16:29:23] local.INFO: Save sale {"data":{"success":true,"pdvID":14}} 
+[2025-04-23 16:29:24] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:39:36] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 16:39:36] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 16:39:36] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 16:39:36] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 16:39:36] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 16:39:36] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 16:39:36] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 16:39:36] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:39:36] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:39:36] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 16:39:36] local.INFO: $iPDV  
+[2025-04-23 16:39:36] local.INFO: 0  
+[2025-04-23 16:39:36] local.INFO: Save sale {"data":{"success":true,"pdvID":15}} 
+[2025-04-23 16:39:36] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:40:08] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 16:40:08] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 16:40:08] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 16:40:08] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 16:40:08] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 16:40:08] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 16:40:08] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 16:40:08] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:40:08] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:40:08] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 16:40:08] local.INFO: $iPDV  
+[2025-04-23 16:40:08] local.INFO: 0  
+[2025-04-23 16:40:08] local.INFO: Save sale {"data":{"success":true,"pdvID":16}} 
+[2025-04-23 16:40:09] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:40:15] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 16:40:15] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 16:40:15] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 16:40:15] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 16:40:15] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 16:40:15] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 16:40:15] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 16:40:15] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:40:15] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:40:15] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 16:40:15] local.INFO: $iPDV  
+[2025-04-23 16:40:15] local.INFO: 0  
+[2025-04-23 16:40:15] local.INFO: Save sale {"data":{"success":true,"pdvID":17}} 
+[2025-04-23 16:40:16] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:41:32] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 16:41:32] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 16:41:32] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 16:41:32] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 16:41:32] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 16:41:32] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 16:41:32] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 16:41:32] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:41:32] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 16:41:32] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 16:41:32] local.INFO: $iPDV  
+[2025-04-23 16:41:32] local.INFO: 0  
+[2025-04-23 16:41:32] local.INFO: Save sale {"data":{"success":true,"pdvID":18}} 
+[2025-04-23 16:41:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 16:42:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:43:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:57:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:57:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:57:42] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:57:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:57:59] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:58:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:58:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:58:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:58:47] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:58:50] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:58:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:59:46] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:59:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-23 16:59:51] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 16:59:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 16:59:56] local.INFO: data - customer  
+[2025-04-23 16:59:56] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-23 16:59:56] local.INFO: cusotmer  
+[2025-04-23 16:59:56] local.INFO: data - customer  
+[2025-04-23 16:59:56] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-23 16:59:56] local.INFO: cusotmer  
+[2025-04-23 17:00:18] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:00:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:00:29] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:00:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:13:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:14:47] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:14:56] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:15:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:15:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:15:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:15:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:15:32] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:15:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:15:44] local.INFO: data - customer  
+[2025-04-23 17:15:44] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-23 17:15:44] local.INFO: cusotmer  
+[2025-04-23 17:15:45] local.INFO: data - customer  
+[2025-04-23 17:15:45] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-23 17:15:45] local.INFO: cusotmer  
+[2025-04-23 17:15:46] local.INFO: data - customer  
+[2025-04-23 17:15:46] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'tes',
+)  
+[2025-04-23 17:15:46] local.INFO: cusotmer  
+[2025-04-23 17:15:46] local.INFO: data - customer  
+[2025-04-23 17:15:46] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'test',
+)  
+[2025-04-23 17:15:46] local.INFO: cusotmer  
+[2025-04-23 17:15:47] local.INFO: data - customer  
+[2025-04-23 17:15:47] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'teste',
+)  
+[2025-04-23 17:15:47] local.INFO: cusotmer  
+[2025-04-23 17:15:47] local.INFO: data - customer  
+[2025-04-23 17:15:47] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'teste',
+)  
+[2025-04-23 17:15:47] local.INFO: cusotmer  
+[2025-04-23 17:15:48] local.INFO: data - customer  
+[2025-04-23 17:15:48] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'teste 1',
+)  
+[2025-04-23 17:15:48] local.INFO: cusotmer  
+[2025-04-23 17:16:43] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-23 17:16:47] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:18:32] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:18:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:18:44] local.INFO: data - customer  
+[2025-04-23 17:18:44] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-23 17:18:44] local.INFO: cusotmer  
+[2025-04-23 17:18:44] local.INFO: data - customer  
+[2025-04-23 17:18:44] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-23 17:18:44] local.INFO: cusotmer  
+[2025-04-23 17:29:49] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:29:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:29:57] local.INFO: data - customer  
+[2025-04-23 17:29:57] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-23 17:29:57] local.INFO: cusotmer  
+[2025-04-23 17:29:58] local.INFO: data - customer  
+[2025-04-23 17:29:58] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-23 17:29:58] local.INFO: cusotmer  
+[2025-04-23 17:29:58] local.INFO: data - customer  
+[2025-04-23 17:29:58] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'tes',
+)  
+[2025-04-23 17:29:58] local.INFO: cusotmer  
+[2025-04-23 17:29:59] local.INFO: data - customer  
+[2025-04-23 17:29:59] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'test',
+)  
+[2025-04-23 17:29:59] local.INFO: cusotmer  
+[2025-04-23 17:29:59] local.INFO: data - customer  
+[2025-04-23 17:29:59] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'teste',
+)  
+[2025-04-23 17:29:59] local.INFO: cusotmer  
+[2025-04-23 17:30:08] local.INFO: data - customer  
+[2025-04-23 17:30:08] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-23 17:30:08] local.INFO: cusotmer  
+[2025-04-23 17:30:09] local.INFO: data - customer  
+[2025-04-23 17:30:09] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-23 17:30:09] local.INFO: cusotmer  
+[2025-04-23 17:30:09] local.INFO: data - customer  
+[2025-04-23 17:30:09] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'tes',
+)  
+[2025-04-23 17:30:09] local.INFO: cusotmer  
+[2025-04-23 17:30:10] local.INFO: data - customer  
+[2025-04-23 17:30:10] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'test',
+)  
+[2025-04-23 17:30:10] local.INFO: cusotmer  
+[2025-04-23 17:30:10] local.INFO: data - customer  
+[2025-04-23 17:30:10] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'teste',
+)  
+[2025-04-23 17:30:10] local.INFO: cusotmer  
+[2025-04-23 17:35:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 17:35:04] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 17:35:04] local.INFO: O hotel foi encontrado  
+[2025-04-23 17:35:04] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 17:35:04] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 17:35:05] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:35:05] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:35:06] local.INFO: Controller  
+[2025-04-23 17:35:06] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-23 17:35:06] local.INFO: -- Vai começar a busca --  
+[2025-04-23 17:35:06] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'j',
+)  
+[2025-04-23 17:35:07] local.INFO: Controller  
+[2025-04-23 17:35:07] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'ja',
+)  
+[2025-04-23 17:35:07] local.INFO: -- Vai começar a busca --  
+[2025-04-23 17:35:07] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'ja',
+)  
+[2025-04-23 17:35:07] local.INFO: Controller  
+[2025-04-23 17:35:07] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jac',
+)  
+[2025-04-23 17:35:07] local.INFO: -- Vai começar a busca --  
+[2025-04-23 17:35:07] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jac',
+)  
+[2025-04-23 17:35:07] local.INFO: Controller  
+[2025-04-23 17:35:07] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jack',
+)  
+[2025-04-23 17:35:07] local.INFO: -- Vai começar a busca --  
+[2025-04-23 17:35:07] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => 'jack',
+)  
+[2025-04-23 17:35:08] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 17:35:08] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 17:35:08] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 17:35:08] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 17:35:08] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 17:35:08] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 17:35:08] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 17:35:08] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 17:35:08] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 17:35:08] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 17:35:08] local.INFO: $iPDV  
+[2025-04-23 17:35:08] local.INFO: 0  
+[2025-04-23 17:35:08] local.INFO: Save sale {"data":{"success":true,"pdvID":19}} 
+[2025-04-23 17:35:09] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 17:35:28] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 17:35:28] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 17:35:28] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 17:35:28] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 17:35:28] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 17:35:28] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 17:35:28] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 17:35:28] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 17:35:28] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 17:35:28] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 17:35:28] local.INFO: $iPDV  
+[2025-04-23 17:35:28] local.INFO: 0  
+[2025-04-23 17:35:28] local.INFO: Save sale {"data":{"success":true,"pdvID":20}} 
+[2025-04-23 17:35:29] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 17:37:14] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 17:37:14] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 17:37:14] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 17:37:14] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 17:37:14] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 17:37:14] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-04-23 17:37:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-23 17:37:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:37:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:48:41] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:50:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-23 17:50:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:50:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 17:50:34] local.INFO: O hotel foi encontrado  
+[2025-04-23 17:50:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 17:50:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 17:50:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:50:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:50:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 17:50:43] local.INFO: O hotel foi encontrado  
+[2025-04-23 17:50:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 17:50:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 17:50:44] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:50:44] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 17:50:45] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:53:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:53:55] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 17:53:55] local.INFO: O hotel foi encontrado  
+[2025-04-23 17:53:55] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 17:53:55] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 17:53:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:53:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:13:26] local.INFO: Acertou o login  
+[2025-04-23 20:13:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 20:13:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 20:13:33] local.INFO: O hotel foi encontrado  
+[2025-04-23 20:13:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 20:13:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 20:13:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 20:13:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:13:35] local.INFO: Controller  
+[2025-04-23 20:13:35] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-23 20:13:35] local.INFO: -- Vai começar a busca --  
+[2025-04-23 20:13:35] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-23 20:13:38] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-23 20:13:38] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-23 20:13:38] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-23 20:13:38] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-23 20:13:38] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-23 20:13:38] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-04-23 20:13:38] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-23 20:13:38] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product' => 'Jack Daniels Maça',
+        'barcode' => '82184004364',
+        'barcode_internal' => '82184004364',
+        'image' => NULL,
+        'group_id' => 2,
+        'group' => 'Grupo teste 2',
+        'amount' => 1,
+        'cost_price' => '10.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '12345678',
+        'cest' => '1234567',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 20:13:38] local.INFO: array (
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-23',
+  'cliente_id' => 1,
+  'client' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'admin',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-23 20:13:38] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-23 20:13:38] local.INFO: $iPDV  
+[2025-04-23 20:13:38] local.INFO: 0  
+[2025-04-23 20:13:38] local.INFO: Save sale {"data":{"success":true,"pdvID":21}} 
+[2025-04-23 20:13:39] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-23 20:20:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:20:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 20:20:57] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:20:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:21:00] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:21:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 20:21:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:21:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 20:21:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:21:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:21:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:21:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 20:21:17] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:21:18] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:21:36] local.INFO: Controller  
+[2025-04-23 20:21:36] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-23 20:21:36] local.INFO: -- Vai começar a busca --  
+[2025-04-23 20:21:36] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-23 20:21:42] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:21:43] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:30:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 20:30:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:30:34] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 20:30:34] local.INFO: O hotel foi encontrado  
+[2025-04-23 20:30:34] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 20:30:34] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 20:30:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:30:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 20:30:40] local.INFO: Controller  
+[2025-04-23 20:30:40] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-23 20:30:40] local.INFO: -- Vai começar a busca --  
+[2025-04-23 20:30:40] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-23 20:31:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 20:31:35] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 20:31:35] local.INFO: O hotel foi encontrado  
+[2025-04-23 20:31:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 20:31:35] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 20:31:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 20:31:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+>>>>>>> 362a05c43e6498b91d56c64597a6aeffe458cd7a
+[2025-04-23 21:53:47] local.INFO: Acertou o login  
+[2025-04-23 21:53:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 21:53:56] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 21:53:56] local.INFO: O hotel foi encontrado  
+[2025-04-23 21:53:56] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 21:53:56] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 21:53:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 21:53:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  

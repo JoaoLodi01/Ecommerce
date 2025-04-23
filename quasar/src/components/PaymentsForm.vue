@@ -1,5 +1,5 @@
 <template>
-    <q-card class="q-pa-md bg-slate-600 text-white shadow-2xl">
+    <q-card class="mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded">
         <q-card-section>
             <div class="text-h6">Formas de Pagamento</div>
         </q-card-section>
@@ -41,32 +41,13 @@
                         </q-item-section>
                 </q-item>
             </q-list>
-    
-            <div class="q-mt-md">
-                <q-btn
-                    :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
-                    color="primary"
-                    class="q-mr-sm"
-                    @click="showLoading"
-                    type="submit"
-                    />
-                    <q-btn
-                    label="Cancelar"
-                    color="negative"
-                    flat
-                    @click="cancelOperation"
-                />
-            </div>
             </q-form>
         </q-card-section>
     
         <q-separator />
     
-        <q-card-section class="bg-slate-700 text-white rounded-borders q-mt-md">
-            <q-banner class="bg-slate-800 q-mb-sm">
-            <div class="text-subtitle2">Total: R$ {{ totalOperation.toFixed(2) }}</div>
-                </q-banner>
-                <div class="row q-gutter-sm">
+        <q-card-section class="bg-white text-black rounded-borders">
+            <div class="row q-gutter-sm mb-2">
                 <q-chip color="red-6" text-color="white">
                     Valor faltante: R$
                     {{
@@ -75,14 +56,38 @@
                         : '0.00'
                     }}
                 </q-chip>
-                <q-chip color="green-6" text-color="white">
+
+                <q-chip color="green-7" text-color="white">
                     Valor pago: R$ {{ calculateValueInformed.total.toFixed(2) }}
                 </q-chip>
+
                 <q-chip color="blue-6" text-color="white">
                     Troco: R$ {{ calculateValueChange.change.toFixed(2) }}
                 </q-chip>
             </div>
+
+            <q-banner class="bg-gray-300 q-mb-sm rounded-xl">
+                <div class="text-subtitle2 font-semibold">
+                    Total: R$ {{ totalOperation.toFixed(2) }}
+                </div>
+            </q-banner>
+
         </q-card-section>
+
+            <div class="q-mt-md">
+                <q-btn
+                    label="Cancelar"
+                    class="ml-52 mr-5"
+                    color="negative"
+                    @click="cancelOperation"
+                />
+                <q-btn
+                    :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
+                    color="primary"
+                    @click="showLoading"
+                    type="submit"
+                />
+            </div>
     
         <q-inner-loading :showing="isLoanding" label="Processando..." />
     
@@ -104,7 +109,7 @@
         </q-dialog>
     
         <q-card-section v-if="message">
-            <q-banner dense class="bg-yellow-9 text-white">
+            <q-banner dense class="bg-yellow-9 text-white rounded-xl">
             {{ message }}
             </q-banner>
         </q-card-section>

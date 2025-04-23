@@ -13,15 +13,12 @@
             
         }"   
     >
-        <div 
-            class="payMentForm" 
-            :class="{
-                'absolute top-24 z-20': witdhScreen > 1080,
-                'absolute right-auto left-auto top-5 z-50': witdhScreen <= 1080
-            }"
-        >
+        <div
+            v-if="showPaymentsForm"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
+
             <PaymentsForm
-                v-if="showPaymentsForm"
+                class="bg-white rounded-xl shadow-xl"
                 :witdhScreen="this.witdhScreen"
                 :typeOperation=this.typeOperation
                 :totalOperation=this.totalOperation
