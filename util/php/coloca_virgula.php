@@ -1,5 +1,4 @@
 <?php
-strrv
 
 $str = <<<EOD
 1

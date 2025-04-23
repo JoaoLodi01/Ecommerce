@@ -179,3 +179,75 @@
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
 )  
+[2025-04-23 17:10:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:10:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:10:57] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:10:57] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 17:10:57] local.INFO: O hotel foi encontrado  
+[2025-04-23 17:10:57] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 17:10:57] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 17:10:58] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 17:10:59] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:14:24] local.INFO: data - customer  
+[2025-04-23 17:14:24] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 't',
+)  
+[2025-04-23 17:14:24] local.INFO: cusotmer  
+[2025-04-23 17:14:25] local.INFO: data - customer  
+[2025-04-23 17:14:25] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'te',
+)  
+[2025-04-23 17:14:25] local.INFO: cusotmer  
+[2025-04-23 17:14:25] local.INFO: data - customer  
+[2025-04-23 17:14:25] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'tes',
+)  
+[2025-04-23 17:14:25] local.INFO: cusotmer  
+[2025-04-23 17:15:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:15:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 17:15:09] local.INFO: O hotel foi encontrado  
+[2025-04-23 17:15:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 17:15:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 17:15:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:15:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:15:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 17:15:49] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 17:15:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 17:15:49] local.INFO: O hotel foi encontrado  
+[2025-04-23 17:15:49] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 17:15:49] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 17:15:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 17:15:50] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:33:41] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:33:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 17:33:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-23 17:34:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:34:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 17:34:07] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-23 17:34:07] local.INFO: O hotel foi encontrado  
+[2025-04-23 17:34:07] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-23 17:34:07] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-23 17:34:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-23 17:34:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-23 17:34:45] local.INFO: data - customer  
+[2025-04-23 17:34:45] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'T',
+)  
+[2025-04-23 17:34:45] local.INFO: cusotmer  
+[2025-04-23 17:34:46] local.INFO: data - customer  
+[2025-04-23 17:34:46] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'Te',
+)  
+[2025-04-23 17:34:46] local.INFO: cusotmer  
+[2025-04-23 17:34:46] local.INFO: data - customer  
+[2025-04-23 17:34:46] local.INFO: array (
+  'fillter' => 'Padrão (cód.cliente ou nome)',
+  'search' => 'Tes',
+)  
+[2025-04-23 17:34:46] local.INFO: cusotmer  
+[2025-04-23 18:49:29] local.INFO: Acertou o login  

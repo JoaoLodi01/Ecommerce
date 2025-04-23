@@ -265,6 +265,7 @@
                             <span>Cliente</span>
                             <CustomerSearchBar
                                 @update:selectCustomer="updateCustomerSelection($event)"
+                                :pdv="true"
 
                             />
                             <!-- COMPONENTE BUSCA DE CLIENTE -->                            
