@@ -1,13 +1,13 @@
 <template>
     <div 
-        class="text-xl ml-14"
+        class="text-xl ml-14 mt-10"
         v-if="showStart"
     >
         <h1>Primeiros passos</h1>
         
         <div>
             <div class="flex">
-                <CompleteOrNo :label="completeIssuer" class="mt-0.5"/><router-link to=''>Cadastrar seu emitente</router-link>
+                <CompleteOrNo :label="completeIssuer" class="mt-0.5"/><router-link to='/register-issuer'>Cadastrar seu emitente</router-link>
                 
             </div>
 

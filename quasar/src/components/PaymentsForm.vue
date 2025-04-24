@@ -1,5 +1,5 @@
 <template>
-    <q-card class="q-pa-md bg-slate-600 text-white shadow-2xl">
+    <q-card class="mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded">
         <q-card-section>
             <div class="text-h6">Formas de Pagamento</div>
         </q-card-section>
@@ -29,42 +29,25 @@
                         <q-item-section side>
                             <q-input
                                 v-model="paymentsValues[i]"
-                                type="text"
                                 input-class="text-right"
                                 dense
                                 outlined
                                 placeholder="0,00"
                                 class="w-24"
+                                mask="##,##"
+                                fill-mask="0"
+                                reverse-fill-mask
                             />
                         </q-item-section>
                 </q-item>
             </q-list>
-    
-            <div class="q-mt-md">
-                <q-btn
-                    :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
-                    color="primary"
-                    class="q-mr-sm"
-                    @click="showLoading"
-                    type="submit"
-                    />
-                    <q-btn
-                    label="Cancelar"
-                    color="negative"
-                    flat
-                    @click="cancelOperation"
-                />
-            </div>
             </q-form>
         </q-card-section>
     
         <q-separator />
     
-        <q-card-section class="bg-slate-700 text-white rounded-borders q-mt-md">
-            <q-banner class="bg-slate-800 q-mb-sm">
-            <div class="text-subtitle2">Total: R$ {{ totalOperation.toFixed(2) }}</div>
-                </q-banner>
-                <div class="row q-gutter-sm">
+        <q-card-section class="bg-white text-black rounded-borders">
+            <div class="row q-gutter-sm mb-2">
                 <q-chip color="red-6" text-color="white">
                     Valor faltante: R$
                     {{
@@ -73,14 +56,38 @@
                         : '0.00'
                     }}
                 </q-chip>
-                <q-chip color="green-6" text-color="white">
+
+                <q-chip color="green-7" text-color="white">
                     Valor pago: R$ {{ calculateValueInformed.total.toFixed(2) }}
                 </q-chip>
+
                 <q-chip color="blue-6" text-color="white">
                     Troco: R$ {{ calculateValueChange.change.toFixed(2) }}
                 </q-chip>
             </div>
+
+            <q-banner class="bg-gray-300 q-mb-sm rounded-xl">
+                <div class="text-subtitle2 font-semibold">
+                    Total: R$ {{ totalOperation.toFixed(2) }}
+                </div>
+            </q-banner>
+
         </q-card-section>
+
+            <div class="q-mt-md">
+                <q-btn
+                    label="Cancelar"
+                    class="ml-52 mr-5"
+                    color="negative"
+                    @click="cancelOperation"
+                />
+                <q-btn
+                    :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
+                    color="primary"
+                    @click="showLoading"
+                    type="submit"
+                />
+            </div>
     
         <q-inner-loading :showing="isLoanding" label="Processando..." />
     
@@ -102,7 +109,7 @@
         </q-dialog>
     
         <q-card-section v-if="message">
-            <q-banner dense class="bg-yellow-9 text-white">
+            <q-banner dense class="bg-yellow-9 text-white rounded-xl">
             {{ message }}
             </q-banner>
         </q-card-section>
@@ -160,7 +167,6 @@ export default {
             isLoanding: false,
             bigger: false,
             extraAmount: 0,
-            api: process.env.VUE_APP_API_URL,
 
         };
         
@@ -169,7 +175,8 @@ export default {
     emits: [
         'close',
         'resetTotal',
-        'update:selectProducts'        
+        'update:selectProducts',
+        'resetPDVID'      
 
     ],
 
@@ -210,7 +217,8 @@ export default {
         calculateValueInformed()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value.replace(/\D/, '')) || 0;
+                
+                const num = parseFloat(value.replace(',', '.')) || 0;
                 return sum + num
             }, 0);
 
@@ -222,7 +230,7 @@ export default {
         calculateValueChange()
         {
             let total = this.paymentsValues.reduce((sum, value) => {
-                const num = parseFloat(value.replace(/\D/, '')) || 0;
+                const num = parseFloat(value.replace(',', '.')) || 0;
                 return num + sum 
             }, 0);
 
@@ -280,6 +288,7 @@ export default {
             }
 
             try {
+                console.log('payments_values', this.paymentsValues)
                 switch (this.typeOperation) {
                     case 'reservation':
                         const generateCredit = this.calculeCredit(this.paymentsValues);
@@ -305,16 +314,19 @@ export default {
                         const response_nfce = await api.put(`ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nfce',
                             change: this.calculateValueChange.change,
-                            payments_values: this.paymentsValues,
+                            payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
                             pdv_id: this.pdvID,
                             installments: this.installments
 
                         })
+                        console.log(response_nfce);
 
                         if(response_nfce.data.success === true)
                         {
                             this.cancelOperation()
-                            this.$emit('update:selectProducts', true);
+                            this.$emit('update:selectProducts', []);
+                        } else {
+                            console.log(response_nfce)
                         }
 
                         break
@@ -323,16 +335,18 @@ export default {
                         const response_nm = await api.put(`/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
                             type_operation: 'nm',
                             change: this.calculateValueChange.change,
-                            payments_values: this.paymentsValues,
+                            payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
                             pdv_id: this.pdvID,
                             installments: this.installments
 
                         })
-                        
+                        console.log(response_nm);
                         if(response_nm.data.success === true)
                         {
                             this.cancelOperation()
                             this.$emit('update:selectProducts', []);
+                        } else {
+                            console.log(response_nm)
                         }
 
                         break
@@ -375,18 +389,19 @@ export default {
 
         cancelOperation(){            
             this.$emit("close")
+            this.$emit("resetPDVID", null)
             this.$emit('resetTotal', 0);
    
         },
 
         closeOperation(){
             this.$emit("close")
-
+            
         },
     },
     mounted(){
         this.getPayments();
-        
+        console.log('this.pdvID', this.pdvID)
     },
 }
 </script>

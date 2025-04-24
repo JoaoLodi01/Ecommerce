@@ -18,8 +18,6 @@ class EnsureTokenIsValid
     public function handle(Request $request, Closure $next): Response
     {
         $check = Auth::check();
-        Log::info('EnsureTokenIsValid ' . $check);
-        
         if (!$check)
         {
             return redirect('php.info')->with('error', 'Acesso negado');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Reports;
 use App\Http\Controllers\Controller;
 use App\Services\CustomerService;
 use App\Services\ReportsService\ReportCustomerService;
-use Illuminate\Support\Facades\Log;
+
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 

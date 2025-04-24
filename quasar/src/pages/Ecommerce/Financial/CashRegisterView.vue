@@ -35,55 +35,58 @@
         </div>
 
         <div class="overflow-x-auto">
-                <table class="min-w-full table-auto border-collapse border border-gray-200">
-                    <thead class="bg-gray-100">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">Tipo</th>
-                            <th scope="col" class="px-6 py-3">Cód</th>
-                            <th scope="col" class="px-3 py-4">Documento</th>
-                            <th scope="col" class="px-6 py-3">Descrição</th>
-                            <th scope="col" class="px-6 py-3">Valor entrada</th>
-                            <th scope="col" class="px-6 py-3">Valor saída</th>
-                            <th scope="col" class="px-6 py-3">Total</th>
-                            <th scope="col" class="px-6 py-3">Cliente</th>
-                            <th scope="col" class="px-6 py-3">Cód Espécie</th>
-                            <th scope="col" class="px-6 py-3">Espécie</th>
-                            <th scope="col" class="px-6 py-3">Origem</th>
-                            <th scope="col" class="px-6 py-3">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border border-b-black" v-for="(register, id) in cashs" :key="id">
-                            <td
-                                scope="row"
-                                class="px-6 py-3 sticky right-0 bg-gray-200"
-                                :class="{
-                                    'text-green-500 bg-green-200': register.input_value > 0,
-                                    'text-red-500 bg-red-200': register.input_value < 1,
-                                }">
+            <table class="min-w-full table-auto border-collapse border border-gray-200">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">Tipo</th>
+                        <th scope="col" class="px-6 py-3">Cód</th>
+                        <th scope="col" class="px-3 py-4">Documento</th>
+                        <th scope="col" class="px-6 py-3">Descrição</th>
+                        <th scope="col" class="px-6 py-3">Valor entrada</th>
+                        <th scope="col" class="px-6 py-3">Valor saída</th>
+                        <th scope="col" class="px-6 py-3">Total</th>
+                        <th scope="col" class="px-6 py-3">Cliente</th>
+                        <th scope="col" class="px-6 py-3">Cód Espécie</th>
+                        <th scope="col" class="px-6 py-3">Espécie</th>
+                        <th scope="col" class="px-6 py-3">Origem</th>
+                        <th scope="col" class="px-6 py-3">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border border-b-black" v-for="(register, id) in cashs" :key="id">
+                        <td
+                            scope="row"
+                            class="px-6 py-3 sticky right-0"
+                        >
+                            <span class='p-4 rounded-xl' :class="{
+                                'bg-green-200': register.input_value > 0,
+                                'bg-red-200': register.input_value < 1,
+                            }">
                                 {{ register.input_value > 0 ? 'Entrada' : 'Saída'}}
-                            </td>
-                            <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
-                            <td scope="row" class="px-6 py-3 text-center">{{ register.document }}</td>
-                            <td scope="row" class="px-3 py-4">{{ register.description }}</td>
-                            <td scope="row" class="px-5 py-3 text-center">R$ {{ register.input_value }}</td>
-                            <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
-                            <td scope="row" class="px-6 py-3 text-center">{{ register.real_balance }}</td>
-                            <td scope="row" class="px-6 py-3">{{ register.name }}</td>
-                            <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
-                            <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
-                            <td scope="row" class="px-6 py-3">{{ register.origem.toUpperCase() }}</td>
-                            <td class="px-6 py-3">
-                            <q-btn @click="transferRegister(register)" class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
-                                </svg>
-                            </q-btn>
+
+                            </span>
                         </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                        <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ register.document }}</td>
+                        <td scope="row" class="px-3 py-4">{{ register.description }}</td>
+                        <td scope="row" class="px-5 py-3 text-center">R$ {{ register.input_value }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ register.real_balance }}</td>
+                        <td scope="row" class="px-6 py-3">{{ register.name }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
+                        <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
+                        <td scope="row" class="px-6 py-3">{{ register.origem.toUpperCase() }}</td>
+                        <td class="px-6 py-3">
+                        <q-btn @click="transferRegister(register)" class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                            </svg>
+                        </q-btn>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
             <RegisterCash v-if="showCashClosing"/>
         </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="relative overflow-x-auto ml-16 border w-max text-xl p-5"
+        class="relative overflow-x-auto ml-16 mt-5 border w-max text-xl p-5"
         :class="{
             'w-screen top-10 right-12': witdhScreen <= 1080
         }"    
@@ -34,7 +34,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg> <!-- <-- Icone de lupa-->
                     <!-- Busca de produto -->
-                <ProductsSearchBar/>
+                <ProductsSearchBar
+                    :witdhScreen="this.witdhScreen"
+                />
 
             </div>
 
@@ -101,8 +103,10 @@
                 products: [],
                 selectedProducts: [],
                 checkBoxMarked: false,
+
                 configs: {
                     saleNegativeorReset: false
+                    
                 }
             }
         },
@@ -119,7 +123,8 @@
 
         props: {
             witdhScreen: {
-                type: Number
+                type: Number,
+                required: true
 
             },
 
@@ -150,7 +155,6 @@
 
             selectProducts(product)
             {
-                console.log('Qtde do produto: ', product.amount, ' opção: ', this.configs.saleNegativeorReset)
                 if(product.amount <= 0 && this.configs.saleNegativeorReset)
                 {
                     alert('Venda com estoque negativo/zerado bloqueada!')
@@ -197,10 +201,9 @@
                 this.configs = {
                     saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset === 1 ? true : false,
                 }
-
-                console.log('this.configs 2', this.configs)
             }
             getConfig()
+            
         }
     }
 

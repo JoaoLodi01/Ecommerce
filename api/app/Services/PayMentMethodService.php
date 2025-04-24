@@ -19,45 +19,38 @@ class PayMentMethodService
         Log::info('Memória usada PayMentMethodService::class, __construct, linha 21: ' . memory_get_usage(true));
     }
 
-    public function payment(array $forms, array $paymentValues, object $customer, string $description, string $origem, object $pdv, array $installments)
-{
-    Log::info('-- Início do registro no caixa --');
-    Log::info('Memória usada: ' . memory_get_usage(true));
-    Log::info('$paymentValues: ', $paymentValues);
+    public function payment(array $forms, array $paymentValues, object $customer, string $description, string $origem, object $pdv)
+    {   // Método para ser adicioando ao caixa                
+        Log::info('-- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --');
+        Log::info('Memória usada PayMentMethodService::class, payment: ' . memory_get_usage(true));
 
-    $currentDate = new Carbon();
-    $cashRegisters = [];
+        Log::info('$paymentValues');
+        Log::info($paymentValues);
 
-    if (count($forms) >= 2) {
-        Log::info('Possui mais de uma forma de pagamento: ' . count($forms));
-
-        for ($i = 1; $i < count($paymentValues); $i++) {
-            if ($paymentValues[$i] > 0) {
-                foreach ($forms as $form) {
-                    if ($form->tipo_lancamento === 'Caixa') {
-                        $bodyCash = [
-                            'description' => $description === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
-                            'document' => $pdv->id,
-                            'pdv_id' => $pdv->id,
-                            'customer_id' => $customer->id,
-                            'name' => $customer->name,
-                            'especie_id' => $form->id,
-                            'especie' => $form->especie,
-                            'date_register' => $currentDate->format('Y-m-d'),
-                            'input_value' => $paymentValues[$form->id - 1],
-                            'output_value' => 0,
-                            'real_balance' => $paymentValues[$form->id - 1],
-                            'user_id' => 1,
-                            'seller' => 'aa',
-                            'origem' => $origem
-                        ];
-                        $cashRegisters[] = $bodyCash;
-                    }
-
-                    if ($form->tipo_lancamento === 'Receber') {
-                        foreach ($installments as $installment) {
-                            $bodyCash = [
-                                'description' => $description === 'nfce' ? "Parcelamento Venda NFC-e N° $pdv->id" : "Parcelamento Venda Nota Manual N° $pdv->id",
+        $currentDate = new Carbon();
+        $cashRegisters = [];
+        if(count($forms) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $forms
+        {   
+            Log::info('Possui mais de uma espécie informada: ' . count($forms));
+            Log::info('Total de pagamentos: ' . count($paymentValues));
+            // Percore todo o array enviado de valores
+            // MANTER O $i = 1, caso contrário vai dar bo se tiver mais de uma espécie informada
+            for ($i=1; $i < count($paymentValues); $i++) 
+            {
+                Log::info($i);
+                Log::info('$paymentValues[$i] linha - 37: i = ' . $i);            
+                if($paymentValues[$i] > 0)
+                {
+                    Log::info('Vai pegar as posições maiores que zero, posição: ' . $i);
+                    foreach ($forms as $form) 
+                    {
+                        Log::info('ID linha 43 - : ' . $form);
+                        Log::info('paymentValues linha 44 - : ' . $paymentValues[$i]);
+                        Log::info('Vai conferir os tipos de lançamento');
+                        if($form->tipo_lancamento === 'Caixa')
+                        {
+                            $bodyCash = array(
+                                'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
                                 'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
                                 'customer_id' => $customer->id,
@@ -65,57 +58,186 @@ class PayMentMethodService
                                 'especie_id' => $form->id,
                                 'especie' => $form->especie,
                                 'date_register' => $currentDate->format('Y-m-d'),
-                                'due_date' => $installment['due_date'],
-                                'installment_number' => $installment['number'],
-                                'installment_value' => $installment['value'],
+                                'input_value' => $paymentValues[$form->id - 1],
                                 'output_value' => 0,
-                                'real_balance' => $installment['value'],
-                                'type_interest' => $installment['type_interest'] ?? '%',
-                                'interest_value' => $installment['interest'] ?? 0,
-                                'total_amount' => $installment['total'] ?? $installment['value'],
+                                'real_balance' => $paymentValues[$form->id - 1],
+                                'user_id' => 1,
+                                'seller' => 'aa',
+                                'origem' => $origem
+                            
+                            );  
+                            array_push($cashRegisters, $bodyCash);
+                          
+                        }
+
+                        Log::info('-- Iniciou registro no Receber -- ');
+                        if($form->tipo_lancamento === 'Receber')
+                        {
+                            $bodyCash = array(
+                                'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->id" : "Parcelamento Venda Nota Manual 
+                                N° $pdv->id",
+                                'document' => $pdv->id,
+                                'pdv_id' => $pdv->id,
+                                'customer_id' => $customer->id,
+                                'name' => $customer->name,
+                                'especie_id' => $form->id,
+                                'especie' => $form->especie,
+                                'date_register' => $currentDate->format('Y-m-d'),
+                                'due_date' => $currentDate->addDays(30)->format('Y-m-d'),
+                                'installment_number' => 1,
+                                'installment_value' => $paymentValues[$form->id - 1],
+                                'output_value' => 0,
+                                'real_balance' => $paymentValues[$form->id - 1],
+                                'type_interest' => '%',
+                                'interest_value' => 10,
+                                'total_amount' => 10,
                                 'user_id' => 1,
                                 'user' => 'aa',
                                 'origem' => $origem
-                            ];
-                            $this->receiveRepository->create($bodyCash);
+                            
+                            );  
+                            Log::info('-- Terminou o registro -- ');
+                            Log::info('-- Vai chamar o receiveRepository -- ');
+                            $receive = $this->receiveRepository->create($bodyCash);
+                            return array(
+                                'success' => true
+                            );
+                            Log::info('-- Terminou de chamar o receiveRepository -- ');
+                        }
+                    }
+                }                         
+            }    
+
+            Log::info('Terminou de montar o corpo dos registros: ');
+            Log::info('Dados de envio: ');
+            Log::info($cashRegisters);
+            Log::info('-- Vai chamar o cashRegisterRepository linha 104 -- ');
+            $this->cashRegisterRepository->create($cashRegisters);
+            if($origem == 'hotel')
+            {
+                Log::info('-- Vai chamar o reservationRepository linha 106 -- ');
+                $this->reservationService->create($customer);
+
+            }
+            
+            Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
+            Log::info('-- Fim do registro no caixa, PayMentMethodService.php, linha 109 --');
+            return array(
+                'line' => 124,
+                'success' => true
+    
+            ); 
+        }
+
+        if(count($forms) <= 1)
+        {
+            Log::info('Não possui mais de uma espécie informada: ' . count($forms) . ' Dados: ');
+            for ($i=0; $i < count($paymentValues); $i++)
+            {
+                Log::info('$paymentValues[$i] linha - 118: i = ' . $i);            
+                Log::info('Vai pegar as posições maiores que zero, vezes: ' . $i);
+                if($paymentValues[$i] > 0)
+                {
+                    Log::info('forms');
+                    Log::info($forms);
+                    foreach ($forms as $form) {
+                        Log::info('ID linha 120 - : ' . $form);
+                        Log::info('paymentValues linha 124 - : ' . $paymentValues[$i]);
+                        Log::info('Vai conferir os tipos de lançamento');
+                        Log::info('$form->tipo_lancamento');
+                        Log::info($form);
+                        
+                        if($form->tipo_lancamento === 'Caixa')
+                        {
+                            $bodyCash = array(
+                                'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual 
+                                N° $pdv->id",
+                                'document' => $pdv->id,
+                                'pdv_id' => $pdv->id,
+                                'customer_id' => $customer->id,
+                                'name' => $customer->name,
+                                'especie_id' => $form->id,
+                                'especie' => $form->especie,
+                                'date_register' => $currentDate->format('Y-m-d'),
+                                'input_value' => $paymentValues[$form->id - 1],
+                                'output_value' => 0,
+                                'real_balance' => $paymentValues[$form->id - 1],
+                                'user_id' => 1,
+                                'seller' => 'aa',
+                                'origem' => $origem
+                            
+                            );  
+                            array_push($cashRegisters, $bodyCash);
                         }
 
-                        return ['success' => true]; // Finaliza o processo se tiver parcelas
+                        if($form->tipo_lancamento === 'Receber')
+                        {
+                            $bodyCash = array(
+                                'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->id" : "Parcelamento Venda Nota Manual 
+                                N° $pdv->id",
+                                'document' => $pdv->id,
+                                'pdv_id' => $pdv->id,
+                                'customer_id' => $customer->id,
+                                'name' => $customer->name,
+                                'especie_id' => $form->id,
+                                'especie' => $form->especie,
+                                'date_register' => $currentDate->format('Y-m-d'),
+                                'due_date' => $currentDate->addDays(30)->format('Y-m-d'),
+                                'installment_number' => 1,
+                                'installment_value' => $paymentValues[$form->id - 1],
+                                'output_value' => 0,
+                                'real_balance' => $paymentValues[$form->id - 1],
+                                'type_interest' => '%',
+                                'interest_value' => 10,
+                                'total_amount' => 10,
+                                'user_id' => 1,
+                                'user' => 'aa',
+                                'origem' => $origem
+                            
+                            );  
+                            
+                            Log::info('-- Vai chamar o receiveRepository linha 170 -- ');
+                            $this->receiveRepository->create($bodyCash);
+                            return array(
+                                'success' => true
+                            );
+                            
+                            Log::info('-- Terminou de chamar o receiveRepository -- ');
+
+                        }
                     }
                 }
             }
         }
+    
+        Log::info('Terminou de montar o corpo do caixa: ');
+        Log::info('Dados: ');
+        Log::info($cashRegisters);
+        Log::info('-- Vai chamar o cashRegisterRepository linha 183 -- ');
+        $this->cashRegisterRepository->create($cashRegisters);
+        Log::info('-- Vai chamar o reservationRepository linha 185 -- ');
+        if($origem == 'hotel')
+        {
+            Log::info('-- Vai chamar o reservationRepository linha 106 -- ');
+            $this->reservationService->create($customer);
 
-        // Se só teve registros no caixa
-        if (!empty($cashRegisters)) {
-            Log::info('Registros para o caixa: ', $cashRegisters);
-            $this->cashRegisterRepository->create($cashRegisters);
-
-            if ($origem === 'hotel') {
-                $this->reservationService->create($customer);
-            }
-
-            return [
-                'line' => __LINE__,
-                'success' => true
-            ];
         }
-    }
+        Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
+        Log::info('-- Fim do registro no caixa, PayMentMethodService.php, linha 188 --');
+        return array(
+            'line' => 215,
+            'success' => true
 
-    return [
-        'line' => __LINE__,
-        'success' => false,
-        'message' => 'Nenhuma forma de pagamento válida processada.'
-    ];
-}
+        );  
+    }    
 
     public function decreaseCash(object $customer, float $value, string $description, string $origem)
     {
-        Log::info('-- Inicio decreaseCash linha 194 --');
+        Log::info('-- Inicio decreaseCash --');
         Log::info('Memória usada PayMentMethodService::class, decreaseCash: ' . memory_get_usage(true));
         $currentDate = new Carbon();
         $cashRegisters = [];
-        $cashRegisters[] = array(
+        $cashRegisters[] = [
             'description' => $description,
             'document' => 1,
             'customer_id' => $customer->id,
@@ -129,17 +251,16 @@ class PayMentMethodService
             'user_id' => 1,
             'seller' => 'aa',
             'origem' => $origem
-        
-        );  
+        ];  
+
         Log::info('Corpo: ');
         Log::info($cashRegisters);    
-        Log::info('-- Vai chamar o cashRegisterRepository linha 214 -- ');
+        Log::info('-- Vai chamar o cashRegisterRepository -- ');
         $this->cashRegisterRepository->create($cashRegisters);
-        Log::info('-- Fim decreaseCash linha 264 --');
+        Log::info('-- Fim decreaseCash --');
         return array(
             'line' => 266,
             'success' => true
-
         );  
     }
 }

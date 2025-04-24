@@ -10,6 +10,8 @@ class PDV extends Model
 
     protected $fillable = [
         'description',
+        'issue_date',
+        'n_nfce',
         'cliente_id',
         'client',
         'gross_value',
@@ -21,6 +23,7 @@ class PDV extends Model
         'finished',
         'canceled',
         'is_nfce_nm',
+        'status'
     ];
 
     protected $hidden = [

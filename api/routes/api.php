@@ -3,6 +3,7 @@
 use App\Http\Controllers\EcommerceController\{
     ProductsController,
     CashRegisterController,
+    ErrorsPDVController,
     UserController,
     PDVController,
     PaymentsController,
@@ -15,11 +16,7 @@ use App\Http\Controllers\HotelController\{
 
 };
 
-use App\Http\Controllers\{
-    IPController,
-    CustomerController
-
-};
+use App\Http\Controllers\CustomerController;
 
 use App\Http\Controllers\Config\ConfigController;
 
@@ -29,7 +26,7 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
-
+use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
 use Illuminate\Support\Facades\{
     Route,
  
@@ -40,6 +37,8 @@ Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
+        Route::post('');
+
         Route::get('/me', function (Request $request) {
             return response()->json([
                 'success' => $request->header('Authorization') ? true : false,
@@ -102,6 +101,8 @@ Route::prefix('v1')->group( function (){
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
                 Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
 
+                Route::get('/get-all-errors', [ErrorsPDVController::class, 'all']);
+
             });
         
             Route::prefix('payments')->group( function(){
@@ -146,20 +147,33 @@ Route::prefix('v1')->group( function (){
             Route::put('/{id}', [CustomerController::class, 'update']);
             Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
             Route::put('/{id}/active', [CustomerController::class, 'active']);
-            Route::get('/report/all', [ReportCustomersController::class, 'exportAllClients']);
-            Route::get('/report/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
-            
+
         });
 
         // User routes
         Route::prefix('users')->group( function(){
-            //Route::get('/all', [UserController::class, 'getAll']);
-            Route::get('/selectSeller', [UserController::class, 'selectSeller']);
+            Route::get('/all', [UserController::class, 'getAll']);
             Route::post('/create', [UserController::class, 'create']);
             Route::get('/{id}', [UserController::class, 'findByID']);
             Route::put('/{id}', [UserController::class, 'update']);
             Route::delete('/{id}/deactivate', [UserController::class, 'delete']);
         
+        });
+
+        Route::prefix('report')->group(function(){
+            Route::prefix('customers')->group(function(){
+                Route::get('/all', [ReportCustomersController::class, 'exportAllClients']);
+                Route::get('/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
+            });
+
+            Route::prefix('products')->group(function(){
+                Route::get('/all', [ReportCustomersController::class, 'exportAllClients']);
+                Route::get('/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
+            });
+
+            Route::prefix('pdv')->group(function(){
+                Route::post('/closing-period', [ReportCashClosingPeriodController::class, 'getData']);
+            });
         });
     });
 
@@ -167,8 +181,6 @@ Route::prefix('v1')->group( function (){
         Route::post('/create', [UserController::class, 'create']);
         
     });
-
-    Route::get('/get-ip', [IPController::class, 'create']); 
 
     Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('password.email');
     

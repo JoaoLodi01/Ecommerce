@@ -1,32 +1,31 @@
 <template>
-    <div class="">
-        <input
-            v-model="search.name"
-            @input="getProducts()"
-            placeholder="Buscar..." 
-            class="border border-black outline-none rounded-md mt-1 mb-1 w-96 p-1"
-            maxlength="16"
-            :disabled="!configs.fillter"
-        />
-        
-        <ul 
-            v-if="filteredProducts.length > 0 && search.name !== ''" 
-            class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
+    <input
+        v-model="search.name"
+        @input="getProducts()"
+        placeholder="Buscar..." 
+        class="outline-none rounded-md mt-1 mb-1 p-1.5"
+        id="searchBar"
+        :disabled="!configs.fillter"
+    />
+    
+    <ul 
+        v-if="filteredProducts.length > 0 && search.name !== ''" 
+        class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
+    >
+        <li
+            v-for="product in filteredProducts"
+            :key="product.id"
+            @click="setProduct(product)"    
+            class="p-2 hover:bg-gray-200 cursor-pointer"
+            
         >
-            <li
-                v-for="product in filteredProducts"
-                :key="product.id"
-                @click="setProduct(product)"    
-                class="p-2 hover:bg-gray-200 cursor-pointer"
-                
-            >
-                <span>{{ product.id }}</span> -
-                <span> {{ product.product }}</span> -
-                <span> Qtde: {{ product.amount }}</span>
+            <span>{{ product.id }}</span> -
+            <span> {{ product.product }}</span> -
+            <span> Qtde: {{ product.amount }}</span>
 
-            </li>
-        </ul>
-    </div>
+        </li>
+    </ul>
+    
 </template>
 
 <script>
@@ -125,3 +124,10 @@
         }
     }
 </script>
+
+<style>
+    #searchBar{ 
+        width: 100vh;
+    }
+
+</style>

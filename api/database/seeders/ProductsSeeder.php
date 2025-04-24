@@ -45,7 +45,7 @@ class ProductsSeeder extends Seeder
             [
                 "product" => "Jack Daniels Honey",
                 "barcode" => "8218400032",
-                "barcode_internal" => "82184004364",
+                "barcode_internal" => "82184004365",
                 "group_id" => $id->id,
                 "group" => $id->group,
                 "amount" => 10,
@@ -60,7 +60,7 @@ class ProductsSeeder extends Seeder
             [
                 "product" => "Jack Daniels Canela",
                 "barcode" => "07898945131315",
-                "barcode_internal" => "82184004364",
+                "barcode_internal" => "82184004366",
                 "group_id" => $id->id,
                 "group" => $id->group,
                 "amount" => 10,

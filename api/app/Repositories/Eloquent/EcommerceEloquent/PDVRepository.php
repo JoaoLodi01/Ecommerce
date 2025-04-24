@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
+setlocale(LC_TIME, 'ptb');
 
 use App\Models\EcommerceModels\{
     PDV,
@@ -18,6 +19,9 @@ use App\Repositories\Eloquent\{
 use App\Services\PayMentMethodService;
 use Illuminate\Support\Facades\Log;
 
+use App\Http\NFCeValidation\NFCeValidation;
+use Carbon\Carbon;
+
 class PDVRepository
 {
     public function __construct(
@@ -26,7 +30,8 @@ class PDVRepository
         protected UserRepository $userRepository,
         protected ProductsRepository $productsRepository,
         protected PayMentMethodService $payMentMethodService,
-        protected PaymentsRepository $paymentsRepository
+        protected PaymentsRepository $paymentsRepository,
+        protected NFCeValidation $nfceValidation
 
     ){
         Log::info('Memória usada PDVRepository::class, __construct, linha 31: ' . memory_get_usage(true));
@@ -82,52 +87,12 @@ class PDVRepository
         return $pdvs;
     }
 
-    public function saveProducts(array $products, int $pdvID, object $user)
+    public function saveProducts(array $products, int $pdvID, object $user, string $type)
     {
-        Log::info('-- Iniciou o saveProducts() line 87 -- ');     
-        Log::info('Memória usada PDVRepository::class, saveProducts: ' . memory_get_usage(true));
-        Log::info('User: ' . $user);
-
-        Log::info('$products 1' . count($products));
-        Log::info($products);
-
+        Log::info('-- Iniciou o saveProducts() line 90 -- ');     
+        $errors = [];
         foreach ($products as $product) {
-            Log::info('Memória usada PDVRepository::class, saveProducts dentro do foreach: ' . memory_get_usage(true));
-            Log::info('$product, type: ' . gettype($product));
-            Log::info($product);
-
-            Log::info('Memória usada PDVRepository::class, saveProducts dentro do for: ' . memory_get_usage(true));
-
-            
-            /*$itensPDV = array(
-                'pdv_id' => $pdvID,
-                'product_id' => $product['id'],
-                'product' => $product['produtc'],
-                'cost_price' => $product['cost_price'],
-                'sale_price' => $product['sale_price'],
-                'cfop' => $product['cfop'],
-                'csosn' => $product['csosn'],
-                'ncm' => $product['ncm'],
-                'cest' => $product['cest'],
-                'unit' => $product['unit'],
-                'amount' => $product['amount'],
-                'addition' => 0,
-                'discount' => 0,
-                'user_id' => $user->id,
-                'seller' => $user->name, 
-
-            );
-
-            Log::info('itensPDV ');
-            Log::info($itensPDV);
-            $ipdv = ItensPDV::create($itensPDV);
-            Log::info('$ipdv');
-            Log::info($ipdv);*/
-
             for ($i=0; $i < count($product); $i++) { 
-                Log::info('$product[$i]');
-                Log::info($product[$i]);
-
                 $itensPDV = array(
                     'pdv_id' => $pdvID,
                     'product_id' => $product[$i]['id'],
@@ -146,32 +111,56 @@ class PDVRepository
                     'seller' => $user->name, 
     
                 );
-    
-                Log::info('itensPDV ');
-                Log::info($itensPDV);
+
+                if($type === 'nfce')
+                {
+                    $nfceValidationRes = $this->nfceValidation->validation($itensPDV);
+                    Log::info('$nfceValidationRes = $this->nfceValidation->validation($itensPDV);', ['nfceValidation' => $nfceValidationRes]);
+
+                    if($nfceValidationRes['cfopValidate'] && $nfceValidationRes['csosnValidate'])
+                    {
+                        Log::info('CFOP e CSOSN/CST válidos');
+                        
+                    } else if (!$nfceValidationRes['cfopValidate'])
+                    {
+                        Log::info('CFOP inválido, item: ');
+                        array_push($errors, $nfceValidationRes['errors']);
+
+                    } else if (!$nfceValidationRes['csosnValidate'])
+                    {
+                        Log::info('CSOSN / CST inválido');
+                        array_push($errors, $nfceValidationRes['errors']);
+
+                    } else {
+                        Log::info('CFOP e CSOSN/CST inválidos');
+                        array_push($errors, $nfceValidationRes['errors']);
+
+                    }
+                }
+            
                 $ipdv = ItensPDV::create($itensPDV);
-                Log::info('$ipdv');
-                Log::info($ipdv);
+                
             }
         }
-
-        return;
+        return array(
+            'errors' => $errors
+        );
     }
 
     public function saveSale(array $details, array $productsArray)
     {
         Log::info('-- Iniciou o saveSale() line 172 -- ');
         Log::info($details);
-        Log::info('Memória usada PDVRepository::class, saveSale: ' . memory_get_usage(true));
-        Log::info('Busca pelo customer');
-        $customer = $this->customerRepository->findByID($details['customer_id']);
-        Log::info('Busca pelo user');
-        $user = $this->userRepository->findByID($details['user_id']); // "user"
-        Log::info($details);
-        Log::info($user);
 
+        $customer = $this->customerRepository->findByID($details['customer_id']);
+        
+        $user = $this->userRepository->findByID($details['user_id']); // "user"
+
+        $currentDate = new Carbon();
+                  
         $pdvData = array(
             'description' => $details['description'],
+            'issue_date' => $currentDate->format('Y-m-d'),
             'cliente_id' => $customer->id,
             'client' => $customer->name,
             'gross_value' => $details['sub_total'],
@@ -189,13 +178,28 @@ class PDVRepository
 
         if($pdv && $pdv->id)
         {            
-            $this->saveProducts($productsArray, $pdv->id, $user);
-            return array(
-                'success' => true,
-                'pdvID' => $pdv->id
+            $iPDV = $this->saveProducts($productsArray, $pdv->id, $user, $details['is_nfce_nm']);
+            Log::info('$iPDV');
+            Log::info(count($iPDV['errors']));
 
-            );
+            if(count($iPDV['errors']) === 0)
+            {
+                return array(
+                    'success' => true,
+                    'pdvID' => $pdv->id,
+
+                );
+            } else {
+                return array(
+                    'success' => false,
+                    'message' => 'Erro no produto',
+                    'pdvID' => $pdv->id,
+                    'errors' => $iPDV['errors']
+
+                );
+            }   
         }
+        
     }
 
     public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total)
@@ -215,15 +219,14 @@ class PDVRepository
             Log::info('Foi maior');
             Log::info($pdv->is_nfce_nm);
             
-            /*$payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual 
-            N° $pdv->id", 'pdv', $pdv);*/
-            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv);
+            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, [1]);
             Log::info('payMentMethodService');
             Log::info($payMentMethodService);
 
             if ($payMentMethodService['success'] === true) {
                 Log::info('Pagamento bem sucessido, vai alterar o PDV: ' . $pdv);
                 Log::info('$type ' . $type);
+
                 $pdv->update([
                     'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
                     'is_nfce_nm' => $type === 'saleNM' ? 'nm' : 'nfce',
@@ -272,5 +275,12 @@ class PDVRepository
             );
 
         }
+    }
+
+    public function incrementNFCe(int $id)
+    {
+        $lastPDV = PDV::where('id', $id)->latest('id')->first();
+        
+
     }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 120);
             $table->string('email', 120)->unique();
             $table->string('password', 120);
+            $table->string('login', 120)->nullable();
             $table->string('perfil_photo', 120)->nullable();
             $table->string('access', 20);
             $table->timestamp('email_verified_at')->nullable();

@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\PDV\{
     PDVSaleRequest,
-    PDVSaveSaleRequest}
-;
+    PDVSaveSaleRequest
+    
+};
+
 use App\Services\EcommerceService\PDVService;
 use Illuminate\Support\Facades\Log;
 

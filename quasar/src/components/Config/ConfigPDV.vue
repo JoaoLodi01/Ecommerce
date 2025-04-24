@@ -50,6 +50,14 @@
                 
             />
 
+            <q-checkbox 
+                left-label
+                v-model="configs.groupLikeItens"
+                :label="'Agrupar itens iguais'"
+                color="grey"
+                
+            />
+
             <q-select 
                 v-model="configs.searchOptionProduct" 
                 :options="searchOptionProducts" 
@@ -63,6 +71,17 @@
                 v-model="configs.searchOptionCustomer" 
                 :options="searchOptionCustomers" 
                 label="Busca de clientes" 
+                filled 
+                color="grey"
+                
+            />
+
+            <span>Alterações</span>
+
+            <q-select 
+                v-model="configs.editFields" 
+                :options="editFields" 
+                label="Campos" 
                 filled 
                 color="grey"
                 
@@ -108,6 +127,10 @@
                     }, 1000)
                 },
 
+                editFields: [
+                    'Permitir alterar Qtde, Val Unitário e calcular o total'
+                ],
+
                 searchOptionProducts: [
                     'Cód barras',
                     'Cód barras interno',
@@ -135,6 +158,8 @@
                     saleNegativeorReset: false,
                     supervisorPasswordDeleteItem: false,
                     supervisorPasswordCancelSale: false,
+                    groupLikeItens: false,
+                    permitEditFields: false,
                     nmFinaly: true,
                    
                 },

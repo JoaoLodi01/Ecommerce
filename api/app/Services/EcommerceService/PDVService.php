@@ -66,13 +66,14 @@ class PDVService
     {
         try {
             $saveSale = $this->pdvRepository->saveSale($details, $productsArray);
+            Log::info('Save sale', ['data' => $saveSale]);
             if($saveSale['success'])
             {
                 return $saveSale;
 
             }
-            
-            return 400;
+                        
+            return $saveSale;
 
         } catch (\Throwable $th) {
             return response()->json([
@@ -91,7 +92,8 @@ class PDVService
             $forms = [];
 
             foreach ($paymentsValues as $value) {
-                $total += $value;
+                Log::info('Dentro');
+                $total += (float) $value;
 
             }
             for ($i=0; $i < count($paymentsValues); $i++) { 
@@ -112,6 +114,12 @@ class PDVService
                     'pdv' => $pdv['pdv'],
                     'message' => 'Venda finalizada'
                 ], 200);
+            } else {
+                return response()->json([
+                    'success' => $pdv['success'],
+                    'message' => 'Erro ao finalizar'
+                ], 400);
+                
             }
 
             return response()->json([

@@ -21,17 +21,18 @@ class CustomerController extends Controller
 
     public function getAll(){
         return $this->customerService->getAll();
-        
+   
     }
 
     public function search(SearchCustomer $request){
         $data = $request->validated();
-        Log::info($data);
         return $this->customerService->search($data);
     }
 
     public function create(CustomerRequest $request){
         $data = $request->validated();
+        Log::info('Dados recebidos: ');
+        Log::info($data);
         return $this->customerService->create($data);
     }
 

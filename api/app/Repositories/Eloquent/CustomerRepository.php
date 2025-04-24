@@ -62,8 +62,7 @@ class CustomerRepository
         }
 
         Log::info('cusotmer');
-        Log::info(count($customer) === 0 ? 'Cliente não encontrado' : $customer);
-        return count($customer) === 0 ? 'Cliente não encontrado' : $customer;
+        return $customer;
     }
 
     public function findByID(int $id){
@@ -84,7 +83,9 @@ class CustomerRepository
             'address' => $data['address'],
             'number' => $data['number'],
             'email' => $data['email'],
-            'type' => $data['type'],
+            'type_1' => $data['type'][0] ?? null,
+            'type_2' => $data['type'][1] ?? null,
+            'type_3' => $data['type'][2] ?? null,
             'phone' => $data['phone'],
         ]);
     }

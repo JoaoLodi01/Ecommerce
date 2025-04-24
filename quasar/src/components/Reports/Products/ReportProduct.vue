@@ -1,14 +1,17 @@
 <template>
-    <q-btn @click="showLoading" class="mr-5" :class="{ 'mb-5': widthScreen <= 1089 }">    
-        <button @click="reportCustomer('Listagem_Completa')">Listagem completa dos produtos</button>
+    <q-btn @click="reportCustomer('Listagem_Completa_Ativos')" class="mr-5" :class="{ 'mb-5': widthScreen <= 1089 }">    
+        <span v-if="widthScreen <= 1080">Listagem completa dos produtos ativos</span>
+        <span v-else>Listagem completa dos produtos</span>
     </q-btn>
 
-    <q-btn @click="showLoading" class="mr-5" :class="{ 'mb-5': widthScreen <= 1089 }">
-        <button @click="reportCustomer('Listagem_Completa_Inativos')">Listagem completa de todos os produtos inativos</button>
+    <q-btn @click="reportCustomer('Listagem_Completa_Inativos')" class="mr-5" :class="{ 'mb-5': widthScreen <= 1089 }">
+        <span v-if="widthScreen <= 1080">Listagem completa dos produtos inativos</span>
+        <span v-else>Listagem completa de todos os produtos inativos</span>
     </q-btn>
 
-    <q-btn @click="showLoading" class="mr-5">
-        <button @click="reportCustomer('Listagem_Completa_2')">Listagem completa de todos os produtos inativos</button>
+    <q-btn @click="reportCustomer('Listagem_Completa')" class="mr-5">
+        <span v-if="widthScreen <= 1080">Listagem completa de todos os produtos</span>
+        <span v-else>Listagem completa de todos os produtos inativos</span>
     </q-btn>
 </template>
 
@@ -59,10 +62,11 @@
             },
 
             async reportProduct(type) {
+                this.showLoading()
                 try {
                     switch (type) {
-                        case 'Listagem_Completa':
-                            let responseAll = await api.get('/customers/report/all', {
+                        case 'Listagem_Completa_Ativos':
+                            let responseAll = await api.get('//report/all', {
                                 responseType: 'blob',
                             });
                             
