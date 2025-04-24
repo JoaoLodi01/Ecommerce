@@ -1,33 +1,30 @@
 <template>
     <div
-        class="w-max mx-auto border border-black rounded-lg mt-9 bg-white" 
+        class="w-max mx-auto border border-black rounded-lg mt-2 bg-white"
         id="pdv-view"
         v-if="showGrid"
         :class="{
             'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
             'relative left-10': witdhScreen <= 1080,
-            
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
             'text-3xl': textSize === 16,
-            
-        }"   
-    >
+        }">
+
         <div
             v-if="showPaymentsForm"
             class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
-
+            
             <PaymentsForm
                 class="bg-white rounded-xl shadow-xl"
-                :witdhScreen="this.witdhScreen"
-                :typeOperation=this.typeOperation
-                :totalOperation=this.totalOperation
-                :pdvID=this.pdvID
+                :witdhScreen="witdhScreen"
+                :typeOperation="typeOperation"
+                :totalOperation="totalOperation"
+                :pdvID="pdvID"
                 @resetTotal="totalOperation = $event"
                 @resetPDVID="pdvID = $event"
                 @close="cancelOperation"
                 @update:selectProducts="resetSale($event)"
-
             />
 
             <CashClosing
@@ -44,12 +41,11 @@
                     'opacity-0 -z-50': !errorsOfSale.showErrosModal
                 }"
             />
-
         </div>
         
         <div class="h-4">
             <div 
-                class="m-3 border border-black rounded-lg"
+                class="m-3 border rounded-lg"
                 :class="{
                     'w-14': witdhScreen <= 1080,
                     
@@ -94,11 +90,10 @@
 
             </div>
   
-            <div 
-                class="products-grid m-5 shadow-lg relative overflow-y-auto"
-            >
+            <div class="products-grid m-5 shadow-lg relative overflow-y-auto">
+                
                 <table class="block text-left rounded-t-xl rtl:text-right ">
-                    <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
+                    <thead class="uppercase sticky top-0 bg-white z-10">
                         <tr class="bg-white">
                             <th scope="col" class="px-6 py-3">Cód.</th>
                             <th scope="col" class="px-6 py-3 text-left">Produto</th>
@@ -112,10 +107,8 @@
                     </thead>
 
                     <tbody v-for="products in productsSeletion">
-                        <tr
-                            v-for="(product, id) in products" :key="id"
-                            class="border border-black"
-                        >    
+                        <tr v-for="(product, id) in products" :key="id"
+                            class="border">    
 
                             <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
@@ -129,7 +122,6 @@
                                     maxlength="4"
                                     minlength="4"
                                     @input="changeCFOP(product.id, product.cfop)"
-
                                 />
                             </td>
 
@@ -143,7 +135,6 @@
                                     class="w-10 text-center border-b-4 border-b-gray-500"
                                     id="csosnInput"
                                     @input="changeCSOSN(product.id, product.csosn)"
-
                                 />
                             </td>
 
@@ -154,7 +145,6 @@
                                     type="text"
                                     class="w-10 text-center border-b-4 border-b-gray-500 "
                                     @input="changeAmount(product.id, product.amount)"
-                                    
                                 />
                             </td>
                             <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
@@ -235,26 +225,25 @@
     <div>
         </div>
             <div 
-                class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-black "
+                class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-gray-300 mt-2 mb-2 mr-2 "
                 :class="{
                     'text-xl': textSize === 4,
                     'text-2xl': textSize === 8,
                     'text-3xl': textSize === 16,
                     'm-auto': witdhScreen <= 1080
-                }"   
-            >
+                }">
+                
                 <div>
                     <div>
-                        <div 
-                            class="m-2 p-2 rounded-lg border border-gray-700"
-                        >
+                        <div class="m-2 p-2">
+
                             <label class="text-black" for="discount">Vendedor</label>
                             <input 
                                 :placeholder="sellerData.name"
                                 disabled
                                 id="discount"
                                 type="text"
-                                class="text-black border border-black w-full"
+                                class="text-black w-full mb-2"
                             />
 
                             <br>
@@ -275,127 +264,93 @@
                                 width="236px"
                             />
                         </div>
-                    <div
-                        class="m-2 p-2 rounded-lg border border-gray-700" 
-                        id="values"
-                        
-                    >
-                        <label class="text-black" for="addition">Acréscimo R$</label>
-                        <input 
-                            id="addition"
-                            v-model.number="emitProducts.addition"
-                            type="text"
-                            class="text-black rounded-lg border border-black w-20 p-0.5 ml-1 m-1"
-                        />
-                        <br>
-                        <label class="text-black" for="discount">Desconto R$</label>
-                        <input 
-                            id="discount"
-                            v-model.number="emitProducts.discount"
-                            type="text"
-                            class="text-black rounded-lg border border-black w-20 p-0.5 ml-3.5 m-1"
-                        />
-                        <br>
-                        <label class="text-black" for="discount">Frete R$</label>
-                        <input 
-                            id="freight"
-                            v-model.number="emitProducts.freight"
-                            type="text"
-                            class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
-                        />
+
+                        <div class="m-4 p-4 bg-white"> 
+                            <div class="gap-4">
+                                <!-- Acréscimo -->
+                                <div class="flex items-center gap-4 mb-2">
+                                <label for="addition" class="text-gray-700 font-semibold w-32">Acréscimo R$</label>
+                                <input 
+                                    id="addition"
+                                    v-model.number="emitProducts.addition"
+                                    type="number"
+                                    class="w-32 px-3 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-right"
+                                />
+                                </div>
+
+                                <!-- Desconto -->
+                                <div class="flex items-center gap-4 mb-2">
+                                <label for="discount" class="text-gray-700 font-semibold w-32">Desconto R$</label>
+                                <input 
+                                    id="discount"
+                                    v-model.number="emitProducts.discount"
+                                    type="number"
+                                    class="w-32 px-3 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-right"
+                                />
+                                </div>
+
+                                <!-- Frete -->
+                                <div class="flex items-center gap-4">
+                                <label for="freight" class="text-gray-700 font-semibold w-32">Frete R$</label>
+                                <input 
+                                    id="freight"
+                                    v-model.number="emitProducts.freight"
+                                    type="number"
+                                    class="w-32 px-3 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-right"
+                                />
+                                </div>
+                            </div>
+                        </div>
+                    <div class="m-2 p-2 rounded-lg border border-gray-300" id="total">
+                        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Frete <span>R$ {{ calculateTotal.freight.toFixed(2) }}</span></p>
+                        <div class="mt-2">
+                            <span class="text-black rounded-md">
+                                Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}
+                            </span>
+                        </div>
                     </div>
-                <div
-                    class="m-2 p-2 rounded-lg border border-gray-700"
-                    id="total"
 
-                >
-                    <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
-                    <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
-                    <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
-                    <p class="flex justify-between">Frete <span>R$ {{ calculateTotal.freight.toFixed(2) }}</span></p>
-                
-                </div>
-             
-                    <div class="flex m-2 p-2 rounded-lg border border-gray-700">
+                    <div class="flex flex-wrap items-center gap-2 p-2 ml-1 rounded-lg text-white">
+                        <!-- Cancelar venda -->
                         <button
-                            v-if="productsSeletion.length <= 0"
-                            disabled
-                            title="Sem vendas no momento"
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
-                            
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-300">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                            </svg>
-                        </button>
-
-                        <button
-                            v-else @click="cancelSale()"
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
-                        >
+                            :disabled="productsSeletion.length <= 0"
+                            @click="productsSeletion.length > 0 && cancelSale()"
+                            title="Cancelar venda"
+                            class="w-10 h-10 flex items-center justify-center bg-slate-600 rounded-md transition hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                             </svg>
                         </button>
 
+                        <!-- Salvar venda -->
                         <button
-                            v-if="productsSeletion.length <= 0"
-                            disabled
-                            title="Sem vendas no momento"
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-300">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                            </svg>
-                        </button>
-                        <button 
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
+                            :disabled="productsSeletion.length <= 0"
+                            @click="productsSeletion.length > 0 && saveSale()"
                             title="Salvar venda"
-                            @click="saveSale()"
-                            v-else
-                        >
+                            class="w-10 h-10 flex items-center justify-center bg-slate-600 rounded-md transition hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
                             </svg>
                         </button>
 
-                        <div class="mb-auto ml-auto text-xl w-auto">
-                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}</span>
-                        
-                        </div>
-                    </div>
+                        <!-- Botão Finalizar -->
+                        <button
+                            v-if="configs.nmFinaly"
+                            @click="finalizeSale('nm')"
+                            class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-md text-sm font-medium transition">
+                            Finalizar
+                        </button>
 
-                    <div 
-                        class="flex text-white p-1 rounded-lg border border-gray-700 w-full"
-                    
-                    >
-                        <q-btn 
-                            class="ml-5" 
-                            outline 
-                            size="1.2rem"
-                        >
-                            <button
-                                v-if="configs.nmFinaly"
-                                :class="{
-                                    'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
-                                }" 
-                                @click="finalizeSale('nm')"
-                                class="mr-1 ml-2 p-1 bg-slate-600 rounded-md"
-                            >
-                                Finalizar
-                            </button>
-                        </q-btn>
-                        <q-btn 
-                            class="ml-5" 
-                            outline 
-                            size="1.2rem"
-                        >
-                            <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
-    
-                        </q-btn>
-                        
+                        <!-- Botão Finalizar NFC-e -->
+                        <button
+                            @click="finalizeSale('nfce')"
+                            class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-sm font-medium transition">
+                            Finalizar e emitir NFC-e
+                        </button>
                     </div>
-
                 </div>
             </div>
         </div>

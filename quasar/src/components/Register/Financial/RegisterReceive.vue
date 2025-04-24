@@ -124,7 +124,6 @@
     </form>
   </div>
 </template>
-
 <script>
   import { api } from "boot/axios"
   import {LocalStorage} from "quasar";

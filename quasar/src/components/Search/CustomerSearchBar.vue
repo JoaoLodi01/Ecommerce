@@ -1,21 +1,30 @@
 <template>
     <div class="flex">
-        <q-checkbox
-            size="1.6rem"
-            label="Cliente cadastrado"
-            v-model="registredCustomer"
-            right-label
-            @vue:updated="watchRegistredCustomer()"
-        />
+        <div class="">
+            <div class="">
+                <q-checkbox
+                    size="1.6rem"
+                    label="Cliente cadastrado"
+                    v-model="registredCustomer"
+                    color="grey"
+                    @vue:updated="watchRegistredCustomer()"
 
-        <input 
-            v-model="clientsData.name"
-            @click="setClient(clientsData)"
-            @input="selectClient()"
-            class="text-black border border-black w-full"
-            :disabled="!fillter"
+                />
 
-        />
+            </div>
+
+            <q-input 
+                v-model="clientsData.name"
+                @click="setClient(clientsData)"
+                @update:model-value="selectClient()"
+                class="w-96"
+                color="grey"
+                :disabled="!fillter"
+
+            />
+        
+        </div>
+    
             <ul 
                 v-if="filteredClients.length > 0 && clientsData.name !== ''" 
                 class="fixed z-50 p-3 bg-white border border-gray-300 mt-14"
