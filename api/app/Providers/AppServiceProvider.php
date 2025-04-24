@@ -2,8 +2,16 @@
 
 namespace App\Providers;
 
-use App\Repositories\Contracts\CashRegister;
-use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
+use App\Repositories\Contracts\RegisterContract\{
+    RegisterIssuerContract,
+    RegisterOwnerContract
+};
+
+use App\Repositories\Eloquent\RegisterEloquent\{
+    RegisterIssuerRepository,
+    RegisterOwnerRepository
+};
+
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //$this->app->bind(CashRegisterRepository::class, CashRegister::class);
+        $this->app->bind(RegisterOwnerRepository::class, RegisterOwnerContract::class);
+        $this->app->bind(RegisterIssuerRepository::class, RegisterIssuerContract::class);
     }
 
     /**

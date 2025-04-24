@@ -177,9 +177,10 @@ Route::prefix('v1')->group( function (){
         });
     });
 
-    Route::prefix('users')->group( function(){
-        Route::post('/create', [UserController::class, 'create']);
-        
+    Route::prefix('registers')->group( function(){
+        Route::post('owner/create', [RegisterOwnerController::class, 'create']);
+        Route::post('issuer/create', [RegisterIssuerController::class, 'create']);
+        Route::post('users/create', [UserController::class, 'create']);
     });
 
     Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('password.email');

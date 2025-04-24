@@ -11,30 +11,30 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('issuers', function (Blueprint $table) {
             $table->id();
-            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
-            $table->unsignedBigInteger('issuer_id');
             $table->string('name', 120);
             $table->string('cnpj', 14)->nullable()->unique();
             $table->string('cpf', 11)->nullable()->unique();
-            $table->string('cep', 8);
-            $table->string('address', 120)->nullable();
-            $table->string('number', 120)->nullable();
+            $table->string('address', 100);
+            $table->string('number', 10);
+            $table->string('cep', 11);
             $table->string('email', 100)->unique();
             $table->string('phone', 30)->nullable();
-            $table->string('is_customer', 1)->nullable()->default(1);
-            $table->string('is_driver', 1)->nullable()->default(0);
-            $table->boolean('is_supplier', 1)->nullable()->default(0);
-            $table->boolean('active')->default(1);
+            $table->boolean('active', 1)->default(1);
+
+            $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
+            $table->unsignedBigInteger('owner_id');
+        
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('issuers');
     }
 };

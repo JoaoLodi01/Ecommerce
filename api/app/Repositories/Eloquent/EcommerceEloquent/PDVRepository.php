@@ -19,7 +19,7 @@ use App\Repositories\Eloquent\{
 use App\Services\PayMentMethodService;
 use Illuminate\Support\Facades\Log;
 
-use App\Http\NFCeValidation\NFCeValidation;
+use App\Services\NFCeValidation\NFCeValidation;
 use Carbon\Carbon;
 
 class PDVRepository
@@ -230,6 +230,7 @@ class PDVRepository
                 $pdv->update([
                     'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
                     'is_nfce_nm' => $type === 'saleNM' ? 'nm' : 'nfce',
+                    'status' => $type === 'saleNM' ? 'Venda Finalizada' : 'Autorizado uso da NF-e',
                     'finished' => 1
         
                 ]);

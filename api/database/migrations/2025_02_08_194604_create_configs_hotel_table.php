@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('configs_hotel', function (Blueprint $table) {
             $table->id();
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
             $table->boolean('address_by_cep', 1)->default(0);
             $table->boolean('partial_registration', 1)->default(0);
             $table->float('room_service_limit', 16, 2)->default(0);

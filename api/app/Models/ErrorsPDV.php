@@ -9,6 +9,7 @@ class ErrorsPDV extends Model
     protected $table = 'errors_pdvs';
 
     protected $fillable = [
+        'issuer_id',
         'title',
         'incorret_cfop',
         'incorret_csosn_cst',

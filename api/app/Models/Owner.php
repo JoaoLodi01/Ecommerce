@@ -4,19 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Issuer extends Model
+class Owner extends Model
 {
-    protected $table = 'issuers';
+    protected $table = 'owners';
 
     protected $fillable = [
         'name',
-        'cnpj',
+        'surname',
         'cpf',
+        'phone',
+        'email',
+        'forgot_email',
+        'password',
         'address',
         'number',
         'cep',
-        'email',
-        'phone',
         'active',
         
     ];

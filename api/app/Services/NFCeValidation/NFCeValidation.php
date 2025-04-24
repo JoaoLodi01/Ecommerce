@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\NFCeValidation;
+namespace App\Services\NFCeValidation;
 
 use App\Repositories\Eloquent\EcommerceEloquent\ErrorsPDVRepository;
 use Illuminate\Support\Facades\Log;

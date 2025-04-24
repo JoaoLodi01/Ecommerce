@@ -64,47 +64,35 @@ class PDVService
 
     public function saveSale(array $details, array $productsArray)
     {
-        try {
-            $saveSale = $this->pdvRepository->saveSale($details, $productsArray);
-            Log::info('Save sale', ['data' => $saveSale]);
-            if($saveSale['success'])
-            {
-                return $saveSale;
+        $saveSale = $this->pdvRepository->saveSale($details, $productsArray);
+        Log::info('Save sale');
+        Log::info($saveSale);
 
-            }
-                        
-            return $saveSale;
-
-        } catch (\Throwable $th) {
-            return response()->json([
-                'success' => false,
-                'th' => $th->getMessage(),
-                'line' => $th->getLine(),
-                'file' => $th->getFile(),
-            ]);
-        }
+        return $saveSale['success'] ? $saveSale : $saveSale;
     }
 
-    public function fillValues()
-    {
-
-    }
-
-public function finalizeSale(array $paymentsValues, string $typeOperation, int $id, int $pdvID)
+    public function finalizeSale(array $paymentsValues, string $typeOperation, int $pdvID)
     {
         try {
-            $total = 0;
-            $forms = [];
+            $total = 0; // Total pago
+            $payMentsID = []; // ID das espécies de pagamento
 
             $filltred = array_filter($paymentsValues);
 
             foreach ($filltred as $key => $value) {
                 $total += (float) $value;
-                $forms[] = $key + 1;
+                $payMentsID[] = $key + 1;
+                
             }
 
             Log::info('PDVService.php, class:finalizeSale, $total: ' . $total);
-            $pdv = $this->pdvRepository->finalizeSale($typeOperation, $id, $paymentsValues, $forms, $total);
+            $pdv = $this->pdvRepository->finalizeSale(
+                $typeOperation, 
+                $pdvID, 
+                $paymentsValues, 
+                $payMentsID, 
+                $total
+            );
 
             if ($pdv['success']) {
                 return response()->json([
@@ -112,6 +100,7 @@ public function finalizeSale(array $paymentsValues, string $typeOperation, int $
                     'pdv' => $pdv['pdv'],
                     'message' => 'Venda finalizada'
                 ], 200);
+
             } else {
                 return response()->json([
                     'success' => $pdv['success'],
