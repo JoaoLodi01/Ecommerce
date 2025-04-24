@@ -1,6 +1,5 @@
 <template>
-    <div class="container mx-auto mt-12 p-6 ml-12">
-
+    <div class="container mx-auto mt-12 p-6 ml-20 bg-white rounded-lg">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-semibold">Caixa</h2>
             <div class="flex space-x-4">
@@ -24,6 +23,30 @@
                 />
                 
             </div>
+        </div>
+
+        <div class="filterDate flex justify-start mb-6 p-4 border border-gray-300 rounded-lg w-max">
+            <q-input
+                class="mr-10 cursor-text"
+                type="date"
+                @keydown="dateSearch()"
+                v-model="startDate"
+                label="Data Inicial"
+            />
+
+            <q-input
+                class="cursor-pointer"
+                @keydown="dateSearch()"
+                type="date"
+                v-model="endDate"
+                label="Data Final"
+            />
+
+            <q-btn
+                class="bg-slate-600 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                label="Filtrar"
+                @click="dateSearch()"
+            />
         </div>
 
         <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
@@ -96,6 +119,9 @@
     import { useQuasar } from "quasar";
     import { onBeforeUnmount } from "vue";
     import RegisterCash from "src/components/Register/Financial/RegisterCash.vue";
+    import dayjs from 'dayjs';
+    import isBetween from 'dayjs/plugin/isBetween';
+    dayjs.extend(isBetween);
 
     export default {
         setup(){
@@ -125,19 +151,22 @@
         },
 
         data(){
+            const today = dayjs();
             return{
                 cash:{
                     description: "",
                     valor_entrada: "",
                     valor_saida: "",
                 },
+
                 cashs: [],
                 withScreen: 0,
                 input_total: 0,
                 output_total: 0,
                 total: 0,
-
                 showCashClosing: false,
+                startDate: today.startOf('month').format('YYYY-MM-DD'),
+                endDate: today.endOf('month').format('YYYY-MM-DD'),
             };
         },
 
@@ -173,49 +202,50 @@
 </script>
 
 <style scoped>
-.container {
-    max-width: 85%;
-    width: 100%;
-}
+    .container {
+        max-width: 85%;
+        width: 100%;
+        height: 90vh;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-thead {
-    background-color: #f3f4f6;
-}
-
-tbody tr:hover {
-    background-color: #f9fafb;
-}
-
-th, td {
-    padding: 0.75rem;
-    text-align: left;
-}
-
-th {
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-button {
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #4b5563;
-}
-
-@media (max-width: 768px) {
     table {
-        font-size: 0.875rem;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead {
+        background-color: #f3f4f6;
+    }
+
+    tbody tr:hover {
+        background-color: #f9fafb;
     }
 
     th, td {
-        padding: 0.5rem;
+        padding: 0.75rem;
+        text-align: left;
     }
-}
+
+    th {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    button {
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #4b5563;
+    }
+
+    @media (max-width: 768px) {
+        table {
+            font-size: 0.875rem;
+        }
+
+        th, td {
+            padding: 0.5rem;
+        }
+    }
 </style>

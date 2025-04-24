@@ -1,6 +1,5 @@
 <template>
     <div class="container mx-auto mt-12 p-6 ml-16 bg-white rounded-xl shadow ">
-
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>
             <div class="flex space-x-4">
@@ -207,50 +206,50 @@
 </script>
 
 <style scoped>
-.container {
-    max-width: 85%;
-    width: 100%;
-    height: 90vh;
-}
+    .container {
+        max-width: 85%;
+        width: 100%;
+        height: 90vh;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-thead {
-    background-color: #f3f4f6;
-}
-
-tbody tr:hover {
-    background-color: #f9fafb;
-}
-
-th, td {
-    padding: 0.75rem;
-    text-align: left;
-}
-
-th {
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-button {
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #4b5563;
-}
-
-@media (max-width: 768px) {
     table {
-        font-size: 0.875rem;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead {
+        background-color: #f3f4f6;
+    }
+
+    tbody tr:hover {
+        background-color: #f9fafb;
     }
 
     th, td {
-        padding: 0.5rem;
+        padding: 0.75rem;
+        text-align: left;
     }
-}
+
+    th {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    button {
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #4b5563;
+    }
+
+    @media (max-width: 768px) {
+        table {
+            font-size: 0.875rem;
+        }
+
+        th, td {
+            padding: 0.5rem;
+        }
+    }
 </style>

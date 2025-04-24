@@ -1,93 +1,114 @@
 <template>
     <div
-        class="ml-14"
+        class="ml-14 bg-white p-5 mt-6 rounded-lg cointainer-config"
     >
         <div class="flex justify-between">
-            <h1>Configurações</h1>
+            <h1 class="ml-4 border-b border-black text-base">Configurações</h1>
             <q-btn 
                 icon="close" 
                 label="Voltar" 
-                @click="onClose" 
-                class="h-4 mt-auto mb-auto ml-5"
+                @click="onClose()"
+                class="h-4 mt-auto mb-auto ml-5 "
             />
             
         </div>
 
         <q-form
-            @submit="onSubmit"
-            @reset="onReset"
-            class="q-gutter-md"
+            @submit="onSubmit()"
+            @reset="onReset()"
+            class="q-gutter-md mt-5"
         >
-            <q-checkbox 
-                left-label 
-                v-model="configs.nmFinaly" 
-                :label="'Permitir venda sem emissão fiscal ( Nota Manual )'"
-                color="grey"
-                
-            />
+            <div 
+                class="shadow-lg border bg-white rounded-lg mb-2 p-2"
+            >
+                <p class="ml-4 border-b border-black text-lg">Gerais</p>
+                <div class="grid grid-cols-3 gap-4 p-2">
+                    <q-checkbox 
+                        v-model="configs.nmFinaly" 
+                        :label="'Permitir venda sem emissão fiscal ( Nota Manual )'"
+                        color="grey"
+                        
+                    />
 
-            <q-checkbox 
-                left-label 
-                v-model="configs.saleNegativeorReset" 
-                :label="'Permitir venda com estoque negativo ou zerado'"
-                color="grey"
-                
-            />
+                    <q-checkbox 
+                        v-model="configs.saleNegativeorReset" 
+                        :label="'Permitir venda com estoque negativo ou zerado'"
+                        color="grey"
+                        
+                    />
 
-            <q-checkbox 
-                left-label 
-                v-model="configs.supervisorPasswordDeleteItem" 
-                :label="'Exigir senha do supervisor para excluir item'"
-                color="grey"
+                    <q-checkbox 
+                        v-model="configs.supervisorPasswordDeleteItem" 
+                        :label="'Exigir senha do supervisor para excluir item'"
+                        color="grey"
 
-            />
+                    />
 
-            <q-checkbox 
-                left-label
-                v-model="configs.supervisorPasswordCancelSale"
-                :label="'Exigir senha do supervisor para cancelar a venda'"
-                color="grey"
-                
-            />
+                    <q-checkbox 
+                        v-model="configs.supervisorPasswordCancelSale"
+                        :label="'Exigir senha do supervisor para cancelar a venda'"
+                        color="grey"
+                        
+                    />
 
-            <q-checkbox 
-                left-label
-                v-model="configs.groupLikeItens"
-                :label="'Agrupar itens iguais'"
-                color="grey"
-                
-            />
+                    <q-checkbox 
+                        v-model="configs.groupLikeItens"
+                        :label="'Agrupar itens iguais'"
+                        color="grey"
+                        
+                    />
+                </div>    
+            </div>            
 
-            <q-select 
-                v-model="configs.searchOptionProduct" 
-                :options="searchOptionProducts" 
-                label="Busca de produtos" 
-                filled 
-                color="grey"
-                
-            />
+            <div 
+                class="shadow-lg border bg-white rounded-lg mb-2 p-2"
+            >
+                <p class="ml-4 mb-2 border-b border-black text-lg">Busca</p>
+                <div class="grid grid-cols-3 gap-4 p-2 mb-2">
+                    <q-select 
+                        v-model="configs.searchOptionProduct" 
+                        :options="searchOptionProducts" 
+                        :dense="true"
+                        label="Busca de produtos" 
+                        filled 
+                        outlined="red"
+                        color="grey"
+                        
+                    />
 
-            <q-select 
-                v-model="configs.searchOptionCustomer" 
-                :options="searchOptionCustomers" 
-                label="Busca de clientes" 
-                filled 
-                color="grey"
-                
-            />
-
-            <span>Alterações</span>
-
-            <q-select 
-                v-model="configs.editFields" 
-                :options="editFields" 
-                label="Campos" 
-                filled 
-                color="grey"
-                
-            />
+                    <q-select 
+                        v-model="configs.searchOptionCustomer" 
+                        :options="searchOptionCustomers" 
+                        :dense="true"
+                        label="Busca de clientes" 
+                        filled 
+                        color="grey"
+                        
+                    />
+                    
+                </div>
+            </div>
             
-            <div>
+            <div 
+                class="shadow-lg border bg-white rounded-lg mb-2 p-2"
+            >
+            <p class="ml-4 mb-2 border-b border-black text-lg">Alterações</p>
+            <div class="grid grid-cols-3 gap-4 p-2 mb-2">
+                    <q-select 
+                        v-model="configs.editFields" 
+                        :options="editFields" 
+                        label="Campos" 
+                        filled 
+                        color="grey"
+                        
+                    />
+                    
+                </div>
+        
+            </div>
+            
+            
+            <div class="ml-5">
                 <q-btn label="Salvar" type="submit" color="grey" :disable="configs.searchOptionProduct === null"/>
                 <q-btn label="Padrão" type="reset" color="black" flat class="q-ml-sm" />
             </div>
@@ -128,7 +149,8 @@
                 },
 
                 editFields: [
-                    'Permitir alterar Qtde, Val Unitário e calcular o total'
+                    'Permitir alterar Qtde e Val Unitário e calcular o total',
+                    'Permitir alterar o valor unitário e calcular o total',
                 ],
 
                 searchOptionProducts: [
@@ -181,6 +203,7 @@
                     searchOptionCustomer: data.filter_search_customer,
                     supervisorPasswordDeleteItem: data.supervisor_password_delete_item === 1 ? true : false,
                     supervisorPasswordCancelSale: data.supervisor_password_cancel_sale === 1 ? true : false,
+                    groupLikeItens: false
                     
                 }
             },
@@ -230,3 +253,9 @@
         }
     }
 </script>
+
+<style>
+    .cointainer-config{
+        max-width: 100%;
+    }
+</style>

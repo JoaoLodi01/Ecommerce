@@ -13,12 +13,15 @@
             
         }"   
     >
-        <div
-            v-if="showPaymentsForm"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
-
+        <div 
+            class="payMentForm" 
+            :class="{
+                'absolute top-24 z-20': witdhScreen > 1080,
+                'absolute right-auto left-auto top-5 z-50': witdhScreen <= 1080
+            }"
+        >
             <PaymentsForm
-                class="bg-white rounded-xl shadow-xl"
+                v-if="showPaymentsForm"
                 :witdhScreen="this.witdhScreen"
                 :typeOperation=this.typeOperation
                 :totalOperation=this.totalOperation
@@ -249,12 +252,12 @@
                             class="m-2 p-2 rounded-lg border border-gray-700"
                         >
                             <label class="text-black" for="discount">Vendedor</label>
-                            <input 
+                            <q-input 
                                 :placeholder="sellerData.name"
-                                disabled
+                                disable
                                 id="discount"
                                 type="text"
-                                class="text-black border border-black w-full"
+                                class="w-16"
                             />
 
                             <br>

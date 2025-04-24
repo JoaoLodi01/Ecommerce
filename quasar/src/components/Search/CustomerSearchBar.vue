@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
         <div class="">
-            <div class="" v-if="pdv">
+            <div class="text-sm" v-if="pdv">
                 <q-checkbox
                     size="1.6rem"
                     label="Cliente cadastrado"
