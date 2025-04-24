@@ -55,10 +55,11 @@
             <div><p>Total de saída: <span class="font-semibold">R${{ output_total }}</span></p></div>
 
             <div><p>Saldo total: <span class="font-semibold">R${{ total }}</span></p></div>
+            
         </div>
 
-        <div class="overflow-x-auto">
-            <table class="min-w-full table-auto border-collapse border border-gray-200">
+        <div class="">
+            <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
                 <thead class="bg-gray-100">
                     <tr>
                         <th scope="col" class="px-6 py-3">Tipo</th>

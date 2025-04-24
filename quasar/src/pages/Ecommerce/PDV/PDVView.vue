@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-max mx-auto border border-black rounded-lg mt-9 bg-white" 
+        class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
         id="pdv-view"
         v-if="showGrid"
         :class="{
@@ -73,7 +73,7 @@
                 </div>
 
             </div>
-            <div class="flex m-3 border border-black">
+            <div class="flex m-3 border border-black rounded-lg">
                 <div 
                     class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
                     @click="showProductsSelection()"
@@ -681,7 +681,7 @@
                     
                     } else {
                         const pdvID = LocalStorage.getItem("pdvID")
-                        if(pdvID)
+                        if(!pdvID)
                         {
                             console.log('Finalizar venda')
                             console.log('Total', this.totalOperation)
@@ -752,6 +752,10 @@
 
                             }
                                
+                        } else {
+                            console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
+                            this.showPaymentsForm = true
+                            this.pdvID = LocalStorage.getItem("pdvID")
                         }
                     }
                     
@@ -1049,7 +1053,7 @@
                 this.importSale()            
                 
             }
-
+            console.log(`PDV ID: ${LocalStorage.getItem("pdvID")}`)
         }
       }
 </script>

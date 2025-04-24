@@ -1,174 +1,59 @@
-[2025-04-23 22:49:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-23 22:49:31] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-23 22:49:31] local.INFO: O hotel foi encontrado  
-[2025-04-23 22:49:31] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-23 22:49:31] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-23 22:49:32] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-23 22:49:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-23 22:49:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-23 22:49:50] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-23 22:49:50] local.INFO: O hotel foi encontrado  
-[2025-04-23 22:49:50] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-23 22:49:50] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-23 22:49:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-23 22:49:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-23 23:55:32] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-23 23:55:32] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-23 23:55:32] local.INFO: O hotel foi encontrado  
-[2025-04-23 23:55:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-23 23:55:32] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-23 23:55:32] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-23 23:55:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-23 23:56:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-23 23:57:18] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-23 23:57:18] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-23 23:57:18] local.INFO: O hotel foi encontrado  
-[2025-04-23 23:57:18] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-23 23:57:18] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-23 23:57:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-23 23:57:19] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-23 23:57:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:05:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:05:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:06:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:06:53] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 00:06:53] local.INFO: O hotel foi encontrado  
-[2025-04-24 00:06:53] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 00:06:53] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 00:06:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:06:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-24 00:06:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:21:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:22:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-24 00:22:29] local.INFO: $data  
-[2025-04-24 00:22:29] local.INFO: array (
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => false,
-  'saleNegativeorReset' => false,
-  'supervisorPasswordCancelSale' => false,
-  'supervisorPasswordDeleteItem' => false,
-)  
-[2025-04-24 00:22:29] local.INFO: data no repository  
-[2025-04-24 00:22:29] local.INFO: array (
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => false,
-  'saleNegativeorReset' => false,
-  'supervisorPasswordCancelSale' => false,
-  'supervisorPasswordDeleteItem' => false,
-)  
-[2025-04-24 00:22:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:22:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:22:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:30:45] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:30:46] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 00:30:46] local.INFO: O hotel foi encontrado  
-[2025-04-24 00:30:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 00:30:46] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 00:30:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:30:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:30:47] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:30:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:30:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:30:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:31:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:32:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:34:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:34:50] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:34:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:35:38] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:35:42] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:35:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:36:15] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:37:40] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:38:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:38:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-24 00:39:11] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-04-24 00:39:11] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 00:39:11] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 00:39:11] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 00:39:11] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 00:39:11] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
-[2025-04-24 00:39:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:39:22] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 00:39:22] local.INFO: O hotel foi encontrado  
-[2025-04-24 00:39:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 00:39:22] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 00:39:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:39:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:39:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:42:10] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:45:05] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:45:05] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:45:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:55:22] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:56:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:56:28] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:56:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:57:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:57:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 00:57:15] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-04-24 00:57:15] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 00:57:15] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 00:57:15] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 00:57:15] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 00:57:15] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
-[2025-04-24 01:02:19] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
-[2025-04-24 01:02:19] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:02:19] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:02:19] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:02:19] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:02:19] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
-[2025-04-24 01:04:00] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
-[2025-04-24 01:04:00] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:04:00] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:04:00] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:04:00] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:04:00] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
-[2025-04-24 01:08:04] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
-[2025-04-24 01:08:04] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:08:04] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:08:04] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:08:04] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:08:04] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
-[2025-04-24 01:19:41] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
-[2025-04-24 01:19:41] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:19:41] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:19:41] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:19:41] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:19:41] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
-[2025-04-24 01:20:47] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-04-24 01:20:47] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:20:47] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:20:47] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:20:47] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:20:47] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
-[2025-04-24 01:25:24] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:25:24] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 01:25:24] local.INFO: O hotel foi encontrado  
-[2025-04-24 01:25:24] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 01:25:24] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 01:25:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:25:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-24 01:25:25] local.INFO: Controller  
-[2025-04-24 01:25:25] local.INFO: array (
+[2025-04-24 10:57:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 10:57:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 10:57:14] local.INFO: O hotel foi encontrado  
+[2025-04-24 10:57:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 10:57:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 10:57:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 10:57:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 10:57:17] local.INFO: Controller  
+[2025-04-24 10:57:17] local.INFO: array (
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
 )  
-[2025-04-24 01:25:25] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:25] local.INFO: array (
+[2025-04-24 10:57:17] local.INFO: -- Vai começar a busca --  
+[2025-04-24 10:57:17] local.INFO: array (
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
 )  
-[2025-04-24 01:25:30] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-04-24 01:25:30] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:25:30] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:25:30] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:25:30] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:25:30] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
-[2025-04-24 01:25:30] local.INFO: -- Iniciou o saveSale() line 172 --   
-[2025-04-24 01:25:30] local.INFO: array (
+[2025-04-24 10:58:42] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 10:58:43] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 10:58:43] local.INFO: O hotel foi encontrado  
+[2025-04-24 10:58:43] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 10:58:43] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 10:58:43] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 10:58:43] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 10:59:02] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 10:59:02] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 10:59:02] local.INFO: O hotel foi encontrado  
+[2025-04-24 10:59:02] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 10:59:02] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 10:59:03] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 10:59:03] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 10:59:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 10:59:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 10:59:52] local.INFO: O hotel foi encontrado  
+[2025-04-24 10:59:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 10:59:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 10:59:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 10:59:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 10:59:56] local.INFO: Controller  
+[2025-04-24 10:59:56] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-24 10:59:56] local.INFO: -- Vai começar a busca --  
+[2025-04-24 10:59:56] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-24 11:00:53] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 11:00:53] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 11:00:53] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 11:00:53] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 11:00:53] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 11:00:53] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-24 11:00:53] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-24 11:00:53] local.INFO: array (
   'description' => 'Venda NFC-e N°',
   'products' => 
   array (
@@ -187,7 +72,7 @@
         'cost_price' => '10.00',
         'sale_price' => '120.00',
         'profit_percentage' => '100.00',
-        'cfop' => '3333',
+        'cfop' => '5102',
         'csosncst' => '102',
         'ncm' => '12345678',
         'cest' => '1234567',
@@ -204,7 +89,7 @@
   'discount' => 0,
   'is_nfce_nm' => 'nfce',
 )  
-[2025-04-24 01:25:30] local.INFO: array (
+[2025-04-24 11:00:53] local.INFO: array (
   'description' => 'Venda NFC-e N°',
   'issue_date' => '2025-04-24',
   'cliente_id' => 1,
@@ -217,570 +102,16 @@
   'user' => 'admin',
   'is_nfce_nm' => 'nfce',
 )  
-[2025-04-24 01:25:30] local.INFO: -- Iniciou o saveProducts() line 90 --   
-[2025-04-24 01:25:30] local.INFO: -- Iniciou o NFCeValidation() --  
-[2025-04-24 01:25:30] local.INFO: Produtos NFCeValidation  
-[2025-04-24 01:25:30] local.INFO: array (
-  'pdv_id' => 5,
-  'product_id' => 1,
-  'product' => 'Jack Daniels Maça',
-  'cost_price' => '10.00',
-  'sale_price' => '120.00',
-  'cfop' => '3333',
-  'csosn' => '102',
-  'ncm' => '12345678',
-  'cest' => '1234567',
-  'unit' => 'UN',
-  'amount' => 1,
-  'addition' => 0,
-  'discount' => 0,
-  'user_id' => 1,
-  'seller' => 'admin',
-)  
-[2025-04-24 01:25:30] local.INFO: Vai criar registro de erro  
-[2025-04-24 01:25:30] local.INFO: Data in ErrorsRepository:  {"errors":{"produtoErroCFOP":"Produto: Jack Daniels Maça com CFOP incorreto: 3333[1]"}} 
-[2025-04-24 01:25:30] local.INFO: Quantia de errors: 1  
-[2025-04-24 01:25:30] local.INFO: $nfceValidationRes = $this->nfceValidation->validation($itensPDV); {"nfceValidation":{"cfopValidate":false,"csosnValidate":true,"errors":{"produtoErroCFOP":"Produto: Jack Daniels Maça com CFOP incorreto: 3333[1]"}}} 
-[2025-04-24 01:25:30] local.INFO: CFOP inválido, item:   
-[2025-04-24 01:25:30] local.INFO: $iPDV  
-[2025-04-24 01:25:30] local.INFO: 1  
-[2025-04-24 01:25:30] local.INFO: Save sale {"data":{"success":false,"message":"Erro no produto","pdvID":5,"errors":[{"produtoErroCFOP":"Produto: Jack Daniels Maça com CFOP incorreto: 3333[1]"}]}} 
-[2025-04-24 01:25:34] local.INFO: Controller  
-[2025-04-24 01:25:34] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:25:34] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:34] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:25:36] local.INFO: Controller  
-[2025-04-24 01:25:36] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3',
-)  
-[2025-04-24 01:25:36] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:36] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3',
-)  
-[2025-04-24 01:25:37] local.INFO: Controller  
-[2025-04-24 01:25:37] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33',
-)  
-[2025-04-24 01:25:37] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:37] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33',
-)  
-[2025-04-24 01:25:38] local.INFO: Controller  
-[2025-04-24 01:25:38] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333',
-)  
-[2025-04-24 01:25:38] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:38] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333',
-)  
-[2025-04-24 01:25:39] local.INFO: Controller  
-[2025-04-24 01:25:39] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333',
-)  
-[2025-04-24 01:25:39] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:39] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333',
-)  
-[2025-04-24 01:25:40] local.INFO: Controller  
-[2025-04-24 01:25:40] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333',
-)  
-[2025-04-24 01:25:40] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:40] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333',
-)  
-[2025-04-24 01:25:41] local.INFO: Controller  
-[2025-04-24 01:25:41] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333',
-)  
-[2025-04-24 01:25:41] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:41] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333',
-)  
-[2025-04-24 01:25:41] local.INFO: Controller  
-[2025-04-24 01:25:41] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333',
-)  
-[2025-04-24 01:25:41] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:41] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333',
-)  
-[2025-04-24 01:25:42] local.INFO: Controller  
-[2025-04-24 01:25:42] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333',
-)  
-[2025-04-24 01:25:42] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:42] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333',
-)  
-[2025-04-24 01:25:42] local.INFO: Controller  
-[2025-04-24 01:25:42] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333',
-)  
-[2025-04-24 01:25:42] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:42] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333',
-)  
-[2025-04-24 01:25:42] local.INFO: Controller  
-[2025-04-24 01:25:42] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333',
-)  
-[2025-04-24 01:25:42] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:42] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333',
-)  
-[2025-04-24 01:25:42] local.INFO: Controller  
-[2025-04-24 01:25:42] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333',
-)  
-[2025-04-24 01:25:42] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:42] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333',
-)  
-[2025-04-24 01:25:43] local.INFO: Controller  
-[2025-04-24 01:25:43] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333',
-)  
-[2025-04-24 01:25:43] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:43] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333',
-)  
-[2025-04-24 01:25:44] local.INFO: Controller  
-[2025-04-24 01:25:44] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333',
-)  
-[2025-04-24 01:25:44] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:44] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: Controller  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: Controller  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: Controller  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: Controller  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: Controller  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333',
-)  
-[2025-04-24 01:25:45] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:45] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333',
-)  
-[2025-04-24 01:25:46] local.INFO: Controller  
-[2025-04-24 01:25:46] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333',
-)  
-[2025-04-24 01:25:46] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:46] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333',
-)  
-[2025-04-24 01:25:46] local.INFO: Controller  
-[2025-04-24 01:25:46] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333333',
-)  
-[2025-04-24 01:25:46] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:46] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333333',
-)  
-[2025-04-24 01:25:46] local.INFO: Controller  
-[2025-04-24 01:25:46] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333333',
-)  
-[2025-04-24 01:25:46] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:46] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: Controller  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: Controller  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: Controller  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: Controller  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: Controller  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333333333333',
-)  
-[2025-04-24 01:25:47] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:47] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333333333333',
-)  
-[2025-04-24 01:25:48] local.INFO: Controller  
-[2025-04-24 01:25:48] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333333333333',
-)  
-[2025-04-24 01:25:48] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:48] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333333333333',
-)  
-[2025-04-24 01:25:48] local.INFO: Controller  
-[2025-04-24 01:25:48] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333333333333',
-)  
-[2025-04-24 01:25:48] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:48] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333333333333',
-)  
-[2025-04-24 01:25:48] local.INFO: Controller  
-[2025-04-24 01:25:48] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333333333333333',
-)  
-[2025-04-24 01:25:48] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:48] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333333333333333333333',
-)  
-[2025-04-24 01:25:49] local.INFO: Controller  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333333333333333',
-)  
-[2025-04-24 01:25:49] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333333333333333333333333',
-)  
-[2025-04-24 01:25:49] local.INFO: Controller  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333333333333333',
-)  
-[2025-04-24 01:25:49] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333333333333333333333333',
-)  
-[2025-04-24 01:25:49] local.INFO: Controller  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3',
-)  
-[2025-04-24 01:25:49] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3',
-)  
-[2025-04-24 01:25:49] local.INFO: Controller  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33',
-)  
-[2025-04-24 01:25:49] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33',
-)  
-[2025-04-24 01:25:49] local.INFO: Controller  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333',
-)  
-[2025-04-24 01:25:49] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:49] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333',
-)  
-[2025-04-24 01:25:50] local.INFO: Controller  
-[2025-04-24 01:25:50] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333',
-)  
-[2025-04-24 01:25:50] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:50] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333',
-)  
-[2025-04-24 01:25:50] local.INFO: Controller  
-[2025-04-24 01:25:50] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333',
-)  
-[2025-04-24 01:25:50] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:50] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333',
-)  
-[2025-04-24 01:25:50] local.INFO: Controller  
-[2025-04-24 01:25:50] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333',
-)  
-[2025-04-24 01:25:50] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:50] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333',
-)  
-[2025-04-24 01:25:50] local.INFO: Controller  
-[2025-04-24 01:25:50] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333',
-)  
-[2025-04-24 01:25:50] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:50] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333',
-)  
-[2025-04-24 01:25:51] local.INFO: Controller  
-[2025-04-24 01:25:51] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333',
-)  
-[2025-04-24 01:25:51] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:51] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333',
-)  
-[2025-04-24 01:25:51] local.INFO: Controller  
-[2025-04-24 01:25:51] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333',
-)  
-[2025-04-24 01:25:51] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:51] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '333333333',
-)  
-[2025-04-24 01:25:51] local.INFO: Controller  
-[2025-04-24 01:25:51] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333',
-)  
-[2025-04-24 01:25:51] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:51] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3333333333',
-)  
-[2025-04-24 01:25:51] local.INFO: Controller  
-[2025-04-24 01:25:51] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333',
-)  
-[2025-04-24 01:25:51] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:51] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '33333333333',
-)  
-[2025-04-24 01:25:52] local.INFO: Controller  
-[2025-04-24 01:25:52] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3',
-)  
-[2025-04-24 01:25:52] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:52] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3',
-)  
-[2025-04-24 01:25:52] local.INFO: Controller  
-[2025-04-24 01:25:52] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '32',
-)  
-[2025-04-24 01:25:52] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:52] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '32',
-)  
-[2025-04-24 01:25:52] local.INFO: Controller  
-[2025-04-24 01:25:52] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:25:52] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:52] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:25:52] local.INFO: Controller  
-[2025-04-24 01:25:52] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '2',
-)  
-[2025-04-24 01:25:52] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:25:52] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '2',
-)  
-[2025-04-24 01:25:53] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-04-24 01:25:53] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:25:53] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:25:53] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:25:53] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:25:53] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
-[2025-04-24 01:25:53] local.INFO: -- Iniciou o saveSale() line 172 --   
-[2025-04-24 01:25:53] local.INFO: array (
-  'description' => 'Venda NFC-e N°',
-  'products' => 
-  array (
-    0 => 
-    array (
-      0 => 
-      array (
-        'id' => 1,
-        'product' => 'Jack Daniels Maça',
-        'barcode' => '82184004364',
-        'barcode_internal' => '82184004364',
-        'image' => NULL,
-        'group_id' => 2,
-        'group' => 'Grupo teste 2',
-        'amount' => 1,
-        'cost_price' => '10.00',
-        'sale_price' => '120.00',
-        'profit_percentage' => '100.00',
-        'cfop' => '3333',
-        'csosncst' => '102',
-        'ncm' => '12345678',
-        'cest' => '1234567',
-        'unit' => 'UN',
-        'active' => 1,
-      ),
-    ),
-  ),
-  'user_id' => 1,
-  'customer_id' => 1,
-  'total' => 120,
-  'sub_total' => 120,
-  'addition' => 0,
-  'discount' => 0,
-  'is_nfce_nm' => 'nfce',
-)  
-[2025-04-24 01:25:53] local.INFO: array (
-  'description' => 'Venda NFC-e N°',
-  'issue_date' => '2025-04-24',
-  'cliente_id' => 1,
-  'client' => 'Consumidor Padrão',
-  'gross_value' => 120,
-  'net_value' => 120,
-  'addition' => 0,
-  'discount' => 0,
-  'user_id' => 1,
-  'user' => 'admin',
-  'is_nfce_nm' => 'nfce',
-)  
-[2025-04-24 01:25:53] local.INFO: -- Iniciou o saveProducts() line 90 --   
-[2025-04-24 01:25:53] local.INFO: -- Iniciou o NFCeValidation() --  
-[2025-04-24 01:25:53] local.INFO: Produtos NFCeValidation  
-[2025-04-24 01:25:53] local.INFO: array (
+[2025-04-24 11:00:53] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-24 11:00:53] local.INFO: -- Iniciou o NFCeValidation() --  
+[2025-04-24 11:00:53] local.INFO: Produtos NFCeValidation  
+[2025-04-24 11:00:53] local.INFO: array (
   'pdv_id' => 6,
   'product_id' => 1,
   'product' => 'Jack Daniels Maça',
   'cost_price' => '10.00',
   'sale_price' => '120.00',
-  'cfop' => '3333',
+  'cfop' => '5102',
   'csosn' => '102',
   'ncm' => '12345678',
   'cest' => '1234567',
@@ -791,58 +122,71 @@
   'user_id' => 1,
   'seller' => 'admin',
 )  
-[2025-04-24 01:25:53] local.INFO: Vai criar registro de erro  
-[2025-04-24 01:25:53] local.INFO: Data in ErrorsRepository:  {"errors":{"produtoErroCFOP":"Produto: Jack Daniels Maça com CFOP incorreto: 3333[1]"}} 
-[2025-04-24 01:25:53] local.INFO: Quantia de errors: 1  
-[2025-04-24 01:25:53] local.INFO: $nfceValidationRes = $this->nfceValidation->validation($itensPDV); {"nfceValidation":{"cfopValidate":false,"csosnValidate":true,"errors":{"produtoErroCFOP":"Produto: Jack Daniels Maça com CFOP incorreto: 3333[1]"}}} 
-[2025-04-24 01:25:53] local.INFO: CFOP inválido, item:   
-[2025-04-24 01:25:53] local.INFO: $iPDV  
-[2025-04-24 01:25:53] local.INFO: 1  
-[2025-04-24 01:25:53] local.INFO: Save sale {"data":{"success":false,"message":"Erro no produto","pdvID":6,"errors":[{"produtoErroCFOP":"Produto: Jack Daniels Maça com CFOP incorreto: 3333[1]"}]}} 
-[2025-04-24 01:26:00] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
-[2025-04-24 01:26:00] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:26:00] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:26:00] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:26:00] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:26:00] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
-[2025-04-24 01:26:11] local.INFO: Controller  
-[2025-04-24 01:26:11] local.INFO: array (
+[2025-04-24 11:00:53] local.INFO: Quantia de errors: 0  
+[2025-04-24 11:00:53] local.INFO: $nfceValidationRes = $this->nfceValidation->validation($itensPDV); {"nfceValidation":{"cfopValidate":true,"csosnValidate":true,"errors":[]}} 
+[2025-04-24 11:00:53] local.INFO: CFOP e CSOSN/CST válidos  
+[2025-04-24 11:00:53] local.INFO: $iPDV  
+[2025-04-24 11:00:53] local.INFO: 0  
+[2025-04-24 11:00:53] local.INFO: Save sale {"data":{"success":true,"pdvID":6}} 
+[2025-04-24 11:00:53] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-24 11:01:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:01:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 11:01:52] local.INFO: O hotel foi encontrado  
+[2025-04-24 11:01:52] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 11:01:52] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 11:01:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 11:01:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 11:01:58] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-24 11:02:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:02:14] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 11:02:14] local.INFO: O hotel foi encontrado  
+[2025-04-24 11:02:14] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 11:02:14] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 11:02:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:02:15] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 11:02:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:02:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 11:02:20] local.INFO: O hotel foi encontrado  
+[2025-04-24 11:02:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 11:02:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 11:02:21] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:02:21] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:02:46] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 11:02:46] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 11:02:46] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 11:02:46] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 11:02:46] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 11:02:56] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-24 11:02:56] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 11:02:56] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 11:02:56] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 11:02:56] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 11:02:56] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-04-24 11:03:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:03:01] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 11:03:01] local.INFO: O hotel foi encontrado  
+[2025-04-24 11:03:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 11:03:01] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 11:03:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 11:03:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:03:05] local.INFO: Controller  
+[2025-04-24 11:03:05] local.INFO: array (
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
 )  
-[2025-04-24 01:26:11] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:26:11] local.INFO: array (
+[2025-04-24 11:03:05] local.INFO: -- Vai começar a busca --  
+[2025-04-24 11:03:05] local.INFO: array (
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
 )  
-[2025-04-24 01:26:13] local.INFO: Controller  
-[2025-04-24 01:26:13] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3',
-)  
-[2025-04-24 01:26:13] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:26:13] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '3',
-)  
-[2025-04-24 01:26:14] local.INFO: Controller  
-[2025-04-24 01:26:14] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '2',
-)  
-[2025-04-24 01:26:14] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:26:14] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '2',
-)  
-[2025-04-24 01:26:24] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-04-24 01:26:24] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:26:24] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:26:24] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:26:24] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:26:24] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
-[2025-04-24 01:26:24] local.INFO: -- Iniciou o saveSale() line 172 --   
-[2025-04-24 01:26:24] local.INFO: array (
+[2025-04-24 11:03:09] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 11:03:09] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 11:03:09] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 11:03:09] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 11:03:09] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 11:03:09] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-24 11:03:09] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-24 11:03:09] local.INFO: array (
   'description' => 'Venda NFC-e N°',
   'products' => 
   array (
@@ -861,54 +205,8 @@
         'cost_price' => '10.00',
         'sale_price' => '120.00',
         'profit_percentage' => '100.00',
-        'cfop' => '3333',
-        'csosncst' => '102',
-        'ncm' => '12345678',
-        'cest' => '1234567',
-        'unit' => 'UN',
-        'active' => 1,
-      ),
-    ),
-    1 => 
-    array (
-      0 => 
-      array (
-        'id' => 3,
-        'product' => 'Jack Daniels Canela',
-        'barcode' => '07898945131315',
-        'barcode_internal' => '82184004366',
-        'image' => NULL,
-        'group_id' => 2,
-        'group' => 'Grupo teste 2',
-        'amount' => 1,
-        'cost_price' => '10.00',
-        'sale_price' => '140.00',
-        'profit_percentage' => '100.00',
-        'cfop' => '4444',
-        'csosncst' => 112,
-        'ncm' => '12345678',
-        'cest' => '123456',
-        'unit' => 'UN',
-        'active' => 1,
-      ),
-    ),
-    2 => 
-    array (
-      0 => 
-      array (
-        'id' => 2,
-        'product' => 'Jack Daniels Honey',
-        'barcode' => '8218400032',
-        'barcode_internal' => '82184004365',
-        'image' => NULL,
-        'group_id' => 2,
-        'group' => 'Grupo teste 2',
-        'amount' => 1,
-        'cost_price' => '10.00',
-        'sale_price' => '130.00',
-        'profit_percentage' => '100.00',
         'cfop' => '5102',
-        'csosncst' => 333,
+        'csosncst' => '102',
         'ncm' => '12345678',
         'cest' => '1234567',
         'unit' => 'UN',
@@ -918,35 +216,35 @@
   ),
   'user_id' => 1,
   'customer_id' => 1,
-  'total' => 390,
-  'sub_total' => 390,
+  'total' => 120,
+  'sub_total' => 120,
   'addition' => 0,
   'discount' => 0,
   'is_nfce_nm' => 'nfce',
 )  
-[2025-04-24 01:26:24] local.INFO: array (
+[2025-04-24 11:03:09] local.INFO: array (
   'description' => 'Venda NFC-e N°',
   'issue_date' => '2025-04-24',
   'cliente_id' => 1,
   'client' => 'Consumidor Padrão',
-  'gross_value' => 390,
-  'net_value' => 390,
+  'gross_value' => 120,
+  'net_value' => 120,
   'addition' => 0,
   'discount' => 0,
   'user_id' => 1,
   'user' => 'admin',
   'is_nfce_nm' => 'nfce',
 )  
-[2025-04-24 01:26:24] local.INFO: -- Iniciou o saveProducts() line 90 --   
-[2025-04-24 01:26:24] local.INFO: -- Iniciou o NFCeValidation() --  
-[2025-04-24 01:26:24] local.INFO: Produtos NFCeValidation  
-[2025-04-24 01:26:24] local.INFO: array (
+[2025-04-24 11:03:09] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-24 11:03:09] local.INFO: -- Iniciou o NFCeValidation() --  
+[2025-04-24 11:03:09] local.INFO: Produtos NFCeValidation  
+[2025-04-24 11:03:09] local.INFO: array (
   'pdv_id' => 7,
   'product_id' => 1,
   'product' => 'Jack Daniels Maça',
   'cost_price' => '10.00',
   'sale_price' => '120.00',
-  'cfop' => '3333',
+  'cfop' => '5102',
   'csosn' => '102',
   'ncm' => '12345678',
   'cest' => '1234567',
@@ -957,187 +255,472 @@
   'user_id' => 1,
   'seller' => 'admin',
 )  
-[2025-04-24 01:26:24] local.INFO: Vai criar registro de erro  
-[2025-04-24 01:26:24] local.INFO: Data in ErrorsRepository:  {"errors":{"produtoErroCFOP":"Produto: Jack Daniels Maça com CFOP incorreto: 3333[1]"}} 
-[2025-04-24 01:26:24] local.INFO: Quantia de errors: 1  
-[2025-04-24 01:26:24] local.INFO: $nfceValidationRes = $this->nfceValidation->validation($itensPDV); {"nfceValidation":{"cfopValidate":false,"csosnValidate":true,"errors":{"produtoErroCFOP":"Produto: Jack Daniels Maça com CFOP incorreto: 3333[1]"}}} 
-[2025-04-24 01:26:24] local.INFO: CFOP inválido, item:   
-[2025-04-24 01:26:24] local.INFO: -- Iniciou o NFCeValidation() --  
-[2025-04-24 01:26:24] local.INFO: Produtos NFCeValidation  
-[2025-04-24 01:26:24] local.INFO: array (
+[2025-04-24 11:03:09] local.INFO: Quantia de errors: 0  
+[2025-04-24 11:03:09] local.INFO: $nfceValidationRes = $this->nfceValidation->validation($itensPDV); {"nfceValidation":{"cfopValidate":true,"csosnValidate":true,"errors":[]}} 
+[2025-04-24 11:03:09] local.INFO: CFOP e CSOSN/CST válidos  
+[2025-04-24 11:03:09] local.INFO: $iPDV  
+[2025-04-24 11:03:09] local.INFO: 0  
+[2025-04-24 11:03:09] local.INFO: Save sale {"data":{"success":true,"pdvID":7}} 
+[2025-04-24 11:03:09] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-24 11:03:27] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-24 11:03:35] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 11:03:35] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 11:03:35] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 11:03:35] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 11:03:35] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 11:03:35] local.INFO: Dados recebidos no: PDVController finalizeSale  
+[2025-04-24 11:03:35] local.INFO: array (
+  'type_operation' => 'nfce',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => 120,
+  ),
   'pdv_id' => 7,
-  'product_id' => 3,
-  'product' => 'Jack Daniels Canela',
-  'cost_price' => '10.00',
-  'sale_price' => '140.00',
-  'cfop' => '4444',
-  'csosn' => 112,
-  'ncm' => '12345678',
-  'cest' => '123456',
-  'unit' => 'UN',
-  'amount' => 1,
-  'addition' => 0,
-  'discount' => 0,
-  'user_id' => 1,
-  'seller' => 'admin',
 )  
-[2025-04-24 01:26:24] local.INFO: Vai criar registro de erro  
-[2025-04-24 01:26:24] local.INFO: Data in ErrorsRepository:  {"errors":{"produtoErroCFOP":"Produto: Jack Daniels Canela com CFOP incorreto: 4444[3]","produtoErroCSOSN":"Produto: Jack Daniels Canela com CSOSN/CST incorreto: 112[3]"}} 
-[2025-04-24 01:26:24] local.INFO: Quantia de errors: 2  
-[2025-04-24 01:26:24] local.INFO: $nfceValidationRes = $this->nfceValidation->validation($itensPDV); {"nfceValidation":{"cfopValidate":false,"csosnValidate":false,"errors":{"produtoErroCFOP":"Produto: Jack Daniels Canela com CFOP incorreto: 4444[3]","produtoErroCSOSN":"Produto: Jack Daniels Canela com CSOSN/CST incorreto: 112[3]"}}} 
-[2025-04-24 01:26:24] local.INFO: CFOP inválido, item:   
-[2025-04-24 01:26:24] local.INFO: -- Iniciou o NFCeValidation() --  
-[2025-04-24 01:26:24] local.INFO: Produtos NFCeValidation  
-[2025-04-24 01:26:24] local.INFO: array (
-  'pdv_id' => 7,
-  'product_id' => 2,
-  'product' => 'Jack Daniels Honey',
-  'cost_price' => '10.00',
-  'sale_price' => '130.00',
-  'cfop' => '5102',
-  'csosn' => 333,
-  'ncm' => '12345678',
-  'cest' => '1234567',
-  'unit' => 'UN',
-  'amount' => 1,
-  'addition' => 0,
-  'discount' => 0,
-  'user_id' => 1,
-  'seller' => 'admin',
+[2025-04-24 11:03:35] local.INFO: PDVService.php, class:finalizeSale, $total: 120  
+[2025-04-24 11:03:35] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-04-24 11:03:35] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-04-24 11:03:35] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-04-24 11:03:35] local.INFO: Buscando a espécie pelo ID.  
+[2025-04-24 11:03:35] local.INFO: $result  
+[2025-04-24 11:03:35] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-23 10:36:55',
+      'updated_at' => '2025-04-23 10:36:55',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-23 10:36:55',
+      'updated_at' => '2025-04-23 10:36:55',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
 )  
-[2025-04-24 01:26:24] local.INFO: Vai criar registro de erro  
-[2025-04-24 01:26:24] local.INFO: Data in ErrorsRepository:  {"errors":{"produtoErroCSOSN":"Produto: Jack Daniels Honey com CSOSN/CST incorreto: 333[2]"}} 
-[2025-04-24 01:26:24] local.INFO: Quantia de errors: 1  
-[2025-04-24 01:26:24] local.INFO: $nfceValidationRes = $this->nfceValidation->validation($itensPDV); {"nfceValidation":{"cfopValidate":true,"csosnValidate":false,"errors":{"produtoErroCSOSN":"Produto: Jack Daniels Honey com CSOSN/CST incorreto: 333[2]"}}} 
-[2025-04-24 01:26:24] local.INFO: CSOSN / CST inválido  
-[2025-04-24 01:26:24] local.INFO: $iPDV  
-[2025-04-24 01:26:24] local.INFO: 3  
-[2025-04-24 01:26:24] local.INFO: Save sale {"data":{"success":false,"message":"Erro no produto","pdvID":7,"errors":[{"produtoErroCFOP":"Produto: Jack Daniels Maça com CFOP incorreto: 3333[1]"},{"produtoErroCFOP":"Produto: Jack Daniels Canela com CFOP incorreto: 4444[3]","produtoErroCSOSN":"Produto: Jack Daniels Canela com CSOSN/CST incorreto: 112[3]"},{"produtoErroCSOSN":"Produto: Jack Daniels Honey com CSOSN/CST incorreto: 333[2]"}]}} 
-[2025-04-24 01:26:31] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
-[2025-04-24 01:26:31] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
-[2025-04-24 01:26:31] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-04-24 01:26:31] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-04-24 01:26:31] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-04-24 01:26:31] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
-[2025-04-24 01:27:04] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:27:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:27:06] local.INFO: $data  
-[2025-04-24 01:27:06] local.INFO: array (
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-  'supervisorPasswordCancelSale' => false,
-  'supervisorPasswordDeleteItem' => false,
+[2025-04-24 11:03:35] local.INFO: Vai conferir se o $total: R$ 120 é maior que o $pdv->net_value, R$120.00  
+[2025-04-24 11:03:35] local.INFO: Foi maior  
+[2025-04-24 11:03:35] local.INFO: nfce  
+[2025-04-24 11:03:35] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-04-24 11:03:35] local.INFO: Memória usada PayMentMethodService::class, payment: 23068672  
+[2025-04-24 11:03:35] local.INFO: $paymentValues  
+[2025-04-24 11:03:35] local.INFO: array (
+  0 => 120,
 )  
-[2025-04-24 01:27:06] local.INFO: data no repository  
-[2025-04-24 01:27:06] local.INFO: array (
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-  'supervisorPasswordCancelSale' => false,
-  'supervisorPasswordDeleteItem' => false,
+[2025-04-24 11:03:35] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-04-24 11:03:35] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-04-24 11:03:35] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-04-24 11:03:35] local.INFO: forms  
+[2025-04-24 11:03:35] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-23 10:36:55',
+      'updated_at' => '2025-04-23 10:36:55',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-23 10:36:55',
+      'updated_at' => '2025-04-23 10:36:55',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'especie',
+      1 => 'tipo_lancamento',
+      2 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
 )  
-[2025-04-24 01:27:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:27:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:27:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:27:12] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 01:27:12] local.INFO: O hotel foi encontrado  
-[2025-04-24 01:27:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 01:27:12] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 01:27:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:27:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-24 01:28:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:28:35] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 01:28:35] local.INFO: O hotel foi encontrado  
-[2025-04-24 01:28:35] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 01:28:35] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 01:28:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:28:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-24 01:28:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:28:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:28:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:28:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:28:58] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:29:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:29:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:29:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:29:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:29:06] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 01:29:06] local.INFO: O hotel foi encontrado  
-[2025-04-24 01:29:06] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 01:29:06] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 01:29:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:29:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-24 01:55:36] local.INFO: Controller  
-[2025-04-24 01:55:36] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
+[2025-04-24 11:03:35] local.INFO: ID linha 120 - : {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-24 11:03:35] local.INFO: paymentValues linha 124 - : 120  
+[2025-04-24 11:03:35] local.INFO: Vai conferir os tipos de lançamento  
+[2025-04-24 11:03:35] local.INFO: $form->tipo_lancamento  
+[2025-04-24 11:03:35] local.INFO: {"id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-24 11:03:35] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-04-24 11:03:35] local.INFO: Dados:   
+[2025-04-24 11:03:35] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 7',
+    'document' => 7,
+    'pdv_id' => 7,
+    'customer_id' => 1,
+    'name' => 'Consumidor Padrão',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-04-24',
+    'input_value' => 120,
+    'output_value' => 0,
+    'real_balance' => 120,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
 )  
-[2025-04-24 01:55:36] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:55:36] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
+[2025-04-24 11:03:35] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-04-24 11:03:35] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-04-24 11:03:35] local.INFO: Memória usada CashRegisterRepository::class, create: 23068672  
+[2025-04-24 11:03:35] local.INFO: Vai criar 1 registro:   
+[2025-04-24 11:03:35] local.INFO: Memória usada CashRegisterRepository::class, updateCurrentCash: 23068672  
+[2025-04-24 11:03:35] local.INFO: Novo valor: R$ 120.00 + 120.00 = 240  
+[2025-04-24 11:03:35] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-04-24 11:03:35] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-04-24 11:03:35] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-04-24 11:03:35] local.INFO: payMentMethodService  
+[2025-04-24 11:03:35] local.INFO: array (
+  'line' => 215,
+  'success' => true,
 )  
-[2025-04-24 01:56:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:56:01] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 01:56:01] local.INFO: O hotel foi encontrado  
-[2025-04-24 01:56:01] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 01:56:01] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 01:56:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:56:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-24 01:56:37] local.INFO: Controller  
-[2025-04-24 01:56:37] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:56:37] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:56:37] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:57:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:57:12] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 01:57:12] local.INFO: O hotel foi encontrado  
-[2025-04-24 01:57:12] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 01:57:12] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 01:57:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:57:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:57:13] local.INFO: Controller  
-[2025-04-24 01:57:13] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:57:13] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:57:13] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:59:23] local.INFO: Controller  
-[2025-04-24 01:59:23] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:59:23] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:59:23] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:59:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:59:26] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-24 01:59:26] local.INFO: O hotel foi encontrado  
-[2025-04-24 01:59:26] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
-[2025-04-24 01:59:26] local.INFO: Opção desativada, não vai alterar o endereço  
-[2025-04-24 01:59:26] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-24 01:59:26] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-24 01:59:27] local.INFO: Controller  
-[2025-04-24 01:59:27] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
-[2025-04-24 01:59:27] local.INFO: -- Vai começar a busca --  
-[2025-04-24 01:59:27] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-)  
+[2025-04-24 11:03:35] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":7,"description":"Venda NFC-e N\u00b0","issue_date":"2025-04-24","n_nfce":null,"cliente_id":1,"client":"Consumidor Padr\u00e3o","gross_value":"120.00","net_value":"120.00","discount":"0.00","addition":"0.00","user_id":1,"user":"admin","finished":0,"canceled":0,"is_nfce_nm":"nfce","status":"Pendente","active":1}  
+[2025-04-24 11:03:35] local.INFO: $type nfce  
+[2025-04-24 11:03:35] local.INFO: Buscar e alterar os produtos, pdv_id = 7  
+[2025-04-24 11:03:35] local.INFO: Alteração dentro do for = 7  
+[2025-04-24 11:03:35] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-04-24 11:03:35] local.INFO: Produto encontrado 1  
+[2025-04-24 11:03:35] local.INFO: {"id":1,"product":"Jack Daniels Ma\u00e7a","barcode":"82184004364","barcode_internal":"82184004364","image":null,"group_id":2,"group":"Grupo teste 2","amount":7,"cost_price":"10.00","sale_price":"120.00","profit_percentage":"100.00","cfop":"5102","csosncst":"102","ncm":"12345678","cest":"1234567","unit":"UN","active":1}  
+[2025-04-24 11:03:35] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-04-24 11:08:23] local.INFO: Acertou o login  
+[2025-04-24 11:08:39] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:08:39] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 11:08:39] local.INFO: O hotel foi encontrado  
+[2025-04-24 11:08:39] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 11:08:39] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 11:08:39] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 11:08:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 11:57:26] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-24 11:57:26] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 11:57:26] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 11:57:26] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 11:57:26] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 11:57:26] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-04-24 12:43:27] local.INFO: Acertou o login  
+[2025-04-24 12:43:28] local.INFO: Acertou o login  
+[2025-04-24 12:44:04] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:44:04] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:44:04] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:44:04] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:44:04] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:44:04] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-04-24 12:44:21] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-24 12:44:21] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:44:21] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:44:21] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:44:21] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:44:21] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:44:22] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-24 12:44:22] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:44:22] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:44:22] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:44:22] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:44:22] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:44:34] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:44:34] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:44:34] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:44:34] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:44:34] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:44:34] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:44:35] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:44:35] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:44:35] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:44:35] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:44:35] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:44:35] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:44:39] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:44:39] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:44:39] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:44:39] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:44:39] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:44:39] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:44:44] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:44:44] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:44:44] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:44:44] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:44:44] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:44:44] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:44:45] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-24 12:44:45] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:44:45] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:44:45] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:44:45] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:44:45] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:45:02] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:45:02] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:45:02] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:45:02] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:45:02] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:45:02] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:45:04] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:45:04] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:45:04] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:45:04] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:45:04] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:45:04] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:45:12] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:45:12] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:45:12] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:45:12] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:45:12] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:45:12] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:45:13] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-24 12:45:13] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:45:13] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:45:13] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:45:13] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:45:13] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:51:00] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-24 12:51:00] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:51:00] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:51:00] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:51:00] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:51:00] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:51:12] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:51:12] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:51:12] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:51:12] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:51:12] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:51:12] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:51:19] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:51:19] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:51:19] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:51:19] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:51:19] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:51:19] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:51:19] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:51:19] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:51:19] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:51:19] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:51:19] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:51:19] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:51:21] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:51:21] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:51:21] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:51:21] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:51:21] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:51:21] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:51:32] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:51:32] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:51:32] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:51:32] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:51:32] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:51:32] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:51:34] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:51:34] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:51:34] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:51:34] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:51:34] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:51:34] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:51:37] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:51:37] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:51:37] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:51:37] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:51:37] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:51:37] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:52:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-24 12:52:30] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-24 12:52:30] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-24 12:56:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 12:56:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 12:56:33] local.INFO: O hotel foi encontrado  
+[2025-04-24 12:56:33] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 12:56:33] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 12:56:35] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:56:35] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:56:35] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:56:35] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:56:35] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:56:35] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-04-24 12:56:35] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 12:56:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 12:58:49] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-24 12:58:49] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:58:49] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:58:49] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:58:49] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:58:49] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 12:58:52] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 12:58:52] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 12:58:52] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 12:58:52] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 12:58:52] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 12:58:52] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 13:40:51] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-24 13:41:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 13:41:20] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 13:41:20] local.INFO: O hotel foi encontrado  
+[2025-04-24 13:41:20] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 13:41:20] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 13:41:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 13:41:21] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 15:15:53] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-04-24 15:15:53] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 15:15:53] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 15:15:53] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 15:15:53] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 15:15:53] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 15:16:02] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 15:16:02] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 15:16:02] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 15:16:02] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 15:16:02] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 15:16:02] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 15:16:07] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-24 15:16:07] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-24 15:16:07] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-24 15:16:07] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-24 15:16:07] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-24 15:16:07] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-04-24 15:16:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 15:16:09] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 15:16:09] local.INFO: O hotel foi encontrado  
+[2025-04-24 15:16:09] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 15:16:09] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 15:16:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-24 15:16:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 15:16:10] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 15:16:10] local.INFO: O hotel foi encontrado  
+[2025-04-24 15:16:10] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 15:16:10] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 15:16:11] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 15:16:11] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 15:16:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 15:16:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  

@@ -41,6 +41,20 @@
                         </q-item-section>
                 </q-item>
             </q-list>
+                <div class="q-mt-md">
+                    <q-btn
+                        label="Cancelar"
+                        class="ml-52 mr-5"
+                        color="negative"
+                        @click="cancelOperation"
+                    />
+                    <q-btn
+                        :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
+                        color="primary"
+                        @click="showLoading()"
+                        type="submit"
+                    />
+                </div>
             </q-form>
         </q-card-section>
     
@@ -73,21 +87,6 @@
             </q-banner>
 
         </q-card-section>
-
-            <div class="q-mt-md">
-                <q-btn
-                    label="Cancelar"
-                    class="ml-52 mr-5"
-                    color="negative"
-                    @click="cancelOperation"
-                />
-                <q-btn
-                    :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
-                    color="primary"
-                    @click="showLoading"
-                    type="submit"
-                />
-            </div>
     
         <q-inner-loading :showing="isLoanding" label="Processando..." />
     
@@ -127,7 +126,7 @@
 <script>
 import { api } from "src/boot/axios";
 import { onBeforeUnmount } from 'vue';
-import { useQuasar  } from "quasar";
+import { LocalStorage, useQuasar  } from "quasar";
 import Installments from "./PDV/Installments.vue";
 
 export default {
@@ -325,6 +324,7 @@ export default {
                         {
                             this.cancelOperation()
                             this.$emit('update:selectProducts', []);
+                            LocalStorage.removeItem("pdvID")
                         } else {
                             console.log(response_nfce)
                         }
