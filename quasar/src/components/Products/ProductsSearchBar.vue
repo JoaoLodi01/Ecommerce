@@ -15,13 +15,14 @@
         <li
             v-for="product in filteredProducts"
             :key="product.id"
-            @click="setProduct(product)"    
+            @click="setProduct(product)"
             class="p-2 hover:bg-gray-200 cursor-pointer"
             
         >
             <span>{{ product.id }}</span> -
-            <span> {{ product.product }}</span> -
-            <span> Qtde: {{ product.amount }}</span>
+            <span>{{ product.product }}</span> -
+            <span>Qtde: {{ product.amount }}</span> -
+            <span>R$ {{ product.sale_price }} </span>
 
         </li>
     </ul>

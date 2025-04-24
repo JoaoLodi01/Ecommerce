@@ -85,26 +85,24 @@ class PDVService
         }
     }
 
-    public function finalizeSale(array $paymentsValues, string $typeOperation, int $id, int $pdvID)
+    public function fillValues()
+    {
+
+    }
+
+public function finalizeSale(array $paymentsValues, string $typeOperation, int $id, int $pdvID)
     {
         try {
             $total = 0;
             $forms = [];
 
-            foreach ($paymentsValues as $value) {
-                Log::info('Dentro');
-                $total += (float) $value;
+            $filltred = array_filter($paymentsValues);
 
+            foreach ($filltred as $key => $value) {
+                $total += (float) $value;
+                $forms[] = $key + 1;
             }
-            for ($i=0; $i < count($paymentsValues); $i++) { 
-                // posição do array com o valor > 0
-                // Vai ser o ID da espécie
-                if($paymentsValues[$i] > 0)
-                {
-                    $forms[] = $i + 1; 
-                    
-                }
-            }    
+
             Log::info('PDVService.php, class:finalizeSale, $total: ' . $total);
             $pdv = $this->pdvRepository->finalizeSale($typeOperation, $id, $paymentsValues, $forms, $total);
 

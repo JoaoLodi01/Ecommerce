@@ -1,46 +1,54 @@
 <template>
-    <div class="container mx-auto mt-12 p-6 ml-12">
-        
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-semibold">Listagem PDV
-                <span class="text-sm">(NFC-e/Nota Manual)</span>
-            </h1>
-            <div class="flx space-x-4">
-                <!--
-                <input
-                    type="checkbox"
-                    v-model="searchFill.all"
-                    @change="filterPDVs('all')"
-                    
-                /> <span class="mr-5">Todas</span>
-                
-                <input
-                    type="checkbox"
-                    v-model="searchFill.finaly"
-                    @change="filterPDVs('finaly')"
+    <div class="mt-10 ml-16">
+        <h1 class="text-2xl font-semibold">Listagem PDV
+            <span class="text-sm">(NFC-e/Nota Manual)</span>
+        </h1>
 
-                /> <span class="mr-5">Emitidas</span>
+        <q-btn-dropdown 
+            label="Ações" 
+            color="grey"
+            menu-anchor="bottom end"
+        >
+            <q-list class="bg-white">
+                <q-item v-ripple clickable v-close-popup>
+                    <q-item-section>
+                        <q-item-label>
+                            <q-btn 
+                                color="grey" 
+                                @click="openReportErros()"
+                                label="Conferir relatórios de erros"
 
-                <input
-                    type="checkbox"
-                    v-model="searchFill.noFinaly"
-                    @change="filterPDVs('noFinaly')"
+                            /> 
+                            <span 
+                                class="relative bottom-2 right-2 bg-slate-500 p-1 rounded-xl text-white"
+                                :class="{
+                                    'bg-green-700': countErros >= 0,
+                                    'bg-orange-700': countErros >= 3,
+                                    'bg-red-700': countErros >= 5,
 
-                /> <span>Não emitidas</span>-->
-                <div class="">
-                    <q-btn 
-                        color="grey" 
-                        @click="openReportErros()" 
-                        class="mb-5"
+                                }"
+                            >
+                                {{ countErros }}
+                            </span>
+                        </q-item-label>                            
+                    </q-item-section>
+                </q-item>
+                <q-item v-ripple clickable v-close-popup>
+                    <q-item-section>
+                        <q-item-label>
+                            <q-btn 
+                                color="grey" 
+                                @click="openReportErros()"
+                                label="Conferir relatórios de erros"
 
-                    > 
-                        <span>Conferir relatórios de erros</span> 
-                    </q-btn>
-                    <span class="relative bottom-4 right-2 bg-gray-500 p-1 rounded-xl text-white">{{ countErros }}</span>
-                </div>
-                
-            </div>
-            
+                            /> 
+                        </q-item-label>                            
+                    </q-item-section>
+                </q-item>
+            </q-list>
+        </q-btn-dropdown>
+
+        <div class="items-center mb-6">            
             <table>
                 <thead>
                     <tr>

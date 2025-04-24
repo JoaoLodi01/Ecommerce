@@ -135,6 +135,7 @@
                         this.$router.push('/home')
                         alert('Login bem sucedido!')
                         LocalStorage.setItem("user_name", response.data.user.name)
+                        LocalStorage.setItem("user_id", response.data.user.id)
                         LocalStorage.setItem("auth_token", response.data.token);
 
                     } else {

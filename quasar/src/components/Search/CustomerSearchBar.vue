@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
         <div class="">
-            <div class="">
+            <div class="text-sm" v-if="pdv">
                 <q-checkbox
                     size="1.6rem"
                     label="Cliente cadastrado"
@@ -44,9 +44,15 @@
 
 <script>
     import { api } from 'src/boot/axios';
-    import { toRaw, watch } from 'vue';
+    import { toRaw } from 'vue';
         
     export default {    
+        props: {
+            pdv: {
+                type: Boolean
+            }
+        },
+
         mounted()
         {
             const getConfig = async () => {
