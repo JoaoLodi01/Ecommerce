@@ -19,13 +19,10 @@ return new class extends Migration
             $table->string('address', 100);
             $table->string('number', 10);
             $table->string('cep', 11);
-            $table->string('email', 100)->unique();
-            $table->string('phone', 30)->nullable();
-            $table->boolean('active', 1)->default(1);
-
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
             $table->unsignedBigInteger('owner_id');
-        
+            
+            $table->boolean('active', 1)->default(1);
             $table->timestamps();
         });
     }

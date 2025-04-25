@@ -44,7 +44,6 @@ Route::prefix('v1')->group( function (){
         Route::post('/owner', [AuthController::class, 'authOwner']);
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
-        Route::post('');
 
         Route::get('/me', function (Request $request) {
             return response()->json([

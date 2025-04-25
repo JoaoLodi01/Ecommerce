@@ -13,7 +13,7 @@ export default defineBoot(({ app, router }) => {
     api.interceptors.request.use((config) => {
         const token = LocalStorage.getItem("auth_token");
 
-        const publicAPIRoutes = ['/forgot-password', '/reset-passowrd', '/auth']
+        const publicAPIRoutes = ['/forgot-password', '/reset-passowrd', '/auth/me', '/owner']
         const isPublic = publicAPIRoutes.some(route => config.url.includes(route))
 
         if (!token && !isPublic) {

@@ -15,8 +15,7 @@ class Issuer extends Model
         'address',
         'number',
         'cep',
-        'email',
-        'phone',
+        'owner_id',
         'active',
         
     ];

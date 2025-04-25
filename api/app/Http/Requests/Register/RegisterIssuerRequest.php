@@ -15,13 +15,13 @@ class RegisterIssuerRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'cnpj' => ['required', 'string'],
-            'cpf' => ['required', 'string'],
+            'cnpj' => ['nullable', 'string', 'required_without:cpf'],
+            'cpf' => ['nullable', 'string', 'required_without:cnpj'],
             'address' => ['required', 'string'],
             'number' => ['required', 'string'],
             'cep' => ['required', 'string'],
-            'email' => ['required', 'email'],
-            'phone' => ['required', 'string']
+            'uuse_id' => ['required']
+            
         ];
     }
 }
