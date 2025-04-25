@@ -22,7 +22,7 @@
                 <q-btn
                     v-if="showCustomers"
                     @click="openRegister()"
-                    class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                    class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
                 >
                     <span v-if="widthScreen <= 1080">Novo cliente</span>
                     <span v-else>Cadastrar um novo cliente</span>

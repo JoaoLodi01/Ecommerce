@@ -49,21 +49,29 @@
                 color="grey-7"
             />
             <q-input
+                v-if="sum"
                 type="text"
                 v-model="form.input_value"
-                v-mask="'#,##0.00'"
                 label="Valor Entrada"
                 color="grey-7"
             />
             <q-input
-                type="number"
+                v-else
+                type="text"
                 v-model="form.output_value"
                 label="Valor Saída"
                 color="grey-7"
             />
             <q-input
-                type="number"
+                type="text"
+                v-model="form.obs"
+                label="Observação"
+                color="grey-7"
+            />
+            <q-input
+                type="text"
                 :model-value="totalAmountCalc"
+                v-model="form.total_amount"
                 label="Valor total"
                 readonly
                 color="grey-7"
@@ -77,11 +85,15 @@
                     text-white"
                 />
                 <q-btn
-                    @click="onReset()"
-                    label="Limpar"
-                    class="ml-5
+                    @click="sum = !sum"
+                    :label="sum ? 'entrada' : 'saída'"
+                    class="ml-5"
+                    :class="{
+                        'bg-green-500 text-white' : sum,
+                        'bg-red-500 text-white' : !sum
+                    }"
                     bg-slate-600
-                    text-white"
+                    text-white
                 />
                 <q-btn
                     @click="close()"
@@ -113,6 +125,7 @@ export default {
         const today = dayjs();
 
         return {
+            sum: true,
             form: {
                 description: "",
                 document: "",
@@ -121,7 +134,9 @@ export default {
                 especie: "",
                 date_register: today.format("YYYY-MM-DD"),
                 input_value: "0,00",
-                output_value: 0,
+                output_value: "0,00",
+                total_amount: "0,00",
+                obs: "",
             },
         };
     },
@@ -129,8 +144,12 @@ export default {
     computed: {
         totalAmountCalc() {
             const entrada = this.parseCurrency(this.form.input_value);
-            const saida = this.form.output_value || 0;
-            return entrada - saida;
+            const saida = this.parseCurrency(this.form.output_value);
+            const total = entrada - saida;
+            return total.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+            });
         },
     },
 
@@ -138,8 +157,8 @@ export default {
         parseCurrency(value) {
             if (!value) return 0;
             return parseFloat(
-                value.toString().replace(/\./g, "").replace(",", ".")
-            );
+            value.replace(/[R$\s.]/g, '').replace(',', '.')
+            ) || 0;
         },
 
         onReset() {
@@ -152,7 +171,8 @@ export default {
                 especie: "",
                 date_register: today.format("YYYY-MM-DD"),
                 input_value: "0,00",
-                output_value: 0,
+                output_value: "0,00",
+                total_amount: "0,00",
             };
         },
 

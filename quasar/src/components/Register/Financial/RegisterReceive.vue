@@ -127,6 +127,8 @@
 <script>
   import { api } from "boot/axios"
   import {LocalStorage} from "quasar";
+  import dayjs from "dayjs";
+  import 'dayjs/locale/pt-br';
   import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
 
   export default {
@@ -138,6 +140,8 @@
     },
 
     data() {
+      const today = dayjs();
+
       return {
         form: {
             description: "",
@@ -145,25 +149,25 @@
             user: LocalStorage.getItem("user_name"),
             cpf: "",
             especie: "",
-            due_date: "",
+            due_date: today.add(30, 'days').format("DD-MM-YYYY"),
             installment_number: "",
             installment_value: "",
             type_interest: "",
             interest_value: "",
             total_amount: ""
         },
-       
       };
     },
     methods: {
       onReset(){
+        const today = this.today;
             this.form = {
                 description: "",
                 name: "",
                 user: LocalStorage.getItem("user_name"),
                 cpf: "",
                 especie: "",
-                due_date: "",
+                due_date: today.format("DD-MM-YYYY"),
                 installment_number: "",
                 installment_value: "",
                 type_interest: "",
@@ -185,7 +189,9 @@
         async submitForm() {
           console.log(this.form)
             try {
-                const response = await api.post(`${this.api}`, this.form); // Lembrar de criar rota e inserir aqui
+                const response = await api.post(`${this.api}`, {
+
+                }); // Lembrar de criar rota e inserir aqui
                 this.onReset();
                 console.log('Dados enviados!', response.data)
             } catch (error) {
@@ -201,6 +207,5 @@
     emits:[
       'close'
     ],
-
   };
 </script>

@@ -181,3 +181,245 @@
 [2025-04-24 20:21:49] local.INFO: Opção desativada, não vai alterar o endereço  
 [2025-04-24 20:21:50] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
 [2025-04-24 20:21:50] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-24 20:38:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 20:38:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-24 20:38:36] local.INFO: O hotel foi encontrado  
+[2025-04-24 20:38:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-24 20:38:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-24 20:38:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-24 20:38:37] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:05:46] local.INFO: Acertou o login  
+[2025-04-25 13:05:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 13:05:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:06:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:06:44] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:06:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:06:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:07:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:07:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:08:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 13:10:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:10:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:11:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 13:12:04] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:12:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 13:12:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:12:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:12:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:13:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:13:18] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:13:47] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:13:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:13:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:13:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:14:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 13:15:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:15:18] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:15:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:15:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:43:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:43:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:43:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:43:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:43:46] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:44:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:44:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:44:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:44:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:45:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:45:18] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:45:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:45:24] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:45:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:45:45] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:46:05] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:46:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:46:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:46:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:46:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:46:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 13:46:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:46:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:46:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:47:04] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:47:05] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:47:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 13:47:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:47:27] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:47:30] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 13:47:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:48:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:48:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:48:44] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:48:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:49:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:49:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 13:49:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:49:49] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:50:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 13:50:29] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 16:36:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 16:36:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 16:41:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 16:42:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 16:42:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 16:42:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 16:42:50] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 16:42:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 16:43:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 16:43:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 16:43:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 16:43:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 16:47:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:15:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 17:15:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:16:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:17:00] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:17:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:17:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:17:38] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:17:45] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:17:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:18:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:18:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 17:18:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:18:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 17:18:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:32:38] local.INFO: Acertou o login  
+[2025-04-25 17:32:47] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 17:32:49] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:33:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:33:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:33:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 17:33:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:38:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:38:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:39:00] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:39:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 17:39:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:41:00] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:41:38] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 17:41:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 17:48:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 17:48:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 18:30:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 18:30:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:06:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:07:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:07:46] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:07:59] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:10:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 19:10:08] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:10:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:10:13] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:10:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:11:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:11:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:11:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:11:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 19:11:30] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:11:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:11:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:11:47] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 19:11:49] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 19:15:20] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 19:15:21] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-25 19:15:21] local.INFO: O hotel foi encontrado  
+[2025-04-25 19:15:21] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-25 19:15:21] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-25 19:15:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 19:15:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:56:15] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 19:56:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:56:32] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-25 19:56:32] local.INFO: O hotel foi encontrado  
+[2025-04-25 19:56:32] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-25 19:56:32] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-25 19:56:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:56:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 19:56:56] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 19:57:13] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:16:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:16:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 20:16:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-25 20:16:22] local.INFO: O hotel foi encontrado  
+[2025-04-25 20:16:22] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-25 20:16:22] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-25 20:16:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:16:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:17:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:18:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:18:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:19:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:20:08] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:20:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 20:20:42] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:20:45] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 20:20:46] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-25 20:20:46] local.INFO: O hotel foi encontrado  
+[2025-04-25 20:20:46] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-25 20:20:46] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-25 20:20:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 20:20:47] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:21:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:21:17] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:21:17] local.INFO: $data  
+[2025-04-25 20:21:17] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => false,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-25 20:21:17] local.INFO: data no repository  
+[2025-04-25 20:21:17] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => false,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-25 20:21:19] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:21:20] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 20:21:23] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-25 20:21:23] local.INFO: O hotel foi encontrado  
+[2025-04-25 20:21:23] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-25 20:21:23] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-25 20:21:23] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 20:21:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:21:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:21:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:21:29] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:21:29] local.INFO: $data  
+[2025-04-25 20:21:29] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-25 20:21:29] local.INFO: data no repository  
+[2025-04-25 20:21:29] local.INFO: array (
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-04-25 20:21:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:21:32] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 20:21:36] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-25 20:21:36] local.INFO: O hotel foi encontrado  
+[2025-04-25 20:21:36] local.INFO: Vai conferir as configurações ( se houver ) de CEP  
+[2025-04-25 20:21:36] local.INFO: Opção desativada, não vai alterar o endereço  
+[2025-04-25 20:21:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 20:21:37] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-25 20:21:37] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-25 20:22:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:22:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-25 20:22:58] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-25 20:24:32] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
