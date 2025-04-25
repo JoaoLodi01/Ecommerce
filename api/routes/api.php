@@ -41,6 +41,7 @@ use Illuminate\Http\Request;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
+        Route::post('/owner', [AuthController::class, 'authOwner']);
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
         Route::post('');

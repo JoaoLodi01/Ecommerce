@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -71,12 +72,32 @@ class AuthController extends Controller
     public function authOwner(LoginRequest $request)
     {
         $data = $request->validated();
+    
         $owner = $this->registerOwnerService->findByEmail($data['email']);
-        if(Auth::guard('owner')->attempt($data))
+
+        Log::info('owner ' . $owner);
+        if($owner && Hash::check($data['password'], $owner->password))
         {
-            $owner = Auth::user();
+            Auth::login($owner);
+            $token = $owner->createToken('auth_token')->plainTextToken;
+            Log::info("Passou o login, token: $token");
+            return response()->json([
+                'success' => true,
+                'message' => 'Login bem sucedido!',
+                'owner' => $owner,
+                'token' => $token,
+                'uuse_id' => $owner->uuse_id
+                
+            ], 200);
+
         }
 
+        return response()->json([
+            'success' => false,
+            'message' => 'O login falhou',
+            'owner' => $owner,
+            
+        ], 401);
     }
 
     public function logout()

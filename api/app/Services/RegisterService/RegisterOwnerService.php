@@ -26,11 +26,8 @@ class RegisterOwnerService
         ], 200);
     }   
 
-    public function findByEmail(int $id)
+    public function findByEmail(string $email)
     {
-        return response()->json([
-            'success' => true,
-            'owner' => $this->registerOwnerRepository->find($id)
-        ], 200);
+        return $this->registerOwnerRepository->findByEmail($email);
     }   
 }

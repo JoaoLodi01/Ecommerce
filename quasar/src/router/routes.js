@@ -35,6 +35,11 @@ const routes = [
     component: () => import('src/pages/Login/Forgot/FormResetPassword.vue')
   },
   {
+    path: '/companies',
+    name: 'Companies',
+    component: () => import('src/pages/Owner/Companies.vue')
+  },
+  {
     path: '/home',
     component: Sidebar,
     children: [
