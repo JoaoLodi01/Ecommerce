@@ -1,6 +1,9 @@
 <?php
 
+namespace App\Http\Controllers\RegisterControllers;
+
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Register\RegisterIssuerRequest;
 use App\Services\RegisterService\RegisterIssuerService;
 
 class RegisterIssuerController extends Controller

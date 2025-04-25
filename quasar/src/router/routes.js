@@ -15,9 +15,9 @@ const routes = [
     component: () => import('pages/Login/Login.vue')
   },
   {
-    path: '/register-account',
-    name: 'RegisterAccount',
-    component: () => import('src/pages/Login/Register/RegisterAccount.vue')
+    path: '/register-owner',
+    name: 'RegisterOwner',
+    component: () => import('src/pages/Login/Register/RegisterOwner.vue')
   },
   {
     path: '/register-issuer',

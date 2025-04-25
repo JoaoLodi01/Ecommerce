@@ -1,0 +1,6 @@
+[2025-04-25 11:33:34] local.INFO: Data  
+[2025-04-25 11:33:34] local.INFO: array (
+  'email' => 'roxosgbr@gmail.com',
+  'password' => '123',
+)  
+[2025-04-25 11:33:34] local.INFO: Errou o login  

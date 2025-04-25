@@ -16,12 +16,10 @@ return new class extends Migration
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('name', 120);
-            $table->string('email', 120)->unique();
-            $table->string('password', 120);
-            $table->string('login', 120)->nullable();
+            $table->string('login', 120)->nullable()->unique();
+            $table->string('password', 30);
             $table->string('perfil_photo', 120)->nullable();
-            $table->string('access', 20);
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('access', 20)->nullable();
             $table->boolean('active')->default(1);
             $table->rememberToken();
             $table->timestamps();

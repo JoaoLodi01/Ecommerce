@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Requests\Register;
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterOwnerRequest extends FormRequest
@@ -15,13 +17,9 @@ class RegisterOwnerRequest extends FormRequest
             'name' => ['required', 'string'],
             'surname' => ['required', 'string'],
             'cpf' => ['required', 'string'],
-            'phone' => ['required', 'string'],
             'email' => ['required', 'email'],
-            'forgot_email' => ['required', 'email'],
             'password' => ['required', 'string'],
-            'address' => ['required', 'string'],
-            'number' => ['required', 'string'],
-            'cep' => ['required', 'string'],
+
         ];
 
     }

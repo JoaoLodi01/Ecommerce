@@ -7,13 +7,14 @@
             <span class="mt-0.5 ml-2">Voltar</span>
         </router-link>
     </div>
-    <div class="">
+    <div class="flex justify-center">
         <div class="login-form border border-black p-5 rounded-lg shadow-xl">
             <q-form
                 @submit.prevent="createAccount"
-                
+                class="form-container"
             >
-                <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Registrar</h1>
+                <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Crie a sua conta!</h1>
+                
                 <q-input 
                     filled        
                     label="Nome" 
@@ -48,74 +49,16 @@
 
                 <q-input 
                     filled        
-                    label="Confirme seu E-mail" 
-                    v-model="form.email_"
-                    stack-label
-                    class="mb-4"
-                    color="grey"
-                    maxlength="90"
-
-                />
-                
-                <q-input 
-                    filled    
-                    type="tel"    
-                    label="Telefone" 
-                    v-model="form.phone"
-                    stack-label
-                    class="mb-4"
-                    color="grey"
-                    v-bind:mask="'(##) #####-####'"
-                    maxlength="30"
-
-                />
-
-                <q-input 
-                    filled        
                     label="CPF" 
                     v-model="form.cpf"
                     stack-label
                     class="mb-4"
                     color="grey"
-                    v-bind:mask="'####.###.###-##'"
+                    v-bind:mask="'###.###.###-##'"
                     maxlength="100"
 
-                />
-                
-                <q-input 
-                    filled        
-                    label="CEP" 
-                    v-model="form.cep"
-                    stack-label
-                    class="mb-4"
-                    color="grey"
-                    v-bind:mask="'#####-###'"
-                    maxlength="100"
-
-                />
-                
-                <q-input 
-                    filled        
-                    label="Endereço" 
-                    v-model="form.address"
-                    stack-label
-                    class="mb-4"
-                    color="grey"
-                    maxlength="100"
-
-                />
-                
-                <q-input 
-                    filled        
-                    label="Número" 
-                    v-model="form.number"
-                    stack-label
-                    class="mb-4"
-                    color="grey"
-                    maxlength="120"
-
-                />
-                
+                />        
+                        
                 <q-input 
                     filled 
                     label="Senha"
@@ -257,14 +200,9 @@
                 form: {
                     name: '',
                     surname: '',
-                    phone: '',
                     cpf: '',
-                    cep: '',
-                    address: '',
-                    number: '',
                     email: '',
                     password: '',
-                    email_: '',
                     password_: ''
                     
                 },
@@ -275,41 +213,43 @@
                 messages: []
             }
         },
+        
         methods: {
             async createAccount(){
                 this.showLoading()
                 this.messages = []
-                const email = this.checkEmail()
+                
                 const password = this.checkPassword()
-                if(!email && !password)
+                if(!password)
                 {
                     try {
-                        const response = await api.post('/users/create', {
+                        const response = await api.post('/registers/owner/create', {
                             name: this.form.name,
+                            surname: this.form.surname,
+                            cpf: this.form.cpf.replace(/\D/g, ''),
                             email: this.form.email.toLowerCase(),
                             password: this.form.password,
-                            access: 'Limitado'
+                            
                         })
 
                         console.log(response.data)
 
                         if(response.data.success)
                         {
-                            alert(`Bem vindo! ${response.data.user.name}`)
                             this.$router.push({path: '/login'})
 
                         }  else {
                             alert(`Erro: ${response.data.th ?? response.data}`)
+
                         }
                         
                     } catch (error) {
-                        console.error('Erro', error)
+                        console.error('Erro catch', error)
                         this.messages.push(error.response.data.message ?? null)
                         const register = this.form
                         switch (error.response.data.message) {
                             case 'Esse e-mail já está sendo usado!':
                                 register.email = null
-                                register.email_ = null
                                 break;
                         
                             default:
@@ -319,16 +259,6 @@
                 } 
             },
 
-            checkEmail(){
-                if(this.form.email_ !== this.form.email)
-                {
-                    console.log('e-mail')
-                    this.messages.push('Os e-mails não iguais!')
-                    return true
-                } else {
-                    return false
-                }
-            },
             checkPassword(){
                 if(this.form.password_ !== this.form.password)
                 {
@@ -346,3 +276,15 @@
     }
 
 </script>
+
+<style>
+    @media(min-width: 1366px)
+    {
+        .form-container{
+            width: 60vh;
+         
+        }
+
+    }
+    
+</style>

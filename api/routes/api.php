@@ -26,6 +26,12 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
+
+use App\Http\Controllers\RegisterControllers\{
+    RegisterOwnerController,
+    RegisterIssuerController
+};
+
 use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
 use Illuminate\Support\Facades\{
     Route,

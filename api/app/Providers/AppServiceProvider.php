@@ -10,6 +10,7 @@ use App\Repositories\Contracts\RegisterContract\{
 use App\Repositories\Eloquent\RegisterEloquent\{
     RegisterIssuerRepository,
     RegisterOwnerRepository
+
 };
 
 use Illuminate\Support\Facades\Vite;
@@ -22,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(RegisterOwnerRepository::class, RegisterOwnerContract::class);
-        $this->app->bind(RegisterIssuerRepository::class, RegisterIssuerContract::class);
+        $this->app->bind(RegisterOwnerContract::class, RegisterOwnerRepository::class);
+        $this->app->bind(RegisterIssuerContract::class, RegisterIssuerRepository::class);
     }
 
     /**
