@@ -81,7 +81,6 @@
             async joinCompanie()
             {
                 //const companie = await
-
             }
         },
 
