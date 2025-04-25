@@ -127,8 +127,8 @@
 
         methods: {
             async loginMethod() {
-                this.showLoading()
                 try {
+                    this.showLoading()
                     const response = await api.post("/auth/owner", this.details);
             
                     if (response.data.success && response.data.token) {
@@ -137,22 +137,17 @@
                         LocalStorage.setItem("uuse_id", response.data.uuse_id)
                         LocalStorage.setItem("auth_token", response.data.token);
 
-                    } else {
-                        alert(`${response.data.message}`);
-                        this.details = {
-                              email: '',
-                            password: ''
-                        }
-                    }
-
+                    } 
 
                 } catch (error) {
                     if(error.status === 429)
                     {
                         alert('Muitas tentativas de login mal sucedidas! Tente novamente mais tarde')
+
                     } else {
-                        console.error("Erro no login:", error, ' status: ', error.status);
-                        alert("Erro ao tentar fazer login. Verifique suas credenciais e tente novamente.");
+                        console.error("Erro no login:", error);
+                        alert(`Erro ao tentar fazer login. ${error.response.data.message ?? 'Erro no login'}`);
+
                     }
 
                 }

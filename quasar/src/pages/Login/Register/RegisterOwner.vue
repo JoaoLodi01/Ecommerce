@@ -216,12 +216,12 @@
         
         methods: {
             async createAccount(){
-                this.showLoading()
                 this.messages = []
                 
                 const password = this.checkPassword()
                 if(!password)
                 {
+                    this.showLoading()
                     try {
                         const response = await api.post('/registers/owner/create', {
                             name: this.form.name,

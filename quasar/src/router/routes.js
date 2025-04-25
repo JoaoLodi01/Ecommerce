@@ -40,7 +40,7 @@ const routes = [
     component: () => import('src/pages/Owner/Companies.vue')
   },
   {
-    path: '/home',
+    path: '/:name/home',
     component: Sidebar,
     children: [
       {

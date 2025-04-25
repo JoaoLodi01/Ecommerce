@@ -12,6 +12,11 @@ class RegisterIssuerController extends Controller
         protected RegisterIssuerService $registerIssuerService
     ){}
 
+    public function getAll(string $ownerID)
+    {
+        return $this->registerIssuerService->getAll($ownerID);
+    }
+
     public function create(RegisterIssuerRequest $request)
     {
         $data = $request->validated();

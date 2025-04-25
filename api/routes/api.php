@@ -33,10 +33,7 @@ use App\Http\Controllers\RegisterControllers\{
 };
 
 use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
-use Illuminate\Support\Facades\{
-    Route,
- 
-};
+use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 Route::prefix('v1')->group( function (){
@@ -180,6 +177,11 @@ Route::prefix('v1')->group( function (){
             Route::prefix('pdv')->group(function(){
                 Route::post('/closing-period', [ReportCashClosingPeriodController::class, 'getData']);
             });
+        });
+
+        Route::prefix('issuer')->group(function(){
+            Route::get('/all/companies/{id}', [RegisterIssuerController::class, 'getAll']);
+            Route::get('/', [RegisterIssuerController::class, 'getAll']);
         });
     });
 

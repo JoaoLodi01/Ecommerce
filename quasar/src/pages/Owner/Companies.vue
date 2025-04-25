@@ -34,18 +34,66 @@
 
                 </q-card-section>
             </q-card>
+
+            <q-card class="ml-8" v-for="(companie, id) in companies" :key="id">
+                <q-card-section class="">
+                    Empresa: {{ companie.name }}
+                    <br>
+                    {{ companie.cnpj ? 'CNPJ' : 'CPF' }}: {{ companie.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                    <br>
+                    <q-btn 
+                        color="primary" 
+                        icon="check" 
+                        label="OK" 
+                        @click="joinCompanie(companie.id)"
+
+                    />
+                </q-card-section>
+            </q-card>
         </div>
         
     </div>
 </template>
 
 <script>
-import { LocalStorage } from 'quasar';
+    import { LocalStorage } from 'quasar';
+    import { api } from 'src/boot/axios';   
 
     export default {
+        data()
+        {
+            return {
+                companies: [ ]
+            }
+        },
+
+        methods: {
+            async getCompanies()
+            {
+                const response = await api.get(`issuer/all/companies/${LocalStorage.getItem("uuse_id")}`);
+                console.log(response)
+                if(response.data.success)
+                {
+                    this.companies = response.data.companies   
+                }
+            },
+
+            async joinCompanie()
+            {
+                //const companie = await
+
+            }
+        },
+
         mounted()
         {
-            console.log(`uuse_id: ${LocalStorage.getItem("uuse_id")} `)
+            this.getCompanies()
+            const uuse_id = LocalStorage.getItem("uuse_id")
+            console.log('uuse_id: /companies: ', uuse_id)
+            if(!uuse_id)
+            {
+                this.$router.push('/register-owner')   
+            }
         }
     }
 </script> 

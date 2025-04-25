@@ -71,33 +71,49 @@ class AuthController extends Controller
 
     public function authOwner(LoginRequest $request)
     {
-        $data = $request->validated();
+        try {
+            $data = $request->validated();
     
-        $owner = $this->registerOwnerService->findByEmail($data['email']);
+            $owner = $this->registerOwnerService->findByEmail($data['email']);
 
-        Log::info('owner ' . $owner);
-        if($owner && Hash::check($data['password'], $owner->password))
-        {
-            Auth::login($owner);
-            $token = $owner->createToken('auth_token')->plainTextToken;
-            Log::info("Passou o login, token: $token");
-            return response()->json([
-                'success' => true,
-                'message' => 'Login bem sucedido!',
-                'owner' => $owner,
-                'token' => $token,
-                'uuse_id' => $owner->uuse_id
-                
-            ], 200);
+            Log::info('owner ' . $owner);
+            if($owner && Hash::check($data['password'], $owner->password))
+            {
+                Auth::login($owner);
+                $token = $owner->createToken('auth_token')->plainTextToken;
+                Log::info("Passou o login, token: $token");
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Login bem sucedido!',
+                    'owner' => $owner,
+                    'token' => $token,
+                    'uuse_id' => $owner->uuse_id
+                    
+                ], 200);
 
-        }
+            } else if (empty($owner))
+            {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'O usuário não existe',
+                    
+                ], 400);
 
-        return response()->json([
-            'success' => false,
-            'message' => 'O login falhou',
-            'owner' => $owner,
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Erro no login',
+                    
+                ], 400);
+
+
+            }
+
             
-        ], 401);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        
     }
 
     public function logout()

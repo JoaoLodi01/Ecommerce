@@ -164,21 +164,30 @@
                 try {
                     const response = await api.post('/registers/issuer/create', {
                         name: this.form.name,
-                        cpf: this.form.cpf,
-                        cnpj: this.form.cnpj,
+                        cpf: this.form.cpf.replace(/\D/g, ''),
+                        cnpj: this.form.cnpj.replace(/\D/g, ''),
                         address: this.form.address,
                         number: this.form.number,
-                        cep: this.form.cep,
+                        cep: this.form.cep.replace(/\D/g, ''),
                         uuse_id: LocalStorage.getItem("uuse_id"),
                         
                     })
                     console.log(response)
+
+                    if(response.data.success)
+                    {
+                        this.$router.push({ path: '/companies' })
+                    }
                 } catch (error) {
                     console.error('createIssuer', error)
 
                 }
             }
         },
+
+        computed: {
+            
+        }
 
     }
 

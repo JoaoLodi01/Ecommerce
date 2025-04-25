@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Log;
 
 class RegisterIssuerRepository implements RegisterIssuerContract
 {
+    public function getAll(string $ownerID)
+    {
+        $owner = Owner::where('uuse_id', $ownerID)->first();
+        return Issuer::where('owner_id', $owner->id)->get();
+    }
+
     public function create(array $data)
     {
         Log::info($data);
