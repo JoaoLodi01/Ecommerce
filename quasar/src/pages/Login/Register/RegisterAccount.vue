@@ -7,7 +7,7 @@
             <span class="mt-0.5 ml-2">Voltar</span>
         </router-link>
     </div>
-    <div class="flex justify-center">
+    <div class="">
         <div class="login-form border border-black p-5 rounded-lg shadow-xl">
             <q-form
                 @submit.prevent="createAccount"
@@ -17,36 +17,109 @@
                 <q-input 
                     filled        
                     label="Nome" 
-                    v-model="registerDetails.name"
+                    v-model="form.name"
                     stack-label 
                     class="mb-4"
                     color="grey"
+                    maxlength="120"
+                />
+
+                <q-input 
+                    filled        
+                    label="Sobrenome" 
+                    v-model="form.surname"
+                    stack-label 
+                    class="mb-4"
+                    color="grey"
+                    maxlength="90"
+
                 />
 
                 <q-input 
                     filled        
                     label="E-mail" 
-                    v-model="registerDetails.email"
+                    v-model="form.email"
                     stack-label 
                     class="mb-4"
                     color="grey"
+                    maxlength="90"
 
                 />
 
                 <q-input 
                     filled        
                     label="Confirme seu E-mail" 
-                    v-model="registerDetails.email_"
+                    v-model="form.email_"
                     stack-label
                     class="mb-4"
                     color="grey"
-                    
+                    maxlength="90"
+
+                />
+                
+                <q-input 
+                    filled    
+                    type="tel"    
+                    label="Telefone" 
+                    v-model="form.phone"
+                    stack-label
+                    class="mb-4"
+                    color="grey"
+                    v-bind:mask="'(##) #####-####'"
+                    maxlength="30"
+
+                />
+
+                <q-input 
+                    filled        
+                    label="CPF" 
+                    v-model="form.cpf"
+                    stack-label
+                    class="mb-4"
+                    color="grey"
+                    v-bind:mask="'####.###.###-##'"
+                    maxlength="100"
+
+                />
+                
+                <q-input 
+                    filled        
+                    label="CEP" 
+                    v-model="form.cep"
+                    stack-label
+                    class="mb-4"
+                    color="grey"
+                    v-bind:mask="'#####-###'"
+                    maxlength="100"
+
+                />
+                
+                <q-input 
+                    filled        
+                    label="Endereço" 
+                    v-model="form.address"
+                    stack-label
+                    class="mb-4"
+                    color="grey"
+                    maxlength="100"
+
+                />
+                
+                <q-input 
+                    filled        
+                    label="Número" 
+                    v-model="form.number"
+                    stack-label
+                    class="mb-4"
+                    color="grey"
+                    maxlength="120"
+
                 />
                 
                 <q-input 
                     filled 
                     label="Senha"
-                    v-model="registerDetails.password"
+                    v-model="form.password"
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
                     color="grey"
@@ -83,7 +156,7 @@
                 <q-input 
                     filled 
                     label="Confirme sua Senha"
-                    v-model="registerDetails.password_"
+                    v-model="form.password_"
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
                     color="grey"
@@ -181,16 +254,24 @@
         data()
         {
             return {
-                showRegister: true,
-                showPassword: false,
-                registerDetails: {
+                form: {
                     name: '',
+                    surname: '',
+                    phone: '',
+                    cpf: '',
+                    cep: '',
+                    address: '',
+                    number: '',
                     email: '',
-                    email_: '',
                     password: '',
+                    email_: '',
                     password_: ''
                     
                 },
+
+                showRegister: true,
+                showPassword: false,
+
                 messages: []
             }
         },
@@ -204,9 +285,9 @@
                 {
                     try {
                         const response = await api.post('/users/create', {
-                            name: this.registerDetails.name,
-                            email: this.registerDetails.email.toLowerCase(),
-                            password: this.registerDetails.password,
+                            name: this.form.name,
+                            email: this.form.email.toLowerCase(),
+                            password: this.form.password,
                             access: 'Limitado'
                         })
 
@@ -224,7 +305,7 @@
                     } catch (error) {
                         console.error('Erro', error)
                         this.messages.push(error.response.data.message ?? null)
-                        const register = this.registerDetails
+                        const register = this.form
                         switch (error.response.data.message) {
                             case 'Esse e-mail já está sendo usado!':
                                 register.email = null
@@ -239,7 +320,7 @@
             },
 
             checkEmail(){
-                if(this.registerDetails.email_ !== this.registerDetails.email)
+                if(this.form.email_ !== this.form.email)
                 {
                     console.log('e-mail')
                     this.messages.push('Os e-mails não iguais!')
@@ -249,7 +330,7 @@
                 }
             },
             checkPassword(){
-                if(this.registerDetails.password_ !== this.registerDetails.password)
+                if(this.form.password_ !== this.form.password)
                 {
                     this.messages.push('As senhas não iguais!')
                     return true
