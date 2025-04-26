@@ -30,8 +30,9 @@
       </button>
 
       <!-- Links Sidebar-->
-      <div class="sidebar-header p-4">
-        <h1 class="text-2xl font-semibold ml-5">Menu</h1>
+      <div class="sidebar-header p-4 flex">
+        <img src="https://www.php.net/images/logos/php-icon-black.gif" width="" alt=""><h1 class="text-xl font-semibold ml-5 mt-0.5">{{ issuer_name }}</h1>
+        
       </div>
       <div class="sidebar-links p-4">
         <ul class="space-y-4">
@@ -98,12 +99,12 @@
               </p>
               
               <p class="flex items-center gap-2">
-                <a href="/financial/receive" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/financial/receive`" class="hover:text-blue-400 flex items-center gap-2">
                   Receber
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                   </svg>
-                </a>
+                </router-link>
               </p>
 
               <p class="flex items-center gap-2">

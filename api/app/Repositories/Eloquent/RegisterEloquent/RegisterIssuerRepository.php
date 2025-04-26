@@ -23,8 +23,9 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         Log::info('$owner ' . $owner);
         if($owner)
         {
-            return Issuer::create([
-                'name' => $data['name'],
+            $issuer = Issuer::create([
+                'company_name' => $data['company_name'],
+                'trade_name' => $data['trade_name'],
                 'cnpj' => $data['cnpj'],
                 'cpf' => $data['cpf'],
                 'address' => $data['address'],
@@ -32,6 +33,11 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'cep' => $data['cep'],
                 'owner_id' => $owner->id,
             ]);
+
+            return array(
+                'success' => true,
+                'issuer' => $issuer
+            );
 
         } else if (empty($owner))
         {

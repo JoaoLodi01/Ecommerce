@@ -14,7 +14,8 @@ class RegisterIssuerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
+            'company_name' => ['required', 'string'],
+            'trade_name' => ['required', 'string'],
             'cnpj' => ['nullable', 'string', 'required_without:cpf'],
             'cpf' => ['nullable', 'string', 'required_without:cnpj'],
             'address' => ['required', 'string'],

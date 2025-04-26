@@ -23,8 +23,8 @@ class CustomerRequest extends FormRequest
         return [
             'issuer_id' => ['required'],
             'name' => [$required, 'string', 'max:120'],
-            'cpf' => ['nullable', 'required_without:cnpj', '!exists:customers'],
-            'cnpj' => ['nullable', 'required_without:cpf', '!exists:customers'],
+            'cpf' => ['nullable', 'required_without:cnpj', 'unique:customers,cpf'],
+            'cnpj' => ['nullable', 'required_without:cpf', 'unique:customers,cnpj'],
             'cep' => [$required],
             'address' => [$required],
             'number' => [$required],

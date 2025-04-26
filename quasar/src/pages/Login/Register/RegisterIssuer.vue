@@ -15,10 +15,21 @@
             >
                 <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Registrar Emitente</h1>
                 <q-input 
-                    v-model="form.name"
+                    v-model="form.company_name"
                     type="text" 
                     filled        
-                    label="Nome" 
+                    label="Razão Social" 
+                    stack-label
+                    class="mb-4"
+                    color="grey"
+                    
+                />
+
+                <q-input 
+                    v-model="form.trade_name"
+                    type="text" 
+                    filled        
+                    label="Nome Fantasia" 
                     stack-label
                     class="mb-4"
                     color="grey"
@@ -147,7 +158,8 @@
         {
             return {
                 form: {
-                    name: '',
+                    company_name: '',
+                    trade_name: '',
                     cnpj: '',
                     cpf: '',
                     address: '',
@@ -170,7 +182,8 @@
             {
                 try {
                     const response = await api.post('/registers/issuer/create', {
-                        name: this.form.name,
+                        company_name: this.form.company_name,
+                        trade_name: this.form.trade_name,
                         cpf: this.form.cpf.replace(/\D/g, ''),
                         cnpj: this.form.cnpj.replace(/\D/g, ''),
                         address: this.form.address,

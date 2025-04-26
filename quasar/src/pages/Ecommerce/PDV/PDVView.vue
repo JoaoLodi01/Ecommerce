@@ -1042,7 +1042,7 @@
             getUser()
 
             const getConfig = async () => {
-                const config = await api.get('/config/all-configs');
+                const config = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
                 this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
                 
             }

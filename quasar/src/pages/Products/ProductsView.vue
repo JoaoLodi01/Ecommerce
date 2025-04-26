@@ -22,7 +22,7 @@
                 <q-btn
                     v-if="showProducts"
                     @click="openRegister()"
-                    class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                    class="bg-blue-500 hover:bg-blue-400 transition text-white font-semibold rounded-lg"
                 >
                     <span v-if="widthScreen <= 1080">Novo produto</span>
                     <span v-else>Cadastrar um novo produto</span>

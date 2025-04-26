@@ -45,6 +45,7 @@
 <script>
     import { api } from 'src/boot/axios';
     import { toRaw } from 'vue';
+    import { LocalStorage } from 'quasar';
         
     export default {    
         props: {
@@ -56,9 +57,23 @@
         mounted()
         {
             const getConfig = async () => {
-                const response = await api.get('/config/all-configs')
-                this.fillter = response.data.configPDV[0].filter_search_customer
-            }    
+            try {
+                const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
+                
+                const configs = response.data.configPDV;
+                
+                if (Array.isArray(configs) && configs.length > 0 && configs[0].filter_search_customer !== undefined) {
+                this.fillter = configs[0].filter_search_customer;
+                } else {
+                console.warn('Configuração filter_search_customer não encontrada.');
+                this.fillter = null;
+                }
+
+            } catch (error) {
+                console.error('Erro ao carregar configuração:', error);
+                this.fillter = null;
+            }
+            };   
             getConfig()
             
             this.clientsData.name = this.defaultCustomer.name
@@ -87,19 +102,23 @@
         },
 
         methods: {
-            async selectClient(){
-                if(this.clientsData.name.length > 0)
-                {
+            async selectClient() {
+                if (this.clientsData.name.length > 0 && this.fillter) {
+                    try {
                     const response = await api.post('/customers/search', {
                         fillter: this.fillter,
                         search: this.clientsData.name
                     });
 
                     this.clients = toRaw(response.data);
-                    typeof response.data === 'string' ? this.message = response.data : this.filterClients()
+                    typeof response.data === 'string'
+                        ? this.message = response.data
+                        : this.filterClients();
 
+                    } catch (error) {
+                    console.error('Erro ao buscar cliente:', error);
+                    }
                 }
-
             },
 
             watchRegistredCustomer()

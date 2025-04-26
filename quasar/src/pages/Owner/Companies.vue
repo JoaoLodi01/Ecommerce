@@ -6,7 +6,7 @@
                     <span class="mt-0.5 ml-2">Voltar</span>
                 </router-link>
             </div>    
-            <h3>Bem vindo(a)! {{ owner_name }}</h3>
+            <h3>Bem vindo(a)! {{ owner_name }} | CPF: {{ owner_cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}</h3>
             <h1>Listagem das suas empresas</h1>
             
         </div>
@@ -40,15 +40,19 @@
                 <q-card-section class="">
                     Empresa: {{ companie.name }}
                     <br>
-                    {{ companie.cnpj ? 'CNPJ' : 'CPF' }}: {{ companie.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
-                    <br>
+                
                     <q-btn 
                         color="primary" 
                         icon="check" 
-                        label="OK" 
+                        label="Entrar" 
                         @click="joinCompanie(companie.name, companie.id)"
+                        class="mt-4"
 
                     />
+                    <br>
+                    <p class="mt-4">
+                        {{ companie.cnpj ? 'CNPJ' : 'CPF' }}: {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                    </p>
                 </q-card-section>
             </q-card>
         </div>
@@ -65,8 +69,9 @@
         {
             return {
                 companies: [ ],
-                owner_name: LocalStorage.getItem("owner_name")
-                
+                owner_name: LocalStorage.getItem("owner_name"),
+                owner_cpf: LocalStorage.getItem("owner_cpf"),
+
             }
         },
 

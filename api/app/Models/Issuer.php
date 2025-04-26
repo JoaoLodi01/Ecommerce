@@ -9,7 +9,8 @@ class Issuer extends Model
     protected $table = 'issuers';
 
     protected $fillable = [
-        'name',
+        'company_name',
+        'trade_name',
         'cnpj',
         'cpf',
         'address',

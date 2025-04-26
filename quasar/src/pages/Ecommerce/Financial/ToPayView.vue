@@ -1,15 +1,15 @@
 <template>
-    <div class="container mx-auto mt-12 p-6 ml-20 bg-white rounded-lg">
+    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-semibold">Pagar</h2>
             <div class="flex space-x-4">
-                <button class="bg-slate-600 text-white p-2 rounded-lg">
+                <button class="bg-blue-500 text-white p-2 rounded-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-2">
                         <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
                     </svg>
                 </button>
                 <button 
-                    class="bg-slate-600 text-white p-1 mr-5 rounded-lg"
+                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
                     @click="showRegister()"
                     >Cadastrar
                 </button>
@@ -34,7 +34,7 @@
             />
 
             <q-btn
-                class="bg-slate-600 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                class="bg-blue-500 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
                 label="Filtrar"
                 @click="dateSearch()"
             />
@@ -108,17 +108,20 @@
     export default {
     data(){
         const today = dayjs();
+        
         return{
             cash:{
                 description: "",
                 valor_entrada: "",
                 valor_saida: "",
             },
+            startDate: today.startOf('month').format('YYYY-MM-DD'),
+            endDate: today.endOf('month').format('YYYY-MM-DD'),
+            filteredPays: [],
             cashs: [],
             withScreen: 0,
             showPayClosing: false,
-            startDate: today.startOf('month').format('YYYY-MM-DD'),
-            endDate: today.endOf('month').format('YYYY-MM-DD'),
+            
         };
     },
 
@@ -133,6 +136,16 @@
                 
             }
         },
+
+        dateSearch(){
+            if(this.startDate || this.endDate){
+                this.filteredPays = this.cashs.filter(register => {
+                    const registerDate = dayjs(register.created_at);
+                    return registerDate.isBetween(this.startDate, this.endDate, null, '[]')
+                });
+                this.cashs = this.filteredPays;
+            }
+        },  
 
         showRegister(){
             this.showPayClosing = true

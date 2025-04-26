@@ -135,6 +135,7 @@
                         this.$router.push('/companies')
                         alert('Login bem sucedido!')
                         LocalStorage.setItem("owner_name", response.data.owner.name)
+                        LocalStorage.setItem("owner_cpf", response.data.owner.cpf)
                         LocalStorage.setItem("uuse_id", response.data.uuse_id)
                         LocalStorage.setItem("auth_token", response.data.token);
 

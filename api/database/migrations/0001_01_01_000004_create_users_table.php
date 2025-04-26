@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id')->nullable();
             $table->string('name', 120);
-            $table->string('login', 120)->nullable()->unique();
+            $table->string('login', 120)->nullable();
             $table->string('password', 120);
             $table->string('perfil_photo', 120)->nullable();
             $table->string('access', 20)->nullable();
