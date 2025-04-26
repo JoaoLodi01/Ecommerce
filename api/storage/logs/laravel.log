@@ -1242,3 +1242,56 @@
 [2025-04-26 14:03:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
 [2025-04-26 14:04:10] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
 [2025-04-26 14:04:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:16:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:16:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:16:37] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:16:44] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:16:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:16:46] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:16:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:16:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:16:52] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-26 14:16:52] local.INFO: O hotel não foi encontrado  
+[2025-04-26 14:16:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:17:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:18:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:18:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-26 14:20:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:20:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:20:33] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-26 14:20:33] local.INFO: O hotel não foi encontrado  
+[2025-04-26 14:20:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:20:38] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:20:39] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:20:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:20:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:20:50] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:20:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-26 14:21:17] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:21:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:21:17] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-26 14:21:17] local.INFO: O hotel não foi encontrado  
+[2025-04-26 14:21:18] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:21:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:21:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:21:22] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-26 14:21:22] local.INFO: O hotel não foi encontrado  
+[2025-04-26 14:21:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:21:26] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:21:27] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-26 14:21:27] local.INFO: O hotel não foi encontrado  
+[2025-04-26 14:21:29] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:21:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:21:29] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-26 14:21:29] local.INFO: O hotel não foi encontrado  
+[2025-04-26 14:21:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:21:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:21:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:21:37] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:21:37] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-26 14:21:37] local.INFO: O hotel não foi encontrado  
+[2025-04-26 14:21:49] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-26 14:21:49] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-26 14:21:49] local.INFO: Vai buscar o hotel e as configurações  
+[2025-04-26 14:21:49] local.INFO: O hotel não foi encontrado  
+[2025-04-26 14:21:50] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
