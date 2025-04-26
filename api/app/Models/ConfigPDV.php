@@ -8,6 +8,7 @@ class ConfigPDV extends Model
 {
     protected $table = 'config_pdvs';
     protected $fillable = [
+        'issuer_id',
         'filter_search',
         'filter_search_customer',
         'nm_finaly',

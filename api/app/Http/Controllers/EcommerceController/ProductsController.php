@@ -17,8 +17,8 @@ class ProductsController extends Controller
         $this->productsService = $productsService;
     }
 
-    public function getAll(){
-        return $this->productsService->getAll(1);
+    public function getAll(int $issuer_id){
+        return $this->productsService->getAll($issuer_id);
     }
 
     public function search(SearchProducts $request){

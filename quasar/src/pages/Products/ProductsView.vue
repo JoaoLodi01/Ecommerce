@@ -173,7 +173,8 @@
 </template>
 
 <script>
-    import { api } from 'src/boot/axios';
+    import { LocalStorage } from 'quasar';
+import { api } from 'src/boot/axios';
 import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
@@ -197,7 +198,7 @@ import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
 
         methods: {
             async getProducts() {
-                const response = await api.get(`/ecommerce/products/all`);
+                const response = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
                 this.products = response.data.all.data;
 
             },
@@ -257,6 +258,7 @@ import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
 
         mounted() {
             this.getProducts();
+            
             this.widthScreen += screen.width
 
         },

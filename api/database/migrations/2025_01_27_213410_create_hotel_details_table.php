@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('hotel_details', function (Blueprint $table) {
             $table->id();
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
             $table->string('name', 120);
             $table->string('cnpj', 14)->unique();
             $table->string('email', 170)->unique();

@@ -7,7 +7,11 @@
             class=""
             v-if="options_"
         >
-            <h3 class="text-center">Fechamento de caixa</h3>
+            <div class="">
+                <span class="cursor-pointer" @click="close()">X</span>
+                <h3 class="text-center">Fechamento de caixa</h3>
+
+            </div>
     
             <div class="flex justify-center m-3">
                 <q-btn label="Período" class="mr-10 text-lg" @click="open('p')" />

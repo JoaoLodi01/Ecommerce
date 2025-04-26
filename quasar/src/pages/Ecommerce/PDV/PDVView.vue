@@ -557,195 +557,231 @@ export default {
                                 alert(response.data)
                             }
                         }
+                    
+                    } else {
+                        const pdvID = LocalStorage.getItem("pdvID")
+                                if(!pdvID){
+                                    products.splice(index, 1)
+                                
+                                    if(!data.success)
+                                    {
+                                        console.log(response.data) 
+                                        alert(response.data)
+                                    }
+                                } 
+                        
+                                if(type === 'nfce')
+                                {  
+                                    const response = await api.post('/ecommerce/pdv/save-sale', {
+                                        products: this.productsSeletion, // Produtos da 
+                                        user_id: this.sellerData.id,
+                                        customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
+                                        total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                        sub_total: this.calculateTotal.subtotal,
+                                        addition: this.calculateTotal.addition,
+                                        discount: this.calculateTotal.discount,
+                                        description: 'Venda NFC-e N°',
+                                        is_nfce_nm: type,
+                                        status: 'Finalizada'
+                                        
+                                    })
 
-                        if (type === 'nfce') {
-                            const response = await api.post('/ecommerce/pdv/save-sale', {
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                sub_total: this.calculateTotal.subtotal,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
-                                description: 'Venda NFC-e N°',
-                                is_nfce_nm: type,
-                                status: 'Finalizada'
+                                    console.log('response.dat PDVView, line 718: ', response)
+                                    const data = response.data
 
-                            })
+                                    if(data.success)
+                                    {
+                                        LocalStorage.setItem("pdvID", response.data.pdvID)
+                                        this.typeOperation = type
+                                        this.showPaymentsForm = true
+                                        this.pdvID = LocalStorage.getItem("pdvID")
 
-                            console.log('response.dat PDVView, line 718: ', response)
-                            const data = response.data
+                                    } else {
+                                        this.errorsOfSale.erros = data.errors
+                                        this.errorsOfSale.showErrosModal = true
 
-                            if (data.success) {
-                                LocalStorage.setItem("pdvID", response.data.pdvID)
-                                this.typeOperation = type
-                                this.showPaymentsForm = true
-                                this.pdvID = LocalStorage.getItem("pdvID")
+                                    }
 
-                            } else {
-                                this.errorsOfSale.erros = data.errors
-                                this.errorsOfSale.showErrosModal = true
-
+                                }
                             }
-
-                        }
-
+                            
+                    } else {
+                        console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
+                        this.showPaymentsForm = true
+                        this.pdvID = LocalStorage.getItem("pdvID")
                     }
                 }
+                    
+                } catch (error) {
+                    console.error('Erro finalizeSale', error)
+                    alert(error.response.data.errors)
+                    this.errorMessages.push(error.response.data.errors)
+                    
+                }
+            },
 
-            } catch (error) {
-                console.error('Erro finalizeSale', error)
-                alert(error.response.data.errors)
-                this.errorMessages.push(error.response.data.errors)
+            chooseErrors(choose)
+            {
+                console.log('chooseErrors: ', choose)
+                if(choose === 'after')
+                {
+                    console.log('Depois')
+                    this.productsSeletion = []
+                    this.errorsOfSale.showErrosModal = false
+                } 
 
-            }
-        },
+                if(choose === 'now')
+                {
+                    console.log('agora')
+                    this.productsSeletion = []
+                    this.$router.push({ path: '/sale/list-pdv' })
+                }
 
-        chooseErrors(choose) {
-            console.log('chooseErrors: ', choose)
-            if (choose === 'after') {
-                console.log('Depois')
-                this.productsSeletion = []
-                this.errorsOfSale.showErrosModal = false
-            }
+            },
 
-            if (choose === 'now') {
-                console.log('agora')
-                this.productsSeletion = []
-                this.$router.push({ path: '/sale/list-pdv' })
-            }
+            async importSale()
+            {
+                try {
+                    const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
+                    
+                    this.updateProductsSeletion(response.data.pdvs.get_itens)
 
-        },
+                } catch (error) {
+                    console.error('Erro importSale', error)
+                    
+                }
+            },
 
-        async importSale() {
-            try {
-                const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
+            showOptions(){
+                this.showOptionsPDV = true
+                this.showPaymentsForm = false
+                this.showGrid = false
+                this.show = false
+                
+            },
 
-                this.updateProductsSeletion(response.data.pdvs.get_itens)
+            showProductsSelection(){
+                this.showPaymentsForm = false
+                this.showGrid = !this.showGrid
+                this.show = !this.show
+                
+            },
+            
+            showGridEmit(){
+                this.showGrid = !this.showGrid
+                this.show = !this.show
+                
+            },  
 
-            } catch (error) {
-                console.error('Erro importSale', error)
+            closeConfig(event)
+            {
+                this.showOptionsPDV = event
+                this.showGrid = !event
 
-            }
-        },
+            },
 
-        showOptions() {
-            this.showOptionsPDV = true
-            this.showPaymentsForm = false
-            this.showGrid = false
-            this.show = false
+            changeAmount(id, newAmount)
+            {
+                const rawProducts = toRaw(this.productsSeletion)   
+                
+                let productFound = null;
+                
+                for (let i = 0; i < rawProducts.length; i++) {
+                    const productArray = rawProducts[i];
+                    productFound = productArray.find(p => p.id === id)
+                    
 
-        },
+                    if(productFound) break
 
-        showProductsSelection() {
-            this.showPaymentsForm = false
-            this.showGrid = !this.showGrid
-            this.show = !this.show
+                }
 
-        },
+                if(productFound)
+                {
+                    productFound.amount = newAmount
 
-        showGridEmit() {
-            this.showGrid = !this.showGrid
-            this.show = !this.show
+                }
+                
+            },
 
-        },
+            changeCFOP(id, newCFOP)
+            {
+                const rawProducts = toRaw(this.productsSeletion)
 
-        closeConfig(event) {
-            this.showOptionsPDV = event
-            this.showGrid = !event
+                let productFound = null;
+                
+                for (let i = 0; i < rawProducts.length; i++) {
+                    const productArray = rawProducts[i];
+                    productFound = productArray.find(p => p.id === id)
+                    if(productFound) break
 
-        },
+                }
 
-        changeAmount(id, newAmount) {
-            const rawProducts = toRaw(this.productsSeletion)
+                if(productFound)
+                {
+                    productFound.cfop = newCFOP
 
-            let productFound = null;
+                }
+            },
 
-            for (let i = 0; i < rawProducts.length; i++) {
-                const productArray = rawProducts[i];
-                productFound = productArray.find(p => p.id === id)
+            changeCSOSN(id, newCSOSN)
+            {
+                const rawProducts = toRaw(this.productsSeletion)
 
+                let productFound = null;
+                
+                for (let i = 0; i < rawProducts.length; i++) {
+                    const productArray = rawProducts[i];
+                    productFound = productArray.find(p => p.id === id)
+                    if(productFound) break
 
-                if (productFound) break
+                }
 
-            }
+                if(productFound)
+                {
+                    productFound.csosn = newCSOSN
 
-            if (productFound) {
-                productFound.amount = newAmount
+                }
+            },
 
-            }
+            updateProductsSeletion(selectedProducts)
+            {
+                this.productsSeletion = [...this.productsSeletion, selectedProducts]
+                
+            },
 
-        },
+            updateCustomerSelection(client)
+            {  
+                this.clientsData = {
+                    id: client.id,
+                    name: client.name
+                }
+            },
 
-        changeCFOP(id, newCFOP) {
-            const rawProducts = toRaw(this.productsSeletion)
+            cancelOperation()
+            {
+                this.showPaymentsForm = false
 
-            let productFound = null;
+            },
 
-            for (let i = 0; i < rawProducts.length; i++) {
-                const productArray = rawProducts[i];
-                productFound = productArray.find(p => p.id === id)
-                if (productFound) break
+            productOptions(product, i, action)
+            {
+                let rawProducts = toRaw(this.productsSeletion)
 
-            }
-
-            if (productFound) {
-                productFound.cfop = newCFOP
-
-            }
-        },
-
-        changeCSOSN(id, newCSOSN) {
-            const rawProducts = toRaw(this.productsSeletion)
-
-            let productFound = null;
-
-            for (let i = 0; i < rawProducts.length; i++) {
-                const productArray = rawProducts[i];
-                productFound = productArray.find(p => p.id === id)
-                if (productFound) break
-
-            }
-
-            if (productFound) {
-                productFound.csosn = newCSOSN
-
-            }
-        },
-
-        updateProductsSeletion(selectedProducts) {
-            this.productsSeletion = [...this.productsSeletion, selectedProducts]
-
-        },
-
-        updateCustomerSelection(client) {
-            this.clientsData = {
-                id: client.id,
-                name: client.name
-            }
-        },
-
-        cancelOperation() {
-            this.showPaymentsForm = false
-
-        },
-
-        productOptions(product, i, action) {
-            let rawProducts = toRaw(this.productsSeletion)
-
-            switch (action) {
-                case 'delete':
-                    /*for (let i = 0; i < rawProducts.length; i++) 
-                    {
-                        const products = rawProducts[i];
-                        const index = products.findIndex(p => p.id === product.id)                            
-
-                        if(index !== -1)
+                switch (action) {
+                    case 'delete':
+                        /*for (let i = 0; i < rawProducts.length; i++) 
                         {
-                            products.splice(index, 1)
-                            
-                            while (products.length <= 0 ) {
-                                this.productsSeletion = []
+                            const products = rawProducts[i];
+                            const index = products.findIndex(p => p.id === product.id)                            
+
+                            if(index !== -1)
+                            {
+                                products.splice(index, 1)
+                                
+                                while (products.length <= 0 ) {
+                                    this.productsSeletion = []
+                                    break
+                                }
                                 break
                             }
                             break
@@ -849,7 +885,7 @@ export default {
                 id: details.user.id,
                 name: details.user.name,
             }
-
+            console.log(`PDV ID: ${LocalStorage.getItem("pdvID")}`)
         }
         getUser()
 

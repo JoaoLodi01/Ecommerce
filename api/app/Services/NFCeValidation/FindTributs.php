@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Http\NFCeValidation;
-
-
+namespace App\Services\NFCeValidation;
 
 class FindTributs
 {

@@ -19,10 +19,16 @@ class PayMentMethodService
         Log::info('Memória usada PayMentMethodService::class, __construct, linha 21: ' . memory_get_usage(true));
     }
 
-    public function payment(array $forms, array $paymentValues, object $customer, string $description, string $origem, object $pdv)
+    public function payment(
+        array $forms, 
+        array $paymentValues, 
+        object $customer, 
+        string $description, 
+        string $origem, 
+        object $pdv
+    )
     {   // Método para ser adicioando ao caixa                
         Log::info('-- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --');
-        Log::info('Memória usada PayMentMethodService::class, payment: ' . memory_get_usage(true));
 
         Log::info('$paymentValues');
         Log::info($paymentValues);

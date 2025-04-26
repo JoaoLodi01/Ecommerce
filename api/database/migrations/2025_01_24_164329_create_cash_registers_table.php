@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('cash_registers', function (Blueprint $table) {
             $table->id();
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
             $table->string('description', 200);
             $table->string('document', 200);
             $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');

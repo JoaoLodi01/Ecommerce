@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('detail_rooms', function (Blueprint $table) {
             $table->id();
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
             $table->string('capacity', 50);
             $table->float('price_for_night', 10, 2);
             $table->boolean('busy', 1)->default(0);

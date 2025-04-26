@@ -11,42 +11,58 @@
         <div class="login-form border border-black p-5 rounded-lg shadow-xl">
             <q-form
                 @submit.prevent="createAccount"
-                
+                class="form-container"
             >
-                <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Registrar</h1>
+                <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Crie a sua conta!</h1>
+                
                 <q-input 
                     filled        
                     label="Nome" 
-                    v-model="registerDetails.name"
+                    v-model="form.name"
                     stack-label 
                     class="mb-4"
                     color="grey"
+                    maxlength="120"
+                />
+
+                <q-input 
+                    filled        
+                    label="Sobrenome" 
+                    v-model="form.surname"
+                    stack-label 
+                    class="mb-4"
+                    color="grey"
+                    maxlength="90"
+
                 />
 
                 <q-input 
                     filled        
                     label="E-mail" 
-                    v-model="registerDetails.email"
+                    v-model="form.email"
                     stack-label 
                     class="mb-4"
                     color="grey"
+                    maxlength="90"
 
                 />
 
                 <q-input 
                     filled        
-                    label="Confirme seu E-mail" 
-                    v-model="registerDetails.email_"
+                    label="CPF" 
+                    v-model="form.cpf"
                     stack-label
                     class="mb-4"
                     color="grey"
-                    
-                />
-                
+                    v-bind:mask="'###.###.###-##'"
+                    maxlength="100"
+
+                />        
+                        
                 <q-input 
                     filled 
                     label="Senha"
-                    v-model="registerDetails.password"
+                    v-model="form.password"
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
                     color="grey"
@@ -83,7 +99,7 @@
                 <q-input 
                     filled 
                     label="Confirme sua Senha"
-                    v-model="registerDetails.password_"
+                    v-model="form.password_"
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
                     color="grey"
@@ -181,54 +197,59 @@
         data()
         {
             return {
-                showRegister: true,
-                showPassword: false,
-                registerDetails: {
+                form: {
                     name: '',
+                    surname: '',
+                    cpf: '',
                     email: '',
-                    email_: '',
                     password: '',
                     password_: ''
                     
                 },
+
+                showRegister: true,
+                showPassword: false,
+
                 messages: []
             }
         },
+        
         methods: {
             async createAccount(){
-                this.showLoading()
                 this.messages = []
-                const email = this.checkEmail()
+                
                 const password = this.checkPassword()
-                if(!email && !password)
+                if(!password)
                 {
+                    this.showLoading()
                     try {
-                        const response = await api.post('/users/create', {
-                            name: this.registerDetails.name,
-                            email: this.registerDetails.email.toLowerCase(),
-                            password: this.registerDetails.password,
-                            access: 'Limitado'
+                        const response = await api.post('/registers/owner/create', {
+                            name: this.form.name,
+                            surname: this.form.surname,
+                            cpf: this.form.cpf.replace(/\D/g, ''),
+                            email: this.form.email.toLowerCase(),
+                            password: this.form.password,
+                            
                         })
 
                         console.log(response.data)
 
                         if(response.data.success)
                         {
-                            alert(`Bem vindo! ${response.data.user.name}`)
                             this.$router.push({path: '/login'})
 
                         }  else {
                             alert(`Erro: ${response.data.th ?? response.data}`)
+
                         }
                         
                     } catch (error) {
-                        console.error('Erro', error)
+                        console.error('Erro catch', error)
                         this.messages.push(error.response.data.message ?? null)
-                        const register = this.registerDetails
+                        const register = this.form
                         switch (error.response.data.message) {
                             case 'Esse e-mail já está sendo usado!':
                                 register.email = null
-                                register.email_ = null
                                 break;
                         
                             default:
@@ -238,18 +259,8 @@
                 } 
             },
 
-            checkEmail(){
-                if(this.registerDetails.email_ !== this.registerDetails.email)
-                {
-                    console.log('e-mail')
-                    this.messages.push('Os e-mails não iguais!')
-                    return true
-                } else {
-                    return false
-                }
-            },
             checkPassword(){
-                if(this.registerDetails.password_ !== this.registerDetails.password)
+                if(this.form.password_ !== this.form.password)
                 {
                     this.messages.push('As senhas não iguais!')
                     return true
@@ -265,3 +276,15 @@
     }
 
 </script>
+
+<style>
+    @media(min-width: 1366px)
+    {
+        .form-container{
+            width: 60vh;
+         
+        }
+
+    }
+    
+</style>
