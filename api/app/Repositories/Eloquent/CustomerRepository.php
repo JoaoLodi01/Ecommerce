@@ -3,12 +3,21 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Customer;
+use App\Models\Issuer;
 use Illuminate\Support\Facades\Log;
 class CustomerRepository
 {
-    public function getAll(){
-        return Customer::paginate(10);
-
+    public function getAll(int $issuer_id){
+        $issuer = Issuer::where('id', $issuer_id)->first();
+        if(empty($issuer))
+        {
+            return array(
+                'success' => false,
+                'message' => 'Emitente não encontrado'
+            );
+        }
+        return Customer::where('issuer_id', $issuer->id)->get();
+        
     }
 
     public function search(array $data)
@@ -75,7 +84,10 @@ class CustomerRepository
                     ->first();*/
 
     public function create(array $data){
+        $issuer = Issuer::where('id', $data['issuer_id'])->first();
+
         return Customer::create([
+            'issuer_id' => $issuer->id,
             'name' => $data['name'],
             'cpf' => $data['cpf'] ?? null,
             'cnpj' => $data['cnpj'] ?? null,

@@ -18,14 +18,6 @@ class CashRegisterService
             return $this->returnResponse($th);
         }
     }
-    public function getAllReceive()
-    {
-        try {
-            return $this->cashRegisterRepository->getAllReceive(1);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
-    }
 
     public function findByID(int $id){
         try {
@@ -39,7 +31,7 @@ class CashRegisterService
         }
     }
 
-    public function store(array $data){
+    public function create(array $data){
         try {
             $this->cashRegisterRepository->create($data);
             return response()->json([

@@ -66,7 +66,7 @@
                 try {
                     switch (type) {
                         case 'Listagem_Completa_Ativos':
-                            let responseAll = await api.get('//report/all', {
+                            let responseAll = await api.get('/report/all', {
                                 responseType: 'blob',
                             });
                             

@@ -130,7 +130,7 @@
 
 <script>
     import { api } from 'src/boot/axios';
-    import { useQuasar } from 'quasar';
+    import { LocalStorage, useQuasar } from 'quasar';
     import { onBeforeUnmount } from 'vue';
 
     export default {
@@ -177,6 +177,7 @@
                     is_driver: false,
                     is_supplier: false,
                     phone: '',
+                    issuer_id: LocalStorage.getItem("issuer_id")
                 },
             };
         },
@@ -276,6 +277,8 @@
 
         emits: [
             'close'
-        ]
+        ],
+
+        
     };
 </script>

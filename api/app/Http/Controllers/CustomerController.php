@@ -19,8 +19,8 @@ class CustomerController extends Controller
     )
     {}
 
-    public function getAll(){
-        return $this->customerService->getAll();
+    public function getAll(int $issuer_id){
+        return $this->customerService->getAll($issuer_id);
    
     }
 
@@ -34,6 +34,7 @@ class CustomerController extends Controller
         Log::info('Dados recebidos: ');
         Log::info($data);
         return $this->customerService->create($data);
+        
     }
 
     public function findByID(int $id){

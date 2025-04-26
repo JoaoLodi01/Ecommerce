@@ -80,7 +80,11 @@
 
             async joinCompanie(name, issuer_id)
             {
-                this.$router.push({ path:`${name}/home`, state: name })
+                LocalStorage.setItem("issuer_id", issuer_id)
+                this.$router.push({ 
+                    path:`${name}/home`, 
+                    params: { name: name }
+                })
             }
         },
 

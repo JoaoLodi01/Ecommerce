@@ -17,12 +17,6 @@ class CashRegisterRepository
         
     }
 
-    public function getAllReceive(){ 
-        Log::info('Memória usada CashRegisterRepository::class, getAll: ' . memory_get_usage(true));
-        return Receive::paginate(20);
-        
-    }
-
     public function findByID(string $params){
         Log::info('Memória usada CashRegisterRepository::class, findByID: ' . memory_get_usage(true));
         return CashRegister::where('id', $params)->first();

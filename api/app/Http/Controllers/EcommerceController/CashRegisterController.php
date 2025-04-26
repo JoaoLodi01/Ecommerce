@@ -5,6 +5,7 @@ namespace App\Http\Controllers\EcommerceController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CashRegisterRequest;
 use App\Services\EcommerceService\CashRegisterService;
+use Illuminate\Http\Request;
 
 class CashRegisterController extends Controller
 {
@@ -16,11 +17,7 @@ class CashRegisterController extends Controller
         return $this->cashRegisterService->getAll();
     }
 
-    public function getAllReceive(){
-        return $this->cashRegisterService->getAllReceive();
-    }
-
-    public function store(CashRegisterRequest $request){
+    public function store(Request $request){
         $data = $request->validated();
         return $this->cashRegisterService->create($data);
     }
@@ -29,7 +26,7 @@ class CashRegisterController extends Controller
         return $this->cashRegisterService->findByID($id);
     }
 
-    public function update(CashRegisterRequest $request, int $id){
+    public function update(Request $request, int $id){
         $data = $request->validated();
         return $this->cashRegisterService->update($data, $id);
     }
