@@ -17,7 +17,7 @@ class CashRegisterController extends Controller
         return $this->cashRegisterService->getAll();
     }
 
-    public function store(Request $request){
+    public function store(CashRegisterRequest $request){
         $data = $request->validated();
         return $this->cashRegisterService->create($data);
     }
@@ -26,7 +26,7 @@ class CashRegisterController extends Controller
         return $this->cashRegisterService->findByID($id);
     }
 
-    public function update(Request $request, int $id){
+    public function update(CashRegisterRequest $request, int $id){
         $data = $request->validated();
         return $this->cashRegisterService->update($data, $id);
     }

@@ -57,9 +57,23 @@
         mounted()
         {
             const getConfig = async () => {
-                const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`)
-                this.fillter = response.data.configPDV[0].filter_search_customer
-            }    
+            try {
+                const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
+                
+                const configs = response.data.configPDV;
+                
+                if (Array.isArray(configs) && configs.length > 0 && configs[0].filter_search_customer !== undefined) {
+                this.fillter = configs[0].filter_search_customer;
+                } else {
+                console.warn('Configuração filter_search_customer não encontrada.');
+                this.fillter = null;
+                }
+
+            } catch (error) {
+                console.error('Erro ao carregar configuração:', error);
+                this.fillter = null;
+            }
+            };   
             getConfig()
             
             this.clientsData.name = this.defaultCustomer.name
@@ -100,7 +114,7 @@
                     typeof response.data === 'string'
                         ? this.message = response.data
                         : this.filterClients();
-                        
+
                     } catch (error) {
                     console.error('Erro ao buscar cliente:', error);
                     }
