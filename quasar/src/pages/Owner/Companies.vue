@@ -6,6 +6,7 @@
                     <span class="mt-0.5 ml-2">Voltar</span>
                 </router-link>
             </div>    
+            
             <h1>Listagem das suas empresas</h1>
             
         </div>
