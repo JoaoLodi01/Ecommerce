@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
-            $table->unsignedBigInteger('issuer_id');
+            $table->unsignedBigInteger('issuer_id')->nullable();
             $table->string('name', 120);
             $table->string('login', 120)->nullable()->unique();
-            $table->string('password', 30);
+            $table->string('password', 120);
             $table->string('perfil_photo', 120)->nullable();
             $table->string('access', 20)->nullable();
             $table->boolean('active')->default(1);
