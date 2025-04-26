@@ -6,6 +6,7 @@
                     <span class="mt-0.5 ml-2">Voltar</span>
                 </router-link>
             </div>    
+            
             <h1>Listagem das suas empresas</h1>
             
         </div>
@@ -80,7 +81,11 @@
 
             async joinCompanie(name, issuer_id)
             {
-                this.$router.push({ path:`${name}/home`, state: name })
+                LocalStorage.setItem("issuer_id", issuer_id)
+                this.$router.push({ 
+                    path:`${name}/home`, 
+                    params: { name: name }
+                })
             }
         },
 

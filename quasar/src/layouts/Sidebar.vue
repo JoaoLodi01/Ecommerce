@@ -36,7 +36,7 @@
       <div class="sidebar-links p-4">
         <ul class="space-y-4">
           <li>
-            <router-link to="jjjj" class="ml-5 hover:text-blue-300 flex items-center">
+            <router-link :to="`/${issuer_name}/home`" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
               </svg>
@@ -44,7 +44,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/customers" class="ml-5 hover:text-blue-300 flex items-center">
+            <router-link :to="`/${issuer_name}/customers`" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
               </svg>
@@ -52,7 +52,7 @@
             </router-link> 
           </li>
           <li>
-            <router-link to="/products" class="ml-5 hover:text-blue-300 flex items-center">
+            <router-link :to="`/${issuer_name}/products`" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
               </svg>
@@ -89,12 +89,12 @@
             <div v-if="showFinancial" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
 
               <p class="flex items-center gap-2">
-                <a href="/financial/to-pay" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/financial/to-pay`" class="hover:text-blue-400 flex items-center gap-2">
                   Pagar
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
                   </svg>
-                </a>
+                </router-link>
               </p>
               
               <p class="flex items-center gap-2">
@@ -107,12 +107,12 @@
               </p>
 
               <p class="flex items-center gap-2">
-                <a href="/financial/cash-register" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/financial/cash-register`" class="hover:text-blue-400 flex items-center gap-2">
                   Caixa
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>
-                </a>
+                </router-link>
               </p>
             </div>
 
@@ -152,27 +152,27 @@
             <div v-if="showPDV" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
 
               <p class="flex items-center gap-2">
-                <a href="/sale/pdv" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   PDV
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
                   </svg>
-                </a>
+                </router-link>
               </p>
               <p class="flex items-center gap-2">
-                <a href="/sale/list-pdv" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/sale/list-pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Listagem PDV
-                </a>
+                </router-link>
               </p>
               <p class="flex items-center gap-2">
-                <a href="/#" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/#`" class="hover:text-blue-400 flex items-center gap-2">
                   DAV
-                </a>
+                </router-link>
               </p>
               <p class="flex items-center gap-2">
-                <a href="/#" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/#`" class="hover:text-blue-400 flex items-center gap-2">
                   Devolução
-                </a>
+                </router-link>
               </p>
             </div>
 
@@ -364,7 +364,10 @@
 
     mounted()
     { 
-      this.issuer_name = history.state?.name
+      this.issuer_name = this.$route.params.name
+      console.log('Ta chamando no side bar 1 Issuer name this.$route.params.name:', this.$route.params.name) 
+      console.log('Ta chamando no side bar 2 Issuer name this.issuer_name:', this.issuer_name)
+      
       this.widthScreen += screen.width
       
       if(this.widthScreen <= 1080)

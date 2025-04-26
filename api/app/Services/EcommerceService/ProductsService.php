@@ -14,8 +14,8 @@ class ProductsService
     )
     {}
     
-    public function getAll(){
-        $all = $this->productsRepository->getAll(1);
+    public function getAll(int $issuer_id){
+        $all = $this->productsRepository->getAll($issuer_id);
         try {
             return response()->json([
                 'success' => true,

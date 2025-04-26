@@ -34,6 +34,7 @@
                     color="grey"
                     v-bind:mask="'##.###.###/####-##'"
                     maxlength="18"
+                    @update:model-value=""
                     
                 />
 
@@ -110,7 +111,7 @@
 
 <script>
     import { LocalStorage, useQuasar } from 'quasar'
-    import { api } from 'src/boot/axios'
+    import axios, { api } from 'src/boot/axios'
     import { onBeforeUnmount } from 'vue'
     
     export default {
@@ -159,6 +160,12 @@
             }
         },
         methods: {
+            async getDataCNPJ()
+            {
+                const data = axios.get(process.env.API_CNPJ)
+
+            },
+
             async createIssuer()
             {
                 try {
@@ -183,6 +190,7 @@
 
                 }
             }
+            
         },
 
         mounted()

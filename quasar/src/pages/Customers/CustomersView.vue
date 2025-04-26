@@ -183,7 +183,8 @@
 </template>
   
 <script>
-    import { api } from 'src/boot/axios';
+    import { LocalStorage } from 'quasar';
+import { api } from 'src/boot/axios';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
     import UpdateCustomer from 'src/components/Register/Customers/UpdateCustomer.vue';
@@ -213,8 +214,9 @@
 
         methods: {
             async getCustomers() {
-                const response = await api.get('/customers/all');
-                this.customers = response.data.data;
+                const response = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
+                console.log(response)
+                this.customers = response.data.all;
                 
             },
 

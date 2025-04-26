@@ -55,8 +55,8 @@ Route::prefix('v1')->group( function (){
     Route::middleware('auth:sanctum')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
             Route::prefix('products')->group( function(){
-                Route::get('/all', [ProductsController::class, 'getAll']);
-                Route::get('/all-groups', [ProductsController::class, 'allGroup']);
+                Route::get('/all/{issuer_id}', [ProductsController::class, 'getAll']);
+                Route::get('/all-groups/{issuer_id}', [ProductsController::class, 'allGroup']);
                 Route::post('/search', [ProductsController::class, 'search']);
                 Route::post('/create', [ProductsController::class, 'create']);
                 Route::get('/{id}', [ProductsController::class, 'findByID']);
@@ -68,8 +68,7 @@ Route::prefix('v1')->group( function (){
 
             // CashRegister routes
             Route::prefix('cash-register')->group( function(){
-                Route::get('/all', [CashRegisterController::class, 'getAll']);
-                Route::get('/all/receive', [CashRegisterController::class, 'getAllReceive']);
+                Route::get('/all/{issuer_id}', [CashRegisterController::class, 'getAll']);
                 Route::post('/create', [CashRegisterController::class, 'store']);
                 Route::get('/{id}', [CashRegisterController::class, 'findByID']);
                 Route::put('/{id}', [CashRegisterController::class, 'update']);
@@ -79,7 +78,7 @@ Route::prefix('v1')->group( function (){
             
             // Receive routes
             Route::prefix('receive')->group( function(){
-                Route::get('/all', [ReceiveController::class, 'getAll']);
+                Route::get('/all/{issuer_id}', [ReceiveController::class, 'getAll']);
                 Route::post('/create', [ReceiveController::class, 'store']);
                 Route::get('/{id}', [ReceiveController::class, 'findByID']);
                 Route::put('/{id}', [ReceiveController::class, 'update']);
@@ -88,7 +87,7 @@ Route::prefix('v1')->group( function (){
 
             // Pay routes
             Route::prefix('pay')->group( function(){
-                Route::get('/all', [ReceiveController::class, 'getAll']);
+                Route::get('/all/{issuer_id}', [ReceiveController::class, 'getAll']);
                 Route::post('/create', [ReceiveController::class, 'store']);
                 Route::get('/{id}', [ReceiveController::class, 'findByID']);
                 Route::put('/{id}', [ReceiveController::class, 'update']);
@@ -100,7 +99,7 @@ Route::prefix('v1')->group( function (){
                 Route::post('/save-sale', [PDVController::class, 'saveSale']);
                 Route::put('/finalize-sale/{id}', [PDVController::class, 'finalizeSale']);
 
-                Route::get('/all', [PDVController::class, 'getAll']);
+                Route::get('/all/{issuer_id}', [PDVController::class, 'getAll']);
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
                 Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
 
@@ -109,7 +108,7 @@ Route::prefix('v1')->group( function (){
             });
         
             Route::prefix('payments')->group( function(){
-                Route::get('/all', [PaymentsController::class, 'getAll']);
+                Route::get('/all/{issuer_id}', [PaymentsController::class, 'getAll']);
                 Route::post('/create', [PaymentsController::class, 'store']);
                 Route::get('/{id}', [PaymentsController::class, 'findByID']);
                 Route::put('/{id}', [PaymentsController::class, 'update']);
@@ -134,16 +133,16 @@ Route::prefix('v1')->group( function (){
         });
             
         Route::prefix('config')->group( function () {
-            Route::get('/all-configs', [ConfigController::class, 'getConfigs']);
+            Route::get('/all-configs/{issuer_id}', [ConfigController::class, 'getConfigs']);
 
             Route::prefix('config-pdv')->group( function() {
-                Route::put('/update-config', [ConfigController::class, 'updatePDV']);
+                Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updatePDV']);
             });
         });
 
         // Customers Routes
         Route::prefix('customers')->group( function(){
-            Route::get('/all', [CustomerController::class, 'getAll']);
+            Route::get('/all/{issuer_id}', [CustomerController::class, 'getAll']);
             Route::post('/search', [CustomerController::class, 'search']);
             Route::post('/create', [CustomerController::class, 'create']);
             Route::get('/{id}', [CustomerController::class, 'findByID']);
@@ -155,7 +154,7 @@ Route::prefix('v1')->group( function (){
 
         // User routes
         Route::prefix('users')->group( function(){
-            Route::get('/all', [UserController::class, 'getAll']);
+            Route::get('/all/{issuer_id}', [UserController::class, 'getAll']);
             Route::post('/create', [UserController::class, 'create']);
             Route::get('/{id}', [UserController::class, 'findByID']);
             Route::put('/{id}', [UserController::class, 'update']);
@@ -165,17 +164,17 @@ Route::prefix('v1')->group( function (){
 
         Route::prefix('report')->group(function(){
             Route::prefix('customers')->group(function(){
-                Route::get('/all', [ReportCustomersController::class, 'exportAllClients']);
-                Route::get('/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
+                Route::get('/all/{issuer_id}', [ReportCustomersController::class, 'exportAllClients']);
+                Route::get('/all-disabled/{issuer_id}', [ReportCustomersController::class, 'exportAllDisabledClients']);
             });
 
             Route::prefix('products')->group(function(){
-                Route::get('/all', [ReportCustomersController::class, 'exportAllClients']);
-                Route::get('/all-disabled', [ReportCustomersController::class, 'exportAllDisabledClients']);
+                Route::get('/all/{issuer_id}', [ReportCustomersController::class, 'exportAllClients']);
+                Route::get('/all-disabled/{issuer_id}', [ReportCustomersController::class, 'exportAllDisabledClients']);
             });
 
             Route::prefix('pdv')->group(function(){
-                Route::post('/closing-period', [ReportCashClosingPeriodController::class, 'getData']);
+                Route::post('/closing-period/{issuer_id}', [ReportCashClosingPeriodController::class, 'getData']);
             });
         });
 
