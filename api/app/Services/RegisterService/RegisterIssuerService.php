@@ -23,10 +23,21 @@ class RegisterIssuerService
 
     public function create(array $data)
     {
-        return response()->json([
-            'success' => true,
-            'issuer' => $this->registerIssuerRepository->create($data)
-        ], 201);
+        $issuer = $this->registerIssuerRepository->create($data);
+        if($issuer['success'])
+        {
+            return response()->json([
+                'success' => true,
+                'issuer' => $issuer
+            ], 201);
+            
+        } else {
+            return response()->json([
+                'success' => false,
+                'issuer' => $issuer
+            ], 400);
+            
+        }
     }
 
     public function find(int $id)

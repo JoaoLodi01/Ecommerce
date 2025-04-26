@@ -21,15 +21,26 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         Log::info($data['uuse_id']);
         $owner = Owner::where('uuse_id', $data['uuse_id'])->first();
         Log::info('$owner ' . $owner);
-        return Issuer::create([
-            'name' => $data['name'],
-            'cnpj' => $data['cnpj'],
-            'cpf' => $data['cpf'],
-            'address' => $data['address'],
-            'number' => $data['number'],
-            'cep' => $data['cep'],
-            'owner_id' => $owner->id,
-        ]);
+        if($owner)
+        {
+            return Issuer::create([
+                'name' => $data['name'],
+                'cnpj' => $data['cnpj'],
+                'cpf' => $data['cpf'],
+                'address' => $data['address'],
+                'number' => $data['number'],
+                'cep' => $data['cep'],
+                'owner_id' => $owner->id,
+            ]);
+
+        } else if (empty($owner))
+        {
+            return array(
+                'success' => false,
+                'message' => 'Proprietário não cadastrado'
+            );
+        }
+        
         
     }
 

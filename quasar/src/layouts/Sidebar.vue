@@ -308,7 +308,8 @@
         downRow: false,
         downRow2: false,
         downRow3: false,
-        widthScreen: 0
+        widthScreen: 0,
+        issuer_name: ''
       };
     },
     
@@ -363,6 +364,7 @@
 
     mounted()
     { 
+      this.issuer_name = history.state?.name
       this.widthScreen += screen.width
       
       if(this.widthScreen <= 1080)

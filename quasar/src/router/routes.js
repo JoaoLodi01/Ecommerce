@@ -40,64 +40,64 @@ const routes = [
     component: () => import('src/pages/Owner/Companies.vue')
   },
   {
-    path: '/:name/home',
+    path: '/',
     component: Sidebar,
     children: [
       {
-        path: '/home',
+        path: '/:name/home',
         name: 'Start',
         component: () => import('src/pages/Start.vue')
       },
       {
-        path: `/${salePrefix}/pdv`,
+        path: `/:name/${salePrefix}/pdv`,
         name: 'PDV',
         component: () => import('src/pages/Ecommerce/PDV/PDVView.vue') 
       },
       {
-        path: `/${salePrefix}/save/pdv/:idPDV`,
+        path: `/:name/${salePrefix}/save/pdv/:idPDV`,
         name: 'PDVID',
         component: () => import('src/pages/Ecommerce/PDV/PDVView.vue'),
         props: true
     
       },
       {
-        path: `/${salePrefix}/list-pdv`,
+        path: `/:name/${salePrefix}/list-pdv`,
         name: 'ListPDV',
         component: () => import('src/pages/Ecommerce/PDV/ListPDVView.vue')
     
       },
       {
-        path: `/${financialPrefix}/cash-register`,
+        path: `/:name/${financialPrefix}/cash-register`,
         name: 'CashRegister',
         component: () => import('src/pages/Ecommerce/Financial/CashRegisterView.vue')
       },
       {
-        path: `/${financialPrefix}/receive`,
+        path: `/:name/${financialPrefix}/receive`,
         name: 'ToReceiveView',
         component: () => import('src/pages/Ecommerce/Financial/ToReceiveView.vue')
       },
       {
-        path: `/${financialPrefix}/to-pay`,
+        path: `/:name/${financialPrefix}/to-pay`,
         name: 'ToPayView',
         component: () => import('src/pages/Ecommerce/Financial/ToPayView.vue')
       },
       {
-        path: `/customers`,
+        path: `/:name/customers`,
         name: 'CustomersView',
         component: () => import('src/pages/Customers/CustomersView.vue')
       },
       {
-        path: `/products`,
+        path: `/:name/products`,
         name: 'ProductsView',
         component: () => import('src/pages/Products/ProductsView.vue')
       },
       {
-        path: '/profile',
+        path: '/:name/profile',
         name: 'ProfileView',
         component: () => import('src/pages/Profile/Profile.vue')
       },
       {
-        path: '/:catchAll(.*)*',
+        path: '/:name/:catchAll(.*)*',
         name: '404',
         component: () => import('pages/ErrorNotFound.vue')
       },  

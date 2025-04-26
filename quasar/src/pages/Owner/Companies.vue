@@ -45,7 +45,7 @@
                         color="primary" 
                         icon="check" 
                         label="OK" 
-                        @click="joinCompanie(companie.id)"
+                        @click="joinCompanie(companie.name, companie.id)"
 
                     />
                 </q-card-section>
@@ -78,9 +78,9 @@
                 }
             },
 
-            async joinCompanie()
+            async joinCompanie(name, issuer_id)
             {
-                //const companie = await
+                this.$router.push({ path:`${name}/home`, state: name })
             }
         },
 
