@@ -130,6 +130,7 @@
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     import RegisterCash from "src/components/Register/Financial/RegisterCash.vue";
+    import { LocalStorage } from 'quasar';
     dayjs.extend(isBetween);
 
     export default {
@@ -185,7 +186,7 @@
             async getRegister(){
                 this.showLoading()
                 try {
-                    const response = await api.get('/ecommerce/cash-register/all')
+                    const response = await api.get(`/ecommerce/cash-register/all/${LocalStorage.getItem("issuer_id")}`)
                     this.cashs = response.data.data
 
                     this.cashs.forEach(element => {

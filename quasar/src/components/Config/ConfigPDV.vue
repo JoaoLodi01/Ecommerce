@@ -193,7 +193,7 @@
             async getConfig()
             {
                 this.showLoading('Carregando as')
-                const response = await api.get('/config/all-configs');
+                const response = await api.get('/config/all-configs/{issuer_id}');
                 const data = response.data.configPDV[0]
                 
                 this.configs = {

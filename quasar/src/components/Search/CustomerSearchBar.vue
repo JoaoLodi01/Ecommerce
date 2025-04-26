@@ -45,6 +45,7 @@
 <script>
     import { api } from 'src/boot/axios';
     import { toRaw } from 'vue';
+    import { LocalStorage } from 'quasar';
         
     export default {    
         props: {
@@ -56,7 +57,7 @@
         mounted()
         {
             const getConfig = async () => {
-                const response = await api.get('/config/all-configs')
+                const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`)
                 this.fillter = response.data.configPDV[0].filter_search_customer
             }    
             getConfig()
@@ -87,19 +88,23 @@
         },
 
         methods: {
-            async selectClient(){
-                if(this.clientsData.name.length > 0)
-                {
+            async selectClient() {
+                if (this.clientsData.name.length > 0 && this.fillter) {
+                    try {
                     const response = await api.post('/customers/search', {
                         fillter: this.fillter,
                         search: this.clientsData.name
                     });
 
                     this.clients = toRaw(response.data);
-                    typeof response.data === 'string' ? this.message = response.data : this.filterClients()
-
+                    typeof response.data === 'string'
+                        ? this.message = response.data
+                        : this.filterClients();
+                        
+                    } catch (error) {
+                    console.error('Erro ao buscar cliente:', error);
+                    }
                 }
-
             },
 
             watchRegistredCustomer()

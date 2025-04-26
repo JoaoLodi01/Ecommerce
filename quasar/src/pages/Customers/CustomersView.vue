@@ -184,7 +184,7 @@
   
 <script>
     import { LocalStorage } from 'quasar';
-import { api } from 'src/boot/axios';
+    import { api } from 'src/boot/axios';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
     import UpdateCustomer from 'src/components/Register/Customers/UpdateCustomer.vue';

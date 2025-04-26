@@ -37,7 +37,7 @@
         mounted()
         {
             const getConfig = async () => {
-                const response = await api.get('/config/all-configs');
+                const response = await api.get('/config/all-configs/{issuer_id}');
                 this.configs = {
                     fillter: response.data.configPDV[0].filter_search,
                     saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset >= 1 ? true : false,

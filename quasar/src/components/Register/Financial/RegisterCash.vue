@@ -188,7 +188,7 @@ export default {
 
         async submitForm() {
             try {
-                const response = await api.post(`${this.api}`, {
+                const response = await api.post('/ecommerce/cash-register/create', {
                     description: this.form.description,
                     document: this.form.document,
                     name: this.form.name,
