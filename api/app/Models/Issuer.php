@@ -16,6 +16,10 @@ class Issuer extends Model
         'address',
         'number',
         'cep',
+        'cod_cnae',
+        'cnae',
+        'cod_crt',
+        'crt',
         'owner_id',
         'active',
         

@@ -20,7 +20,11 @@ class RegisterIssuerRequest extends FormRequest
             'cpf' => ['nullable', 'string', 'required_without:cnpj'],
             'address' => ['required', 'string'],
             'number' => ['required', 'string'],
-            'cep' => ['required', 'string'],
+            'cep' => ['required', 'integer'],
+            'cod_cnae' => ['required', 'integer'],
+            'cnae' => ['required', 'string'],
+            'cod_crt' => ['required', 'integer'],
+            'crt' => ['required', 'string'],
             'uuse_id' => ['required']
             
         ];
