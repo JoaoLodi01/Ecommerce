@@ -55,4 +55,10 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         return Issuer::find('id', $id)->first();
     }
 
+    public function update(array $data, int $id)
+    {
+        $issuer = Issuer::where('id', $id)->first()->update($data);
+        return $issuer;
+        
+    }
 }

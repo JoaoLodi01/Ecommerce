@@ -1,23 +1,20 @@
 <template>
     <div class="text-center">
-        <div class="head">
-            <div class="">
-                <router-link to="/" class="flex">   
-                    <span class="mt-0.5 ml-2">Voltar</span>
+        <header class="head flex bg-slate-600 text-white text-xl p-5 mb-8">
+            <div class="inline-flex">
+                <h3 class="ml-5 mr-5">Bem vindo(a)! {{ owner_name }} | CPF: {{ owner_cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}</h3>
+                
+                <router-link to="/" class="mt-auto mb-auto ">   
+                    <span class="mt-0.5 ml-2 hover:text-slate-300">Voltar ao início</span>
                 </router-link>
-            </div>    
-            <h3>Bem vindo(a)! {{ owner_name }} | CPF: {{ owner_cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}</h3>
-            <h1>Listagem das suas empresas</h1>
-            
-        </div>
+
+            </div>
+        </header>
 
         <div class="companies flex justify-center">
             <q-card class="w-80">
                 <q-card-section>
-                    <div class="text-h6 text-center">Adicionar uma nova empresa</div>
-                </q-card-section>
-                <q-card-section>
-                    <div class="flex justify-center">
+                    <div class="flex justify-center p-10">
                         <router-link to="/register-issuer">
                             <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
@@ -32,6 +29,7 @@
                         </router-link>
                         
                     </div>
+                    <div class="text-h6 text-center">Adicionar uma nova empresa</div>
 
                 </q-card-section>
             </q-card>

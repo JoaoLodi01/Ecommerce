@@ -61,50 +61,6 @@
 
                 /> 
                 
-                <q-input 
-                    v-model="form.cep"
-                    filled        
-                    label="CEP" 
-                    stack-label
-                    class="mb-4"
-                    color="grey"
-                    v-bind:mask="'#####-###'"
-                    maxlength="9"
-
-                />   
-                   
-                <q-input 
-                    filled        
-                    label="Endereço" 
-                    v-model="form.address"
-                    stack-label
-                    class="mb-4"
-                    color="grey"
-                    maxlength="100"
-
-                />        
-                   
-                <q-input 
-                    filled        
-                    label="Número" 
-                    v-model="form.number"
-                    stack-label
-                    class="mb-4"
-                    color="grey"
-                    maxlength="10"
-
-                />       
-
-                <q-select
-                    v-model="form.cod_crt" 
-                    :options="crtOptions" 
-                    label="Regime"
-                    stack-label
-                    class="mb-4"
-                    color="grey" 
-                    filled 
-                />
-                
                 <q-btn 
                     @click=showLoading 
                     type="submit"
@@ -151,18 +107,6 @@
             })
 
             return {
-                cnaeOptions: [
-                    
-                ],
-
-                crtOptions: [
-                    'Simples Nacional',
-                    'Lucro real',
-                    'Lucro presumido',
-                    'Simples - excesso de receita',
-                    'MEI'
-                ],
-
                 showLoading () {
                     $q.loading.show({
                         message: 'Cadastrando sua empresa ...'
@@ -185,12 +129,6 @@
                     trade_name: '',
                     cnpj: '',
                     cpf: '',
-                    address: '',
-                    number: '',
-                    cep: '',
-                    email: '',
-                    phone: '',
-                    cod_crt: ''
                     
                 }
             }
@@ -207,11 +145,9 @@
             async getDataCNPJ()
             {
                 const cnpj = this.form.cnpj.replace(/\D/g, '')
-                console.log('CNPJ: ', cnpj, ' API: ', process.env.API_CNPJ, ' CNPJ.length', cnpj.length)
                 if(cnpj.length === 14)
                 {
                     const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
-                    console.log(data.data)
                     this.form.company_name = data.data.alias
                     this.form.trade_name = data.data.alias
                     this.form.cep = data.data.address.zip
@@ -224,10 +160,8 @@
 
             async createIssuer()
             {
-                const i = this.crtOptions.indexOf(this.form.cod_crt) + 1
-                this.form.cod_crt = i
-                console.log(this.form)
-                /*try {
+                
+                try {
                     const response = await api.post('/registers/issuer/create', {
                         company_name: this.form.company_name,
                         trade_name: this.form.trade_name,
@@ -239,8 +173,7 @@
                         uuse_id: LocalStorage.getItem("uuse_id"),
                         
                     })
-                    console.log(response)
-
+                    
                     if(response.data.success)
                     {
                         this.$router.push({ path: '/companies' })
@@ -248,15 +181,10 @@
                 } catch (error) {
                     console.error('createIssuer', error)
 
-                }*/
+                }
             }
             
         },
-
-        mounted()
-        {
-            console.log(`uuse_id: ${LocalStorage.getItem("uuse_id")}`)
-        }
     }
 
 </script>

@@ -47,4 +47,13 @@ class RegisterIssuerService
             'issuer' => $this->registerIssuerRepository->find($id)
         ], 200);
     }
+
+    public function update(array $data, int $id) 
+    {
+        $issuer = $this->registerIssuerRepository->update($data, $id);
+        return response()->json([
+            'success' => true,
+            'issuer' => $issuer
+        ], 200);
+    }
 }

@@ -189,7 +189,7 @@
                         $q.loading.hide()
                         timer = void 0
             
-                    }, 2000)
+                    }, 1000)
                 }
             }
         },
@@ -231,8 +231,6 @@
                             password: this.form.password,
                             
                         })
-
-                        console.log(response.data)
 
                         if(response.data.success)
                         {

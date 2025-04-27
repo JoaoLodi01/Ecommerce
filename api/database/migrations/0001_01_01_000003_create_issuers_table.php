@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('address', 100);
             $table->string('number', 10);
             $table->string('cep', 11);
-            $table->integer('cod_cnae', false, 1);
-            $table->string('cnae', 7);
-            $table->integer('cod_crt', false, 1);
-            $table->string('crt', 50);
-            
+            $table->integer('cod_cnae', false, 1)->nullable();
+            $table->string('cnae', 7)->nullable();
+            $table->integer('cod_crt', false, 1)->nullable();
+            $table->string('crt', 50)->nullable();
+            $table->date('date_of_foundation')->nullable();
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
             $table->unsignedBigInteger('owner_id');
             $table->boolean('active', 1)->default(1);

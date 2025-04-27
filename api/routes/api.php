@@ -180,7 +180,7 @@ Route::prefix('v1')->group( function (){
 
         Route::prefix('issuer')->group(function(){
             Route::get('/all/companies/{id}', [RegisterIssuerController::class, 'getAll']);
-            Route::get('/', [RegisterIssuerController::class, 'getAll']);
+            Route::put('/complete-register', [RegisterIssuerController::class, 'completeRegister']);
         });
     });
 

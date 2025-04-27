@@ -25,6 +25,7 @@ class RegisterIssuerRequest extends FormRequest
             'cnae' => ['required', 'string'],
             'cod_crt' => ['required', 'integer'],
             'crt' => ['required', 'string'],
+            'date_of_foundation' => ['required', 'date'],
             'uuse_id' => ['required']
             
         ];

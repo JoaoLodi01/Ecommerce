@@ -20,6 +20,7 @@ class Issuer extends Model
         'cnae',
         'cod_crt',
         'crt',
+        'date_of_foundation',
         'owner_id',
         'active',
         

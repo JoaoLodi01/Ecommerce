@@ -94,7 +94,7 @@ const routes = [
       {
         path: '/:name/profile',
         name: 'ProfileView',
-        component: () => import('src/pages/Profile/Profile.vue')
+        component: () => import('src/pages/Issuer/IssuerData.vue')
       },
       {
         path: '/:name/:catchAll(.*)*',
