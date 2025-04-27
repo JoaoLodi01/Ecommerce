@@ -45,7 +45,7 @@
                     color="grey"
                     v-bind:mask="'##.###.###/####-##'"
                     maxlength="18"
-                    @update:model-value=""
+                    @update:model-value="getDataCNPJ()"
                     
                 />
 
@@ -91,9 +91,19 @@
                     stack-label
                     class="mb-4"
                     color="grey"
-                    maxlength="100"
+                    maxlength="10"
 
                 />       
+
+                <q-select
+                    v-model="form.cod_crt" 
+                    :options="crtOptions" 
+                    label="Regime"
+                    stack-label
+                    class="mb-4"
+                    color="grey" 
+                    filled 
+                />
                 
                 <q-btn 
                     @click=showLoading 
@@ -122,8 +132,9 @@
 
 <script>
     import { LocalStorage, useQuasar } from 'quasar'
-    import axios, { api } from 'src/boot/axios'
+    import { api } from 'src/boot/axios'
     import { onBeforeUnmount } from 'vue'
+    import axios from 'axios'
     
     export default {
         setup()
@@ -140,6 +151,18 @@
             })
 
             return {
+                cnaeOptions: [
+                    
+                ],
+
+                crtOptions: [
+                    'Simples Nacional',
+                    'Lucro real',
+                    'Lucro presumido',
+                    'Simples - excesso de receita',
+                    'MEI'
+                ],
+
                 showLoading () {
                     $q.loading.show({
                         message: 'Cadastrando sua empresa ...'
@@ -167,20 +190,44 @@
                     cep: '',
                     email: '',
                     phone: '',
+                    cod_crt: ''
                     
                 }
             }
         },
+
+        computed: {
+            crtIndex()
+            {
+                
+            }
+        },
+        
         methods: {
             async getDataCNPJ()
             {
-                const data = axios.get(process.env.API_CNPJ)
+                const cnpj = this.form.cnpj.replace(/\D/g, '')
+                console.log('CNPJ: ', cnpj, ' API: ', process.env.API_CNPJ, ' CNPJ.length', cnpj.length)
+                if(cnpj.length === 14)
+                {
+                    const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
+                    console.log(data.data)
+                    this.form.company_name = data.data.alias
+                    this.form.trade_name = data.data.alias
+                    this.form.cep = data.data.address.zip
+                    this.form.address = data.data.address.street
+                    this.form.number = data.data.address.number
 
+                }
+                
             },
 
             async createIssuer()
             {
-                try {
+                const i = this.crtOptions.indexOf(this.form.cod_crt) + 1
+                this.form.cod_crt = i
+                console.log(this.form)
+                /*try {
                     const response = await api.post('/registers/issuer/create', {
                         company_name: this.form.company_name,
                         trade_name: this.form.trade_name,
@@ -201,7 +248,7 @@
                 } catch (error) {
                     console.error('createIssuer', error)
 
-                }
+                }*/
             }
             
         },
