@@ -17,7 +17,7 @@ class RegisterOwnerRepository implements RegisterOwnerContract
             'name' => $data['name'],
             'surname' => $data['surname'],
             'cpf' => $data['cpf'],
-            'email' => $data['email'],
+            'email' => strtolower($data['email']),
             'password' => Hash::make($data['password']),
             'uuse_id' => Str::random(10),
         
@@ -25,7 +25,7 @@ class RegisterOwnerRepository implements RegisterOwnerContract
 
         User::create([
             'name' => $owner->name,
-            'login' => strtolower($owner->name),
+            'login' => strtolower($data['email']),
             'password' => Hash::make($data['password']),
             'access' => 'Adminstrador'
         ]);        
