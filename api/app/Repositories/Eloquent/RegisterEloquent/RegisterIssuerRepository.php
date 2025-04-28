@@ -28,9 +28,6 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'trade_name' => $data['trade_name'],
                 'cnpj' => $data['cnpj'],
                 'cpf' => $data['cpf'],
-                'address' => $data['address'],
-                'number' => $data['number'],
-                'cep' => $data['cep'],
                 'owner_id' => $owner->id,
             ]);
 
@@ -57,7 +54,13 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
     public function update(array $data, int $id)
     {
-        $issuer = Issuer::where('id', $id)->first()->update($data);
+        $issuer = Issuer::where('id', $id)->first()->update([
+            'address' => $data['address'],
+            'number' => $data['number'],
+            'cep' => $data['cep']
+
+        ]);
+        
         return $issuer;
         
     }

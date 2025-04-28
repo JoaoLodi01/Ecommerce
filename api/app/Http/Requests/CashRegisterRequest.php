@@ -36,10 +36,10 @@ class CashRegisterRequest extends FormRequest
             'input_value' => [$required, 'numeric'],
             'output_value' => [$required, 'numeric'],
             'real_balance' => [$required, 'numeric'],
-            'origem' => ['nullable', 'string'],
+            'origem' => [$required, 'string'],
             'user_id' => [$required, 'integer'],
             'seller' => [$required, 'string', 'max:255'],
-            'canceled' => [$required, 'boolean'],
+            'canceled' => ['nullable', 'boolean'],
         ];
     }
 
@@ -94,7 +94,6 @@ class CashRegisterRequest extends FormRequest
             'seller.string' => 'O nome do vendedor deve estar em um formato válido.',
             'seller.max' => 'O nome do vendedor não pode ter mais de :max caracteres.',
             
-            'canceled.required' => 'O campo "cancelado" é obrigatório.',
             'canceled.boolean' => 'O campo "cancelado" deve ser verdadeiro ou falso.',
         ];
     }

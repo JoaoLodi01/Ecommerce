@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('trade_name', 120);
             $table->string('cnpj', 14)->nullable()->unique();
             $table->string('cpf', 11)->nullable()->unique();
-            $table->string('address', 100);
-            $table->string('number', 10);
-            $table->string('cep', 11);
+            $table->string('address', 100)->nullable();
+            $table->string('number', 10)->nullable();
+            $table->string('cep', 11)->nullable();
             $table->integer('cod_cnae', false, 1)->nullable();
             $table->string('cnae', 7)->nullable();
             $table->integer('cod_crt', false, 1)->nullable();

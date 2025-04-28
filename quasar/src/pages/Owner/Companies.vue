@@ -34,16 +34,24 @@
                 </q-card-section>
             </q-card>
 
-            <q-card class="ml-8" v-for="(companie, id) in companies" :key="id">
+            <q-card
+                class="w-80" 
+                v-for="(companie, id) in companies" 
+                :key="id"
+                :class="{
+                    'mt-5': witdhScreen < 1070,
+                    'ml-5': witdhScreen > 1070,
+                }"
+            >
                 <q-card-section class="">
-                    Empresa: {{ companie.name }}
+                    Empresa: {{ companie.company_name }}
                     <br>
                 
                     <q-btn 
                         color="primary" 
                         icon="check" 
                         label="Entrar" 
-                        @click="joinCompanie(companie.name, companie.id)"
+                        @click="joinCompanie(companie.company_name, companie.id)"
                         class="mt-4"
 
                     />
@@ -69,6 +77,7 @@
                 companies: [ ],
                 owner_name: LocalStorage.getItem("owner_name"),
                 owner_cpf: LocalStorage.getItem("owner_cpf"),
+                witdhScreen: 0
 
             }
         },
@@ -103,6 +112,9 @@
             {
                 this.$router.push('/register-owner')   
             }
+
+            this.witdhScreen = screen.width
+            
         }
     }
 </script> 

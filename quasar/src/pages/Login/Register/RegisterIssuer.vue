@@ -133,13 +133,6 @@
                 }
             }
         },
-
-        computed: {
-            crtIndex()
-            {
-                
-            }
-        },
         
         methods: {
             async getDataCNPJ()
@@ -169,7 +162,7 @@
                         cnpj: this.form.cnpj.replace(/\D/g, ''),
                         address: this.form.address,
                         number: this.form.number,
-                        cep: this.form.cep.replace(/\D/g, ''),
+                        
                         uuse_id: LocalStorage.getItem("uuse_id"),
                         
                     })

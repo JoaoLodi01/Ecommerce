@@ -18,42 +18,38 @@
                 <q-input 
                     filled        
                     label="Nome" 
-                    v-model="form.name"
-                    stack-label 
                     class="mb-4"
                     color="grey"
+                    v-model="form.name"
                     maxlength="120"
                 />
 
                 <q-input 
                     filled        
                     label="Sobrenome" 
+                    class="mb-4"
+                    color="grey"
                     v-model="form.surname"
-                    stack-label 
-                    class="mb-4"
-                    color="grey"
                     maxlength="90"
 
                 />
 
                 <q-input 
                     filled        
-                    label="E-mail" 
+                    label="E-mail"                      
+                    class="mb-4"
+                    color="grey"
                     v-model="form.email"
-                    stack-label 
-                    class="mb-4"
-                    color="grey"
                     maxlength="90"
 
                 />
 
                 <q-input 
-                    filled        
+                    filled
+                    class="mb-4"
+                    color="grey"
                     label="CPF" 
                     v-model="form.cpf"
-                    stack-label
-                    class="mb-4"
-                    color="grey"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="100"
 
@@ -62,10 +58,10 @@
                 <q-input 
                     filled 
                     label="Senha"
-                    v-model="form.password"
-                    :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
                     color="grey"
+                    v-model="form.password"
+                    :type="showPassword ? 'text' : 'password'"
                     
                 >
                     <svg 
@@ -98,11 +94,13 @@
 
                 <q-input 
                     filled 
+                    
+                    class="mb-4"
+                    color="grey"
                     label="Confirme sua Senha"
                     v-model="form.password_"
                     :type="showPassword ? 'text' : 'password'"
-                    class="mb-4"
-                    color="grey"
+                    
                 >
                     <svg 
                         @click="showPassword = !showPassword" 
@@ -243,11 +241,10 @@
                         
                     } catch (error) {
                         console.error('Erro catch', error)
-                        this.messages.push(error.response.data.message ?? null)
-                        const register = this.form
-                        switch (error.response.data.message) {
-                            case 'Esse e-mail já está sendo usado!':
-                                register.email = null
+                        //this.messages.push(error.response.data.code ?? null)
+                        switch (error.response.data.code) {
+                            case "23000":
+                                this.messages.push('CPF já cadastrado!')
                                 break;
                         
                             default:

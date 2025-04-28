@@ -12,10 +12,19 @@ class RegisterOwnerService
 
     public function create(array $data)
     {
-        return response()->json([
-            'success' => true,
-            'owner' => $this->registerOwnerRepository->create($data)
-        ], 201);
+        try {
+            return response()->json([
+                'success' => true,
+                'owner' => $this->registerOwnerRepository->create($data)
+            ], 201);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'message' => $th->getMessage(),
+                'code' => $th->getCode()
+            ], 500);
+        }
+        
     }
 
     public function find(int $id)
