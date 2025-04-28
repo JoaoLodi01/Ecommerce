@@ -72,7 +72,8 @@
                 color="grey-7"
             />
             <q-input
-                type="number"
+                type="text"
+                
                 v-model="form.total_amount"
                 label="Valor total"
                 readonly
