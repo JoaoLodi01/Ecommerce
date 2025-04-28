@@ -18,14 +18,14 @@ class RegisterIssuerRequest extends FormRequest
             'trade_name' => ['required', 'string'],
             'cnpj' => ['nullable', 'string', 'required_without:cpf'],
             'cpf' => ['nullable', 'string', 'required_without:cnpj'],
-            'address' => ['required', 'string'],
-            'number' => ['required', 'string'],
-            'cep' => ['required', 'integer'],
-            'cod_cnae' => ['required', 'integer'],
-            'cnae' => ['required', 'string'],
-            'cod_crt' => ['required', 'integer'],
-            'crt' => ['required', 'string'],
-            'date_of_foundation' => ['required', 'date'],
+            'address' => ['sometimes', 'string'],
+            'number' => ['sometimes', 'string'],
+            'cep' => ['sometimes', 'integer'],
+            'cod_cnae' => ['sometimes', 'integer'],
+            'cnae' => ['sometimes', 'string'],
+            'cod_crt' => ['sometimes', 'integer'],
+            'crt' => ['sometimes', 'string'],
+            'date_of_foundation' => ['sometimes', 'date'],
             'uuse_id' => ['required']
             
         ];
