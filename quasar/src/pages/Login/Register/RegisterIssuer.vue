@@ -143,9 +143,9 @@
                     const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
                     this.form.company_name = data.data.alias
                     this.form.trade_name = data.data.alias
-                    this.form.cep = data.data.address.zip
-                    this.form.address = data.data.address.street
-                    this.form.number = data.data.address.number
+                    // this.form.cep = data.data.address.zip
+                    // this.form.address = data.data.address.street
+                    // this.form.number = data.data.address.number
 
                 }
                 

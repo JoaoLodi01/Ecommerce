@@ -10,7 +10,6 @@
                     @vue:updated="watchRegistredCustomer()"
 
                 />
-
             </div>
 
             <q-input 
@@ -22,7 +21,6 @@
                 :disabled="!fillter"
 
             />
-        
         </div>
     
             <ul 
@@ -105,7 +103,7 @@
             async selectClient() {
                 if (this.clientsData.name.length > 0 && this.fillter) {
                     try {
-                    const response = await api.post('/customers/search', {
+                    const response = await api.post(`/customers/search/${LocalStorage.getItem("issuer_id")}`, {
                         fillter: this.fillter,
                         search: this.clientsData.name
                     });

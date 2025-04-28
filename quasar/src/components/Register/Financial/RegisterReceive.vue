@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded"
+    class="mr-14 mt-5 mb-5 p-6 bg-white"
     :class="{
       'relative top-12 left-12': widthScreen <=1080,
       'ml-14': widthScreen > 1080
@@ -35,11 +35,8 @@
         readonly
       />
 
-      <q-input
-        type="text"
-        v-model="form.especie"
-        label="Espécie"
-        color="grey-7"
+      <SpeciesSearchBar
+        @updated:selectSpecie="getSpecie($event)"
       />
 
       <q-input
@@ -130,6 +127,7 @@
   import dayjs from "dayjs";
   import 'dayjs/locale/pt-br';
   import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
 
   export default {
     props: {
@@ -186,6 +184,12 @@
           this.form.name = event.name
         },
 
+        getSpecie(event){
+            console.log("Chamou o getSpecie");
+            console.log(event);
+            this.form.especie = event.name;
+        },
+
         async submitForm() {
           console.log(this.form)
             try {
@@ -201,7 +205,8 @@
     },
 
     components:{
-      CustomerSearchBar
+      CustomerSearchBar,
+      SpeciesSearchBar,
     },
     
     emits:[

@@ -96,7 +96,7 @@
             v-if="showReceiveClosing"
             class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
 
-            <div class="bg-white rounded-xl shadow-xl">
+            <div class="bg-white border border-black rounded-xl">
                 <RegisterReceive 
                     @close="closeRegister($event)"
                     :width-screen="withScreen"

@@ -36,12 +36,11 @@
                 color="grey-7"
                 readonly
             />
-            <q-input
-                type="text"
-                v-model="form.especie"
-                label="Espécie"
-                color="grey-7"
+            
+            <SpeciesSearchBar
+                @updated:selectSpecie="getSpecie($event)"
             />
+
             <q-input 
                 type="date"
                 v-model="form.date_register"
@@ -50,14 +49,18 @@
             />
             <q-input
                 v-if="sum"
-                type="text"
+                type="number"
+                @vue:updated="totalAmountCalc"
                 v-model="form.input_value"
                 label="Valor Entrada"
                 color="grey-7"
             />
             <q-input
                 v-else
-                type="text"
+                type="number"
+                placeholder="0,00"
+                mask="##,##"
+                fill-mask="0"
                 v-model="form.output_value"
                 label="Valor Saída"
                 color="grey-7"
@@ -69,8 +72,7 @@
                 color="grey-7"
             />
             <q-input
-                type="text"
-                :model-value="totalAmountCalc"
+                type="number"
                 v-model="form.total_amount"
                 label="Valor total"
                 readonly
@@ -112,6 +114,7 @@ import { api } from "boot/axios";
 import dayjs from "dayjs";
 import { LocalStorage } from "quasar";
 import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
 
 export default {
     props: {
@@ -127,15 +130,15 @@ export default {
         return {
             sum: true,
             form: {
-                description: "",
-                document: "",
+                description: "Registro Manual",
+                document: 1,
                 name: "",
                 user: LocalStorage.getItem("user_name"),
                 especie: "",
                 date_register: today.format("YYYY-MM-DD"),
-                input_value: "0,00",
-                output_value: "0,00",
-                total_amount: "0,00",
+                input_value: 0,
+                output_value: 0,
+                total_amount: 0,
                 obs: "",
             },
         };
@@ -146,10 +149,7 @@ export default {
             const entrada = this.parseCurrency(this.form.input_value);
             const saida = this.parseCurrency(this.form.output_value);
             const total = entrada - saida;
-            return total.toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-            });
+            return this.form.total_amount = total
         },
     },
 
@@ -164,15 +164,15 @@ export default {
         onReset() {
             const today = dayjs();
             this.form = {
-                description: "",
-                document: "",
+                description: "Registro Manual",
+                document: 1,
                 name: "",
                 user: LocalStorage.getItem("user_name"),
                 especie: "",
                 date_register: today.format("YYYY-MM-DD"),
-                input_value: "0,00",
-                output_value: "0,00",
-                total_amount: "0,00",
+                input_value: 0,
+                output_value: 0,
+                total_amount: 0,
             };
         },
 
@@ -184,6 +184,12 @@ export default {
             console.log("Chamou o getCustumer");
             console.log(event);
             this.form.name = event.name;
+        },
+
+        getSpecie(event){
+            console.log("Chamou o getSpecie");
+            console.log(event);
+            this.form.especie = event.name;
         },
 
         async submitForm() {
@@ -212,6 +218,7 @@ export default {
 
     components: {
         CustomerSearchBar,
+        SpeciesSearchBar,
     },
 
     emits: ["close"],
