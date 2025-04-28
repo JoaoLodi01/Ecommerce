@@ -59,6 +59,17 @@
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
 
+                />
+
+                <q-input 
+                    v-model="form.date_of_foundation"
+                    filled        
+                    type="date"
+                    label="Data de fundação" 
+                    stack-label
+                    class="mb-4"
+                    color="grey"
+
                 /> 
                 
                 <q-btn 
@@ -129,6 +140,8 @@
                     trade_name: '',
                     cnpj: '',
                     cpf: '',
+                    date_of_foundation: null,
+                    main_activity: ''
                     
                 }
             }
@@ -141,29 +154,29 @@
                 console.log('CNPJ: ', cnpj, ' cnpj.length', cnpj.length)
                 if(cnpj.length == 14)
                 {
-                    console.log('API_CNPJA', process.env.API_CNPJA)
-                    const data = await axios.get(`${process.env.API_CNPJA}/${cnpj}`)
+                    console.log('API_CNPJA', process.env.API_CNPJ)
+                    const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
                     console.log(data)
                     this.form.company_name = data.data.alias
                     this.form.trade_name = data.data.alias
-                    /*this.form.cep = data.data.address.zip
-                    this.form.address = data.data.address.street
-                    this.form.number = data.data.address.number*/
-
+                    this.form.date_of_foundation = data.data.founded
+                    this.form.main_activity = data.data.mainActivity.text
+                    
                 }
                 
             },
 
             async createIssuer()
             {
+                console.log(this.form)
                 try {
                     const response = await api.post('/registers/issuer/create', {
                         company_name: this.form.company_name,
                         trade_name: this.form.trade_name,
                         cpf: this.form.cpf.replace(/\D/g, ''),
                         cnpj: this.form.cnpj.replace(/\D/g, ''),
-                        address: this.form.address,
-                        number: this.form.number,
+                        date_of_foundation: this.form.date_of_foundation,
+                        main_activity: this.form.main_activity,
                         
                         uuse_id: LocalStorage.getItem("uuse_id"),
                         

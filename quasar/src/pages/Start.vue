@@ -7,7 +7,7 @@
         
         <div>
             <div class="flex">
-                <CompleteOrNo :label="completeIssuer" class="mt-0.5"/><router-link to='/'>Completar cadastro do emitente</router-link>
+                <CompleteOrNo :label="completeIssuer" class="mt-0.5"/><router-link :to="`/${issuer_name}/companie-data`">Completar cadastro do emitente</router-link>
                 
             </div>
 
@@ -38,7 +38,14 @@
                 completeIssuer: false,
                 completeConfigPDV: false,
                 completeConfigCustomer: false,
+                
+                issuer_name: ''
             }
+        },
+
+        mounted()
+        {
+            this.issuer_name = this.$route.params.name
         }
     }
 </script>

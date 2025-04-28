@@ -1,915 +1,140 @@
-[2025-04-28 12:05:24] local.INFO: data - customer  
-[2025-04-28 12:05:24] local.INFO: array (
-  'issuer_id' => 1,
-  'fillter' => 'Padrão (cód.cliente ou nome)',
-  'search' => 'Lo',
-)  
-[2025-04-28 12:05:24] local.INFO: cusotmer  
-[2025-04-28 12:06:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:06:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 12:06:29] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:07:01] local.INFO: Dados recebidos:   
-[2025-04-28 12:07:01] local.INFO: array (
-  'issuer_id' => 1,
-  'name' => 'Gabriel',
-  'cpf' => '08805166901',
-  'cnpj' => NULL,
-  'cep' => '89711226',
-  'address' => 'Rua Alexandre',
-  'number' => '135',
-  'email' => 'gabikochem55@gmaill.com',
-  'phone' => '1111111111111111',
-  'is_customer' => false,
-  'is_driver' => false,
-  'is_supplier' => false,
-)  
-[2025-04-28 12:07:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:07:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:07:09] local.INFO: data - customer  
-[2025-04-28 12:07:09] local.INFO: array (
-  'issuer_id' => 1,
-  'fillter' => 'Padrão (cód.cliente ou nome)',
-  'search' => 'G',
-)  
-<<<<<<< HEAD
-[2025-04-28 10:54:55] local.INFO: oukEvq4GOw  
-[2025-04-28 10:54:55] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"oukEvq4GOw","active":1,"created_at":"2025-04-28T10:53:05.000000Z","updated_at":"2025-04-28T10:53:05.000000Z"}  
-[2025-04-28 11:00:07] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"oukEvq4GOw","active":1,"created_at":"2025-04-28T10:53:05.000000Z","updated_at":"2025-04-28T10:53:05.000000Z"}  
-[2025-04-28 11:00:07] local.INFO: Passou o login, token: 2|nKw3znXUhvpu5qOMhmmB8IOhAKQBXvSefwMNiNzOc8f871e4  
-[2025-04-28 11:01:55] local.INFO: owner {"id":2,"name":"ethgeatrkogwrg","surname":"aergwrfg","cpf":"45444444444","email":"a@5","uuse_id":"T1Vv9DNZFX","active":1,"created_at":"2025-04-28T11:01:47.000000Z","updated_at":"2025-04-28T11:01:47.000000Z"}  
-[2025-04-28 11:01:56] local.INFO: Passou o login, token: 3|9Ml7XracAE8JyUYLDTKIyrLX0Zsu27NJyRgb6oyp94608318  
-[2025-04-28 11:02:32] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"oukEvq4GOw","active":1,"created_at":"2025-04-28T10:53:05.000000Z","updated_at":"2025-04-28T10:53:05.000000Z"}  
-[2025-04-28 11:02:36] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"oukEvq4GOw","active":1,"created_at":"2025-04-28T10:53:05.000000Z","updated_at":"2025-04-28T10:53:05.000000Z"}  
-[2025-04-28 11:02:36] local.INFO: Passou o login, token: 4|ofHqoEFMsgywq0NUBocm6PQ4ymlYxMmSuwPQO8j170b35307  
-[2025-04-28 11:08:15] local.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'issuer_id' doesn't have a default value (Connection: mariadb, SQL: insert into `payments` (`especie`, `tipo_lancamento`, `updated_at`, `created_at`) values (Dinheiro, Caixa, 2025-04-28 11:08:14, 2025-04-28 11:08:14)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: HY000): SQLSTATE[HY000]: General error: 1364 Field 'issuer_id' doesn't have a default value (Connection: mariadb, SQL: insert into `payments` (`especie`, `tipo_lancamento`, `updated_at`, `created_at`) values (Dinheiro, Caixa, 2025-04-28 11:08:14, 2025-04-28 11:08:14)) at C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
-[stacktrace]
-#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
-#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
-#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
-#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2120): Illuminate\\Database\\Query\\Builder->insertGetId()
-#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
-#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
-#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
-#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1128): Illuminate\\Database\\Eloquent\\Model->save()
-#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->{closure:Illuminate\\Database\\Eloquent\\Builder::create():1127}()
-#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1127): tap()
-#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
-#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2372): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
-#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2384): Illuminate\\Database\\Eloquent\\Model->__call()
-#14 C:\\Code\\ProjetoWeb\\api\\database\\seeders\\PaymentsSeeder.php(41): Illuminate\\Database\\Eloquent\\Model::__callStatic()
-#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\PaymentsSeeder->run()
-#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
-#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call()
-#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->{closure:Illuminate\\Database\\Seeder::__invoke():187}()
-#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(61): Illuminate\\Database\\Seeder->__invoke()
-#23 C:\\Code\\ProjetoWeb\\api\\database\\seeders\\DatabaseSeeder.php(17): Illuminate\\Database\\Seeder->call()
-#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\DatabaseSeeder->run()
-#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
-#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call()
-#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->{closure:Illuminate\\Database\\Seeder::__invoke():187}()
-#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Seeder->__invoke()
-#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->{closure:Illuminate\\Database\\Console\\Seeds\\SeedCommand::handle():69}()
-#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded()
-#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
-#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
-#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#38 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#39 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#40 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#41 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#42 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#43 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#44 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#45 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#46 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#47 C:\\Code\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#48 {main}
-
-[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1364 Field 'issuer_id' doesn't have a default value at C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php:53)
-[stacktrace]
-#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(53): PDOStatement->execute()
-#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\MySqlConnection->{closure:Illuminate\\Database\\MySqlConnection::insert():42}()
-#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
-#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
-#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
-#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2120): Illuminate\\Database\\Query\\Builder->insertGetId()
-#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
-#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
-#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
-#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1128): Illuminate\\Database\\Eloquent\\Model->save()
-#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->{closure:Illuminate\\Database\\Eloquent\\Builder::create():1127}()
-#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1127): tap()
-#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
-#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2372): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
-#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2384): Illuminate\\Database\\Eloquent\\Model->__call()
-#16 C:\\Code\\ProjetoWeb\\api\\database\\seeders\\PaymentsSeeder.php(41): Illuminate\\Database\\Eloquent\\Model::__callStatic()
-#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\PaymentsSeeder->run()
-#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
-#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call()
-#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->{closure:Illuminate\\Database\\Seeder::__invoke():187}()
-#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(61): Illuminate\\Database\\Seeder->__invoke()
-#25 C:\\Code\\ProjetoWeb\\api\\database\\seeders\\DatabaseSeeder.php(17): Illuminate\\Database\\Seeder->call()
-#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\DatabaseSeeder->run()
-#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
-#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call()
-#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->{closure:Illuminate\\Database\\Seeder::__invoke():187}()
-#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Seeder->__invoke()
-#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->{closure:Illuminate\\Database\\Console\\Seeds\\SeedCommand::handle():69}()
-#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded()
-#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
-#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
-#38 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#39 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#40 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#41 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#42 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#43 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#44 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#45 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#46 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#47 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#48 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#49 C:\\Code\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#50 {main}
-"} 
-[2025-04-28 11:08:26] local.INFO: owner   
-[2025-04-28 11:08:47] local.INFO: owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"yF5FnN0Q5w","active":1,"created_at":"2025-04-28T11:08:44.000000Z","updated_at":"2025-04-28T11:08:44.000000Z"}  
-[2025-04-28 11:08:48] local.INFO: Passou o login, token: 1|myGt1NnFEc9SKcWiQ6u9YEUWwGv0udCrpruRk5dtf733c7c9  
-[2025-04-28 11:10:59] local.INFO: array (
-  'company_name' => 'LODI LTDA',
-  'trade_name' => 'LODI LTDA',
+[2025-04-28 16:44:10] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"11111111111","email":"gabikochem55@gmail.com","uuse_id":"2wOX31Ho1h","active":1,"created_at":"2025-04-28T16:44:02.000000Z","updated_at":"2025-04-28T16:44:02.000000Z"}  
+[2025-04-28 16:44:11] local.INFO: Passou o login, token: 1|lCw8wh1sZ9CDOAU6Vh7nQ0iwFzcVNIY2mqXmRRaCf7933703  
+[2025-04-28 16:45:05] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
   'cnpj' => '17089484000190',
   'cpf' => NULL,
-  'uuse_id' => 'yF5FnN0Q5w',
+  'uuse_id' => '2wOX31Ho1h',
 )  
-[2025-04-28 11:10:59] local.INFO: yF5FnN0Q5w  
-[2025-04-28 11:10:59] local.INFO: $owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"yF5FnN0Q5w","active":1,"created_at":"2025-04-28T11:08:44.000000Z","updated_at":"2025-04-28T11:08:44.000000Z"}  
-[2025-04-28 11:12:38] local.INFO: Dados recebidos:   
-[2025-04-28 11:12:38] local.INFO: array (
-  'issuer_id' => 1,
-  'name' => 'Lodi',
-  'cpf' => '11505315921',
-  'cnpj' => NULL,
-  'cep' => '89705228',
-  'address' => 'Rua Ricardo',
-  'number' => '243',
-  'email' => 'joaolodi01@gmail.com',
-  'phone' => '49989153821',
-  'is_customer' => true,
-  'is_driver' => false,
-  'is_supplier' => false,
+[2025-04-28 16:45:05] local.INFO: 2wOX31Ho1h  
+[2025-04-28 16:45:05] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"11111111111","email":"gabikochem55@gmail.com","uuse_id":"2wOX31Ho1h","active":1,"created_at":"2025-04-28T16:44:02.000000Z","updated_at":"2025-04-28T16:44:02.000000Z"}  
+[2025-04-28 17:19:20] local.INFO: owner {"id":1,"name":"Gabriel","surname":"K","cpf":"11111111111","email":"gabikochem55@gmail.com","uuse_id":"KABTqAB6Wj","active":1,"created_at":"2025-04-28T17:19:17.000000Z","updated_at":"2025-04-28T17:19:17.000000Z"}  
+[2025-04-28 17:19:21] local.INFO: Passou o login, token: 1|ssIFY06dzDJpz6EfwgLlGKj1yd7abWW2KtwuXvbT164751da  
+[2025-04-28 17:20:30] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'cnpj' => '17089484000190',
+  'cpf' => NULL,
+  'date_of_foundation' => '2012-10-30',
+  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'uuse_id' => 'KABTqAB6Wj',
 )  
-[2025-04-28 11:13:46] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:13:47] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:13:47] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 11:13:47] local.INFO: O hotel não foi encontrado  
-[2025-04-28 11:13:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:13:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:13:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:13:55] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 11:13:55] local.INFO: O hotel não foi encontrado  
-[2025-04-28 11:13:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:14:03] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:14:04] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:14:04] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 11:14:04] local.INFO: O hotel não foi encontrado  
-[2025-04-28 11:14:05] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:14:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:14:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:14:20] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:14:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:14:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:14:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:15:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:15:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:15:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:15:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:17:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:17:43] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:17:45] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:17:46] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:18:00] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:21:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:21:57] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:22:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:22:55] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 11:22:56] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 11:22:56] local.INFO: O hotel não foi encontrado  
-[2025-04-28 11:22:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 11:23:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:23:03] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 11:23:03] local.INFO: O hotel não foi encontrado  
-[2025-04-28 11:23:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 11:23:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 11:23:10] local.ERROR: App\Http\Controllers\EcommerceController\ProductsController::findByID(): Argument #1 ($id) must be of type int, string given, called in C:\Code\ProjetoWeb\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":1,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\EcommerceController\\ProductsController::findByID(): Argument #1 ($id) must be of type int, string given, called in C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php:37)
+[2025-04-28 17:20:30] local.INFO: KABTqAB6Wj  
+[2025-04-28 17:20:30] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"K","cpf":"11111111111","email":"gabikochem55@gmail.com","uuse_id":"KABTqAB6Wj","active":1,"created_at":"2025-04-28T17:19:17.000000Z","updated_at":"2025-04-28T17:19:17.000000Z"}  
+[2025-04-28 17:20:30] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'main_activity' in 'field list' (Connection: mariadb, SQL: insert into `issuers` (`company_name`, `trade_name`, `cnpj`, `cpf`, `date_of_foundation`, `main_activity`, `owner_id`, `updated_at`, `created_at`) values (Sgbr Sistemas, Sgbr Sistemas, 17089484000190, ?, 2012-10-30, Comércio varejista especializado de equipamentos e suprimentos de informática, 1, 2025-04-28 17:20:30, 2025-04-28 17:20:30)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'main_activity' in 'field list' (Connection: mariadb, SQL: insert into `issuers` (`company_name`, `trade_name`, `cnpj`, `cpf`, `date_of_foundation`, `main_activity`, `owner_id`, `updated_at`, `created_at`) values (Sgbr Sistemas, Sgbr Sistemas, 17089484000190, ?, 2012-10-30, Comércio varejista especializado de equipamentos e suprimentos de informática, 1, 2025-04-28 17:20:30, 2025-04-28 17:20:30)) at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
 [stacktrace]
-#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->findByID()
-#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
-#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
-#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
-#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
-#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
-#36 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#38 {main}
-"} 
-[2025-04-28 11:23:14] local.ERROR: App\Http\Controllers\EcommerceController\ProductsController::findByID(): Argument #1 ($id) must be of type int, string given, called in C:\Code\ProjetoWeb\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":1,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\EcommerceController\\ProductsController::findByID(): Argument #1 ($id) must be of type int, string given, called in C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php:37)
+#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
+#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
+#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
+#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2120): Illuminate\\Database\\Query\\Builder->insertGetId()
+#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
+#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
+#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
+#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1128): Illuminate\\Database\\Eloquent\\Model->save()
+#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}()
+#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1127): tap()
+#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
+#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2372): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2384): Illuminate\\Database\\Eloquent\\Model->__call()
+#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Repositories\\Eloquent\\RegisterEloquent\\RegisterIssuerRepository.php(27): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Services\\RegisterService\\RegisterIssuerService.php(26): App\\Repositories\\Eloquent\\RegisterEloquent\\RegisterIssuerRepository->create()
+#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\RegisterControllers\\RegisterIssuerController.php(24): App\\Services\\RegisterService\\RegisterIssuerService->create()
+#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\RegisterControllers\\RegisterIssuerController->create()
+#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#45 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#47 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#48 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#49 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#50 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#51 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#52 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#53 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'main_activity' in 'field list' at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php:47)
 [stacktrace]
-#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->findByID()
-#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
-#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
-#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
-#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
-#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
-#36 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#38 {main}
+#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(47): PDO->prepare()
+#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\MySqlConnection->Illuminate\\Database\\{closure}()
+#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
+#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
+#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
+#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2120): Illuminate\\Database\\Query\\Builder->insertGetId()
+#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
+#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
+#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
+#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1128): Illuminate\\Database\\Eloquent\\Model->save()
+#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}()
+#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1127): tap()
+#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
+#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2372): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2384): Illuminate\\Database\\Eloquent\\Model->__call()
+#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Repositories\\Eloquent\\RegisterEloquent\\RegisterIssuerRepository.php(27): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Services\\RegisterService\\RegisterIssuerService.php(26): App\\Repositories\\Eloquent\\RegisterEloquent\\RegisterIssuerRepository->create()
+#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\RegisterControllers\\RegisterIssuerController.php(24): App\\Services\\RegisterService\\RegisterIssuerService->create()
+#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\RegisterControllers\\RegisterIssuerController->create()
+#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#45 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#47 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#48 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#49 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#50 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#51 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#52 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#53 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#54 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#55 {main}
 "} 
-[2025-04-28 11:23:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:23:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:23:40] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:23:42] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:23:44] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:23:46] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:24:49] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:24:50] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:24:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:24:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:39:40] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:39:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:39:40] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 11:39:50] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:40:44] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:40:46] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:41:11] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:42:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:42:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:42:18] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:52:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:52:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:52:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:52:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 11:52:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 11:52:44] local.ERROR: App\Http\Controllers\EcommerceController\ProductsController::findByID(): Argument #1 ($id) must be of type int, string given, called in C:\Code\ProjetoWeb\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":1,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\EcommerceController\\ProductsController::findByID(): Argument #1 ($id) must be of type int, string given, called in C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php:37)
-[stacktrace]
-#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->findByID()
-#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
-#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
-#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
-#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
-#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
-#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
-#36 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#38 {main}
-"} 
-[2025-04-28 12:14:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:14:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 12:15:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:15:30] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 12:15:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:17:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 12:17:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:17:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 12:17:44] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:18:37] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:18:41] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:18:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:18:53] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 12:18:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:20:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:21:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:21:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 12:21:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:28:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:28:13] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:28:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:36:38] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:36:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:38:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:38:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:38:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:38:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:18:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:18:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:19:05] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:19:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:19:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:19:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:19:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:19:19] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:21:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:21:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:21:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:21:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:22:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:22:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 15:24:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:24:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:25:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:25:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:25:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:25:15] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:25:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:25:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:25:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:25:42] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:25:47] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:25:49] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:25:58] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:26:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:26:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:26:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:26:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:26:28] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:26:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:26:38] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:26:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:26:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:26:51] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:27:08] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:27:15] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:27:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:27:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:27:22] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:27:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:27:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:28:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:28:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:28:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:28:32] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:28:39] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:28:43] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:28:44] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:28:46] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:28:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:28:56] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:29:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:29:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:29:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:29:14] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:29:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:29:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:29:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:29:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:29:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:29:36] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:29:42] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:29:50] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:30:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:20] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:30:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:30:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:32] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:30:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:30:36] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:39] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:44] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:46] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:30:51] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:30:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:30:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:31:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:31:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:31:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:22] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:31:24] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:31:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:31:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:38] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:42] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:31:44] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:51] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:31:53] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:32:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:32:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:32:14] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:32:20] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:32:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:32:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:32:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:32:32] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:32:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:32:37] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:32:47] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:32:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:33:08] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:33:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:33:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:33:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:33:37] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:33:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:33:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:33:50] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:33:51] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:33:58] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:34:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:34:08] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:34:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:34:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:34:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:34:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:34:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:34:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:34:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:34:38] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:34:43] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:34:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:34:50] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:35:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:35:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:35:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:35:28] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:35:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:35:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:35:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:36:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:36:53] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:36:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:37:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:37:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:13] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:37:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:37:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:37:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:36] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:43] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:37:49] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:37:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:38:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:41:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:41:22] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:41:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:41:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:41:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:41:37] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:41:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:41:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:41:59] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:42:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:42:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:43:14] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:43:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:43:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:43:22] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:43:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:43:36] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:43:53] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:43:56] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:43:58] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:44:08] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:44:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:44:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:45:36] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:45:39] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:45:43] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:45:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:45:49] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:45:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:46:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:46:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:46:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:46:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:46:22] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:46:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:46:28] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 15:46:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:56:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 15:56:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 16:00:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 16:02:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 16:02:04] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 16:02:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 16:04:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 16:04:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-=======
-[2025-04-28 12:07:09] local.INFO: cusotmer  
-[2025-04-28 12:07:10] local.INFO: data - customer  
-[2025-04-28 12:07:10] local.INFO: array (
-  'issuer_id' => 1,
-  'fillter' => 'Padrão (cód.cliente ou nome)',
-  'search' => 'Ga',
-)  
-[2025-04-28 12:07:10] local.INFO: cusotmer  
-[2025-04-28 12:08:30] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:08:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:08:40] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:08:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 12:08:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:13:19] local.INFO: data - customer  
-[2025-04-28 12:13:19] local.INFO: array (
-  'issuer_id' => 1,
-  'fillter' => 'Padrão (cód.cliente ou nome)',
-  'search' => 'G',
-)  
-[2025-04-28 12:13:19] local.INFO: cusotmer  
-[2025-04-28 12:13:20] local.INFO: data - customer  
-[2025-04-28 12:13:20] local.INFO: array (
-  'issuer_id' => 1,
-  'fillter' => 'Padrão (cód.cliente ou nome)',
-  'search' => 'Ga',
-)  
-[2025-04-28 12:13:20] local.INFO: cusotmer  
-[2025-04-28 12:13:20] local.INFO: data - customer  
-[2025-04-28 12:13:20] local.INFO: array (
-  'issuer_id' => 1,
-  'fillter' => 'Padrão (cód.cliente ou nome)',
-  'search' => 'Gab',
-)  
-[2025-04-28 12:13:20] local.INFO: cusotmer  
-[2025-04-28 12:13:21] local.INFO: data - customer  
-[2025-04-28 12:13:21] local.INFO: array (
-  'issuer_id' => 1,
-  'fillter' => 'Padrão (cód.cliente ou nome)',
-  'search' => '1',
-)  
-[2025-04-28 12:13:21] local.INFO: cusotmer  
-[2025-04-28 12:13:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 12:14:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:14:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:14:39] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 12:14:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 13:07:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 13:14:34] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"WE9MMvzSnQ","active":1,"created_at":"2025-04-28T11:47:21.000000Z","updated_at":"2025-04-28T11:47:21.000000Z"}  
-[2025-04-28 13:14:34] local.INFO: Passou o login, token: 2|a0mWSPqzyMOdQvDqx1ouKdFqo7PeeSUJ48lzdKXP6472ddfc  
-[2025-04-28 13:38:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 14:02:24] local.INFO: owner   
-[2025-04-28 14:02:54] local.INFO: owner   
-[2025-04-28 14:04:11] local.INFO: owner {"id":2,"name":"Guilherme","surname":"Gonzaga","cpf":"11692388908","email":"guinunespaludo246@gmail.com","uuse_id":"82cdVyouge","active":1,"created_at":"2025-04-28T14:03:53.000000Z","updated_at":"2025-04-28T14:03:53.000000Z"}  
-[2025-04-28 14:04:11] local.INFO: Passou o login, token: 3|DbIAM6amZfvDtfvVENBYu8yUNlCCQ0UrshQ3AX1qb6026c73  
-[2025-04-28 14:05:00] local.INFO: array (
-  'company_name' => 'Gonzaga LTDA',
-  'trade_name' => 'Gonzaga LTDA',
-  'cnpj' => '12345678912355',
-  'cpf' => '11692388908',
-  'uuse_id' => '82cdVyouge',
-)  
-[2025-04-28 14:05:00] local.INFO: 82cdVyouge  
-[2025-04-28 14:05:00] local.INFO: $owner {"id":2,"name":"Guilherme","surname":"Gonzaga","cpf":"11692388908","email":"guinunespaludo246@gmail.com","uuse_id":"82cdVyouge","active":1,"created_at":"2025-04-28T14:03:53.000000Z","updated_at":"2025-04-28T14:03:53.000000Z"}  
-[2025-04-28 14:05:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 14:06:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-04-28 14:06:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 14:06:14] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 14:09:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 14:10:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 14:10:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:10:12] local.ERROR: App\Http\Controllers\Config\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":2,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\Config\\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Config\\ConfigController.php:22)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->getConfigs()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1216): Illuminate\\Foundation\\Http\\Kernel->handle()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#38 {main}
-"} 
-[2025-04-28 14:10:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:10:13] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 14:10:13] local.INFO: O hotel não foi encontrado  
-[2025-04-28 14:10:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:10:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:10:24] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 14:10:24] local.INFO: O hotel não foi encontrado  
-[2025-04-28 14:10:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:10:25] local.ERROR: App\Http\Controllers\Config\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":2,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\Config\\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Config\\ConfigController.php:22)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->getConfigs()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1216): Illuminate\\Foundation\\Http\\Kernel->handle()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#38 {main}
-"} 
-[2025-04-28 14:10:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 14:13:46] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 14:13:46] local.ERROR: App\Http\Controllers\Config\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":2,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\Config\\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Config\\ConfigController.php:22)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->getConfigs()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1216): Illuminate\\Foundation\\Http\\Kernel->handle()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#38 {main}
-"} 
-[2025-04-28 14:13:47] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:13:47] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 14:13:47] local.INFO: O hotel não foi encontrado  
-[2025-04-28 14:13:47] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 14:13:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:13:52] local.ERROR: App\Http\Controllers\Config\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":2,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\Config\\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Config\\ConfigController.php:22)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->getConfigs()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1216): Illuminate\\Foundation\\Http\\Kernel->handle()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#38 {main}
-"} 
-[2025-04-28 14:13:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:13:53] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 14:13:53] local.INFO: O hotel não foi encontrado  
-[2025-04-28 14:13:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:13:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-04-28 14:13:55] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 14:13:55] local.ERROR: App\Http\Controllers\Config\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":2,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\Config\\ConfigController::getConfigs(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Config\\ConfigController.php:22)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Config\\ConfigController->getConfigs()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1216): Illuminate\\Foundation\\Http\\Kernel->handle()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#38 {main}
-"} 
-[2025-04-28 14:13:55] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-04-28 14:13:56] local.INFO: Vai buscar o hotel e as configurações  
-[2025-04-28 14:13:56] local.INFO: O hotel não foi encontrado  
-[2025-04-28 14:13:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-04-28 14:14:33] local.INFO: owner {"id":2,"name":"Guilherme","surname":"Gonzaga","cpf":"11692388908","email":"guinunespaludo246@gmail.com","uuse_id":"82cdVyouge","active":1,"created_at":"2025-04-28T14:03:53.000000Z","updated_at":"2025-04-28T14:03:53.000000Z"}  
-[2025-04-28 14:14:43] local.INFO: owner {"id":2,"name":"Guilherme","surname":"Gonzaga","cpf":"11692388908","email":"guinunespaludo246@gmail.com","uuse_id":"82cdVyouge","active":1,"created_at":"2025-04-28T14:03:53.000000Z","updated_at":"2025-04-28T14:03:53.000000Z"}  
-[2025-04-28 14:15:06] local.INFO: owner {"id":2,"name":"Guilherme","surname":"Gonzaga","cpf":"11692388908","email":"guinunespaludo246@gmail.com","uuse_id":"82cdVyouge","active":1,"created_at":"2025-04-28T14:03:53.000000Z","updated_at":"2025-04-28T14:03:53.000000Z"}  
-[2025-04-28 14:15:06] local.INFO: Passou o login, token: 4|tL6fIXpiUvcKpdytL9SaInKoCkzLGJopRtMjWqLn4c1ff8b1  
->>>>>>> 935e40f8a1796c3b04a65811241a4fc057c6b6d6

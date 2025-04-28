@@ -92,7 +92,7 @@ const routes = [
         component: () => import('src/pages/Products/ProductsView.vue')
       },
       {
-        path: '/:name/profile',
+        path: '/:name/companie-data',
         name: 'ProfileView',
         component: () => import('src/pages/Issuer/IssuerData.vue')
       },

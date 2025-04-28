@@ -29,6 +29,8 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'trade_name' => $data['trade_name'],
                 'cnpj' => $data['cnpj'],
                 'cpf' => $data['cpf'],
+                'date_of_foundation' => $data['date_of_foundation'],
+                'main_activity' => $data['main_activity'],
                 'owner_id' => $owner->id,
             ]);
 

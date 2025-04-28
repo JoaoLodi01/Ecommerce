@@ -104,17 +104,10 @@
                 console.log(this.clientsData.name)
                 if (this.clientsData.name.length > 0 && this.fillter) {
                     try {
-<<<<<<< HEAD
-                    const response = await api.post(`/customers/search/${LocalStorage.getItem("issuer_id")}`, {
-                        fillter: this.fillter,
-                        search: this.clientsData.name
-                    });
-=======
                         const response = await api.post('/customers/search', {
                             fillter: this.fillter,
                             search: this.clientsData.name,
                             issuer_id: LocalStorage.getItem("issuer_id")
->>>>>>> 935e40f8a1796c3b04a65811241a4fc057c6b6d6
 
                         });
                         console.log('response', response)
