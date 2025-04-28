@@ -51,7 +51,8 @@
                     label="CPF" 
                     v-model="form.cpf"
                     v-bind:mask="'###.###.###-##'"
-                    maxlength="100"
+                    maxlength="14"
+                    minlength="14"
 
                 />        
                         

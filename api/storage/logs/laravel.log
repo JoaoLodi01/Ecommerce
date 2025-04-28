@@ -138,3 +138,18 @@
 #54 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
 #55 {main}
 "} 
+[2025-04-28 17:42:20] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"11111111111","email":"gabikochem55@gmail.com","uuse_id":"l8hR6nvgZL","active":1,"created_at":"2025-04-28T17:42:17.000000Z","updated_at":"2025-04-28T17:42:17.000000Z"}  
+[2025-04-28 17:42:21] local.INFO: Passou o login, token: 1|9O4MlymSO7xewOTOYWYmQXJR9Vqutgw8y1PmFo5X5f3920af  
+[2025-04-28 17:56:12] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'cnpj' => '17089484000190',
+  'cpf' => NULL,
+  'date_of_foundation' => '2012-10-30',
+  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'uuse_id' => 'l8hR6nvgZL',
+)  
+[2025-04-28 17:56:12] local.INFO: l8hR6nvgZL  
+[2025-04-28 17:56:12] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"11111111111","email":"gabikochem55@gmail.com","uuse_id":"l8hR6nvgZL","active":1,"created_at":"2025-04-28T17:42:17.000000Z","updated_at":"2025-04-28T17:42:17.000000Z"}  
+[2025-04-28 19:13:06] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"11111111111","email":"gabikochem55@gmail.com","uuse_id":"l8hR6nvgZL","active":1,"created_at":"2025-04-28T17:42:17.000000Z","updated_at":"2025-04-28T17:42:17.000000Z"}  
+[2025-04-28 19:13:07] local.INFO: Passou o login, token: 2|lgIiJlZT4H911qGkKtGy8GeWN3wx4n0byBO9Ne4Dfcf49b60  
