@@ -870,3 +870,15 @@
 [2025-04-28 16:02:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
 [2025-04-28 16:04:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
 [2025-04-28 16:04:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-28 16:18:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:20:26] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:20:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:20:37] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:21:42] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:21:44] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:22:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:22:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:22:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:22:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:22:28] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-28 16:22:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  

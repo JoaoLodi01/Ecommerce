@@ -123,8 +123,8 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                 </svg>
-              <button @click="showPDVFn">
-                <span @click="downRow = !downRow" class="inline-flex ml-2">Vendas
+              <button @click="togglePDVMenu" class="flex items-center">
+                <span class="inline-flex ml-2">Vendas
                   <svg 
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
@@ -178,20 +178,29 @@
             </div>
 
           </li>
+          <li class="w-max">
+            <a class="ml-5 hover:text-blue-300 flex items-center" @click="toggleRegisters">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+              </svg>
+              <span class="ml-2">Cadastros</span>
+              <svg v-if="!downRowRegisters" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="mt-auto mb-auto size-4">
+                <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd" />
+              </svg> <!-- Flecha para baixo -->
+              <svg v-if="downRowRegisters" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="mt-auto mb-auto size-4">
+                <path fill-rule="evenodd" d="M8 14a.75.75 0 0 0 .75-.75V4.56l1.22 1.22a.75.75 0 1 0 1.06-1.06l-2.5-2.5a.75.75 0 0 0-1.06 0l-2.5 2.5a.75.75 0 0 0 1.06 1.06l1.22-1.22v8.69c0 .414.336.75.75.75Z" clip-rule="evenodd" />
+              </svg> <!-- Flecha para cima -->
+            </a>
+            <div v-if="">
+
+            </div>
+          </li>
           <li disabled title="EM BREVE">
             <router-link to="/hotel" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
               </svg>
               <span class="ml-2">Hotel</span>
-            </router-link>
-          </li>
-          <li title="EM BREVE">
-            <router-link to="/hotel" class="ml-5 hover:text-blue-300 flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
-              </svg>
-              <span class="ml-2">Cadastros</span>
             </router-link>
           </li>
           <li disabled title="EM BREVE">
@@ -314,6 +323,8 @@
         showFinancial: false,
         showPDV: false,
         showProfile: false,
+        showRegisters: false,
+        downRowRegisters: false,
         downRow: false,
         downRow2: false,
         downRow3: false,
@@ -344,6 +355,16 @@
       toggleSidebar() {
         this.sidebarActive = !this.sidebarActive;
         this.$emit('toggleSidebar', this.sidebarActive)
+      },
+
+      togglePDVMenu() {
+        this.showPDV = !this.showPDV;
+        this.downRow = this.showPDV;
+      },
+
+      toggleRegisters(){
+        this.showRegisters = !this.showRegisters;
+        this.downRowRegisters = this.showRegisters;
       },
 
       showFinancialFn()
