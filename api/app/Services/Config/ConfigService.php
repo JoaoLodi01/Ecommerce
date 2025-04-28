@@ -18,12 +18,12 @@ class ConfigService
     )   
     {}
 
-    public function getConfigs()
+    public function getConfigs(int $issuer_id)
     {
         return response()->json([
             'success' => true,
             'configHotel' => $this->configHotelRepository->getConfigs(),
-            'configPDV' => $this->configPDVRepository->getConfigs()
+            'configPDV' => $this->configPDVRepository->getConfigs($issuer_id)
 
         ], 200);
     }

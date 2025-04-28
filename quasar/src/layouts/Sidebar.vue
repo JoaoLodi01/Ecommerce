@@ -13,7 +13,7 @@
       <!-- Botão Sidebar-->
       <button 
         @click="toggleSidebar"
-        class="absolute top-4 right-4 p-2 delay-75 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50">
+        class="absolute top-4 right-4 p-2 delay-75 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50 mt-6">
         <span 
           v-if="!sidebarActive"
         />
@@ -30,7 +30,7 @@
       </button>
 
       <!-- Links Sidebar-->
-      <div class="sidebar-header p-4 flex">
+      <div class="sidebar-header p-4 flex mt-6">
         <img src="https://www.php.net/images/logos/php-icon-black.gif" width="" alt=""><h1 class="text-xl font-semibold ml-5 mt-0.5">{{ issuer_name }}</h1>
         
       </div>
@@ -67,14 +67,11 @@
               </svg>
               <button @click="showFinancialFn()">
                 <span @click="downRow2 = !downRow2" class="inline-flex ml-2">Financeiro
-                    <svg 
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor" 
-                    class="mt-auto mb-auto size-4"
-                    v-if="!downRow2">
-                    <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd" />
-                  </svg> <!-- Flecha pra baixo -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="mt-auto mb-auto size-4 ml-10"
+                    v-if="!downRow">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg><!-- Flecha pra baixo -->
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -125,15 +122,10 @@
                 </svg>
               <button @click="togglePDVMenu" class="flex items-center">
                 <span class="inline-flex ml-2">Vendas
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor" 
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     class="mt-auto mb-auto size-4"
-                    
-                    v-if="!downRow"
-                  >
-                    <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd" />
+                    v-if="!downRow">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg> <!-- Flecha pra baixo -->
 
                   <svg
@@ -191,9 +183,9 @@
                 <path fill-rule="evenodd" d="M8 14a.75.75 0 0 0 .75-.75V4.56l1.22 1.22a.75.75 0 1 0 1.06-1.06l-2.5-2.5a.75.75 0 0 0-1.06 0l-2.5 2.5a.75.75 0 0 0 1.06 1.06l1.22-1.22v8.69c0 .414.336.75.75.75Z" clip-rule="evenodd" />
               </svg> <!-- Flecha para cima -->
             </a>
-            <div v-if="">
+            <!-- <div v-if="">
 
-            </div>
+            </div> -->
           </li>
           <li disabled title="EM BREVE">
             <router-link to="/hotel" class="ml-5 hover:text-blue-300 flex items-center">
