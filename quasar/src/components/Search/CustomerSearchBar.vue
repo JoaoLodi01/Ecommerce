@@ -57,22 +57,22 @@
         mounted()
         {
             const getConfig = async () => {
-            try {
-                const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
-                
-                const configs = response.data.configPDV;
-                
-                if (Array.isArray(configs) && configs.length > 0 && configs[0].filter_search_customer !== undefined) {
-                this.fillter = configs[0].filter_search_customer;
-                } else {
-                console.warn('Configuração filter_search_customer não encontrada.');
-                this.fillter = null;
-                }
+                try {
+                    const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
+                    
+                    const configs = response.data.configPDV;
+                    
+                    if (Array.isArray(configs) && configs.length > 0 && configs[0].filter_search_customer !== undefined) {
+                        this.fillter = configs[0].filter_search_customer;
+                    } else {
+                        console.warn('Configuração filter_search_customer não encontrada.');
+                        this.fillter = null;
+                    }
 
-            } catch (error) {
-                console.error('Erro ao carregar configuração:', error);
-                this.fillter = null;
-            }
+                } catch (error) {
+                    console.error('Erro ao carregar configuração:', error);
+                    this.fillter = null;
+                }
             };   
             getConfig()
             
@@ -103,20 +103,24 @@
 
         methods: {
             async selectClient() {
+                console.log(this.clientsData.name)
                 if (this.clientsData.name.length > 0 && this.fillter) {
                     try {
-                    const response = await api.post('/customers/search', {
-                        fillter: this.fillter,
-                        search: this.clientsData.name
-                    });
+                        const response = await api.post('/customers/search', {
+                            fillter: this.fillter,
+                            search: this.clientsData.name,
+                            issuer_id: LocalStorage.getItem("issuer_id")
 
-                    this.clients = toRaw(response.data);
-                    typeof response.data === 'string'
-                        ? this.message = response.data
-                        : this.filterClients();
+                        });
+                        console.log('response', response)
+
+                        this.clients = toRaw(response.data);
+                        typeof response.data === 'string'
+                            ? this.message = response.data
+                            : this.filterClients();
 
                     } catch (error) {
-                    console.error('Erro ao buscar cliente:', error);
+                        console.error('Erro ao buscar cliente:', error);
                     }
                 }
             },

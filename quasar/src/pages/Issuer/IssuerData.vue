@@ -119,6 +119,7 @@
             {
                 const i = this.crtOptions.indexOf(this.form.cod_crt) + 1
                 this.form.cod_crt = i
+                
             }
         }
     }

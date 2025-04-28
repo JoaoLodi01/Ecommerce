@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Log;
 
 class ConfigPDVRepository
 {
-    public function getConfigs()
+    public function getConfigs(int $issuer_id)
     {
-        return ConfigPDV::all(); 
+        return ConfigPDV::where('issuer_id', $issuer_id)->get();
         
     }
 
@@ -27,6 +27,6 @@ class ConfigPDVRepository
             
         ]);
 
-        return $this->getConfigs();
+        return $this->getConfigs($data['issuer_id']);
     }
 }

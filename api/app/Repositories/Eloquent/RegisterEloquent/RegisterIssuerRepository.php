@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Eloquent\RegisterEloquent;
 
+use App\Models\ConfigPDV;
 use App\Models\Issuer;
 use App\Models\Owner;
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
@@ -29,6 +30,12 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'cnpj' => $data['cnpj'],
                 'cpf' => $data['cpf'],
                 'owner_id' => $owner->id,
+            ]);
+
+            ConfigPDV::create([
+                'issuer_id' => $issuer->id,
+                'filter_search' => 'Cód barras interno',
+                'filter_search_customer' => 'Padrão (cód.cliente ou nome)'
             ]);
 
             return array(
@@ -60,7 +67,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             'cep' => $data['cep']
 
         ]);
-        
+
         return $issuer;
         
     }

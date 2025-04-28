@@ -138,14 +138,17 @@
             async getDataCNPJ()
             {
                 const cnpj = this.form.cnpj.replace(/\D/g, '')
-                if(cnpj.length === 14)
+                console.log('CNPJ: ', cnpj, ' cnpj.length', cnpj.length)
+                if(cnpj.length == 14)
                 {
-                    const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
+                    console.log('API_CNPJA', process.env.API_CNPJA)
+                    const data = await axios.get(`${process.env.API_CNPJA}/${cnpj}`)
+                    console.log(data)
                     this.form.company_name = data.data.alias
                     this.form.trade_name = data.data.alias
-                    this.form.cep = data.data.address.zip
+                    /*this.form.cep = data.data.address.zip
                     this.form.address = data.data.address.street
-                    this.form.number = data.data.address.number
+                    this.form.number = data.data.address.number*/
 
                 }
                 
@@ -153,7 +156,6 @@
 
             async createIssuer()
             {
-                
                 try {
                     const response = await api.post('/registers/issuer/create', {
                         company_name: this.form.company_name,

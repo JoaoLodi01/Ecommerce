@@ -70,7 +70,7 @@
             />
             <q-input
                 type="text"
-                :model-value="totalAmountCalc"
+                
                 v-model="form.total_amount"
                 label="Valor total"
                 readonly
@@ -133,9 +133,9 @@ export default {
                 user: LocalStorage.getItem("user_name"),
                 especie: "",
                 date_register: today.format("YYYY-MM-DD"),
-                input_value: "0,00",
-                output_value: "0,00",
-                total_amount: "0,00",
+                input_value: 0,
+                output_value: 0,
+                total_amount: 0,
                 obs: "",
             },
         };
