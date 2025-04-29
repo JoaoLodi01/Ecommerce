@@ -1,7 +1,7 @@
 <template>
     <div class="text-xl">
         <header class="bg-slate-600 text-white mb-5 flex shadow-2xl">
-            <h1 class="ml-5">Bem vindo</h1>
+            <h1 class="ml-5">Bem vindo!</h1>
             <div class="ml-20 mb-auto mt-auto">
                 <span class="mr-10 cursor-pointer hover:text-gray-300">Funcionalidades</span>
                 

@@ -25,7 +25,7 @@ class RegisterIssuerRequest extends FormRequest
             'ie' => ['sometimes', 'string'],
             'im' => ['sometimes', 'string'],
             'date_of_foundation' => ['sometimes', 'date'],
-            'main_activity' => ['required', 'string'],
+            'main_activity' => ['sometimes', 'string'],
             'cod_cnae' => ['sometimes', 'integer'],
             'cnae' => ['sometimes', 'string'],
             'cod_crt' => ['sometimes', 'integer'],

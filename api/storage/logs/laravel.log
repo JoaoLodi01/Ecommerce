@@ -1,0 +1,14 @@
+[2025-04-29 10:55:57] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"jDicsPwOIm","active":1,"created_at":"2025-04-29T10:55:49.000000Z","updated_at":"2025-04-29T10:55:49.000000Z"}  
+[2025-04-29 10:55:58] local.INFO: Passou o login, token: 1|T8KsPnCmcKSpSSn4GXPtT6mf7cdX7HpljIgJFRvw186628f9  
+[2025-04-29 10:56:05] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'cnpj' => '17089484000190',
+  'cpf' => NULL,
+  'date_of_foundation' => '2012-10-30',
+  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'cod_crt' => 4751201,
+  'uuse_id' => 'jDicsPwOIm',
+)  
+[2025-04-29 10:56:05] local.INFO: jDicsPwOIm  
+[2025-04-29 10:56:05] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"jDicsPwOIm","active":1,"created_at":"2025-04-29T10:55:49.000000Z","updated_at":"2025-04-29T10:55:49.000000Z"}  
