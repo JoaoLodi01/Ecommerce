@@ -224,3 +224,162 @@
   'im' => '1',
 )  
 [2025-04-29 11:04:59] local.INFO: $firstSteps {"id":1,"issuer_id":1,"complete_issuer":0,"complete_pdv":0,"complete_customers":0,"complete_products":0,"created_at":"2025-04-29T11:04:32.000000Z","updated_at":"2025-04-29T11:04:32.000000Z"}  
+[2025-04-29 11:10:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-29 11:10:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 11:10:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 11:17:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 11:18:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-29 11:18:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 11:26:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-29 11:30:36] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-29 12:14:36] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-29 12:16:43] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-29 12:17:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-29 12:17:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-29 12:18:30] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-04-29 14:03:02] local.INFO: owner {"id":2,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"A2SsbSE5E9","active":1,"created_at":"2025-04-29T14:02:54.000000Z","updated_at":"2025-04-29T14:02:54.000000Z"}  
+[2025-04-29 14:03:02] local.INFO: Passou o login, token: 2|AOtpZ18fRJpU8Oj7HCsBX8C18e87bMiky8JSjLrAef542ba4  
+[2025-04-29 14:03:09] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'cnpj' => '17089484000190',
+  'cpf' => NULL,
+  'date_of_foundation' => '2012-10-30',
+  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'cod_crt' => 4751201,
+  'uuse_id' => 'A2SsbSE5E9',
+)  
+[2025-04-29 14:03:09] local.INFO: A2SsbSE5E9  
+[2025-04-29 14:03:09] local.INFO: $owner {"id":2,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"A2SsbSE5E9","active":1,"created_at":"2025-04-29T14:02:54.000000Z","updated_at":"2025-04-29T14:02:54.000000Z"}  
+[2025-04-29 14:03:09] local.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '17089484000190' for key 'issuers_cnpj_unique' (Connection: mariadb, SQL: insert into `issuers` (`company_name`, `trade_name`, `cnpj`, `cpf`, `date_of_foundation`, `main_activity`, `owner_id`, `updated_at`, `created_at`) values (Sgbr Sistemas, Sgbr Sistemas, 17089484000190, ?, 2012-10-30, Comércio varejista especializado de equipamentos e suprimentos de informática, 2, 2025-04-29 14:03:09, 2025-04-29 14:03:09)) {"exception":"[object] (Illuminate\\Database\\UniqueConstraintViolationException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '17089484000190' for key 'issuers_cnpj_unique' (Connection: mariadb, SQL: insert into `issuers` (`company_name`, `trade_name`, `cnpj`, `cpf`, `date_of_foundation`, `main_activity`, `owner_id`, `updated_at`, `created_at`) values (Sgbr Sistemas, Sgbr Sistemas, 17089484000190, ?, 2012-10-30, Comércio varejista especializado de equipamentos e suprimentos de informática, 2, 2025-04-29 14:03:09, 2025-04-29 14:03:09)) at C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:820)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2120): Illuminate\\Database\\Query\\Builder->insertGetId()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1128): Illuminate\\Database\\Eloquent\\Model->save()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->{closure:Illuminate\\Database\\Eloquent\\Builder::create():1127}()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1127): tap()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2372): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2384): Illuminate\\Database\\Eloquent\\Model->__call()
+#14 C:\\Code\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\RegisterEloquent\\RegisterIssuerRepository.php(28): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#15 C:\\Code\\ProjetoWeb\\api\\app\\Services\\RegisterService\\RegisterIssuerService.php(26): App\\Repositories\\Eloquent\\RegisterEloquent\\RegisterIssuerRepository->create()
+#16 C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\RegisterControllers\\RegisterIssuerController.php(26): App\\Services\\RegisterService\\RegisterIssuerService->create()
+#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\RegisterControllers\\RegisterIssuerController->create()
+#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#38 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#39 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#40 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#41 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#42 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#43 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#44 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#45 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#46 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#47 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#48 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#49 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#50 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#51 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#52 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#53 {main}
+
+[previous exception] [object] (PDOException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '17089484000190' for key 'issuers_cnpj_unique' at C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php:53)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(53): PDOStatement->execute()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\MySqlConnection->{closure:Illuminate\\Database\\MySqlConnection::insert():42}()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2120): Illuminate\\Database\\Query\\Builder->insertGetId()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1128): Illuminate\\Database\\Eloquent\\Model->save()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->{closure:Illuminate\\Database\\Eloquent\\Builder::create():1127}()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1127): tap()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2372): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2384): Illuminate\\Database\\Eloquent\\Model->__call()
+#16 C:\\Code\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\RegisterEloquent\\RegisterIssuerRepository.php(28): Illuminate\\Database\\Eloquent\\Model::__callStatic()
+#17 C:\\Code\\ProjetoWeb\\api\\app\\Services\\RegisterService\\RegisterIssuerService.php(26): App\\Repositories\\Eloquent\\RegisterEloquent\\RegisterIssuerRepository->create()
+#18 C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\RegisterControllers\\RegisterIssuerController.php(26): App\\Services\\RegisterService\\RegisterIssuerService->create()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\RegisterControllers\\RegisterIssuerController->create()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#38 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#39 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#40 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#41 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#42 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#43 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#44 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#45 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#46 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#47 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#48 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#49 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#50 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#51 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#52 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#53 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#54 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#55 {main}
+"} 
+[2025-04-29 14:03:21] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'cnpj' => '17089484000191',
+  'cpf' => NULL,
+  'date_of_foundation' => '2012-10-30',
+  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'cod_crt' => 4751201,
+  'uuse_id' => 'A2SsbSE5E9',
+)  
+[2025-04-29 14:03:21] local.INFO: A2SsbSE5E9  
+[2025-04-29 14:03:21] local.INFO: $owner {"id":2,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"A2SsbSE5E9","active":1,"created_at":"2025-04-29T14:02:54.000000Z","updated_at":"2025-04-29T14:02:54.000000Z"}  
+[2025-04-29 16:14:46] local.INFO: owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"zXMAlitGFM","active":1,"created_at":"2025-04-29T11:04:05.000000Z","updated_at":"2025-04-29T11:04:05.000000Z"}  
+[2025-04-29 16:14:47] local.INFO: Passou o login, token: 3|Et9gcb75UjMOkZEjJY3VLGwUJj6CdpFkVH6zFidNa01848f9  
+[2025-04-29 16:20:57] local.INFO: owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"zXMAlitGFM","active":1,"created_at":"2025-04-29T11:04:05.000000Z","updated_at":"2025-04-29T11:04:05.000000Z"}  
+[2025-04-29 16:20:57] local.INFO: Passou o login, token: 4|JXAFuhoCwvMbvFf3gFyD1QSxYSJJdDTiR1REAvhI57fa88b6  
