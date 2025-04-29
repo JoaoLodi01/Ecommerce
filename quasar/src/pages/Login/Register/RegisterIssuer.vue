@@ -73,23 +73,13 @@
                 /> 
                 
                 <q-btn 
-                    @click=showLoading 
                     type="submit"
-                    label="Criar conta"
+                    label="Criar Empresa"
                     class="m-2"
                     flat 
                     style="color: #1F2937"   
                 />
-                
-                <router-link to="/login">
-                    <q-btn
-                        type="button"
-                        class="m-2"
-                        flat 
-                        style="color: #1F2937"   
-                        label="Já possui uma conta?"
-                    />
-                </router-link>
+            
                 
             </q-form>
             
@@ -169,7 +159,7 @@
 
             async createIssuer()
             {
-                console.log(this.form)
+                this.showLoading()
                 try {
                     const response = await api.post('/registers/issuer/create', {
                         company_name: this.form.company_name,

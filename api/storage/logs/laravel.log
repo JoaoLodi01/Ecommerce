@@ -1,362 +1,492 @@
-[2025-04-29 17:05:46] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:06:04] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:06:06] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:06:11] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:06:19] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:06:33] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:06:43] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:06:57] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:06:58] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:07:07] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:07:09] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:08:12] local.INFO: findByID . 1 type: string  
-[2025-04-29 17:10:40] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"rgrgfrkgmr","cod_cnae":2332535635,"cnae":"rgrgfrkgmr","cod_crt":5,"crt":"MEI","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-04-29T16:38:51.000000Z","updated_at":"2025-04-29T16:55:30.000000Z"}  
-[2025-04-29 17:12:07] local.INFO: array (
-  'company_name' => 'GABRIEL LTDA',
-  'trade_name' => 'GABRIEL LTDA',
-  'cnpj' => NULL,
-  'cpf' => '11111111111',
-  'main_activity' => NULL,
-  'cod_crt' => NULL,
-  'date_of_foundation' => '2006-12-09',
-  'uuse_id' => 'MCnBe9x1g9',
+[2025-04-29 20:15:33] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-29 20:15:33] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:15:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-29 20:15:34] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:15:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:15:35] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:18:49] local.INFO: Controller  
+[2025-04-29 20:18:49] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
 )  
-[2025-04-29 17:12:07] local.INFO: MCnBe9x1g9  
-[2025-04-29 17:12:07] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"MCnBe9x1g9","active":1,"created_at":"2025-04-29T16:33:52.000000Z","updated_at":"2025-04-29T16:33:52.000000Z"}  
-[2025-04-29 17:12:14] local.INFO: ProductsRepository: getAll: 2 issuer: {"id":2,"company_name":"GABRIEL LTDA","trade_name":"GABRIEL LTDA","cnpj":null,"cpf":"11111111111","uf":null,"address":null,"number":null,"cep":null,"ie":null,"im":null,"main_activity":null,"cod_cnae":null,"cnae":null,"cod_crt":null,"crt":null,"date_of_foundation":"2006-12-09","owner_id":1,"active":1,"created_at":"2025-04-29T17:12:07.000000Z","updated_at":"2025-04-29T17:12:07.000000Z"}  
-[2025-04-29 17:12:33] local.INFO: Data  
-[2025-04-29 17:12:33] local.INFO: array (
-  'issuer_id' => '2',
-  'product' => 'Teste',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '49',
-  'cost_price' => '10',
-  'sale_price' => '20',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
+[2025-04-29 20:18:49] local.INFO: -- Vai começar a busca --  
+[2025-04-29 20:18:49] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-29 20:18:51] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-29 20:18:51] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-29 20:18:51] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-29 20:18:51] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-29 20:18:51] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-29 20:18:51] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-29 20:18:51] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-29 20:18:51] local.INFO: array (
+  'issuer_id' => 4,
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product_code' => 1,
+        'issuer_id' => 1,
+        'product' => 'Produto Teste',
+        'barcode' => '11111111111111',
+        'barcode_internal' => '1111111111111111',
+        'image' => 'null',
+        'group_id' => NULL,
+        'group' => NULL,
+        'amount' => 1,
+        'cost_price' => '100.00',
+        'sale_price' => '200.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '11111111',
+        'cest' => '1111111',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 200,
+  'sub_total' => 200,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-29 20:18:51] local.INFO: array (
+  'issuer_id' => 4,
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-04-29',
+  'cliente_id' => 1,
+  'client' => 'Teste',
+  'gross_value' => 200,
+  'net_value' => 200,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Gabriel',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-04-29 20:18:51] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-29 20:18:51] local.INFO: $iPDV  
+[2025-04-29 20:18:51] local.INFO: 0  
+[2025-04-29 20:18:51] local.INFO: Save sale  
+[2025-04-29 20:18:51] local.INFO: array (
+  'success' => true,
+  'pdvID' => 3,
+)  
+[2025-04-29 20:18:52] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-29 20:18:59] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-29 20:18:59] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-29 20:18:59] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-29 20:18:59] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-29 20:18:59] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-29 20:20:19] local.INFO: owner   
+[2025-04-29 20:20:32] local.INFO: owner   
+[2025-04-29 20:20:50] local.INFO: owner   
+[2025-04-29 20:20:54] local.INFO: owner   
+[2025-04-29 20:23:54] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-29 20:24:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-29 20:24:01] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:24:02] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-29 20:24:02] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:24:03] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:24:03] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:24:03] local.INFO: Controller  
+[2025-04-29 20:24:03] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-29 20:24:03] local.INFO: -- Vai começar a busca --  
+[2025-04-29 20:24:03] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-29 20:24:06] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-29 20:27:26] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:27:26] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:27:27] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:27:27] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:27:27] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:27:27] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:27:30] local.INFO: Controller  
+[2025-04-29 20:27:30] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-29 20:27:30] local.INFO: -- Vai começar a busca --  
+[2025-04-29 20:27:30] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-29 20:27:33] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-29 20:27:51] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-29 20:27:51] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:27:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-29 20:27:52] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:27:52] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:27:52] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:28:01] local.INFO: Controller  
+[2025-04-29 20:28:01] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-29 20:28:01] local.INFO: -- Vai começar a busca --  
+[2025-04-29 20:28:01] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+)  
+[2025-04-29 20:28:03] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-29 20:28:03] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-29 20:28:04] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-29 20:28:04] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-29 20:28:04] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-29 20:28:04] local.INFO: Memória usada PDVController::class, saveSale: 23068672  
+[2025-04-29 20:28:04] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-04-29 20:28:04] local.INFO: array (
+  'issuer_id' => 4,
+  'description' => 'Venda NFC-e N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product_code' => 1,
+        'issuer_id' => 1,
+        'product' => 'Produto Teste',
+        'barcode' => '11111111111111',
+        'barcode_internal' => '1111111111111111',
+        'image' => 'null',
+        'group_id' => NULL,
+        'group' => NULL,
+        'amount' => 1,
+        'cost_price' => '100.00',
+        'sale_price' => '200.00',
+        'profit_percentage' => '100.00',
+        'cfop' => '5102',
+        'csosncst' => '102',
+        'ncm' => '11111111',
+        'cest' => '1111111',
+        'unit' => 'UN',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 200,
+  'sub_total' => 200,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-29 20:28:04] local.INFO: array (
+  'issuer_id' => 4,
+  'description' => 'Venda NFC-e N°',
+  'issue_date' => '2025-04-29',
+  'cliente_id' => 1,
+  'client' => 'Teste',
+  'gross_value' => 200,
+  'net_value' => 200,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'Gabriel',
+  'is_nfce_nm' => 'nfce',
+)  
+[2025-04-29 20:28:04] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-04-29 20:28:04] local.INFO: -- Iniciou o NFCeValidation() --  
+[2025-04-29 20:28:04] local.INFO: Produtos NFCeValidation  
+[2025-04-29 20:28:04] local.INFO: array (
+  'issuer_id' => 1,
+  'pdv_id' => 4,
+  'product_id' => 1,
+  'product' => 'Produto Teste',
+  'cost_price' => '100.00',
+  'sale_price' => '200.00',
+  'cfop' => '5102',
+  'csosn' => '102',
   'ncm' => '11111111',
   'cest' => '1111111',
   'unit' => 'UN',
+  'amount' => 1,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'seller' => 'Gabriel',
 )  
-[2025-04-29 17:12:33] local.INFO: data  
-[2025-04-29 17:12:33] local.INFO: array (
-  'issuer_id' => '2',
-  'product' => 'Teste',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '49',
-  'cost_price' => '10',
-  'sale_price' => '20',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '11111111',
-  'cest' => '1111111',
-  'unit' => 'UN',
+[2025-04-29 20:28:04] local.INFO: Quantia de errors: 0  
+[2025-04-29 20:28:04] local.INFO: $nfceValidationRes = $this->nfceValidation->validation($itensPDV); {"nfceValidation":{"cfopValidate":true,"csosnValidate":true,"errors":[]}} 
+[2025-04-29 20:28:04] local.INFO: CFOP e CSOSN/CST válidos  
+[2025-04-29 20:28:04] local.INFO: $iPDV  
+[2025-04-29 20:28:04] local.INFO: 0  
+[2025-04-29 20:28:04] local.INFO: Save sale  
+[2025-04-29 20:28:04] local.INFO: array (
+  'success' => true,
+  'pdvID' => 4,
 )  
-[2025-04-29 17:13:47] local.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'barcode' doesn't exist in table (Connection: mariadb, SQL: alter table `products` add unique `14`(`issuer_id`, `barcode`)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'barcode' doesn't exist in table (Connection: mariadb, SQL: alter table `products` add unique `14`(`issuer_id`, `barcode`)) at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\migrations\\2025_01_24_165608_create_products_table.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#45 {main}
-
-[previous exception] [object] (PDOException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'barcode' doesn't exist in table at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\migrations\\2025_01_24_165608_create_products_table.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#45 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#46 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#47 {main}
-"} 
-[2025-04-29 17:13:54] local.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'barcode' doesn't exist in table (Connection: mariadb, SQL: alter table `products` add unique `products_issuer_id_barcode_unique`(`issuer_id`, `barcode`)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'barcode' doesn't exist in table (Connection: mariadb, SQL: alter table `products` add unique `products_issuer_id_barcode_unique`(`issuer_id`, `barcode`)) at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\migrations\\2025_01_24_165608_create_products_table.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#45 {main}
-
-[previous exception] [object] (PDOException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'barcode' doesn't exist in table at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\migrations\\2025_01_24_165608_create_products_table.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#45 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#46 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#47 {main}
-"} 
-[2025-04-29 17:14:10] local.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'barcode' doesn't exist in table (Connection: mariadb, SQL: alter table `products` add unique `products_issuer_id_barcode_unique`(`issuer_id`, `barcode`)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'barcode' doesn't exist in table (Connection: mariadb, SQL: alter table `products` add unique `products_issuer_id_barcode_unique`(`issuer_id`, `barcode`)) at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\migrations\\2025_01_24_165608_create_products_table.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#45 {main}
-
-[previous exception] [object] (PDOException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'barcode' doesn't exist in table at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\database\\migrations\\2025_01_24_165608_create_products_table.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
-#38 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
-#39 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
-#40 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
-#41 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
-#42 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
-#43 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
-#44 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
-#45 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
-#46 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
-#47 {main}
-"} 
+[2025-04-29 20:28:04] local.INFO: Buscando todas as espécies na table: payments  
+[2025-04-29 20:28:39] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-04-29 20:28:39] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 21: 23068672  
+[2025-04-29 20:28:39] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-04-29 20:28:39] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-04-29 20:28:39] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-04-29 20:28:39] local.INFO: Dados recebidos no: PDVController finalizeSale  
+[2025-04-29 20:28:39] local.INFO: array (
+  'type_operation' => 'nfce',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => 200,
+  ),
+  'pdv_id' => 4,
+)  
+[2025-04-29 20:28:39] local.INFO: PDVService.php, class:finalizeSale, $total: 200  
+[2025-04-29 20:28:39] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-04-29 20:28:39] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-04-29 20:28:39] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-04-29 20:28:39] local.INFO: Buscando a espécie pelo ID.  
+[2025-04-29 20:28:39] local.INFO: $result  
+[2025-04-29 20:28:39] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'issuer_id' => 4,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-29 19:44:07',
+      'updated_at' => '2025-04-29 19:44:07',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'issuer_id' => 4,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-29 19:44:07',
+      'updated_at' => '2025-04-29 19:44:07',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'issuer_id',
+      1 => 'especie',
+      2 => 'tipo_lancamento',
+      3 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-29 20:28:39] local.INFO: Vai conferir se o $total: R$ 200 é maior que o $pdv->net_value, R$200.00  
+[2025-04-29 20:28:39] local.INFO: Foi maior  
+[2025-04-29 20:28:39] local.INFO: nfce  
+[2025-04-29 20:28:39] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --  
+[2025-04-29 20:28:39] local.INFO: $paymentValues  
+[2025-04-29 20:28:39] local.INFO: array (
+  0 => 200,
+)  
+[2025-04-29 20:28:39] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-04-29 20:28:39] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-04-29 20:28:39] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-04-29 20:28:39] local.INFO: forms  
+[2025-04-29 20:28:39] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\Payment::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'issuer_id' => 4,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-29 19:44:07',
+      'updated_at' => '2025-04-29 19:44:07',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'issuer_id' => 4,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-04-29 19:44:07',
+      'updated_at' => '2025-04-29 19:44:07',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'issuer_id',
+      1 => 'especie',
+      2 => 'tipo_lancamento',
+      3 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-04-29 20:28:39] local.INFO: ID linha 120 - : {"id":1,"issuer_id":4,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-29 20:28:39] local.INFO: paymentValues linha 124 - : 200  
+[2025-04-29 20:28:39] local.INFO: Vai conferir os tipos de lançamento  
+[2025-04-29 20:28:39] local.INFO: $form->tipo_lancamento  
+[2025-04-29 20:28:39] local.INFO: {"id":1,"issuer_id":4,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-04-29 20:28:39] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-04-29 20:28:39] local.INFO: Dados:   
+[2025-04-29 20:28:39] local.INFO: array (
+  0 => 
+  array (
+    'description' => 'Venda NFC-e N° 4',
+    'document' => 4,
+    'pdv_id' => 4,
+    'customer_id' => 1,
+    'name' => 'Teste',
+    'especie_id' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-04-29',
+    'input_value' => 200,
+    'output_value' => 0,
+    'real_balance' => 200,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-04-29 20:28:39] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-04-29 20:28:39] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-04-29 20:28:39] local.INFO: Memória usada CashRegisterRepository::class, create: 25165824  
+[2025-04-29 20:28:39] local.INFO: Vai criar 1 registro:   
+[2025-04-29 20:28:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:28:58] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:29:00] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:29:00] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:29:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-29 20:29:00] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:39:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:39:07] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:39:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-29 20:39:08] local.INFO: ConfigController: $issuer_id 4  
+[2025-04-29 20:39:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-29 20:39:09] local.INFO: ConfigController: $issuer_id 4  

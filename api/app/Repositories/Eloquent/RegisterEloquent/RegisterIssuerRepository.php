@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent\RegisterEloquent;
 
 use App\Models\ConfigPDV;
+use App\Models\EcommerceModels\Payment;
 use App\Models\FirstSteps;
 use App\Models\Issuer;
 use App\Models\Owner;
@@ -34,6 +35,39 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'main_activity' => $data['main_activity'],
                 'owner_id' => $owner->id,
             ]);
+
+            $payments = [
+                [
+                    "issuer_id" => $issuer->id,
+                    "especie" => "Dinheiro",
+                    "tipo_lancamento" => "Caixa",
+                ],
+                [
+                    "issuer_id" => $issuer->id,
+                    "especie" => "PIX",
+                    "tipo_lancamento" => "Caixa",
+                ],
+                [
+                    "issuer_id" => $issuer->id,
+                    "especie" => "Boleto",
+                    "tipo_lancamento" => "Receber",
+                ],
+                [
+                    "issuer_id" => $issuer->id,
+                    "especie" => "Cartão de Crédito",
+                    "tipo_lancamento" => "Caixa",
+                ],
+                [
+                    "issuer_id" => $issuer->id,
+                    "especie" => "Cartão de Débito",
+                    "tipo_lancamento" => "Receber",
+                ],
+                
+            ];
+    
+            foreach($payments as $payment){
+                Payment::create($payment);
+            }
 
             ConfigPDV::create([
                 'issuer_id' => $issuer->id,

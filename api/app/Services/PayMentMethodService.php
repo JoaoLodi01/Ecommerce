@@ -25,7 +25,8 @@ class PayMentMethodService
         object $customer, 
         string $description, 
         string $origem, 
-        object $pdv
+        object $pdv,
+        string|int $issuerID
     )
     {   // Método para ser adicioando ao caixa                
         Log::info('-- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --');
@@ -56,6 +57,7 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
+                                'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
                                 'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
@@ -80,6 +82,7 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Receber')
                         {
                             $bodyCash = array(
+                                'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->id" : "Parcelamento Venda Nota Manual 
                                 N° $pdv->id",
                                 'document' => $pdv->id,
@@ -156,6 +159,7 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
+                                'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual 
                                 N° $pdv->id",
                                 'document' => $pdv->id,
@@ -179,6 +183,7 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Receber')
                         {
                             $bodyCash = array(
+                                'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->id" : "Parcelamento Venda Nota Manual 
                                 N° $pdv->id",
                                 'document' => $pdv->id,
@@ -237,13 +242,14 @@ class PayMentMethodService
         );  
     }    
 
-    public function decreaseCash(object $customer, float $value, string $description, string $origem)
+    public function decreaseCash(object $customer, float $value, string $description, string $origem, string|int $issuerID)
     {
         Log::info('-- Inicio decreaseCash --');
         Log::info('Memória usada PayMentMethodService::class, decreaseCash: ' . memory_get_usage(true));
         $currentDate = new Carbon();
         $cashRegisters = [];
         $cashRegisters[] = [
+            'issuer_id' => $issuerID,
             'description' => $description,
             'document' => 1,
             'customer_id' => $customer->id,

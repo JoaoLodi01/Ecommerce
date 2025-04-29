@@ -94,6 +94,7 @@ class PDVRepository
         foreach ($products as $product) {
             for ($i=0; $i < count($product); $i++) { 
                 $itensPDV = array(
+                    'issuer_id' =>  $product[$i]['issuer_id'],
                     'pdv_id' => $pdvID,
                     'product_id' => $product[$i]['id'],
                     'product' => $product[$i]['product'],
@@ -159,6 +160,7 @@ class PDVRepository
         $currentDate = new Carbon();
                   
         $pdvData = array(
+            'issuer_id' => $details['issuer_id'],
             'description' => $details['description'],
             'issue_date' => $currentDate->format('Y-m-d'),
             'cliente_id' => $customer->id,
@@ -219,7 +221,7 @@ class PDVRepository
             Log::info('Foi maior');
             Log::info($pdv->is_nfce_nm);
             
-            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, [1]);
+            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, 1);
             Log::info('payMentMethodService');
             Log::info($payMentMethodService);
 

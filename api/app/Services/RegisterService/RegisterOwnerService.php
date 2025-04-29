@@ -15,7 +15,7 @@ class RegisterOwnerService
     {
         try {
             $owner = $this->registerOwnerRepository->create($data);
-            $this->savePassword($owner->email, $owner->password, $owner->uuse_id);
+            $this->savePassword($owner->email, $data['password'], $owner->uuse_id);
 
             return response()->json([
                 'success' => true,

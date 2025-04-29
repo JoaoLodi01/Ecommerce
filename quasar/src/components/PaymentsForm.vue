@@ -258,7 +258,7 @@ export default {
 
         async getPayments() {
             try {
-                const response = await api.get('/ecommerce/payments/all');
+                const response = await api.get(`/ecommerce/payments/all/${LocalStorage.getItem("issuer_id")}`);
                 this.paymentsForms = response.data;
                 
             } catch (error) {
@@ -286,6 +286,7 @@ export default {
                 return;
             }
 
+            console.log('pdvID: ', this.pdvID)
             try {
                 console.log('payments_values', this.paymentsValues)
                 switch (this.typeOperation) {

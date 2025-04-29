@@ -260,7 +260,7 @@
                     {
                         if(this.form.password_ !== this.form.password)
                         {
-                            this.messages.push('As senhas não iguais!')
+                            this.messages.push('As senhas não são iguais!')
                             return false
     
                         } else {

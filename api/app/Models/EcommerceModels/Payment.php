@@ -9,6 +9,7 @@ class Payment extends Model
     protected $table = 'payments';
 
     protected $fillable = [
+        'issuer_id',
         'especie',
         'tipo_lancamento',
         'active',

@@ -9,6 +9,7 @@ class PDV extends Model
     protected $table = 'pdvs';
 
     protected $fillable = [
+        'issuer_id',
         'description',
         'issue_date',
         'n_nfce',

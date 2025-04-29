@@ -90,7 +90,12 @@ class ProductsRepository
 
         $data['group_id'] ? $group = $this->groupRepository->findByID($data['group_id']) : null;
 
+        $maxCode = Products::where('issuer_id', $data['issuer_id'])->max('product_code');
+        $productCode = $maxCode ? $maxCode + 1 : 1;
+        
+        Log::info('$productCode ' . $productCode);
         return Products::create([
+            'product_code' => $productCode,
             'issuer_id' => (int) $data['issuer_id'],
             'product' => $data['product'],
             'image' => $data['image'],

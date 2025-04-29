@@ -688,6 +688,7 @@
                             if(type === 'nm')   
                             { 
                                 const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                    issuer_id: LocalStorage.getItem("issuer_id"),
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
                                     customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
@@ -700,6 +701,7 @@
                                     status: 'Finalizada'
                                     
                                 })
+
                                 const data = response.data
 
                                 if(data.success)
@@ -721,6 +723,7 @@
                             if(type === 'nfce')
                             {  
                                 const response = await api.post('/ecommerce/pdv/save-sale', {
+                                    issuer_id: LocalStorage.getItem("issuer_id"),
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
                                     customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
@@ -754,6 +757,7 @@
                                
                         } else {
                             console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
+                            
                             this.showPaymentsForm = true
                             this.pdvID = LocalStorage.getItem("pdvID")
                         }

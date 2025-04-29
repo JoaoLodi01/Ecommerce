@@ -27,7 +27,7 @@ class PDVSaleRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'type_operation.required' => 'O tipo da operação é obrgitário',
+            'type_operation.required' => 'O tipo da operação é obrgitário ( NM / NFC-e )',
             'type_operation.string' => 'O tipo da operação deve ser um formato válido',
 
             'change.required' => 'O troco é obrigatório',
