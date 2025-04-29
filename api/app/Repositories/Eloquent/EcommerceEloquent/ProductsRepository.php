@@ -3,9 +3,8 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
-use App\Repositories\Contracts\EcommerceContract\Products as C;
+use App\Models\Issuer;
 use Illuminate\Support\Facades\Log;
-
 class ProductsRepository 
 {
     public function __construct(
@@ -13,9 +12,11 @@ class ProductsRepository
     )
     {}
 
-    public function getAll()
+    public function getAll(int $issuer_id)
     {
-        return Products::paginate(10);
+        $issuer = Issuer::where('id', $issuer_id)->first();
+        
+        return Products::where('issuer_id', $issuer->id)->get();
     }
 
     public function search(array $data)

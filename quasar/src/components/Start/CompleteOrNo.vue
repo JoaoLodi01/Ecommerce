@@ -13,7 +13,7 @@
         props: {
             label: {
                 required: true,
-                type: String
+                type: Boolean
             }
         }
     }

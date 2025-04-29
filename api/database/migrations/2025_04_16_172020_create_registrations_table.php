@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
             $table->boolean('complete_issuer', 1)->default(0);
             $table->boolean('complete_config_customer', 1)->default(0);
             $table->boolean('complete_config_pdv', 1)->default(0);

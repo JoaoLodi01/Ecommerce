@@ -26,31 +26,32 @@
             />
 
             <q-input 
+                v-model="form.cnpj" 
+                v-bind:mask="'##.###.###/####-##'"
+                @vue:updated="getDataApis()"
+                maxlength="18"
+                type="text" 
+                label="CNPJ"                 
+                color="grey-7"
+
+            />
+
+            <q-input 
                 v-model="form.cpf" 
-                @update:modelValue="formatCPF"
+                v-bind:mask="'###.###.###-##'"
+                maxlength="14"
                 type="text" 
                 label="CPF"
-                maxlength="14"
                 color="grey-7"
                 
             />
 
             <q-input 
-                v-model="form.cnpj" 
-                @update:modelValue="formatCNPJ"
-                type="text" 
-                label="CNPJ" 
-                maxlength="18"
-                color="grey-7"
-
-            />
-
-            <q-input 
                 v-model="form.cep"
-                @update:model-value="formatCEP"
+                v-bind:mask="'#####-###'"
                 type="text" 
                 label="CEP"
-                maxlength="8"
+                maxlength="9"
                 color="grey-7"
 
             />
@@ -130,8 +131,9 @@
 
 <script>
     import { api } from 'src/boot/axios';
-    import { useQuasar } from 'quasar';
+    import { LocalStorage, useQuasar } from 'quasar';
     import { onBeforeUnmount } from 'vue';
+    import axios from 'axios'
 
     export default {
         setup()
@@ -177,57 +179,12 @@
                     is_driver: false,
                     is_supplier: false,
                     phone: '',
+                    issuer_id: LocalStorage.getItem("issuer_id")
                 },
             };
         },
 
         methods: {
-            formatCPF()
-            {
-                let cpf = this.form.cpf.replace(/\D/g, '')
-
-                if(cpf.length > 11)
-                {
-                    cpf = cpf.substring(0, 11)
-
-                }
-                this.form.cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-
-            },
-
-            formatCNPJ()
-            {
-                let cnpj = this.form.cnpj.replace(/\D/g, '')
-
-                if(cnpj.length > 14)
-                {
-                    cnpj = cnpj.substring(0, 11)
-
-                }
-                this.form.cnpj = cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
-
-            },
-
-            formatCEP() {
-                let cep = this.form.cep.replace(/\D/g, ''); 
-
-                if (cep.length > 8) {
-                    cep = cep.substring(0, 8);
-                }
-
-                this.form.cep = cep.replace(/(\d{5})(\d{3})/, '$1-$2');
-            },
-
-            formatPhone() {
-                let phone = this.form.phone.replace(/\D/g, ''); 
-
-                if (phone.length > 14) {
-                    phone = phone.substring(0, 8);
-                }
-
-                this.form.phone = phone.replace(/(\d{2})(\d{3})/, '$1-$2');
-            },
-
             async submitForm() {
                 try {
                     this.form.cpf = this.form.cpf.replace(/\D/g, '')
@@ -248,6 +205,18 @@
                     alert("Ocorreu um erro ao cadastrar o cliente.");
                     console.error('Erro', error)
                 }
+            },
+
+            async getDataApis()
+            {
+                const cnpj = this.form.cnpj.replace(/\D/g, '')
+                if(cnpj.length === 14)
+                {
+                    console.log('aaa')
+                    const data = await axios.get(`${process.env.API_CNPJA}/${cnpj}`);
+                    console.log(data)
+                }
+
             },
 
             onReset()
@@ -276,6 +245,8 @@
 
         emits: [
             'close'
-        ]
+        ],
+
+        
     };
 </script>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\CustomerService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Customers\{
@@ -19,14 +18,13 @@ class CustomerController extends Controller
     )
     {}
 
-    public function getAll(){
-        return $this->customerService->getAll();
-        
+    public function getAll(int $issuer_id){
+        return $this->customerService->getAll($issuer_id);
+   
     }
 
     public function search(SearchCustomer $request){
         $data = $request->validated();
-        Log::info($data);
         return $this->customerService->search($data);
     }
 
@@ -35,6 +33,7 @@ class CustomerController extends Controller
         Log::info('Dados recebidos: ');
         Log::info($data);
         return $this->customerService->create($data);
+        
     }
 
     public function findByID(int $id){

@@ -1,23 +1,22 @@
 <template>
-    <div class="container mx-auto mt-12 p-6 ml-16 bg-white rounded-xl shadow ">
-
+    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>
             <div class="flex space-x-4">
-                <q-btn class="bg-slate-600 text-white p-2 rounded-lg">
+                <q-btn class="bg-blue-500 text-white p-2 rounded-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
                     </svg>
                 </q-btn>
 
                 <q-btn
-                    class="bg-slate-600 text-white p-1 mr-5 rounded-lg"
+                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
                     @click="showRegister()"
                     label="Cadastrar"
                 />
 
                 <q-btn
-                    class="bg-slate-600 text-white p-1 mr-5 rounded-lg"
+                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
                     @click="getRegister()"
                     label="Atualizar receber"
 
@@ -43,7 +42,7 @@
             />
 
             <q-btn
-                class="bg-slate-600 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                class="bg-blue-500 hover:bg-blue-400 transition text-white ml-5 h-max mb-auto mt-auto rounded-lg"
                 label="Filtrar"
                 @click="dateSearch()"
             />
@@ -97,7 +96,7 @@
             v-if="showReceiveClosing"
             class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
 
-            <div class="bg-white rounded-xl shadow-xl">
+            <div class="bg-white border border-black rounded-xl">
                 <RegisterReceive 
                     @close="closeRegister($event)"
                     :width-screen="withScreen"
@@ -207,50 +206,50 @@
 </script>
 
 <style scoped>
-.container {
-    max-width: 85%;
-    width: 100%;
-    height: 90vh;
-}
+    .container {
+        max-width: 85%;
+        width: 100%;
+        height: 90vh;
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-thead {
-    background-color: #f3f4f6;
-}
-
-tbody tr:hover {
-    background-color: #f9fafb;
-}
-
-th, td {
-    padding: 0.75rem;
-    text-align: left;
-}
-
-th {
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-button {
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #4b5563;
-}
-
-@media (max-width: 768px) {
     table {
-        font-size: 0.875rem;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead {
+        background-color: #f3f4f6;
+    }
+
+    tbody tr:hover {
+        background-color: #f9fafb;
     }
 
     th, td {
-        padding: 0.5rem;
+        padding: 0.75rem;
+        text-align: left;
     }
-}
+
+    th {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    button {
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #4b5563;
+    }
+
+    @media (max-width: 768px) {
+        table {
+            font-size: 0.875rem;
+        }
+
+        th, td {
+            padding: 0.5rem;
+        }
+    }
 </style>

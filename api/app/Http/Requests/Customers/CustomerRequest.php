@@ -21,9 +21,10 @@ class CustomerRequest extends FormRequest
     {
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
+            'issuer_id' => ['required'],
             'name' => [$required, 'string', 'max:120'],
-            'cpf' => ['nullable', 'required_without:cnpj'],
-            'cnpj' => ['nullable', 'required_without:cpf'],
+            'cpf' => ['nullable', 'required_without:cnpj', 'unique:customers,cpf'],
+            'cnpj' => ['nullable', 'required_without:cpf', 'unique:customers,cnpj'],
             'cep' => [$required],
             'address' => [$required],
             'number' => [$required],

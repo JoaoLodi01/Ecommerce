@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 56f3b208c50c0c2ed3d0bc2a7abf20969efb8366
 <?php $__env->startSection('title', __('Page Expired')); ?>
 <?php $__env->startSection('code', '419'); ?>
 <?php $__env->startSection('message', __('Page Expired')); ?>
 
-<<<<<<< HEAD
-<?php echo $__env->make('errors::minimal', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/419.blade.php ENDPATH**/ ?>
-=======
 <?php echo $__env->make('errors::minimal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/419.blade.php ENDPATH**/ ?>
->>>>>>> 56f3b208c50c0c2ed3d0bc2a7abf20969efb8366

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('config_pdvs', function (Blueprint $table) {
             $table->id();
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
             $table->string('filter_search', 40)->default('');
             $table->string('filter_search_customer', 40)->default('');
             $table->boolean('nm_finaly', 1)->default(1);

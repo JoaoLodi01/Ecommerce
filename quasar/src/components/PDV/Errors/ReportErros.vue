@@ -1,14 +1,17 @@
 <template>
     <div class="mt-4">
-        <q-btn 
-            color="primary" 
-            icon="close"
-            @click="close()" 
-        />
-        <h1>Relatório de erros</h1>
+        <div class="mb-5 flex justify-between">
+            <h2>Relatório de erros</h2>
+            <q-btn 
+                color="primary" 
+                icon="close"
+                @click="close()" 
+            />
 
-        <table class="min-w-full table-auto border-collapse border border-gray-200">
-            <thead class="bg-gray-100">
+        </div>
+        
+        <table class=" table-auto border-collapse border border-gray-200 bg-white">
+            <thead>
                 <tr>
                     <th scope="col" class="px-6 py-3">Status</th>
                     <th scope="col" class="px-6 py-3">Titulo</th>
@@ -20,7 +23,7 @@
             </thead>
 
             <tbody>
-                <tr class="border border-b-black" v-for="error in errors">
+                <tr class="border border-b-black " v-for="error in errors">
                     <td 
                         scope="row" 
                         class="px-6 py-3 right-0 bg-gray-200"
@@ -31,10 +34,10 @@
                     >
                         {{ error.completed === 1 ? 'Resolvido' : 'Pendente' }}
                     </td>
-                    <td scope="row" class="px-6 py-3 right-0 bg-gray-200">{{ error.title }}</td>
-                    <td scope="row" class="px-6 py-3 right-0 bg-gray-200">{{ error.incorret_cfop ?? 'Sem problemas'}} </td>
-                    <td scope="row" class="px-6 py-3 right-0 bg-gray-200">{{ error.incorret_csosn_cst ?? 'Sem problemas'}}</td>
-                    <td scope="row" class="text-center px-6 py-3 right-0 bg-gray-200">{{ error.pdv_id }}</td>
+                    <td scope="row" class="px-6 py-3 right-0 bg-bg-white">{{ error.title }}</td>
+                    <td scope="row" class="px-6 py-3 right-0 bg-white">{{ error.incorret_cfop ?? 'Sem problemas'}} </td>
+                    <td scope="row" class="px-6 py-3 right-0 bg-white">{{ error.incorret_csosn_cst ?? 'Sem problemas'}}</td>
+                    <td scope="row" class="text-center px-6 py-3 right-0 bg-white">{{ error.pdv_id }}</td>
                 </tr>
             
             </tbody>

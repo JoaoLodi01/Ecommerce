@@ -22,7 +22,7 @@
                 <q-btn
                     v-if="showCustomers"
                     @click="openRegister()"
-                    class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                    class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
                 >
                     <span v-if="widthScreen <= 1080">Novo cliente</span>
                     <span v-else>Cadastrar um novo cliente</span>
@@ -183,6 +183,7 @@
 </template>
   
 <script>
+    import { LocalStorage } from 'quasar';
     import { api } from 'src/boot/axios';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
@@ -213,8 +214,9 @@
 
         methods: {
             async getCustomers() {
-                const response = await api.get('/customers/all');
-                this.customers = response.data.data;
+                const response = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
+                console.log(response)
+                this.customers = response.data.all;
                 
             },
 

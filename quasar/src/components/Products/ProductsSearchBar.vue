@@ -15,13 +15,14 @@
         <li
             v-for="product in filteredProducts"
             :key="product.id"
-            @click="setProduct(product)"    
+            @click="setProduct(product)"
             class="p-2 hover:bg-gray-200 cursor-pointer"
             
         >
             <span>{{ product.id }}</span> -
-            <span> {{ product.product }}</span> -
-            <span> Qtde: {{ product.amount }}</span>
+            <span>{{ product.product }}</span> -
+            <span>Qtde: {{ product.amount }}</span> -
+            <span>R$ {{ product.sale_price }} </span>
 
         </li>
     </ul>
@@ -36,7 +37,7 @@
         mounted()
         {
             const getConfig = async () => {
-                const response = await api.get('/config/all-configs');
+                const response = await api.get('/config/all-configs/{issuer_id}');
                 this.configs = {
                     fillter: response.data.configPDV[0].filter_search,
                     saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset >= 1 ? true : false,

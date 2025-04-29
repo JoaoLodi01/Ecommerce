@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
             $table->string('especie', 100);
             $table->string('tipo_lancamento');
             $table->boolean('active')->default(1);

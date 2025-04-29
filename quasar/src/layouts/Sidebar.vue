@@ -13,7 +13,7 @@
       <!-- Botão Sidebar-->
       <button 
         @click="toggleSidebar"
-        class="absolute top-4 right-4 p-2 delay-75 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50">
+        class="absolute top-4 right-4 p-2 delay-75 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50 mt-6">
         <span 
           v-if="!sidebarActive"
         />
@@ -30,13 +30,14 @@
       </button>
 
       <!-- Links Sidebar-->
-      <div class="sidebar-header p-4">
-        <h1 class="text-2xl font-semibold ml-5">Menu</h1>
+      <div class="sidebar-header p-4 flex mt-6">
+        <img src="https://www.php.net/images/logos/php-icon-black.gif" width="" alt=""><h1 class="text-xl font-semibold ml-5 mt-0.5">{{ issuer_name }}</h1>
+        
       </div>
       <div class="sidebar-links p-4">
         <ul class="space-y-4">
           <li>
-            <router-link to="/home" class="ml-5 hover:text-blue-300 flex items-center">
+            <router-link :to="`/${issuer_name}/home`" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
               </svg>
@@ -44,7 +45,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/customers" class="ml-5 hover:text-blue-300 flex items-center">
+            <router-link :to="`/${issuer_name}/customers`" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
               </svg>
@@ -52,7 +53,7 @@
             </router-link> 
           </li>
           <li>
-            <router-link to="/products" class="ml-5 hover:text-blue-300 flex items-center">
+            <router-link :to="`/${issuer_name}/products`" class="ml-5 hover:text-blue-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
               </svg>
@@ -66,14 +67,11 @@
               </svg>
               <button @click="showFinancialFn()">
                 <span @click="downRow2 = !downRow2" class="inline-flex ml-2">Financeiro
-                    <svg 
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor" 
-                    class="mt-auto mb-auto size-4"
-                    v-if="!downRow2">
-                    <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd" />
-                  </svg> <!-- Flecha pra baixo -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="mt-auto mb-auto size-4 ml-10"
+                    v-if="!downRow">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg><!-- Flecha pra baixo -->
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -89,30 +87,30 @@
             <div v-if="showFinancial" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
 
               <p class="flex items-center gap-2">
-                <a href="/financial/to-pay" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/financial/to-pay`" class="hover:text-blue-400 flex items-center gap-2">
                   Pagar
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
                   </svg>
-                </a>
+                </router-link>
               </p>
               
               <p class="flex items-center gap-2">
-                <a href="/financial/receive" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/financial/receive`" class="hover:text-blue-400 flex items-center gap-2">
                   Receber
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                   </svg>
-                </a>
+                </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <a href="/financial/cash-register" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/financial/cash-register`" class="hover:text-blue-400 flex items-center gap-2">
                   Caixa
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>
-                </a>
+                </router-link>
               </p>
             </div>
 
@@ -122,17 +120,12 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                 </svg>
-              <button @click="showPDVFn">
-                <span @click="downRow = !downRow" class="inline-flex ml-2">Vendas
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor" 
+              <button @click="togglePDVMenu" class="flex items-center">
+                <span class="inline-flex ml-2">Vendas
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     class="mt-auto mb-auto size-4"
-                    
-                    v-if="!downRow"
-                  >
-                    <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd" />
+                    v-if="!downRow">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg> <!-- Flecha pra baixo -->
 
                   <svg
@@ -152,30 +145,47 @@
             <div v-if="showPDV" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
 
               <p class="flex items-center gap-2">
-                <a href="/sale/pdv" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   PDV
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
                   </svg>
-                </a>
+                </router-link>
               </p>
               <p class="flex items-center gap-2">
-                <a href="/sale/list-pdv" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/sale/list-pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Listagem PDV
-                </a>
+                </router-link>
               </p>
               <p class="flex items-center gap-2">
-                <a href="/#" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/#`" class="hover:text-blue-400 flex items-center gap-2">
                   DAV
-                </a>
+                </router-link>
               </p>
               <p class="flex items-center gap-2">
-                <a href="/#" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_name}/#`" class="hover:text-blue-400 flex items-center gap-2">
                   Devolução
-                </a>
+                </router-link>
               </p>
             </div>
 
+          </li>
+          <li class="w-max">
+            <a class="ml-5 hover:text-blue-300 flex items-center" @click="toggleRegisters">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+              </svg>
+              <span class="ml-2">Cadastros</span>
+              <svg v-if="!downRowRegisters" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="mt-auto mb-auto size-4">
+                <path fill-rule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z" clip-rule="evenodd" />
+              </svg> <!-- Flecha para baixo -->
+              <svg v-if="downRowRegisters" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="mt-auto mb-auto size-4">
+                <path fill-rule="evenodd" d="M8 14a.75.75 0 0 0 .75-.75V4.56l1.22 1.22a.75.75 0 1 0 1.06-1.06l-2.5-2.5a.75.75 0 0 0-1.06 0l-2.5 2.5a.75.75 0 0 0 1.06 1.06l1.22-1.22v8.69c0 .414.336.75.75.75Z" clip-rule="evenodd" />
+              </svg> <!-- Flecha para cima -->
+            </a>
+            <!-- <div v-if="">
+
+            </div> -->
           </li>
           <li disabled title="EM BREVE">
             <router-link to="/hotel" class="ml-5 hover:text-blue-300 flex items-center">
@@ -305,10 +315,13 @@
         showFinancial: false,
         showPDV: false,
         showProfile: false,
+        showRegisters: false,
+        downRowRegisters: false,
         downRow: false,
         downRow2: false,
         downRow3: false,
-        widthScreen: 0
+        widthScreen: 0,
+        issuer_name: ''
       };
     },
     
@@ -320,7 +333,6 @@
         {
             LocalStorage.remove("auth_token")
             const token = LocalStorage.getItem("auth_token")
-            console.log('Token side bar line 325: ', token)
             this.$router.push('/login')
             /*if(response.data.success)
             {
@@ -334,6 +346,16 @@
       toggleSidebar() {
         this.sidebarActive = !this.sidebarActive;
         this.$emit('toggleSidebar', this.sidebarActive)
+      },
+
+      togglePDVMenu() {
+        this.showPDV = !this.showPDV;
+        this.downRow = this.showPDV;
+      },
+
+      toggleRegisters(){
+        this.showRegisters = !this.showRegisters;
+        this.downRowRegisters = this.showRegisters;
       },
 
       showFinancialFn()
@@ -363,6 +385,8 @@
 
     mounted()
     { 
+      this.issuer_name = this.$route.params.name
+      
       this.widthScreen += screen.width
       
       if(this.widthScreen <= 1080)
