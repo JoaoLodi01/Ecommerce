@@ -154,7 +154,7 @@
                 const cnpj = this.form.cnpj.replace(/\D/g, '')
                 if(cnpj.length == 14)
                 {
-                    console.log('API_CNPJA', process.env.API_CNPJ)
+                    console.log('API_CNPJ', process.env.API_CNPJ)
                     const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
                     console.log(data)
                     this.form.company_name = data.data.alias
