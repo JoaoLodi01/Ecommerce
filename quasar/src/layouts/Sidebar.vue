@@ -34,7 +34,7 @@
         <img src="https://www.php.net/images/logos/php-icon-black.gif" width="" alt=""><h1 class="text-xl font-semibold ml-5 mt-0.5">{{ issuer_name }}</h1>
         
       </div>
-      <div class="sidebar-links p-4 ml-1">
+      <div class="sidebar-links p-4 ml-1 ">
         <ul class="space-y-4">
           <li>
             <router-link :to="`/${issuer_name}/home`" class="hover:text-blue-300 flex items-center gap-4">
@@ -60,13 +60,13 @@
               <span class="ml-2">Produtos</span>
             </router-link>
           </li>
-          <li class="w-max">
+          <li class="w-full">
             <a class="hover:text-blue-300 flex items-center gap-4">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
               </svg>
               <button @click="toggleFinancial()">
-                <span class="inline-flex ml-2">Financeiro
+                <span class="flex ml-2">Financeiro
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     class="mt-auto mb-auto size-4"
                     v-if="!downRowFinancial">
