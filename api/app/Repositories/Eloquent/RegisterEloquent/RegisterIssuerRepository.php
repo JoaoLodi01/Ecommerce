@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent\RegisterEloquent;
 
 use App\Models\ConfigPDV;
+use App\Models\FirstSteps;
 use App\Models\Issuer;
 use App\Models\Owner;
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
@@ -40,6 +41,10 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'filter_search_customer' => 'Padrão (cód.cliente ou nome)'
             ]);
 
+            FirstSteps::create([
+                'issuer_id' => $issuer->id
+            ]);
+
             return array(
                 'success' => true,
                 'issuer' => $issuer
@@ -58,17 +63,35 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
     public function find(int $id)
     {
-        return Issuer::find('id', $id)->first();
+        return Issuer::where('id', $id)->first();
     }
 
     public function update(array $data, int $id)
     {
-        $issuer = Issuer::where('id', $id)->first()->update([
+        $issuer = Issuer::where('id', $id)->first();
+        $firstSteps = FirstSteps::where('issuer_id', $issuer->id)->first();
+        Log::infO('$firstSteps ' . $firstSteps);
+        $issuer->update([
+            'cep' => $data['cep'],
+            'uf' => $data['uf'],
             'address' => $data['address'],
             'number' => $data['number'],
-            'cep' => $data['cep']
+            'cod_crt' => $data['cod_crt'],
+            'crt' => $data['crt'],
+            'cod_cnae' => $data['cod_cnae'],
+            'cnae' => $data['cnae'],
+            'main_activity' => $data['cnae'],
+            'ie' => $data['ie'],
+            'im' => $data['im'],            
 
         ]);
+        $issuer->save();
+
+        $firstSteps->update([
+            'complete_issuer' => 1
+        ]);
+
+        $firstSteps->save();
 
         return $issuer;
         

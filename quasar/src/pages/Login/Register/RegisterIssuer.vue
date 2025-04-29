@@ -127,7 +127,7 @@
                         $q.loading.hide()
                         timer = void 0
             
-                    }, 2000)
+                    }, 1000)
                 }
             }
         },
@@ -141,6 +141,7 @@
                     cnpj: '',
                     cpf: '',
                     date_of_foundation: null,
+                    cod_crt: '',
                     main_activity: ''
                     
                 }
@@ -151,7 +152,6 @@
             async getDataCNPJ()
             {
                 const cnpj = this.form.cnpj.replace(/\D/g, '')
-                console.log('CNPJ: ', cnpj, ' cnpj.length', cnpj.length)
                 if(cnpj.length == 14)
                 {
                     console.log('API_CNPJA', process.env.API_CNPJ)
@@ -160,6 +160,7 @@
                     this.form.company_name = data.data.alias
                     this.form.trade_name = data.data.alias
                     this.form.date_of_foundation = data.data.founded
+                    this.form.cod_crt = data.data.mainActivity.id
                     this.form.main_activity = data.data.mainActivity.text
                     
                 }
@@ -176,8 +177,8 @@
                         cpf: this.form.cpf.replace(/\D/g, ''),
                         cnpj: this.form.cnpj.replace(/\D/g, ''),
                         date_of_foundation: this.form.date_of_foundation,
-                        main_activity: this.form.main_activity,
-                        
+                        cod_crt: this.form.cod_crt,
+                        main_activity: this.form.main_activity,              
                         uuse_id: LocalStorage.getItem("uuse_id"),
                         
                     })

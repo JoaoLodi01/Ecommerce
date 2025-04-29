@@ -26,7 +26,10 @@
 </template>
 
 <script>
+    import { LocalStorage } from 'quasar';
+    import { api } from 'src/boot/axios';
     import CompleteOrNo from 'src/components/Start/CompleteOrNo.vue';
+
     export default {
         components: {
             CompleteOrNo
@@ -43,9 +46,23 @@
             }
         },
 
+        methods: {
+            async completed()
+            {
+                const response = await api.get(`/first-stpes/${LocalStorage.getItem("issuer_id")}`)
+                const data = response.data.first_steps
+                this.completeIssuer = data.complete_issuer === 1 ? true : false;
+                this.completeConfigPDV = data.complete_pdv === 1 ? true : false;
+                this.completeConfigCustomer = data.complete_customers === 1 ? true : false;
+                
+            }
+        },
+
         mounted()
         {
             this.issuer_name = this.$route.params.name
+            
+            this.completed()
         }
     }
 </script>

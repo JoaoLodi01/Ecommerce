@@ -5,7 +5,9 @@ namespace App\Http\Controllers\RegisterControllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Register\RegisterIssuerRequest;
 use App\Services\RegisterService\RegisterIssuerService;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class RegisterIssuerController extends Controller
 {
@@ -32,6 +34,8 @@ class RegisterIssuerController extends Controller
     public function completeRegister(Request $request, int $id)
     {
         $data = $request->all();
+        Log::info($id);
+        Log::info($data);
         return $this->registerIssuerService->update($data, $id);
     }
 }

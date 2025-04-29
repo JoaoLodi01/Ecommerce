@@ -2,13 +2,19 @@
 
 namespace App\Repositories\Eloquent\RegisterEloquent;
 
-use App\Models\Owner;
-use App\Models\User;
-use App\Repositories\Contracts\RegisterContract\RegisterOwnerContract;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
+use App\Models\{
+    Owner,
+    FirstSteps,
+    User
+};
 
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\{
+    Hash,
+    Log
+};
+
+use App\Repositories\Contracts\RegisterContract\RegisterOwnerContract;
 class RegisterOwnerRepository implements RegisterOwnerContract
 {
     public function create(array $data)
@@ -28,8 +34,8 @@ class RegisterOwnerRepository implements RegisterOwnerContract
             'login' => strtolower($data['email']),
             'password' => Hash::make($data['password']),
             'access' => 'Adminstrador'
-        ]);        
-
+        ]);
+        
         return $owner;
     }
 

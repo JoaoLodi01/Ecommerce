@@ -26,7 +26,7 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
-
+use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\RegisterControllers\{
     RegisterOwnerController,
     RegisterIssuerController
@@ -180,8 +180,11 @@ Route::prefix('v1')->group( function (){
 
         Route::prefix('issuer')->group(function(){
             Route::get('/all/companies/{id}', [RegisterIssuerController::class, 'getAll']);
-            Route::put('/complete-register', [RegisterIssuerController::class, 'completeRegister']);
+            Route::get('/companie/{id}', [RegisterIssuerController::class, 'find']);
+            Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
         });
+
+        Route::get('/first-stpes/{id}', [FirstStepsController::class, 'getAll']);
     });
 
     Route::prefix('registers')->group( function(){

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Contracts\FirstStepsContract\FirstStepsContract;
+
 use App\Repositories\Contracts\RegisterContract\{
     RegisterIssuerContract,
     RegisterOwnerContract
@@ -25,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(RegisterOwnerContract::class, RegisterOwnerRepository::class);
         $this->app->bind(RegisterIssuerContract::class, RegisterIssuerRepository::class);
+        //$this->app->bind(FirstStepsContract::class, RegisterIssuerRepository::class);
     }
 
     /**

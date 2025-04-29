@@ -330,7 +330,6 @@
         {
             LocalStorage.remove("auth_token")
             const token = LocalStorage.getItem("auth_token")
-            console.log('Token side bar line 325: ', token)
             this.$router.push('/login')
             /*if(response.data.success)
             {
@@ -374,8 +373,6 @@
     mounted()
     { 
       this.issuer_name = this.$route.params.name
-      console.log('Ta chamando no side bar 1 Issuer name this.$route.params.name:', this.$route.params.name) 
-      console.log('Ta chamando no side bar 2 Issuer name this.issuer_name:', this.issuer_name)
       
       this.widthScreen += screen.width
       

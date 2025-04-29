@@ -52,7 +52,6 @@
                     v-model="form.cpf"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
-                    minlength="14"
 
                 />        
                         
@@ -135,7 +134,6 @@
                     type="submit"
                     label="Criar conta"
                     class="m-2"
-                    flat 
                     color="grey"  
                 />
                 
@@ -143,7 +141,6 @@
                     <q-btn
                         type="button"
                         class="m-2"
-                        flat 
                         color="grey"   
                         label="Já possui uma conta?"
                     />
@@ -218,8 +215,9 @@
                 this.messages = []
                 
                 const password = this.checkPassword()
-                if(!password)
+                if(password)
                 {
+                    console.log('Vai criar')
                     this.showLoading()
                     try {
                         const response = await api.post('/registers/owner/create', {
@@ -256,19 +254,32 @@
             },
 
             checkPassword(){
-                if(this.form.password_ !== this.form.password)
+                const specialChars = '`!@#$^&;:?~';
+                if(this.form.password.length >= 8 && this.form.password_.length >= 8)
                 {
-                    this.messages.push('As senhas não iguais!')
-                    return true
+                    if(specialChars.split('').some(specialChars => this.form.password.includes(specialChars)) === true)
+                    {
+                        if(this.form.password_ !== this.form.password)
+                        {
+                            this.messages.push('As senhas não iguais!')
+                            return false
+    
+                        } else {
+                            return true
+                        }
+                        
+                    } else {
+                        this.messages.push('A senha deve conter pelo menos 1 caracter especial')
+                        return false
+                    }
 
                 } else {
+                    this.form.password
+                    this.messages.push('A senha deve conter pelo menos 8 caracteres')
                     return false
-                }
-            
+                }  
             }   
-
         },
-
     }
 
 </script>
