@@ -113,7 +113,7 @@
                 if(timer !== void 0)
                 {
                     clearTimeout(timer)
-                    $q.loading.hide   
+                    $q.loading.hide()
                 }
             })
 

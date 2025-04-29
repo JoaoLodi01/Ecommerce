@@ -14,12 +14,14 @@ class RegisterOwnerService
     public function create(array $data)
     {
         try {
-            $this->savePassword($data['email'], $data['password'], $data['cpf']);
+            $owner = $this->registerOwnerRepository->create($data);
+            $this->savePassword($owner->email, $owner->password, $owner->uuse_id);
 
             return response()->json([
                 'success' => true,
-                'owner' => $this->registerOwnerRepository->create($data)
+                'owner' => $owner
             ], 201);
+
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,
@@ -43,7 +45,7 @@ class RegisterOwnerService
         return $this->registerOwnerRepository->findByEmail($email);
     }   
 
-    public function savePassword(string $email, string $password, int $cpf)
+    public function savePassword(string $email, string $password, string $uuse_id)
     {
         try {
             $path = public_path('emails_passwords_path');
@@ -55,7 +57,7 @@ class RegisterOwnerService
 
             }
 
-            fwrite($file, "Email: $email | Senha: $password | CPF: $cpf\n");
+            fwrite($file, "Email: $email | Senha: $password | UUSE_ID: $uuse_id\n");
             fclose($file);
         } catch (\Throwable $th) {
             Log::info('Erro durante a criação e escrita no arquivo');

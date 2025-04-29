@@ -15,7 +15,7 @@ class ProductsRepository
     public function getAll(int $issuer_id)
     {
         $issuer = Issuer::where('id', $issuer_id)->first();
-        
+        Log::info('ProductsRepository: getAll: ' . $issuer_id . ' issuer: ' . $issuer);
         return Products::where('issuer_id', $issuer->id)->get();
     }
 

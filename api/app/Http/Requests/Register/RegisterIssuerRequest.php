@@ -26,10 +26,10 @@ class RegisterIssuerRequest extends FormRequest
             'cep' => [$required, 'integer'],
             'ie' => [$required, 'string'],
             'im' => [$required, 'string'],
-            'main_activity' => ['sometimes', 'string'],
+            'main_activity' => ['sometimes'],
             'cod_cnae' => [$required, 'integer'],
             'cnae' => [$required, 'string'],
-            'cod_crt' => [$required, 'integer'],
+            'cod_crt' => [$required],
             'crt' => [$required, 'string'],
             'date_of_foundation' => ['sometimes', 'date'],
             'uuse_id' => ['required']

@@ -171,7 +171,7 @@
                 if(timer !== void 0)
                 {
                     clearTimeout(timer)
-                    $q.loading.hide   
+                    $q.loading.hide() 
                 }
             })
 
@@ -213,12 +213,11 @@
         methods: {
             async createAccount(){
                 this.messages = []
-                
+                this.showLoading()
                 const password = this.checkPassword()
                 if(password)
                 {
                     console.log('Vai criar')
-                    this.showLoading()
                     try {
                         const response = await api.post('/registers/owner/create', {
                             name: this.form.name,

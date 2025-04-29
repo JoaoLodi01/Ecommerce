@@ -11,21 +11,13 @@
             @submit="onSubmit"
             class="p-1"
             :class="{
-                'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
+                'grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10': widthScreen > 1080
             }"
         >
             <q-input
                 v-model="productDetails.product"
                 type="text"
                 label="Produto"
-                color="grey-7"
-            />
-
-            <q-select
-                v-model="productDetails.group_id"
-                :options="allGroup"
-                label="Grupo"
-                filled
                 color="grey-7"
             />
 
@@ -121,13 +113,14 @@
                 filled
             />
 
-            <q-file
-                v-model="productDetails.image"
-                label="Imagem"
+            <q-select
+                v-model="productDetails.group_id"
+                :options="allGroup"
+                label="Grupo"
+                filled
                 color="grey-7"
-                @change="handleFileUpload($event)"
             />
-
+            
             <div>
                 <q-btn
                     type="submit"
