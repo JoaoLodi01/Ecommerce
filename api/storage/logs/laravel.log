@@ -385,3 +385,79 @@
 [2025-04-29 16:20:57] local.INFO: Passou o login, token: 4|JXAFuhoCwvMbvFf3gFyD1QSxYSJJdDTiR1REAvhI57fa88b6  
 [2025-04-29 16:27:20] local.INFO: owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"zXMAlitGFM","active":1,"created_at":"2025-04-29T11:04:05.000000Z","updated_at":"2025-04-29T11:04:05.000000Z"}  
 [2025-04-29 16:27:21] local.INFO: Passou o login, token: 5|033cpUV55qCq6UdO6WE0pRTg2F5DanT8HglrxhLE1ee062ec  
+[2025-04-29 17:49:37] local.INFO: owner   
+[2025-04-29 18:25:14] local.INFO: owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"pT2rHMuKv3","active":1,"created_at":"2025-04-29T18:25:11.000000Z","updated_at":"2025-04-29T18:25:11.000000Z"}  
+[2025-04-29 18:25:14] local.INFO: Passou o login, token: 1|eaoKJLiTwWgGS1fWukIALgS42yek036hzDWFLNEw73fd6dc2  
+[2025-04-29 18:25:27] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'cnpj' => '17089484000190',
+  'cpf' => NULL,
+  'date_of_foundation' => '2012-10-30',
+  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'cod_crt' => 4751201,
+  'uuse_id' => 'pT2rHMuKv3',
+)  
+[2025-04-29 18:25:27] local.INFO: pT2rHMuKv3  
+[2025-04-29 18:25:27] local.INFO: $owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"pT2rHMuKv3","active":1,"created_at":"2025-04-29T18:25:11.000000Z","updated_at":"2025-04-29T18:25:11.000000Z"}  
+[2025-04-29 18:26:09] local.INFO: owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"pT2rHMuKv3","active":1,"created_at":"2025-04-29T18:25:11.000000Z","updated_at":"2025-04-29T18:25:11.000000Z"}  
+[2025-04-29 18:26:09] local.INFO: Passou o login, token: 2|HMtIsVTUbUxWmkIErsoRIHtAHaiBu60Jja9qAUCld446c1fa  
+[2025-04-29 18:26:29] local.INFO: 1  
+[2025-04-29 18:26:29] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'date_of_foundation' => 'Sgbr Sistemas',
+  'cep' => '89705228',
+  'uf' => 'SC',
+  'address' => 'Rua Ricardo João Angoneze',
+  'number' => '243',
+  'cod_cnae' => '1',
+  'cnae' => '1',
+  'cod_crt' => 2,
+  'crt' => 'Lucro real',
+  'ie' => '1',
+  'im' => '1',
+)  
+[2025-04-29 18:26:29] local.INFO: $firstSteps {"id":1,"issuer_id":1,"complete_issuer":0,"complete_pdv":0,"complete_customers":0,"complete_products":0,"created_at":"2025-04-29T18:25:27.000000Z","updated_at":"2025-04-29T18:25:27.000000Z"}  
+[2025-04-29 18:26:33] local.ERROR: App\Http\Controllers\EcommerceController\ProductsController::findByID(): Argument #1 ($id) must be of type int, string given, called in C:\Code\ProjetoWeb\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":1,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\EcommerceController\\ProductsController::findByID(): Argument #1 ($id) must be of type int, string given, called in C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\EcommerceController\\ProductsController.php:37)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\ProductsController->findByID()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#36 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#38 {main}
+"} 

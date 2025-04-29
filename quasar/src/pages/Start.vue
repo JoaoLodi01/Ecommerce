@@ -36,7 +36,7 @@
 
             <div class="flex bg-white rounded-lg gap-4 mb-6 p-3 shadow-md">
                 <CompleteOrNo :label="completeConfigCustomer" class="mt-0.5"/>
-                <router-link :to="`${issuer_name}/customers`">
+                <router-link :to="`/${issuer_name}/customers`">
                     <span class="text-blue-500 font-semibold">
                         Passo 3:
                     </span> 
@@ -46,7 +46,7 @@
 
             <div class="flex bg-white rounded-lg gap-4 mb-6 p-3 shadow-md">
                 <CompleteOrNo :label="completeConfigPDV" class="mt-0.5"/>
-                <router-link :to="`${issuer_name}/`">
+                <router-link :to="`/${issuer_name}/`">
                     <span class="text-blue-500 font-semibold">
                         Passo 4:
                     </span>
