@@ -254,7 +254,7 @@
             },
 
             checkPassword(){
-                const specialChars = '`!@#$^&;:?~';
+                const specialChars = '`!@#$^&;:?~.';
                 if(this.form.password.length >= 8 && this.form.password_.length >= 8)
                 {
                     if(specialChars.split('').some(specialChars => this.form.password.includes(specialChars)) === true)
