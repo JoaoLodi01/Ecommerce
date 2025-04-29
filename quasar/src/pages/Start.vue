@@ -25,32 +25,32 @@
             </div>
 
             <div class="flex bg-white rounded-lg gap-4 mb-6 p-3 shadow-md">
-                <CompleteOrNo :label="completeConfigPDV" class="mt-0.5"/>
-                <router-link to=''>
+                <CompleteOrNo :label="completeConfigProducts" class="mt-0.5"/>
+                <router-link :to="`/${issuer_name}/products`">
                     <span class="text-blue-500 font-semibold">
                         Passo 2:
                     </span> 
-                    Cadastrar produtos e Clientes
-                </router-link>
-            </div>
-
-            <div class="flex bg-white rounded-lg gap-4 mb-6 p-3 shadow-md">
-                <CompleteOrNo :label="completeConfigPDV" class="mt-0.5"/>
-                <router-link to=''>
-                    <span class="text-blue-500 font-semibold">
-                        Passo 3:
-                    </span> 
-                    Configurações PDV
+                    Cadastre seu primeiro produto
                 </router-link>
             </div>
 
             <div class="flex bg-white rounded-lg gap-4 mb-6 p-3 shadow-md">
                 <CompleteOrNo :label="completeConfigCustomer" class="mt-0.5"/>
-                <router-link to=''>
+                <router-link :to="`/${issuer_name}/customers`">
+                    <span class="text-blue-500 font-semibold">
+                        Passo 3:
+                    </span> 
+                    Cadastre seu primeiro cliente
+                </router-link>
+            </div>
+
+            <div class="flex bg-white rounded-lg gap-4 mb-6 p-3 shadow-md">
+                <CompleteOrNo :label="completeConfigPDV" class="mt-0.5"/>
+                <router-link :to="`${issuer_name}/`">
                     <span class="text-blue-500 font-semibold">
                         Passo 4:
                     </span>
-                    Configurações Clientes
+                    Configure seu PDV
                 </router-link>
             </div>
         </div>
@@ -73,7 +73,7 @@
                 completeIssuer: false,
                 completeConfigPDV: false,
                 completeConfigCustomer: false,
-                
+                completeConfigProducts: false,
                 issuer_name: ''
             }
         },
@@ -86,6 +86,7 @@
                 this.completeIssuer = data.complete_issuer === 1 ? true : false;
                 this.completeConfigPDV = data.complete_pdv === 1 ? true : false;
                 this.completeConfigCustomer = data.complete_customers === 1 ? true : false;
+                this.completeConfigProducts = data.complete_products === 1 ? true : false;
                 
             }
         },
