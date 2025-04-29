@@ -206,7 +206,7 @@
                     trade_name: response.data.issuer.trade_name,
                     date_of_foundation: response.data.issuer.date_of_foundation,
                     cnpj: response.data.issuer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5'),
-                    cep: response.data.issuer.cep.replace(/(\d{5})(\d{3})/, '$1-$2'),
+                    cep: response.data.issuer.cep ? response.data.issuer.cep.replace(/(\d{5})(\d{3})/, '$1-$2') : '',
                     address: response.data.issuer.address,
                     number: response.data.issuer.number,
                     cod_crt: response.data.issuer.cod_crt,
