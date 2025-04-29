@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('issuers', function (Blueprint $table) {
             $table->id();
-            $table->string('company_name', 120);
+            $table->string('company_name', 120)->unique();
             $table->string('trade_name', 120);
             $table->string('cnpj', 14)->nullable()->unique();
             $table->string('cpf', 11)->nullable()->unique();

@@ -87,19 +87,21 @@ class ProductsRepository
     {
         Log::info("data");
         Log::info($data);
-        $group = $this->groupRepository->findByID($data['groupID']);
+
+        $data['group_id'] ? $group = $this->groupRepository->findByID($data['group_id']) : null;
 
         return Products::create([
+            'issuer_id' => (int) $data['issuer_id'],
             'product' => $data['product'],
-            'image' => $data['image']->getClientOriginalName(),
+            'image' => $data['image'],
             'barcode' => $data['barcode'],
             'barcode_internal' => $data['barcode_internal'],
             'amount' => $data['amount'],
-            'group_id' => $group->id,
-            'group' => $group->group,
-            'cost_price' => $data['costPrice'],
-            'sale_price' => $data['salePrice'],
-            'profit_percentage' => $data['profitPercentage'],
+            'group_id' => $group->id ?? null,
+            'group' => $group->group ?? null,
+            'cost_price' => $data['cost_price'],
+            'sale_price' => $data['sale_price'],
+            'profit_percentage' => $data['profit_percentage'],
             'cfop' => $data['cfop'],
             'csosncst' => $data['csosncst'],
             'ncm' => $data['ncm'],

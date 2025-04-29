@@ -416,7 +416,7 @@
         <ProductsSelectionView
             v-if="show"
             :witdhScreen="this.witdhScreen"
-            :hotelCodCRT="this.hotelCodCRT"
+            :CRT="this.CRT"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion($event)"
         />
@@ -481,7 +481,7 @@
                     
                 },
 
-                hotelCodCRT: 0,
+                CRT: 0,
 
                 sellerData: {
                     id: 0,
@@ -614,17 +614,17 @@
                 }
             },
 
-            async getHotel()
+            async getCRT()
             {
                 try {
-                    const response = await api.get('/hotel/all')
+                    const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
 
                     if(response.data.success === true)
                     {
-                        this.hotelCodCRT += response.data.all.hotel.cod_crt
-                        if(Number(this.hotelCodCRT) && this.hotelCodCRT > 0)
+                        this.CRT += response.data.issuer.cod_crt
+                        if(Number(this.CRT) && this.CRT > 0)
                         {
-                            if(this.hotelCodCRT == 1 || this.hotelCodCRT >= 4)
+                            if(this.CRT == 1 || this.CRT >= 4)
                             {
                                 this.csosncst = 'CSOSN'
 
@@ -1021,7 +1021,7 @@
         ],
 
         mounted(){
-            this.getHotel()
+            this.getCRT()
             this.witdhScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
             
@@ -1031,11 +1031,10 @@
                         'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
                     }
                 })
-                const details = response.data   
 
                 this.sellerData = {
-                    id: details.user.id,
-                    name: details.user.name,
+                    id: response.data.user.id,
+                    name: response.data.user.name,
                 }
 
             }

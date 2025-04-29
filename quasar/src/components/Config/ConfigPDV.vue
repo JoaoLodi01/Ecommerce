@@ -70,8 +70,7 @@
                         :options="searchOptionProducts" 
                         :dense="true"
                         label="Busca de produtos" 
-                        filled 
-                        outlined="red"
+                        filled
                         color="grey"
                         
                     />
@@ -118,7 +117,7 @@
 </template>
 <script>
     import { api } from 'src/boot/axios'
-    import { useQuasar } from 'quasar';
+    import { LocalStorage, useQuasar } from 'quasar';
     import { onBeforeUnmount } from 'vue';
 
     export default {
@@ -193,7 +192,7 @@
             async getConfig()
             {
                 this.showLoading('Carregando as')
-                const response = await api.get('/config/all-configs/{issuer_id}');
+                const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
                 const data = response.data.configPDV[0]
                 
                 this.configs = {
@@ -212,13 +211,14 @@
             {
                 this.showLoading('Salvando')
 
-                const response = await api.put('/config/config-pdv/update-config', {
+                const response = await api.put(`/config/config-pdv/update-config/${LocalStorage.getItem("issuer_id")}`, {
                     searchOptionProduct: this.configs.searchOptionProduct,
                     searchOptionCustomers: this.configs.searchOptionCustomer,
                     nmFinaly: this.configs.nmFinaly,
                     saleNegativeorReset: this.configs.saleNegativeorReset,
                     supervisorPasswordCancelSale: this.configs.supervisorPasswordCancelSale,
-                    supervisorPasswordDeleteItem: this.configs.supervisorPasswordDeleteItem
+                    supervisorPasswordDeleteItem: this.configs.supervisorPasswordDeleteItem,
+                    issuer_id: LocalStorage.getItem("issuer_id")
                 })
 
                 const data = response.data                

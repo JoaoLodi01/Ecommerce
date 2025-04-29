@@ -57,10 +57,13 @@
                     <q-input 
                         v-model="form.uf"
                         filled        
-                        label="UF" 
+                        type="text"
+                        label="UF *" 
                         class="mb-4 ml-2 mr-2"
                         color="grey"
                         maxlength="2"
+                        aria-required="true"
+                        :rules="[ val => !!val || 'Preencha a UF' ]"
     
                     />   
     
@@ -78,7 +81,7 @@
                         filled        
                         label="Número" 
                         v-model="form.number"
-                        
+                        :rules="[ val => !!val || 'Preencha o número' ]"
                         class="mb-4"
                         color="grey"
                         maxlength="10"
@@ -94,7 +97,7 @@
                     filled        
                     label="Cód. CNAE" 
                     v-model="form.cod_cnae"
-                    
+                    :rules="[ val => !!val || 'Preencha o Cód. CNAE' ]"
                     class="mb-4"
                     color="grey"
                     maxlength="10"
@@ -105,7 +108,7 @@
                     filled        
                     label="CNAE" 
                     v-model="form.cnae"
-                    
+                    :rules="[ val => !!val || 'Preencha o CNAE' ]"
                     class="mb-4"
                     color="grey"
                     maxlength="10"
@@ -116,7 +119,7 @@
                     filled        
                     label="IE" 
                     v-model="form.ie"
-                    
+                    :rules="[ val => !!val || 'Preencha a IE' ]"
                     class="mb-4"
                     color="grey"
                     maxlength="14"
@@ -141,7 +144,7 @@
                     class="mb-4"
                     color="grey" 
                     filled 
-                    
+                    aria-required="true"
                 />
             </div>
             
@@ -247,17 +250,25 @@
                 if(response.data.success)
                 {
                     this.$router.push(`/${this.form.company_name}/home`)
-                }
+                } 
             },
 
             async getCEPData()
             {
                 
-                if(this.form.cep.replace && cep.length === 8)
+                if(this.form.cep)
                 {
-                    const data = await axios.get(`${process.env.API_CEP}/${cep}/json`)
-                    this.form.uf = data.data.uf
-                    this.form.address = data.data.logradouro
+                    const cep = this.form.cep.replace(/\D/, '')
+                    console.log('CEP: ', cep)
+                    if(cep.length === 8)
+                    {
+                        const data = await axios.get(`${process.env.API_CEP}/${cep}/json`)
+                        console.log(data)
+                        this.form.uf = data.data.uf
+                        this.form.address = data.data.logradouro
+
+                    }
+                    
 
                 }
             }

@@ -13,23 +13,24 @@ class RegisterIssuerRequest extends FormRequest
 
     public function rules(): array
     {
+        $required = $this->isMethod('PUT') ? 'required' : 'sometimes';
+
         return [
             'company_name' => ['required', 'string'],
             'trade_name' => ['required', 'string'],
             'cnpj' => ['nullable', 'string', 'required_without:cpf'],
             'cpf' => ['nullable', 'string', 'required_without:cnpj'],
-            'uf' => ['sometimes', 'string'],
-            'address' => ['sometimes', 'string'],
-            'number' => ['sometimes', 'string'],
-            'cep' => ['sometimes', 'integer'],
-            'ie' => ['sometimes', 'string'],
-            'im' => ['sometimes', 'string'],
-            'date_of_foundation' => ['sometimes', 'date'],
+            'uf' => [$required, 'string'],
+            'address' => [$required, 'string'],
+            'number' => [$required, 'string'],
+            'cep' => [$required, 'integer'],
+            'ie' => [$required, 'string'],
+            'im' => [$required, 'string'],
             'main_activity' => ['sometimes', 'string'],
-            'cod_cnae' => ['sometimes', 'integer'],
-            'cnae' => ['sometimes', 'string'],
-            'cod_crt' => ['sometimes', 'integer'],
-            'crt' => ['sometimes', 'string'],
+            'cod_cnae' => [$required, 'integer'],
+            'cnae' => [$required, 'string'],
+            'cod_crt' => [$required, 'integer'],
+            'crt' => [$required, 'string'],
             'date_of_foundation' => ['sometimes', 'date'],
             'uuse_id' => ['required']
             

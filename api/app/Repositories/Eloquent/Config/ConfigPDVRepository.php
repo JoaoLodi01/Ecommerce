@@ -17,15 +17,17 @@ class ConfigPDVRepository
     {
         Log::info('data no repository');
         Log::info($data);
-        ConfigPDV::where('active', 1)->update([
-            'filter_search' => $data['searchOptionProduct'],
-            'filter_search_customer' => $data['searchOptionCustomers'],
-            'nm_finaly' => $data['nmFinaly'],
-            'sale_negative_or_reset' => $data['saleNegativeorReset'],
-            'supervisor_password_delete_item' => $data['supervisorPasswordCancelSale'],
-            'supervisor_password_delete_item' => $data['supervisorPasswordDeleteItem'],
-            
-        ]);
+        ConfigPDV::where('active', 1)
+                    ->where('issuer_id', $data['issuer_id'])
+                    ->update([
+                        'filter_search' => $data['searchOptionProduct'],
+                        'filter_search_customer' => $data['searchOptionCustomers'],
+                        'nm_finaly' => $data['nmFinaly'],
+                        'sale_negative_or_reset' => $data['saleNegativeorReset'],
+                        'supervisor_password_delete_item' => $data['supervisorPasswordCancelSale'],
+                        'supervisor_password_delete_item' => $data['supervisorPasswordDeleteItem'],
+                        
+                    ]);
 
         return $this->getConfigs($data['issuer_id']);
     }
