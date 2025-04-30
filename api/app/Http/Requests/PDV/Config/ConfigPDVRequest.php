@@ -15,6 +15,7 @@ class ConfigPDVRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'issuer_id' => ['required'],
             'searchOptionProduct' => ['required'],
             'searchOptionCustomers' => ['required'],
             'nmFinaly' => ['required'],

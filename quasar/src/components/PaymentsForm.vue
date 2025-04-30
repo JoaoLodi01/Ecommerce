@@ -258,7 +258,7 @@ export default {
 
         async getPayments() {
             try {
-                const response = await api.get('/ecommerce/payments/all');
+                const response = await api.get(`/ecommerce/payments/all/${LocalStorage.getItem("issuer_id")}`);
                 this.paymentsForms = response.data;
                 
             } catch (error) {
@@ -286,8 +286,8 @@ export default {
                 return;
             }
 
+            console.log('pdvID: ', this.pdvID)
             try {
-                console.log('payments_values', this.paymentsValues)
                 switch (this.typeOperation) {
                     case 'reservation':
                         const generateCredit = this.calculeCredit(this.paymentsValues);
@@ -310,7 +310,9 @@ export default {
                         break;
 
                     case 'nfce':
+                        console.log('Issuer_id no LocalStorage ( venda NFC-e ): ', LocalStorage.getItem("issuer_id"))
                         const response_nfce = await api.put(`ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                            issuer_id: LocalStorage.getItem("issuer_id"),
                             type_operation: 'nfce',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
@@ -325,14 +327,19 @@ export default {
                             this.cancelOperation()
                             this.$emit('update:selectProducts', []);
                             LocalStorage.removeItem("pdvID")
+
                         } else {
-                            console.log(response_nfce)
+                            LocalStorage.removeItem("pdvID")
+                            console.log('Erro durante a finalização da venda: ', response_nfce.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
+
                         }
 
                         break
 
                     case 'nm':
+                        console.log('Issuer_id no LocalStorage ( venda NM ): ', LocalStorage.getItem("issuer_id"))
                         const response_nm = await api.put(`/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                            issuer_id: LocalStorage.getItem("issuer_id"),
                             type_operation: 'nm',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
@@ -340,13 +347,15 @@ export default {
                             installments: this.installments
 
                         })
+
                         console.log(response_nm);
                         if(response_nm.data.success === true)
                         {
                             this.cancelOperation()
                             this.$emit('update:selectProducts', []);
                         } else {
-                            console.log(response_nm)
+                            LocalStorage.removeItem("pdvID")
+                            console.log('Erro durante a finalização da venda: ', response_nm.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
                         }
 
                         break
@@ -364,10 +373,8 @@ export default {
                     this.isLoanding = !this.isLoanding
                     this.message = error.response.data.message
           
-                }
-                    
+                }  
             }
-            
         },
 
         calculeCredit(paymentsValues = [])

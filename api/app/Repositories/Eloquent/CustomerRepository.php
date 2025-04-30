@@ -85,8 +85,12 @@ class CustomerRepository
 
     public function create(array $data){
         $issuer = Issuer::where('id', $data['issuer_id'])->first();
+        $maxCod = Customer::where('issuer_id', $data['issuer_id'])->max('customer_cod');
+
+        $customerCod = $maxCod ? $maxCod + 1 : 1;
 
         return Customer::create([
+            'customer_cod' => $customerCod,
             'issuer_id' => $issuer->id,
             'name' => $data['name'],
             'cpf' => $data['cpf'] ?? null,

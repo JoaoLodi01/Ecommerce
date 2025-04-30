@@ -94,9 +94,10 @@ Route::prefix('v1')->group( function (){
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
             });
         
-            // NFC-e routes
+            // PDVs routes
             Route::prefix('pdv')->group( function(){
                 Route::post('/save-sale', [PDVController::class, 'saveSale']);
+                //Route::put('/finalize-sale/{id}', [PDVController::class, 'finalizeSale']); <- Qualquer coisa retornar para essa rota
                 Route::put('/finalize-sale/{id}', [PDVController::class, 'finalizeSale']);
 
                 Route::get('/all/{issuer_id}', [PDVController::class, 'getAll']);

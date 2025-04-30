@@ -171,7 +171,7 @@
                 if(timer !== void 0)
                 {
                     clearTimeout(timer)
-                    $q.loading.hide   
+                    $q.loading.hide() 
                 }
             })
 
@@ -185,7 +185,7 @@
                         $q.loading.hide()
                         timer = void 0
             
-                    }, 1000)
+                    }, 2000)
                 }
             }
         },
@@ -213,12 +213,11 @@
         methods: {
             async createAccount(){
                 this.messages = []
-                
+                this.showLoading()
                 const password = this.checkPassword()
                 if(password)
                 {
                     console.log('Vai criar')
-                    this.showLoading()
                     try {
                         const response = await api.post('/registers/owner/create', {
                             name: this.form.name,
@@ -254,14 +253,14 @@
             },
 
             checkPassword(){
-                const specialChars = '`!@#$^&;:?~';
+                const specialChars = '`!@#$^&;:?~.';
                 if(this.form.password.length >= 8 && this.form.password_.length >= 8)
                 {
                     if(specialChars.split('').some(specialChars => this.form.password.includes(specialChars)) === true)
                     {
                         if(this.form.password_ !== this.form.password)
                         {
-                            this.messages.push('As senhas não iguais!')
+                            this.messages.push('As senhas não são iguais!')
                             return false
     
                         } else {

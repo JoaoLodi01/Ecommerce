@@ -107,7 +107,7 @@
         {
             this.getCompanies()
             const uuse_id = LocalStorage.getItem("uuse_id")
-            console.log('uuse_id: /companies: ', uuse_id)
+            
             if(!uuse_id)
             {
                 this.$router.push('/register-owner')   

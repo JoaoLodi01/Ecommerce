@@ -24,7 +24,7 @@ class CashRegisterRepository
 
     public function create(array $cashRegisters){
         Log::info('-- Vai iniciar criação no CAIXA, dados: --');
-        Log::info('Memória usada CashRegisterRepository::class, create: ' . memory_get_usage(true));
+        Log::info($cashRegisters);
 
         if(count($cashRegisters) >= 2)
         {
@@ -35,25 +35,26 @@ class CashRegisterRepository
                 Log::info('Vai chamar o updateCurrentCash($cashRegisters[$i]), dados x: ' . $i);
                 Log::info($cashRegisters[$i]);
                 CashRegister::create($cashRegisters[$i]);
-                $this->updateCurrentCash();
+                $this->updateCurrentCash($cashRegisters['issuer_id']);
             }
         } 
         
         if(count($cashRegisters) <= 1)
         {
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
+            Log::info(['Dados' => $cashRegisters[0]]);
             CashRegister::create($cashRegisters[0]);
-            $this->updateCurrentCash();
+            $this->updateCurrentCash($cashRegisters[0]['issuer_id']);
 
         }
         
     }
 
-    public function updateCurrentCash()
+    public function updateCurrentCash(int $issuer_id)
     {   
     Log::info('Memória usada CashRegisterRepository::class, updateCurrentCash: ' . memory_get_usage(true));
-        $lastCashBox = CashRegister::where('canceled', 0)->latest('id')->first();
-        $actualCashBox = CashRegister::where('id', $lastCashBox->id - 1)->first();
+        $lastCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->latest('id')->first();
+        $actualCashBox = CashRegister::where('id', $lastCashBox->id - 1)->where('issuer_id', $issuer_id)->first();
         
         if(!$actualCashBox)
         {

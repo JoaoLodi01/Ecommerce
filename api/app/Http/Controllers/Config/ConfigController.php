@@ -21,7 +21,8 @@ class ConfigController extends Controller
 
     public function getConfigs(int $issuer_id)
     {
-        return $this->configService->getConfigs($issuer_id);
+        Log::info('ConfigController: $issuer_id ' . $issuer_id);
+        return $this->configService->getConfigs((int)$issuer_id);
     }
 
     public function updateHotel(ConfigHotelRequest $request)

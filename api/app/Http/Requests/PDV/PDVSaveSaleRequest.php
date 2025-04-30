@@ -16,6 +16,7 @@ class PDVSaveSaleRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'issuer_id' => ['required'],
             'description' => ['required', 'string' , 'max:120'],
             'products' => ['required', 'array'],
             'user_id' => ['required'], // 'exists:users,id' add depois

@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('payments_forms', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('payment_cod');
+            $table->unique(['issuer_id', 'payment_cod']);
+            
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('especie', 100);
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('payments_forms');
     }
 };

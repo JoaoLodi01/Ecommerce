@@ -11,21 +11,13 @@
             @submit="onSubmit"
             class="p-1"
             :class="{
-                'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
+                'grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10': widthScreen > 1080
             }"
         >
             <q-input
                 v-model="productDetails.product"
                 type="text"
                 label="Produto"
-                color="grey-7"
-            />
-
-            <q-select
-                v-model="productDetails.groupID"
-                :options="allGroup"
-                label="Grupo"
-                filled
                 color="grey-7"
             />
 
@@ -37,7 +29,7 @@
             />
 
             <q-input
-                v-model="productDetails.costPrice"
+                v-model="productDetails.cost_price"
                 type="text"
                 label="Preço de custo"
                 color="grey-7"
@@ -45,7 +37,7 @@
             />
 
             <q-input
-                v-model="productDetails.profitPercentage"
+                v-model="productDetails.profit_percentage"
                 type="text"
                 label="Percentual de lucrp"
                 color="grey-7"
@@ -121,13 +113,14 @@
                 filled
             />
 
-            <q-file
-                v-model="productDetails.image"
-                label="Imagem"
+            <q-select
+                v-model="productDetails.group_id"
+                :options="allGroup"
+                label="Grupo"
+                filled
                 color="grey-7"
-                @change="handleFileUpload($event)"
             />
-
+            
             <div>
                 <q-btn
                     type="submit"
@@ -148,7 +141,7 @@
 
 <script>
     import { api } from 'src/boot/axios'
-    import { useQuasar } from 'quasar'
+    import { LocalStorage, useQuasar } from 'quasar'
     import { onBeforeUnmount, toRaw } from 'vue'
 
     export default {
@@ -183,7 +176,7 @@
         computed: {
             calculateSalePrice()
             {
-                return this.productDetails.salePrice = this.productDetails.costPrice * (1 + this.productDetails.profitPercentage /
+                return this.productDetails.sale_price = this.productDetails.cost_price * (1 + this.productDetails.profit_percentage /
                 100).toFixed(2)
 
             }
@@ -204,16 +197,17 @@
                     image: null,
                     barcode: '',
                     barcode_internal: '',
-                    groupID: '',
+                    group_id: '',
                     amount: '',
-                    costPrice: 0,
-                    profitPercentage: 0,
-                    salePrice: 0,
+                    cost_price: 0,
+                    profit_percentage: 0,
+                    sale_price: 0,
                     cfop: '',
                     csosncst: '',
                     ncm: '',
                     cest: '',
                     unit: 'UN',
+                    issuer_id: LocalStorage.getItem("issuer_id")
 
                 },
 
@@ -236,16 +230,17 @@
                 form.append("image", this.productDetails.image)
                 form.append("barcode", this.productDetails.barcode)
                 form.append("barcode_internal", this.productDetails.barcode_internal)
-                form.append("groupID", this.productDetails.groupID)
+                form.append("group_id", this.productDetails.group_id)
                 form.append("amount", this.productDetails.amount)
-                form.append("costPrice", this.productDetails.costPrice)
-                form.append("profitPercentage", this.productDetails.profitPercentage)
-                form.append("salePrice", this.productDetails.salePrice)
+                form.append("cost_price", this.productDetails.cost_price)
+                form.append("profit_percentage", this.productDetails.profit_percentage)
+                form.append("sale_price", this.productDetails.sale_price)
                 form.append("cfop", this.productDetails.cfop)
                 form.append("csosncst", this.productDetails.csosncst)
                 form.append("ncm", this.productDetails.ncm)
                 form.append("cest", this.productDetails.cest)
                 form.append("unit", this.productDetails.unit)
+                form.append("issuer_id", this.productDetails.issuer_id)
 
                 const response = await api.post('/ecommerce/products/create', form)
 
@@ -261,7 +256,7 @@
 
             async getGroups()
             {
-                const response = await api.get('/ecommerce/products/all-groups')
+                const response = await api.get(`/ecommerce/products/all-groups/${this.productDetails.issuer_id}`)
                 this.allGroup.push(response.data.data)
                 let rawGroups = toRaw(this.allGroup)
                 console.log(rawGroups)

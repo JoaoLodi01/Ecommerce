@@ -16,10 +16,11 @@ class PDVSaleRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'issuer_id' => ['required'],
             'type_operation' => ['required', 'string'],
             'change' => ['required'],
             'payments_values' => ['required'],
-            'pdv_id' => ['required']
+            'pdv_id' => ['required'],
 
         ];
     }
@@ -27,7 +28,7 @@ class PDVSaleRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'type_operation.required' => 'O tipo da operação é obrgitário',
+            'type_operation.required' => 'O tipo da operação é obrgitário ( NM / NFC-e )',
             'type_operation.string' => 'O tipo da operação deve ser um formato válido',
 
             'change.required' => 'O troco é obrigatório',
