@@ -616,43 +616,8 @@
                     }
                 }
             },
-
-            async getCRT()
-            {
-                try {
-                    const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
-
-                    if(response.data.success === true)
-                    {
-                        this.CRT += response.data.issuer.cod_crt
-                        if(Number(this.CRT) && this.CRT > 0)
-                        {
-                            if(this.CRT == 1 || this.CRT >= 4)
-                            {
-                                this.csosncst = 'CSOSN'
-
-                            } else {
-                                this.csosncst = 'CST'
-                            }
-                        }
-                    }
-
-                    if(response.data.success === false){
-                        console.log(response.data)
-
-                    }
-                } catch (error) {
-                    if(error.response.data.message === 'Hotel não encontrado')
-                    {
-                        alert(error.response.data.message)
-                        alert('Por favor faça o cadastro do hotel!')
-                        this.$router.push('/hotel/create')
-                        
-                    }
-                }
-            },
             
-            async finalizeSale(type) // Só vai chamar a forma de pagamento
+            async finalizeSale(type)
             {
                 this.showLoading()
                 try {
@@ -706,13 +671,17 @@
                                 })
 
                                 const data = response.data
+                                console.log(data)
 
                                 if(data.success)
                                 {
                                     LocalStorage.setItem("pdvID", response.data.pdvID)
                                     this.typeOperation = type
                                     this.showPaymentsForm = true
-                                    this.pdvID = pdvID
+                                    this.pdvID = LocalStorage.getItem("pdvID")
+                                    console.log('this.typeOperation linha 682: ', this.typeOperation)
+                                    console.log('this.showPaymentsForm linha 683: ', this.showPaymentsForm)
+                                    console.log('this.pdvID linha 684: ', this.pdvID)
 
                                 }
                             
@@ -760,7 +729,6 @@
                                
                         } else {
                             console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
-                            
                             this.showPaymentsForm = true
                             this.pdvID = LocalStorage.getItem("pdvID")
                         }
@@ -771,6 +739,41 @@
                     alert(error.response.data.errors)
                     this.errorMessages.push(error.response.data.errors)
                     
+                }
+            },
+
+            async getCRT()
+            {
+                try {
+                    const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
+
+                    if(response.data.success === true)
+                    {
+                        this.CRT += response.data.issuer.cod_crt
+                        if(Number(this.CRT) && this.CRT > 0)
+                        {
+                            if(this.CRT == 1 || this.CRT >= 4)
+                            {
+                                this.csosncst = 'CSOSN'
+
+                            } else {
+                                this.csosncst = 'CST'
+                            }
+                        }
+                    }
+
+                    if(response.data.success === false){
+                        console.log(response.data)
+
+                    }
+                } catch (error) {
+                    if(error.response.data.message === 'Hotel não encontrado')
+                    {
+                        alert(error.response.data.message)
+                        alert('Por favor faça o cadastro do hotel!')
+                        this.$router.push('/hotel/create')
+                        
+                    }
                 }
             },
 
@@ -1059,8 +1062,6 @@
                 this.importSale()            
                 
             }
-            
-            console.log(`PDV ID: ${LocalStorage.getItem("pdvID")}`)
 
         }
       }

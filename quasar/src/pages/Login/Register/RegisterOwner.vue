@@ -185,7 +185,7 @@
                         $q.loading.hide()
                         timer = void 0
             
-                    }, 1000)
+                    }, 2000)
                 }
             }
         },
