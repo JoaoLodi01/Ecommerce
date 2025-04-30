@@ -31,7 +31,8 @@
 
       <!-- Links Sidebar-->
       <div class="sidebar-header p-4 flex mt-6">
-        <img src="https://www.php.net/images/logos/php-icon-black.gif" width="" alt=""><h1 class="text-xl font-semibold ml-5 mt-0.5">{{ issuer_name }}</h1>
+        <img src="https://www.php.net/images/logos/php-icon-black.gif" width="" alt="">
+        <h1 class="text-xl font-semibold ml-5 mt-0.5">{{ issuer_name }}</h1>
         
       </div>
       <div class="sidebar-links p-4 ml-1 ">
@@ -312,7 +313,17 @@
           <li class="fixed bottom-0" :class="{
             'bottom-10': widthScreen <= 1080
           }">
-              <q-btn class="ml-5 hover:text-blue-300 flex items-center mb-10" @click="logout()">
+              <q-btn 
+                class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
+                @click="backCompanies()" 
+              >
+                <span class="ml-2 mb-auto">Trocar de empresa</span>
+              </q-btn>
+
+              <q-btn 
+                class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
+                @click="logout()"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
                 </svg>
@@ -373,7 +384,7 @@
         downRowUsers: false,
         downRow3: false,
         widthScreen: 0,
-        issuer_name: ''
+        issuer_name: LocalStorage.getItem("issuer_name")
       };
     },
     
@@ -383,16 +394,18 @@
         const ofCourse = confirm('Deseja realmente sair?')
         if(ofCourse)
         {
-            LocalStorage.remove("auth_token")
-            const token = LocalStorage.getItem("auth_token")
-            this.$router.push('/login')
-            /*if(response.data.success)
-            {
-                LocalStorage.remove("auth_token")                
-                this.$router.push('/login')
-              
-            }*/
+          LocalStorage.remove("auth_token")  
+          this.$router.push('/login')
         }        
+      },
+
+      backCompanies()
+      {
+        const ofCourse = confirm('Deseja trocar de empresa?')
+        if(ofCourse)
+        {
+          this.$router.push({ path: '/companies' })
+        }
       },
       
       toggleSidebar() {
@@ -447,8 +460,6 @@
 
     mounted()
     { 
-      this.issuer_name = this.$route.params.name
-      
       this.widthScreen += screen.width
       
       if(this.widthScreen <= 1080)

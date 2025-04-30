@@ -19,6 +19,8 @@ main()
             clear
             echo "Recriando banco de dados..."
             bash -c "php artisan migrate:fre"
+            cd "C:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/api/public/emails_passwords_path"
+            rm "emails_and_passwords.txt"
             main
         ;;
 
