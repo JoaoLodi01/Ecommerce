@@ -16,7 +16,8 @@ class SearchProducts extends FormRequest
     {
         return [
             'fillter' => ['required'],
-            'search' => ['required']
+            'search' => ['required'],
+            'issuer_id' => ['required']
         ];
     }
 

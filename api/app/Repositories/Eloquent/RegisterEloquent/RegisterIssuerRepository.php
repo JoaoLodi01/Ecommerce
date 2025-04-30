@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent\RegisterEloquent;
 
 use App\Models\ConfigPDV;
+use App\Models\Customer;
 use App\Models\EcommerceModels\Payment;
 use App\Models\FirstSteps;
 use App\Models\Issuer;
@@ -36,31 +37,40 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'owner_id' => $owner->id,
             ]);
 
+            $maxCustomerCod = Customer::where('issuer_id', $issuer->id)->max('customer_cod');
+
+            $codCustomer = $maxCustomerCod ? $maxCustomerCod + 1 : 1;
+
             $payments = [
                 [
-                    "issuer_id" => $issuer->id,
-                    "especie" => "Dinheiro",
-                    "tipo_lancamento" => "Caixa",
+                    'payment_cod' => 1,
+                    'issuer_id' => $issuer->id,
+                    'especie' => 'Dinheiro',
+                    'tipo_lancamento' => 'Caixa',
                 ],
                 [
-                    "issuer_id" => $issuer->id,
-                    "especie" => "PIX",
-                    "tipo_lancamento" => "Caixa",
+                    'payment_cod' => 2,
+                    'issuer_id' => $issuer->id,
+                    'especie' => 'PIX',
+                    'tipo_lancamento' => 'Caixa',
                 ],
                 [
-                    "issuer_id" => $issuer->id,
-                    "especie" => "Boleto",
-                    "tipo_lancamento" => "Receber",
+                    'payment_cod' => 3,
+                    'issuer_id' => $issuer->id,
+                    'especie' => 'Boleto',
+                    'tipo_lancamento' => 'Receber',
                 ],
                 [
-                    "issuer_id" => $issuer->id,
-                    "especie" => "Cartão de Crédito",
-                    "tipo_lancamento" => "Caixa",
+                    'payment_cod' => 4,
+                    'issuer_id' => $issuer->id,
+                    'especie' => 'Cartão de Crédito',
+                    'tipo_lancamento' => 'Caixa',
                 ],
                 [
-                    "issuer_id" => $issuer->id,
-                    "especie" => "Cartão de Débito",
-                    "tipo_lancamento" => "Receber",
+                    'payment_cod' => 5,
+                    'issuer_id' => $issuer->id,
+                    'especie' => 'Cartão de Débito',
+                    'tipo_lancamento' => 'Receber',
                 ],
                 
             ];
@@ -68,6 +78,13 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             foreach($payments as $payment){
                 Payment::create($payment);
             }
+
+
+            Customer::create([
+                'customer_cod' => $codCustomer,
+                'issuer_id' => $issuer->id,
+                'name' => 'Consumidor Padrão'
+            ]);
 
             ConfigPDV::create([
                 'issuer_id' => $issuer->id,

@@ -312,6 +312,7 @@ export default {
 
                     case 'nfce':
                         const response_nfce = await api.put(`ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                            issuer_id: LocalStorage.getItem("issuer_id"),
                             type_operation: 'nfce',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
@@ -328,12 +329,14 @@ export default {
                             LocalStorage.removeItem("pdvID")
                         } else {
                             console.log(response_nfce)
+                            LocalStorage.removeItem("pdvID")
                         }
 
                         break
 
                     case 'nm':
                         const response_nm = await api.put(`/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
+                            issuer_id: LocalStorage.getItem("issuer_id"),
                             type_operation: 'nm',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
@@ -348,6 +351,7 @@ export default {
                             this.$emit('update:selectProducts', []);
                         } else {
                             console.log(response_nm)
+                            LocalStorage.removeItem("pdvID")
                         }
 
                         break

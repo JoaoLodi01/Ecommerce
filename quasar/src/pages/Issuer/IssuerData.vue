@@ -9,8 +9,19 @@
                 <div class="flex">
                     <q-input 
                         class="w-max"
-                        label="CNPJ"
+                        label="CNPJ/CPF"
+                        v-if="form.cnpj"
                         v-model="form.cnpj" 
+                        type="text" 
+                        disable
+                        
+                    />
+                    
+                    <q-input 
+                        class="w-max"
+                        label="CNPJ/CPF"
+                        v-else
+                        v-model="form.cpf" 
                         type="text" 
                         disable
                         
@@ -188,6 +199,7 @@
                     trade_name: '',
                     date_of_foundation: null,
                     cnpj: '',
+                    cpf: '',
                     cep: '',
                     uf: '',
                     address: '',
@@ -211,7 +223,8 @@
                     company_name: response.data.issuer.company_name,
                     trade_name: response.data.issuer.trade_name,
                     date_of_foundation: response.data.issuer.date_of_foundation,
-                    cnpj: response.data.issuer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5'),
+                    cnpj: response.data.issuer.cnpj ? response.data.issuer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : null,
+                    cpf: response.data.issuer.cpf ? response.data.issuer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : null,
                     cep: response.data.issuer.cep ? response.data.issuer.cep.replace(/(\d{5})(\d{3})/, '$1-$2') : null,
                     address: response.data.issuer.address,
                     number: response.data.issuer.number,
@@ -223,15 +236,14 @@
                     im: response.data.issuer.im,
                     
                 }
-                console.log(this.form)
+                console.log(response)
             },
 
             async completeIssuer()
             {
                 const i = this.crtOptions.indexOf(this.form.crt) + 1
                 this.form.cod_crt = i
-                this.form.crt = this.crtOptions[i - 1]
-                console.log('Form: ', this.form)
+                this.form.crt = this.crtOptions[i - 1]                
     
                 const response = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, {
                     company_name: this.form.company_name,
@@ -258,21 +270,16 @@
 
             async getCEPData()
             {
-                
                 if(this.form.cep)
                 {
                     const cep = this.form.cep.replace(/\D/, '')
-                    console.log('CEP: ', cep)
                     if(cep.length === 8)
                     {
                         const data = await axios.get(`${process.env.API_CEP}/${cep}/json`)
-                        console.log(data)
                         this.form.uf = data.data.uf
                         this.form.address = data.data.logradouro
 
                     }
-                    
-
                 }
             }
         },

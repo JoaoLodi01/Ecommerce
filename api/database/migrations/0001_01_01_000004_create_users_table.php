@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            /*$table->unsignedBigInteger('user_cod');
+            $table->unique(['issuer_id', 'user_cod']);*/
+            
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id')->nullable();
             $table->string('name', 120);

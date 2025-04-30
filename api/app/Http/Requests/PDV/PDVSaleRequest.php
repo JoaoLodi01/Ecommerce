@@ -16,10 +16,11 @@ class PDVSaleRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'issuer_id' => ['required'],
             'type_operation' => ['required', 'string'],
             'change' => ['required'],
             'payments_values' => ['required'],
-            'pdv_id' => ['required']
+            'pdv_id' => ['required'],
 
         ];
     }

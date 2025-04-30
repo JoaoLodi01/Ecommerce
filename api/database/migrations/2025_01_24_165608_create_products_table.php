@@ -10,15 +10,16 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('product_code');
-            $table->unique(['issuer_id', 'product_code']);
+            $table->unsignedInteger('product_cod');
+            $table->unique(['issuer_id', 'product_cod']);
+            $table->unique(['issuer_id', 'barcode']);
+            $table->unique(['issuer_id', 'barcode_internal']);
+            
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('product', 120);
             $table->string('barcode', 14)->unique();
-            $table->unique(['issuer_id', 'barcode']);
             $table->string('barcode_internal', 16)->unique();
-            $table->unique(['issuer_id', 'barcode_internal']);
             $table->binary('image')->nullable();
             $table->unsignedBigInteger('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');

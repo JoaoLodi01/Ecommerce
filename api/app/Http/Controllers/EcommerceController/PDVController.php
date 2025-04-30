@@ -37,10 +37,8 @@ class PDVController extends Controller
     
     public function finalizeSale(PDVSaleRequest $request, int $id)
     {
-        $data = $request->validated();
-        Log::info('Dados recebidos no: PDVController finalizeSale');
-        Log::info($data);
-        return $this->pdvService->finalizeSale($data['payments_values'], $data['type_operation'], $id, $data['pdv_id']);
+        $data = $request->validated();        
+        return $this->pdvService->finalizeSale($data['payments_values'], $data['type_operation'], $id, $data['pdv_id'], $data['issuer_id']);
         // Se der errado, voltar para $request->input()
     }
 

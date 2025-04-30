@@ -14,12 +14,12 @@
     >
         <li
             v-for="product in filteredProducts"
-            :key="product.id"
+            :key="product.product_cod"
             @click="setProduct(product)"
             class="p-2 hover:bg-gray-200 cursor-pointer"
             
         >
-            <span>{{ product.id }}</span> -
+            <span>{{ product.product_cod }}</span> -
             <span>{{ product.product }}</span> -
             <span>Qtde: {{ product.amount }}</span> -
             <span>R$ {{ product.sale_price }} </span>
@@ -63,7 +63,9 @@ import { LocalStorage } from "quasar";
                 configs: {
                     saleNegativeorReset: false,
                     fillter: ''
-                }
+                },
+
+                issuer_id: LocalStorage.getItem("issuer_id")
             }
         },
 
@@ -75,7 +77,8 @@ import { LocalStorage } from "quasar";
                     {
                         const response = await api.post(`/ecommerce/products/search`,{
                             fillter: this.configs.fillter,
-                            search: this.search.name
+                            search: this.search.name,
+                            issuer_id: this.issuer_id
                         });
 
                         this.products = toRaw(response.data);

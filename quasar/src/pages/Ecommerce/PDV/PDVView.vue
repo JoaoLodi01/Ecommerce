@@ -120,7 +120,7 @@
                             class="border border-black"
                         >    
 
-                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.product_cod }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
 
                             <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
@@ -524,7 +524,9 @@
                 configs: {
                     nmFinaly: false,
                     saleNegativeorReset: false
-                }
+                },
+
+                issuer_id: LocalStorage.getItem("issuer_id")
             }
         },
 
@@ -575,6 +577,7 @@
                             if(!this.isOpenedPDV)
                             {
                                 const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                    issuer_id: this.issuer_id,
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
                                     customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
@@ -688,7 +691,7 @@
                             if(type === 'nm')   
                             { 
                                 const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                    issuer_id: LocalStorage.getItem("issuer_id"),
+                                    issuer_id: this.issuer_id,
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
                                     customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
@@ -723,7 +726,7 @@
                             if(type === 'nfce')
                             {  
                                 const response = await api.post('/ecommerce/pdv/save-sale', {
-                                    issuer_id: LocalStorage.getItem("issuer_id"),
+                                    issuer_id: this.issuer_id,
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
                                     customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
@@ -785,7 +788,7 @@
                 {
                     console.log('agora')
                     this.productsSeletion = []
-                    this.$router.push({ path: '/sale/list-pdv' })
+                    this.$router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
                 }
 
             },
@@ -1056,7 +1059,9 @@
                 this.importSale()            
                 
             }
+            
             console.log(`PDV ID: ${LocalStorage.getItem("pdvID")}`)
+
         }
       }
 </script>

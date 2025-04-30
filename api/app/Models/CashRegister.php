@@ -9,6 +9,7 @@ class CashRegister extends Model
     protected $table = 'cash_registers';
 
     protected $fillable = [
+        'cash_register_cod',
         'issuer_id',
         'description',
         'document',

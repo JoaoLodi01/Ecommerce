@@ -86,13 +86,13 @@
         }"
     >
         <div
-          v-for="(product, id) in products" :key="product.id"
+          v-for="product in products" :key="product.id"
           class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
           @click="editProduct(product.product, product.id)"
         >
 
           <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">ID:</span> {{ product.id }}
+            <span class="font-semibold">ID:</span> {{ product.product_cod }}
           </div>
 
           <div class="text-sm text-gray-500 mb-2">

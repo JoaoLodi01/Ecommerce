@@ -25,20 +25,25 @@ class ProductsRepository
         Log::info($data);
         $products = null;
         $search = $data['search'];
+        $issuer_id = $data['issuer_id'];
         
         switch ($data['fillter']) {
             case 'Cód barras interno':
                 $products = Products::where('active', 1)
-                    ->where(function($query) use ($search){
-                        $query->where('barcode_internal', $search);
+                    ->where(function($query) use ($search, $issuer_id){
+                        $query->where('barcode_internal', $search)
+                              ->where('issuer_id', $issuer_id);
+                        
 
                     })->get();
                 break;
             
             case 'Cód barras':
                 $products = Products::where('active', 1)
-                    ->where(function($query) use ($search){
-                        $query->where('barcode', $search);
+                    
+                    ->where(function($query) use ($search, $issuer_id){
+                        $query->where('barcode', $search)
+                               ->where('issuer_id', $issuer_id);
 
                     })->get();
 
@@ -46,8 +51,10 @@ class ProductsRepository
 
             case 'Cód barras & Cód barras interno':
                 $products = Products::where('active', 1)
-                    ->where(function($query) use ($search){
+                    
+                    ->where(function($query) use ($search, $issuer_id){
                         $query->where('barcode', $search)
+                              ->where('issuer_id', $issuer_id)
                               ->orWhere('barcode_internal');
 
                     })->get();
@@ -55,11 +62,13 @@ class ProductsRepository
     
             case 'Padrão (cód.barras ou cód.produto)':
                 $products = Products::where('active', 1)
-                            ->where(function($query) use ($search){
-                                $query->where('id', $search)
-                                        ->orWhere('barcode', $search)
-                                        ->orWhere('product', 'like', '%' . $search . '%');
-                            })->get();
+                    
+                    ->where(function($query) use ($search, $issuer_id){
+                        $query->where('product_cod', $search)
+                                ->where('issuer_id', $issuer_id)
+                                ->orWhere('barcode', $search)
+                                ->orWhere('product', 'like', '%' . $search . '%');
+                    })->get();
 
                 break;
 
@@ -90,12 +99,12 @@ class ProductsRepository
 
         $data['group_id'] ? $group = $this->groupRepository->findByID($data['group_id']) : null;
 
-        $maxCode = Products::where('issuer_id', $data['issuer_id'])->max('product_code');
-        $productCode = $maxCode ? $maxCode + 1 : 1;
+        $maxCode = Products::where('issuer_id', $data['issuer_id'])->max('product_cod');
+        $productCod = $maxCode ? $maxCode + 1 : 1;
         
-        Log::info('$productCode ' . $productCode);
+        Log::info('$productCod ' . $productCod);
         return Products::create([
-            'product_code' => $productCode,
+            'product_cod' => $productCod,
             'issuer_id' => (int) $data['issuer_id'],
             'product' => $data['product'],
             'image' => $data['image'],
