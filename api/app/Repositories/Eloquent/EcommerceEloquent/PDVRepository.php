@@ -261,7 +261,7 @@ class PDVRepository
                 
                 );
             }
-        } elseif ($total <  $pdv->net_value)
+        } elseif ($total < $pdv->net_value)
         {
             Log::info('Foi menor');
             return array(
