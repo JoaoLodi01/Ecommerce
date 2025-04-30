@@ -461,3 +461,9 @@
 #37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
 #38 {main}
 "} 
+[2025-04-29 20:19:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-29 20:19:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-04-30 11:10:43] local.INFO: owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"pT2rHMuKv3","active":1,"created_at":"2025-04-29T18:25:11.000000Z","updated_at":"2025-04-29T18:25:11.000000Z"}  
+[2025-04-30 11:10:43] local.INFO: Passou o login, token: 3|XJ6C0hSTWgXFWUEwPcM32BELVDN6KADeYEKNjIW5964d4bbf  
+[2025-04-30 11:46:04] local.INFO: owner {"id":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"pT2rHMuKv3","active":1,"created_at":"2025-04-29T18:25:11.000000Z","updated_at":"2025-04-29T18:25:11.000000Z"}  
+[2025-04-30 11:46:05] local.INFO: Passou o login, token: 4|jWpZb5znAk2OvQ3x8iJa8HaOXHdtif4ZzOsnklRz87c8ed69  
