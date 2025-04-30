@@ -86,13 +86,13 @@
         }"
     >
         <div
-          v-for="(product, id) in products" :key="product.id"
+          v-for="product in products" :key="product.id"
           class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
           @click="editProduct(product.product, product.id)"
         >
 
           <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">ID:</span> {{ product.id }}
+            <span class="font-semibold">ID:</span> {{ product.product_cod }}
           </div>
 
           <div class="text-sm text-gray-500 mb-2">
@@ -174,8 +174,8 @@
 
 <script>
     import { LocalStorage } from 'quasar';
-import { api } from 'src/boot/axios';
-import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
+    import { api } from 'src/boot/axios';
+    import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
@@ -199,7 +199,8 @@ import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
         methods: {
             async getProducts() {
                 const response = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
-                this.products = response.data.all.data;
+                console.log(response.data.all)
+                this.products = response.data.all;
 
             },
 

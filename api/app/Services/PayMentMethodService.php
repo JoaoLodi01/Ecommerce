@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\CashRegister;
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
 use App\Repositories\Eloquent\ReceiveRepository;
 use App\Services\HotelServices\ReservationService;
@@ -16,7 +17,7 @@ class PayMentMethodService
         protected ReservationService $reservationService,
   
     ){
-        Log::info('Memória usada PayMentMethodService::class, __construct, linha 21: ' . memory_get_usage(true));
+        Log::info('Memória usada PayMentMethodService::class, __construct, linha 20: ' . memory_get_usage(true));
     }
 
     public function payment(
@@ -25,26 +26,22 @@ class PayMentMethodService
         object $customer, 
         string $description, 
         string $origem, 
-        object $pdv
+        object $pdv,
+        int $issuerID
+                
     )
     {   // Método para ser adicioando ao caixa                
-        Log::info('-- Inicio do registro no caixa, PayMentMethodService.php, linha 26 --');
-
-        Log::info('$paymentValues');
-        Log::info($paymentValues);
+        Log::info('-- Inicio do registro no caixa, PayMentMethodService.php, linha 33 --');
+        Log::info("ISSUER_ID $issuerID");
 
         $currentDate = new Carbon();
         $cashRegisters = [];
         if(count($forms) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $forms
         {   
-            Log::info('Possui mais de uma espécie informada: ' . count($forms));
-            Log::info('Total de pagamentos: ' . count($paymentValues));
             // Percore todo o array enviado de valores
             // MANTER O $i = 1, caso contrário vai dar bo se tiver mais de uma espécie informada
             for ($i=1; $i < count($paymentValues); $i++) 
             {
-                Log::info($i);
-                Log::info('$paymentValues[$i] linha - 37: i = ' . $i);            
                 if($paymentValues[$i] > 0)
                 {
                     Log::info('Vai pegar as posições maiores que zero, posição: ' . $i);
@@ -56,6 +53,7 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
+                                'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
                                 'document' => $pdv->id,
                                 'pdv_id' => $pdv->id,
@@ -80,6 +78,7 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Receber')
                         {
                             $bodyCash = array(
+                                'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->id" : "Parcelamento Venda Nota Manual 
                                 N° $pdv->id",
                                 'document' => $pdv->id,
@@ -152,10 +151,14 @@ class PayMentMethodService
                         Log::info('Vai conferir os tipos de lançamento');
                         Log::info('$form->tipo_lancamento');
                         Log::info($form);
-                        
+
+                        $maxCashRegister = CashRegister::where('issuer_id', $issuerID)->max('cash_register_cod');
+
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
+                                'cash_register_cod' => $maxCashRegister ? $maxCashRegister + 1 : 1,
+                                'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual 
                                 N° $pdv->id",
                                 'document' => $pdv->id,
@@ -179,6 +182,8 @@ class PayMentMethodService
                         if($form->tipo_lancamento === 'Receber')
                         {
                             $bodyCash = array(
+                                'cash_register_cod' => $maxCashRegister ? $maxCashRegister + 1 : 1,
+                                'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->id" : "Parcelamento Venda Nota Manual 
                                 N° $pdv->id",
                                 'document' => $pdv->id,
@@ -237,13 +242,17 @@ class PayMentMethodService
         );  
     }    
 
-    public function decreaseCash(object $customer, float $value, string $description, string $origem)
+    public function decreaseCash(object $customer, float $value, string $description, string $origem, string|int $issuerID)
     {
         Log::info('-- Inicio decreaseCash --');
         Log::info('Memória usada PayMentMethodService::class, decreaseCash: ' . memory_get_usage(true));
         $currentDate = new Carbon();
         $cashRegisters = [];
+        $maxCashRegister = CashRegister::where('issuer_id', $issuerID)->max('cash_register_cod');
+
         $cashRegisters[] = [
+            'cash_register_cod' => $maxCashRegister ? $maxCashRegister + 1 : 1,
+            'issuer_id' => $issuerID,
             'description' => $description,
             'document' => 1,
             'customer_id' => $customer->id,

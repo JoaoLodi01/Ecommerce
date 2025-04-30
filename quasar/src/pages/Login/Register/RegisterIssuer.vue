@@ -73,23 +73,13 @@
                 /> 
                 
                 <q-btn 
-                    @click=showLoading 
                     type="submit"
-                    label="Criar conta"
+                    label="Criar Empresa"
                     class="m-2"
                     flat 
                     style="color: #1F2937"   
                 />
-                
-                <router-link to="/login">
-                    <q-btn
-                        type="button"
-                        class="m-2"
-                        flat 
-                        style="color: #1F2937"   
-                        label="Já possui uma conta?"
-                    />
-                </router-link>
+            
                 
             </q-form>
             
@@ -113,7 +103,7 @@
                 if(timer !== void 0)
                 {
                     clearTimeout(timer)
-                    $q.loading.hide   
+                    $q.loading.hide()
                 }
             })
 
@@ -154,9 +144,8 @@
                 const cnpj = this.form.cnpj.replace(/\D/g, '')
                 if(cnpj.length == 14)
                 {
-                    console.log('API_CNPJ', process.env.API_CNPJ)
                     const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
-                    console.log(data)
+                    
                     this.form.company_name = data.data.alias
                     this.form.trade_name = data.data.alias
                     this.form.date_of_foundation = data.data.founded
@@ -169,7 +158,7 @@
 
             async createIssuer()
             {
-                console.log(this.form)
+                this.showLoading()
                 try {
                     const response = await api.post('/registers/issuer/create', {
                         company_name: this.form.company_name,

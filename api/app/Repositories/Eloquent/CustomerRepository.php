@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Customer;
+use App\Models\FirstSteps;
 use App\Models\Issuer;
 use Illuminate\Support\Facades\Log;
 class CustomerRepository
@@ -85,8 +86,18 @@ class CustomerRepository
 
     public function create(array $data){
         $issuer = Issuer::where('id', $data['issuer_id'])->first();
+        $maxCod = Customer::where('issuer_id', $issuer->id)->max('customer_cod');
+
+        $customerCod = $maxCod ? $maxCod + 1 : 1;
+
+        $stpes = FirstSteps::where('issuer_id', $issuer->id)->first();
+        $stpes->update([
+            'complete_customers' => 1
+        ]);
+        $stpes->save();
 
         return Customer::create([
+            'customer_cod' => $customerCod,
             'issuer_id' => $issuer->id,
             'name' => $data['name'],
             'cpf' => $data['cpf'] ?? null,

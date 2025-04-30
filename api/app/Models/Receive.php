@@ -9,6 +9,7 @@ class Receive extends Model
     protected $table = 'receives';
 
     protected $fillable = [
+        'receive_cod',
         'issuer_id',
         'description',
         'customer_id',

@@ -14,12 +14,12 @@
     >
         <li
             v-for="product in filteredProducts"
-            :key="product.id"
+            :key="product.product_cod"
             @click="setProduct(product)"
             class="p-2 hover:bg-gray-200 cursor-pointer"
             
         >
-            <span>{{ product.id }}</span> -
+            <span>{{ product.product_cod }}</span> -
             <span>{{ product.product }}</span> -
             <span>Qtde: {{ product.amount }}</span> -
             <span>R$ {{ product.sale_price }} </span>
@@ -31,13 +31,14 @@
 
 <script>
     import { api } from "boot/axios"
+import { LocalStorage } from "quasar";
     import { toRaw } from "vue";
 
     export default {
         mounted()
         {
             const getConfig = async () => {
-                const response = await api.get('/config/all-configs/{issuer_id}');
+                const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
                 this.configs = {
                     fillter: response.data.configPDV[0].filter_search,
                     saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset >= 1 ? true : false,
@@ -62,7 +63,9 @@
                 configs: {
                     saleNegativeorReset: false,
                     fillter: ''
-                }
+                },
+
+                issuer_id: LocalStorage.getItem("issuer_id")
             }
         },
 
@@ -74,7 +77,8 @@
                     {
                         const response = await api.post(`/ecommerce/products/search`,{
                             fillter: this.configs.fillter,
-                            search: this.search.name
+                            search: this.search.name,
+                            issuer_id: this.issuer_id
                         });
 
                         this.products = toRaw(response.data);

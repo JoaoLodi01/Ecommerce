@@ -1,0 +1,61 @@
+[2025-04-30 13:07:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:07:30] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:07:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:07:31] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:07:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-30 13:07:31] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:27:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:27:54] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:27:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:27:55] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:27:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:27:55] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:28:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:28:20] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:28:21] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:28:21] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:28:21] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:28:21] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:28:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:28:30] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:28:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:28:30] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:28:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:28:31] local.INFO: ConfigController: $issuer_id 1  
+[2025-04-30 13:49:35] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"OitKT34XsE","active":1,"created_at":"2025-04-30T10:45:16.000000Z","updated_at":"2025-04-30T10:45:16.000000Z"}  
+[2025-04-30 13:49:36] local.INFO: Passou o login, token: 3|HwEOznrp0XGrty2m7lgeaMRmBYRZRESTm2DL6Z3w921b3255  
+[2025-04-30 13:53:18] local.INFO: array (
+  'company_name' => 'TESTE',
+  'trade_name' => 'TESTE',
+  'cnpj' => '11111111111111',
+  'cpf' => NULL,
+  'main_activity' => NULL,
+  'cod_crt' => NULL,
+  'date_of_foundation' => '1111-11-11',
+  'uuse_id' => 'OitKT34XsE',
+)  
+[2025-04-30 13:53:18] local.INFO: OitKT34XsE  
+[2025-04-30 13:53:18] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"OitKT34XsE","active":1,"created_at":"2025-04-30T10:45:16.000000Z","updated_at":"2025-04-30T10:45:16.000000Z"}  
+[2025-04-30 13:56:27] local.INFO: 3  
+[2025-04-30 13:56:27] local.INFO: array (
+  'company_name' => 'TESTE',
+  'trade_name' => 'TESTE',
+  'date_of_foundation' => 'TESTE',
+  'cep' => '89711226',
+  'uf' => 'SC',
+  'address' => 'Rua Alexandre Lorenzet',
+  'number' => '1345',
+  'cod_cnae' => '1354569768',
+  'cnae' => '1354569768135456976813545697681354569768',
+  'cod_crt' => 5,
+  'crt' => 'MEI',
+  'ie' => '13545697681354',
+  'im' => '135456976813',
+)  
+[2025-04-30 13:56:27] local.INFO: $firstSteps {"id":3,"issuer_id":3,"complete_issuer":0,"complete_pdv":0,"complete_customers":0,"complete_products":0,"created_at":"2025-04-30T13:53:19.000000Z","updated_at":"2025-04-30T13:53:19.000000Z","ignore_first_steps":0}  
+[2025-04-30 13:57:59] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:57:59] local.INFO: ConfigController: $issuer_id 3  
+[2025-04-30 13:58:00] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-04-30 13:58:00] local.INFO: ConfigController: $issuer_id 3  
+[2025-04-30 13:58:00] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-04-30 13:58:00] local.INFO: ConfigController: $issuer_id 3  

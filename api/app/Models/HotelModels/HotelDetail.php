@@ -13,19 +13,9 @@ class HotelDetail extends Model
     protected $table = 'hotel_details';
 
     protected $fillable = [
-        'name',
-        'cnpj',
-        'email',
-        'cep', 
-        'address',
-        'number',
         'number_of_rooms',
         'number_of_employees',
         'total_busy_rooms',
-        'cod_cnae',
-        'cnae',
-        'cod_crt',
-        'crt',
         'active',
         'end_date'
         

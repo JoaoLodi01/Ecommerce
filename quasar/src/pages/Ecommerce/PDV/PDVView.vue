@@ -120,7 +120,7 @@
                             class="border border-black"
                         >    
 
-                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.product_cod }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
 
                             <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
@@ -416,7 +416,7 @@
         <ProductsSelectionView
             v-if="show"
             :witdhScreen="this.witdhScreen"
-            :hotelCodCRT="this.hotelCodCRT"
+            :CRT="this.CRT"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion($event)"
         />
@@ -481,7 +481,7 @@
                     
                 },
 
-                hotelCodCRT: 0,
+                CRT: 0,
 
                 sellerData: {
                     id: 0,
@@ -524,7 +524,9 @@
                 configs: {
                     nmFinaly: false,
                     saleNegativeorReset: false
-                }
+                },
+
+                issuer_id: LocalStorage.getItem("issuer_id")
             }
         },
 
@@ -575,6 +577,7 @@
                             if(!this.isOpenedPDV)
                             {
                                 const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                    issuer_id: this.issuer_id,
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
                                     customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
@@ -613,43 +616,8 @@
                     }
                 }
             },
-
-            async getHotel()
-            {
-                try {
-                    const response = await api.get('/hotel/all')
-
-                    if(response.data.success === true)
-                    {
-                        this.hotelCodCRT += response.data.all.hotel.cod_crt
-                        if(Number(this.hotelCodCRT) && this.hotelCodCRT > 0)
-                        {
-                            if(this.hotelCodCRT == 1 || this.hotelCodCRT >= 4)
-                            {
-                                this.csosncst = 'CSOSN'
-
-                            } else {
-                                this.csosncst = 'CST'
-                            }
-                        }
-                    }
-
-                    if(response.data.success === false){
-                        console.log(response.data)
-
-                    }
-                } catch (error) {
-                    if(error.response.data.message === 'Hotel não encontrado')
-                    {
-                        alert(error.response.data.message)
-                        alert('Por favor faça o cadastro do hotel!')
-                        this.$router.push('/hotel/create')
-                        
-                    }
-                }
-            },
             
-            async finalizeSale(type) // Só vai chamar a forma de pagamento
+            async finalizeSale(type)
             {
                 this.showLoading()
                 try {
@@ -688,6 +656,7 @@
                             if(type === 'nm')   
                             { 
                                 const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                    issuer_id: this.issuer_id,
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
                                     customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
@@ -700,14 +669,19 @@
                                     status: 'Finalizada'
                                     
                                 })
+
                                 const data = response.data
+                                console.log(data)
 
                                 if(data.success)
                                 {
                                     LocalStorage.setItem("pdvID", response.data.pdvID)
                                     this.typeOperation = type
                                     this.showPaymentsForm = true
-                                    this.pdvID = pdvID
+                                    this.pdvID = LocalStorage.getItem("pdvID")
+                                    console.log('this.typeOperation linha 682: ', this.typeOperation)
+                                    console.log('this.showPaymentsForm linha 683: ', this.showPaymentsForm)
+                                    console.log('this.pdvID linha 684: ', this.pdvID)
 
                                 }
                             
@@ -721,6 +695,7 @@
                             if(type === 'nfce')
                             {  
                                 const response = await api.post('/ecommerce/pdv/save-sale', {
+                                    issuer_id: this.issuer_id,
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
                                     customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
@@ -767,6 +742,41 @@
                 }
             },
 
+            async getCRT()
+            {
+                try {
+                    const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
+
+                    if(response.data.success === true)
+                    {
+                        this.CRT += response.data.issuer.cod_crt
+                        if(Number(this.CRT) && this.CRT > 0)
+                        {
+                            if(this.CRT == 1 || this.CRT >= 4)
+                            {
+                                this.csosncst = 'CSOSN'
+
+                            } else {
+                                this.csosncst = 'CST'
+                            }
+                        }
+                    }
+
+                    if(response.data.success === false){
+                        console.log(response.data)
+
+                    }
+                } catch (error) {
+                    if(error.response.data.message === 'Hotel não encontrado')
+                    {
+                        alert(error.response.data.message)
+                        alert('Por favor faça o cadastro do hotel!')
+                        this.$router.push('/hotel/create')
+                        
+                    }
+                }
+            },
+
             chooseErrors(choose)
             {
                 console.log('chooseErrors: ', choose)
@@ -781,7 +791,7 @@
                 {
                     console.log('agora')
                     this.productsSeletion = []
-                    this.$router.push({ path: '/sale/list-pdv' })
+                    this.$router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
                 }
 
             },
@@ -1021,7 +1031,7 @@
         ],
 
         mounted(){
-            this.getHotel()
+            this.getCRT()
             this.witdhScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
             
@@ -1031,11 +1041,10 @@
                         'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
                     }
                 })
-                const details = response.data   
 
                 this.sellerData = {
-                    id: details.user.id,
-                    name: details.user.name,
+                    id: response.data.user.id,
+                    name: response.data.user.name,
                 }
 
             }
@@ -1053,7 +1062,7 @@
                 this.importSale()            
                 
             }
-            console.log(`PDV ID: ${LocalStorage.getItem("pdvID")}`)
+
         }
       }
 </script>

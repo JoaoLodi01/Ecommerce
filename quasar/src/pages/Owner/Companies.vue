@@ -96,10 +96,24 @@
             async joinCompanie(name, issuer_id)
             {
                 LocalStorage.setItem("issuer_id", issuer_id)
-                this.$router.push({ 
-                    path:`${name}/home`, 
-                    params: { name: name }
-                })
+                const response = await api.get(`/first-stpes/${issuer_id}`)
+                const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
+                
+                if(!completed)
+                {
+                    this.$router.push({ 
+                        path:`/${name}/first/companie-data`, 
+                        params: { name: name }
+                    })
+                    
+                } else {
+                    this.$router.push({ 
+                        path:`/${name}/home`, 
+                        params: { name: name }
+                    })
+
+                }
+                
             }
         },
 
@@ -107,7 +121,7 @@
         {
             this.getCompanies()
             const uuse_id = LocalStorage.getItem("uuse_id")
-            console.log('uuse_id: /companies: ', uuse_id)
+            
             if(!uuse_id)
             {
                 this.$router.push('/register-owner')   

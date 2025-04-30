@@ -7,16 +7,18 @@ use Illuminate\Support\Facades\Log;
 
 class PaymentsRepository
 {
-    public function getAll(int $active){
+    public function getAll(int $issuer_id){
         Log::info("Buscando todas as espécies na table: payments");
-        return Payment::where('active', $active)->get();
+        return Payment::where('issuer_id', $issuer_id)->get();
     }
 
     public function findByID(array $data){
         Log::info("Buscando a espécie pelo ID.");
+        Log::info($data);
+        
         $result = [];
-        foreach ($data as $i) {
-            $result[] = Payment::where('id', $i)->first();
+        foreach ($data as $id) {
+            $result[] = Payment::where('id', $id)->first();
             
         }
         Log::info('$result');

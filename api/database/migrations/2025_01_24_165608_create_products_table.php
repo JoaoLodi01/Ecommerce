@@ -10,6 +10,11 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('product_cod');
+            $table->unique(['issuer_id', 'product_cod']);
+            $table->unique(['issuer_id', 'barcode']);
+            $table->unique(['issuer_id', 'barcode_internal']);
+            
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('product', 120);

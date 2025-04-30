@@ -93,7 +93,10 @@ class PDVRepository
         $errors = [];
         foreach ($products as $product) {
             for ($i=0; $i < count($product); $i++) { 
+                $maxItensPDV = ItensPDV::where('issuer_id', $product[$i]['issuer_id'])->max('iten_pdv_cod');
                 $itensPDV = array(
+                    'iten_pdv_cod' => $maxItensPDV ? $maxItensPDV + 1 : 1,
+                    'issuer_id' => $product[$i]['issuer_id'],
                     'pdv_id' => $pdvID,
                     'product_id' => $product[$i]['id'],
                     'product' => $product[$i]['product'],
@@ -138,7 +141,7 @@ class PDVRepository
                     }
                 }
             
-                $ipdv = ItensPDV::create($itensPDV);
+                ItensPDV::create($itensPDV);
                 
             }
         }
@@ -157,8 +160,10 @@ class PDVRepository
         $user = $this->userRepository->findByID($details['user_id']); // "user"
 
         $currentDate = new Carbon();
-                  
+        $maxPDV = PDV::where('issuer_id', $details['issuer_id'])->max('pdv_cod');
         $pdvData = array(
+            'pdv_cod' => $maxPDV ? $maxPDV + 1 : 1,
+            'issuer_id' => $details['issuer_id'],
             'description' => $details['description'],
             'issue_date' => $currentDate->format('Y-m-d'),
             'cliente_id' => $customer->id,
@@ -202,7 +207,7 @@ class PDVRepository
         
     }
 
-    public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total)
+    public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total, int $issuerID)
     {
         Log::info('-- Iniciou o finalizeSale() line 172 -- ');
         Log::info('Memória usada PDVRepository::class, finalizeSale: ' . memory_get_usage(true));
@@ -217,9 +222,10 @@ class PDVRepository
         if($total >= $pdv->net_value)
         {
             Log::info('Foi maior');
-            Log::info($pdv->is_nfce_nm);
+            Log::info('Tipo de venda NM/NFCE: ' . $pdv->is_nfce_nm);
+            Log::info('Issuer ID: ' . $issuerID);
             
-            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, [1]);
+            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, $issuerID);
             Log::info('payMentMethodService');
             Log::info($payMentMethodService);
 

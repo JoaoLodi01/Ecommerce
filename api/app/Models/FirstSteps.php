@@ -13,5 +13,6 @@ class FirstSteps extends Model
         'complete_pdv',
         'complete_customers',
         'complete_products',
+        'ignore_first_steps',
     ];
 }
