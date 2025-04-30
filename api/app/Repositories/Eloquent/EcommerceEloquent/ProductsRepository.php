@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
+use App\Models\FirstSteps;
 use App\Models\Issuer;
 use Illuminate\Support\Facades\Log;
 class ProductsRepository 
@@ -97,15 +98,21 @@ class ProductsRepository
         Log::info("data");
         Log::info($data);
 
+        $issuer_id = $data['issuer_id'];
         $data['group_id'] ? $group = $this->groupRepository->findByID($data['group_id']) : null;
 
-        $maxCode = Products::where('issuer_id', $data['issuer_id'])->max('product_cod');
+        $maxCode = Products::where('issuer_id', $issuer_id)->max('product_cod');
         $productCod = $maxCode ? $maxCode + 1 : 1;
+
+        $stpes = FirstSteps::where('issuer_id', $issuer_id)->first();
+        $stpes->update([
+            'complete_products' => 1
+        ]);
+        $stpes->save();
         
-        Log::info('$productCod ' . $productCod);
         return Products::create([
             'product_cod' => $productCod,
-            'issuer_id' => (int) $data['issuer_id'],
+            'issuer_id' => $issuer_id,
             'product' => $data['product'],
             'image' => $data['image'],
             'barcode' => $data['barcode'],
