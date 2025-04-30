@@ -8,14 +8,13 @@ use App\Http\Controllers\Controller;
 
 class PaymentsController extends Controller
 {
-    protected $paymentsSaleService;
+    public function __construct(
+        protected PaymentsService $paymentsSaleService
+    )
+    {}
 
-    public function __construct(PaymentsService $paymentsSaleService){
-        $this->paymentsSaleService = $paymentsSaleService;
-    }
-
-    public function getAll(){
-        return $this->paymentsSaleService->getAll();
+    public function getAll(int $issuer_id){
+        return $this->paymentsSaleService->getAll($issuer_id);
     }
 
     public function store(Request $request){

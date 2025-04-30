@@ -71,7 +71,12 @@ class PDVService
         return $saveSale['success'] ? $saveSale : $saveSale;
     }
 
-    public function finalizeSale(array $paymentsValues, string $typeOperation, int $pdvID, int $issuerID)
+    public function finalizeSale(
+        array $paymentsValues, 
+        string $typeOperation, 
+        int $pdvID, 
+        int $issuerID
+    )
     {
         try {
             $total = 0; // Total pago
@@ -105,7 +110,9 @@ class PDVService
             } else {
                 return response()->json([
                     'success' => $pdv['success'],
-                    'message' => 'Erro ao finalizar'
+                    'line' => 113,
+                    'file' => 'PDVService | erro manual',
+                    'message' => $pdv['errorMessage'] ?? $pdv['message']
                 ], 400);
                 
             }

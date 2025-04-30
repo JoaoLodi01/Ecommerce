@@ -14,7 +14,7 @@
         color="white"
         text-color="blue"
         unelevated
-        to="/home"
+        :to="`/${issuer_name}/home`"
         label="Voltar para a página inicial"
         no-caps
       />
@@ -23,5 +23,6 @@
 </template>
 
 <script setup>
-//
+    import { LocalStorage } from 'quasar';
+    const issuer_name = LocalStorage.getItem("first_name")
 </script>

@@ -4,17 +4,16 @@ namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PaymentsRepository;
 
-class PaymentsService{
-    
-    protected $paymentsRepository;
+class PaymentsService
+{
+    public function __construct(
+        protected PaymentsRepository $paymentsRepository
+    )
+    {}
 
-    public function __construct(PaymentsRepository $paymentsRepository){
-        $this->paymentsRepository = $paymentsRepository;
-    }
-
-    public function getAll(){
+    public function getAll(int $issuer_id){
         try {
-            return $this->paymentsRepository->getAll(1);
+            return $this->paymentsRepository->getAll($issuer_id);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }

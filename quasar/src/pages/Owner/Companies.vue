@@ -95,11 +95,31 @@
 
             async joinCompanie(name, issuer_id)
             {
+                const first_name = name.split(" ")[0]
+            
                 LocalStorage.setItem("issuer_id", issuer_id)
-                this.$router.push({ 
-                    path:`${name}/home`, 
-                    params: { name: name }
-                })
+                LocalStorage.setItem("first_name", first_name)
+                console.log('First by local: ', LocalStorage.getItem("first_name"))
+                LocalStorage.setItem("issuer_name", name)
+                const response = await api.get(`/first-stpes/${issuer_id}`)
+                const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
+                
+                if(!completed)
+                {
+                    LocalStorage.setItem("_completed", false)
+                    this.$router.push({ 
+                        path:`/${first_name}/first/companie-data`, 
+                        params: { name: LocalStorage.getItem("first_name") }
+                    })
+                    
+                } else {
+                    this.$router.push({ 
+                        path:`/${first_name}/home`, 
+                        params: { name: LocalStorage.getItem("first_name") }
+                    })
+
+                }
+                
             }
         },
 

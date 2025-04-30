@@ -1,9 +1,16 @@
 <template>
-    <div class="ml-14 mt-10 p-5">
+    <div class="flex justify-center ml-14 mt-10 p-5">
         <q-form
             @submit="completeIssuer()"
             
         >
+            <h1 
+                v-if="!_completed" 
+                class="ml-5 text-2xl"
+            >
+                Complete o cadastro da sua empresa!
+            </h1>
+            
             <div class="bg-white p-5 rounded-lg mb-5">
                 <h3 class="border-b mb-3">Dados da empresa</h3>
                 <div class="flex">
@@ -194,6 +201,7 @@
         data()
         {
             return {
+                _completed: LocalStorage.getItem("_completed"),
                 form: {
                     company_name: '',
                     trade_name: '',
@@ -264,6 +272,7 @@
                 
                 if(response.data.success)
                 {
+                    LocalStorage.setItem("_completed", true)
                     this.$router.push(`/${this.form.company_name}/home`)
                 } 
             },

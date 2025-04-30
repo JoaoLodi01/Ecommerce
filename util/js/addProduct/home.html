@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Adicionar produto</h1>
+    <form onsubmit="addProduct()">
+        <label for="">Produto</label>
+        <input 
+            type="text"
+            name="nome"
+        />
+        
+        <label for="">Valor</label>
+        <input 
+            type="text"
+            name="valor"
+        />
+        
+        <button type="submit">Adicionar</button>
+
+    </form>
+
+    <div id="list">
+        <span id="nome"></span>
+        <span id="valor"></span>
+    </div>
+</body>
+<script src="add.js"></script>
+</html>

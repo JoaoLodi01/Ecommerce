@@ -222,7 +222,8 @@ class PDVRepository
         if($total >= $pdv->net_value)
         {
             Log::info('Foi maior');
-            Log::info($pdv->is_nfce_nm);
+            Log::info('Tipo de venda NM/NFCE: ' . $pdv->is_nfce_nm);
+            Log::info('Issuer ID: ' . $issuerID);
             
             $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, $issuerID);
             Log::info('payMentMethodService');

@@ -24,7 +24,7 @@ class CashRegisterRepository
 
     public function create(array $cashRegisters){
         Log::info('-- Vai iniciar criação no CAIXA, dados: --');
-        Log::info('Memória usada CashRegisterRepository::class, create: ' . memory_get_usage(true));
+        Log::info($cashRegisters);
 
         if(count($cashRegisters) >= 2)
         {
@@ -42,8 +42,9 @@ class CashRegisterRepository
         if(count($cashRegisters) <= 1)
         {
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
+            Log::info(['Dados' => $cashRegisters[0]]);
             CashRegister::create($cashRegisters[0]);
-            $this->updateCurrentCash($cashRegisters['issuer_id']);
+            $this->updateCurrentCash($cashRegisters[0]['issuer_id']);
 
         }
         
