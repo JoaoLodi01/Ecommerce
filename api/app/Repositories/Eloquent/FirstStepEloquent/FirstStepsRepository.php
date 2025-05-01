@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent\FirstStepEloquent;
 
-use App\Models\FirstSteps;
+use App\Models\Registers\FirstSteps;
 use App\Repositories\Contracts\FirstStepsContract\FirstStepsContract;
 
 class FirstStepsRepository implements FirstStepsContract

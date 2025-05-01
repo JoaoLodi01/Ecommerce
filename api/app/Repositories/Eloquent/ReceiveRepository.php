@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Models\Receive;
+use App\Models\EcommerceModels\Receive;
 use Illuminate\Support\Facades\Log;
 
 class ReceiveRepository

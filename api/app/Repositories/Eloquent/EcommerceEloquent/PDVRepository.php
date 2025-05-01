@@ -61,9 +61,16 @@ class PDVRepository
         }
     }
     
-    public function findByID(int $id)
+    public function findByID(int $id, int $issuerID)
     {
-        return PDV::where('id', $id)->first();
+        $pdv = PDV::where('id', $id)
+                    ->where(function($q) use ($issuerID){
+                        $q->where('issuer_id', $issuerID);
+                    })            
+                    ->first();
+
+        Log::info('PDV pelo issuer_ud', ['pdv' => $pdv]);
+        return $pdv;
     }
 
     public function findSavePDV()
@@ -212,7 +219,7 @@ class PDVRepository
         Log::info('-- Iniciou o finalizeSale() line 172 -- ');
         Log::info('Memória usada PDVRepository::class, finalizeSale: ' . memory_get_usage(true));
 
-        $pdv = $this->findByID($id);
+        $pdv = $this->findByID($id, $issuerID);
         
         $customer = $this->customerRepository->findByID($pdv->cliente_id);
 
@@ -287,7 +294,6 @@ class PDVRepository
     public function incrementNFCe(int $id)
     {
         $lastPDV = PDV::where('id', $id)->latest('id')->first();
-        
 
     }
 }
