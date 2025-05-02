@@ -8,36 +8,7 @@
                     <span class="mt-0.5 ml-2 hover:text-slate-300">Voltar ao início</span>
                 </router-link>
 
-                <div class="fixed right-1 top-2" :class="{
-                    'w-14 mt-5': witdhScreen < 1366
-                }">
-                    <div class="relative -top-1.5 bg-black w-12 h-12 rounded-xl"></div>
-                    <div class="relative bottom-2 right-16">
-                        <q-btn-dropdown label="Opções" color="grey">
-                            <q-list>
-                                <q-item v-close-popup class="flex-col">
-                                    <q-item-section class="mb-5 cursor-pointer">
-                                        <q-item-label @click="getData()">
-                                            Meus dados
-                                        </q-item-label>
-                                    </q-item-section>
-
-                                    <q-item-section class="mb-2 cursor-pointer">
-                                        <q-item-label @click="logout()">
-                                            Sair
-                                        </q-item-label>
-                                    </q-item-section>
-
-                                    <q-item-section class="mb-2 cursor-pointer" v-if="witdhScreen < 1366">
-                                        <q-item-label>
-                                            Voltar ao início
-                                        </q-item-label>
-                                    </q-item-section>
-                                </q-item>
-                            </q-list>
-                        </q-btn-dropdown>
-                    </div>
-                </div>
+                
             </div>
         </header>
 
@@ -108,7 +79,8 @@
                 companies: [ ],
                 owner_name: LocalStorage.getItem("owner_name"),
                 owner_cpf: LocalStorage.getItem("owner_cpf"),
-                witdhScreen: 0
+                witdhScreen: 0,
+                showOptions: true
 
             }
         },

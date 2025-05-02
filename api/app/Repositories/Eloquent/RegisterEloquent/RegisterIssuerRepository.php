@@ -153,8 +153,12 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             'complete_issuer' => 1
         ]);
 
-        $this->ncmsServices->createNCM($issuer->id, $issuer->uf);
+        if(!$firstSteps->complete_issuer)
+        {
+            $this->ncmsServices->createNCM($issuer->id, $issuer->uf);
 
+        }
+        
         $firstSteps->save();
 
         return $issuer;
