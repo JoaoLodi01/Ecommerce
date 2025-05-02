@@ -383,7 +383,7 @@
         downRowUsers: false,
         downRow3: false,
         widthScreen: 0,
-        issuer_name: LocalStorage.getItem("issuer_name")
+        issuer_name: LocalStorage.getItem("first_name")
       };
     },
     
