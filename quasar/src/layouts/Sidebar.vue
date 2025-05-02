@@ -62,25 +62,23 @@
             </router-link>
           </li>
           <li class="w-full">
-            <a class="hover:text-blue-300 flex items-center gap-4">
+            <a class="hover:text-blue-300 flex items-center w-full cursor-pointer gap-6 border border-black" @click="toggleFinancial()">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
               </svg>
-              <button @click="toggleFinancial()">
-                <span class="flex ml-2">Financeiro
+              <span class="flex justify-between items-center">Financeiro
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="mt-auto mb-auto size-4"
+                    class="mt-auto mb-auto size-5"
                     v-if="!downRowFinancial">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                  </svg><!-- Flecha pra cima -->
-
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="mt-auto mb-auto size-4"
-                    v-if="downRowFinancial">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg> <!-- Flecha para baixo -->
-              </span>
-            </button>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                    class="mt-auto mb-auto size-5"
+                    v-if="downRowFinancial">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                  </svg> <!-- Flecha para cima -->
+                </span> 
             </a>
             <div v-if="showFinancial" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
 
@@ -110,13 +108,13 @@
                 </svg>
                 <span class="inline-flex ml-2">Vendas
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="mt-auto mb-auto size-4"
+                    class="mt-auto mb-auto size-5"
                     v-if="!downRowSales">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg> <!-- Flecha para baixo -->
 
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                    class="mt-auto mb-auto size-4"
+                    class="mt-auto mb-auto size-5"
                     v-if="downRowSales">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                   </svg> <!-- Flecha para cima -->
@@ -157,12 +155,12 @@
               </svg>
               <span class="ml-2">Cadastros</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                class="mt-auto mb-auto size-4"
+                class="mt-auto mb-auto size-5"
                 v-if="!showRegisters">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
               </svg> <!-- Flecha para baixo -->
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                class="mt-auto mb-auto size-4"
+                class="mt-auto mb-auto size-5"
                 v-if="showRegisters">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
               </svg> <!-- Flecha para cima -->
@@ -212,13 +210,13 @@
               </svg>
               <span class="ml-2">Usuários</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="mt-auto mb-auto size-4"
+                    class="mt-auto mb-auto size-5"
                     v-if="!downRowUsers">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg> <!-- Flecha para baixo -->
 
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                    class="mt-auto mb-auto size-4"
+                    class="mt-auto mb-auto size-5"
                     v-if="downRowUsers">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                   </svg> <!-- Flecha para cima -->
@@ -265,7 +263,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                     fill="currentColor" 
-                    class="mt-auto mb-auto size-4"
+                    class="mt-auto mb-auto size-5"
                     
                     v-if="!downRow3"
                   >
@@ -276,7 +274,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                     fill="currentColor"
-                    class="mt-auto mb-auto size-4"
+                    class="mt-auto mb-auto size-5"
                     v-if="downRow3"
                   >
                     <path fill-rule="evenodd" d="M8 14a.75.75 0 0 0 .75-.75V4.56l1.22 1.22a.75.75 0 1 0 1.06-1.06l-2.5-2.5a.75.75 0 0 0-1.06 0l-2.5 2.5a.75.75 0 0 0 1.06 1.06l1.22-1.22v8.69c0 .414.336.75.75.75Z" clip-rule="evenodd" />
@@ -384,7 +382,7 @@
         downRowUsers: false,
         downRow3: false,
         widthScreen: 0,
-        issuer_name: LocalStorage.getItem("issuer_name")
+        issuer_name: LocalStorage.getItem("first_name")
       };
     },
     
@@ -415,7 +413,7 @@
 
       toggleFinancial() {
         this.showFinancial = !this.showFinancial;
-        this.downRowFinancial = !this.showFinancial;
+        this.downRowFinancial = this.showFinancial;
       },
 
       togglePDVMenu() {
