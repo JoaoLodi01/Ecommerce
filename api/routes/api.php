@@ -107,17 +107,16 @@ Route::prefix('v1')->group( function (){
                 Route::get('/get-all-errors', [ErrorsPDVController::class, 'all']);
 
             });
-        
-            Route::prefix('payments')->group( function(){
-                Route::get('/all/{issuer_id}', [PaymentsController::class, 'getAll']);
-                Route::post('/create', [PaymentsController::class, 'store']);
-                Route::get('/{id}', [PaymentsController::class, 'findByID']);
-                Route::put('/{id}', [PaymentsController::class, 'update']);
-                Route::put('/{id}/deactivate', [PaymentsController::class, 'delete']);
-        
-            });
         });
-        
+        Route::prefix('payments')->group( function(){
+            Route::get('/all/{issuer_id}', [PaymentsController::class, 'getAll']);
+            Route::post('/create', [PaymentsController::class, 'store']);
+            Route::get('/{id}', [PaymentsController::class, 'findByID']);
+            Route::put('/{id}', [PaymentsController::class, 'update']);
+            Route::put('/{id}/deactivate', [PaymentsController::class, 'delete']);
+    
+        });
+
         Route::prefix('hotel')->group( function (){
             Route::get('/all', [HotelController::class, 'allHotel']);
             Route::get('/find', [HotelController::class, 'findHotel']);
@@ -197,4 +196,8 @@ Route::prefix('v1')->group( function (){
     Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('password.email');
     
     Route::post('/reset-passowrd', [ForgotPasswordController::class, 'resetPassowrd'])->name('password.update');    
+});
+
+Route::get('/info', function(){
+    return phpinfo();
 });

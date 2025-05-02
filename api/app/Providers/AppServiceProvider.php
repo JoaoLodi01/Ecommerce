@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Repositories\Contracts\FirstStepsContract\FirstStepsContract;
-
 use App\Repositories\Contracts\RegisterContract\{
     RegisterIssuerContract,
     RegisterOwnerContract
@@ -17,7 +15,6 @@ use App\Repositories\Eloquent\RegisterEloquent\{
 
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
-
 class AppServiceProvider extends ServiceProvider
 {
     /**

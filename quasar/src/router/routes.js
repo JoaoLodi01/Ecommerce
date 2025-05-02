@@ -40,6 +40,11 @@ const routes = [
     component: () => import('src/pages/Owner/Companies.vue')
   },
   {
+    path: '/:name/first/companie-data',
+    name: 'FirstIssuerData',
+    component: () => import('src/pages/Issuer/IssuerData.vue')
+  },
+  {
     path: '/',
     component: Sidebar,
     children: [
@@ -93,14 +98,19 @@ const routes = [
       },
       {
         path: '/:name/companie-data',
-        name: 'ProfileView',
+        name: 'IssuerData',
         component: () => import('src/pages/Issuer/IssuerData.vue')
+      },
+      {
+        path: '/:name/species',
+        name: 'SpeciesForm',
+        componet: () => import('src/pages/Registers/SpeciesForm.vue')
       },
       {
         path: '/:name/:catchAll(.*)*',
         name: '404',
         component: () => import('pages/ErrorNotFound.vue')
-      },  
+      },
     ]
   },
 ]

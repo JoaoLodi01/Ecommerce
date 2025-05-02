@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\ErrorsPDV;
+use App\Models\EcommerceModels\ErrorsPDV;
 use Illuminate\Support\Facades\Log;
 
 class ErrorsPDVRepository

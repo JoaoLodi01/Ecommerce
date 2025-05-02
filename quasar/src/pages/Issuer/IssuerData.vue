@@ -1,9 +1,16 @@
 <template>
-    <div class="ml-14 mt-10 p-5">
+    <div class="flex justify-center ml-14 mt-10 p-5">
         <q-form
             @submit="completeIssuer()"
             
         >
+            <h1 
+                v-if="!_completed" 
+                class="ml-5 text-2xl"
+            >
+                Complete o cadastro da sua empresa!
+            </h1>
+            
             <div class="bg-white p-5 rounded-lg mb-5">
                 <h3 class="border-b mb-3">Dados da empresa</h3>
                 <div class="flex">
@@ -194,6 +201,8 @@
         data()
         {
             return {
+                _completed: LocalStorage.getItem("_completed"),
+                timer: null,
                 form: {
                     company_name: '',
                     trade_name: '',
@@ -211,11 +220,32 @@
                     ie: '',
                     im: ''
                     
-                }
+                },
             }
         },
 
         methods: {
+            showLoading () {
+                this.$q.loading.show({
+                    message: 'Cadastrando sua empresa ...'
+                })
+
+                this.timer = setTimeout(() => {
+                    this.$q.loading.hide()
+                    this.timer = void 0
+        
+                }, 1000)
+            },
+
+            hideLoading() {
+                if (this.timer !== void 0) {
+                    clearTimeout(this.timer)
+                    this.timer = void 0
+                }
+
+                this.$q.loading.hide()
+            },
+
             async getIssuer()
             {
                 const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
@@ -241,30 +271,40 @@
 
             async completeIssuer()
             {
-                const i = this.crtOptions.indexOf(this.form.crt) + 1
-                this.form.cod_crt = i
-                this.form.crt = this.crtOptions[i - 1]                
-    
-                const response = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, {
-                    company_name: this.form.company_name,
-                    trade_name: this.form.trade_name,
-                    date_of_foundation: this.form.trade_name,
-                    cep: this.form.cep.replace(/\D/g, ''),
-                    uf: this.form.uf,
-                    address: this.form.address,
-                    number: this.form.number,
-                    cod_cnae: this.form.cod_cnae,
-                    cnae: this.form.cnae,
-                    cod_crt: this.form.cod_crt,
-                    crt: this.form.crt,
-                    ie: this.form.ie,
-                    im: this.form.im,
+                try {
+                    this.showLoading()
+                    const i = this.crtOptions.indexOf(this.form.crt) + 1
+                    this.form.cod_crt = i
+                    this.form.crt = this.crtOptions[i - 1]                
+        
+                    const response = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, {
+                        company_name: this.form.company_name,
+                        trade_name: this.form.trade_name,
+                        date_of_foundation: this.form.trade_name,
+                        cep: this.form.cep.replace(/\D/g, ''),
+                        uf: this.form.uf,
+                        address: this.form.address,
+                        number: this.form.number,
+                        cod_cnae: this.form.cod_cnae,
+                        cnae: this.form.cnae,
+                        cod_crt: this.form.cod_crt,
+                        crt: this.form.crt,
+                        ie: this.form.ie,
+                        im: this.form.im,
 
-                })
-                
-                if(response.data.success)
-                {
-                    this.$router.push(`/${this.form.company_name}/home`)
+                    })
+
+                    console.log(response)
+                    if(response.data.success)
+                    {
+                        this.hideLoading();
+                        LocalStorage.setItem("_completed", true)
+                        this.$router.push(`/${this.form.company_name}/home`)
+                    } 
+                } catch (error) {
+                    this.hideLoading();
+                    console.error('Erro ao completar o cadastro: ', error)
+                    
                 } 
             },
 

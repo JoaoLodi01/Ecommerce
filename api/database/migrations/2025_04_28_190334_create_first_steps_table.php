@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('complete_pdv', 1)->default(0);
             $table->boolean('complete_customers', 1)->default(0);
             $table->boolean('complete_products', 1)->default(0);
+            $table->boolean('ignore_first_steps', 1)->default(0);
             $table->timestamps();
         });
     }
