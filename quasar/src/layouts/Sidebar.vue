@@ -168,37 +168,37 @@
             </a>
             <div v-if="showRegisters" class="ml-8 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/`" class="flex items-center">
+                <router-link :to="`/${issuer_first_name}/species`" class="hover:text-blue-400 flex items-center gap-2">
                   Espécies
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="flex items-center">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Centro de custo
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="flex items-center">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Plano de contas
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="flex items-center">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Grupos
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="flex items-center">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Unidade de medida
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="flex items-center">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Natureza de operação
                 </router-link>
               </p>
@@ -224,13 +224,13 @@
             </a>
             <div v-if="showUsers" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/`">
+                <router-link :to="`/${issuer_first_name}/`" class="hover:text-blue-400 flex items-center gap-2">
                   Listagem de usuários
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/`">
+                <router-link :to="`/${issuer_first_name}/`" class="hover:text-blue-400 flex items-center gap-2">
                   Nível de acesso
                 </router-link>
               </p>
