@@ -297,18 +297,15 @@
                     console.log(response)
                     if(response.data.success)
                     {
+                        this.hideLoading();
                         LocalStorage.setItem("_completed", true)
                         this.$router.push(`/${this.form.company_name}/home`)
                     } 
                 } catch (error) {
+                    this.hideLoading();
                     console.error('Erro ao completar o cadastro: ', error)
                     
-                } finally {
-                    this.hideLoading();
-                }
-                
-                
-                
+                } 
             },
 
             async getCEPData()

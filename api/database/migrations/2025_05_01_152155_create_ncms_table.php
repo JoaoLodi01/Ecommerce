@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('ncm', 8);
-            $table->unique(['issuer_id', 'ncm']);
             $table->string('description', 500);
             $table->float('nacional_federal', 16,2);
             $table->float('importados_federal', 16,2);

@@ -29,6 +29,7 @@ class RegisterIssuerService
             return response()->json([
                 'success' => true,
                 'issuer' => $issuer
+                
             ], 201);
             
         } else {
