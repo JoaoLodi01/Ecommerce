@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent\Config;
 
-use App\Models\ConfigHotel;
+use App\Models\HotelModels\ConfigHotel;
 
 class ConfigHotelRepository
 {
