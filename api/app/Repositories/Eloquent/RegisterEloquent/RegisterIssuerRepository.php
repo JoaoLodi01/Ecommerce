@@ -2,17 +2,28 @@
 
 namespace App\Repositories\Eloquent\RegisterEloquent;
 
-use App\Models\ConfigPDV;
+use App\Models\EcommerceModels\ConfigPDV;
 use App\Models\Customer;
-use App\Models\EcommerceModels\Payment;
-use App\Models\FirstSteps;
-use App\Models\Issuer;
-use App\Models\Owner;
+use App\Models\EcommerceModels\PaymentForms;
+
+use App\Models\Registers\{
+    Issuer,
+    FirstSteps,
+    Owner
+};
+
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
 use Illuminate\Support\Facades\Log;
+use App\Services\NCM\NCMsServices;
 
 class RegisterIssuerRepository implements RegisterIssuerContract
 {
+    public function __construct(
+        protected NCMsServices $ncmsServices
+    ) {
+        Log::info('Memória usada no RegisterIssuerRepository ' . memory_get_usage(true));
+    }
+
     public function getAll(string $ownerID)
     {
         $owner = Owner::where('uuse_id', $ownerID)->first();
@@ -33,7 +44,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'cnpj' => $data['cnpj'],
                 'cpf' => $data['cpf'],
                 'date_of_foundation' => $data['date_of_foundation'],
-                'main_activity' => $data['main_activity'],
+                'cnae' => $data['main_activity'],
                 'owner_id' => $owner->id,
             ]);
 
@@ -76,9 +87,8 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             ];
     
             foreach($payments as $payment){
-                Payment::create($payment);
+                PaymentForms::create($payment);
             }
-
 
             Customer::create([
                 'customer_cod' => $codCustomer,
@@ -121,7 +131,8 @@ class RegisterIssuerRepository implements RegisterIssuerContract
     {
         $issuer = Issuer::where('id', $id)->first();
         $firstSteps = FirstSteps::where('issuer_id', $issuer->id)->first();
-        Log::infO('$firstSteps ' . $firstSteps);
+        Log::info('$firstSteps ' . $firstSteps);
+
         $issuer->update([
             'cep' => $data['cep'],
             'uf' => $data['uf'],
@@ -138,10 +149,16 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         ]);
         $issuer->save();
 
+        if(!$firstSteps->complete_issuer)
+        {
+            Log::info('- Vai criar o NCM - ');
+            $this->ncmsServices->createNCM($issuer->id, $issuer->uf);
+        }
+
         $firstSteps->update([
             'complete_issuer' => 1
         ]);
-
+        
         $firstSteps->save();
 
         return $issuer;

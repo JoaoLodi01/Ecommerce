@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\CashRegister;
+use App\Models\EcommerceModels\CashRegister;
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
 use App\Repositories\Eloquent\ReceiveRepository;
 use App\Services\HotelServices\ReservationService;

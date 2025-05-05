@@ -56,20 +56,20 @@ const routes = [
       {
         path: `/:name/${salePrefix}/pdv`,
         name: 'PDV',
-        component: () => import('src/pages/Ecommerce/PDV/PDVView.vue') 
+        component: () => import('src/pages/Ecommerce/PDV/PDVView.vue')
       },
       {
         path: `/:name/${salePrefix}/save/pdv/:idPDV`,
         name: 'PDVID',
         component: () => import('src/pages/Ecommerce/PDV/PDVView.vue'),
         props: true
-    
+
       },
       {
         path: `/:name/${salePrefix}/list-pdv`,
         name: 'ListPDV',
         component: () => import('src/pages/Ecommerce/PDV/ListPDVView.vue')
-    
+
       },
       {
         path: `/:name/${financialPrefix}/cash-register`,
@@ -102,10 +102,22 @@ const routes = [
         component: () => import('src/pages/Issuer/IssuerData.vue')
       },
       {
+        path: '/:name/species',
+        name: 'SpeciesForm',
+        componet: () => import('src/pages/Registers/SpeciesForm.vue')
+      },
+      {
+        path:'/ncm',
+        name: 'ncm',
+        component: () => import('../components/Search/NCMSearch.vue')
+      },
+
+      {
         path: '/:name/:catchAll(.*)*',
         name: '404',
         component: () => import('pages/ErrorNotFound.vue')
-      },  
+      },
+      
     ]
   },
 ]

@@ -61,8 +61,7 @@
                 <q-btn
                     type="submit"
                     class="m-2"
-                    flat
-                    style="color: #1F2937"
+                    color="grey" 
                     label="Entrar"
 
                 />
@@ -70,8 +69,7 @@
                 <router-link to="/forgot-password">
                     <q-btn
                         type="button"
-                        flat
-                        style="color: #1F2937"
+                        color="grey" 
                         class="btn-forgot"
                         label="Esqueceu sua senha?"
                     />

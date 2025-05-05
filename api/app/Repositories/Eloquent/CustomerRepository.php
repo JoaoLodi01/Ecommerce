@@ -3,8 +3,8 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Customer;
-use App\Models\FirstSteps;
-use App\Models\Issuer;
+use App\Models\Registers\FirstSteps;
+use App\Models\Registers\Issuer;
 use Illuminate\Support\Facades\Log;
 class CustomerRepository
 {

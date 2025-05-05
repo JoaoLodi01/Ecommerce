@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent\Config;
 
-use App\Models\ConfigPDV;
+use App\Models\EcommerceModels\ConfigPDV;
 use Illuminate\Support\Facades\Log;
 
 class ConfigPDVRepository

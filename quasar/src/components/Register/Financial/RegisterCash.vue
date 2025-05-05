@@ -184,29 +184,28 @@ export default {
         getCustumer(event) {
             console.log("Chamou o getCustumer");
             console.log(event);
-            this.form.name = event.name;
+            this.form.id = event.id;
         },
 
         getSpecie(event){
             console.log("Chamou o getSpecie");
             console.log(event);
-            this.form.especie = event.name;
+            this.form.esoe
+            this.form.especie = event.especie;
         },
 
         async submitForm() {
             try {
                 const response = await api.post('/ecommerce/cash-register/create', {
+                    issuer_id: LocalStorage.getItem("issuer_id"),
                     description: this.form.description,
                     document: this.form.document,
                     name: this.form.name,
                     user_id: LocalStorage.getItem("user_id"),
-                    user_name: LocalStorage.getItem("user_name"),
                     especie: this.form.especie,
                     date_register: this.form.date_register,
                     input_value: this.parseCurrency(this.form.input_value),
                     output_value: this.form.output_value,
-                    total_amount: this.totalAmountCalc,
-                    origem: "Registro Manual",
                 });
 
                 this.onReset();

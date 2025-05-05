@@ -164,12 +164,6 @@
             const today = dayjs();
 
             return{
-                cash:{
-                    description: "",
-                    valor_entrada: "",
-                    valor_saida: "",
-                },
-
                 cashs: [],
                 withScreen: 0,
                 input_total: 0,
@@ -189,6 +183,9 @@
                     const response = await api.get(`/ecommerce/cash-register/all/${LocalStorage.getItem("issuer_id")}`)
                     this.cashs = response.data.data
 
+                    this.input_total = 0;
+                    this.output_total = 0;
+
                     this.cashs.forEach(element => {
                         this.input_total += Number(element.input_value),
                         this.output_total += Number(element.output_value)
@@ -196,7 +193,7 @@
                     });
                     this.total = this.input_total - this.output_total                
                 } catch (error) {
-                    console.error("Erro ao buscar registros:", error)
+                    console.error("Erro ao buscar registros: ", error)
                     
                 }
             },

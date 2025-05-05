@@ -2,11 +2,8 @@
 
 namespace App\Repositories\Eloquent\RegisterEloquent;
 
-use App\Models\{
-    Owner,
-    FirstSteps,
-    User
-};
+use App\Models\Registers\Owner;
+use App\Models\Registers\User;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\{

@@ -3,8 +3,8 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
-use App\Models\FirstSteps;
-use App\Models\Issuer;
+use App\Models\Registers\FirstSteps;
+use App\Models\Registers\Issuer;
 use Illuminate\Support\Facades\Log;
 class ProductsRepository 
 {

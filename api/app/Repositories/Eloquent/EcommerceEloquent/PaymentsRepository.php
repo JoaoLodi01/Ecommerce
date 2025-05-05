@@ -2,14 +2,14 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\EcommerceModels\Payment;
+use App\Models\EcommerceModels\PaymentForms;
 use Illuminate\Support\Facades\Log;
 
 class PaymentsRepository
 {
     public function getAll(int $issuer_id){
         Log::info("Buscando todas as espécies na table: payments");
-        return Payment::where('issuer_id', $issuer_id)->get();
+        return PaymentForms::where('issuer_id', $issuer_id)->get();
     }
 
     public function findByID(array $data){
@@ -18,7 +18,7 @@ class PaymentsRepository
         
         $result = [];
         foreach ($data as $id) {
-            $result[] = Payment::where('id', $id)->first();
+            $result[] = PaymentForms::where('id', $id)->first();
             
         }
         Log::info('$result');
@@ -32,7 +32,7 @@ class PaymentsRepository
         if (!empty($data['especie'])){
             
             Log::info("Criando espécie");
-            $payment = Payment::create([
+            $payment = PaymentForms::create([
                 'especie' => $data['especie'],
                 'tipo_lancamento' => $data['tipo_lancamento'],
                 'active' => 1,
@@ -49,7 +49,7 @@ class PaymentsRepository
     public function update(array $data, int $id){
 
         Log::info("Buscando espécie pelo ID");
-        $paymentID = Payment::where('id', $id)->update($data);
+        $paymentID = PaymentForms::where('id', $id)->update($data);
 
         if ($paymentID){
             Log::info("Espécie atualizada com sucesso!");
@@ -67,7 +67,7 @@ class PaymentsRepository
 
     public function delete(int $id){
         Log::info("Função delete");
-        return Payment::where('id', $id)->update([
+        return PaymentForms::where('id', $id)->update([
             'active' => 0,
         ]);
     }
