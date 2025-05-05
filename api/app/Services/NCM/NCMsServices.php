@@ -19,6 +19,16 @@ class NCMsServices
         ]);
     }
 
+    public function searchNCM(array $data)
+    {
+        $ncm = $this->ncmRepository->searchNCM($data);
+        return response()->json([
+            'success' => true,
+            'ncm' => $ncm,
+
+        ]);
+    }
+
     public function createNCM(int $issuer_id, string $uf)
     {  
         $path = public_path('IBPT');

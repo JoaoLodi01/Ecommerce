@@ -1,6 +1,6 @@
 <template>
     <div class="flex">
-        <div class="">
+        <div>
             <div class="text-sm" v-if="pdv">
                 <q-checkbox
                     size="1.6rem"
@@ -21,8 +21,8 @@
                 :disabled="!fillter"
 
             />
-        </div>
-    
+            
+        </div>    
             <ul 
                 v-if="filteredClients.length > 0 && clientsData.name !== ''" 
                 class="fixed z-50 p-3 bg-white border border-gray-300 mt-14"

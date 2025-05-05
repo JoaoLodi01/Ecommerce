@@ -11,7 +11,19 @@ class NCMRepository implements NCMContract
 
     public function getAllNCMs(int $issuer_id)
     {
-        return NCM::where('issuer_id', $issuer_id)->paginate(50000);
+        return NCM::where('issuer_id', $issuer_id)->paginate(12147);
+    }
+
+    public function searchNCM(array $data)
+    {
+        $ncm = NCM::where('issuer_id', $data['issuer_id'])
+                ->where(function ($q) use ($data) {
+                    $q->where('ncm', 'like', '%' . $data['search'] . '%');
+
+                })->get();
+        Log::info("NCM encontrado: $ncm");
+
+        return $ncm;
     }
 
     public function registerNCM(

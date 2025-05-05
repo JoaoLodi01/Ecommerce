@@ -70,14 +70,17 @@
                 minlength="3"
             />
 
-            <q-input
+            <NCMSearch
+                class=""
+            />
+            <!--q-input
                 v-model="productDetails.ncm"
                 type="text"
                 label="NCM"
                 color="grey-7"
                 maxlength="8"
                 minlength="8"
-            />
+            /-->
 
             <q-input
                 v-model="productDetails.cest"
@@ -143,7 +146,8 @@
     import { api } from 'src/boot/axios'
     import { LocalStorage, useQuasar } from 'quasar'
     import { onBeforeUnmount, toRaw } from 'vue'
-
+    import NCMSearch from 'src/components/Search/NCMSearch.vue'
+    
     export default {
         setup()
         {
@@ -267,6 +271,10 @@
         emits: [
             'close'
         ],
+
+        components: {
+            NCMSearch
+        },
 
         mounted(){
             this.getGroups()

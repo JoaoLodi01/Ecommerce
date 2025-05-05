@@ -55,7 +55,6 @@ Route::prefix('v1')->group( function (){
     
     Route::middleware('auth:sanctum')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
-            Route::get('/all/ncms/{id}', [NCMController::class, 'getAllNCMs']);
             Route::prefix('products')->group( function(){
                 Route::get('/all/{issuer_id}', [ProductsController::class, 'getAll']);
                 Route::get('/all-groups/{issuer_id}', [ProductsController::class, 'allGroup']);
@@ -66,6 +65,12 @@ Route::prefix('v1')->group( function (){
                 Route::put('/{id}', [ProductsController::class, 'update']);
                 Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
         
+            });
+
+            Route::prefix('ncm')->group( function (){
+                Route::get('/all/{id}', [NCMController::class, 'getAllNCMs']);
+                Route::post('/search', [NCMController::class, 'searchNCM']);
+
             });
 
             // CashRegister routes

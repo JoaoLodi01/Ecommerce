@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\NCM;
 
+use App\Http\Requests\NCM\NCMRequest;
 use App\Services\NCM\NCMsServices;
 
 class NCMController
@@ -16,4 +17,10 @@ class NCMController
 
     }
 
+    public function searchNCM(NCMRequest $request)
+    {
+        $data = $request->validated();
+        return $this->ncmServices->searchNCM($data);
+
+    }
 }

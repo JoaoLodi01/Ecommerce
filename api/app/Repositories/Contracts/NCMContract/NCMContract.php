@@ -5,6 +5,7 @@ namespace App\Repositories\Contracts\NCMContract;
 interface NCMContract
 {
     public function getAllNCMs(int $issuer_id);
+    public function searchNCM(array $data);
     public function registerNCM(
         int $issuer_id,
         string|int $ncm,
