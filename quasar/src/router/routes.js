@@ -107,10 +107,17 @@ const routes = [
         componet: () => import('src/pages/Registers/SpeciesForm.vue')
       },
       {
+        path:'/ncm',
+        name: 'ncm',
+        component: () => import('../components/Search/NCMSearch.vue')
+      },
+
+      {
         path: '/:name/:catchAll(.*)*',
         name: '404',
         component: () => import('pages/ErrorNotFound.vue')
       },
+      
     ]
   },
 ]

@@ -131,7 +131,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
     {
         $issuer = Issuer::where('id', $id)->first();
         $firstSteps = FirstSteps::where('issuer_id', $issuer->id)->first();
-        Log::infO('$firstSteps ' . $firstSteps);
+        Log::info('$firstSteps ' . $firstSteps);
 
         $issuer->update([
             'cep' => $data['cep'],
@@ -149,15 +149,15 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         ]);
         $issuer->save();
 
+        if(!$firstSteps->complete_issuer)
+        {
+            Log::info('- Vai criar o NCM - ');
+            $this->ncmsServices->createNCM($issuer->id, $issuer->uf);
+        }
+
         $firstSteps->update([
             'complete_issuer' => 1
         ]);
-
-        if(!$firstSteps->complete_issuer)
-        {
-            $this->ncmsServices->createNCM($issuer->id, $issuer->uf);
-
-        }
         
         $firstSteps->save();
 

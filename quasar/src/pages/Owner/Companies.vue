@@ -1,14 +1,25 @@
 <template>
     <div class="text-center">
-        <header class="head flex bg-slate-600 text-white text-xl p-5 mb-8">
+        <header class="head flex justify-between bg-slate-600 text-white text-xl p-5 mb-8">
             <div class="inline-flex">
-                <h3 class="ml-5 mr-5">Bem vindo(a)! {{ owner_name }} | CPF: {{ owner_cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}</h3>
+                <h3 
+                    class="ml-5 mr-5"
+                >
+                    Bem vindo(a)! Sinta-se a vontade para escolher a sua empresa!
+                </h3>
                 
-                <router-link to="/" class="mt-auto mb-auto" v-if="witdhScreen >= 1366">
-                    <span class="mt-0.5 ml-2 hover:text-slate-300">Voltar ao início</span>
+                <router-link 
+                    to="/" 
+                    class="mt-auto mb-auto" 
+                    v-if="witdhScreen >= 1366"
+                >
+                    <span class="mt-0.5 ml-2 hover:text-slate-300 hover:border-b">Voltar ao início</span>
                 </router-link>
 
-                
+            </div>
+            <div class="mt-auto mb-auto border-b">
+                Usuário: {{ owner_name }} |
+                CPF: {{ owner_cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
             </div>
         </header>
 
@@ -103,7 +114,7 @@
                 LocalStorage.setItem("issuer_id", issuer_id)
                 LocalStorage.setItem("first_name", first_name)
                 LocalStorage.setItem("issuer_name", name)
-                const response = await api.get(`/first-stpes/${issuer_id}`)
+                const response = await api.get(`/first-steps/${issuer_id}`)
                 const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
                 
                 if(!completed)

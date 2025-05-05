@@ -9,8 +9,14 @@ class NCMsServices
 {
     public function __construct(
         protected NCMRepository $ncmRepository
-    ) {
-        Log::info('Memória usada no NCMsServices ' . memory_get_usage(true));
+    ) {}
+
+    public function getAllNCMs(int $issuer_id)
+    {
+        return response()->json([
+            'success' => true,
+            'all' => $this->ncmRepository->getAllNCMs($issuer_id)
+        ]);
     }
 
     public function createNCM(int $issuer_id, string $uf)

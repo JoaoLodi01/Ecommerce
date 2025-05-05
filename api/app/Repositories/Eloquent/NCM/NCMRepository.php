@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Log;
 
 class NCMRepository implements NCMContract
 {
+
+    public function getAllNCMs(int $issuer_id)
+    {
+        return NCM::where('issuer_id', $issuer_id)->paginate(50000);
+    }
+
     public function registerNCM(
         int $issuer_id,
         string|int $ncm, 
