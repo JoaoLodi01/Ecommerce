@@ -217,7 +217,6 @@
                 const password = this.checkPassword()
                 if(password)
                 {
-                    console.log('Vai criar')
                     try {
                         const response = await api.post('/registers/owner/create', {
                             name: this.form.name,
@@ -253,7 +252,7 @@
             },
 
             checkPassword(){
-                const specialChars = '`!@#$^&;:?~.';
+                const specialChars = '`!@#$^&;:?~';
                 if(this.form.password.length >= 8 && this.form.password_.length >= 8)
                 {
                     if(specialChars.split('').some(specialChars => this.form.password.includes(specialChars)) === true)
