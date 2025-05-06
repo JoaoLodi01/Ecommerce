@@ -27,7 +27,7 @@ use App\Http\Controllers\Auth\{
     ForgotPasswordController
 };
 use App\Http\Controllers\FirstSteps\FirstStepsController;
-use App\Http\Controllers\NCM\NCMController;
+use App\Http\Controllers\TributsController\TributsController;
 use App\Http\Controllers\RegisterControllers\{
     RegisterOwnerController,
     RegisterIssuerController
@@ -55,7 +55,6 @@ Route::prefix('v1')->group( function (){
     
     Route::middleware('auth:sanctum')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
-            Route::get('/all/ncms/{id}', [NCMController::class, 'getAllNCMs']);
             Route::prefix('products')->group( function(){
                 Route::get('/all/{issuer_id}', [ProductsController::class, 'getAll']);
                 Route::get('/all-groups/{issuer_id}', [ProductsController::class, 'allGroup']);
@@ -66,6 +65,13 @@ Route::prefix('v1')->group( function (){
                 Route::put('/{id}', [ProductsController::class, 'update']);
                 Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
         
+            });
+
+            Route::prefix('tributs')->group( function (){
+                
+                Route::get('/all/{id}', [TributsController::class, 'getAllNCMs']);
+                Route::post('/search', [TributsController::class, 'searchNCM']);
+
             });
 
             // CashRegister routes

@@ -2,10 +2,8 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
-use App\Models\{
-    CashRegister,
-    Receive
-};
+use App\Models\EcommerceModels\CashRegister;
+use App\Models\Receive;
 
 use Illuminate\Support\Facades\Log;
 
