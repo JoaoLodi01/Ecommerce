@@ -167,7 +167,7 @@ export default {
             this.form = {
                 description: "Registro Manual",
                 document: 1,
-                name: "",
+                customer_id: 0,
                 user: LocalStorage.getItem("user_name"),
                 especie: "",
                 date_register: today.format("YYYY-MM-DD"),
@@ -200,12 +200,12 @@ export default {
                     issuer_id: LocalStorage.getItem("issuer_id"),
                     description: this.form.description,
                     document: this.form.document,
-                    name: this.form.name,
-                    user_id: LocalStorage.getItem("user_id"),
-                    especie: this.form.especie,
+                    customer_id: this.form.id,
+                    especie_id: this.form.especie,
                     date_register: this.form.date_register,
                     input_value: this.parseCurrency(this.form.input_value),
-                    output_value: this.form.output_value,
+                    output_value: this.parseCurrency(this.form.output_value),
+                    user_id: LocalStorage.getItem("user_id"),
                 });
 
                 this.onReset();

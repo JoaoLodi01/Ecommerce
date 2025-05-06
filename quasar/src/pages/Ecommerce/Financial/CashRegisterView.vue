@@ -181,7 +181,7 @@
                 this.showLoading()
                 try {
                     const response = await api.get(`/ecommerce/cash-register/all/${LocalStorage.getItem("issuer_id")}`)
-                    this.cashs = response.data.data
+                    this.cashs = Array.isArray(registros) ? registros : [];
 
                     this.input_total = 0;
                     this.output_total = 0;
