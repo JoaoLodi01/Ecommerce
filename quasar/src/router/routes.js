@@ -111,6 +111,7 @@ const routes = [
         name: '404',
         component: () => import('pages/ErrorNotFound.vue')
       },
+      
     ]
   },
 ]

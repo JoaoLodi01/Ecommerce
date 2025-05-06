@@ -1,6 +1,6 @@
 <template>
     <div
-        class="mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
+        class="border border-black -mt-24 p-6 shadow-md rounded "
         :class="{
             'relative top-12 left-12': widthScreen <= 1080,
             'relative top-28 text-xl': widthScreen > 1080
@@ -9,118 +9,147 @@
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de produtos</h2>
         <q-form
             @submit="onSubmit"
-            class="p-1"
-            :class="{
-                'grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10': widthScreen > 1080
-            }"
-        >
-            <q-input
-                v-model="productDetails.product"
-                type="text"
-                label="Produto"
-                color="grey-7"
-            />
-
-            <q-input
-                v-model="productDetails.amount"
-                type="text"
-                label="Quantidade"
-                color="grey-7"
-            />
-
-            <q-input
-                v-model="productDetails.cost_price"
-                type="text"
-                label="Preço de custo"
-                color="grey-7"
-
-            />
-
-            <q-input
-                v-model="productDetails.profit_percentage"
-                type="text"
-                label="Percentual de lucrp"
-                color="grey-7"
-            />
-
-            <q-input
-                v-model="calculateSalePrice"
-                type="text"
-                label="Preço de venda R$"
-                color="grey-7"
-                readonly
-            />
-
-            <q-input
-                v-model="productDetails.cfop"
-                type="text"
-                label="CFOP"
-                color="grey-7"
-                maxlength="4"
-                minlength="4"
-
-            />
-
-            <q-input
-                v-model="productDetails.csosncst"
-                type="text"
-                label="CSOSN/CST"
-                color="grey-7"
-                maxlength="3"
-                minlength="3"
-            />
-
-            <q-input
-                v-model="productDetails.ncm"
-                type="text"
-                label="NCM"
-                color="grey-7"
-                maxlength="8"
-                minlength="8"
-            />
-
-            <q-input
-                v-model="productDetails.cest"
-                type="text"
-                label="CEST"
-                color="grey-7"
-                maxlength="7"
-                minlength="7"
-            />
-
-            <q-input
-                v-model="productDetails.barcode"
-                type="text"
-                label="Cód. Barras"
-                color="grey-7"
-                maxlength="14"
-                minlength="14"
-            />
-
-            <q-input
-                v-model="productDetails.barcode_internal"
-                type="text"
-                label="Cód. Barras Interno"
-                color="grey-7"
-                maxlength="16"
-
-            />
-
-            <q-select
-                v-model="productDetails.unit"
-                :options="['UN', 'KG', 'MG', 'ML', 'L']"
-                label="Unidade"
-                filled
-            />
-
-            <q-select
-                v-model="productDetails.group_id"
-                :options="allGroup"
-                label="Grupo"
-                filled
-                color="grey-7"
-            />
+            class="form-product p-1"
             
+        >
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max">Dados cadastrais</h4>
+                <q-input
+                    v-model="productDetails.product"
+                    type="text"
+                    label="Produto"
+                    color="grey-7"
+                    class="m-2"
+                />
+
+                <q-input
+                    v-model="productDetails.barcode"
+                    type="text"
+                    label="Cód. Barras"
+                    color="grey-7"
+                    maxlength="14"
+                    minlength="14"
+                    class="m-2"
+
+                />
+
+                <q-input
+                    v-model="productDetails.barcode_internal"
+                    type="text"
+                    label="Cód. Barras Interno"
+                    color="grey-7"
+                    maxlength="16"
+                    class="m-2"
+                />
+
+            </div>            
+
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max">Quantias e valores de vendas</h4>
+                <q-input
+                    v-model="productDetails.amount"
+                    type="text"
+                    label="Quantidade"
+                    color="grey-7"
+                    class="m-2"
+
+                />
+
+                <q-input
+                    v-model="productDetails.cost_price"
+                    type="text"
+                    label="Preço de custo"
+                    color="grey-7"
+                    class="m-2"
+
+                />
+
+                <q-input
+                    v-model="productDetails.profit_percentage"
+                    type="text"
+                    label="Percentual de lucro"
+                    color="grey-7"
+                    class="m-2"
+
+                />
+
+                <q-input
+                    v-model="calculateSalePrice"
+                    type="text"
+                    label="Preço de venda R$"
+                    color="grey-7"
+                    readonly
+                    class="m-2"
+
+                />
+
+            </div>
+
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max">Dados de referência</h4>
+                <q-select
+                    v-model="productDetails.group_id"
+                    :options="allGroup"
+                    label="Grupo"
+                    filled
+                    color="grey-7"
+                    class="m-2"
+
+                />
+
+                <q-select
+                    v-model="productDetails.unit"
+                    :options="['UN', 'KG', 'MG', 'ML', 'L']"
+                    label="Unidade"
+                    filled
+                    class="m-2"
+
+                />
+            </div>
+            
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max">Dados tributários</h4>
+                <q-input
+                    v-model="productDetails.cfop"
+                    type="text"
+                    label="CFOP"
+                    color="grey-7"
+                    maxlength="4"
+                    minlength="4"
+                    class="m-2"
+
+                />
+
+                <q-input
+                    v-model="productDetails.cest"
+                    type="text"
+                    label="CEST"
+                    color="grey-7"
+                    maxlength="7"
+                    minlength="7"
+                    class="m-2"
+
+                />
+
+                <NCMSearch
+                    class="h-0 p-2 mb-16 z-50"
+                    @selected="getNCM"
+
+                />
+
+                <q-input
+                    v-model="productDetails.csosncst"
+                    type="text"
+                    label="CSOSN/CST"
+                    color="grey-7"
+                    maxlength="3"
+                    minlength="3"
+                    class="m-2"
+
+                />
+
+            </div>
+                    
             <div>
                 <q-btn
                     type="submit"
@@ -143,7 +172,8 @@
     import { api } from 'src/boot/axios'
     import { LocalStorage, useQuasar } from 'quasar'
     import { onBeforeUnmount, toRaw } from 'vue'
-
+    import NCMSearch from 'src/components/Search/Tributs/NCMSearch.vue'
+    
     export default {
         setup()
         {
@@ -222,6 +252,18 @@
                 this.productDetails.image = file;
 
             },
+
+            getNCM(ncm_event)
+            {
+                console.log("ncm_event", ncm_event)
+                this.productDetails.ncm = ncm_event.ncm
+            },
+
+            getCSOSNCST(csosncst_event)
+            {
+
+            },
+
             async onSubmit()
             {
                 this.showLoading()
@@ -241,9 +283,9 @@
                 form.append("cest", this.productDetails.cest)
                 form.append("unit", this.productDetails.unit)
                 form.append("issuer_id", this.productDetails.issuer_id)
+                console.log('NCM a ser enviando', this.productDetails.ncm)
 
                 const response = await api.post('/ecommerce/products/create', form)
-
                 if(response.data.success)
                 {
                     this.$emit("close", false)
@@ -268,9 +310,20 @@
             'close'
         ],
 
+        components: {
+            NCMSearch
+        },
+
         mounted(){
             this.getGroups()
 
         }
     }
 </script>
+
+<style lang="scss">
+    .form-product{
+        width: 60vh;
+    }
+    
+</style>

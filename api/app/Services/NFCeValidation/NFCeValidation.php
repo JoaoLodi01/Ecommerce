@@ -22,7 +22,7 @@ class NFCeValidation
         $productCFOP = $products['cfop'];
         $productCSON = $products['csosn'];
         
-        $cfops = $this->findTributs->getCFOPs();
+        $cfops = $this->findTributs->getCFOPs('cfop-nfce');
         $csosncsts = $this->findTributs->getCSOSNCST($productCSON);        
 
         $cfopValidate = array_key_exists($productCFOP, $cfops);
@@ -48,6 +48,7 @@ class NFCeValidation
         }
 
         Log::info('Quantia de errors: ' . count($errors));
+
         return array(
             'cfopValidate' => $cfopValidate,
             'csosnValidate' => $csosnValidate,

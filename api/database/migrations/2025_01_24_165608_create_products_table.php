@@ -24,15 +24,36 @@ return new class extends Migration
             $table->unsignedBigInteger('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->string('group', 120)->nullable();
-            $table->integer('amount');
+            $table->float('amount', 16,2);
             $table->decimal('cost_price', 16,2);
             $table->decimal('sale_price', 16,2);
             $table->decimal('profit_percentage', 16,2);
             $table->string('cfop', 4);
-            $table->string('csosncst', 3);
             $table->string('ncm', 8);
             $table->string('cest', 7);
             $table->string('unit', 4)->default('UN');
+
+            // tributs
+            $table->string('csosncst', 3);
+            $table->string('origem_icms');
+            $table->float('icms_ecf', 16,2);
+            
+            $table->float('taxable_amount', 16,2);
+            $table->string('taxable_unit', 4);
+            $table->string('tax_benefit', 50);
+
+            $table->string('cod_ipi', 3);
+            $table->float('aliquot_ipi', 16,2);
+
+            $table->string('cod_pis', 3);
+            $table->float('aliquot_pis', 16,2);
+
+            $table->string('cod_cofins', 3);
+            $table->float('aliquot_cofins', 16,2);
+
+            $table->string('cod_use_type', 3);
+            $table->string('use_type', 30);
+
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

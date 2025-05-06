@@ -27,6 +27,7 @@ use App\Http\Controllers\Auth\{
     ForgotPasswordController
 };
 use App\Http\Controllers\FirstSteps\FirstStepsController;
+use App\Http\Controllers\TributsController\TributsController;
 use App\Http\Controllers\RegisterControllers\{
     RegisterOwnerController,
     RegisterIssuerController
@@ -64,6 +65,13 @@ Route::prefix('v1')->group( function (){
                 Route::put('/{id}', [ProductsController::class, 'update']);
                 Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
         
+            });
+
+            Route::prefix('tributs')->group( function (){
+                
+                Route::get('/all/{id}', [TributsController::class, 'getAllNCMs']);
+                Route::post('/search', [TributsController::class, 'searchNCM']);
+
             });
 
             // CashRegister routes
@@ -184,7 +192,8 @@ Route::prefix('v1')->group( function (){
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
         });
 
-        Route::get('/first-stpes/{id}', [FirstStepsController::class, 'getAll']);
+        Route::get('/first-steps/{id}', [FirstStepsController::class, 'getAll']);
+    
     });
 
     Route::prefix('registers')->group( function(){

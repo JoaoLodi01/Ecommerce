@@ -1,16 +1,53 @@
 <?php
 
-namespace App\Services\NCM;
+namespace App\Services\TributsService;
 
-use App\Repositories\Eloquent\NCM\NCMRepository;
+use App\Repositories\Eloquent\TributsEloquent\TributsRepository;
 use Illuminate\Support\Facades\Log;
 
-class NCMsServices
+class TributsServices
 {
     public function __construct(
-        protected NCMRepository $ncmRepository
-    ) {
-        Log::info('Memória usada no NCMsServices ' . memory_get_usage(true));
+        protected TributsRepository $tributsRepository
+    ) {}
+
+
+
+    // CSOSN
+
+
+
+
+
+    // CFOPs
+    public function registerCFOP(array $data, int $issuer_id)
+    {
+        $register = $this->tributsRepository->registerCFOP($data, $issuer_id);
+        return response()->json([
+            'success' => true,
+            'message' => 'CFOPs cadastrados com sucesso',
+            'cfops' => $register
+        ], 201);
+    }
+
+
+    // NCMs
+    public function getAllNCMs(int $issuer_id)
+    {
+        return response()->json([
+            'success' => true,
+            'all' => $this->tributsRepository->getAllNCMs($issuer_id)
+        ]);
+    }
+
+    public function searchNCM(array $data)
+    {
+        $ncm = $this->tributsRepository->searchNCM($data);
+        return response()->json([
+            'success' => true,
+            'ncm' => $ncm,
+
+        ]);
     }
 
     public function createNCM(int $issuer_id, string $uf)
@@ -40,7 +77,7 @@ class NCMsServices
 
             }
         
-            $this->ncmRepository->registerNCM(
+            $this->tributsRepository->registerNCM(
                 $issuer_id,
                 $ncm,
                 $description,

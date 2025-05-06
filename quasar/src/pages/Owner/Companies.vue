@@ -1,43 +1,25 @@
 <template>
     <div class="text-center">
-        <header class="head flex bg-slate-600 text-white text-xl p-5 mb-8">
+        <header class="head flex justify-between bg-slate-600 text-white text-xl p-5 mb-8">
             <div class="inline-flex">
-                <h3 class="ml-5 mr-5">Bem vindo(a)! {{ owner_name }} | CPF: {{ owner_cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}</h3>
+                <h3 
+                    class="ml-5 mr-5"
+                >
+                    Bem vindo(a)! Sinta-se a vontade para escolher a sua empresa!
+                </h3>
                 
-                <router-link to="/" class="mt-auto mb-auto" v-if="witdhScreen >= 1366">
-                    <span class="mt-0.5 ml-2 hover:text-slate-300">Voltar ao início</span>
+                <router-link 
+                    to="/" 
+                    class="mt-auto mb-auto" 
+                    v-if="witdhScreen >= 1366"
+                >
+                    <span class="mt-0.5 ml-2 hover:text-slate-300 hover:border-b">Voltar ao início</span>
                 </router-link>
 
-                <div class="fixed right-1 top-2" :class="{
-                    'w-14 mt-5': witdhScreen < 1366
-                }">
-                    <div class="relative -top-1.5 bg-black w-12 h-12 rounded-xl"></div>
-                    <div class="relative bottom-2 right-16">
-                        <q-btn-dropdown label="Opções" color="grey">
-                            <q-list>
-                                <q-item v-close-popup class="flex-col">
-                                    <q-item-section class="mb-5 cursor-pointer">
-                                        <q-item-label @click="getData()">
-                                            Meus dados
-                                        </q-item-label>
-                                    </q-item-section>
-
-                                    <q-item-section class="mb-2 cursor-pointer">
-                                        <q-item-label @click="logout()">
-                                            Sair
-                                        </q-item-label>
-                                    </q-item-section>
-
-                                    <q-item-section class="mb-2 cursor-pointer" v-if="witdhScreen < 1366">
-                                        <q-item-label>
-                                            Voltar ao início
-                                        </q-item-label>
-                                    </q-item-section>
-                                </q-item>
-                            </q-list>
-                        </q-btn-dropdown>
-                    </div>
-                </div>
+            </div>
+            <div class="mt-auto mb-auto border-b">
+                Usuário: {{ owner_name }} |
+                CPF: {{ owner_cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
             </div>
         </header>
 
@@ -87,7 +69,7 @@
                     />
                     
                     <p class="mt-5">
-                        {{ companie.cnpj ? 'CNPJ' : 'CPF' }}: {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                        {{ companie.cnpj ? 'CNPJ' : 'CPF' }} : {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
                     </p>
                 </q-card-section>
             </q-card>
@@ -108,7 +90,8 @@
                 companies: [ ],
                 owner_name: LocalStorage.getItem("owner_name"),
                 owner_cpf: LocalStorage.getItem("owner_cpf"),
-                witdhScreen: 0
+                witdhScreen: 0,
+                showOptions: true
 
             }
         },
@@ -131,7 +114,7 @@
                 LocalStorage.setItem("issuer_id", issuer_id)
                 LocalStorage.setItem("first_name", first_name)
                 LocalStorage.setItem("issuer_name", name)
-                const response = await api.get(`/first-stpes/${issuer_id}`)
+                const response = await api.get(`/first-steps/${issuer_id}`)
                 const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
                 
                 if(!completed)

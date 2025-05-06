@@ -404,6 +404,8 @@
         const ofCourse = confirm('Deseja trocar de empresa?')
         if(ofCourse)
         {
+          LocalStorage.remove("issuer_name")
+          LocalStorage.remove("first_name")
           this.$router.push({ path: '/companies' })
         }
       },
