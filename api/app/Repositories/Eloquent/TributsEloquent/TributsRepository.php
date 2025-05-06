@@ -1,14 +1,96 @@
 <?php
 
-namespace App\Repositories\Eloquent\NCM;
+namespace App\Repositories\Eloquent\TributsEloquent;
 
-use App\Models\Registers\NCM;
-use App\Repositories\Contracts\NCMContract\NCMContract;
+use App\Models\Registers\Tributs\{
+    NCM,
+    CFOP,
+    CSOSNCST
+};
+
+use App\Repositories\Contracts\TributsContract\TributsContract;
+use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
 use Illuminate\Support\Facades\Log;
 
-class NCMRepository implements NCMContract
+class TributsRepository implements TributsContract
 {
+   
+    // CSOSN / CST
 
+    public function getAllCSOSNCST(int $issuer_id)
+    {
+        return CSOSNCST::where('issuer_id', $issuer_id)->get();
+        
+    }
+
+    public function searchCSOSNCST(array $data)
+    {
+        
+    }
+
+    public function registerCSOSNCST(array $data, int $issuer_id)
+    {
+        $exists = $this->findCSOSNCST($issuer_id);
+        if(!$exists)
+        {
+            foreach ($data as $key => $value) {
+                CSOSNCST::create([
+                    'issuer_id' => $issuer_id,
+                    'cod' => $key,
+                    'decription' => $value
+                ]);
+            }
+
+        }
+
+        return array(
+            'message' => 'Já está cadastrado'
+        );
+        
+    }
+
+    public function findCSOSNCST(int $issuer_id)        
+    {
+        return CSOSNCST::where('issuer_id', $issuer_id)->first();
+    }
+
+    // CFOPs
+    public function getAllCFOPs(int $issuer_id)
+    {
+        return CFOP::where('issuer_id', $issuer_id)->get();
+    }
+
+    public function searchCFOP(array $data)
+    {
+        
+    }
+
+    public function registerCFOP(array $data, int $issuer_id)
+    {
+        $exists = $this->findCFOP($issuer_id);
+        if(!$exists)
+        {
+            foreach ($data as $key => $value) {
+                CFOP::create([
+                    'issuer_id' => $issuer_id,
+                    'cod' => $key,
+                    'decription' => $value
+                ]);
+            }
+
+        }
+
+        return array(
+            'message' => 'Já está cadastrado'
+        );
+    }
+
+    public function findCFOP(int $issuer_id)
+    {
+        return CFOP::where('issuer_id', $issuer_id)->first();
+    }
+
+    // NCMs
     public function getAllNCMs(int $issuer_id)
     {
         return NCM::where('issuer_id', $issuer_id)->paginate(12147);

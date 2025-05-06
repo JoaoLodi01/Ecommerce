@@ -2,11 +2,13 @@
 
 namespace App\Services\NFCeValidation;
 
+use App\Repositories\Eloquent\TributsEloquent\TributsRepository;
+
 class FindTributs
-{
-    public function getCFOPs()
+{ 
+    public function getCFOPs(string $param)
     {        
-        $file = fopen('../public/tables/cfop/table-cfop-nfce.txt', 'r');
+        $file = fopen("../public/tables/cfop/table-$param.txt", 'r');
         
         $cfops = [];
 
@@ -19,8 +21,8 @@ class FindTributs
                 $cfop = trim($parts[0]);
                 $description = trim($parts[1], "\" \n\r");
                 $cfops[$cfop] = $description;
-            }
 
+            }
         }
 
         fclose($file);
@@ -41,8 +43,8 @@ class FindTributs
             if(count($parts) === 2)
             {
                 $csosncst = trim($parts[0]);
-                $desc = trim($parts[1], "\" \n\r");
-                $data[$csosncst] = $desc;
+                $description = trim($parts[1], "\" \n\r");
+                $data[$csosncst] = $description;
 
             }
         }

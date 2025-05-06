@@ -13,13 +13,15 @@ use App\Models\Registers\{
 };
 
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
+use App\Services\NFCeValidation\FindTributs;
 use Illuminate\Support\Facades\Log;
-use App\Services\NCM\NCMsServices;
+use App\Services\TributsService\TributsServices;
 
 class RegisterIssuerRepository implements RegisterIssuerContract
 {
     public function __construct(
-        protected NCMsServices $ncmsServices
+        protected TributsServices $tributsServices,
+        protected FindTributs $findTributs
     ) {
         Log::info('Memória usada no RegisterIssuerRepository ' . memory_get_usage(true));
     }
@@ -147,12 +149,13 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             'im' => $data['im'],            
 
         ]);
+
         $issuer->save();
 
         if(!$firstSteps->complete_issuer)
         {
             Log::info('- Vai criar o NCM - ');
-            $this->ncmsServices->createNCM($issuer->id, $issuer->uf);
+            $this->tributsServices->createNCM($issuer->id, $issuer->uf);
         }
 
         $firstSteps->update([
@@ -161,7 +164,17 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         
         $firstSteps->save();
 
+        $this->registerTributs($issuer->id);
+
         return $issuer;
         
+    }
+
+    public function registerTributs(int $issuer_id)
+    {
+        Log::info('Vai criar os CFOPs');
+        $cfops = $this->findTributs->getCFOPs('cfop');
+        $this->tributsServices->registerCFOP($cfops, $issuer_id);
+
     }
 }

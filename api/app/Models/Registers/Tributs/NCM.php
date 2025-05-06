@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Registers;
+namespace App\Models\Registers\Tributs;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -163,6 +163,7 @@
             {
                 this.showLoading()
                 try {
+                    console.log('form', this.form)
                     const response = await api.post('/registers/issuer/create', {
                         company_name: this.form.company_name,
                         trade_name: this.form.trade_name,

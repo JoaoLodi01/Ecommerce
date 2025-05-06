@@ -1,6 +1,6 @@
 <template>
     <div
-        class="ml-20"
+        class="ml-20 "
         :class="{
             'relative top-12 right-5': widthScreen <= 1080
         }"
@@ -40,7 +40,7 @@
 
             </div>
         </div>
-        <div v-if="widthScreen > 1080" class="mt-2 ml-2 ">
+        <div v-if="widthScreen > 1080" class="mt-2 ml-2">
             <ReportProduct
                 :widthScreen="widthScreen"
                 v-if="showReportProducts"
@@ -79,7 +79,7 @@
     </div>
 
     <div
-        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8 ml-20 mt-6"
+        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 ml-20 mt-6"
         v-if="showProducts && products && products.length > 0"
         :class="{
             'relative right-7 top-10': widthScreen <= 1080
@@ -155,7 +155,7 @@
         </div>
     </div>
 
-    <div v-if="!showProducts">
+    <div v-if="!showProducts" class="ml-24">
         <RegisterProduct
             v-if="showRegisterProduct"
             :widthScreen="widthScreen"

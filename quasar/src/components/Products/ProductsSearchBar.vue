@@ -31,7 +31,7 @@
 
 <script>
     import { api } from "boot/axios"
-import { LocalStorage } from "quasar";
+    import { LocalStorage } from "quasar";
     import { toRaw } from "vue";
 
     export default {
