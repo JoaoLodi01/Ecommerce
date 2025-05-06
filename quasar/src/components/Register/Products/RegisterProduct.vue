@@ -132,7 +132,7 @@
                 />
 
                 <NCMSearch
-                    class="h-0 p-2 mb-16"
+                    class="h-0 p-2 mb-16 z-50"
                     @selected="getNCM"
 
                 />
@@ -262,7 +262,7 @@
             getCSOSNCST(csosncst_event)
             {
 
-            }
+            },
 
             async onSubmit()
             {

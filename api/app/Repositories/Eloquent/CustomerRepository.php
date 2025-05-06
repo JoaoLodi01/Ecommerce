@@ -93,22 +93,24 @@ class CustomerRepository
         $stpes = FirstSteps::where('issuer_id', $issuer->id)->first();
         $stpes->update([
             'complete_customers' => 1
+            
         ]);
         $stpes->save();
 
         return Customer::create([
             'customer_cod' => $customerCod,
             'issuer_id' => $issuer->id,
-            'name' => $data['name'],
+            'company_name' => $data['company_name'] ?? null,
+            'trade_name' => $data['trade_name'] ?? null,
             'cpf' => $data['cpf'] ?? null,
             'cnpj' => $data['cnpj'] ?? null,
             'cep' => $data['cep'],
             'address' => $data['address'],
             'number' => $data['number'],
             'email' => $data['email'],
-            'type_1' => $data['type'][0] ?? null,
-            'type_2' => $data['type'][1] ?? null,
-            'type_3' => $data['type'][2] ?? null,
+            'is_customer' => $data['type'][0] ?? null,
+            'is_driver' => $data['type'][1] ?? null,
+            'is_supplier' => $data['type'][2] ?? null,
             'phone' => $data['phone'],
         ]);
     }

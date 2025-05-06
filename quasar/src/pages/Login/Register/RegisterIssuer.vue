@@ -95,7 +95,6 @@
 <script>
     import { LocalStorage, useQuasar } from 'quasar'
     import { api } from 'src/boot/axios'
-    import { onBeforeUnmount } from 'vue'
     import axios from 'axios'
     
     export default {
@@ -109,6 +108,7 @@
                     cpf: '',
                     date_of_foundation: null,
                     cod_crt: '',
+                    cod_cnae: '',
                     main_activity: ''
                     
                 },
@@ -152,7 +152,7 @@
                     this.form.company_name = data.data.alias
                     this.form.trade_name = data.data.alias
                     this.form.date_of_foundation = data.data.founded
-                    this.form.cod_crt = data.data.mainActivity.id
+                    this.form.cod_cnae = data.data.mainActivity.id
                     this.form.main_activity = data.data.mainActivity.text
                     
                 }

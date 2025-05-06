@@ -8,6 +8,7 @@
     >
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
         
+        {{ type }}
         <q-form
             @submit="submitForm()"
             @reset="onReset"
@@ -16,36 +17,59 @@
                 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
             }"
         >
-            <q-input 
-                v-model="form.name" 
-                type="text" 
-                label="Nome" 
-                maxlength="120" 
-                color="grey-7"
-
+            <q-select 
+                v-model="type" 
+                :options="options" 
+                label="Tipo de cadastro" 
+                filled 
             />
 
-            <q-input 
-                v-model="form.cnpj" 
-                v-bind:mask="'##.###.###/####-##'"
-                @vue:updated="getDataApis()"
-                maxlength="18"
-                type="text" 
-                label="CNPJ"                 
-                color="grey-7"
-
-            />
-
-            <q-input 
-                v-model="form.cpf" 
-                v-bind:mask="'###.###.###-##'"
-                maxlength="14"
-                type="text" 
-                label="CPF"
-                color="grey-7"
+            <div>
                 
-            />
+                <div v-if="type = 'Física'">
+                    <q-input 
+                        v-model="form.trade_name" 
+                        type="text" 
+                        label="Nome" 
+                        maxlength="120" 
+                        color="grey-7"
 
+                    />
+
+                    <q-input 
+                            v-model="form.cpf" 
+                            v-bind:mask="'###.###.###-##'"
+                            maxlength="14"
+                            type="text" 
+                            label="CPF"
+                            color="grey-7"
+                            
+                        />  
+
+                </div>
+                <div v-else>
+                    <q-input 
+                        v-model="form.company_name" 
+                        type="text" 
+                        label="Razão social" 
+                        maxlength="120" 
+                        color="grey-7"
+
+                    />
+
+                    <q-input 
+                        v-model="form.cnpj" 
+                        v-bind:mask="'##.###.###/####-##'"
+                        @vue:updated="getDataApis()"
+                        maxlength="18"
+                        type="text" 
+                        label="CNPJ"                 
+                        color="grey-7"
+
+                    />
+
+                </div>
+            </div>
             <q-input 
                 v-model="form.cep"
                 v-bind:mask="'#####-###'"
@@ -150,6 +174,11 @@
             })
 
             return {
+                options: [
+                    'Física',
+                    'Júridica'
+                ],
+
                 showLoading()
                 {
                     $q.loading.show({
@@ -167,6 +196,7 @@
 
         data() {
             return {
+                type: '',
                 form: {
                     name: '',
                     cpf: '',

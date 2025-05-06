@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cfops', function (Blueprint $table) {
+        Schema::create('config_products', function (Blueprint $table) {
             $table->id();
-            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
-            $table->unsignedBigInteger('issuer_id');
-            $table->integer('cod', false);
-            $table->string('decription', 350);
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cfops');
+        Schema::dropIfExists('config_products');
     }
 };

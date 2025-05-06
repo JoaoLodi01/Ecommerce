@@ -225,24 +225,15 @@
         },
 
         methods: {
-            showLoading () {
+            showLoading (msg) {
                 this.$q.loading.show({
                     message: 'Cadastrando sua empresa ...'
+
                 })
 
-                this.timer = setTimeout(() => {
-                    this.$q.loading.hide()
-                    this.timer = void 0
-        
-                }, 1000)
             },
 
             hideLoading() {
-                if (this.timer !== void 0) {
-                    clearTimeout(this.timer)
-                    this.timer = void 0
-                }
-
                 this.$q.loading.hide()
             },
 
@@ -280,7 +271,7 @@
                     const response = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, {
                         company_name: this.form.company_name,
                         trade_name: this.form.trade_name,
-                        date_of_foundation: this.form.trade_name,
+                        date_of_foundation: this.form.date_of_foundation,
                         cep: this.form.cep.replace(/\D/g, ''),
                         uf: this.form.uf,
                         address: this.form.address,
@@ -302,10 +293,12 @@
                         this.$router.push(`/${this.form.company_name}/home`)
                     } 
                 } catch (error) {
-                    this.hideLoading();
                     console.error('Erro ao completar o cadastro: ', error)
                     
-                } 
+                } finally {
+                    this.hideLoading();
+
+                }
             },
 
             async getCEPData()

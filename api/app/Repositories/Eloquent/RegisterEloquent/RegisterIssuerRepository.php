@@ -2,15 +2,18 @@
 
 namespace App\Repositories\Eloquent\RegisterEloquent;
 
-use App\Models\EcommerceModels\ConfigPDV;
-use App\Models\Customer;
-use App\Models\EcommerceModels\PaymentForms;
+use App\Models\EcommerceModels\{
+    PaymentForms,
+    ConfigPDV
+};
 
 use App\Models\Registers\{
     Issuer,
     FirstSteps,
     Owner
 };
+
+use App\Models\Customer;
 
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
 use App\Services\NFCeValidation\FindTributs;
@@ -54,55 +57,28 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
             $codCustomer = $maxCustomerCod ? $maxCustomerCod + 1 : 1;
 
-            $payments = [
-                [
-                    'payment_cod' => 1,
-                    'issuer_id' => $issuer->id,
-                    'especie' => 'Dinheiro',
-                    'tipo_lancamento' => 'Caixa',
-                ],
-                [
-                    'payment_cod' => 2,
-                    'issuer_id' => $issuer->id,
-                    'especie' => 'PIX',
-                    'tipo_lancamento' => 'Caixa',
-                ],
-                [
-                    'payment_cod' => 3,
-                    'issuer_id' => $issuer->id,
-                    'especie' => 'Boleto',
-                    'tipo_lancamento' => 'Receber',
-                ],
-                [
-                    'payment_cod' => 4,
-                    'issuer_id' => $issuer->id,
-                    'especie' => 'Cartão de Crédito',
-                    'tipo_lancamento' => 'Caixa',
-                ],
-                [
-                    'payment_cod' => 5,
-                    'issuer_id' => $issuer->id,
-                    'especie' => 'Cartão de Débito',
-                    'tipo_lancamento' => 'Receber',
-                ],
-                
-            ];
-    
-            foreach($payments as $payment){
-                PaymentForms::create($payment);
-            }
+            
+            Log::info('--- Criação das espécies padrão ---');
+                $this->registerPayMentsForms($issuer->id);
+            Log::info('--- Fim da criação das espécies padrão ---');
 
-            Customer::create([
+            Log::info('--- Criação do cliente padrão ---');
+            $customer = Customer::create([
                 'customer_cod' => $codCustomer,
                 'issuer_id' => $issuer->id,
-                'name' => 'Consumidor Padrão'
+                'company_name' => 'Consumidor Padrão'
+                
             ]);
+            Log::info($customer);
+            Log::info('--- Fim da criação do cliente padrão ---');
 
+            Log::info('--- Criação das configPDV padrão ---');
             ConfigPDV::create([
                 'issuer_id' => $issuer->id,
                 'filter_search' => 'Cód barras interno',
                 'filter_search_customer' => 'Padrão (cód.cliente ou nome)'
             ]);
+            Log::info('--- Fim da criação do configPDV padrão ---');
 
             FirstSteps::create([
                 'issuer_id' => $issuer->id
@@ -176,5 +152,46 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         $cfops = $this->findTributs->getCFOPs('cfop');
         $this->tributsServices->registerCFOP($cfops, $issuer_id);
 
+    }
+
+    public function registerPayMentsForms(int $issuer_id)
+    {
+        $payments = [
+            [
+                'payment_cod' => 1,
+                'issuer_id' => $issuer_id,
+                'especie' => 'Dinheiro',
+                'tipo_lancamento' => 'Caixa',
+            ],
+            [
+                'payment_cod' => 2,
+                'issuer_id' => $issuer_id,
+                'especie' => 'PIX',
+                'tipo_lancamento' => 'Caixa',
+            ],
+            [
+                'payment_cod' => 3,
+                'issuer_id' => $issuer_id,
+                'especie' => 'Boleto',
+                'tipo_lancamento' => 'Receber',
+            ],
+            [
+                'payment_cod' => 4,
+                'issuer_id' => $issuer_id,
+                'especie' => 'Cartão de Crédito',
+                'tipo_lancamento' => 'Caixa',
+            ],
+            [
+                'payment_cod' => 5,
+                'issuer_id' => $issuer_id,
+                'especie' => 'Cartão de Débito',
+                'tipo_lancamento' => 'Receber',
+            ],
+            
+        ];
+    
+        foreach($payments as $payment){
+            PaymentForms::create($payment);
+        }
     }
 }
