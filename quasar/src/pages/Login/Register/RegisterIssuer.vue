@@ -163,7 +163,6 @@
             {
                 this.showLoading()
                 try {
-                    console.log('form', this.form)
                     const response = await api.post('/registers/issuer/create', {
                         company_name: this.form.company_name,
                         trade_name: this.form.trade_name,
@@ -171,15 +170,18 @@
                         cnpj: this.form.cnpj.replace(/\D/g, ''),
                         date_of_foundation: this.form.date_of_foundation,
                         cod_crt: this.form.cod_crt,
+                        cod_cnae: this.form.cod_cnae,
                         main_activity: this.form.main_activity,              
                         uuse_id: LocalStorage.getItem("uuse_id"),
                         
                     })
-                    console.log(response)
+                    
                     if(response.data.success)
                     {
                         this.$router.push({ path: '/companies' })
                         
+                    } else {
+                        alert(response.data)
                     }
                 } catch (error) {
                     console.error('createIssuer', error)

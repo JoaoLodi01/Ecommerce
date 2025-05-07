@@ -290,7 +290,7 @@
                     {
                         this.hideLoading();
                         LocalStorage.setItem("_completed", true)
-                        this.$router.push(`/${this.form.company_name}/home`)
+                        this.$router.push(`/${this.form.company_name.split(" ")[0]}/home`)
                     } 
                 } catch (error) {
                     console.error('Erro ao completar o cadastro: ', error)

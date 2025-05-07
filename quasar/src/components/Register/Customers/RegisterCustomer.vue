@@ -3,7 +3,7 @@
         class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
         :class="{
             'relative top-10 left-12': widthScreen <= 1080,
-            'ml-72': widthScreen > 1080
+            'relative top-20 left-0': widthScreen > 1080
         }"
     >
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
