@@ -112,7 +112,7 @@
                         });
                         console.log('response', response)
 
-                        this.clients = toRaw(response.data);
+                        //this.clients = toRaw(response.data);
                         typeof response.data === 'string'
                             ? this.message = response.data
                             : this.filterClients();

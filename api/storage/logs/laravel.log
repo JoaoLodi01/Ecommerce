@@ -55621,3 +55621,80 @@
 [2025-05-07 01:08:13] local.INFO: ConfigController: $issuer_id 1  
 [2025-05-07 01:08:13] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
 [2025-05-07 01:08:13] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 10:11:24] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"PPjUsZTPzr","active":1,"created_at":"2025-05-06T10:59:32.000000Z","updated_at":"2025-05-06T10:59:32.000000Z"}  
+[2025-05-07 10:11:26] local.INFO: Passou o login, token: 2|u42PMNvbWMzWDD5QAzN8nGqpSEGfpkRNRhXydcxJ42182aeb  
+[2025-05-07 10:11:29] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-07 10:30:11] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"22222222222222","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-06T10:59:51.000000Z","updated_at":"2025-05-06T11:03:12.000000Z"}  
+[2025-05-07 10:31:26] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"22222222222222","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-06T10:59:51.000000Z","updated_at":"2025-05-06T11:03:12.000000Z"}  
+[2025-05-07 10:32:48] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"22222222222222","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-06T10:59:51.000000Z","updated_at":"2025-05-06T11:03:12.000000Z"}  
+[2025-05-07 10:41:56] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:31:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:31:22] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:32:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:33:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:33:27] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:33:27] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:33:28] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-07 11:33:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:33:31] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:33:31] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-07 11:33:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:33:32] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:33:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:33:33] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:33:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:33:34] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:33:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:33:34] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:33:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:33:55] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-05-07 11:49:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:49:19] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-05-07 11:49:42] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-05-07 11:49:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:52:25] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:52:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:53:10] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:53:15] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:53:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:53:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:59:10] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-07 11:59:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-05-07 11:59:30] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-07 11:59:30] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:59:31] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-07 11:59:31] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-07 11:59:31] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:59:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:59:31] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:59:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:59:35] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:59:39] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:59:39] local.INFO: $data  
+[2025-05-07 11:59:39] local.INFO: array (
+  'issuer_id' => 1,
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-05-07 11:59:39] local.INFO: data no repository  
+[2025-05-07 11:59:39] local.INFO: array (
+  'issuer_id' => 1,
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-05-07 11:59:41] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 11:59:41] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:59:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-07 11:59:41] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 11:59:44] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"22222222222222","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-06T10:59:51.000000Z","updated_at":"2025-05-06T11:03:12.000000Z"}  
+[2025-05-07 12:02:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-07 12:02:24] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-07 12:02:36] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"22222222222222","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-06T10:59:51.000000Z","updated_at":"2025-05-06T11:03:12.000000Z"}  
