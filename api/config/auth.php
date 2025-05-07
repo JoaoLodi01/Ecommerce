@@ -41,10 +41,17 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
+        'user' => [
             'driver' => 'sanctum',
             'provider' => 'users',
+        ],
+
+        'owner' => [
+            'driver' => 'sanctum',
+            'provider' => 'owners',
+
         ]
+
     ],
 
     /*
@@ -67,9 +74,13 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => App\Models\Registers\User::class,
         ],
 
+        'owners' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Registers\Owner::class
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

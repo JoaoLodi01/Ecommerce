@@ -13,8 +13,11 @@ class CustomerService
     )
     {}
 
-    public function getAll(){
-        return $this->customerRepository->getAll();
+    public function getAll(int $issuer_id){
+        return response()->json([
+            'success' => true,
+            'all' => $this->customerRepository->getAll($issuer_id)
+        ], 200);
     }
 
     public function search(array $search){

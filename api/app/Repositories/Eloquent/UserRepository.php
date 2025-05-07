@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Models\User;
+use App\Models\Registers\User;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository

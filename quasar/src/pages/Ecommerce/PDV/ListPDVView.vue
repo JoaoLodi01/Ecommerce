@@ -1,76 +1,87 @@
 <template>
-    <div class="container mx-auto mt-12 p-6 ml-12">
-        
-        <div class="flex justify-between items-center mb-6">
+    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg">
+        <div class="flex justify-between items-center mb-6" v-if="showListPDV">
             <h1 class="text-2xl font-semibold">Listagem PDV
                 <span class="text-sm">(NFC-e/Nota Manual)</span>
             </h1>
-            <div class="flx space-x-4">
-                <!--
-                <input
-                    type="checkbox"
-                    v-model="searchFill.all"
-                    @change="filterPDVs('all')"
-                    
-                /> <span class="mr-5">Todas</span>
-                
-                <input
-                    type="checkbox"
-                    v-model="searchFill.finaly"
-                    @change="filterPDVs('finaly')"
+            <div class="flex space-x-4">
+                <q-btn-dropdown 
+                    label="Ações"
+                    class="mt-5 bg-blue-500 text-white" 
+                    menu-anchor="bottom end"
+                >
+                    <q-list class="bg-white">
+                        <q-item v-ripple clickable v-close-popup>
+                            <q-item-section>
+                                <q-item-label>
+                                    <q-btn 
+                                        class="bg-blue-500 text-white"
+                                        @click="openReportErros()"
+                                        label="Conferir relatórios de erros"
 
-                /> <span class="mr-5">Emitidas</span>
+                                    /> 
+                                    <span 
+                                        class="relative bottom-2 right-2 bg-blue-500 p-1 rounded-xl text-white"
+                                        :class="{
+                                            'bg-green-700': countErros >= 0,
+                                            'bg-orange-700': countErros >= 3,
+                                            'bg-red-700': countErros >= 5,
 
-                <input
-                    type="checkbox"
-                    v-model="searchFill.noFinaly"
-                    @change="filterPDVs('noFinaly')"
+                                        }"
+                                    >
+                                        {{ countErros }}
+                                    </span>
+                                </q-item-label>                            
+                            </q-item-section>
+                        </q-item>
+                        <q-item v-ripple clickable v-close-popup>
+                            <q-item-section>
+                                <q-item-label>
+                                    <q-btn 
+                                        class="bg-blue-500 text-white"
+                                        @click=""
+                                        label="Alguma outra funcão"
 
-                /> <span>Não emitidas</span>-->
-                <div class="">
-                    <q-btn 
-                        color="grey" 
-                        @click="openReportErros()" 
-                        class="mb-5"
-
-                    > 
-                        <span>Conferir relatórios de erros</span> 
-                    </q-btn>
-                    <span class="relative bottom-4 right-2 bg-gray-500 p-1 rounded-xl text-white">{{ countErros }}</span>
-                </div>
-                
+                                    /> 
+                                </q-item-label>                            
+                            </q-item-section>
+                        </q-item>
+                    </q-list>
+                </q-btn-dropdown>
             </div>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Opções</th>
-                        <th>ID</th>
-                        <th>Descrição</th>
-                        <th>Total bruto</th>
-                        <th>Total líquido</th>
-                        <th>Desconto</th>
-                        <th>Acréscimo</th>
-                    </tr>
-                </thead>
-                <tbody v-for="(pdv, id) in savedPDVs" :key="id">
-                    <tr>
-                        <td><button @click="openPDV(pdv)">Reabrir PDV</button></td>
-                        <td>{{ pdv.id }}</td>
-                        <td>{{ pdv.description }}</td>
-                        <td>{{ pdv.gross_value }}</td>
-                        <td>{{ pdv.net_value }}</td>
-                        <td>{{ pdv.discount }}</td>
-                        <td>{{ pdv.addition }}</td>
-                    </tr>
-                </tbody>
-            </table>
+        </div>
 
-        </div>        
+            <div class="items-center mb-6 mt-5">            
+                <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">Opções</th>
+                            <th scope="col" class="px-6 py-3">ID</th>
+                            <th scope="col" class="px-6 py-3">Descrição</th>
+                            <th scope="col" class="px-6 py-3">Total bruto</th>
+                            <th scope="col" class="px-6 py-3">Total líquido</th>
+                            <th scope="col" class="px-6 py-3">Desconto</th>
+                            <th scope="col" class="px-6 py-3">Acréscimo</th>
+                        </tr>
+                    </thead>
+                    <tbody v-for="(pdv, id) in savedPDVs" :key="id">
+                        <tr>
+                            <td v-if="!pdv.finished"><button @click="openPDV(pdv)">Reabrir PDV</button></td>
+                            <td>{{ pdv.id }}</td>
+                            <td>{{ pdv.description }}</td>
+                            <td>{{ pdv.gross_value }}</td>
+                            <td>{{ pdv.net_value }}</td>
+                            <td>{{ pdv.discount }}</td>
+                            <td>{{ pdv.addition }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>        
         <div class="" v-if="showReportPDV">
-            <ReportErros
-                @close="closeReportErros($event)"
-            />
+                <ReportErros
+                    @close="closeReportErros($event)"
+                />
         </div>
     </div>
     
@@ -103,13 +114,13 @@
             async getPDVsSaved()
             {   
                 try {
-                    const response = await api.get('/ecommerce/pdv/get-saved-sales')
-                    this.savedPDVs = response.data.pdvs
-    
-                    for (let i = 0; i < response.data.pdvs.length; i++) {
+                    const response = await api.get('/ecommerce/pdv/all')
+                    this.savedPDVs = response.data.data
+                    console.log(response.data.data)
+                    /*for (let i = 0; i < response.data.pdvs.length; i++) {
                         this.itensPDVs = response.data.pdvs[i]['get_itens']
                         
-                    }
+                    }*/
 
                 } catch (error) {
                     console.error('Erro getPDVs', error)

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded"
+    class="mr-14 mt-5 mb-5 p-6 bg-white"
     :class="{
       'relative top-12 left-12': widthScreen <=1080,
       'ml-14': widthScreen > 1080
@@ -35,11 +35,8 @@
         readonly
       />
 
-      <q-input
-        type="text"
-        v-model="form.especie"
-        label="Espécie"
-        color="grey-7"
+      <SpeciesSearchBar
+        @updated:selectSpecie="getSpecie($event)"
       />
 
       <q-input
@@ -124,11 +121,13 @@
     </form>
   </div>
 </template>
-
 <script>
   import { api } from "boot/axios"
   import {LocalStorage} from "quasar";
+  import dayjs from "dayjs";
+  import 'dayjs/locale/pt-br';
   import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
 
   export default {
     props: {
@@ -139,6 +138,8 @@
     },
 
     data() {
+      const today = dayjs();
+
       return {
         form: {
             description: "",
@@ -146,25 +147,25 @@
             user: LocalStorage.getItem("user_name"),
             cpf: "",
             especie: "",
-            due_date: "",
+            due_date: today.add(30, 'days').format("DD-MM-YYYY"),
             installment_number: "",
             installment_value: "",
             type_interest: "",
             interest_value: "",
             total_amount: ""
         },
-       
       };
     },
     methods: {
       onReset(){
+        const today = this.today;
             this.form = {
                 description: "",
                 name: "",
                 user: LocalStorage.getItem("user_name"),
                 cpf: "",
                 especie: "",
-                due_date: "",
+                due_date: today.format("DD-MM-YYYY"),
                 installment_number: "",
                 installment_value: "",
                 type_interest: "",
@@ -183,10 +184,18 @@
           this.form.name = event.name
         },
 
+        getSpecie(event){
+            console.log("Chamou o getSpecie");
+            console.log(event);
+            this.form.especie = event.name;
+        },
+
         async submitForm() {
           console.log(this.form)
             try {
-                const response = await api.post(`${this.api}`, this.form); // Lembrar de criar rota e inserir aqui
+                const response = await api.post(`${this.api}`, {
+
+                }); // Lembrar de criar rota e inserir aqui
                 this.onReset();
                 console.log('Dados enviados!', response.data)
             } catch (error) {
@@ -196,12 +205,12 @@
     },
 
     components:{
-      CustomerSearchBar
+      CustomerSearchBar,
+      SpeciesSearchBar,
     },
     
     emits:[
       'close'
     ],
-
   };
 </script>

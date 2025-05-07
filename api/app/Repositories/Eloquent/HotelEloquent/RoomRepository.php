@@ -64,7 +64,7 @@ class RoomRepository implements RoomContract
         {
             $room = Room::create([
                 'customer_id' => $customer->id,
-                'customer' => $customer->name,
+                'customer' => $customer->company_name,
                 'room_id' => $detailRoom->id,
                 'number_room' => $detailRoom->number_room,
                 'start_period' => $data['start_period'],
@@ -245,7 +245,7 @@ class RoomRepository implements RoomContract
         Log::info('Vai criar o crédito do cliente, R$: ' . $credit);
         $customerCredit = CustomerCredit::create([
             'customer_id' => $customer->id,
-            'name' => $customer->name,
+            'name' => $customer->company_name,
             'current_credit' => $credit,
             'validate' => Carbon::now()->addDays(30)->format('Y-m-d')
 

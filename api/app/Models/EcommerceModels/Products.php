@@ -9,6 +9,8 @@ class Products extends Model
     protected $table = 'Products';
     
     protected $fillable = [
+        'product_cod',
+        'issuer_id',
         'product',
         'image',
         'barcode',
@@ -20,11 +22,23 @@ class Products extends Model
         'sale_price',
         'profit_percentage',
         'ncm',
-        'csosncst',
         'cest',
         'cfop',
         'unit',
         'active',
+        'csosncst',
+        'origem_icms',
+        'icms_ecf',
+        'taxable_amount',
+        'taxable_unit',
+        'cod_ipi',
+        'aliquot_ipi',
+        'cod_pis',
+        'aliquot_pis',
+        'cod_cofins',
+        'aliquot_cofins',
+        'cod_use_type',
+        'use_type',
     ];
 
     protected $hidden = [

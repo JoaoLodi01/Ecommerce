@@ -3,12 +3,22 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Customer;
+use App\Models\Registers\FirstSteps;
+use App\Models\Registers\Issuer;
 use Illuminate\Support\Facades\Log;
 class CustomerRepository
 {
-    public function getAll(){
-        return Customer::paginate(10);
-
+    public function getAll(int $issuer_id){
+        $issuer = Issuer::where('id', $issuer_id)->first();
+        if(empty($issuer))
+        {
+            return array(
+                'success' => false,
+                'message' => 'Emitente não encontrado'
+            );
+        }
+        return Customer::where('issuer_id', $issuer->id)->get();
+        
     }
 
     public function search(array $data)
@@ -22,7 +32,7 @@ class CustomerRepository
             case 'Padrão (cód.cliente ou nome)':
                 $customer = Customer::where('active', 1)
                         ->where(function ($query) use ($search){
-                            $query->where('id', $search)
+                            $query->where('customer_cod', $search)
                                   ->orWhere('name', 'like', '%' . $search . '%');
                         })
                         ->get();
@@ -32,7 +42,7 @@ class CustomerRepository
                 $customer = Customer::where('active', 1)
                            ->where(function($query) use ($search){
                              $query->where('cpf', 'like', '%' . $search . '%')
-                                   ->orWhere('id', $search);
+                                   ->orWhere('customer_cod', $search);
                            })
                            ->get();
                 break;
@@ -41,7 +51,7 @@ class CustomerRepository
                 $customer = Customer::where('active', 1)
                             ->where(function($query) use ($search){
                             $query->where('cnpj', 'like', '%' . $search . '%')
-                                    ->orWhere('id', $search);
+                                    ->orWhere('customer_cod', $search);
                             })
                             ->get();
                 break;
@@ -51,7 +61,7 @@ class CustomerRepository
                            ->where(function($query) use ($search){
                              $query->where('cpf', 'like', '%' . $search . '%')
                                    ->orWhere('cnpj', 'like', '%' . $search . '%')
-                                   ->orWhere('id', $search);
+                                   ->orWhere('customer_cod', $search);
                            })
                            ->get();
                 break;
@@ -75,17 +85,32 @@ class CustomerRepository
                     ->first();*/
 
     public function create(array $data){
+        $issuer = Issuer::where('id', $data['issuer_id'])->first();
+        $maxCod = Customer::where('issuer_id', $issuer->id)->max('customer_cod');
+
+        $customerCod = $maxCod ? $maxCod + 1 : 1;
+
+        $stpes = FirstSteps::where('issuer_id', $issuer->id)->first();
+        $stpes->update([
+            'complete_customers' => 1
+            
+        ]);
+        $stpes->save();
+
         return Customer::create([
-            'name' => $data['name'],
+            'customer_cod' => $customerCod,
+            'issuer_id' => $issuer->id,
+            'company_name' => $data['company_name'] ?? null,
+            'trade_name' => $data['trade_name'] ?? null,
             'cpf' => $data['cpf'] ?? null,
             'cnpj' => $data['cnpj'] ?? null,
             'cep' => $data['cep'],
             'address' => $data['address'],
             'number' => $data['number'],
             'email' => $data['email'],
-            'type_1' => $data['type'][0] ?? null,
-            'type_2' => $data['type'][1] ?? null,
-            'type_3' => $data['type'][2] ?? null,
+            'is_customer' => $data['type'][0] ?? null,
+            'is_driver' => $data['type'][1] ?? null,
+            'is_supplier' => $data['type'][2] ?? null,
             'phone' => $data['phone'],
         ]);
     }

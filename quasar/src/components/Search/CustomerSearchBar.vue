@@ -1,21 +1,28 @@
 <template>
     <div class="flex">
-        <q-checkbox
-            size="1.6rem"
-            label="Cliente cadastrado"
-            v-model="registredCustomer"
-            right-label
-            @vue:updated="watchRegistredCustomer()"
-        />
+        <div>
+            <div class="text-sm" v-if="pdv">
+                <q-checkbox
+                    size="1.6rem"
+                    label="Cliente cadastrado"
+                    v-model="registredCustomer"
+                    color="grey"
+                    @vue:updated="watchRegistredCustomer()"
 
-        <input 
-            v-model="clientsData.name"
-            @click="setClient(clientsData)"
-            @input="selectClient()"
-            class="text-black border border-black w-full"
-            :disabled="!fillter"
+                />
+            </div>
 
-        />
+            <q-input 
+                v-model="clientsData.name"
+                @click="setClient(clientsData)"
+                @update:model-value="selectClient()"
+                class="w-96"
+                color="grey"
+                :disabled="!fillter"
+
+            />
+            
+        </div>    
             <ul 
                 v-if="filteredClients.length > 0 && clientsData.name !== ''" 
                 class="fixed z-50 p-3 bg-white border border-gray-300 mt-14"
@@ -35,15 +42,36 @@
 
 <script>
     import { api } from 'src/boot/axios';
-    import { toRaw, watch } from 'vue';
+    import { toRaw } from 'vue';
+    import { LocalStorage } from 'quasar';
         
     export default {    
+        props: {
+            pdv: {
+                type: Boolean
+            }
+        },
+
         mounted()
         {
             const getConfig = async () => {
-                const response = await api.get('/config/all-configs')
-                this.fillter = response.data.configPDV[0].filter_search_customer
-            }    
+                try {
+                    const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
+                    
+                    const configs = response.data.configPDV;
+                    
+                    if (Array.isArray(configs) && configs.length > 0 && configs[0].filter_search_customer !== undefined) {
+                        this.fillter = configs[0].filter_search_customer;
+                    } else {
+                        console.warn('Configuração filter_search_customer não encontrada.');
+                        this.fillter = null;
+                    }
+
+                } catch (error) {
+                    console.error('Erro ao carregar configuração:', error);
+                    this.fillter = null;
+                }
+            };   
             getConfig()
             
             this.clientsData.name = this.defaultCustomer.name
@@ -72,19 +100,27 @@
         },
 
         methods: {
-            async selectClient(){
-                if(this.clientsData.name.length > 0)
-                {
-                    const response = await api.post('/customers/search', {
-                        fillter: this.fillter,
-                        search: this.clientsData.name
-                    });
+            async selectClient() {
+                console.log(this.clientsData.name)
+                if (this.clientsData.name.length > 0 && this.fillter) {
+                    try {
+                        const response = await api.post('/customers/search', {
+                            fillter: this.fillter,
+                            search: this.clientsData.name,
+                            issuer_id: LocalStorage.getItem("issuer_id")
 
-                    this.clients = toRaw(response.data);
-                    typeof response.data === 'string' ? this.message = response.data : this.filterClients()
+                        });
+                        console.log('response', response)
 
+                        //this.clients = toRaw(response.data);
+                        typeof response.data === 'string'
+                            ? this.message = response.data
+                            : this.filterClients();
+
+                    } catch (error) {
+                        console.error('Erro ao buscar cliente:', error);
+                    }
                 }
-
             },
 
             watchRegistredCustomer()

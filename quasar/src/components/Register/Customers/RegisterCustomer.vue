@@ -3,11 +3,12 @@
         class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
         :class="{
             'relative top-10 left-12': widthScreen <= 1080,
-            'ml-72': widthScreen > 1080
+            'relative top-20 left-0': widthScreen > 1080
         }"
     >
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
         
+        {{ type }}
         <q-form
             @submit="submitForm()"
             @reset="onReset"
@@ -16,41 +17,65 @@
                 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
             }"
         >
-            <q-input 
-                v-model="form.name" 
-                type="text" 
-                label="Nome" 
-                maxlength="120" 
-                color="grey-7"
-
+            <q-select 
+                v-model="type" 
+                :options="options" 
+                label="Tipo de cadastro" 
+                filled 
             />
 
-            <q-input 
-                v-model="form.cpf" 
-                @update:modelValue="formatCPF"
-                type="text" 
-                label="CPF"
-                maxlength="14"
-                color="grey-7"
+            <div>
                 
-            />
+                <div v-if="type = 'Física'">
+                    <q-input 
+                        v-model="form.trade_name" 
+                        type="text" 
+                        label="Nome" 
+                        maxlength="120" 
+                        color="grey-7"
 
-            <q-input 
-                v-model="form.cnpj" 
-                @update:modelValue="formatCNPJ"
-                type="text" 
-                label="CNPJ" 
-                maxlength="18"
-                color="grey-7"
+                    />
 
-            />
+                    <q-input 
+                            v-model="form.cpf" 
+                            v-bind:mask="'###.###.###-##'"
+                            maxlength="14"
+                            type="text" 
+                            label="CPF"
+                            color="grey-7"
+                            
+                        />  
 
+                </div>
+                <div v-else>
+                    <q-input 
+                        v-model="form.company_name" 
+                        type="text" 
+                        label="Razão social" 
+                        maxlength="120" 
+                        color="grey-7"
+
+                    />
+
+                    <q-input 
+                        v-model="form.cnpj" 
+                        v-bind:mask="'##.###.###/####-##'"
+                        @vue:updated="getDataApis()"
+                        maxlength="18"
+                        type="text" 
+                        label="CNPJ"                 
+                        color="grey-7"
+
+                    />
+
+                </div>
+            </div>
             <q-input 
                 v-model="form.cep"
-                @update:model-value="formatCEP"
+                v-bind:mask="'#####-###'"
                 type="text" 
                 label="CEP"
-                maxlength="8"
+                maxlength="9"
                 color="grey-7"
 
             />
@@ -130,8 +155,9 @@
 
 <script>
     import { api } from 'src/boot/axios';
-    import { useQuasar } from 'quasar';
+    import { LocalStorage, useQuasar } from 'quasar';
     import { onBeforeUnmount } from 'vue';
+    import axios from 'axios'
 
     export default {
         setup()
@@ -148,6 +174,11 @@
             })
 
             return {
+                options: [
+                    'Física',
+                    'Júridica'
+                ],
+
                 showLoading()
                 {
                     $q.loading.show({
@@ -165,6 +196,7 @@
 
         data() {
             return {
+                type: '',
                 form: {
                     name: '',
                     cpf: '',
@@ -177,57 +209,12 @@
                     is_driver: false,
                     is_supplier: false,
                     phone: '',
+                    issuer_id: LocalStorage.getItem("issuer_id")
                 },
             };
         },
 
         methods: {
-            formatCPF()
-            {
-                let cpf = this.form.cpf.replace(/\D/g, '')
-
-                if(cpf.length > 11)
-                {
-                    cpf = cpf.substring(0, 11)
-
-                }
-                this.form.cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-
-            },
-
-            formatCNPJ()
-            {
-                let cnpj = this.form.cnpj.replace(/\D/g, '')
-
-                if(cnpj.length > 14)
-                {
-                    cnpj = cnpj.substring(0, 11)
-
-                }
-                this.form.cnpj = cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
-
-            },
-
-            formatCEP() {
-                let cep = this.form.cep.replace(/\D/g, ''); 
-
-                if (cep.length > 8) {
-                    cep = cep.substring(0, 8);
-                }
-
-                this.form.cep = cep.replace(/(\d{5})(\d{3})/, '$1-$2');
-            },
-
-            formatPhone() {
-                let phone = this.form.phone.replace(/\D/g, ''); 
-
-                if (phone.length > 14) {
-                    phone = phone.substring(0, 8);
-                }
-
-                this.form.phone = phone.replace(/(\d{2})(\d{3})/, '$1-$2');
-            },
-
             async submitForm() {
                 try {
                     this.form.cpf = this.form.cpf.replace(/\D/g, '')
@@ -248,6 +235,18 @@
                     alert("Ocorreu um erro ao cadastrar o cliente.");
                     console.error('Erro', error)
                 }
+            },
+
+            async getDataApis()
+            {
+                const cnpj = this.form.cnpj.replace(/\D/g, '')
+                if(cnpj.length === 14)
+                {
+                    console.log('aaa')
+                    const data = await axios.get(`${process.env.API_CNPJA}/${cnpj}`);
+                    console.log(data)
+                }
+
             },
 
             onReset()
@@ -276,6 +275,8 @@
 
         emits: [
             'close'
-        ]
+        ],
+
+        
     };
 </script>

@@ -19,7 +19,7 @@ use App\Repositories\Eloquent\{
 use App\Services\PayMentMethodService;
 use Illuminate\Support\Facades\Log;
 
-use App\Http\NFCeValidation\NFCeValidation;
+use App\Services\NFCeValidation\NFCeValidation;
 use Carbon\Carbon;
 
 class PDVRepository
@@ -61,9 +61,16 @@ class PDVRepository
         }
     }
     
-    public function findByID(int $id)
+    public function findByID(int $id, int $issuerID)
     {
-        return PDV::where('id', $id)->first();
+        $pdv = PDV::where('id', $id)
+                    ->where(function($q) use ($issuerID){
+                        $q->where('issuer_id', $issuerID);
+                    })            
+                    ->first();
+
+        Log::info('PDV pelo issuer_ud', ['pdv' => $pdv]);
+        return $pdv;
     }
 
     public function findSavePDV()
@@ -93,7 +100,10 @@ class PDVRepository
         $errors = [];
         foreach ($products as $product) {
             for ($i=0; $i < count($product); $i++) { 
+                $maxItensPDV = ItensPDV::where('issuer_id', $product[$i]['issuer_id'])->max('iten_pdv_cod');
                 $itensPDV = array(
+                    'iten_pdv_cod' => $maxItensPDV ? $maxItensPDV + 1 : 1,
+                    'issuer_id' => $product[$i]['issuer_id'],
                     'pdv_id' => $pdvID,
                     'product_id' => $product[$i]['id'],
                     'product' => $product[$i]['product'],
@@ -138,7 +148,7 @@ class PDVRepository
                     }
                 }
             
-                $ipdv = ItensPDV::create($itensPDV);
+                ItensPDV::create($itensPDV);
                 
             }
         }
@@ -157,8 +167,10 @@ class PDVRepository
         $user = $this->userRepository->findByID($details['user_id']); // "user"
 
         $currentDate = new Carbon();
-                  
+        $maxPDV = PDV::where('issuer_id', $details['issuer_id'])->max('pdv_cod');
         $pdvData = array(
+            'pdv_cod' => $maxPDV ? $maxPDV + 1 : 1,
+            'issuer_id' => $details['issuer_id'],
             'description' => $details['description'],
             'issue_date' => $currentDate->format('Y-m-d'),
             'cliente_id' => $customer->id,
@@ -202,12 +214,12 @@ class PDVRepository
         
     }
 
-    public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total)
+    public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total, int $issuerID)
     {
         Log::info('-- Iniciou o finalizeSale() line 172 -- ');
         Log::info('Memória usada PDVRepository::class, finalizeSale: ' . memory_get_usage(true));
 
-        $pdv = $this->findByID($id);
+        $pdv = $this->findByID($id, $issuerID);
         
         $customer = $this->customerRepository->findByID($pdv->cliente_id);
 
@@ -217,9 +229,10 @@ class PDVRepository
         if($total >= $pdv->net_value)
         {
             Log::info('Foi maior');
-            Log::info($pdv->is_nfce_nm);
+            Log::info('Tipo de venda NM/NFCE: ' . $pdv->is_nfce_nm);
+            Log::info('Issuer ID: ' . $issuerID);
             
-            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, [1]);
+            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, $issuerID);
             Log::info('payMentMethodService');
             Log::info($payMentMethodService);
 
@@ -230,6 +243,7 @@ class PDVRepository
                 $pdv->update([
                     'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
                     'is_nfce_nm' => $type === 'saleNM' ? 'nm' : 'nfce',
+                    'status' => $type === 'saleNM' ? 'Venda Finalizada' : 'Autorizado uso da NF-e',
                     'finished' => 1
         
                 ]);
@@ -255,7 +269,7 @@ class PDVRepository
                 
                 );
             }
-        } elseif ($total <  $pdv->net_value)
+        } elseif ($total < $pdv->net_value)
         {
             Log::info('Foi menor');
             return array(
@@ -280,7 +294,6 @@ class PDVRepository
     public function incrementNFCe(int $id)
     {
         $lastPDV = PDV::where('id', $id)->latest('id')->first();
-        
 
     }
 }

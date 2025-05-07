@@ -11,7 +11,18 @@
                 'div1': widthScreen > 1080
             }"
         >
-            <h1 class="text-3xl font-semibold m-5 ">Clientes</h1>
+            <h1 class="text-3xl font-semibold m-5 border border-b-gray-300">Clientes</h1>
+
+            <div class="mt-auto mb-auto">
+                <q-btn 
+                    class="bg-blue-500 text-white"
+                    @click="showConfig = !showConfig" 
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
+                    </svg>
+                </q-btn>
+            </div>
 
             <div
                 class="mt-auto mb-auto"
@@ -22,7 +33,7 @@
                 <q-btn
                     v-if="showCustomers"
                     @click="openRegister()"
-                    class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                    class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
                 >
                     <span v-if="widthScreen <= 1080">Novo cliente</span>
                     <span v-else>Cadastrar um novo cliente</span>
@@ -97,7 +108,7 @@
             </div>
 
             <div class="text-sm text-gray-500 mb-2">
-                <span class="font-semibold">Cliente:</span> {{ customer.name }}
+                <span class="font-semibold">Cliente:</span> {{ customer.company_name }}
             </div>
 
             <div class="text-sm text-gray-500 mb-2" v-if="customer.cpf">
@@ -105,12 +116,12 @@
             </div>
 
             <div class="text-sm text-gray-500 mb-2" v-if="customer.cnpj">
-                <span class="font-semibold">CNPJ:</span> {{ customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') }}
+                <span class="font-semibold">CNPJ:</span> {{ customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5')}}
             
             </div>
 
             <div class="text-sm text-gray-500 mb-2">
-               <span class="font-semibold">Número:</span> {{ customer.number }}
+               <span class="font-semibold">Endereço:</span> {{ customer.address ?? 'Sem endereço cadastrado' }}
             </div>
 
             <div class="text-sm text-gray-500 mb-2">
@@ -183,6 +194,7 @@
 </template>
   
 <script>
+    import { LocalStorage } from 'quasar';
     import { api } from 'src/boot/axios';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
@@ -213,8 +225,9 @@
 
         methods: {
             async getCustomers() {
-                const response = await api.get('/customers/all');
-                this.customers = response.data.data;
+                const response = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
+                console.log(response)
+                this.customers = response.data.all;
                 
             },
 

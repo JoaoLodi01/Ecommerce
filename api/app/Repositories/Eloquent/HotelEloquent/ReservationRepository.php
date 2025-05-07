@@ -19,7 +19,7 @@ class ReservationRepository
 
         Reservation::create([
             'customer_id' => $customer->id,
-            'name' => $customer->name,
+            'name' => $customer->company_name,
             'room_id' => $room->id
             
         ]);

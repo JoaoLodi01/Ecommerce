@@ -1,6 +1,10 @@
 <template>
     <div
+<<<<<<< HEAD
         class="w-max mx-auto border border-black rounded-lg mt-2 bg-white"
+=======
+        class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
+>>>>>>> f25bc331000bc158e6110c183ae8a683c5560378
         id="pdv-view"
         v-if="showGrid"
         :class="{
@@ -9,6 +13,7 @@
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
             'text-3xl': textSize === 16,
+<<<<<<< HEAD
         }">
 
         <div
@@ -21,6 +26,24 @@
                 :typeOperation="typeOperation"
                 :totalOperation="totalOperation"
                 :pdvID="pdvID"
+=======
+            
+        }"   
+    >
+        <div 
+            class="payMentForm" 
+            :class="{
+                'absolute top-24 z-20': witdhScreen > 1080,
+                'absolute right-auto left-auto top-5 z-50': witdhScreen <= 1080
+            }"
+        >
+            <PaymentsForm
+                v-if="showPaymentsForm"
+                :witdhScreen="this.witdhScreen"
+                :typeOperation=this.typeOperation
+                :totalOperation=this.totalOperation
+                :pdvID=this.pdvID
+>>>>>>> f25bc331000bc158e6110c183ae8a683c5560378
                 @resetTotal="totalOperation = $event"
                 @resetPDVID="pdvID = $event"
                 @close="cancelOperation"
@@ -66,7 +89,7 @@
                 </div>
 
             </div>
-            <div class="flex m-3 border border-black">
+            <div class="flex m-3 border border-black rounded-lg">
                 <div 
                     class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
                     @click="showProductsSelection()"
@@ -110,7 +133,7 @@
                         <tr v-for="(product, id) in products" :key="id"
                             class="border">    
 
-                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.id }}</td>
+                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.product_cod }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
 
                             <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
@@ -151,7 +174,7 @@
                             <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
                             <td class="text-center">
                                 <div class="m-auto">
-                                    <button @click="productOptions(product, 'delete')">
+                                    <button @click="productOptions(product, i, 'delete')">
                                         <svg 
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none" 
@@ -238,12 +261,16 @@
                         <div class="m-2 p-2">
 
                             <label class="text-black" for="discount">Vendedor</label>
-                            <input 
+                            <q-input 
                                 :placeholder="sellerData.name"
-                                disabled
+                                disable
                                 id="discount"
                                 type="text"
+<<<<<<< HEAD
                                 class="text-black w-full mb-2"
+=======
+                                class="w-16"
+>>>>>>> f25bc331000bc158e6110c183ae8a683c5560378
                             />
 
                             <br>
@@ -251,6 +278,7 @@
                             <span>Cliente</span>
                             <CustomerSearchBar
                                 @update:selectCustomer="updateCustomerSelection($event)"
+                                :pdv="true"
 
                             />
                             <!-- COMPONENTE BUSCA DE CLIENTE -->                            
@@ -367,7 +395,7 @@
         <ProductsSelectionView
             v-if="show"
             :witdhScreen="this.witdhScreen"
-            :hotelCodCRT="this.hotelCodCRT"
+            :CRT="this.CRT"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion($event)"
         />
@@ -421,6 +449,7 @@
                 errorsOfSale: {
                     showErrosModal: false,
                     erros: []
+
                 },
             
                 emitProducts: {
@@ -431,7 +460,7 @@
                     
                 },
 
-                hotelCodCRT: 0,
+                CRT: 0,
 
                 sellerData: {
                     id: 0,
@@ -474,7 +503,9 @@
                 configs: {
                     nmFinaly: false,
                     saleNegativeorReset: false
-                }
+                },
+
+                issuer_id: LocalStorage.getItem("issuer_id")
             }
         },
 
@@ -525,6 +556,7 @@
                             if(!this.isOpenedPDV)
                             {
                                 const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                    issuer_id: this.issuer_id,
                                     products: this.productsSeletion, // Produtos da 
                                     user_id: this.sellerData.id,
                                     customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
@@ -563,43 +595,8 @@
                     }
                 }
             },
-
-            async getHotel()
-            {
-                try {
-                    const response = await api.get('/hotel/all')
-
-                    if(response.data.success === true)
-                    {
-                        this.hotelCodCRT += response.data.all.hotel.cod_crt
-                        if(Number(this.hotelCodCRT) && this.hotelCodCRT > 0)
-                        {
-                            if(this.hotelCodCRT == 1 || this.hotelCodCRT >= 4)
-                            {
-                                this.csosncst = 'CSOSN'
-
-                            } else {
-                                this.csosncst = 'CST'
-                            }
-                        }
-                    }
-
-                    if(response.data.success === false){
-                        console.log(response.data)
-
-                    }
-                } catch (error) {
-                    if(error.response.data.message === 'Hotel não encontrado')
-                    {
-                        alert(error.response.data.message)
-                        alert('Por favor faça o cadastro do hotel!')
-                        this.$router.push('/hotel/create')
-                        
-                    }
-                }
-            },
             
-            async finalizeSale(type) // Só vai chamar a forma de pagamento
+            async finalizeSale(type)
             {
                 this.showLoading()
                 try {
@@ -630,73 +627,89 @@
                         }
                     
                     } else {
-                        console.log('Finalizar venda')
-                        console.log('Total', this.totalOperation)
-                        if(type === 'nm')   
-                        { 
-                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                sub_total: this.calculateTotal.subtotal,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
-                                description: 'Venda Nota Manual N°',
-                                is_nfce_nm: type,
-                                status: 'Finalizada'
-                                
-                            })
-                            const data = response.data
+                        const pdvID = LocalStorage.getItem("pdvID")
+                        if(!pdvID)
+                        {
+                            console.log('Finalizar venda')
+                            console.log('Total', this.totalOperation)
+                            if(type === 'nm')   
+                            { 
+                                const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                    issuer_id: this.issuer_id,
+                                    products: this.productsSeletion, // Produtos da 
+                                    user_id: this.sellerData.id,
+                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
+                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                    sub_total: this.calculateTotal.subtotal,
+                                    addition: this.calculateTotal.addition,
+                                    discount: this.calculateTotal.discount,
+                                    description: 'Venda Nota Manual N°',
+                                    is_nfce_nm: type,
+                                    status: 'Finalizada'
+                                    
+                                })
 
-                            if(data.success)
-                            {
-                                LocalStorage.setItem("pdvID", response.data.pdvID)
-                                this.typeOperation = type
-                                this.showPaymentsForm = true
-                                this.pdvID = LocalStorage.getItem("pdvID")
+                                const data = response.data
+                                console.log(data)
 
-                            }
+                                if(data.success)
+                                {
+                                    LocalStorage.setItem("pdvID", response.data.pdvID)
+                                    this.typeOperation = type
+                                    this.showPaymentsForm = true
+                                    this.pdvID = LocalStorage.getItem("pdvID")
+                                    console.log('this.typeOperation linha 682: ', this.typeOperation)
+                                    console.log('this.showPaymentsForm linha 683: ', this.showPaymentsForm)
+                                    console.log('this.pdvID linha 684: ', this.pdvID)
+
+                                }
+                            
+                                if(!data.success)
+                                {
+                                    console.log(response.data) 
+                                    alert(response.data)
+                                }
+                            } 
                         
-                            if(!data.success)
-                            {
-                                console.log(response.data) 
-                                alert(response.data)
-                            }
-                        } 
-                    
-                        if(type === 'nfce')
-                        {  
-                            const response = await api.post('/ecommerce/pdv/save-sale', {
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                sub_total: this.calculateTotal.subtotal,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
-                                description: 'Venda NFC-e N°',
-                                is_nfce_nm: type,
-                                status: 'Finalizada'
-                                
-                            })
+                            if(type === 'nfce')
+                            {  
+                                const response = await api.post('/ecommerce/pdv/save-sale', {
+                                    issuer_id: this.issuer_id,
+                                    products: this.productsSeletion, // Produtos da 
+                                    user_id: this.sellerData.id,
+                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
+                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                    sub_total: this.calculateTotal.subtotal,
+                                    addition: this.calculateTotal.addition,
+                                    discount: this.calculateTotal.discount,
+                                    description: 'Venda NFC-e N°',
+                                    is_nfce_nm: type,
+                                    status: 'Finalizada'
+                                    
+                                })
 
-                            console.log('response.dat PDVView, line 718: ', response)
-                            const data = response.data
+                                console.log('response.dat PDVView, line 718: ', response)
+                                const data = response.data
 
-                            if(data.success)
-                            {
-                                LocalStorage.setItem("pdvID", response.data.pdvID)
-                                this.typeOperation = type
-                                this.showPaymentsForm = true
-                                this.pdvID = LocalStorage.getItem("pdvID")
+                                if(data.success)
+                                {
+                                    LocalStorage.setItem("pdvID", response.data.pdvID)
+                                    this.typeOperation = type
+                                    this.showPaymentsForm = true
+                                    this.pdvID = LocalStorage.getItem("pdvID")
 
-                            } else {
-                                this.errorsOfSale.erros = data.errors
-                                this.errorsOfSale.showErrosModal = true
+                                } else {
+                                    this.errorsOfSale.erros = data.errors
+                                    this.errorsOfSale.showErrosModal = true
+
+                                }
 
                             }
-
+                               
+                        } else {
+                            console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
+                            this.showPaymentsForm = true
+                            this.pdvID = LocalStorage.getItem("pdvID")
                         }
                     }
                     
@@ -705,6 +718,41 @@
                     alert(error.response.data.errors)
                     this.errorMessages.push(error.response.data.errors)
                     
+                }
+            },
+
+            async getCRT()
+            {
+                try {
+                    const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
+
+                    if(response.data.success === true)
+                    {
+                        this.CRT += response.data.issuer.cod_crt
+                        if(Number(this.CRT) && this.CRT > 0)
+                        {
+                            if(this.CRT == 1 || this.CRT >= 4)
+                            {
+                                this.csosncst = 'CSOSN'
+
+                            } else {
+                                this.csosncst = 'CST'
+                            }
+                        }
+                    }
+
+                    if(response.data.success === false){
+                        console.log(response.data)
+
+                    }
+                } catch (error) {
+                    if(error.response.data.message === 'Hotel não encontrado')
+                    {
+                        alert(error.response.data.message)
+                        alert('Por favor faça o cadastro do hotel!')
+                        this.$router.push('/hotel/create')
+                        
+                    }
                 }
             },
 
@@ -722,7 +770,7 @@
                 {
                     console.log('agora')
                     this.productsSeletion = []
-                    this.$router.push({ path: '/sale/list-pdv' })
+                    this.$router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
                 }
 
             },
@@ -851,13 +899,14 @@
 
             },
 
-            productOptions(product, action)
+            productOptions(product, i, action)
             {
                 let rawProducts = toRaw(this.productsSeletion)
 
                 switch (action) {
                     case 'delete':
-                        for (let i = 0; i < rawProducts.length; i++) {
+                        /*for (let i = 0; i < rawProducts.length; i++) 
+                        {
                             const products = rawProducts[i];
                             const index = products.findIndex(p => p.id === product.id)                            
 
@@ -871,7 +920,8 @@
                                 }
                                 break
                             }
-                        }
+                        }*/
+                        console.log('product.id', product.id, ' i: ', i)
                         break;
                         
                     case 'view':
@@ -960,7 +1010,7 @@
         ],
 
         mounted(){
-            this.getHotel()
+            this.getCRT()
             this.witdhScreen += screen.width
             this.isOpenedPDV = history.state?.isOpenedPDV
             
@@ -970,18 +1020,17 @@
                         'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
                     }
                 })
-                const details = response.data   
 
                 this.sellerData = {
-                    id: details.user.id,
-                    name: details.user.name,
+                    id: response.data.user.id,
+                    name: response.data.user.name,
                 }
 
             }
             getUser()
 
             const getConfig = async () => {
-                const config = await api.get('/config/all-configs');
+                const config = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
                 this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
                 
             }

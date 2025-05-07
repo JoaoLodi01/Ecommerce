@@ -1,6 +1,6 @@
 <template>
     <div
-        class="ml-20"
+        class="ml-20 "
         :class="{
             'relative top-12 right-5': widthScreen <= 1080
         }"
@@ -22,7 +22,7 @@
                 <q-btn
                     v-if="showProducts"
                     @click="openRegister()"
-                    class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                    class="bg-blue-500 hover:bg-blue-400 transition text-white font-semibold rounded-lg"
                 >
                     <span v-if="widthScreen <= 1080">Novo produto</span>
                     <span v-else>Cadastrar um novo produto</span>
@@ -40,7 +40,7 @@
 
             </div>
         </div>
-        <div v-if="widthScreen > 1080" class="mt-2 ml-2 ">
+        <div v-if="widthScreen > 1080" class="mt-2 ml-2">
             <ReportProduct
                 :widthScreen="widthScreen"
                 v-if="showReportProducts"
@@ -79,20 +79,20 @@
     </div>
 
     <div
-        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8 ml-20 mt-6"
+        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 ml-20 mt-6"
         v-if="showProducts && products && products.length > 0"
         :class="{
             'relative right-7 top-10': widthScreen <= 1080
         }"
     >
         <div
-          v-for="(product, id) in products" :key="product.id"
+          v-for="product in products" :key="product.id"
           class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
           @click="editProduct(product.product, product.id)"
         >
 
           <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">ID:</span> {{ product.id }}
+            <span class="font-semibold">ID:</span> {{ product.product_cod }}
           </div>
 
           <div class="text-sm text-gray-500 mb-2">
@@ -155,7 +155,7 @@
         </div>
     </div>
 
-    <div v-if="!showProducts">
+    <div v-if="!showProducts" class="ml-24">
         <RegisterProduct
             v-if="showRegisterProduct"
             :widthScreen="widthScreen"
@@ -173,8 +173,9 @@
 </template>
 
 <script>
+    import { LocalStorage } from 'quasar';
     import { api } from 'src/boot/axios';
-import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
+    import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
@@ -197,8 +198,9 @@ import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
 
         methods: {
             async getProducts() {
-                const response = await api.get(`/ecommerce/products/all`);
-                this.products = response.data.all.data;
+                const response = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
+                console.log(response.data.all)
+                this.products = response.data.all;
 
             },
 
@@ -257,6 +259,7 @@ import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
 
         mounted() {
             this.getProducts();
+            
             this.widthScreen += screen.width
 
         },

@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('cash_registers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('cash_register_cod');
+            $table->unique(['issuer_id', 'cash_register_cod']);
+
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
             $table->string('description', 200);
             $table->string('document', 200);
             $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
@@ -21,7 +26,7 @@ return new class extends Migration
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('name', 120);
             $table->unsignedBigInteger('especie_id');
-            $table->foreign('especie_id')->references('id')->on('payments')->onDelete('cascade');;
+            $table->foreign('especie_id')->references('id')->on('payments_forms')->onDelete('cascade');;
             $table->string('especie', 120);
             $table->date('date_register');
             $table->decimal('input_value', 16,2)->nullable();

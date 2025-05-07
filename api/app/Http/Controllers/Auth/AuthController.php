@@ -4,55 +4,57 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Services\RegisterService\RegisterOwnerService;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 
+use Illuminate\Support\Facades\{
+    Auth,
+    Cache,
+    Log,
+    Hash
+};
 class AuthController extends Controller
 {
-    public function auth(LoginRequest $request)
+    public function __construct(
+        protected RegisterOwnerService $registerOwnerService
+    ) {}
+
+    public function authOwner(LoginRequest $request)
     {
         $data = $request->validated();
-        $email = $data['email'];
+    
+        $owner = $this->registerOwnerService->findByEmail($data['email']);
 
-        if(Auth::attempt($data))
+        Log::info('owner ' . $owner);
+        if($owner && Hash::check($data['password'], $owner->password))
         {
-            Log::info('Acertou o login');
-            Cache::forget("login_attempts_{$email}");
-
-            $user = Auth::user();
-                      
-            $currenteDate = carbon::now('America/Sao_Paulo')->addHour(8);
-            $token = $user->createToken('auth_token', ['*'], $currenteDate)->plainTextToken;
-        
+            Auth::login($owner);
+            $token = $owner->createToken('auth_token')->plainTextToken;
+            Log::info("Passou o login, token: $token");
             return response()->json([
-                'status' => true,
-                'user' => $user,
-                'token' => $token
+                'success' => true,
+                'message' => 'Login bem sucedido!',
+                'owner' => $owner,
+                'token' => $token,
+                'uuse_id' => $owner->uuse_id
                 
-            ]);
+            ], 200);
 
-        } else {
-            $attempts = Cache::get("login_attempts_{$email}", 0);
-            $attempts++;
-            Cache::put("login_attempts_{$email}", $attempts, now()->addMinutes(2));
-            
-            if($attempts >= 3)
-            {
-                return response()->json([
-                    'success' => false,
-                    'blocked' => true,
-                    'message' => 'Muitas tentativas de login, tente novamente mais tarde.'
-                ], 429);
-            }
+        } else if (empty($owner))
+        {
             return response()->json([
                 'success' => false,
-                'message' => 'Credenciais inválidas!',
-                'attempts' => $attempts
-            ]);
-        }        
+                'message' => 'O usuário não existe',
+                
+            ], 400);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Credencias incorretas',
+                
+            ], 400);
+        }
     }
 
     public function logout()

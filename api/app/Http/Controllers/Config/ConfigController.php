@@ -19,9 +19,10 @@ class ConfigController extends Controller
         Log::info('Memória usada ConfigController::class, __construct: ' . memory_get_usage(true));
     }
 
-    public function getConfigs()
+    public function getConfigs(int $issuer_id)
     {
-        return $this->configService->getConfigs();
+        Log::info('ConfigController: $issuer_id ' . $issuer_id);
+        return $this->configService->getConfigs((int)$issuer_id);
     }
 
     public function updateHotel(ConfigHotelRequest $request)

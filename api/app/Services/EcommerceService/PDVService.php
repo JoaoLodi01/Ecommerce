@@ -64,49 +64,41 @@ class PDVService
 
     public function saveSale(array $details, array $productsArray)
     {
-        try {
-            $saveSale = $this->pdvRepository->saveSale($details, $productsArray);
-            Log::info('Save sale', ['data' => $saveSale]);
-            if($saveSale['success'])
-            {
-                return $saveSale;
+        $saveSale = $this->pdvRepository->saveSale($details, $productsArray);
+        Log::info('Save sale');
+        Log::info($saveSale);
 
-            }
-                        
-            return $saveSale;
-
-        } catch (\Throwable $th) {
-            return response()->json([
-                'success' => false,
-                'th' => $th->getMessage(),
-                'line' => $th->getLine(),
-                'file' => $th->getFile(),
-            ]);
-        }
+        return $saveSale['success'] ? $saveSale : $saveSale;
     }
 
-    public function finalizeSale(array $paymentsValues, string $typeOperation, int $id, int $pdvID)
+    public function finalizeSale(
+        array $paymentsValues, 
+        string $typeOperation, 
+        int $pdvID, 
+        int $issuerID
+    )
     {
         try {
-            $total = 0;
-            $forms = [];
+            $total = 0; // Total pago
+            $payMentsID = []; // ID das espécies de pagamento
 
-            foreach ($paymentsValues as $value) {
-                Log::info('Dentro');
+            $filltred = array_filter($paymentsValues);
+
+            foreach ($filltred as $key => $value) {
                 $total += (float) $value;
-
+                $payMentsID[] = $key + 1;
+                
             }
-            for ($i=0; $i < count($paymentsValues); $i++) { 
-                // posição do array com o valor > 0
-                // Vai ser o ID da espécie
-                if($paymentsValues[$i] > 0)
-                {
-                    $forms[] = $i + 1; 
-                    
-                }
-            }    
+
             Log::info('PDVService.php, class:finalizeSale, $total: ' . $total);
-            $pdv = $this->pdvRepository->finalizeSale($typeOperation, $id, $paymentsValues, $forms, $total);
+            $pdv = $this->pdvRepository->finalizeSale(
+                $typeOperation, 
+                $pdvID, 
+                $paymentsValues, 
+                $payMentsID, 
+                $total,
+                $issuerID
+            );
 
             if ($pdv['success']) {
                 return response()->json([
@@ -114,10 +106,13 @@ class PDVService
                     'pdv' => $pdv['pdv'],
                     'message' => 'Venda finalizada'
                 ], 200);
+
             } else {
                 return response()->json([
                     'success' => $pdv['success'],
-                    'message' => 'Erro ao finalizar'
+                    'line' => 113,
+                    'file' => 'PDVService | erro manual',
+                    'message' => $pdv['errorMessage'] ?? $pdv['message']
                 ], 400);
                 
             }

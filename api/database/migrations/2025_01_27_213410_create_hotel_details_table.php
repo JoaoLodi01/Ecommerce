@@ -13,18 +13,11 @@ return new class extends Migration
     {
         Schema::create('hotel_details', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 120);
-            $table->string('cnpj', 14)->unique();
-            $table->string('email', 170)->unique();
-            $table->string('cep', 8)->unique();
-            $table->string('address', 120);
-            $table->integer('number', false, 20)->nullable();
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
             $table->integer('number_of_rooms', false, 20)->nullable();
             $table->integer('number_of_employees', false, 20)->nullable();
-            $table->integer('cod_cnae', false, 1);
-            $table->string('cnae', 7);
-            $table->integer('cod_crt', false, 1);
-            $table->string('crt', 50);
+            
             $table->boolean('active', 1)->default(1);
             $table->date('end_date')->nullable();
             $table->timestamps();

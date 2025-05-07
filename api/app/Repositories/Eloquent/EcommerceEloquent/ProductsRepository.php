@@ -3,9 +3,9 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
-use App\Repositories\Contracts\EcommerceContract\Products as C;
+use App\Models\Registers\FirstSteps;
+use App\Models\Registers\Issuer;
 use Illuminate\Support\Facades\Log;
-
 class ProductsRepository 
 {
     public function __construct(
@@ -13,9 +13,11 @@ class ProductsRepository
     )
     {}
 
-    public function getAll()
+    public function getAll(int $issuer_id)
     {
-        return Products::paginate(10);
+        $issuer = Issuer::where('id', $issuer_id)->first();
+        Log::info('ProductsRepository: getAll: ' . $issuer_id . ' issuer: ' . $issuer);
+        return Products::where('issuer_id', $issuer->id)->get();
     }
 
     public function search(array $data)
@@ -24,20 +26,25 @@ class ProductsRepository
         Log::info($data);
         $products = null;
         $search = $data['search'];
+        $issuer_id = $data['issuer_id'];
         
         switch ($data['fillter']) {
             case 'Cód barras interno':
                 $products = Products::where('active', 1)
-                    ->where(function($query) use ($search){
-                        $query->where('barcode_internal', $search);
+                    ->where(function($query) use ($search, $issuer_id){
+                        $query->where('barcode_internal', $search)
+                              ->where('issuer_id', $issuer_id);
+                        
 
                     })->get();
                 break;
             
             case 'Cód barras':
                 $products = Products::where('active', 1)
-                    ->where(function($query) use ($search){
-                        $query->where('barcode', $search);
+                    
+                    ->where(function($query) use ($search, $issuer_id){
+                        $query->where('barcode', $search)
+                               ->where('issuer_id', $issuer_id);
 
                     })->get();
 
@@ -45,8 +52,10 @@ class ProductsRepository
 
             case 'Cód barras & Cód barras interno':
                 $products = Products::where('active', 1)
-                    ->where(function($query) use ($search){
+                    
+                    ->where(function($query) use ($search, $issuer_id){
                         $query->where('barcode', $search)
+                              ->where('issuer_id', $issuer_id)
                               ->orWhere('barcode_internal');
 
                     })->get();
@@ -54,11 +63,13 @@ class ProductsRepository
     
             case 'Padrão (cód.barras ou cód.produto)':
                 $products = Products::where('active', 1)
-                            ->where(function($query) use ($search){
-                                $query->where('id', $search)
-                                        ->orWhere('barcode', $search)
-                                        ->orWhere('product', 'like', '%' . $search . '%');
-                            })->get();
+                    
+                    ->where(function($query) use ($search, $issuer_id){
+                        $query->where('product_cod', $search)
+                                ->where('issuer_id', $issuer_id)
+                                ->orWhere('barcode', $search)
+                                ->orWhere('product', 'like', '%' . $search . '%');
+                    })->get();
 
                 break;
 
@@ -86,19 +97,32 @@ class ProductsRepository
     {
         Log::info("data");
         Log::info($data);
-        $group = $this->groupRepository->findByID($data['groupID']);
 
+        $issuer_id = $data['issuer_id'];
+        $data['group_id'] ? $group = $this->groupRepository->findByID($data['group_id']) : null;
+
+        $maxCode = Products::where('issuer_id', $issuer_id)->max('product_cod');
+        $productCod = $maxCode ? $maxCode + 1 : 1;
+
+        $stpes = FirstSteps::where('issuer_id', $issuer_id)->first();
+        $stpes->update([
+            'complete_products' => 1
+        ]);
+        $stpes->save();
+        
         return Products::create([
+            'product_cod' => $productCod,
+            'issuer_id' => $issuer_id,
             'product' => $data['product'],
-            'image' => $data['image']->getClientOriginalName(),
+            'image' => $data['image'],
             'barcode' => $data['barcode'],
             'barcode_internal' => $data['barcode_internal'],
             'amount' => $data['amount'],
-            'group_id' => $group->id,
-            'group' => $group->group,
-            'cost_price' => $data['costPrice'],
-            'sale_price' => $data['salePrice'],
-            'profit_percentage' => $data['profitPercentage'],
+            'group_id' => $group->id ?? null,
+            'group' => $group->group ?? null,
+            'cost_price' => $data['cost_price'],
+            'sale_price' => $data['sale_price'],
+            'profit_percentage' => $data['profit_percentage'],
             'cfop' => $data['cfop'],
             'csosncst' => $data['csosncst'],
             'ncm' => $data['ncm'],

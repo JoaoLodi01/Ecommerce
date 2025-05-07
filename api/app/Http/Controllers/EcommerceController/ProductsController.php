@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Log;
 
 class ProductsController extends Controller
 {
-    public function __construct(protected ProductsService $productsService){
-        $this->productsService = $productsService;
-    }
+    public function __construct(
+        protected ProductsService $productsService
+    ){}
 
-    public function getAll(){
-        return $this->productsService->getAll(1);
+    public function getAll(int $issuer_id){
+        return $this->productsService->getAll($issuer_id);
     }
 
     public function search(SearchProducts $request){
@@ -31,10 +31,13 @@ class ProductsController extends Controller
     public function create(ProductsRequest $request)
     {
         $data = $request->validated();
+        Log::info('Data');
+        Log::info($data);
         return $this->productsService->create($data);
     }
 
-    public function findByID(int $id){
+    public function findByID(string|int $id){
+        Log::info('findByID . ' . $id . ' type: ' . gettype($id));
         return $this->productsService->findByID($id);
     }
 

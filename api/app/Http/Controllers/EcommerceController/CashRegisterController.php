@@ -5,6 +5,7 @@ namespace App\Http\Controllers\EcommerceController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CashRegisterRequest;
 use App\Services\EcommerceService\CashRegisterService;
+use Illuminate\Http\Request;
 
 class CashRegisterController extends Controller
 {
@@ -14,10 +15,6 @@ class CashRegisterController extends Controller
 
     public function getAll(){
         return $this->cashRegisterService->getAll();
-    }
-
-    public function getAllReceive(){
-        return $this->cashRegisterService->getAllReceive();
     }
 
     public function store(CashRegisterRequest $request){

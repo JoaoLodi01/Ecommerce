@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->string('group', 255);
+            $table->unsignedBigInteger('group_cod');
+            $table->unique(['issuer_id', 'group_cod']);
+            	
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
+            $table->string('group', 80);
             $table->timestamps();
         });
     }
