@@ -61,8 +61,9 @@
                 <h3 class="border-b mb-5">Endereço</h3>
                 <div class="flex">
                     <q-input 
-                        v-model="form.cep"
-                        @vue:updated="getCEPData()"
+                        v-model="cep"
+                        
+                        v-on:update:model-value="getCEPData()"
                         filled        
                         label="CEP" 
                         class="mb-4"
@@ -82,8 +83,7 @@
                         color="grey"
                         maxlength="2"
                         aria-required="true"
-                        :rules="[ val => !!val || 'Preencha a UF' ]"
-    
+                        
                     />   
     
                     <q-input 
@@ -203,13 +203,13 @@
             return {
                 _completed: LocalStorage.getItem("_completed"),
                 timer: null,
+                cep: '',
                 form: {
                     company_name: '',
                     trade_name: '',
                     date_of_foundation: null,
                     cnpj: '',
                     cpf: '',
-                    cep: '',
                     uf: '',
                     address: '',
                     number: '',
@@ -246,7 +246,6 @@
                     date_of_foundation: response.data.issuer.date_of_foundation,
                     cnpj: response.data.issuer.cnpj ? response.data.issuer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : null,
                     cpf: response.data.issuer.cpf ? response.data.issuer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : null,
-                    cep: response.data.issuer.cep ? response.data.issuer.cep.replace(/(\d{5})(\d{3})/, '$1-$2') : null,
                     address: response.data.issuer.address,
                     number: response.data.issuer.number,
                     cod_crt: response.data.issuer.cod_crt,
@@ -257,6 +256,7 @@
                     im: response.data.issuer.im,
                     
                 }
+                cep: response.data.issuer.cep ? response.data.issuer.cep.replace(/(\d{5})(\d{3})/, '$1-$2') : null,
                 console.log(response)
             },
 
@@ -272,7 +272,7 @@
                         company_name: this.form.company_name,
                         trade_name: this.form.trade_name,
                         date_of_foundation: this.form.date_of_foundation,
-                        cep: this.form.cep.replace(/\D/g, ''),
+                        cep: this.cep.replace(/\D/g, ''),
                         uf: this.form.uf,
                         address: this.form.address,
                         number: this.form.number,
@@ -303,9 +303,10 @@
 
             async getCEPData()
             {
-                if(this.form.cep)
+                console.log('Chamou ')
+                if(this.cep)
                 {
-                    const cep = this.form.cep.replace(/\D/, '')
+                    const cep = this.cep.replace(/\D/, '')
                     if(cep.length === 8)
                     {
                         const data = await axios.get(`${process.env.API_CEP}/${cep}/json`)
