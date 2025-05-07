@@ -27,7 +27,7 @@ class RegisterIssuerRequest extends FormRequest
             'ie' => [$required, 'string'],
             'im' => [$required, 'string'],
             'main_activity' => ['sometimes'],
-            'cod_cnae' => [$required, 'integer'],
+            'cod_cnae' => [$required],
             'cnae' => [$required, 'string'],
             'cod_crt' => [$required],
             'crt' => [$required, 'string'],

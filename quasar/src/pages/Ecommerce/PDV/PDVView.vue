@@ -1,10 +1,6 @@
 <template>
     <div
-<<<<<<< HEAD
-        class="w-max mx-auto border border-black rounded-lg mt-2 bg-white"
-=======
         class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
->>>>>>> f25bc331000bc158e6110c183ae8a683c5560378
         id="pdv-view"
         v-if="showGrid"
         :class="{
@@ -13,20 +9,6 @@
             'text-xl': textSize === 4,
             'text-2xl': textSize === 8,
             'text-3xl': textSize === 16,
-<<<<<<< HEAD
-        }">
-
-        <div
-            v-if="showPaymentsForm"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
-            
-            <PaymentsForm
-                class="bg-white rounded-xl shadow-xl"
-                :witdhScreen="witdhScreen"
-                :typeOperation="typeOperation"
-                :totalOperation="totalOperation"
-                :pdvID="pdvID"
-=======
             
         }"   
     >
@@ -43,7 +25,6 @@
                 :typeOperation=this.typeOperation
                 :totalOperation=this.totalOperation
                 :pdvID=this.pdvID
->>>>>>> f25bc331000bc158e6110c183ae8a683c5560378
                 @resetTotal="totalOperation = $event"
                 @resetPDVID="pdvID = $event"
                 @close="cancelOperation"
@@ -266,11 +247,7 @@
                                 disable
                                 id="discount"
                                 type="text"
-<<<<<<< HEAD
-                                class="text-black w-full mb-2"
-=======
                                 class="w-16"
->>>>>>> f25bc331000bc158e6110c183ae8a683c5560378
                             />
 
                             <br>
