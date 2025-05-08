@@ -17,8 +17,7 @@
                 <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Registrar Emitente</h1>
                 <q-input 
                     v-model="form.company_name"
-                    @update:model-value="this.form.trade_name = this.form.company_name"
-    
+                    @update:model-value="this.form.trade_name = this.form.company_name"   
                     type="text" 
                     filled        
                     label="Razão Social" 

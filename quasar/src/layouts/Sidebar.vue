@@ -5,8 +5,10 @@
         :class="{
             'transform translate-x-0 w-64': sidebarActive, 
             'transform -translate-x-10 w-36': !sidebarActive,
+            'transform -translate-x-full w-64': !sidebarActive && widthScreen <= 1080,
 
         }"
+        
         class="transition-transform duration-300 bg-gray-800 text-white text-base h-screen fixed top-0 left-0 z-40"
         title="Sidebar"
       >
@@ -15,18 +17,32 @@
       <button 
         @click="toggleSidebar"
         class="absolute top-4 right-4 p-2 delay-75 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50 mt-6">
-        <span 
+        <div 
           v-if="!sidebarActive"
-        />
-
-        <span 
-          v-else    
         >
-        <!-- Botão quando a SideBar está aberta-->
-          <div class="border border-white w-6 mb-1"></div>
-          <div class="border border-white w-6 mt-1"></div>
-          <div class="border border-white w-6 mt-1"></div>
-        </span>
+            <div class="border border-white w-6 mb-1"></div>
+            <div class="border border-white w-6 mt-1"></div>
+            <div class="border border-white w-6 mt-1"></div>
+            <!-- Botão quando a SideBar está aberta-->
+            <div class="">
+              <button  
+                @click="toggleSidebar"
+                class="transition opacity-0 toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg"
+                :class="{
+                  'opacity-100 delay-300': !sidebarActive,
+                  'transform transition translate': sidebarActive,
+                }"
+              >
+                <span>
+                  <div class="border border-white w-6 mb-1"></div>
+                  <div class="border border-white w-6 mt-1"></div>
+                  <div class="border border-white w-6 mt-1"></div>
+                </span>
+              </button>
+            </div>
+            
+          </div>
+          
       </button>
 
       <!-- Links Sidebar-->
@@ -498,20 +514,7 @@
     </div>
 
     <!-- Botão da Sidebar fechada -->
-    <button  
-      @click="toggleSidebar"
-      class="transition opacity-0 toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg"
-      :class="{
-        'opacity-100 delay-300': !sidebarActive,
-        'transform transition translate-x-36': sidebarActive,
-      }"
-    >
-      <span>
-        <div class="border border-white w-6 mb-1"></div>
-        <div class="border border-white w-6 mt-1"></div>
-        <div class="border border-white w-6 mt-1"></div>
-      </span>
-    </button>
+    
   </div>
   
 </template>

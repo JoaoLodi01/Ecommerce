@@ -9,22 +9,14 @@ use App\Models\Registers\Tributs\{
 };
 
 use App\Repositories\Contracts\TributsContract\TributsContract;
-use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
 use Illuminate\Support\Facades\Log;
 
 class TributsRepository implements TributsContract
 {
-   
     // CSOSN / CST
-
     public function getAllCSOSNCST(int $issuer_id)
     {
         return CSOSNCST::where('issuer_id', $issuer_id)->get();
-        
-    }
-
-    public function searchCSOSNCST(array $data)
-    {
         
     }
 
@@ -42,10 +34,7 @@ class TributsRepository implements TributsContract
             }
 
         }
-
-        return array(
-            'message' => 'Já está cadastrado'
-        );
+        Log::info('CSOSN/CST Já está cadastrado');
         
     }
 
@@ -53,16 +42,13 @@ class TributsRepository implements TributsContract
     {
         return CSOSNCST::where('issuer_id', $issuer_id)->first();
     }
+    
+    public function searchCSOSNCST(array $data) { }
 
     // CFOPs
     public function getAllCFOPs(int $issuer_id)
     {
         return CFOP::where('issuer_id', $issuer_id)->get();
-    }
-
-    public function searchCFOP(array $data)
-    {
-        
     }
 
     public function registerCFOP(array $data, int $issuer_id)
@@ -79,16 +65,16 @@ class TributsRepository implements TributsContract
             }
 
         }
+        Log::info('Já está cadastrado');
 
-        return array(
-            'message' => 'Já está cadastrado'
-        );
     }
 
     public function findCFOP(int $issuer_id)
     {
         return CFOP::where('issuer_id', $issuer_id)->first();
     }
+
+    public function searchCFOP(array $data) { }
 
     // NCMs
     public function getAllNCMs(int $issuer_id)
@@ -122,8 +108,6 @@ class TributsRepository implements TributsContract
         string $versao
     )
     {
-        Log::info('Inicio ' . $inicio);
-        Log::info('Fim ' . $fim);
         NCM::create([
             'issuer_id' => $issuer_id,
             'ncm' => $ncm,

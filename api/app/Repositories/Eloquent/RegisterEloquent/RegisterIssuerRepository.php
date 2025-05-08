@@ -49,6 +49,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'cnpj' => $data['cnpj'],
                 'cpf' => $data['cpf'],
                 'date_of_foundation' => $data['date_of_foundation'],
+                'cod_cnae' => $data['cod_cnae'],
                 'cnae' => $data['main_activity'],
                 'owner_id' => $owner->id,
             ]);
@@ -140,16 +141,32 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         
         $firstSteps->save();
 
-        $this->registerTributs($issuer->id);
+        $csosncst = '';
+        if($issuer->cod_crt && $issuer->cod_crt > 0)
+        {
+            $crt = $issuer->cod_crt;
+            if($crt == 1 || $crt >= 4)
+            {
+                $csosncst = 'CSOSN';
+            } else {
+                $csosncst = 'CST';
+
+            }
+        }
+        Log::info('Emitente é: ' . $issuer->crt);
+        Log::info('csosncst é: ' . $csosncst);
+        $this->registerTributs($issuer->id, $csosncst);
 
         return $issuer;
         
     }
 
-    public function registerTributs(int $issuer_id)
+    public function registerTributs(int $issuer_id, string $csosncst)
     {
         Log::info('Vai criar os CFOPs');
         $cfops = $this->findTributs->getCFOPs('cfop');
+        $csosncst = $this->findTributs->getCSOSNCST($csosncst);
+
         $this->tributsServices->registerCFOP($cfops, $issuer_id);
 
     }
