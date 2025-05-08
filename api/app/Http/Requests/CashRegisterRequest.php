@@ -24,7 +24,7 @@ class CashRegisterRequest extends FormRequest
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
 
         return [
-            'issuer_id' => [$required, 'integer'],
+            'issuer_id' => ['required', 'integer'],
             'description' => [$required, 'string', 'max:255'],
             'document' => [$required, 'integer'],
             'customer_id' => [$required, 'integer'],
@@ -32,7 +32,7 @@ class CashRegisterRequest extends FormRequest
             'date_register' => [$required, 'date'],
             'input_value' => [$required, 'numeric'],
             'output_value' => [$required, 'numeric'],
-            'user_id' => [$required, 'integer'],
+            'user_id' => ['required'],
         ];
     }
 

@@ -50,7 +50,6 @@
             <q-input
                 v-if="sum"
                 type="number"
-                @vue:updated="totalAmountCalc"
                 v-model="form.input_value"
                 label="Valor Entrada"
                 color="grey-7"
@@ -73,7 +72,7 @@
             />
             <q-input
                 type="text"
-                
+                :value="totalAmountCalc"
                 v-model="form.total_amount"
                 label="Valor total"
                 readonly
@@ -133,9 +132,9 @@ export default {
             form: {
                 description: "Registro Manual",
                 document: 1,
-                name: "",
+                customer_id: 1,
                 user: LocalStorage.getItem("user_name"),
-                especie: "",
+                especie_id: 0,
                 date_register: today.format("YYYY-MM-DD"),
                 input_value: 0,
                 output_value: 0,
@@ -184,7 +183,7 @@ export default {
         getCustumer(event) {
             console.log("Chamou o getCustumer");
             console.log(event);
-            this.form.id = event.id;
+            this.form.customer_id = event.id;
         },
 
         getSpecie(event){
@@ -195,22 +194,24 @@ export default {
         },
 
         async submitForm() {
+            console.log("Dados enviados!", this.form);
             try {
                 const response = await api.post('/ecommerce/cash-register/create', {
-                    issuer_id: LocalStorage.getItem("issuer_id"),
+                    issuer_id: Number(LocalStorage.getItem("issuer_id")),
                     description: this.form.description,
                     document: this.form.document,
-                    customer_id: this.form.id,
+                    customer_id: this.form.customer_id,
                     especie_id: this.form.especie,
                     date_register: this.form.date_register,
                     input_value: this.parseCurrency(this.form.input_value),
                     output_value: this.parseCurrency(this.form.output_value),
-                    user_id: LocalStorage.getItem("user_id"),
+                    user_id: Number(LocalStorage.getItem("user_id")),
                 });
 
                 this.onReset();
-                console.log("Dados enviados!", response.data);
+                console.log("Dados enviados!", response);
             } catch (error) {
+                console.error(error);
                 alert("Ocorreu um erro ao cadastrar o registro");
             }
         },

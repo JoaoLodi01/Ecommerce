@@ -2,8 +2,9 @@
     <div class="container flex">
       <q-select
         v-model="speciesData"
-        :options="[{ id: null, especie: 'Escolher...' }, ...filteredSpecies]"
+        :options="filteredSpecies"
         option-label="especie"
+        option-value="id"
         label="Espécie"
         :emit-value="false"
         map-options
@@ -21,27 +22,34 @@
     data() {
       return {
         filteredSpecies: [],
-        speciesData: { id: null, especie: 'Escolher...' },
+        filter: '',
+        speciesData: { 
+          id: null,
+          especie: 'Escolher...'
+        },
       }
     },
   
     methods: {
-      async loadSpecies() {
+      async selectSpecies() {
+        console.log(this.speciesData.especie)
         try {
-          const response = await api.get(
-            `payments/all/${LocalStorage.getItem('issuer_id')}`
-          )
+          const response = await api.get(`payments/all/${LocalStorage.getItem('issuer_id')}`)
           this.filteredSpecies = response.data
         } catch (error) {
           console.error('Erro ao carregar espécies:', error)
         }
       },
     },
+
+    filterSpecies(){
+      this.speciesData = this.
+    },
   
-    watch: {
-      speciesData(newVal) {
-        this.$emit('update:selectSpecie', newVal)
-      },
+    setSpecies(specie){
+      this.speciesData.id = specie.id;
+      this.speciesData.especie = specie.especie;
+      this.$emit('update:selectSpecie', this.speciesData)
     },
   
     mounted() {
