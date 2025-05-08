@@ -5,7 +5,7 @@
         :class="{
             'transform translate-x-0 w-64': sidebarActive, 
             'transform -translate-x-10 w-36': !sidebarActive,
-            'transform -translate-x-full w-64': !sidebarActive && widthScreen <= 1080,
+            'transform -translate-x-full': !sidebarActive && widthScreen <= 1080,
 
         }"
         
@@ -15,34 +15,30 @@
       
       <!-- Botão Sidebar-->
       <button 
-        @click="toggleSidebar"
-        class="absolute top-4 right-4 p-2 delay-75 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50 mt-6">
-        <div 
-          v-if="!sidebarActive"
+        @click="toggleSidebar()"
+        class="absolute top-6 right-4 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50 mt-6"
+        v-if="sidebarActive"
+      >
+        <div class="border border-white w-6 mb-1"></div>
+        <div class="border border-white w-6 mt-1"></div>
+        <div class="border border-white w-6 mt-1"></div>
+
+      </button>
+      <button 
+        @click="toggleSidebar()"
+        :class="{
+          'closeSideBar': widthScreen > 1080,
+          'relative top-2 left-40 bg-gray-800 p-3 rounded-md': widthScreen <= 1080,
+        }" 
+        v-if="!sidebarActive" 
+      >
+        <div
+        
         >
             <div class="border border-white w-6 mb-1"></div>
             <div class="border border-white w-6 mt-1"></div>
             <div class="border border-white w-6 mt-1"></div>
-            <!-- Botão quando a SideBar está aberta-->
-            <div class="">
-              <button  
-                @click="toggleSidebar"
-                class="transition opacity-0 toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg"
-                :class="{
-                  'opacity-100 delay-300': !sidebarActive,
-                  'transform transition translate': sidebarActive,
-                }"
-              >
-                <span>
-                  <div class="border border-white w-6 mb-1"></div>
-                  <div class="border border-white w-6 mt-1"></div>
-                  <div class="border border-white w-6 mt-1"></div>
-                </span>
-              </button>
-            </div>
-            
-          </div>
-          
+        </div>
       </button>
 
       <!-- Links Sidebar-->
@@ -52,7 +48,7 @@
           width="" 
           alt="Logo"
           :class="{
-            'ml-12 mt-5': !sidebarActive
+            'ml-14 mt-5': !sidebarActive
           }"
         />
         <h1 
@@ -409,7 +405,6 @@
                     <path fill-rule="evenodd" d="M8 14a.75.75 0 0 0 .75-.75V4.56l1.22 1.22a.75.75 0 1 0 1.06-1.06l-2.5-2.5a.75.75 0 0 0-1.06 0l-2.5 2.5a.75.75 0 0 0 1.06 1.06l1.22-1.22v8.69c0 .414.336.75.75.75Z" clip-rule="evenodd" />
                   </svg> <!-- Flecha pra cima -->
                 
-                
               </span>
             </a>
             
@@ -506,7 +501,7 @@
     <div class="flex transition" id="q-app" :class="{
         'top-10 left-0': widthScreen <= 1080,
         'ml-52': widthScreen > 1080,
-        'mr-44': widthScreen > 1080 && widthScreen < 1600,
+        '-ml-1': widthScreen <= 1080,
         'transform -translate-x-24': !sidebarActive && widthScreen > 1080,
         
     }">   
@@ -567,6 +562,7 @@
       
       toggleSidebar() {
         this.sidebarActive = !this.sidebarActive;
+        console.log('this.sidebarActive', this.sidebarActive)
         this.$emit('toggleSidebar', this.sidebarActive)
       },
 
@@ -617,5 +613,17 @@
   * {
     outline: none;
   }
+
+  @media (min-width: 1080px)
+  {
+    .closeSideBar {
+      position: relative;
+      left: 4.7rem;
+        top: 2rem;
+
+      }
+
+  }
+
 
 </style>
