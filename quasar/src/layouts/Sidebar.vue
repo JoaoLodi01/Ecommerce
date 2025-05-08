@@ -5,8 +5,10 @@
         :class="{
             'transform translate-x-0 w-64': sidebarActive, 
             'transform -translate-x-10 w-36': !sidebarActive,
+            'transform -translate-x-full w-64': !sidebarActive && widthScreen <= 1080,
 
         }"
+        
         class="transition-transform duration-300 bg-gray-800 text-white text-base h-screen fixed top-0 left-0 z-40"
         title="Sidebar"
       >

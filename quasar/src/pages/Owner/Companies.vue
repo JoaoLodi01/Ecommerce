@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div class="text-center h-96">
         <header class="head flex justify-between bg-slate-600 text-white text-xl p-5 mb-8">
             <div class="inline-flex">
                 <h3 

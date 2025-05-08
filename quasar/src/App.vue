@@ -15,3 +15,14 @@ export default{
 }
     
 </script>
+
+<style lang="scss">
+    @media (max-width: 1366px)
+    {
+        body{
+            overflow-x: auto;
+
+        }
+    }
+
+</style>
