@@ -17,6 +17,7 @@ const auth = async () => {
       }
     });
   } catch (error) {
+    console.log('In src/api/auth', error)
     if (error.response && error.response.status === 401) {
       LocalStorage.removeItem("auth_token");
       routes.push({ path: '/login' });

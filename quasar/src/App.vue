@@ -1,5 +1,5 @@
 <template>
-    <div class="overflow-x-hidden">
+    <div class="">
         <router-view/>
 
     </div>
@@ -15,3 +15,14 @@ export default{
 }
     
 </script>
+
+<style lang="scss">
+    @media (min-width: 1366px)
+    {
+        body{
+            overflow-x: hidden;
+
+        }
+    }
+
+</style>

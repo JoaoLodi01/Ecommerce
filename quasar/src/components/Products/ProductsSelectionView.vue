@@ -94,12 +94,14 @@
 </template>
 
 <script>
-    import { api } from "src/boot/axios";
+    import { LocalStorage } from "quasar";
+import { api } from "src/boot/axios";
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
 
     export default {
         data(){
             return {
+                issuer_id: LocalStorage.getItem("issuer_id"),
                 products: [],
                 selectedProducts: [],
                 checkBoxMarked: false,
@@ -139,8 +141,8 @@
         methods: {
             async getProducts(){
                 try {
-                    const response = await api.get('/ecommerce/products/all')
-                    
+                    const response = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
+                    console.log('Produtos', response.data)
                     this.products = response.data.all.data.map(product => ({
                         ...product,
                         isSelected: false
@@ -148,7 +150,7 @@
                     }));
 
                 } catch (error) {
-                    console.error('Erro ao buscar todos os produtos', error.response)
+                    console.error('Erro ao buscar todos os produtos', error.response ?? error)
                         
                 }
             },
@@ -197,7 +199,7 @@
             this.getProducts()
             const getConfig = async () => {
 
-                const response = await api.get('/config/all-configs/{issuer_id}');
+                const response = await api.get(`/config/all-configs/${this.issuer_id}`);
                 this.configs = {
                     saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset === 1 ? true : false,
                 }

@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="text-xl ml-36 mt-10"
+        class="text-xl mr-5 ml-16 mt-10"
         v-if="showStart">
 
         <div class="rounded-lg mb-10 p-2 flex items-center gap-4 text-3xl">

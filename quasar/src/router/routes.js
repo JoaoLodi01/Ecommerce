@@ -104,7 +104,17 @@ const routes = [
       {
         path: '/:name/species',
         name: 'SpeciesForm',
-        componet: () => import('src/pages/Registers/SpeciesForm.vue')
+        component: () => import('src/pages/Registers/SpeciesForm.vue')
+      },
+      {
+        path: '/:name/list-users',
+        name: 'ListUsers',
+        component: () => import('src/pages/Users/ListUsers.vue')
+      },
+      {
+        path: '/:name/level-users',
+        name: 'LevelUsers',
+        component: () => import('src/pages/Users/LevelUsers.vue')
       },
       {
         path: '/:name/:catchAll(.*)*',

@@ -56,12 +56,12 @@
             
         </div>
 
-        <div class="">
+        <div class="table">
             <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
                 <thead class="bg-gray-100">
                     <tr>
                         <th scope="col" class="px-6 py-3">Tipo</th>
-                        <th scope="col" class="px-6 py-3">Cód</th>
+                        <th scope="col" class="px-6 py-3">Código</th>
                         <th scope="col" class="px-3 py-4">Documento</th>
                         <th scope="col" class="px-6 py-3">Descrição</th>
                         <th scope="col" class="px-6 py-3">Valor entrada</th>

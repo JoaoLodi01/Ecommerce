@@ -62,10 +62,9 @@
                 <div class="flex">
                     <q-input 
                         v-model="cep"
-                        
                         v-on:update:model-value="getCEPData()"
                         filled        
-                        label="CEP" 
+                        label="CEP *" 
                         class="mb-4"
                         color="grey"
                         v-bind:mask="'#####-###'"
@@ -83,12 +82,13 @@
                         color="grey"
                         maxlength="2"
                         aria-required="true"
-                        
+                        :rules="[ val => !!val || 'Preencha a UF' ]"
+
                     />   
     
                     <q-input 
                         filled        
-                        label="Endereço" 
+                        label="Endereço *" 
                         v-model="form.address"                        
                         class="mb-4 ml-2 mr-2"
                         color="grey"
@@ -99,7 +99,7 @@
                         
                     <q-input 
                         filled        
-                        label="Número" 
+                        label="Número *" 
                         v-model="form.number"
                         :rules="[ val => !!val || 'Preencha o número' ]"
                         class="mb-4"
@@ -113,9 +113,19 @@
                 
             <div class="bg-white p-5 rounded-lg mb-5">
                 <h3 class="border-b mb-5">Dados fiscáis</h3>
+                <q-select
+                    :options="crtOptions"
+                    v-model="form.crt"
+                    label="CRT ( Cód. Regime tributário ) *"
+                    class="mb-4"
+                    color="grey" 
+                    filled 
+                    aria-required="true"
+                />
+
                 <q-input 
                     filled        
-                    label="Cód. CNAE" 
+                    label="Cód. CNAE *" 
                     v-model="form.cod_cnae"
                     :rules="[ val => !!val || 'Preencha o Cód. CNAE' ]"
                     class="mb-4"
@@ -126,7 +136,7 @@
 
                 <q-input 
                     filled        
-                    label="CNAE" 
+                    label="CNAE *" 
                     v-model="form.cnae"
                     :rules="[ val => !!val || 'Preencha o CNAE' ]"
                     class="mb-4"
@@ -137,7 +147,7 @@
                 
                 <q-input 
                     filled        
-                    label="IE" 
+                    label="IE *" 
                     v-model="form.ie"
                     :rules="[ val => !!val || 'Preencha a IE' ]"
                     class="mb-4"
@@ -148,7 +158,7 @@
 
                 <q-input 
                     filled        
-                    label="IM" 
+                    label="IM *" 
                     v-model="form.im"
                     class="mb-4"
                     color="grey"
@@ -156,17 +166,6 @@
                     :rules="[ val => !!val || 'Preencha a IM' ]"
 
                 />  
-
-
-                <q-select
-                    :options="crtOptions"
-                    v-model="form.crt"
-                    label="CRT ( Cód. Regime tributário )"
-                    class="mb-4"
-                    color="grey" 
-                    filled 
-                    aria-required="true"
-                />
             </div>
             
             <div>
@@ -256,7 +255,8 @@
                     im: response.data.issuer.im,
                     
                 }
-                cep: response.data.issuer.cep ? response.data.issuer.cep.replace(/(\d{5})(\d{3})/, '$1-$2') : null,
+                this.cep = response.data.issuer.cep ? response.data.issuer.cep.replace(/(\d{5})(\d{3})/, '$1-$2') : null,
+                
                 console.log(response)
             },
 

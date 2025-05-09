@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div class="text-center h-96">
         <header class="head flex justify-between bg-slate-600 text-white text-xl p-5 mb-8">
             <div class="inline-flex">
                 <h3 
@@ -47,13 +47,10 @@
             </q-card>
 
             <q-card
-                class="w-80" 
+                class="q-card" 
                 v-for="(companie, id) in companies" 
                 :key="id"
-                :class="{
-                    'mt-5': witdhScreen < 1070,
-                    'ml-5': witdhScreen > 1070,
-                }"
+                
             >
                 <q-card-section class="">
                     <span class="text-xl">{{ companie.company_name }}</span>
@@ -144,11 +141,6 @@
                     this.$router.push('/login')
                 }        
             },
-
-            getData()
-            {
-
-            }
         },
 
         mounted()
@@ -162,7 +154,7 @@
             }
 
             this.witdhScreen = screen.width
-            
+            console.log(this.witdhScreen)
         },
 
         components: {
@@ -170,3 +162,24 @@
         }
     }
 </script> 
+
+<style lang="scss">
+    @media (max-width: 1680px)
+    {
+        .q-card{
+            margin-top: 3rem;
+            width: 20rem;
+        }
+                
+    }
+    
+    @media (min-width: 1366px)
+    {
+        .q-card{
+            margin-left: 3rem;
+            width: 20rem;
+        }
+                
+    }
+    
+</style>

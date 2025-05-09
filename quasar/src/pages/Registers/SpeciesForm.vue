@@ -22,8 +22,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(register, id) in species" :key="id">
-                        <td>{{ register. }}</td>
+                    <tr v-for="(specie, id) in species" :key="id">
+                        <td class="">{{ specie.id }}</td>
+                        <td class="">{{ specie.especie }}</td>
+                        <td class="">{{ specie.tipo_lancamento }}</td>
+                        <td class="">{{ specie.active }}</td>
                     </tr>
                 </tbody>
             </table>
