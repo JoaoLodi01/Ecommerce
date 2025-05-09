@@ -56,7 +56,7 @@
             
         </div>
 
-        <div class="table">
+        <div class="">
             <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
                 <thead class="bg-gray-100">
                     <tr>
