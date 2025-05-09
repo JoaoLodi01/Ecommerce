@@ -39,7 +39,7 @@
             })
 
             console.log('res:', res);
-            res.data.success ? location = '/companies' : alert(res.data);
+            res.data.success == true ? location = '/companies' : alert(res.data);
 
         } catch (error) {
             console.error('Erro:', error.response);
