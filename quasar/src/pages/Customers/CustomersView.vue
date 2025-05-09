@@ -13,9 +13,14 @@
         >
             <h1 class="text-3xl font-semibold m-5 border border-b-gray-300">Clientes</h1>
 
-            <div class="mt-auto mb-auto">
+            <div 
+                class="mt-auto mb-auto"
+                :class="{
+                    'ml-auto': widthScreen > 1366
+                }"
+            >
                 <q-btn 
-                    class="bg-blue-500 text-white"
+                    class="bg-blue-500 hover:bg-blue-400 transition text-white font-semibold rounded-lg"
                     @click="showConfig = !showConfig" 
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
@@ -168,7 +173,7 @@
       </div>
     </div>
 
-    <div class="mb-8" v-if="!showCustomers">
+    <div v-if="!showCustomers" >
         <RegisterCustomer
             v-if="showRegisterCustomers"
             @close="closeReload($event)"
