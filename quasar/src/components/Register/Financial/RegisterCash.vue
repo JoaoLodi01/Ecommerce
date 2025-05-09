@@ -83,8 +83,7 @@
                 <q-btn
                     type="submit"
                     label="Registrar"
-                    class="bg-slate-600
-                    text-white"
+                    class="bg-slate-600 text-white"
                 />
                 <q-btn
                     @click="sum = !sum"
@@ -164,6 +163,7 @@ export default {
         onReset() {
             const today = dayjs();
             this.form = {
+                issuer_id: LocalStorage.getItem("issuer_id"),
                 description: "Registro Manual",
                 document: 1,
                 customer_id: 0,
@@ -189,24 +189,26 @@ export default {
         getSpecie(event){
             console.log("Chamou o getSpecie");
             console.log(event);
-            this.form.esoe
+            this.form.especie_id = event.id;
             this.form.especie = event.especie;
         },
 
         async submitForm() {
-            console.log("Dados enviados!", this.form);
+            console.log("Dados enviados!", this.form.issuer_id);
             try {
-                const response = await api.post('/ecommerce/cash-register/create', {
-                    issuer_id: Number(LocalStorage.getItem("issuer_id")),
+                const response = await api.post('/ecommerce/cash-register/create',
+                    {
+                    issuer_id: this.form.issuer_id,
                     description: this.form.description,
                     document: this.form.document,
                     customer_id: this.form.customer_id,
-                    especie_id: this.form.especie,
+                    especie_id: this.form.especie_id,
                     date_register: this.form.date_register,
                     input_value: this.parseCurrency(this.form.input_value),
                     output_value: this.parseCurrency(this.form.output_value),
                     user_id: Number(LocalStorage.getItem("user_id")),
-                });
+                    }
+                );
 
                 this.onReset();
                 console.log("Dados enviados!", response);

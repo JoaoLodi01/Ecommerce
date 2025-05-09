@@ -24,7 +24,7 @@ class CashRegisterRequest extends FormRequest
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
 
         return [
-            'issuer_id' => ['required', 'integer'],
+            'issuer_id' => ['required'],
             'description' => [$required, 'string', 'max:255'],
             'document' => [$required, 'integer'],
             'customer_id' => [$required, 'integer'],
@@ -40,7 +40,6 @@ class CashRegisterRequest extends FormRequest
     {
         return [
             'issuer_id.required' => 'O ID do emissor é obrigatório.',
-            'issuer_id.integer' => 'O ID do emissor deve ser um número inteiro.',
             
             'description.required' => 'A descrição é obrigatória.',
             'description.string' => 'A descrição deve estar em um formato válido.',

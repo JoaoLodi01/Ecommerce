@@ -32,7 +32,7 @@ class CustomerRepository
             case 'Padrão (cód.cliente ou nome)':
                 $customer = Customer::where('active', 1)
                         ->where(function ($query) use ($search){
-                            $query->where('id', $search)
+                            $query->where('customer_cod', $search)
                                   ->orWhere('name', 'like', '%' . $search . '%');
                         })
                         ->get();
@@ -42,7 +42,7 @@ class CustomerRepository
                 $customer = Customer::where('active', 1)
                            ->where(function($query) use ($search){
                              $query->where('cpf', 'like', '%' . $search . '%')
-                                   ->orWhere('id', $search);
+                                   ->orWhere('customer_cod', $search);
                            })
                            ->get();
                 break;
@@ -51,7 +51,7 @@ class CustomerRepository
                 $customer = Customer::where('active', 1)
                             ->where(function($query) use ($search){
                             $query->where('cnpj', 'like', '%' . $search . '%')
-                                    ->orWhere('id', $search);
+                                    ->orWhere('customer_cod', $search);
                             })
                             ->get();
                 break;
@@ -61,7 +61,7 @@ class CustomerRepository
                            ->where(function($query) use ($search){
                              $query->where('cpf', 'like', '%' . $search . '%')
                                    ->orWhere('cnpj', 'like', '%' . $search . '%')
-                                   ->orWhere('id', $search);
+                                   ->orWhere('customer_cod', $search);
                            })
                            ->get();
                 break;

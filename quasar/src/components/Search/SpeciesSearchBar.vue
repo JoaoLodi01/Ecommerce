@@ -22,7 +22,6 @@
     data() {
       return {
         filteredSpecies: [],
-        filter: '',
         speciesData: { 
           id: null,
           especie: 'Escolher...'
@@ -40,21 +39,19 @@
           console.error('Erro ao carregar espécies:', error)
         }
       },
-    },
-
-    filterSpecies(){
-      this.speciesData = this.
-    },
   
-    setSpecies(specie){
-      this.speciesData.id = specie.id;
-      this.speciesData.especie = specie.especie;
-      this.$emit('update:selectSpecie', this.speciesData)
+      setSpecies(specie){
+        this.speciesData.id = specie.id;
+        this.speciesData.especie = specie.especie;
+        this.$emit('update:selectSpecie', this.speciesData)
+      },
+
     },
   
     mounted() {
-      this.loadSpecies()
+      this.selectSpecies()
     },
+
   }
   </script>
   
