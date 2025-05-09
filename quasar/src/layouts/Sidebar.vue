@@ -32,9 +32,7 @@
         }" 
         v-if="!sidebarActive" 
       >
-        <div
-        
-        >
+        <div>
             <div class="border border-white w-6 mb-1"></div>
             <div class="border border-white w-6 mt-1"></div>
             <div class="border border-white w-6 mt-1"></div>
