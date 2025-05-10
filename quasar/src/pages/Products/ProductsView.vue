@@ -11,7 +11,7 @@
                 'div1': widthScreen > 1080
             }"
         >
-            <h1 class="text-3xl font-semibold m-5">Produtos</h1>
+            <h1 class="text-3xl font-semibold m-5 border border-b-gray-300">Produtos</h1>
 
             <div
                 class="mt-auto mb-auto"

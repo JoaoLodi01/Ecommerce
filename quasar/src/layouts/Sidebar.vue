@@ -5,11 +5,11 @@
         :class="{
             'transform translate-x-0 w-64': sidebarActive, 
             'transform -translate-x-10 w-36': !sidebarActive,
-            'transform -translate-x-full': !sidebarActive && widthScreen <= 1080,
+            'transform -translate-x-full w-38 ml-0': !sidebarActive && widthScreen < 1600,
 
         }"
         
-        class="transition-transform duration-300 bg-gray-800 text-white text-base h-screen fixed top-0 left-0 z-40"
+        class="transition-transform duration-300 bg-gray-800 text-white text-base h-screen fixed top-0 left-0 z-40 sideBar"
         title="Sidebar"
       >
       
@@ -28,11 +28,13 @@
         @click="toggleSidebar()"
         :class="{
           'closeSideBar': widthScreen > 1080,
-          'relative top-2 left-40 bg-gray-800 p-3 rounded-md': widthScreen <= 1080,
+          'relative top-2 left-40 bg-gray-800 p-3 rounded-md': widthScreen <= 1600
         }" 
         v-if="!sidebarActive" 
       >
-        <div>
+        <div
+        
+        >
             <div class="border border-white w-6 mb-1"></div>
             <div class="border border-white w-6 mt-1"></div>
             <div class="border border-white w-6 mt-1"></div>
@@ -497,9 +499,9 @@
     </div>
 
     <div class="flex transition" id="q-app" :class="{
-        'top-10 left-0': widthScreen <= 1080,
+        'top-10 left-0': widthScreen <= 1600,
         'ml-52': widthScreen > 1080,
-        '-ml-1': widthScreen <= 1080,
+        'routerView': widthScreen <= 1600,
         'transform -translate-x-24': !sidebarActive && widthScreen > 1080,
         
     }">   
@@ -614,13 +616,27 @@
 
   @media (min-width: 1080px)
   {
-    .closeSideBar {
-      position: relative;
-      left: 4.7rem;
+      .closeSideBar {
+        position: relative;
+        left: 4.7rem;
         top: 2rem;
 
       }
 
   }
 
+  @media (max-width: 1080px)
+  {
+      
+    .routerView{
+        position: relative;
+        left: -7rem;
+        border: solid #000;
+    }
+
+    .sideBar {
+        border: solid #000;
+    }
+
+  }
 </style>

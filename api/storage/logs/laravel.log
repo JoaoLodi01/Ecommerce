@@ -157,3 +157,88 @@
 [2025-05-08 17:23:28] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
 [2025-05-08 17:23:29] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
 [2025-05-08 17:43:40] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 10:33:31] local.INFO: owner   
+[2025-05-09 10:33:57] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"an30upz5Uu","active":1,"created_at":"2025-05-09T10:33:54.000000Z","updated_at":"2025-05-09T10:33:54.000000Z"}  
+[2025-05-09 10:33:58] local.INFO: Passou o login, token: 1|SaXavEvCUAwiD4OxP99qF6Ez2T3V3Os3dqWgQYW923aa6752  
+[2025-05-09 10:34:00] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 10:34:02] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 10:34:33] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 10:34:59] local.INFO: Memória usada no RegisterIssuerRepository 18874368  
+[2025-05-09 10:34:59] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'cnpj' => '17089484000190',
+  'cpf' => NULL,
+  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'cod_cnae' => 4751201,
+  'cod_crt' => NULL,
+  'date_of_foundation' => '2012-10-30',
+  'uuse_id' => 'an30upz5Uu',
+)  
+[2025-05-09 10:34:59] local.INFO: an30upz5Uu  
+[2025-05-09 10:34:59] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"an30upz5Uu","active":1,"created_at":"2025-05-09T10:33:54.000000Z","updated_at":"2025-05-09T10:33:54.000000Z"}  
+[2025-05-09 10:34:59] local.INFO: --- Criação das espécies padrão ---  
+[2025-05-09 10:34:59] local.INFO: --- Fim da criação das espécies padrão ---  
+[2025-05-09 10:34:59] local.INFO: --- Criação do cliente padrão ---  
+[2025-05-09 10:34:59] local.INFO: {"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","updated_at":"2025-05-09T10:34:59.000000Z","created_at":"2025-05-09T10:34:59.000000Z","id":1}  
+[2025-05-09 10:34:59] local.INFO: --- Fim da criação do cliente padrão ---  
+[2025-05-09 10:34:59] local.INFO: --- Criação das configPDV padrão ---  
+[2025-05-09 10:34:59] local.INFO: --- Fim da criação do configPDV padrão ---  
+[2025-05-09 10:35:00] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 10:36:18] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 10:37:01] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 10:37:02] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 10:37:07] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 10:42:58] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 10:47:03] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 10:47:16] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 10:47:22] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 10:48:03] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 10:48:03] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 12:57:17] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 12:57:24] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 12:59:48] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 13:00:11] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 13:00:35] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 13:01:06] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 13:01:17] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 13:01:48] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 15:07:53] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 15:08:12] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 15:10:56] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 15:11:12] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 15:11:12] local.INFO: 1  
+[2025-05-09 15:11:12] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'date_of_foundation' => '2012-10-30',
+  'cep' => '89711226',
+  'uf' => 'SC',
+  'address' => 'Rua Alexandre Lorenzet',
+  'number' => '135',
+  'cod_cnae' => 4751201,
+  'cnae' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'cod_crt' => 2,
+  'crt' => 'Lucro real',
+  'ie' => '44444444444444',
+  'im' => '444444444444',
+)  
+[2025-05-09 15:11:12] local.INFO: $firstSteps {"id":1,"issuer_id":1,"complete_issuer":0,"complete_pdv":0,"complete_customers":0,"complete_products":0,"ignore_first_steps":0,"created_at":"2025-05-09T10:34:59.000000Z","updated_at":"2025-05-09T10:34:59.000000Z"}  
+[2025-05-09 15:11:12] local.INFO: - Vai criar o NCM -   
+[2025-05-09 15:11:32] local.INFO: Emitente é: Lucro real  
+[2025-05-09 15:11:32] local.INFO: csosncst é: CST  
+[2025-05-09 15:11:32] local.INFO: Vai criar os CFOPs  
+[2025-05-09 15:11:34] local.INFO: Já está cadastrado  
+[2025-05-09 15:34:28] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-09 15:34:28] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-09 15:34:29] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-09 15:34:29] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-09 15:34:29] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-09 15:34:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-09 15:34:30] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-09 15:35:12] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"44444444444444","im":"444444444444","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":2,"crt":"Lucro real","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-09T10:34:59.000000Z","updated_at":"2025-05-09T15:11:12.000000Z"}  
+[2025-05-09 15:36:58] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"44444444444444","im":"444444444444","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":2,"crt":"Lucro real","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-09T10:34:59.000000Z","updated_at":"2025-05-09T15:11:12.000000Z"}  
+[2025-05-09 16:40:24] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"XRI7FdtoOc","active":1,"created_at":"2025-05-08T16:39:15.000000Z","updated_at":"2025-05-08T16:39:15.000000Z"}  
+[2025-05-09 16:40:25] local.INFO: Passou o login, token: 2|6y95imEIIlBYYZXg5RBuMnXueHlzvC3vwz0zgD1P24188c15  
+[2025-05-09 16:40:27] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-09 17:07:40] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
