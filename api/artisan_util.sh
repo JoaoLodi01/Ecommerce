@@ -10,6 +10,7 @@ main()
     echo "7 - Apagar as logs"
     echo "8 - Migrate (table): php artisan migrate"
     echo "9 - Subir servidores novamente"
+    echo "10 - git push"
     echo "R - Reiniciar"
     echo "E - Sair"
     read -p "Selecione uma opção: " option
@@ -103,6 +104,11 @@ main()
 
         9)
             bash -c "sh boot_local.sh"
+            ;;
+
+        10)
+            bash -c "git add ."
+
             ;;
 
         'R' | 'r')

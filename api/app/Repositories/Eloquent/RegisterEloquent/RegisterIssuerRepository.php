@@ -147,9 +147,9 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             $crt = $issuer->cod_crt;
             if($crt == 1 || $crt >= 4)
             {
-                $csosncst = 'CSOSN';
+                $csosncst = '000';
             } else {
-                $csosncst = 'CST';
+                $csosncst = '00';
 
             }
         }
