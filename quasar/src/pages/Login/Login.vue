@@ -78,6 +78,14 @@
 
                 </div>
             </q-form>
+
+            <div 
+                class="flex justify-center bg-red-400 text-white rounded-lg cursor-pointer" 
+                v-for="message in messages"
+                @click="messages = []"
+            >
+                {{ message }}
+            </div>
         </div>
     </div>
 </template>
@@ -122,13 +130,16 @@
                     email: '',
                     password: ''
                 },
+
                 showPassword: false,
-                remember_me: false
+                messages: []
+
             }
         },
 
         methods: {
             async loginMethod() {
+                this.messages = []
                 try {
                     this.showLoading()
                     const response = await api.post("/auth/owner", this.details);
@@ -141,7 +152,7 @@
                         LocalStorage.setItem("uuse_id", response.data.uuse_id)
                         LocalStorage.setItem("auth_token", response.data.token);
 
-                    } 
+                    }
 
                 } catch (error) {
                     if(error.status === 429)
@@ -150,10 +161,9 @@
 
                     } else {
                         console.error("Erro no login:", error);
-                        alert(`Erro ao tentar fazer login. ${error.response.data.message ?? 'Erro no login'}`);
+                        this.messages.push(error.response.data.message ?? 'Erro no login');
 
                     }
-
                 }
             }
         }

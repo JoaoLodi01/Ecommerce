@@ -59,6 +59,7 @@
                     filled 
                     label="Senha"
                     class="mb-4"
+                    color="grey"
                     v-model="form.password"
                     :type="showPassword ? 'text' : 'password'"
                     
