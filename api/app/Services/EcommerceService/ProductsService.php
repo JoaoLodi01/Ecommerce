@@ -32,6 +32,7 @@ class ProductsService
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
+    
     }
 
     public function findByID(int $id){

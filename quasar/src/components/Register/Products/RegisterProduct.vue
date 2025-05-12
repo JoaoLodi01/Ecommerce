@@ -322,7 +322,7 @@
 </script>
 
 <style lang="scss">
-    .form-product{
+    .form-product {
         width: 60vh;
     }
     

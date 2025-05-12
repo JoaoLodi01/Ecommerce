@@ -1,32 +1,27 @@
 <template>
-    <div 
-        class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
+    <div
+        class="border border-black mt-2 p-6 shadow-md rounded"
         :class="{
-            'relative top-10 left-12': widthScreen <= 1080,
-            'relative top-20 left-0': widthScreen > 1080
+            'relative top-12 left-12': widthScreen <= 1080,
+            'relative top-28 text-xl': widthScreen > 1080
         }"
     >
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
         
-        {{ type }}
         <q-form
             @submit="submitForm()"
             @reset="onReset"
-            class="p-1 "
-            :class="{ 
-                'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
-            }"
+            class="form-customer p-1"
         >
-            <q-select 
-                v-model="type" 
-                :options="options" 
-                label="Tipo de cadastro" 
-                filled 
-            />
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <q-select 
+                    v-model="type" 
+                    :options="options" 
+                    label="Tipo de cadastro" 
+                    filled 
+                />
 
-            <div>
-                
-                <div v-if="type = 'Física'">
+                <div v-if="type === 'Física'">
                     <q-input 
                         v-model="form.trade_name" 
                         type="text" 
@@ -37,14 +32,14 @@
                     />
 
                     <q-input 
-                            v-model="form.cpf" 
-                            v-bind:mask="'###.###.###-##'"
-                            maxlength="14"
-                            type="text" 
-                            label="CPF"
-                            color="grey-7"
-                            
-                        />  
+                        v-model="form.cpf" 
+                        v-bind:mask="'###.###.###-##'"
+                        maxlength="14"
+                        type="text" 
+                        label="CPF"
+                        color="grey-7"
+                        
+                    />  
 
                 </div>
                 <div v-else>
@@ -242,7 +237,6 @@
                 const cnpj = this.form.cnpj.replace(/\D/g, '')
                 if(cnpj.length === 14)
                 {
-                    console.log('aaa')
                     const data = await axios.get(`${process.env.API_CNPJA}/${cnpj}`);
                     console.log(data)
                 }
@@ -280,3 +274,10 @@
         
     };
 </script>
+
+<style lang="scss">
+    .form-customer {
+        width: 60vh;
+    }
+    
+</style>
