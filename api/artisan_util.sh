@@ -10,7 +10,7 @@ main()
     echo "7 - Apagar as logs"
     echo "8 - Migrate (table): php artisan migrate"
     echo "9 - Subir servidores novamente"
-    echo "10 - git push"
+    echo "10 - Enviar para a branch atual"
     echo "R - Reiniciar"
     echo "E - Sair"
     read -p "Selecione uma opção: " option
@@ -107,7 +107,11 @@ main()
             ;;
 
         10)
-            bash -c "git add ."
+            echo "Digite o commit"
+            read commit
+            bash -c "git add . && git commit -m '$commit' && git push -u"
+            read
+            main
 
             ;;
 
