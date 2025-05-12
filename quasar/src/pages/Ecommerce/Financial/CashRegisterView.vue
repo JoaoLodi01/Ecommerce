@@ -56,10 +56,10 @@
             
         </div>
 
-        <div class="">
+        <div>
             <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
-                <thead class="bg-gray-100">
-                    <tr>
+                <thead>
+                    <tr class="bg-gray-200">
                         <th scope="col" class="px-6 py-3">Tipo</th>
                         <th scope="col" class="px-6 py-3">Código</th>
                         <th scope="col" class="px-3 py-4">Documento</th>

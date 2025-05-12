@@ -1,17 +1,15 @@
 <template>
-    <div
-        class="ml-20 "
+    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg"
         :class="{
-            'relative top-12 right-5': widthScreen <= 1080
-        }"
-    >
+            'relative top-12': widthScreen <= 1080
+        }">
         <div
             class="flex"
             :class="{
                 'div1': widthScreen > 1080
-            }"
-        >
-            <h1 class="text-3xl font-semibold m-5 border border-b-gray-300">Produtos</h1>
+            }">
+
+            <h1 class="text-3xl font-semibold m-5">Produtos</h1>
 
             <div
                 class="mt-auto mb-auto"
@@ -22,7 +20,7 @@
                 <q-btn
                     v-if="showProducts"
                     @click="openRegister()"
-                    class="bg-blue-500 hover:bg-blue-400 transition text-white font-semibold rounded-lg"
+                    class="bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-lg"
                 >
                     <span v-if="widthScreen <= 1080">Novo produto</span>
                     <span v-else>Cadastrar um novo produto</span>

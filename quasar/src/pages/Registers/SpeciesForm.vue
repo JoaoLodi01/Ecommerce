@@ -11,10 +11,10 @@
             </div>
         </div>
 
-        <div class="table">
+        <div>
             <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
-                <thead class="bg-gray-100">
-                    <tr>
+                <thead>
+                    <tr class="bg-gray-200">
                         <th>Cód.</th>
                         <th>Espécie</th>
                         <th>Tipo Lançamento</th>

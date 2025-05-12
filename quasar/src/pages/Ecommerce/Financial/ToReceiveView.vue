@@ -58,8 +58,8 @@
 
         <div class="relative overflow-x-auto overflow-y-auto">
             <table class="min-w-full table-auto border-collapse border border-gray-200">
-                <thead class="bg-gray-100">
-                    <tr>
+                <thead>
+                    <tr class="bg-gray-200">
                         <th class="px-6 py-3 text-center">Controle</th>
                         <th class="px-6 py-3 text-center">Documento</th>
                         <th class="px-6 py-3 text-center">Descrição</th>
