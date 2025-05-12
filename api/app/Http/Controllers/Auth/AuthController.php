@@ -62,7 +62,8 @@ class AuthController extends Controller
         Auth::logout();
         return response()->json([
             'success' => true,
-            'message' => 'Logout bem sucedido!'
+            'message' => 'Logout bem sucedido!',
+            'route' => '/login'
         ]);
         
     }
