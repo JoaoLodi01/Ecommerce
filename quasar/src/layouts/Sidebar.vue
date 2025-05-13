@@ -331,13 +331,13 @@
             </a>
             <div v-if="showUsers" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/list-users`" class="hover:text-blue-400 flex items-center gap-2">
                   Listagem de usuários
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/level-users`" class="hover:text-blue-400 flex items-center gap-2">
                   Nível de acesso
                 </router-link>
               </p>

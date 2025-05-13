@@ -50,7 +50,6 @@
             <q-input
                 v-if="sum"
                 type="number"
-                @vue:updated="totalAmountCalc"
                 v-model="form.input_value"
                 label="Valor Entrada"
                 color="grey-7"
@@ -73,7 +72,7 @@
             />
             <q-input
                 type="text"
-                
+                :value="totalAmountCalc"
                 v-model="form.total_amount"
                 label="Valor total"
                 readonly
@@ -84,8 +83,7 @@
                 <q-btn
                     type="submit"
                     label="Registrar"
-                    class="bg-slate-600
-                    text-white"
+                    class="bg-slate-600 text-white"
                 />
                 <q-btn
                     @click="sum = !sum"
@@ -133,10 +131,8 @@ export default {
             form: {
                 description: "Registro Manual",
                 document: 1,
-                name: "",
+                customer_id: 1,
                 user: LocalStorage.getItem("user_name"),
-                issuer_id: LocalStorage.getItem("issuer_id"),
-                user_id: LocalStorage.getItem("user_id"),
                 especie_id: 0,
                 date_register: today.format("YYYY-MM-DD"),
                 input_value: 0,
@@ -169,7 +165,8 @@ export default {
             this.form = {
                 description: "Registro Manual",
                 document: 1,
-                name: "",
+                customer_id: 0,
+                user: LocalStorage.getItem("user_name"),
                 especie: "",
                 date_register: today.format("YYYY-MM-DD"),
                 input_value: 0,
@@ -185,26 +182,38 @@ export default {
         getCustumer(event) {
             console.log("Chamou o getCustumer");
             console.log(event);
-            this.form.id = event.id;
+            this.form.customer_id = event.id;
         },
 
         getSpecie(event){
             console.log("Chamou o getSpecie");
             console.log(event);
             this.form.especie_id = event.id;
+            this.form.especie = event.especie;
         },
 
         async submitForm() {
+            console.log("Dados enviados!", this.form.issuer_cod);
             try {
-                console.log('forms', this.form)
-                console.log('LocalStorage.getItem("issuer_id")', LocalStorage.getItem("issuer_id"))
-                const response = await api.post('/ecommerce/cash-register/create', this.form);
+                const response = await api.post('/ecommerce/cash-register/create',
+                    {
+                    issuer_id: LocalStorage.getItem("issuer_id"),
+                    description: this.form.description,
+                    document: this.form.document,
+                    customer_id: this.form.customer_id,
+                    especie_id: this.form.especie_id,
+                    date_register: this.form.date_register,
+                    input_value: this.parseCurrency(this.form.input_value),
+                    output_value: this.parseCurrency(this.form.output_value),
+                    user_id: LocalStorage.getItem("user_id"),
+                    }
+                );
 
                 this.onReset();
-                console.log("Dados enviados!", response.data);
+                console.log("Dados enviados!", response);
             } catch (error) {
-                console.error('Erro', error)
-
+                console.error(error);
+                alert("Ocorreu um erro ao cadastrar o registro");
             }
         },
     },

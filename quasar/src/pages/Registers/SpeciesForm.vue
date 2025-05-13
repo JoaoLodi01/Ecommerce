@@ -11,10 +11,10 @@
             </div>
         </div>
 
-        <div class="table">
+        <div>
             <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
-                <thead class="bg-gray-100">
-                    <tr>
+                <thead>
+                    <tr class="bg-gray-200">
                         <th>Cód.</th>
                         <th>Espécie</th>
                         <th>Tipo Lançamento</th>
@@ -22,8 +22,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(register, id) in species" :key="id">
-                        <td>{{ register. }}</td>
+                    <tr v-for="(specie, id) in species" :key="id">
+                        <td class="">{{ specie.id }}</td>
+                        <td class="">{{ specie.especie }}</td>
+                        <td class="">{{ specie.tipo_lancamento }}</td>
+                        <td class="">{{ specie.active }}</td>
                     </tr>
                 </tbody>
             </table>

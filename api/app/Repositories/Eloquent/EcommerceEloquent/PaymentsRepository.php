@@ -3,13 +3,26 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\PaymentForms;
+use App\Models\Registers\Issuer;
 use Illuminate\Support\Facades\Log;
 
 class PaymentsRepository
 {
     public function getAll(int $issuer_id){
-        Log::info("Buscando todas as espécies na table: payments");
+        Log::info("Iniciou getAll PaymentsRepository");
+        Log::info("Buscando por emitente");
+        $issuer = Issuer::where('id', $issuer_id)->first();
+
+        Log::info('Resultado: '. $issuer);
+        if(empty($issuer)){
+            return [
+                'success' => false,
+                'message' => 'Emitente não encontrado',
+            ];
+        }
+
         return PaymentForms::where('issuer_id', $issuer_id)->get();
+        Log::info('Resultado: '. $issuer_id);
     }
 
     public function findByID(array $data){

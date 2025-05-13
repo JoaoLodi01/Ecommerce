@@ -14,7 +14,6 @@
 
             <q-input 
                 v-model="clientsData.name"
-                @click="setClient(clientsData)"
                 @update:model-value="selectClient()"
                 class="w-96"
                 color="grey"

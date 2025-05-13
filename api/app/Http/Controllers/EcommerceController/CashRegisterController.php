@@ -20,8 +20,8 @@ class CashRegisterController extends Controller
 
     public function store(CashRegisterRequest $request){
         $data = $request->validated();
-        Log::info('CashRegisterController::class, Store');
-        return $this->cashRegisterService->create($data);
+        $sla[] = $data;
+        return $this->cashRegisterService->create($sla);
     }
 
     public function findByID(int $id){

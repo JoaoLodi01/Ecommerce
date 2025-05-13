@@ -1,17 +1,18 @@
 <template>
-  <div class="container flex">
-    <q-select
-      v-model="speciesData"
-      :options="[{ id: null, especie: 'Escolher...' }, ...filteredSpecies]"
-      option-label="especie"
-      label="Espécie"
-      :emit-value="false"
-      map-options
-      class="w-96"
-      color="grey"
-    />
-  </div>
-</template>
+    <div class="container flex">
+      <q-select
+        v-model="speciesData"
+        :options="filteredSpecies"
+        option-label="especie"
+        option-value="id"
+        label="Espécie"
+        :emit-value="false"
+        map-options
+        class="w-96"
+        color="grey"
+      />
+    </div>
+  </template>
   
   <script>
   import { LocalStorage } from 'quasar'
@@ -22,14 +23,15 @@
       return {
         filteredSpecies: [],
         speciesData: { 
-          id: null, 
-          especie: 'Escolher...' 
+          id: null,
+          especie: 'Escolher...'
         },
       }
     },
   
     methods: {
-      async loadSpecies() {
+      async selectSpecies() {
+        console.log(this.speciesData.especie)
         try {
           const response = await api.get(`payments/all/${LocalStorage.getItem('issuer_id')}`)
           this.filteredSpecies = response.data
@@ -38,16 +40,19 @@
           console.error('Erro ao carregar espécies:', error)
         }
       },
-
-      speciesData(newVal) {
-        this.$emit('update:selectSpecie', newVal)
+  
+      setSpecies(specie){
+        this.speciesData.id = specie.id;
+        this.speciesData.especie = specie.especie;
+        this.$emit('update:selectSpecie', this.speciesData)
       },
-      
+
     },
   
     mounted() {
-      this.loadSpecies()
+      this.selectSpecies()
     },
+
   }
   </script>
   

@@ -56,12 +56,12 @@
             
         </div>
 
-        <div class="">
+        <div>
             <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
-                <thead class="bg-gray-100">
-                    <tr>
+                <thead>
+                    <tr class="bg-gray-200">
                         <th scope="col" class="px-6 py-3">Tipo</th>
-                        <th scope="col" class="px-6 py-3">Cód</th>
+                        <th scope="col" class="px-6 py-3">Código</th>
                         <th scope="col" class="px-3 py-4">Documento</th>
                         <th scope="col" class="px-6 py-3">Descrição</th>
                         <th scope="col" class="px-6 py-3">Valor entrada</th>
@@ -181,7 +181,7 @@
                 this.showLoading()
                 try {
                     const response = await api.get(`/ecommerce/cash-register/all/${LocalStorage.getItem("issuer_id")}`)
-                    this.cashs = response.data.data
+                    this.cashs = Array.isArray(registros) ? registros : [];
 
                     this.input_total = 0;
                     this.output_total = 0;
