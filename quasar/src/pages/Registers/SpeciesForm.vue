@@ -15,18 +15,18 @@
             <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
                 <thead>
                     <tr class="bg-gray-200">
-                        <th>Cód.</th>
-                        <th>Espécie</th>
-                        <th>Tipo Lançamento</th>
-                        <th>Ativo</th>
+                        <th scope="col" class="px-6 py3">Cód.</th>
+                        <th scope="col" class="px-6 py3">Espécie</th>
+                        <th scope="col" class="px-6 py3">Tipo Lançamento</th>
+                        <th scope="col" class="px-6 py3">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(specie, id) in species" :key="id">
-                        <td class="">{{ specie.id }}</td>
-                        <td class="">{{ specie.especie }}</td>
-                        <td class="">{{ specie.tipo_lancamento }}</td>
-                        <td class="">{{ specie.active }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ specie.id }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ specie.especie }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ specie.tipo_lancamento }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ specie.active }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -50,7 +50,7 @@
             async getRegisters(){
                 try {
                     const response = await api.get(`/payments/all/${LocalStorage.getItem("issuer_id")}`)
-                    this.species = response.data
+                    this.species = Array.isArray(response.data) ? response.data.cash : [];
 
                 } catch (error) {
                     console.error("Erro ao buscar os registros: ", error)
