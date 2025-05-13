@@ -37,9 +37,23 @@ class CashRegisterRepository
                 Log::info($cashRegisters[$i]);
                 CashRegister::create([
                     'cash_register_cod' => $newCod,
-                    'issuer_id' => $cashRegisters[$i]['issuer_id']
+                    'issuer_id' => $cashRegisters[$i]['issuer_id'],
+                    'description'  => $cashRegisters[$i]['description'],
+                    'document' => $cashRegisters[$i]['document'],
+                    'pdv_id' => $cashRegisters[$i]['pdv_id'],
+                    'customer_id' => $cashRegisters[$i]['customer_id'],
+                    'name' => $cashRegisters[$i]['name'],
+                    'especie_id' => $cashRegisters[$i]['especie_id'],
+                    'especie' => $cashRegisters[$i]['especie'],
+                    'date_register' => $cashRegisters[$i]['date_register'],
+                    'input_value' => $cashRegisters[$i]['input_value'],
+                    'output_value' => $cashRegisters[$i]['output_value'],
+                    'origem' => $cashRegisters[$i]['origem'],
+                    'user_id' => $cashRegisters[$i]['user_id'],
+                    'seller' => $cashRegisters[$i]['seller'],
                     
                 ]);
+
                 $this->updateCurrentCash($cashRegisters['issuer_id']);
             }
         } 
@@ -49,10 +63,24 @@ class CashRegisterRepository
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             Log::info(['Dados' => $cashRegisters[0]]);
             CashRegister::create([
-                'cash_register_cod' => $newCod,
-                'issuer_id' => $cashRegisters[0]['issuer_id']
-
-            ]);
+                    'cash_register_cod' => $newCod,
+                    'issuer_id' => $cashRegisters[0]['issuer_id'],
+                    'description'  => $cashRegisters[0]['description'],
+                    'document' => $cashRegisters[0]['document'],
+                    'pdv_id' => $cashRegisters[0]['pdv_id'],
+                    'customer_id' => $cashRegisters[0]['customer_id'],
+                    'name' => $cashRegisters[0]['name'],
+                    'especie_id' => $cashRegisters[0]['especie_id'],
+                    'especie' => $cashRegisters[0]['especie'],
+                    'date_register' => $cashRegisters[0]['date_register'],
+                    'input_value' => $cashRegisters[0]['input_value'],
+                    'output_value' => $cashRegisters[0]['output_value'],
+                    'origem' => $cashRegisters[0]['origem'],
+                    'user_id' => $cashRegisters[0]['user_id'],
+                    'seller' => $cashRegisters[0]['seller'],
+                    
+                ]);
+                
             $this->updateCurrentCash($cashRegisters[0]['issuer_id']);
 
         }

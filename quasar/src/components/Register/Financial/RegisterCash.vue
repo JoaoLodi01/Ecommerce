@@ -139,6 +139,7 @@ export default {
                 output_value: 0,
                 total_amount: 0,
                 obs: "",
+                origem: 'Caixa (Manual)'
             },
         };
     },
