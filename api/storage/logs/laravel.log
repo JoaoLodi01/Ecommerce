@@ -141,3 +141,4 @@
 [2025-05-13 17:08:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
 [2025-05-13 17:08:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
 [2025-05-13 17:08:28] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-05-13 17:08:53] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  

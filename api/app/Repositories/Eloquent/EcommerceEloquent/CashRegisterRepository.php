@@ -13,14 +13,19 @@ class CashRegisterRepository
         
     }
 
-    public function findByID(string $params){
+    public function findByID(string $params)
+    {
         Log::info('Memória usada CashRegisterRepository::class, findByID: ' . memory_get_usage(true));
         return CashRegister::where('id', $params)->first();
     }
 
-    public function create(array $cashRegisters){
+    public function create(array $cashRegisters)
+    {
         Log::info('-- Vai iniciar criação no CAIXA, dados: --');
         Log::info($cashRegisters);
+
+        $cashRegisterCod = CashRegister::where('issuer_id', $cashRegisters['issuer_id'])->max('cash_register_cod');
+        $newCod = $cashRegisterCod ? $cashRegisterCod + 1 : 1;
 
         if(count($cashRegisters) >= 2)
         {
@@ -30,7 +35,11 @@ class CashRegisterRepository
                 Log::info('Memória usada CashRegisterRepository::class, create, dentro for: ' . memory_get_usage(true));
                 Log::info('Vai chamar o updateCurrentCash($cashRegisters[$i]), dados x: ' . $i);
                 Log::info($cashRegisters[$i]);
-                CashRegister::create($cashRegisters[$i]);
+                CashRegister::create([
+                    'cash_register_cod' => $newCod,
+                    'issuer_id' => $cashRegisters[$i]['issuer_id']
+                    
+                ]);
                 $this->updateCurrentCash($cashRegisters['issuer_id']);
             }
         } 
@@ -39,7 +48,11 @@ class CashRegisterRepository
         {
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             Log::info(['Dados' => $cashRegisters[0]]);
-            CashRegister::create($cashRegisters[0]);
+            CashRegister::create([
+                'cash_register_cod' => $newCod,
+                'issuer_id' => $cashRegisters[0]['issuer_id']
+
+            ]);
             $this->updateCurrentCash($cashRegisters[0]['issuer_id']);
 
         }

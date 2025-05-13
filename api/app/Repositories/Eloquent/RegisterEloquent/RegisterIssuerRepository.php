@@ -57,7 +57,6 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             $maxCustomerCod = Customer::where('issuer_id', $issuer->id)->max('customer_cod');
 
             $codCustomer = $maxCustomerCod ? $maxCustomerCod + 1 : 1;
-
             
             Log::info('--- Criação das espécies padrão ---');
                 $this->registerPayMentsForms($issuer->id);
