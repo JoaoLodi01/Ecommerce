@@ -112,7 +112,7 @@
         >
         <div>
             <div class="text-sm text-gray-500 mb-2">
-                <span class="font-semibold">ID:</span> {{ customer.id }}
+                <span class="font-semibold">ID:</span> {{ customer.customer_cod }}
             </div>
 
             <div class="text-sm text-gray-500 mb-2">

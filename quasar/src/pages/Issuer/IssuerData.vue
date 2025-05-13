@@ -120,7 +120,7 @@
                     class="mb-4"
                     color="grey" 
                     filled 
-                    aria-required="true"
+                    :rules="[ val => !!val || 'Preencha o seu CRT' ]"
                 />
 
                 <q-input 

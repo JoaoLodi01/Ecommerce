@@ -67,7 +67,9 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             $customer = Customer::create([
                 'customer_cod' => $codCustomer,
                 'issuer_id' => $issuer->id,
-                'company_name' => 'Consumidor Padrão'
+                'company_name' => 'Consumidor Padrão',
+                'cpf' => ' ',
+                'cnpj' => ' '
                 
             ]);
             Log::info($customer);

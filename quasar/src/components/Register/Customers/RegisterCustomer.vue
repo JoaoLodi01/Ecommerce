@@ -55,7 +55,7 @@
                     <q-input 
                         v-model="form.cnpj" 
                         v-bind:mask="'##.###.###/####-##'"
-                        @vue:updated="getDataApis()"
+                        @update:model-value="getDataCNPJ()"
                         maxlength="18"
                         type="text" 
                         label="CNPJ"                 
@@ -65,6 +65,7 @@
 
                 </div>
             </div>
+
             <q-input 
                 v-model="form.cep"
                 v-bind:mask="'#####-###'"
@@ -193,7 +194,8 @@
             return {
                 type: '',
                 form: {
-                    name: '',
+                    company_name: '',
+                    trade_name: '',
                     cpf: '',
                     cnpj: '',
                     cep: '',
@@ -232,13 +234,13 @@
                 }
             },
 
-            async getDataApis()
+            async getDataCNPJ()
             {
                 const cnpj = this.form.cnpj.replace(/\D/g, '')
                 if(cnpj.length === 14)
                 {
-                    const data = await axios.get(`${process.env.API_CNPJA}/${cnpj}`);
-                    console.log(data)
+                    const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`);
+                    this.form.company_name = data.data.alias
                 }
 
             },
@@ -246,7 +248,8 @@
             onReset()
             {
                 this.form = {
-                    name: '',
+                    company_name: '',
+                    trade_name: '',
                     cpf: '',
                     cnpj: '',
                     cep: '',

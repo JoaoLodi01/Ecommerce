@@ -107,7 +107,6 @@ class CustomerRepository
             'cep' => $data['cep'],
             'address' => $data['address'],
             'number' => $data['number'],
-            'email' => $data['email'],
             'is_customer' => $data['type'][0] ?? null,
             'is_driver' => $data['type'][1] ?? null,
             'is_supplier' => $data['type'][2] ?? null,

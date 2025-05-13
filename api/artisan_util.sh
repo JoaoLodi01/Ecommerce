@@ -10,7 +10,6 @@ main()
     echo "7 - Apagar as logs"
     echo "8 - Migrate (table): php artisan migrate"
     echo "9 - Subir servidores novamente"
-    echo "10 - Enviar para a branch atual"
     echo "R - Reiniciar"
     echo "E - Sair"
     read -p "Selecione uma opção: " option

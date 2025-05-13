@@ -3,10 +3,7 @@
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\CashRegister;
-use App\Models\Receive;
-
 use Illuminate\Support\Facades\Log;
-
 class CashRegisterRepository
 {
     public function getAll(){ 
@@ -50,7 +47,6 @@ class CashRegisterRepository
 
     public function updateCurrentCash(int $issuer_id)
     {   
-    Log::info('Memória usada CashRegisterRepository::class, updateCurrentCash: ' . memory_get_usage(true));
         $lastCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->latest('id')->first();
         $actualCashBox = CashRegister::where('id', $lastCashBox->id - 1)->where('issuer_id', $issuer_id)->first();
         
@@ -79,14 +75,14 @@ class CashRegisterRepository
     }
 
     public function update(array $cashRegisters, int $id){
-        Log::info('Memória usada CashRegisterRepository::class, update: ' . memory_get_usage(true));
         return CashRegister::where('id', $id)->update($cashRegisters);
     }
 
     public function delete(int $id){
-        Log::info('Memória usada CashRegisterRepository::class, delete: ' . memory_get_usage(true));
         return CashRegister::where('id', $id)->update([
             'active' => 0,
         ]);
+
+        
     }    
 }

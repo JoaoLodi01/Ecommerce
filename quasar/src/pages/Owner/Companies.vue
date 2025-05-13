@@ -53,21 +53,13 @@
                 </q-card-section>
             
             </q-card>
-
-            <q-card v-if="companies.length <= 0">
+            <q-card v-if="!has || companies.length < 0">
                 <q-card-section>
-                    <q-skeleton height="150px" square />
-                    <span class="mt-5">Carregando dados...</span>
+                    <q-skeleton  height="150px" square />
+                    <span class="mt-5">Carregando dados... {{ has }}</span>
                 </q-card-section>
             </q-card>
 
-            <q-card v-if="companies.length <= 0">
-                <q-card-section>
-                    <q-skeleton height="150px" square />
-                    <span class="mt-5">Carregando dados...</span>
-                </q-card-section>
-            </q-card>
-            
             <q-card
                 class="q-card" 
                 v-for="(companie, id) in companies" 
@@ -75,20 +67,24 @@
                 
             >
                 <q-card-section>
-                    <span class="text-xl">{{ companie.company_name }}</span>
-                    <br>
-                    <q-btn 
-                        color="primary" 
-                        icon="check" 
-                        label="Entrar" 
-                        @click="joinCompanie(companie.company_name, companie.id)"
-                        class="mt-8"
+                    <div class="" v-if="has">
+                        <span class="text-xl">{{ companie.company_name }}</span>
+                        <br>
+                        <q-btn 
+                            color="primary" 
+                            icon="check" 
+                            label="Entrar" 
+                            @click="joinCompanie(companie.company_name, companie.id)"
+                            class="mt-8"
 
-                    />
-                    
-                    <p class="mt-5">
-                        {{ companie.cnpj ? 'CNPJ' : 'CPF' }} : {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
-                    </p>
+                        />
+                        
+                        <p class="mt-5">
+                            {{ companie.cnpj ? 'CNPJ' : 'CPF' }} : {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                        </p>
+
+                    </div>
+
                 </q-card-section>
             </q-card>
         </div>
@@ -106,6 +102,7 @@
         {
             return {
                 companies: [ ],
+                has: false,
                 owner_name: LocalStorage.getItem("owner_name"),
                 owner_cpf: LocalStorage.getItem("owner_cpf"),
                 witdhScreen: 0,
@@ -118,10 +115,19 @@
             async getCompanies()
             {
                 const response = await api.get(`issuer/all/companies/${LocalStorage.getItem("uuse_id")}`);
-                console.log(response)
+                console.log(response.data.companies.length)
+
                 if(response.data.success)
                 {
-                    this.companies = response.data.companies   
+                    if(response.data.companies.length > 0)
+                    {
+                        this.has = true
+                        this.companies = response.data.companies
+
+                    } else {
+                        this.has = !this.has
+
+                    }
                 }
             },
 
@@ -133,6 +139,7 @@
                 LocalStorage.setItem("issuer_id", issuer_id)
                 LocalStorage.setItem("first_name", first_name)
                 LocalStorage.setItem("issuer_name", name)
+
                 const response = await api.get(`/first-steps/${issuer_id}`)
                 const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
                 

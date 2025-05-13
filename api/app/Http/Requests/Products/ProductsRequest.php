@@ -33,7 +33,7 @@ class ProductsRequest extends FormRequest
             'unit' => [$required, 'string'],
 
             'origem_icms' => [$required, 'string'],
-            'icms_ecf' => ['required'],
+            'icms_ecf' => ['required', 'min:1'],
             'taxable_amount' => ['sometimes'],
             'taxable_unit' => [$required, 'string'],
             'tax_benefit' => ['sometimes', 'string'],
