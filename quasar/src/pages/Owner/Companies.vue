@@ -46,6 +46,13 @@
                 </q-card-section>
             </q-card>
 
+            <q-card v-if="companies.length <= 0">
+                <q-card-section>
+                    <q-skeleton height="150px" square />
+                    <span class="mt-5">Carregando dados...</span>
+                </q-card-section>
+            </q-card>
+            
             <q-card
                 class="q-card" 
                 v-for="(companie, id) in companies" 

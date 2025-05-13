@@ -1,11 +1,9 @@
 <template>
     <div
         class="ml-20 mb-6"
-        :class="{
-            'relative top-12 right-5': widthScreen <= 1080
-        }"  
+          
     >
-        <div 
+        <div
             class="flex"
             :class="{
                 'div1': widthScreen > 1080
@@ -40,7 +38,12 @@
                     @click="openRegister()"
                     class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
                 >
-                    <span v-if="widthScreen <= 1080">Novo cliente</span>
+                    <span 
+                        
+                        v-if="widthScreen <= 1080"
+                    >
+                        Novo cliente
+                    </span>
                     <span v-else>Cadastrar um novo cliente</span>
                     
                 </q-btn>

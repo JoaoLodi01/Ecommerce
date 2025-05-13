@@ -1,13 +1,13 @@
 <template>
     <div class="">
-        <q-btn @click="reportCustomer('Listagem_Completa')" class="mr-5" :class="{
+        <q-btn @click="reportCustomer('Listagem_Completa')" class="mr-5 bg-white" :class="{
             'mb-5': widthScreen <= 1080
         }">    
             <span v-if="widthScreen <= 1080">Listagem dos clientes ativos</span>
             <span v-else>Listagem completa de todos clientes</span>
         </q-btn>
 
-        <q-btn @click="reportCustomer('Listagem_Completa_Inativos')">
+        <q-btn @click="reportCustomer('Listagem_Completa_Inativos')" class="bg-white">
             <span v-if="widthScreen <= 1080">Listagem dos clientes inativos</span>
             <span v-else>Listagem completa de todos os clientes inativos</span>
         </q-btn>

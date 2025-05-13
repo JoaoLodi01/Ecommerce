@@ -59,7 +59,7 @@
         </h1>
         
       </div>
-      <div class="sidebar-links p-5">
+      <div class="sidebar-links p-5 ml-1.5">
         <ul class="space-y-4">
           <li>
             <router-link :to="`/${issuer_first_name}/home`" class="hover:text-blue-300 flex items-center gap-4">
@@ -505,7 +505,7 @@
         'transform -translate-x-24': !sidebarActive && widthScreen > 1080,
         
     }">   
-        <router-view/>
+        <router-view/> <!-- Views -->
     </div>
 
     <!-- Botão da Sidebar fechada -->
@@ -630,8 +630,9 @@
       
     .routerView{
         position: relative;
-        left: -7rem;
+        left: -.01rem;
         border: solid #000;
+        
     }
 
     .sideBar {
