@@ -10,10 +10,13 @@ class CashRegisterService
         protected CashRegisterRepository $cashRegisterRepository
     ) {}
 
-    public function getAll()
+    public function getAll(int $issuer_id)
     {
         try {
-            return $this->cashRegisterRepository->getAll(1);
+            return response()->json([
+                'success' => true,
+                'all' => $this->cashRegisterRepository->getAll($issuer_id)
+            ], 200);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }

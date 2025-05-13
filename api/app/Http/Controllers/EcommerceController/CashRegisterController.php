@@ -14,8 +14,8 @@ class CashRegisterController extends Controller
         protected CashRegisterService $cashRegisterService
     ) {}
 
-    public function getAll(){
-        return $this->cashRegisterService->getAll();
+    public function getAll(int $issuer_id){
+        return $this->cashRegisterService->getAll($issuer_id);
     }
 
     public function store(CashRegisterRequest $request){

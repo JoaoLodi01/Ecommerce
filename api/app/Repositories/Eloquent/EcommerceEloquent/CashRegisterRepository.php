@@ -6,9 +6,10 @@ use App\Models\EcommerceModels\CashRegister;
 use Illuminate\Support\Facades\Log;
 class CashRegisterRepository
 {
-    public function getAll(){ 
+    public function getAll(int $issuer_id)
+    { 
         Log::info('Memória usada CashRegisterRepository::class, getAll: ' . memory_get_usage(true));
-        return CashRegister::paginate(20);
+        return CashRegister::where('issuer_id', $issuer_id)->get();
         
     }
 
