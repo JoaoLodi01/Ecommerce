@@ -163,7 +163,6 @@ export default {
         onReset() {
             const today = dayjs();
             this.form = {
-                issuer_id: LocalStorage.getItem("issuer_id"),
                 description: "Registro Manual",
                 document: 1,
                 customer_id: 0,
@@ -194,11 +193,11 @@ export default {
         },
 
         async submitForm() {
-            console.log("Dados enviados!", this.form.issuer_id);
+            console.log("Dados enviados!", this.form.issuer_cod);
             try {
                 const response = await api.post('/ecommerce/cash-register/create',
                     {
-                    issuer_id: this.form.issuer_id,
+                    issuer_id: LocalStorage.getItem("issuer_id"),
                     description: this.form.description,
                     document: this.form.document,
                     customer_id: this.form.customer_id,
@@ -206,7 +205,7 @@ export default {
                     date_register: this.form.date_register,
                     input_value: this.parseCurrency(this.form.input_value),
                     output_value: this.parseCurrency(this.form.output_value),
-                    user_id: Number(LocalStorage.getItem("user_id")),
+                    user_id: LocalStorage.getItem("user_id"),
                     }
                 );
 
