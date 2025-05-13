@@ -10,11 +10,18 @@
                 
                 <router-link 
                     to="/" 
-                    class="mt-auto mb-auto" 
+                    class="mt-auto mb-auto mr-6" 
                     v-if="witdhScreen >= 1366"
                 >
                     <span class="mt-0.5 ml-2 hover:text-slate-300 hover:border-b">Voltar ao início</span>
                 </router-link>
+
+                <div 
+                    class="cursor-pointer mt-auto mb-auto" 
+                    @click="logout()"
+                >
+                    <span class="mt-0.5 ml-2 hover:text-slate-300 hover:border-b">Sair</span>
+                </div>
 
             </div>
             <div class="mt-auto mb-auto border-b">
@@ -28,7 +35,7 @@
                 <q-card-section>
                     <div class="flex justify-center p-10">
                         <router-link to="/register-issuer">
-                            <svg 
+                            <svg   
                                 xmlns="http://www.w3.org/2000/svg" 
                                 fill="none" 
                                 viewBox="0 0 24 24" 
@@ -43,6 +50,14 @@
                     </div>
                     <div class="text-h6 text-center">Adicionar uma nova empresa</div>
 
+                </q-card-section>
+            
+            </q-card>
+
+            <q-card v-if="companies.length <= 0">
+                <q-card-section>
+                    <q-skeleton height="150px" square />
+                    <span class="mt-5">Carregando dados...</span>
                 </q-card-section>
             </q-card>
 
@@ -59,10 +74,9 @@
                 :key="id"
                 
             >
-                <q-card-section class="">
+                <q-card-section>
                     <span class="text-xl">{{ companie.company_name }}</span>
                     <br>
-                
                     <q-btn 
                         color="primary" 
                         icon="check" 
@@ -113,6 +127,7 @@
 
             async joinCompanie(name, issuer_id)
             {
+                console.log('issuer_id', issuer_id)
                 const first_name = name.split(" ")[0]
             
                 LocalStorage.setItem("issuer_id", issuer_id)
@@ -144,10 +159,15 @@
                 const ofCourse = confirm('Deseja realmente sair?')
                 if(ofCourse)
                 {
+                const res = await api.post('/auth/logout')
+                if(res.data.success)
+                {
                     LocalStorage.remove("auth_token")  
-                    this.$router.push('/login')
-                }        
-            },
+                    this.$router.push(res.data.route)
+
+                }
+                }
+            }
         },
 
         mounted()

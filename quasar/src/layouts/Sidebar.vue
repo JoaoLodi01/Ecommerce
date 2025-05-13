@@ -516,6 +516,7 @@
 
 <script>
   import { LocalStorage } from 'quasar';
+import { api } from 'src/boot/axios';
 
   export default {
     data() {
@@ -544,9 +545,14 @@
         const ofCourse = confirm('Deseja realmente sair?')
         if(ofCourse)
         {
-          LocalStorage.remove("auth_token")  
-          this.$router.push('/login')
-        }        
+          const res = await api.post('/auth/logout')
+          if(res.data.success)
+          {
+            LocalStorage.remove("auth_token")  
+            this.$router.push(res.data.route)
+
+          }
+        }
       },
 
       backCompanies()
@@ -567,27 +573,75 @@
       },
 
       toggleFinancial() {
-        !this.sidebarActive ? this.toggleSidebar() : null
-        this.showFinancial = !this.showFinancial;
-        this.downRowFinancial = this.showFinancial;
+            !this.sidebarActive ? this.toggleSidebar() : null
+            this.showFinancial = !this.showFinancial;
+            this.downRowFinancial = this.showFinancial;
+
+            // Cadastros
+            this.showRegisters = false;
+            this.downRowRegisters = this.showRegisters;
+
+            // Vendas
+            this.showPDV = false;
+            this.downRowSales = this.showPDV;
+
+            // Usuários
+            this.showUsers = false;
+            this.downRowUsers = this.showUsers;
       },
 
       togglePDVMenu() {
-        !this.sidebarActive ? this.toggleSidebar() : null
-        this.showPDV = !this.showPDV;
-        this.downRowSales = this.showPDV;
+            !this.sidebarActive ? this.toggleSidebar() : null
+            this.showPDV = !this.showPDV;
+            this.downRowSales = this.showPDV;
+
+            //Financeiro 
+            this.showFinancial = false;
+            this.downRowFinancial = this.showFinancial;
+
+            // Cadastros
+            this.showRegisters = false;
+            this.downRowRegisters = this.showRegisters;
+
+            // Usuários
+            this.showUsers = false;
+            this.downRowUsers = this.showUsers;
       },
 
       toggleRegisters(){
-        !this.sidebarActive ? this.toggleSidebar() : null
-        this.showRegisters = !this.showRegisters;
-        this.downRowRegisters = this.showRegisters;
+            !this.sidebarActive ? this.toggleSidebar() : null
+            this.showRegisters = !this.showRegisters;
+            this.downRowRegisters = this.showRegisters;
+
+            //Financeiro 
+            this.showFinancial = false;
+            this.downRowFinancial = this.showFinancial;
+
+            // Vendas
+            this.showPDV = false;
+            this.downRowSales = this.showPDV;
+
+            // Usuários
+            this.showUsers = false;
+            this.downRowUsers = this.showUsers;
       },
 
       toggleUsers(){
-        !this.sidebarActive ? this.toggleSidebar() : null
-        this.showUsers = !this.showUsers;
-        this.downRowUsers = this.showUsers;
+            !this.sidebarActive ? this.toggleSidebar() : null
+            this.showUsers = !this.showUsers;
+            this.downRowUsers = this.showUsers;
+
+            //Financeiro 
+            this.showFinancial = false;
+            this.downRowFinancial = this.showFinancial;
+
+            // Vendas
+            this.showPDV = false;
+            this.downRowSales = this.showPDV;
+            
+            // Cadastros
+            this.showRegisters = false;
+            this.downRowRegisters = this.showRegisters;
       },
 
       showProfileFn()
