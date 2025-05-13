@@ -10,8 +10,8 @@
             @reset="onReset"
             class="p-1"
             :class="{
-            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
-            }">
+                'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
+        }">
             <q-input
                 type="number" 
                 v-model="form.document" 
@@ -135,7 +135,9 @@ export default {
                 document: 1,
                 name: "",
                 user: LocalStorage.getItem("user_name"),
-                especie: "",
+                issuer_id: LocalStorage.getItem("issuer_id"),
+                user_id: LocalStorage.getItem("user_id"),
+                especie_id: 0,
                 date_register: today.format("YYYY-MM-DD"),
                 input_value: 0,
                 output_value: 0,
@@ -168,7 +170,6 @@ export default {
                 description: "Registro Manual",
                 document: 1,
                 name: "",
-                user: LocalStorage.getItem("user_name"),
                 especie: "",
                 date_register: today.format("YYYY-MM-DD"),
                 input_value: 0,
@@ -190,28 +191,20 @@ export default {
         getSpecie(event){
             console.log("Chamou o getSpecie");
             console.log(event);
-            this.form.esoe
-            this.form.especie = event.especie;
+            this.form.especie_id = event.id;
         },
 
         async submitForm() {
             try {
-                const response = await api.post('/ecommerce/cash-register/create', {
-                    issuer_id: LocalStorage.getItem("issuer_id"),
-                    description: this.form.description,
-                    document: this.form.document,
-                    name: this.form.name,
-                    user_id: LocalStorage.getItem("user_id"),
-                    especie: this.form.especie,
-                    date_register: this.form.date_register,
-                    input_value: this.parseCurrency(this.form.input_value),
-                    output_value: this.form.output_value,
-                });
+                console.log('forms', this.form)
+                console.log('LocalStorage.getItem("issuer_id")', LocalStorage.getItem("issuer_id"))
+                const response = await api.post('/ecommerce/cash-register/create', this.form);
 
                 this.onReset();
                 console.log("Dados enviados!", response.data);
             } catch (error) {
-                alert("Ocorreu um erro ao cadastrar o registro");
+                console.error('Erro', error)
+
             }
         },
     },
