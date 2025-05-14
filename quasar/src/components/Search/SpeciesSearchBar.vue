@@ -33,8 +33,8 @@
       async selectSpecies() {
         console.log(this.speciesData.especie)
         try {
-          const response = await api.get(`payments/all/${LocalStorage.getItem('issuer_id')}`)
-          this.filteredSpecies = response.data
+          const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
+          this.filteredSpecies = response.data.all
 
         } catch (error) {
           console.error('Erro ao carregar espécies:', error)

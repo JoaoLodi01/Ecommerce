@@ -56,7 +56,7 @@
         methods: {
             async getRegisters(){
                 try {
-                    const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
+                    const response = await api.get(`/species/all/${LocalStorage.getItem("issuer_id")}`)
                     this.species = response.data.all
 
                     console.log(response.data);

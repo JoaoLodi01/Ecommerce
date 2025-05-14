@@ -23,4 +23,75 @@
 [2025-05-14 16:12:04] local.INFO: Cod. emitente: 1  
 [2025-05-14 16:12:04] local.INFO: Buscando espécies  
 [2025-05-14 16:12:04] local.INFO: Terminou  
-[2025-05-14 16:12:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:12:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672
+[2025-05-14 16:14:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:14:13] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:14:56] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:14:56] local.INFO: Buscando por emitente  
+[2025-05-14 16:14:56] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:14:56] local.INFO: Buscando espécies  
+[2025-05-14 16:14:56] local.INFO: Terminou  
+[2025-05-14 16:14:59] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:15:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:15:01] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:15:01] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:15:01] local.INFO: Buscando por emitente  
+[2025-05-14 16:15:01] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:15:01] local.INFO: Buscando espécies  
+[2025-05-14 16:15:01] local.INFO: Terminou  
+[2025-05-14 16:15:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:15:17] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:15:17] local.INFO: Buscando por emitente  
+[2025-05-14 16:15:17] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:15:17] local.INFO: Buscando espécies  
+[2025-05-14 16:15:17] local.INFO: Terminou  
+[2025-05-14 16:15:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-14 16:15:17] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:15:43] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:15:45] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:15:45] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:15:46] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:15:46] local.INFO: Buscando por emitente  
+[2025-05-14 16:15:46] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:15:46] local.INFO: Buscando espécies  
+[2025-05-14 16:15:46] local.INFO: Terminou  
+[2025-05-14 16:16:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:16:10] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:16:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:16:10] local.INFO: Buscando por emitente  
+[2025-05-14 16:16:10] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:16:10] local.INFO: Buscando espécies  
+[2025-05-14 16:16:10] local.INFO: Terminou  
+[2025-05-14 16:18:09] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:18:09] local.INFO: Buscando por emitente  
+[2025-05-14 16:18:09] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:18:09] local.INFO: Buscando espécies  
+[2025-05-14 16:18:09] local.INFO: Terminou  
+[2025-05-14 16:18:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:18:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:18:13] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:18:14] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:18:14] local.INFO: Buscando por emitente  
+[2025-05-14 16:18:14] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:18:14] local.INFO: Buscando espécies  
+[2025-05-14 16:18:14] local.INFO: Terminou  
+[2025-05-14 16:18:25] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 16:18:25] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 0,
+    'date_register' => '2025-05-14',
+    'input_value' => 100,
+    'output_value' => 0,
+    'user_id' => 1,
+  ),
+)  
+[2025-05-14 16:19:47] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:19:47] local.INFO: Buscando por emitente  
+[2025-05-14 16:19:47] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:19:47] local.INFO: Buscando espécies  
+[2025-05-14 16:19:47] local.INFO: Terminou  
