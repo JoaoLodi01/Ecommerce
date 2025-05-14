@@ -1,5 +1,6 @@
 SELECT
     'CAIXA' as "Origem",
+    cx.documento as "Documento",
     cx.descricaolancamento as "Descrição",
     cx.valorsaida as "Valor pago",
     cx.datahoracadastro as "Data da movimentação"
@@ -14,6 +15,7 @@ UNION ALL
 
 SELECT
     'PAGAR' as "Origem",
+    bc.documento as "Documento",
     pg.descricaolancamento as "Descrição",
     bc.valorsaida as "Valor pago",
     bc.datahoracadastro as "Data da movimentação"
@@ -25,5 +27,5 @@ INNER JOIN
     tpagar pg on pg.documento = bc.documento
 
 WHERE
-    bc.valorentrada <= 0
+    pg.datapagamento BETWEEN '2025-05-11' AND '2025-05-11' 
 ;

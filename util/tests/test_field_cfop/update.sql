@@ -1,3 +1,3 @@
-update testoque set csosn = '00' where cfop = '5102'
+update testoque set ALIQUOTAICMSECF = 20.5, PERCCOFINS = 3, PERCPIS = 0.65 where csosn = '00';
 
-update testoque set csosn = '60' where cfop = '5405'
+update testoque set PERCCOFINS = 3, PERCPIS = 0.65  where csosn = '60';

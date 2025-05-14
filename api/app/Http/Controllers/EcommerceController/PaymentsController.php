@@ -10,8 +10,7 @@ class PaymentsController extends Controller
 {
     public function __construct(
         protected PaymentsService $paymentsSaleService
-    )
-    {}
+    ) {}
 
     public function getAll(int $issuer_id){
         return $this->paymentsSaleService->getAll($issuer_id);
