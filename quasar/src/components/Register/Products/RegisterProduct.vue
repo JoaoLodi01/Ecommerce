@@ -132,7 +132,6 @@
                 />
 
                 <NCMSearch
-                    class="h-0 p-2 mb-16 z-50"
                     @selected="getNCM"
 
                 />
@@ -150,7 +149,7 @@
 
             </div>
                     
-            <div>
+            <div class="">
                 <q-btn
                     type="submit"
                     class="mr-5"
@@ -223,6 +222,7 @@
         {
             return {
                 productDetails: {
+                    issuer_id: LocalStorage.getItem("issuer_id"),
                     product: '',
                     image: null,
                     barcode: '',
@@ -237,7 +237,18 @@
                     ncm: '',
                     cest: '',
                     unit: 'UN',
-                    issuer_id: LocalStorage.getItem("issuer_id")
+                    
+                    origem_icms: '',
+                    icms_ecf: '',
+                    taxable_amount: '',
+                    taxable_unit: '',
+                    tax_benefit: '',
+                    cod_ipi: '',
+                    aliquot_ipi: 0,
+                    cod_pis: '',
+                    aliquot_pis: 0,
+                    cod_cofins: '',
+                    aliquot_cofins: 0,
 
                 },
 
@@ -261,7 +272,7 @@
 
             getCSOSNCST(csosncst_event)
             {
-
+                
             },
 
             async onSubmit()

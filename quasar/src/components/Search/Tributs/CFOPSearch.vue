@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="flex justify-between border-b w-96">
+        <div class="flex justify-between border-b w-96 z-50">
             <q-input 
                 type="text"
                 v-model="ncm"
@@ -30,10 +30,10 @@
         </div>
         <div
             v-if="showNCMs"
-            class="overflow-y-scroll h-96"
+            class="w-96 overflow-y-scroll h-96 z-50"
         >
             <div v-if="searchedNCM.length <= 0">
-                <ul v-for="ncm in ncms" class="view-ncms w-full bg-slate-800">
+                <ul v-for="ncm in ncms" class="view-ncms z-50 w-full bg-gray-700 ">
                     <li 
                     class="w-max text-white p-2 cursor-pointer hover:bg-slate-400"
                     @click="selectNCM(ncm)"
@@ -54,6 +54,7 @@
                 </li>
             </ul>
         </div>
+        
     </div>
 </template>
 
