@@ -11,6 +11,6 @@ Route::get('/', function(){
 
 Route::get('/reset-password/{token}', function (string $token) {
     Log::info('Bateu no: /reset-passowrd/{token}');
-    return redirect()->away("http://192.168.48.204:9000/reset-password/$token");
+    return redirect()->away("http://192.168.98.18:9000/reset-password/$token");
 
 })->name('password.reset');

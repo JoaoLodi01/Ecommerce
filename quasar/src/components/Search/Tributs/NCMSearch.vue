@@ -1,8 +1,7 @@
 <template>
     <div>
-        <div class="flex justify-between border-b w-96 z-50">
+        <div class="flex justify-between border-b w-96">
             <q-input 
-                type="text"
                 v-model="ncm"
                 @update:model-value="searchNCM"
                 :disable="ncms.length <= 0"
@@ -30,10 +29,10 @@
         </div>
         <div
             v-if="showNCMs"
-            class="w-96 overflow-y-scroll h-96 z-50"
+            class="overflow-y-scroll h-96"
         >
             <div v-if="searchedNCM.length <= 0">
-                <ul v-for="ncm in ncms" class="view-ncms z-50 w-full bg-gray-700 ">
+                <ul v-for="ncm in ncms" class="view-ncms w-full bg-slate-800">
                     <li 
                     class="w-max text-white p-2 cursor-pointer hover:bg-slate-400"
                     @click="selectNCM(ncm)"
@@ -54,7 +53,6 @@
                 </li>
             </ul>
         </div>
-        
     </div>
 </template>
 
@@ -66,20 +64,36 @@
     let ncms = ref([])
     let searchedNCM = ref([]);
     let showNCMs = ref(false)
-    let search = ref(null)
+    let search_ = ref('')
     let ncm = ref('')
 
     const issuer_id = LocalStorage.getItem("issuer_id");
     
     const searchNCM = async () => {
-        console.log(search.value.length)
-        if(search.value.length >= 2)
+        console.log('ncm.value', ncm.value)
+        search_.value = ncm.value
+        console.log('search.value', search_.value)
+        if(search_.value)
         {
-            search.value = ncm.value
-            const response = await api.post(`ecommerce/tributs/search`, {
-                issuer_id: issuer_id,
-                search: search.value
-            });
+            if(search_.value.length >= 2)
+            {
+                const response = await api.post(`ecommerce/tributs/search`, {
+                    issuer_id: issuer_id,
+                    search: search_.value
+
+                });
+                
+            } 
+            
+            if(ncm.value.length >= 2) 
+            {
+                const response = await api.post(`ecommerce/tributs/search`, {
+                    issuer_id: issuer_id,
+                    search: search_.value
+
+                });
+                
+            }   
 
             console.log(response.data.ncm)
             searchedNCM = response.data.ncm
@@ -99,7 +113,7 @@
     const showAllNCMs = () => {
         showNCMs.value = !showNCMs.value
         searchedNCM = []
-        search = null
+        search_ = null
     }
 
     const getAllNCMs = async () => { 

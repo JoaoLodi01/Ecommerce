@@ -29,10 +29,11 @@ class CashRegisterRequest extends FormRequest
             'document' => [$required, 'integer'],
             'customer_id' => [$required, 'integer'],
             'especie_id' => [$required, 'integer'],
+            'user_id' => ['required'],
+            'origem' =>  ['required'],
             'date_register' => [$required, 'date'],
             'input_value' => [$required, 'numeric'],
             'output_value' => [$required, 'numeric'],
-            'user_id' => ['required'],
         ];
     }
 

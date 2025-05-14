@@ -1,97 +1,437 @@
-[2025-05-14 16:11:02] local.INFO: Iniciou getAll UserRepository  
-[2025-05-14 16:11:02] local.INFO: Buscando por emitente  
-[2025-05-14 16:11:02] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:11:02] local.INFO: Buscando usuários  
-[2025-05-14 16:11:02] local.INFO: Terminou  
-[2025-05-14 16:11:50] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:11:50] local.INFO: Buscando por emitente  
-[2025-05-14 16:11:50] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:11:50] local.INFO: Buscando espécies  
-[2025-05-14 16:11:50] local.INFO: Terminou  
-[2025-05-14 16:12:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-14 16:12:01] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-14 16:12:02] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-14 16:12:03] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-14 16:12:03] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-14 16:12:03] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:12:03] local.INFO: Buscando por emitente  
-[2025-05-14 16:12:03] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:12:03] local.INFO: Buscando espécies  
-[2025-05-14 16:12:03] local.INFO: Terminou  
-[2025-05-14 16:12:04] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:12:04] local.INFO: Buscando por emitente  
-[2025-05-14 16:12:04] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:12:04] local.INFO: Buscando espécies  
-[2025-05-14 16:12:04] local.INFO: Terminou  
-[2025-05-14 16:12:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672
-[2025-05-14 16:14:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-14 16:14:13] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-14 16:14:56] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:14:56] local.INFO: Buscando por emitente  
-[2025-05-14 16:14:56] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:14:56] local.INFO: Buscando espécies  
-[2025-05-14 16:14:56] local.INFO: Terminou  
-[2025-05-14 16:14:59] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-14 16:15:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-14 16:15:01] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-14 16:15:01] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:15:01] local.INFO: Buscando por emitente  
-[2025-05-14 16:15:01] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:15:01] local.INFO: Buscando espécies  
-[2025-05-14 16:15:01] local.INFO: Terminou  
-[2025-05-14 16:15:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-14 16:15:17] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:15:17] local.INFO: Buscando por emitente  
-[2025-05-14 16:15:17] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:15:17] local.INFO: Buscando espécies  
-[2025-05-14 16:15:17] local.INFO: Terminou  
-[2025-05-14 16:15:17] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-14 16:15:17] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-14 16:15:43] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-14 16:15:45] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-14 16:15:45] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-14 16:15:46] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:15:46] local.INFO: Buscando por emitente  
-[2025-05-14 16:15:46] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:15:46] local.INFO: Buscando espécies  
-[2025-05-14 16:15:46] local.INFO: Terminou  
-[2025-05-14 16:16:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-14 16:16:10] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-14 16:16:10] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:16:10] local.INFO: Buscando por emitente  
-[2025-05-14 16:16:10] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:16:10] local.INFO: Buscando espécies  
-[2025-05-14 16:16:10] local.INFO: Terminou  
-[2025-05-14 16:18:09] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:18:09] local.INFO: Buscando por emitente  
-[2025-05-14 16:18:09] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:18:09] local.INFO: Buscando espécies  
-[2025-05-14 16:18:09] local.INFO: Terminou  
-[2025-05-14 16:18:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-14 16:18:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-14 16:18:13] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-14 16:18:14] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:18:14] local.INFO: Buscando por emitente  
-[2025-05-14 16:18:14] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:18:14] local.INFO: Buscando espécies  
-[2025-05-14 16:18:14] local.INFO: Terminou  
-[2025-05-14 16:18:25] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
-[2025-05-14 16:18:25] local.INFO: array (
+[2025-05-14 16:47:34] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:47:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:47:36] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:47:37] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:47:37] local.INFO: Buscando por emitente  
+[2025-05-14 16:47:37] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:47:37] local.INFO: Buscando espécies  
+[2025-05-14 16:47:37] local.INFO: Terminou  
+[2025-05-14 16:47:42] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 16:47:42] local.INFO: array (
   0 => 
   array (
     'issuer_id' => 1,
     'description' => 'Registro Manual',
     'document' => 1,
     'customer_id' => 1,
-    'especie_id' => 0,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
     'date_register' => '2025-05-14',
     'input_value' => 100,
     'output_value' => 0,
-    'user_id' => 1,
   ),
 )  
-[2025-05-14 16:19:47] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-14 16:19:47] local.INFO: Buscando por emitente  
-[2025-05-14 16:19:47] local.INFO: Cod. emitente: 1  
-[2025-05-14 16:19:47] local.INFO: Buscando espécies  
-[2025-05-14 16:19:47] local.INFO: Terminou  
+[2025-05-14 16:47:42] local.INFO: Vai criar 1 registro:   
+[2025-05-14 16:47:42] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:47:42] local.INFO: Não foi encontrado um registro anterior do segundo registro no caixa  
+[2025-05-14 16:47:42] local.INFO: $lastCashBoxashBox 2  
+[2025-05-14 16:47:42] local.INFO: {"id":7,"cash_register_cod":1,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-14","input_value":"100.00","output_value":"0.00","real_balance":"100.00","origem":"Caixa (Manual)","user_id":1,"seller":"Jo\u00e3o","canceled":0}  
+[2025-05-14 16:47:42] local.INFO: $actualCashBox 2  
+[2025-05-14 16:47:42] local.INFO:   
+[2025-05-14 16:47:42] local.INFO: Vai retornar  
+[2025-05-14 16:48:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:48:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:49:39] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:49:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:49:44] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:49:51] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:50:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:50:38] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:51:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:51:33] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:51:33] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:51:33] local.INFO: Buscando por emitente  
+[2025-05-14 16:51:33] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:51:33] local.INFO: Buscando espécies  
+[2025-05-14 16:51:33] local.INFO: Terminou  
+[2025-05-14 16:51:37] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 16:51:37] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:51:37] local.INFO: Vai criar 1 registro:   
+[2025-05-14 16:51:37] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:51:37] local.INFO: Novo valor: R$ 100.00 + 100.00 = 200  
+[2025-05-14 16:51:42] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:53:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:53:14] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:53:15] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:53:15] local.INFO: Buscando por emitente  
+[2025-05-14 16:53:15] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:53:15] local.INFO: Buscando espécies  
+[2025-05-14 16:53:15] local.INFO: Terminou  
+[2025-05-14 16:53:19] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 16:53:19] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:53:19] local.INFO: Vai criar 1 registro:   
+[2025-05-14 16:53:19] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:53:19] local.INFO: Novo valor: R$ 100.00 + 100.00 = 200  
+[2025-05-14 16:53:37] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:54:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:54:40] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:54:40] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:54:40] local.INFO: Buscando por emitente  
+[2025-05-14 16:54:40] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:54:40] local.INFO: Buscando espécies  
+[2025-05-14 16:54:40] local.INFO: Terminou  
+[2025-05-14 16:54:44] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 16:54:44] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 12,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:54:44] local.INFO: Vai criar 1 registro:   
+[2025-05-14 16:54:44] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 12,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:54:44] local.INFO: Novo valor: R$ 100.00 + 12.00 = 112  
+[2025-05-14 16:55:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:55:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:55:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:55:14] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:55:15] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:55:15] local.INFO: Buscando por emitente  
+[2025-05-14 16:55:15] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:55:15] local.INFO: Buscando espécies  
+[2025-05-14 16:55:15] local.INFO: Terminou  
+[2025-05-14 16:55:19] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 16:55:19] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 12,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:55:19] local.INFO: Vai criar 1 registro:   
+[2025-05-14 16:55:19] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 12,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:55:19] local.INFO: Novo valor: R$ 12.00 + 12.00 = 24  
+[2025-05-14 16:55:20] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:56:29] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:56:29] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:56:29] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:56:29] local.INFO: Buscando por emitente  
+[2025-05-14 16:56:29] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:56:29] local.INFO: Buscando espécies  
+[2025-05-14 16:56:29] local.INFO: Terminou  
+[2025-05-14 16:56:35] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:56:38] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:56:38] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:56:39] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:56:39] local.INFO: Buscando por emitente  
+[2025-05-14 16:56:39] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:56:39] local.INFO: Buscando espécies  
+[2025-05-14 16:56:39] local.INFO: Terminou  
+[2025-05-14 16:56:45] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 16:56:45] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 0,
+    'output_value' => 100,
+  ),
+)  
+[2025-05-14 16:56:45] local.INFO: Vai criar 1 registro:   
+[2025-05-14 16:56:45] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 0,
+    'output_value' => 100,
+  ),
+)  
+[2025-05-14 16:56:45] local.INFO: Novo valor: R$ 12.00 + 0.00 = 12  
+[2025-05-14 16:56:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 16:59:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 16:59:10] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 16:59:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 16:59:10] local.INFO: Buscando por emitente  
+[2025-05-14 16:59:10] local.INFO: Cod. emitente: 1  
+[2025-05-14 16:59:10] local.INFO: Buscando espécies  
+[2025-05-14 16:59:10] local.INFO: Terminou  
+[2025-05-14 16:59:32] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 16:59:32] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:59:32] local.INFO: Vai criar 1 registro:   
+[2025-05-14 16:59:32] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 16:59:32] local.INFO: Novo valor: R$ 0.00 + 100.00 = 100  
+[2025-05-14 16:59:32] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 17:01:51] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 17:02:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 17:03:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 17:03:59] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 17:04:01] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 17:05:04] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 17:05:04] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 17:05:04] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 17:05:04] local.INFO: Buscando por emitente  
+[2025-05-14 17:05:04] local.INFO: Cod. emitente: 1  
+[2025-05-14 17:05:04] local.INFO: Buscando espécies  
+[2025-05-14 17:05:04] local.INFO: Terminou  
+[2025-05-14 17:05:17] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 17:05:17] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 3,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 0,
+    'output_value' => 1000,
+  ),
+)  
+[2025-05-14 17:05:17] local.INFO: Vai criar 1 registro:   
+[2025-05-14 17:05:17] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 3,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 0,
+    'output_value' => 1000,
+  ),
+)  
+[2025-05-14 17:05:17] local.INFO: Novo valor: R$ 100.00 + 0.00 = 100  
+[2025-05-14 17:05:18] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 17:05:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 17:05:36] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 17:05:36] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 17:05:36] local.INFO: Buscando por emitente  
+[2025-05-14 17:05:36] local.INFO: Cod. emitente: 1  
+[2025-05-14 17:05:36] local.INFO: Buscando espécies  
+[2025-05-14 17:05:36] local.INFO: Terminou  
+[2025-05-14 17:06:01] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 17:06:01] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 500,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 17:06:01] local.INFO: Vai criar 1 registro:   
+[2025-05-14 17:06:01] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 500,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 17:06:01] local.INFO: Novo valor: R$ 0.00 + 500.00 = 500  
+[2025-05-14 17:06:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 17:06:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 17:06:08] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 17:06:09] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 17:06:09] local.INFO: Buscando por emitente  
+[2025-05-14 17:06:09] local.INFO: Cod. emitente: 1  
+[2025-05-14 17:06:09] local.INFO: Buscando espécies  
+[2025-05-14 17:06:09] local.INFO: Terminou  
+[2025-05-14 17:06:16] local.INFO: -- Vai iniciar criação no CAIXA, dados: --  
+[2025-05-14 17:06:16] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 4,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 200,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 17:06:16] local.INFO: Vai criar 1 registro:   
+[2025-05-14 17:06:16] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 4,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-14',
+    'input_value' => 200,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-14 17:06:16] local.INFO: Novo valor: R$ 500.00 + 200.00 = 700  
+[2025-05-14 17:06:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  

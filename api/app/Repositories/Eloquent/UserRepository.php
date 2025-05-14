@@ -40,7 +40,8 @@ class UserRepository
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'access' => $data['access']
+            'access' => $data['access'],
+            'is_owner' => 0,
 
         ]);
     }

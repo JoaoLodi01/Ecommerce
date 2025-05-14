@@ -18,7 +18,7 @@ class ForgotPasswordController extends Controller
 {
     public function forgotPassword(Request $request)
     {
-        Log::info('ForgotPasswordController:class, forgotPassword');
+        Log::info('ForgotPasswordController::class, forgotPassword');
         $request->validate(['email' => 'required|email']);
     
         try {
@@ -33,6 +33,7 @@ class ForgotPasswordController extends Controller
                                             'message' => 'Enviando e-mail',
                                             'status' => $status
                                         ], 200)
+
                                         : response()->json([
                                             'success' => false, 
                                             'message' => 'Erro ao enviar e-mail',
@@ -50,7 +51,7 @@ class ForgotPasswordController extends Controller
 
     public function resetPassowrd(Request $request)
     {
-        Log::info('ForgotPasswordController:class, resetPassowrd');
+        Log::info('ForgotPasswordController::class, resetPassowrd');
         $request->validate([
             'token' => ['required'],
             'email' => ['required', 'email'],

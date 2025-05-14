@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('password', 120);
             $table->string('perfil_photo', 120)->nullable();
             $table->string('access', 20)->nullable();
+            $table->boolean('is_owner', 1);
             $table->boolean('active')->default(1);
             $table->rememberToken();
             $table->timestamps();

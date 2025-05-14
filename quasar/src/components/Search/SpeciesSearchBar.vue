@@ -10,6 +10,7 @@
         map-options
         class="w-96"
         color="grey"
+        @update:model-value="setSpecies"
       />
     </div>
   </template>
@@ -44,7 +45,7 @@
       setSpecies(specie){
         this.speciesData.id = specie.id;
         this.speciesData.especie = specie.especie;
-        this.$emit('update:selectSpecie', this.speciesData)
+        this.$emit('selectSpecie', this.speciesData)
       },
 
     },

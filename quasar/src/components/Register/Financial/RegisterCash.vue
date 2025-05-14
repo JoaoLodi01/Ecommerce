@@ -39,7 +39,7 @@
             />
             
             <SpeciesSearchBar
-                @updated:selectSpecie="getSpecie($event)"
+                @selectSpecie="getSpecie($event)"
             />
 
             <q-input 
@@ -140,6 +140,7 @@ export default {
                 output_value: 0,
                 total_amount: 0,
                 obs: "",
+                origem: 'Caixa (Manual)'
             },
         };
     },
@@ -194,7 +195,7 @@ export default {
         },
 
         async submitForm() {
-            console.log("Dados enviados!", this.form.issuer_cod);
+            console.log("Dados enviados!", this.form);
             try {
                 const response = await api.post('/ecommerce/cash-register/create',
                     {
@@ -207,11 +208,14 @@ export default {
                     input_value: this.parseCurrency(this.form.input_value),
                     output_value: this.parseCurrency(this.form.output_value),
                     user_id: LocalStorage.getItem("user_id"),
+                    origem: this.form.origem,
                     }
                 );
 
                 this.onReset();
                 console.log("Dados enviados!", response);
+                
+                response.data.success ? this.close() : alert('Fodeu kkj')
             } catch (error) {
                 console.error(error);
                 alert("Ocorreu um erro ao cadastrar o registro");
