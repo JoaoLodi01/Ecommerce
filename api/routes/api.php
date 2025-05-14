@@ -116,7 +116,7 @@ Route::prefix('v1')->group( function (){
 
             });
         });
-        Route::prefix('payments')->group( function(){
+        Route::prefix('species')->group( function(){
             Route::get('/all/{issuer_id}', [PaymentsController::class, 'getAll']);
             Route::post('/create', [PaymentsController::class, 'store']);
             Route::get('/{id}', [PaymentsController::class, 'findByID']);

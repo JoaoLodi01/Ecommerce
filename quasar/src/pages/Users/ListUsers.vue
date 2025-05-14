@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border border-b-black" v-for="(user, id) in users" :key="id">
+                    <tr v-for="(user, id) in users" :key="id">
                         <td scope="row" class="px-6 py-3 text-center">{{ user.id }}</td>
                         <td scope="row" class="px-6 py-3 text-center">{{ user.name }}</td>
                         <td scope="row" class="px-6 py-3 text-center">{{ user.access }}</td>
@@ -56,10 +56,10 @@
         methods: {
             async getUsers(){
                 try {
-                    const response = await api.get(`/users/all/${LocalStorage.getItem("issuer_id")}`)
-                    this.users = response.data;
+                    const response = await api.get(`/users/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
+                    this.users = response.data.all
 
-                    Console.log('Busca concluída: '. $users);
+                    Console.log('Busca concluída: ', response.data);
                 } catch (error) {
                     if (!this.users || this.users === 0){
                         alert('Nenhuma informação encontrada!');
@@ -73,6 +73,10 @@
                 this.showUpdateUsers = true
             },
 
+        },
+
+        mounted() {
+            this.getUsers()
         },
     }
 

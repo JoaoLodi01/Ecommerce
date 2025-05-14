@@ -17,8 +17,8 @@ class UserController extends Controller
     )
     {}
 
-    public function getAll(){
-        return $this->userService->getAll();
+    public function getAll(int $issuer_id){
+        return $this->userService->getAll($issuer_id);
     }
 
     public function create(UserRequest $request){

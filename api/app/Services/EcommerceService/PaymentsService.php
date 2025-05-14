@@ -13,7 +13,10 @@ class PaymentsService
 
     public function getAll(int $issuer_id){
         try {
-            return $this->paymentsRepository->getAll($issuer_id);
+            return response()->json([
+                'success' => true,
+                'all' => $this->paymentsRepository->getAll($issuer_id)
+            ]);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }

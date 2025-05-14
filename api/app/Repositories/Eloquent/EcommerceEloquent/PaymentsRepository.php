@@ -13,16 +13,19 @@ class PaymentsRepository
         Log::info("Buscando por emitente");
         $issuer = Issuer::where('id', $issuer_id)->first();
 
-        Log::info('Resultado: '. $issuer);
-        if(empty($issuer)){
+        if(!$issuer){
             return [
                 'success' => false,
                 'message' => 'Emitente não encontrado',
             ];
         }
 
-        return PaymentForms::where('issuer_id', $issuer_id)->get();
-        Log::info('Resultado: '. $issuer_id);
+        Log::info('Cod. emitente: '. $issuer_id);
+        Log::info("Buscando espécies");
+        $species = PaymentForms::where('issuer_id', $issuer_id)->get();
+        Log::info("Terminou");
+
+        return $species;
     }
 
     public function findByID(array $data){
