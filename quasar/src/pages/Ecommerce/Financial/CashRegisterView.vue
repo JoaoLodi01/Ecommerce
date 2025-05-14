@@ -66,7 +66,7 @@
                         <th scope="col" class="px-6 py-3">Descrição</th>
                         <th scope="col" class="px-6 py-3">Valor entrada</th>
                         <th scope="col" class="px-6 py-3">Valor saída</th>
-                        <th scope="col" class="px-6 py-3">Total</th>
+                        <th scope="col" class="px-6 py-3">Saldo</th>
                         <th scope="col" class="px-6 py-3">Cliente</th>
                         <th scope="col" class="px-6 py-3">Cód Espécie</th>
                         <th scope="col" class="px-6 py-3">Espécie</th>
@@ -75,29 +75,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border border-b-black" v-for="(register, id) in cashs" :key="id">
+                    <tr class="border border-gray-200" v-for="(register, id) in cashs" :key="id">
                         <td
                             scope="row"
                             class="px-6 py-3 sticky right-0"
                         >
-                            <span class='p-4 rounded-xl' :class="{
-                                'bg-green-200': register.input_value > 0,
-                                'bg-red-200': register.input_value < 1,
+                            <span class='p-3 rounded-xl' :class="{
+                                'bg-green-400': register.input_value > 0,
+                                'bg-red-500': register.input_value < 1,
                             }">
                                 {{ register.input_value > 0 ? 'Entrada' : 'Saída'}}
 
                             </span>
                         </td>
-                        <td scope="row" class="px-6 py-3 text-center">{{ register.id }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ register.cash_register_cod}}</td>
                         <td scope="row" class="px-6 py-3 text-center">{{ register.document }}</td>
-                        <td scope="row" class="px-3 py-4">{{ register.description }}</td>
+                        <td scope="row" class="px-3 py-4 text-center">{{ register.description }}</td>
                         <td scope="row" class="px-5 py-3 text-center">R$ {{ register.input_value }}</td>
-                        <td scope="row" class="px-6 py-3 text-center">{{ register.output_value }}</td>
-                        <td scope="row" class="px-6 py-3 text-center">{{ register.real_balance }}</td>
-                        <td scope="row" class="px-6 py-3">{{ register.name }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">R$ {{ register.output_value }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">R$ {{ register.real_balance }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ register.name }}</td>
                         <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
-                        <td scope="row" class="px-6 py-3">{{ register.especie }}</td>
-                        <td scope="row" class="px-6 py-3">{{ register.origem.toUpperCase() }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ register.especie }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3">
                         <q-btn @click="transferRegister(register)" class="">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -181,7 +181,7 @@
                 this.showLoading()
                 try {
                     const response = await api.get(`/ecommerce/cash-register/all/${LocalStorage.getItem("issuer_id")}`)
-                    this.cashs = Array.isArray(response.data.cash) ? response.data.cash : [];
+                    this.cashs = response.data.all
 
                     this.input_total = 0;
                     this.output_total = 0;
@@ -191,7 +191,8 @@
                         this.output_total += Number(element.output_value)
                     
                     });
-                    this.total = this.input_total - this.output_total                
+                    this.total = this.input_total - this.output_total
+
                 } catch (error) {
                     console.error("Erro ao buscar registros: ", error)
                     
@@ -213,6 +214,7 @@
             },
 
             closeRegister(event){
+                this.getRegister()
                 this.showCashClosing = event
             },
         },

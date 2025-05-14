@@ -1,8 +1,9 @@
 <template>
-    <div class="mr-14 mt-5 mb-5 p-6 bg-white rounded" :class="{
-        'relative top-12 left-12': widthScreen <= 1080,
-        'ml-14': widthScreen > 1080
-    }">
+    <div class="mr-14 mt-5 mb-5 p-6 bg-white rounded"
+        :class="{
+            'relative top-12 left-12': widthScreen <= 1080,
+            'ml-14': widthScreen > 1080
+        }">
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Registro Financeiro</h2>
 
         <form 
@@ -38,7 +39,7 @@
             />
             
             <SpeciesSearchBar
-                @updated:selectSpecie="getSpecie($event)"
+                @selectSpecie="getSpecie($event)"
             />
 
             <q-input 
@@ -194,7 +195,7 @@ export default {
         },
 
         async submitForm() {
-            console.log("Dados enviados!", this.form.issuer_cod);
+            console.log("Dados enviados!", this.form);
             try {
                 const response = await api.post('/ecommerce/cash-register/create',
                     {
@@ -207,11 +208,14 @@ export default {
                     input_value: this.parseCurrency(this.form.input_value),
                     output_value: this.parseCurrency(this.form.output_value),
                     user_id: LocalStorage.getItem("user_id"),
+                    origem: this.form.origem,
                     }
                 );
 
                 this.onReset();
                 console.log("Dados enviados!", response);
+                
+                response.data.success ? this.close() : alert('Fodeu kkj')
             } catch (error) {
                 console.error(error);
                 alert("Ocorreu um erro ao cadastrar o registro");

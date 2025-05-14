@@ -11,8 +11,16 @@ class UserService
     )
     {}
 
-    public function getAll(){
-        return $this->userRepository->getAll();
+    public function getAll(int $issuer_id){
+        try {
+            return response()->json([
+                'success' => true,
+                'all' => $this->userRepository->getAll($issuer_id)
+            ]); 
+        } catch (\Throwable $th) {
+            return $this->returnResponse($th);
+        }
+        
     }
 
     public function findById(int $id){

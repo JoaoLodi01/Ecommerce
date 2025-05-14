@@ -123,11 +123,15 @@ class ProductsRepository
             'cost_price' => $data['cost_price'],
             'sale_price' => $data['sale_price'],
             'profit_percentage' => $data['profit_percentage'],
-            'cfop' => $data['cfop'],
-            'csosncst' => $data['csosncst'],
+            'unit' => $data['unit'],
+            
+
+            // Tributs
             'ncm' => $data['ncm'],
             'cest' => $data['cest'],
-            'unit' => $data['unit']
+            'cfop' => $data['cfop'],            
+            'csosncst' => $data['csosncst'],
+            'cod_origem_icms' => $data['cod_origem_icms']
 
         ]);
     }

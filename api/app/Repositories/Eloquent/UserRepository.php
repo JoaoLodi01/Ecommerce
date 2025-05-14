@@ -2,16 +2,31 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Models\Registers\Issuer;
 use App\Models\Registers\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class UserRepository
 {
-    public function getAll(){
-        return User::where('active', 1)
-                    ->get();
+    public function getAll(int $issuer_id){
+        Log::info("Iniciou getAll UserRepository");
+        Log::info("Buscando por emitente");
+        $issuer = Issuer::where('id', $issuer_id)->first();
+
+        if(!$issuer){
+            return [
+                'success' => false,
+                'message' => 'Emitente não encontrado',
+            ];
+        }
         
-        
+        Log::info('Cod. emitente: '. $issuer_id);
+        Log::info("Buscando usuários");
+        $users = User::where('issuer_id', $issuer_id)->get();
+        Log::info("Terminou");
+
+        return $users;
     }
 
     public function findByID(int $id)

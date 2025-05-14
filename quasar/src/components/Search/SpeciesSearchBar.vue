@@ -10,6 +10,7 @@
         map-options
         class="w-96"
         color="grey"
+        @update:model-value="setSpecies"
       />
     </div>
   </template>
@@ -33,8 +34,8 @@
       async selectSpecies() {
         console.log(this.speciesData.especie)
         try {
-          const response = await api.get(`payments/all/${LocalStorage.getItem('issuer_id')}`)
-          this.filteredSpecies = response.data
+          const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
+          this.filteredSpecies = response.data.all
 
         } catch (error) {
           console.error('Erro ao carregar espécies:', error)
@@ -44,7 +45,7 @@
       setSpecies(specie){
         this.speciesData.id = specie.id;
         this.speciesData.especie = specie.especie;
-        this.$emit('update:selectSpecie', this.speciesData)
+        this.$emit('selectSpecie', this.speciesData)
       },
 
     },

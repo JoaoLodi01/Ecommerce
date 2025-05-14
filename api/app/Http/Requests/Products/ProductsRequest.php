@@ -32,6 +32,7 @@ class ProductsRequest extends FormRequest
             'cest' => [$required, 'numeric'],
             'unit' => [$required, 'string'],
 
+            'cod_origem_icms' => [$required, 'string'],
             'origem_icms' => [$required, 'string'],
             'icms_ecf' => ['required', 'min:1'],
             'taxable_amount' => ['sometimes'],

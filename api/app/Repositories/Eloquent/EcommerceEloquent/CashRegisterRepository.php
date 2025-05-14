@@ -2,7 +2,10 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
+use App\Models\Customer;
 use App\Models\EcommerceModels\CashRegister;
+use App\Models\EcommerceModels\PaymentForms;
+use App\Models\Registers\User;
 use Illuminate\Support\Facades\Log;
 class CashRegisterRepository
 {
@@ -24,7 +27,11 @@ class CashRegisterRepository
         Log::info('-- Vai iniciar criação no CAIXA, dados: --');
         Log::info($cashRegisters);
 
-        $cashRegisterCod = CashRegister::where('issuer_id', $cashRegisters['issuer_id'])->max('cash_register_cod');
+        $user = User::where('issuer_id', $cashRegisters[0]['issuer_id'])->first();
+        $customer = Customer::where('issuer_id', $cashRegisters[0]['issuer_id'])->first();
+        $nameCustomer = $customer->company_name ? $customer->company_name : $customer->trade_name;
+        $specie = PaymentForms::where('issuer_id', $cashRegisters[0]['issuer_id'])->first();
+        $cashRegisterCod = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])->max('cash_register_cod');
         $newCod = $cashRegisterCod ? $cashRegisterCod + 1 : 1;
 
         if(count($cashRegisters) >= 2)
@@ -42,15 +49,15 @@ class CashRegisterRepository
                     'document' => $cashRegisters[$i]['document'],
                     'pdv_id' => $cashRegisters[$i]['pdv_id'],
                     'customer_id' => $cashRegisters[$i]['customer_id'],
-                    'name' => $cashRegisters[$i]['name'],
-                    'especie_id' => $cashRegisters[$i]['especie_id'],
-                    'especie' => $cashRegisters[$i]['especie'],
+                    'name' => $cashRegisters[$i]['name'] ?? $nameCustomer,
+                    'especie_id' => $cashRegisters[$i]['especie_id'] ?? $specie->payment_cod,
+                    'especie' => $cashRegisters[$i]['especie'] ?? $specie->especie,
                     'date_register' => $cashRegisters[$i]['date_register'],
                     'input_value' => $cashRegisters[$i]['input_value'],
                     'output_value' => $cashRegisters[$i]['output_value'],
                     'origem' => $cashRegisters[$i]['origem'],
                     'user_id' => $cashRegisters[$i]['user_id'],
-                    'seller' => $cashRegisters[$i]['seller'],
+                    'seller' => $cashRegisters[$i]['seller'] ?? $user->name,
                     
                 ]);
 
@@ -67,17 +74,17 @@ class CashRegisterRepository
                     'issuer_id' => $cashRegisters[0]['issuer_id'],
                     'description'  => $cashRegisters[0]['description'],
                     'document' => $cashRegisters[0]['document'],
-                    'pdv_id' => $cashRegisters[0]['pdv_id'],
+                    'pdv_id' => $cashRegisters[0]['pdv_id'] ?? null,
                     'customer_id' => $cashRegisters[0]['customer_id'],
-                    'name' => $cashRegisters[0]['name'],
-                    'especie_id' => $cashRegisters[0]['especie_id'],
-                    'especie' => $cashRegisters[0]['especie'],
+                    'name' => $cashRegisters[0]['name'] ?? $nameCustomer,
+                    'especie_id' => $cashRegisters[0]['especie_id'] ?? $specie->payment_cod,
+                    'especie' => $cashRegisters[0]['especie'] ?? $specie->especie,
                     'date_register' => $cashRegisters[0]['date_register'],
                     'input_value' => $cashRegisters[0]['input_value'],
                     'output_value' => $cashRegisters[0]['output_value'],
                     'origem' => $cashRegisters[0]['origem'],
                     'user_id' => $cashRegisters[0]['user_id'],
-                    'seller' => $cashRegisters[0]['seller'],
+                    'seller' => $cashRegisters[0]['seller'] ?? $user->name,
                     
                 ]);
                 
