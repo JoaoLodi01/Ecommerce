@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="flex justify-between border-b w-96">
+        <div class="flex justify-between ml-2">
             <q-input 
                 v-model="ncm"
                 @update:model-value="searchNCM"
                 :disable="ncms.length <= 0"
-                class="w-80"
+                class="q-input border-b"
                 color="grey-7"
                 placeholder="Selecione o NCM"
                 
@@ -139,6 +139,9 @@
     .view-ncms{
         width: 425vh;
     }
-
+    
+    .q-input {
+        width: 92%;
+    }
 
 </style>

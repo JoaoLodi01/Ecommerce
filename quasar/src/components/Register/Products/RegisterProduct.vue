@@ -131,20 +131,28 @@
 
                 />
 
+                <q-input
+                    v-model="productDetails.csosncst"
+                    type="text"
+                    label="CSOSN/CST"
+                    maxlength="3"
+                    minlength="3"
+                    color="grey-7"
+                    class="m-2"
+
+                />
+
                 <NCMSearch
                     @selected="getNCM"
 
                 />
 
-                <q-input
-                    v-model="productDetails.csosncst"
-                    type="text"
-                    label="CSOSN/CST"
+                <q-select 
+                    v-model="productDetails.origem_icms" 
+                    :options="origensICMS" 
+                    label="Origem ICMS" 
                     color="grey-7"
-                    maxlength="3"
-                    minlength="3"
                     class="m-2"
-
                 />
 
             </div>
@@ -188,6 +196,18 @@
                 }
             })
             return {
+                origensICMS: [
+                    { label: '0 - Nacional', value: '0' },
+                    { label: '1 - Estrangeira - Importação direta', value: '1' },
+                    { label: '2 - Estrangeira - Adquirida no mercado interno', value: '2' },
+                    { label: '3 - Nacional - Conteúdo de Importação > 40%', value: '3' },
+                    { label: '4 - Nacional - Processo produtivo básico', value: '4' },
+                    { label: '5 - Nacional - Conteúdo de Importação <= 40%', value: '5' },
+                    { label: '6 - Estrangeira - Importação direta sem similar nacional', value: '6' },
+                    { label: '7 - Estrangeira - Interna sem similar nacional', value: '7' },
+                    { label: '8 - Nacional - Conteúdo de Importação > 70%', value: '8' }
+                ],
+
                 showLoading () {
                     $q.loading.show({
                         message: `Criando produto ...`
