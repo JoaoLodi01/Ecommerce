@@ -58,9 +58,9 @@
 
         <div class="w-full max-w-[1600px] max-h-[600px] overflow-y-auto border rounded-lg shadow-lg">
             <table class="w-full table-auto border-collapse border border-gray-300 bg-white">
-                <thead class="text-center font-semibold sticky top-0 z-10">
+                <thead class="font-semibold sticky top-0 z-10">
                     <tr class="bg-blue-600 text-white">
-                        <th class="px-6 py-3">Código</th>
+                        <th class="px-6 py-3 text-center">Código</th>
                         <th class="px-6 py-3">Documento</th>
                         <th class="px-6 py-3">Descrição</th>
                         <th class="px-6 py-3">Valor entrada</th>
@@ -74,11 +74,10 @@
                         <th class="px-6 py-3">Ações</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center font-sans">
                     <tr class="border-b border-gray-200 text-center"
                         v-for="(register, id) in cashs"
                         :key="id">
-
                         <td class="px-6 py-3">{{ register.cash_register_cod }}</td>
                         <td class="px-6 py-3">{{ register.document }}</td>
                         <td class="px-6 py-3">{{ register.description }}</td>

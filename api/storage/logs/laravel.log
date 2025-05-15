@@ -1,209 +1,50 @@
-[2025-05-15 11:36:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 11:36:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 11:36:56] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 11:36:56] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 11:36:56] local.INFO: Buscando por emitente  
-[2025-05-15 11:36:56] local.INFO: Cod. emitente: 1  
-[2025-05-15 11:36:56] local.INFO: Buscando espécies  
-[2025-05-15 11:36:56] local.INFO: Terminou  
-[2025-05-15 11:37:05] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 11:37:05] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 3,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 100,
-    'output_value' => 0,
-  ),
-)  
-[2025-05-15 11:37:05] local.INFO: Buscando emitente: 1  
-[2025-05-15 11:37:05] local.INFO: Buscando usuário: {"id":1,"issuer_id":1,"name":"Jo\u00e3o","login":"joaolodi01@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T10:54:57.000000Z","updated_at":"2025-05-15T10:54:57.000000Z"}  
-[2025-05-15 11:37:05] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T10:55:27.000000Z","updated_at":"2025-05-15T10:55:27.000000Z"}  
-[2025-05-15 11:37:05] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 11:37:05] local.INFO: Vai criar 1 registro:   
-[2025-05-15 11:37:05] local.INFO: array (
-  'Dados' => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 3,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 100,
-    'output_value' => 0,
-  ),
-)  
-[2025-05-15 11:37:05] local.INFO: {"id":1,"issuer_id":1,"name":"Jo\u00e3o","login":"joaolodi01@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T10:54:57.000000Z","updated_at":"2025-05-15T10:54:57.000000Z"}  
-[2025-05-15 11:37:05] local.INFO: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T10:55:27.000000Z","updated_at":"2025-05-15T10:55:27.000000Z"}  
-[2025-05-15 11:37:05] local.INFO: Consumidor Padrão  
-[2025-05-15 11:37:05] local.INFO: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 11:37:05] local.INFO: Não foi encontrado um registro anterior do segundo registro no caixa  
-[2025-05-15 11:37:05] local.INFO: $lastCashBoxashBox 2  
-[2025-05-15 11:37:05] local.INFO: {"id":1,"cash_register_cod":1,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":3,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"100.00","output_value":"0.00","real_balance":"100.00","origem":"Caixa (Manual)","user_id":1,"seller":"Jo\u00e3o","canceled":0}  
-[2025-05-15 11:37:05] local.INFO: $actualCashBox 2  
-[2025-05-15 11:37:05] local.INFO:   
-[2025-05-15 11:37:05] local.INFO: Vai retornar  
-[2025-05-15 11:37:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 11:44:15] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 11:44:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 11:51:56] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 11:51:56] local.INFO: Buscando por emitente  
-[2025-05-15 11:51:56] local.INFO: Cod. emitente: 1  
-[2025-05-15 11:51:56] local.INFO: Buscando espécies  
-[2025-05-15 11:51:56] local.INFO: Terminou  
-[2025-05-15 11:51:56] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 11:51:56] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 11:52:02] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 11:52:02] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 2,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 100,
-    'output_value' => 0,
-  ),
-)  
-[2025-05-15 11:52:02] local.INFO: Buscando emitente: 1  
-[2025-05-15 11:52:02] local.INFO: Buscando usuário: {"id":1,"issuer_id":1,"name":"Jo\u00e3o","login":"joaolodi01@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T10:54:57.000000Z","updated_at":"2025-05-15T10:54:57.000000Z"}  
-[2025-05-15 11:52:02] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T10:55:27.000000Z","updated_at":"2025-05-15T10:55:27.000000Z"}  
-[2025-05-15 11:52:02] local.INFO: Buscando espécie:   
-[2025-05-15 11:52:02] local.INFO: Vai criar 1 registro:   
-[2025-05-15 11:52:02] local.INFO: array (
-  'Dados' => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 2,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 100,
-    'output_value' => 0,
-  ),
-)  
-[2025-05-15 11:52:02] local.INFO: {"id":1,"issuer_id":1,"name":"Jo\u00e3o","login":"joaolodi01@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T10:54:57.000000Z","updated_at":"2025-05-15T10:54:57.000000Z"}  
-[2025-05-15 11:52:02] local.INFO: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T10:55:27.000000Z","updated_at":"2025-05-15T10:55:27.000000Z"}  
-[2025-05-15 11:52:02] local.INFO: Consumidor Padrão  
-[2025-05-15 11:52:02] local.INFO:   
-[2025-05-15 11:52:20] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 11:52:23] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 11:52:23] local.INFO: Buscando por emitente  
-[2025-05-15 11:52:23] local.INFO: Cod. emitente: 1  
-[2025-05-15 11:52:23] local.INFO: Buscando espécies  
-[2025-05-15 11:52:23] local.INFO: Terminou  
-[2025-05-15 11:52:24] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 11:52:24] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 11:52:26] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 11:52:26] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 2,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 100,
-    'output_value' => 0,
-  ),
-)  
-[2025-05-15 11:52:26] local.INFO: Buscando emitente: 1  
-[2025-05-15 11:52:26] local.INFO: Buscando usuário: {"id":1,"issuer_id":1,"name":"Jo\u00e3o","login":"joaolodi01@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T10:54:57.000000Z","updated_at":"2025-05-15T10:54:57.000000Z"}  
-[2025-05-15 11:52:26] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T10:55:27.000000Z","updated_at":"2025-05-15T10:55:27.000000Z"}  
-[2025-05-15 11:52:26] local.INFO: Buscando espécie:   
-[2025-05-15 11:52:26] local.INFO: Vai criar 1 registro:   
-[2025-05-15 11:52:26] local.INFO: array (
-  'Dados' => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 2,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 100,
-    'output_value' => 0,
-  ),
-)  
-[2025-05-15 11:52:26] local.INFO: {"id":1,"issuer_id":1,"name":"Jo\u00e3o","login":"joaolodi01@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T10:54:57.000000Z","updated_at":"2025-05-15T10:54:57.000000Z"}  
-[2025-05-15 11:52:26] local.INFO: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T10:55:27.000000Z","updated_at":"2025-05-15T10:55:27.000000Z"}  
-[2025-05-15 11:52:26] local.INFO: Consumidor Padrão  
-[2025-05-15 11:52:26] local.INFO:   
-[2025-05-15 11:53:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 11:53:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 11:53:08] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 11:53:08] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 11:53:08] local.INFO: Buscando por emitente  
-[2025-05-15 11:53:08] local.INFO: Cod. emitente: 1  
-[2025-05-15 11:53:08] local.INFO: Buscando espécies  
-[2025-05-15 11:53:08] local.INFO: Terminou  
-[2025-05-15 11:53:13] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 11:53:13] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 2,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 100,
-    'output_value' => 0,
-  ),
-)  
-[2025-05-15 11:53:13] local.INFO: Buscando emitente: 1  
-[2025-05-15 11:53:13] local.INFO: Buscando usuário: {"id":1,"issuer_id":1,"name":"Jo\u00e3o","login":"joaolodi01@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T10:54:57.000000Z","updated_at":"2025-05-15T10:54:57.000000Z"}  
-[2025-05-15 11:53:13] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T10:55:27.000000Z","updated_at":"2025-05-15T10:55:27.000000Z"}  
-[2025-05-15 11:53:13] local.INFO: Buscando espécie: {"id":2,"payment_cod":2,"issuer_id":1,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 11:53:13] local.INFO: Vai criar 1 registro:   
-[2025-05-15 11:53:13] local.INFO: array (
-  'Dados' => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 2,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 100,
-    'output_value' => 0,
-  ),
-)  
-[2025-05-15 11:53:13] local.INFO: {"id":1,"issuer_id":1,"name":"Jo\u00e3o","login":"joaolodi01@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T10:54:57.000000Z","updated_at":"2025-05-15T10:54:57.000000Z"}  
-[2025-05-15 11:53:13] local.INFO: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T10:55:27.000000Z","updated_at":"2025-05-15T10:55:27.000000Z"}  
-[2025-05-15 11:53:13] local.INFO: Consumidor Padrão  
-[2025-05-15 11:53:13] local.INFO: {"id":2,"payment_cod":2,"issuer_id":1,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 11:53:13] local.INFO: Novo valor: R$ 100.00 + 100.00 = 200  
-[2025-05-15 11:53:14] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 11:53:18] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 11:53:18] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 11:53:18] local.INFO: ConfigController: $issuer_id 2  
-[2025-05-15 11:53:18] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 11:53:18] local.INFO: ConfigController: $issuer_id 2  
-[2025-05-15 11:53:19] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 11:53:19] local.INFO: ConfigController: $issuer_id 2  
+[2025-05-15 16:18:24] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 16:18:28] local.ERROR: App\Http\Controllers\EcommerceController\CashRegisterController::getAll(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\Code\ProjetoWeb\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":1,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\EcommerceController\\CashRegisterController::getAll(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\EcommerceController\\CashRegisterController.php:17)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\CashRegisterController->getAll()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#36 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#38 {main}
+"} 
+[2025-05-15 16:18:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 16:18:32] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 16:18:33] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 16:18:33] local.INFO: Buscando por emitente  
+[2025-05-15 16:18:33] local.INFO: Cod. emitente: 1  
+[2025-05-15 16:18:33] local.INFO: Buscando espécies  
+[2025-05-15 16:18:33] local.INFO: Terminou  

@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg"
+    <div class="container mx-auto mt-10 p-6 ml-20 bg-white rounded-lg shadow-lg"
         :class="{
             'relative top-12': widthScreen <= 1080
         }">
@@ -86,33 +86,36 @@
         <div
           v-for="product in products" :key="product.id"
           class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
-          @click="editProduct(product.product, product.id)"
         >
 
-          <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">ID:</span> {{ product.product_cod }}
-          </div>
+            <div 
+                @click="editProduct(product.product, product.id)"
+            >
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">ID:</span> {{ product.product_cod }}
+                </div>
 
-          <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">Produto:</span> {{ product.product }}
-          </div>
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">Produto:</span> {{ product.product }}
+                </div>
 
-          <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">Cód barras:</span> {{ product.barcode }}
-          </div>
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">Cód barras:</span> {{ product.barcode }}
+                </div>
 
-          <div class="text-sm text-gray-500 mb-2">
-            <span class="font-semibold">Quantidade:</span> {{ product.amount }}
-          </div>
+                <div class="text-sm text-gray-500 mb-4">
+                    <span class="font-semibold">Cód barras interno:</span> {{ product.barcode_internal }}
 
-          <div class="text-sm text-gray-500 mb-4">
-            <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
-          </div>
+                </div>
 
-          <div class="text-sm text-gray-500 mb-4">
-            <span class="font-semibold">teste imagem:</span>
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">Quantidade:</span> {{ product.amount }}
+                </div>
 
-          </div>
+                <div class="text-sm text-gray-500 mb-4">
+                    <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
+                </div>
+            </div>
 
           <!-- Ações -->
           <div class="flex space-x-2">
@@ -250,14 +253,14 @@
                 this.showReportProducts = true
                 this.showUpdateProduct = event
                 this.showRegisterProduct = event
-
+                this.getProducts();
             },
 
         },
 
         mounted() {
+
             this.getProducts();
-            
             this.widthScreen += screen.width
 
         },
@@ -266,7 +269,7 @@
             RegisterProduct,
             ReportProduct,
             UpdateProduct,
-            ProductsSearchBar
+            ProductsSearchBar,
 
         }
     };
@@ -288,3 +291,4 @@
 
     }
 </style>
+

@@ -15,7 +15,13 @@
         :class="{
             'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
         }">
-
+      <q-input
+          type="number" 
+          v-model="form.document" 
+          label="Nº Documento" 
+          color="grey-7" 
+      />
+      
       <q-input
         type="text"
         v-model="form.description"
@@ -140,17 +146,18 @@
     data() {
       return {
         form: {
-            description: "",
-            name: "",
+            description: "Registro Manual",
+            document: 1,
+            customer_id: 1,
             user: LocalStorage.getItem("user_name"),
-            cpf: "",
-            especie: "",
+            especie_id: 0,
             due_date: "",
             installment_number: "",
             installment_value: "",
             type_interest: "",
             interest_value: "",
             total_amount: ""
+            
         },
         api: process.env.VUE_APP_API_URL_ECOMMERCE,
       };

@@ -76,10 +76,7 @@ class CashRegisterRepository
         {
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             Log::info(['Dados' => $cashRegisters[0]]);
-            Log::info($user);
-            Log::info($customer);
-            Log::info($nameCustomer);
-            Log::info($specie);
+
             CashRegister::create([
                     'cash_register_cod' => $newCod,
                     'issuer_id' => $cashRegisters[0]['issuer_id'],
@@ -98,6 +95,7 @@ class CashRegisterRepository
                     'seller' => $cashRegisters[0]['seller'] ?? $user->name,
                 ]);
                 
+            Log::info('Terminou de cadastrar' . count($cashRegisters));
             $this->updateCurrentCash($cashRegisters[0]['issuer_id']);
 
         }
