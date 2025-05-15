@@ -1,158 +1,50 @@
-[2025-05-15 14:57:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 14:57:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 14:57:25] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 14:57:25] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 14:57:25] local.INFO: Buscando por emitente  
-[2025-05-15 14:57:25] local.INFO: Cod. emitente: 1  
-[2025-05-15 14:57:25] local.INFO: Buscando espécies  
-[2025-05-15 14:57:25] local.INFO: Terminou  
-[2025-05-15 14:59:13] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 15:06:15] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:07:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 15:07:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 15:07:06] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 15:07:07] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 15:07:07] local.INFO: Buscando por emitente  
-[2025-05-15 15:07:07] local.INFO: Cod. emitente: 1  
-[2025-05-15 15:07:07] local.INFO: Buscando espécies  
-[2025-05-15 15:07:07] local.INFO: Terminou  
-[2025-05-15 15:16:05] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"vZPzJYyxA9","active":1,"created_at":"2025-05-15T15:14:30.000000Z","updated_at":"2025-05-15T15:14:30.000000Z"}  
-[2025-05-15 15:16:06] local.INFO: Passou o login, token: 1|Ga2DBMdGGbNglDpksWxwfFaV1a2IZ7GjmWEEnuye01a8f23b  
-[2025-05-15 15:16:07] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:16:14] local.INFO: Memória usada no RegisterIssuerRepository 18874368  
-[2025-05-15 15:16:14] local.INFO: array (
-  'company_name' => 'Sgbr Sistemas',
-  'trade_name' => 'Sgbr Sistemas',
-  'cnpj' => '17089484000190',
-  'cpf' => NULL,
-  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
-  'cod_cnae' => 4751201,
-  'cod_crt' => NULL,
-  'date_of_foundation' => '2012-10-30',
-  'uuse_id' => 'vZPzJYyxA9',
+[2025-05-15 16:44:07] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-15 16:44:07] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-15',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
 )  
-[2025-05-15 15:16:14] local.INFO: vZPzJYyxA9  
-[2025-05-15 15:16:14] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"vZPzJYyxA9","active":1,"created_at":"2025-05-15T15:14:30.000000Z","updated_at":"2025-05-15T15:14:30.000000Z"}  
-[2025-05-15 15:16:14] local.INFO: --- Criação das espécies padrão ---  
-[2025-05-15 15:16:14] local.INFO: --- Fim da criação das espécies padrão ---  
-[2025-05-15 15:16:14] local.INFO: --- Criação do cliente padrão ---  
-[2025-05-15 15:16:14] local.INFO: {"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","cpf":" ","cnpj":" ","updated_at":"2025-05-15T15:16:14.000000Z","created_at":"2025-05-15T15:16:14.000000Z","id":1}  
-[2025-05-15 15:16:14] local.INFO: --- Fim da criação do cliente padrão ---  
-[2025-05-15 15:16:14] local.INFO: --- Criação das configPDV padrão ---  
-[2025-05-15 15:16:14] local.INFO: --- Fim da criação do configPDV padrão ---  
-[2025-05-15 15:16:15] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:16:17] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:16:28] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:16:28] local.INFO: 1  
-[2025-05-15 15:16:28] local.INFO: array (
-  'company_name' => 'Sgbr Sistemas',
-  'trade_name' => 'Sgbr Sistemas',
-  'date_of_foundation' => '2012-10-30',
-  'cep' => '89711226',
-  'uf' => 'SC',
-  'address' => 'Rua Alexandre Lorenzet',
-  'number' => '135',
-  'cod_cnae' => 4751201,
-  'cnae' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
-  'cod_crt' => 2,
-  'crt' => 'Lucro real',
-  'ie' => '11111111111111',
-  'im' => '111111111111',
+[2025-05-15 16:44:07] local.INFO: Buscando emitente: 1  
+[2025-05-15 16:44:07] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
+[2025-05-15 16:44:07] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
+[2025-05-15 16:44:07] local.INFO: Buscando espécie: {"id":2,"payment_cod":2,"issuer_id":1,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
+[2025-05-15 16:44:07] local.INFO: Vai criar 1 registro:   
+[2025-05-15 16:44:07] local.INFO: array (
+  'Dados' => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-15',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
 )  
-[2025-05-15 15:16:28] local.INFO: $firstSteps {"id":1,"issuer_id":1,"complete_issuer":0,"complete_pdv":0,"complete_customers":0,"complete_products":0,"ignore_first_steps":0,"created_at":"2025-05-15T15:16:14.000000Z","updated_at":"2025-05-15T15:16:14.000000Z"}  
-[2025-05-15 15:16:28] local.INFO: - Vai criar o NCM -   
-[2025-05-15 15:16:59] local.INFO: Emitente é: Lucro real  
-[2025-05-15 15:16:59] local.INFO: csosncst é: 00  
-[2025-05-15 15:16:59] local.INFO: Vai criar os CFOPs  
-[2025-05-15 15:17:01] local.INFO: Já está cadastrado  
-[2025-05-15 15:17:23] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 15:17:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 15:17:25] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 15:17:25] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 15:17:25] local.INFO: Buscando por emitente  
-[2025-05-15 15:17:25] local.INFO: Cod. emitente: 1  
-[2025-05-15 15:17:25] local.INFO: Buscando espécies  
-[2025-05-15 15:17:25] local.INFO: Terminou  
-[2025-05-15 15:20:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 15:20:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 15:20:22] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 15:20:23] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 15:20:23] local.INFO: Buscando por emitente  
-[2025-05-15 15:20:23] local.INFO: Cod. emitente: 1  
-[2025-05-15 15:20:23] local.INFO: Buscando espécies  
-[2025-05-15 15:20:23] local.INFO: Terminou  
-[2025-05-15 15:25:03] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 15:25:04] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 15:25:04] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 15:25:05] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 15:25:05] local.INFO: Buscando por emitente  
-[2025-05-15 15:25:05] local.INFO: Cod. emitente: 1  
-[2025-05-15 15:25:05] local.INFO: Buscando espécies  
-[2025-05-15 15:25:05] local.INFO: Terminou  
-[2025-05-15 15:25:13] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 15:27:59] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 15:27:59] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 15:27:59] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 15:27:59] local.INFO: Buscando por emitente  
-[2025-05-15 15:27:59] local.INFO: Cod. emitente: 1  
-[2025-05-15 15:27:59] local.INFO: Buscando espécies  
-[2025-05-15 15:27:59] local.INFO: Terminou  
-[2025-05-15 15:28:00] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 15:28:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-15 15:29:03] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"vZPzJYyxA9","active":1,"created_at":"2025-05-15T15:14:30.000000Z","updated_at":"2025-05-15T15:14:30.000000Z"}  
-[2025-05-15 15:29:11] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"vZPzJYyxA9","active":1,"created_at":"2025-05-15T15:14:30.000000Z","updated_at":"2025-05-15T15:14:30.000000Z"}  
-[2025-05-15 15:29:12] local.INFO: Passou o login, token: 2|T6C0ve0LDJqFHXWq9VnUpbaM46aKpPBcvh4krsaG5f776046  
-[2025-05-15 15:29:13] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:33:34] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"vZPzJYyxA9","active":1,"created_at":"2025-05-15T15:14:30.000000Z","updated_at":"2025-05-15T15:14:30.000000Z"}  
-[2025-05-15 15:33:34] local.INFO: Passou o login, token: 3|suxs9rI2ekSzMmVNxnzTmylZJlhmefqBHxKrgykk8dc6467f  
-[2025-05-15 15:33:36] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:37:00] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"vZPzJYyxA9","active":1,"created_at":"2025-05-15T15:14:30.000000Z","updated_at":"2025-05-15T15:14:30.000000Z"}  
-[2025-05-15 15:37:01] local.INFO: Passou o login, token: 4|lBQWxrUVCUozt2GsHbW3qajccqtSwIX11kFXna1Y4dd53dbd  
-[2025-05-15 15:37:13] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:38:50] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"vZPzJYyxA9","active":1,"created_at":"2025-05-15T15:14:30.000000Z","updated_at":"2025-05-15T15:14:30.000000Z"}  
-[2025-05-15 15:38:51] local.INFO: Passou o login, token: 5|FycvfXlSEIhN27TBJeBta6mJfAB4JrvZNuyCq4AX2d68b194  
-[2025-05-15 15:38:51] local.ERROR: Attempt to read property "user" on array {"userId":1,"exception":"[object] (ErrorException(code: 0): Attempt to read property \"user\" on array at C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Auth\\AuthController.php:41)
-[stacktrace]
-#0 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
-#1 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\Auth\\AuthController.php(41): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}()
-#2 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\Auth\\AuthController->authOwner()
-#3 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#4 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#5 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#6 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#7 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#8 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#9 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#10 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#11 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#12 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#13 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#14 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#15 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#16 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#17 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#18 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#19 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#20 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#21 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#22 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#23 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#24 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#25 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#26 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#27 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#28 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#29 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#30 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#31 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#32 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#33 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#34 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#35 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1216): Illuminate\\Foundation\\Http\\Kernel->handle()
-#36 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#37 C:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#38 {main}
-"} 
-[2025-05-15 15:39:09] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"vZPzJYyxA9","active":1,"created_at":"2025-05-15T15:14:30.000000Z","updated_at":"2025-05-15T15:14:30.000000Z"}  
-[2025-05-15 15:39:09] local.INFO: Passou o login, token: 6|h4A7ZqztntDXpLowfDfNRc8CGDxIuQZUDVClErjrdb76cdd9  
-[2025-05-15 15:39:11] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 16:44:07] local.INFO: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
+[2025-05-15 16:44:07] local.INFO: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
+[2025-05-15 16:44:07] local.INFO: Consumidor Padrão  
+[2025-05-15 16:44:07] local.INFO: {"id":2,"payment_cod":2,"issuer_id":1,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
+[2025-05-15 16:44:07] local.INFO: $issuer_id: 1  
+[2025-05-15 16:44:07] local.INFO: $lastCashBox com issuer_id {"id":1,"cash_register_cod":1,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":2,"especie":"PIX","date_register":"2025-05-15","input_value":"100.00","output_value":"0.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
+[2025-05-15 16:44:07] local.INFO: $actualCashBox com issuer_id {"id":1,"cash_register_cod":1,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":2,"especie":"PIX","date_register":"2025-05-15","input_value":"100.00","output_value":"0.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
+[2025-05-15 16:44:07] local.INFO: Não foi encontrado um registro anterior do segundo registro no caixa  
+[2025-05-15 16:44:07] local.INFO: $lastCashBoxashBox 2  
+[2025-05-15 16:44:07] local.INFO: {"id":1,"cash_register_cod":1,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":2,"especie":"PIX","date_register":"2025-05-15","input_value":"100.00","output_value":"0.00","real_balance":"100.00","origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
+[2025-05-15 16:44:07] local.INFO: $actualCashBox 2  
+[2025-05-15 16:44:07] local.INFO:   
+[2025-05-15 16:44:07] local.INFO: Vai retornar  
+[2025-05-15 16:44:08] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  

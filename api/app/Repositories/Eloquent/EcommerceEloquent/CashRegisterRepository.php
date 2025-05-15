@@ -28,7 +28,7 @@ class CashRegisterRepository
         Log::info($cashRegisters);
         Log::info('Buscando emitente: '. $cashRegisters[0]['issuer_id']);
 
-        $user = User::where('issuer_id', $cashRegisters[0]['issuer_id'])->first();
+        $user = User::where('user_cod', $cashRegisters[0]['user_id'])->first();
         Log::info('Buscando usuário: '. $user);
 
         $customer = Customer::where('issuer_id', $cashRegisters[0]['issuer_id'])->first();
