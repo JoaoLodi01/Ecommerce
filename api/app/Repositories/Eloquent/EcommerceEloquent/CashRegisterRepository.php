@@ -75,11 +75,6 @@ class CashRegisterRepository
         if(count($cashRegisters) <= 1)
         {
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
-            Log::info(['Dados' => $cashRegisters[0]]);
-            Log::info($user);
-            Log::info($customer);
-            Log::info($nameCustomer);
-            Log::info($specie);
             CashRegister::create([
                     'cash_register_cod' => $newCod,
                     'issuer_id' => $cashRegisters[0]['issuer_id'],
@@ -107,11 +102,11 @@ class CashRegisterRepository
     public function updateCurrentCash(int $issuer_id)
     {   
         Log::info('$issuer_id: ' . $issuer_id);
-        $lastCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->latest('id')->first();
+        $lastCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->latest('cash_register_cod')->first();
         Log::info('$lastCashBox com issuer_id ' . $lastCashBox);
 
-        $actualCashBox = CashRegister::where('id', $lastCashBox->id - 1)->where('issuer_id', $issuer_id)->first();
-        Log::info('$actualCashBox com issuer_id ' . $lastCashBox);
+        $actualCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->where('cash_register_cod', $lastCashBox->cash_register_cod - 1)->first();
+        Log::info('$actualCashBox com issuer_id ' . $actualCashBox);
         
         if(!$actualCashBox)
         {
@@ -128,12 +123,13 @@ class CashRegisterRepository
             Log::info($actualCashBox);
             Log::info('Vai retornar');
             return;
+        } else {
+            Log::info('Foi encontrado mais um registro');
+            Log::info('Novo valor: R$ ' . $actualCashBox->input_value . ' + '  . $lastCashBox->input_value . ' - ' . $lastCashBox->output_value . ' = ' . $actualCashBox->input_value + $lastCashBox->input_value);
+            $lastCashBox->update([
+                'real_balance' => $actualCashBox->real_balance + $lastCashBox->input_value - $lastCashBox->output_value
+            ]);
         }
-
-        Log::info('Novo valor: R$ ' . $actualCashBox->input_value . ' + '  . $lastCashBox->input_value . ' = ' . $actualCashBox->input_value + $lastCashBox->input_value);
-        $lastCashBox->update([
-            'real_balance' => $actualCashBox->real_balance + $lastCashBox->input_value - $lastCashBox->outputvalue
-        ]);
         
     }
 
