@@ -22,11 +22,9 @@ class ReceiveRequest extends FormRequest
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
             'description' => [$required, 'string', 'max:255'],
+            'document' => ['sometimes'],
             'customer_id' => [$required],
-            'name' => [$required, 'string', 'max:255'],
             'especie_id' => [$required],
-            'especie' => [$required, 'string', 'max:255'],
-            'date_register' => [$required],
             'due_date' => [$required],
             'installment_number' => [$required, 'integer'],
             'installment_value' => [$required, 'numeric'],
@@ -35,8 +33,6 @@ class ReceiveRequest extends FormRequest
             'total_amount' => [$required, 'numeric'],
             'origem' => ['nullable'],
             'user_id' => [$required, 'integer'],
-            'user' => [$required, 'string', 'max:255']
-
         ];
     }
 
@@ -47,9 +43,6 @@ class ReceiveRequest extends FormRequest
             'description.string' => 'A descrição deve estar em um formato válido.',
             'description.max' => 'A descrição não pode ter mais de :max caracteres.',
             'customer_id.required' => 'O ID do cliente é obrigatório.',
-            'name.required' => 'O nome do cliente é obrigatório.',
-            'name.string' => 'O nome do cliente deve estar em um formato válido.',
-            'name.max' => 'O nome do cliente não pode ter mais de :max caracteres.',
             'especie_id.required' => 'O ID da espécie é obrigatório.',
             'especie.required' => 'A espécie é obrigatória.',
             'especie.string' => 'A espécie deve estar em um formato válido.',

@@ -41,6 +41,8 @@
             
             <SpeciesSearchBar
                 @selectSpecie="getSpecie($event)"
+                :module_="'cash'"
+
             />
 
             <q-input 
@@ -237,5 +239,11 @@ export default {
     },
 
     emits: ["close"],
+
+    mounted()
+    {
+        console.log('User_id', LocalStorage.getItem("user_id"))
+        console.log('User_name', LocalStorage.getItem("user_name"))
+    }
 };
 </script>

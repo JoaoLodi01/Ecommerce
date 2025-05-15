@@ -44,6 +44,7 @@
 
       <SpeciesSearchBar
         @updated:selectSpecie="getSpecie($event)"
+        :module_="'receive'"
       />
 
       <q-input
@@ -99,24 +100,11 @@
         color="grey=7"
       />
 
-      <q-input
-        type="text"
-        readonly
-        label="Luiz que pediu"
-        color="grey=7"
-      />  
-
       <div>
         <q-btn
           type="submit"
           label="Registrar"
-          class="bg-slate-600 text-white">
-        </q-btn>
-
-        <q-btn
-          @click="onReset()"
-          label="Limpar"
-          class="ml-5 bg-slate-600 text-white">
+          class="bg-blue-600 text-white">
         </q-btn>
 
         <q-btn
@@ -167,6 +155,30 @@
       };
     },
 
+    computed: {
+      totalAmoutCalc() {
+        const number = this.parseCurrency(this.form.installment_number);
+        const value = this.parseCurrency(this.form.installment_value);
+        const feesValue = this.parseCurrency(this.form.interest_value);
+        const typeInterest = this.form.type_interest;
+
+        const baseTotal = number * value;
+
+        let total = 0;
+
+        if (typeInterest === '%') {
+          total = baseTotal + (baseTotal * (feedValue / 100));
+        } else if (typeInterest === 'R$') {
+          total = baseTotal + feesValue;
+        } else {
+          total = baseTotal;
+        }
+
+        return total.toFixed(2);
+
+      }
+    },
+
     methods: {
       onReset(){
         const today = this.today;
@@ -178,7 +190,7 @@
             user_id: LocalStorage.getItem("user_id"),
             especie_id: 0,
             due_date: today.add(30, 'days').format("DD-MM-YYYY"),
-            installment_number: 0,
+            installment_number: 1,
             installment_value: 0,
             type_interest: "",
             interest_value: 0,
@@ -194,12 +206,13 @@
       getCustumer(event){
         console.log('Chamou o getCustumer')
         console.log(event)
-        this.form.name = event.name
+        this.form.customer_id = event.id
       },
 
       getSpecie(event){
           console.log("Chamou o getSpecie");
           console.log(event);
+          this.form.especie_id = event.id;
           this.form.especie = event.name;
       },
 
@@ -218,6 +231,12 @@
               alert("Ocorreu um erro ao cadastrar o registro")
           }
       },
+    },
+
+    watch: {
+      totalAmoutCalc(newVal){
+        this.form.total_amount = newVal;
+      }
     },
 
     components:{
