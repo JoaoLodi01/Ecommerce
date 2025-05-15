@@ -16,8 +16,8 @@ return new class extends Migration
             /*$table->unsignedBigInteger('user_cod');
             $table->unique(['issuer_id', 'user_cod']);*/
             
-            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
-            $table->unsignedBigInteger('issuer_id')->nullable();
+            $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
+            $table->unsignedBigInteger('owner_id')->nullable();
             $table->string('name', 120);
             $table->string('login', 120)->nullable();
             $table->string('password', 120);

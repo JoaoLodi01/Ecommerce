@@ -27,7 +27,7 @@ class UserService
         try {
             return response()->json([
                 'success' => true,
-                'winner' => $this->userRepository->findById($id)
+                'user' => $this->userRepository->findById($id)
             ]);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);

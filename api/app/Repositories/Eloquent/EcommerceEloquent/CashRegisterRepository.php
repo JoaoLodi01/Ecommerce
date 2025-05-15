@@ -104,8 +104,12 @@ class CashRegisterRepository
 
     public function updateCurrentCash(int $issuer_id)
     {   
+        Log::info('$issuer_id: ' . $issuer_id);
         $lastCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->latest('id')->first();
+        Log::info('$lastCashBox com issuer_id ' . $lastCashBox);
+
         $actualCashBox = CashRegister::where('id', $lastCashBox->id - 1)->where('issuer_id', $issuer_id)->first();
+        Log::info('$actualCashBox com issuer_id ' . $lastCashBox);
         
         if(!$actualCashBox)
         {
