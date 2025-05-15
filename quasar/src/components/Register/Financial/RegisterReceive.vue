@@ -17,6 +17,13 @@
         }">
 
       <q-input
+          type="number" 
+          v-model="form.document" 
+          label="Nº Documento" 
+          color="grey-7" 
+      />
+
+      <q-input
         type="text"
         v-model="form.description"
         label="Descrição"
@@ -127,7 +134,7 @@
   import dayjs from "dayjs";
   import 'dayjs/locale/pt-br';
   import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
-import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
+  import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
 
   export default {
     props: {
@@ -142,66 +149,74 @@ import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
 
       return {
         form: {
-            description: "",
-            name: "",
-            user: LocalStorage.getItem("user_name"),
-            cpf: "",
-            especie: "",
-            due_date: today.add(30, 'days').format("DD-MM-YYYY"),
-            installment_number: "",
-            installment_value: "",
-            type_interest: "",
-            interest_value: "",
-            total_amount: ""
+          issuer_id: LocalStorage.getItem("issuer_id"),
+          description: "Registro Manual Receber",
+          document: 1,
+          customer_id: 1,
+          user_id: LocalStorage.getItem("user_id"),
+          especie_id: 0,
+          due_date: today.add(30, 'days').format("DD-MM-YYYY"),
+          installment_number: 0,
+          installment_value: 0,
+          type_interest: "",
+          interest_value: 0,
+          total_amount: 0,
+          origem: "Receber (Manual)",
         },
       };
     },
+
     methods: {
       onReset(){
         const today = this.today;
-            this.form = {
-                description: "",
-                name: "",
-                user: LocalStorage.getItem("user_name"),
-                cpf: "",
-                especie: "",
-                due_date: today.format("DD-MM-YYYY"),
-                installment_number: "",
-                installment_value: "",
-                type_interest: "",
-                interest_value: "",
-                total_amount: ""
+          this.form = {
+            issuer_id: LocalStorage.getItem("issuer_id"),
+            description: "Registro Manual Receber",
+            document: 1,
+            customer_id: 1,
+            user_id: LocalStorage.getItem("user_id"),
+            especie_id: 0,
+            due_date: today.add(30, 'days').format("DD-MM-YYYY"),
+            installment_number: 0,
+            installment_value: 0,
+            type_interest: "",
+            interest_value: 0,
+            total_amount: 0,
+            origem: "Receber (Manual)",
+          }
+      },
+
+      close(){
+        this.$emit('close', false)
+      },
+
+      getCustumer(event){
+        console.log('Chamou o getCustumer')
+        console.log(event)
+        this.form.name = event.name
+      },
+
+      getSpecie(event){
+          console.log("Chamou o getSpecie");
+          console.log(event);
+          this.form.especie = event.name;
+      },
+
+      async submitForm() {
+        console.log(this.form)
+          try {
+            const response = await api.post(`/ecommerce/receive/create`, this.form);
+
+            if(response.data.success){
+              this.close();
+              this.onReset();
             }
-        },
 
-        close(){
-          this.$emit('close', false)
-        },
-
-        getCustumer(event){
-          console.log('Chamou o getCustumer')
-          console.log(event)
-          this.form.name = event.name
-        },
-
-        getSpecie(event){
-            console.log("Chamou o getSpecie");
-            console.log(event);
-            this.form.especie = event.name;
-        },
-
-        async submitForm() {
-          console.log(this.form)
-            try {
-                const response = await api.post(`${this.api}`, {
-
-                }); // Lembrar de criar rota e inserir aqui
-                this.onReset();
-                console.log('Dados enviados!', response.data)
-            } catch (error) {
-                alert("Ocorreu um erro ao cadastrar o registro")
-            }
-        },
+            console.log('Dados enviados!', response.data)
+          } catch (error) {
+              alert("Ocorreu um erro ao cadastrar o registro")
+          }
+      },
     },
 
     components:{
@@ -212,5 +227,5 @@ import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
     emits:[
       'close'
     ],
-  };
+};
 </script>

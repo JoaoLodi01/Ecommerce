@@ -10,10 +10,13 @@ class ReceiveService
         protected ReceiveRepository $receiveRepository
     ){}
 
-    public function getAll(){
-        $all = $this->receiveRepository->getAll(1);
+    public function getAll(int $issuer_id){
         try {
-            
+            return response()->json([
+                'success' => true,
+                'all' => $this->receiveRepository->getAll($issuer_id)
+            ], 200);
+
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }

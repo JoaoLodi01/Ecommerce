@@ -7,21 +7,26 @@ use Illuminate\Support\Facades\Log;
 
 class ReceiveRepository
 {
-    public function getAll(){
-        Log::info('Memória utilizada ReceiveRepository::class, getAll: ' . memory_get_usage(true));
-        return Receive::paginate(20);
+    public function getAll(int $issuer_id){
+        return Receive::where('issuer_id', $issuer_id)->get();
     }
 
-    public function create(array $cashRegister)
+    public function findByID(int $id){
+        return Receive::where('id', $id)->first();
+    }
+
+    public function create(array $receiveRegister)
     {
-        Log::info('Memória usada ReceiveRepository::class, create: ' . memory_get_usage(true));
-        if ($cashRegister) {
-            Log::info('Vai iniciar criação no RECEBER, dados: ');
-            Log::info('Quantia: '. count($cashRegister));
-            Log::info($cashRegister);
-            Receive::create($cashRegister);
-            return;
-        }
         
+    }
+
+    public function update (array $receiveRegister, int $id){
+        return Receive::where('id', $id)->update($receiveRegister);
+    }
+
+    public function delete (int $id){
+        return Receive::where('id', $id)->update([
+            'active' => 0,
+        ]);
     }
 }

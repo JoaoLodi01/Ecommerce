@@ -146,15 +146,10 @@
             const today = dayjs();
 
             return{
-                cash:{
-                    description: "",
-                    valor_entrada: "",
-                    valor_saida: "",
-                },
+                receives: [],
                 startDate: today.startOf('month').format('YYYY-MM-DD'),
                 endDate: today.endOf('month').format('YYYY-MM-DD'),
                 filteredCashs: [],
-                cashs: [],
                 withScreen: 0,
                 showReceiveClosing: false,
             };
@@ -164,13 +159,15 @@
             async getRegister(){
                 this.showLoading()
                 try {
-                    const response = await api.get('/ecommerce/cash-register/all/receive')
-                    this.cashs = response.data.data
+                    const response = await api.get(`/ecommerce/receive/all/${LocalStorage.getItem("issuer_id")}`)
+                    this.cashs = response.data.all
+                    console.log(response.data)
+
                     this.dateSearch()
                     console.log('response.data.data', response.data.data)
+                    
                 } catch (error) {
                     console.error("Erro ao buscar registros:", error)
-
                 }
             },
 

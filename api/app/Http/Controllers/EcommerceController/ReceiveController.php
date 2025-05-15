@@ -12,8 +12,8 @@ class ReceiveController extends Controller
         protected ReceiveService $receiveService
     ){}
 
-    public function getAll(){
-        return $this->receiveService->getAll();
+    public function getAll(int $issuer_id){
+        return $this->receiveService->getAll($issuer_id);
     }
 
     public function store(ReceiveRequest $request){
