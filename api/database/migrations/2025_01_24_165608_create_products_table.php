@@ -35,7 +35,8 @@ return new class extends Migration
 
             // tributs
             $table->string('csosncst', 3);
-            $table->string('origem_icms');
+            $table->integer('cod_origem_icms', false);
+            $table->string('origem_icms', 120);
             $table->float('icms_ecf', 16,2);
             
             $table->float('taxable_amount', 16,2);

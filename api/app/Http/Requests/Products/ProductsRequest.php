@@ -32,17 +32,18 @@ class ProductsRequest extends FormRequest
             'cest' => [$required, 'numeric'],
             'unit' => [$required, 'string'],
 
-            'origem_icms' => [$required, 'string'],
+            'cod_origem_icms' => [$required],
+            'origem_icms' => [$required],
             'icms_ecf' => ['required', 'min:1'],
             'taxable_amount' => ['sometimes'],
             'taxable_unit' => [$required, 'string'],
             'tax_benefit' => ['sometimes', 'string'],
             'cod_ipi' => [$required, 'string'],
-            'aliquot_ipi' => [''],
+            'aliquot_ipi' => [$required],
             'cod_pis' => [$required, 'string'],
-            'aliquot_pis' => [],
+            'aliquot_pis' => [$required],
             'cod_cofins' => [$required, 'string'],
-            'aliquot_cofins' => [''],
+            'aliquot_cofins' => [$required],
 
         ];
     }

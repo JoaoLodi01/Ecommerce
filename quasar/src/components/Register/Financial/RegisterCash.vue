@@ -2,7 +2,7 @@
     <div class="mr-14 mt-5 mb-5 p-6 bg-white rounded"
         :class="{
             'relative top-12 left-12': widthScreen <= 1080,
-            'ml-24': widthScreen > 1080
+            'ml-14': widthScreen > 1080
         }">
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Registro Financeiro</h2>
 
@@ -212,6 +212,7 @@ export default {
                     }
                 );
 
+                console.log('usuário: ', LocalStorage.getItem("user_id"));
                 this.onReset();
                 console.log("Dados enviados!", response);
                 

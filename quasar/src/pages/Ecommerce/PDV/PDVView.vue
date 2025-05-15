@@ -800,7 +800,7 @@
             {
                 try {
                     const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
-                    
+                    console.log('importSale', response.data)
                     this.updateProductsSeletion(response.data.pdvs.get_itens)
 
                 } catch (error) {

@@ -1,58 +1,15 @@
 <template>
     <div>
-        <div class="flex justify-between border-b w-96">
-            <q-input 
-                v-model="ncm"
-                @update:model-value="searchNCM"
-                :disable="ncms.length <= 0"
-                class="w-80"
-                color="grey-7"
-                placeholder="Selecione o NCM"
-                
-            />
+        <q-select 
+            v-model="ncm" 
+            :options="ncms" 
+            label="NCM" 
+            color="grey-7"
+            class="m-2"
+            :option-label="opt => `${opt.ncm} - ${opt.description}`"
+            @update:model-value="selectNCM"
 
-            <button
-                class="p-2"
-                @click="showAllNCMs()" 
-                :disabled="ncms.length <= 0"
-                type="button"
-            >
-                <svg v-if="!showNCMs" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-auto mb-auto size-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-
-                <svg v-if="showNCMs" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-auto mb-auto size-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                </svg> 
-
-            </button>
-        </div>
-        <div
-            v-if="showNCMs"
-            class="overflow-y-scroll h-96"
-        >
-            <div v-if="searchedNCM.length <= 0">
-                <ul v-for="ncm in ncms" class="view-ncms w-full bg-slate-800">
-                    <li 
-                    class="w-max text-white p-2 cursor-pointer hover:bg-slate-400"
-                    @click="selectNCM(ncm)"
-                >
-                        {{ ncm.ncm }} - {{ ncm.description }}
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div>
-            <ul v-for="ncm in searchedNCM" class="bg-gray-600 ">
-                <li
-                    class="w-max text-white p-2 cursor-pointer hover:bg-slate-400"
-                    @click="selectNCM(ncm)"
-                >
-                    {{ ncm.ncm }} - {{ ncm.description }}
-                </li>
-            </ul>
-        </div>
+        />
     </div>
 </template>
 
@@ -65,11 +22,11 @@
     let searchedNCM = ref([]);
     let showNCMs = ref(false)
     let search_ = ref('')
-    let ncm = ref('')
+    let ncm = ref(null)
 
     const issuer_id = LocalStorage.getItem("issuer_id");
     
-    const searchNCM = async () => {
+    /*const searchNCM = async () => {
         console.log('ncm.value', ncm.value)
         search_.value = ncm.value
         console.log('search.value', search_.value)
@@ -99,10 +56,9 @@
             searchedNCM = response.data.ncm
 
         }        
-    }
+    }*/
 
     const selectNCM = (item) => {
-        ncm.value = `${item.ncm} - ${item.description}`
         emits('selected', toRaw(item))
         searchedNCM.value = []
         
@@ -139,6 +95,9 @@
     .view-ncms{
         width: 425vh;
     }
-
+    
+    .q-input {
+        width: 92%;
+    }
 
 </style>

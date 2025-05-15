@@ -9,7 +9,8 @@ FROM
     tcaixa cx
 
 WHERE
-    cx.valorentrada <= 0
+    cx.valorentrada <= 0 AND
+    cx.descricaolancamento NOT LIKE '%ESTORNO%'
 
 UNION ALL
 
@@ -27,5 +28,5 @@ INNER JOIN
     tpagar pg on pg.documento = bc.documento
 
 WHERE
-    pg.datapagamento BETWEEN '2025-05-11' AND '2025-05-11' 
+    pg.datapagamento BETWEEN '2025-04-14' AND '2025-04-14' 
 ;

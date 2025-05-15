@@ -24,13 +24,20 @@ class CashRegisterRepository
 
     public function create(array $cashRegisters)
     {
-        Log::info('-- Vai iniciar criação no CAIXA, dados: --');
+        Log::info('INICIOU REGISTRO NO CAIXA');
         Log::info($cashRegisters);
+        Log::info('Buscando emitente: '. $cashRegisters[0]['issuer_id']);
 
         $user = User::where('issuer_id', $cashRegisters[0]['issuer_id'])->first();
+        Log::info('Buscando usuário: '. $user);
+
         $customer = Customer::where('issuer_id', $cashRegisters[0]['issuer_id'])->first();
+        Log::info('Buscando cliente: '. $customer);
+        
+        $specie = PaymentForms::where('issuer_id', $cashRegisters[0]['issuer_id'])->where('payment_cod', $cashRegisters[0]['especie_id'])->first();
+        Log::info('Buscando espécie: '. $specie);
+
         $nameCustomer = $customer->company_name ? $customer->company_name : $customer->trade_name;
-        $specie = PaymentForms::where('issuer_id', $cashRegisters[0]['issuer_id'])->first();
         $cashRegisterCod = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])->max('cash_register_cod');
         $newCod = $cashRegisterCod ? $cashRegisterCod + 1 : 1;
 
@@ -69,6 +76,10 @@ class CashRegisterRepository
         {
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             Log::info(['Dados' => $cashRegisters[0]]);
+            Log::info($user);
+            Log::info($customer);
+            Log::info($nameCustomer);
+            Log::info($specie);
             CashRegister::create([
                     'cash_register_cod' => $newCod,
                     'issuer_id' => $cashRegisters[0]['issuer_id'],
@@ -85,7 +96,6 @@ class CashRegisterRepository
                     'origem' => $cashRegisters[0]['origem'],
                     'user_id' => $cashRegisters[0]['user_id'],
                     'seller' => $cashRegisters[0]['seller'] ?? $user->name,
-                    
                 ]);
                 
             $this->updateCurrentCash($cashRegisters[0]['issuer_id']);

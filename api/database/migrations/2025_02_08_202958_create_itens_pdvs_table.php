@@ -26,7 +26,7 @@ return new class extends Migration
             $table->decimal('cost_price', 16,2);
             $table->decimal('sale_price', 16,2);
             $table->string('cfop', 4);
-            $table->string('csosn', 3);
+            $table->string('csosncst', 3);
             $table->string('ncm', 8);
             $table->string('cest', 7);
             $table->string('unit', 4);        
