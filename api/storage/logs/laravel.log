@@ -171,3 +171,14 @@
 #38 {main}
 "} 
 [2025-05-14 19:23:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 20:18:58] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 20:19:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 20:32:44] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-14 20:32:44] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-14 20:32:45] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-14 20:32:45] local.INFO: Buscando por emitente  
+[2025-05-14 20:32:45] local.INFO: Cod. emitente: 1  
+[2025-05-14 20:32:45] local.INFO: Buscando espécies  
+[2025-05-14 20:32:45] local.INFO: Terminou  
+[2025-05-14 20:32:49] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-14 20:51:48] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  

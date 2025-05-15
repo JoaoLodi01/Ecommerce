@@ -9,7 +9,7 @@
 
         }"
         
-        class="transition-transform duration-300 bg-gray-800 text-white text-base h-screen fixed top-0 left-0 z-40 sideBar"
+        class="transition-transform duration-300 bg-blue-950 text-white text-base h-screen fixed top-0 left-0 z-40 sideBar"
         title="Sidebar"
       >
       

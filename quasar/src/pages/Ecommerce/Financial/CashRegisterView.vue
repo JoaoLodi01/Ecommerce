@@ -1,22 +1,22 @@
 <template>
-    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg">
+    <div class="container mx-auto mt-5 p-6 ml-16 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-semibold">Caixa</h2>
             <div class="flex space-x-4">
-                <q-btn class="bg-blue-500 text-white p-2 rounded-lg">
+                <q-btn class="bg-blue-600 text-white p-2 rounded-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
                     </svg>
                 </q-btn>
 
                 <q-btn
-                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
-                    @click="showCashClosing = !showCashClosing"
+                    class="bg-blue-600 text-white p-1 mr-5 rounded-lg"
+                    @click="showRegister()"
                     label="Cadastrar"
                 />
 
                 <q-btn
-                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
+                    class="bg-blue-600 text-white p-1 mr-5 rounded-lg"
                     @click="getRegister()"
                     label="Atualizar caixa"
                 />
@@ -41,7 +41,7 @@
             />
 
             <q-btn
-                class="bg-blue-500 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                class="bg-blue-600 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
                 label="Filtrar"
                 @click="dateSearch()"
             />
@@ -56,55 +56,60 @@
             
         </div>
 
-        <div>
-            <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th scope="col" class="px-6 py-3">Tipo</th>
-                        <th scope="col" class="px-6 py-3">Código</th>
-                        <th scope="col" class="px-3 py-4">Documento</th>
-                        <th scope="col" class="px-6 py-3">Descrição</th>
-                        <th scope="col" class="px-6 py-3">Valor entrada</th>
-                        <th scope="col" class="px-6 py-3">Valor saída</th>
-                        <th scope="col" class="px-6 py-3">Saldo</th>
-                        <th scope="col" class="px-6 py-3">Cliente</th>
-                        <th scope="col" class="px-6 py-3">Cód Espécie</th>
-                        <th scope="col" class="px-6 py-3">Espécie</th>
-                        <th scope="col" class="px-6 py-3">Origem</th>
-                        <th scope="col" class="px-6 py-3">Ações</th>
+        <div class="w-full max-w-[1600px] max-h-[600px] overflow-y-auto border rounded-lg shadow-lg">
+            <table class="w-full table-auto border-collapse border border-gray-300 bg-white">
+                <thead class="text-center font-semibold sticky top-0 z-10">
+                    <tr class="bg-blue-600 text-white">
+                        <th class="px-6 py-3">Código</th>
+                        <th class="px-6 py-3">Documento</th>
+                        <th class="px-6 py-3">Descrição</th>
+                        <th class="px-6 py-3">Valor entrada</th>
+                        <th class="px-6 py-3">Valor saída</th>
+                        <th class="px-6 py-3">Saldo</th>
+                        <th class="px-6 py-3">Cliente</th>
+                        <th class="px-6 py-3">Cód Espécie</th>
+                        <th class="px-6 py-3">Espécie</th>
+                        <th class="px-6 py-3">Origem</th>
+                        <th class="px-6 py-3">Tipo</th>
+                        <th class="px-6 py-3">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border border-gray-200" v-for="(register, id) in cashs" :key="id">
-                        <td
-                            scope="row"
-                            class="px-6 py-3 sticky right-0"
-                        >
-                            <span class='p-3 rounded-xl' :class="{
-                                'bg-green-400': register.input_value > 0,
-                                'bg-red-500': register.input_value < 1,
-                            }">
-                                {{ register.input_value > 0 ? 'Entrada' : 'Saída'}}
+                    <tr class="border-b border-gray-200 text-center"
+                        v-for="(register, id) in cashs"
+                        :key="id">
 
-                            </span>
-                        </td>
-                        <td scope="row" class="px-6 py-3 text-center">{{ register.cash_register_cod}}</td>
-                        <td scope="row" class="px-6 py-3 text-center">{{ register.document }}</td>
-                        <td scope="row" class="px-3 py-4 text-center">{{ register.description }}</td>
-                        <td scope="row" class="px-5 py-3 text-center">R$ {{ register.input_value }}</td>
-                        <td scope="row" class="px-6 py-3 text-center">R$ {{ register.output_value }}</td>
-                        <td scope="row" class="px-6 py-3 text-center">R$ {{ register.real_balance }}</td>
-                        <td scope="row" class="px-6 py-3 text-center">{{ register.name }}</td>
-                        <td scope="row" class="px-6 py-3 text-center">{{ register.especie_id }}</td>
-                        <td scope="row" class="px-6 py-3 text-center">{{ register.especie }}</td>
-                        <td scope="row" class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
+                        <td class="px-6 py-3">{{ register.cash_register_cod }}</td>
+                        <td class="px-6 py-3">{{ register.document }}</td>
+                        <td class="px-6 py-3">{{ register.description }}</td>
+                        <td class="px-6 py-3">R$ {{ register.input_value }}</td>
+                        <td class="px-6 py-3">R$ {{ register.output_value }}</td>
+                        <td class="px-6 py-3">R$ {{ register.real_balance }}</td>
+                        <td class="px-6 py-3">{{ register.name }}</td>
+                        <td class="px-6 py-3">{{ register.especie_id }}</td>
+                        <td class="px-6 py-3">{{ register.especie }}</td>
+                        <td class="px-6 py-3">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3">
-                        <q-btn @click="transferRegister(register)" class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                        <span class="w-[80px] px-4 py-2 rounded-xl text-white text-sm font-medium text-center inline-block"
+                            :class="{
+                            'bg-green-500': register.input_value > 0,
+                            'bg-red-500': register.input_value < 1
+                            }">
+                            {{ register.input_value > 0 ? 'Entrada' : 'Saída' }}
+                        </span>
+                        </td>
+                        <td class="px-6 py-3">
+                        <q-btn @click="transferRegister(register)" class="text-blue-600 hover:text-blue-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 mx-auto">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332
+                                    A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18
+                                    M12 6.75h.008v.008H12V6.75Z" />
                             </svg>
                         </q-btn>
-                    </td>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -235,7 +240,7 @@
     .container {
         max-width: 85%;
         width: 100%;
-        height: 90vh;
+        height: 95vh;
     }
 
     table {
