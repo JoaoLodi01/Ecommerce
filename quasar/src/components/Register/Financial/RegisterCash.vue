@@ -133,7 +133,7 @@ export default {
                 description: "Registro Manual",
                 document: 1,
                 customer_id: 1,
-                user: LocalStorage.getItem("user_name"),
+                user_id: LocalStorage.getItem("user_id"),
                 especie_id: 0,
                 date_register: today.format("YYYY-MM-DD"),
                 input_value: 0,
@@ -213,8 +213,13 @@ export default {
                 );
 
                 console.log('usuário: ', LocalStorage.getItem("user_id"));
-                this.onReset();
                 console.log("Dados enviados!", response);
+                
+                if(response.data.success)
+                {
+                    this.onReset();
+
+                }
                 
                 response.data.success ? this.close() : alert('Fodeu kkj')
             } catch (error) {

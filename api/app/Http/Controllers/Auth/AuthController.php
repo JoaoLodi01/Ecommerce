@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Services\EcommerceService\UserService;
 use App\Services\RegisterService\RegisterOwnerService;
-use Carbon\Carbon;
 
 use Illuminate\Support\Facades\{
     Auth,
-    Cache,
     Log,
     Hash
 };
 class AuthController extends Controller
 {
     public function __construct(
-        protected RegisterOwnerService $registerOwnerService
+        protected RegisterOwnerService $registerOwnerService,
+        protected UserService $userService
     ) {}
 
     public function authOwner(LoginRequest $request)
@@ -30,11 +30,15 @@ class AuthController extends Controller
         {
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
+            $user = $this->userService->findById($owner->id);
+
             Log::info("Passou o login, token: $token");
+
             return response()->json([
                 'success' => true,
                 'message' => 'Login bem sucedido!',
                 'owner' => $owner,
+                'user' => $user->original['user'],
                 'token' => $token,
                 'uuse_id' => $owner->uuse_id
                 

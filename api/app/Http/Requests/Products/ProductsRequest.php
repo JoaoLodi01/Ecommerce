@@ -29,7 +29,7 @@ class ProductsRequest extends FormRequest
             'cfop' => [$required, 'numeric'],
             'csosncst' => [$required, 'numeric'],
             'ncm' => [$required, 'numeric'],
-            'cest' => [$required, 'numeric'],
+            'cest' => ['sometimes', 'numeric'],
             'unit' => [$required, 'string'],
 
             'cod_origem_icms' => [$required],

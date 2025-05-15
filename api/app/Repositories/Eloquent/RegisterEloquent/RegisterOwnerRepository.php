@@ -26,7 +26,11 @@ class RegisterOwnerRepository implements RegisterOwnerContract
         
         ]);
 
+        $user_cod = User::where('owner_id', $owner->id)->max('user_cod');
+        
         User::create([
+            'user_cod' => $user_cod ? $user_cod + 1 : 1,
+            'owner_id' => $owner->id,
             'name' => $owner->name,
             'login' => strtolower($data['email']),
             'password' => Hash::make($data['password']),
