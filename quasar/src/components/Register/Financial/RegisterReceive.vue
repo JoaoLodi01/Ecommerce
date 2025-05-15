@@ -36,7 +36,7 @@
 
       <q-input
         type="text"
-        v-model="form.user"
+        v-model="user"
         label="Usuário"
         color="grey-7"
         readonly
@@ -148,6 +148,7 @@
       const today = dayjs();
 
       return {
+        user: LocalStorage.getItem("user_name"),
         form: {
           issuer_id: LocalStorage.getItem("issuer_id"),
           description: "Registro Manual Receber",

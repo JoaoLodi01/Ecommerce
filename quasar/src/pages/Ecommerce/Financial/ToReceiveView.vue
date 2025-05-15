@@ -110,6 +110,7 @@
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
     import { onBeforeUnmount } from "vue";
+    import { LocalStorage } from "quasar";
     import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
@@ -164,7 +165,6 @@
                     console.log(response.data)
 
                     this.dateSearch()
-                    console.log('response.data.data', response.data.data)
                     
                 } catch (error) {
                     console.error("Erro ao buscar registros:", error)

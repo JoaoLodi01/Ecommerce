@@ -259,7 +259,7 @@ export default {
         async getPayments() {
             try {
                 const response = await api.get(`/species/payments/all/${LocalStorage.getItem("issuer_id")}`);
-                this.paymentsForms = response.data;
+                this.paymentsForms = response.data.all;
                 
             } catch (error) {
                 console.error('Erro no getPayments', error)

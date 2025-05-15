@@ -33,7 +33,7 @@
 
             <q-input 
                 type="text"
-                v-model="form.user"
+                v-model="user"
                 label="Usuário"
                 color="grey-7"
                 readonly
@@ -130,6 +130,7 @@ export default {
 
         return {
             sum: true,
+            user: LocalStorage.getItem("user_name"),
             form: {
                 description: "Registro Manual",
                 document: 1,

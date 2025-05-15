@@ -151,7 +151,7 @@
                         
                         LocalStorage.setItem("owner_name", response.data.owner.name)
                         LocalStorage.setItem("owner_cpf", response.data.owner.cpf)
-                        //LocalStorage.setItem("user_id", response.data.user.)
+                        LocalStorage.setItem("user_id", response.data.user_id)
                         LocalStorage.setItem("uuse_id", response.data.uuse_id)
                         LocalStorage.setItem("auth_token", response.data.token);
 

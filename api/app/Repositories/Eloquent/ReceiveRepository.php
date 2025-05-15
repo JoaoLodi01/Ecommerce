@@ -17,7 +17,8 @@ class ReceiveRepository
 
     public function create(array $receiveRegister)
     {
-        
+     Log::info('Dados recebidos: ');
+     Log::info($receiveRegister);  
     }
 
     public function update (array $receiveRegister, int $id){

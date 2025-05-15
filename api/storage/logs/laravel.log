@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2025-05-15 16:18:24] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
 [2025-05-15 16:18:28] local.ERROR: App\Http\Controllers\EcommerceController\CashRegisterController::getAll(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\Code\ProjetoWeb\api\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php on line 47 {"userId":1,"exception":"[object] (TypeError(code: 0): App\\Http\\Controllers\\EcommerceController\\CashRegisterController::getAll(): Argument #1 ($issuer_id) must be of type int, string given, called in C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php on line 47 at C:\\Code\\ProjetoWeb\\api\\app\\Http\\Controllers\\EcommerceController\\CashRegisterController.php:17)
 [stacktrace]
@@ -82,35 +83,66 @@
   'cod_crt' => NULL,
   'date_of_foundation' => '2012-10-30',
   'uuse_id' => 'vZPzJYyxA9',
+=======
+[2025-05-15 16:54:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 16:54:25] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 16:54:25] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 16:54:25] local.INFO: Buscando por emitente  
+[2025-05-15 16:54:25] local.INFO: Cod. emitente: 1  
+[2025-05-15 16:54:25] local.INFO: Buscando espécies  
+[2025-05-15 16:54:25] local.INFO: Terminou  
+[2025-05-15 16:54:32] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-15 16:54:32] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-15',
+    'input_value' => 0,
+    'output_value' => 100,
+  ),
+>>>>>>> 2537a95d5a542b80349b23b482f13019670184d0
 )  
-[2025-05-15 15:16:14] local.INFO: vZPzJYyxA9  
-[2025-05-15 15:16:14] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"vZPzJYyxA9","active":1,"created_at":"2025-05-15T15:14:30.000000Z","updated_at":"2025-05-15T15:14:30.000000Z"}  
-[2025-05-15 15:16:14] local.INFO: --- Criação das espécies padrão ---  
-[2025-05-15 15:16:14] local.INFO: --- Fim da criação das espécies padrão ---  
-[2025-05-15 15:16:14] local.INFO: --- Criação do cliente padrão ---  
-[2025-05-15 15:16:14] local.INFO: {"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","cpf":" ","cnpj":" ","updated_at":"2025-05-15T15:16:14.000000Z","created_at":"2025-05-15T15:16:14.000000Z","id":1}  
-[2025-05-15 15:16:14] local.INFO: --- Fim da criação do cliente padrão ---  
-[2025-05-15 15:16:14] local.INFO: --- Criação das configPDV padrão ---  
-[2025-05-15 15:16:14] local.INFO: --- Fim da criação do configPDV padrão ---  
-[2025-05-15 15:16:15] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:16:17] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:16:28] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-15 15:16:28] local.INFO: 1  
-[2025-05-15 15:16:28] local.INFO: array (
-  'company_name' => 'Sgbr Sistemas',
-  'trade_name' => 'Sgbr Sistemas',
-  'date_of_foundation' => '2012-10-30',
-  'cep' => '89711226',
-  'uf' => 'SC',
-  'address' => 'Rua Alexandre Lorenzet',
-  'number' => '135',
-  'cod_cnae' => 4751201,
-  'cnae' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
-  'cod_crt' => 2,
-  'crt' => 'Lucro real',
-  'ie' => '11111111111111',
-  'im' => '111111111111',
+[2025-05-15 16:54:32] local.INFO: Buscando emitente: 1  
+[2025-05-15 16:54:32] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
+[2025-05-15 16:54:32] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
+[2025-05-15 16:54:32] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-15 16:54:32] local.INFO: Vai criar 1 registro:   
+[2025-05-15 16:54:32] local.INFO: $issuer_id: 1  
+[2025-05-15 16:54:32] local.INFO: $lastCashBox com issuer_id {"id":7,"cash_register_cod":7,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"100.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
+[2025-05-15 16:54:32] local.INFO: $actualCashBox com issuer_id {"id":6,"cash_register_cod":6,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"50.00","real_balance":"100.00","origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
+[2025-05-15 16:54:32] local.INFO: Foi encontrado mais um registro  
+[2025-05-15 16:54:32] local.INFO: Novo valor: R$ 0.00 + 0.00 -  = 0  
+[2025-05-15 16:54:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-05-15 16:55:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 16:55:12] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 16:55:12] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 16:55:12] local.INFO: Buscando por emitente  
+[2025-05-15 16:55:12] local.INFO: Cod. emitente: 1  
+[2025-05-15 16:55:12] local.INFO: Buscando espécies  
+[2025-05-15 16:55:12] local.INFO: Terminou  
+[2025-05-15 16:55:17] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-15 16:55:17] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-15',
+    'input_value' => 50,
+    'output_value' => 0,
+  ),
 )  
+<<<<<<< HEAD
 [2025-05-15 15:16:28] local.INFO: $firstSteps {"id":1,"issuer_id":1,"complete_issuer":0,"complete_pdv":0,"complete_customers":0,"complete_products":0,"ignore_first_steps":0,"created_at":"2025-05-15T15:16:14.000000Z","updated_at":"2025-05-15T15:16:14.000000Z"}  
 [2025-05-15 15:16:28] local.INFO: - Vai criar o NCM -   
 [2025-05-15 15:16:59] local.INFO: Emitente é: Lucro real  
@@ -4920,3 +4952,386 @@
 #37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
 #38 {main}
 "} 
+=======
+[2025-05-15 16:55:17] local.INFO: Buscando emitente: 1  
+[2025-05-15 16:55:17] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
+[2025-05-15 16:55:17] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
+[2025-05-15 16:55:17] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-15 16:55:17] local.INFO: Vai criar 1 registro:   
+[2025-05-15 16:55:17] local.INFO: $issuer_id: 1  
+[2025-05-15 16:55:17] local.INFO: $lastCashBox com issuer_id {"id":8,"cash_register_cod":8,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"50.00","output_value":"0.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
+[2025-05-15 16:55:17] local.INFO: $actualCashBox com issuer_id {"id":7,"cash_register_cod":7,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"100.00","real_balance":"100.00","origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
+[2025-05-15 16:55:17] local.INFO: Foi encontrado mais um registro  
+[2025-05-15 16:55:17] local.INFO: Novo valor: R$ 0.00 + 50.00 - 0.00 = 50  
+[2025-05-15 16:55:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-05-15 16:55:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 16:55:21] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 16:55:21] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 16:55:21] local.INFO: Buscando por emitente  
+[2025-05-15 16:55:21] local.INFO: Cod. emitente: 1  
+[2025-05-15 16:55:21] local.INFO: Buscando espécies  
+[2025-05-15 16:55:21] local.INFO: Terminou  
+[2025-05-15 16:55:30] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-15 16:55:30] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-15',
+    'input_value' => 0,
+    'output_value' => 100,
+  ),
+)  
+[2025-05-15 16:55:30] local.INFO: Buscando emitente: 1  
+[2025-05-15 16:55:30] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
+[2025-05-15 16:55:30] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
+[2025-05-15 16:55:30] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-15 16:55:30] local.INFO: Vai criar 1 registro:   
+[2025-05-15 16:55:30] local.INFO: $issuer_id: 1  
+[2025-05-15 16:55:30] local.INFO: $lastCashBox com issuer_id {"id":9,"cash_register_cod":9,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"100.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
+[2025-05-15 16:55:30] local.INFO: $actualCashBox com issuer_id {"id":8,"cash_register_cod":8,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"50.00","output_value":"0.00","real_balance":"150.00","origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
+[2025-05-15 16:55:30] local.INFO: Foi encontrado mais um registro  
+[2025-05-15 16:55:30] local.INFO: Novo valor: R$ 50.00 + 0.00 - 100.00 = 50  
+[2025-05-15 16:55:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+>>>>>>> 2537a95d5a542b80349b23b482f13019670184d0
+[2025-05-15 16:59:31] local.ERROR: syntax error, unexpected token "<<" {"userId":1,"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\Code\\ProjetoWeb\\api\\app\\Repositories\\Eloquent\\EcommerceEloquent\\CashRegisterRepository.php:78)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\vendor\\composer\\ClassLoader.php(427): {closure:Composer\\Autoload\\ClassLoader::initializeIncludeClosure():575}()
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(959): ReflectionClass->__construct()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(832): Illuminate\\Container\\Container->build()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(763): Illuminate\\Foundation\\Application->resolve()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1133): Illuminate\\Foundation\\Application->make()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1043): Illuminate\\Container\\Container->resolveClass()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(994): Illuminate\\Container\\Container->resolveDependencies()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(832): Illuminate\\Container\\Container->build()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(763): Illuminate\\Foundation\\Application->resolve()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1133): Illuminate\\Foundation\\Application->make()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1043): Illuminate\\Container\\Container->resolveClass()
+#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(994): Illuminate\\Container\\Container->resolveDependencies()
+#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(832): Illuminate\\Container\\Container->build()
+#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(763): Illuminate\\Foundation\\Application->resolve()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(285): Illuminate\\Foundation\\Application->make()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(267): Illuminate\\Routing\\Route->getController()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->{closure:Illuminate\\Routing\\Router::runRouteWithinStack():807}()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->{closure:Illuminate\\Foundation\\Http\\Kernel::dispatchToRouter():198}()
+#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:Illuminate\\Pipeline\\Pipeline::prepareDestination():168}()
+#38 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#39 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#40 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#41 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#42 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#43 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#44 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#45 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#46 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#47 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#48 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#49 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#50 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#51 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#52 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#53 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->{closure:{closure:Illuminate\\Pipeline\\Pipeline::carry():184}:185}()
+#54 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#55 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#56 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#57 C:\\Code\\ProjetoWeb\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#58 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
+#59 {main}
+"} 
+[2025-05-15 17:11:46] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 17:20:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 17:20:28] local.ERROR: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'user_cod' (Connection: mariadb, SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `user_cod` bigint unsigned not null, `user_cod` bigint unsigned not null, `owner_id` bigint unsigned null, `name` varchar(120) not null, `login` varchar(120) null, `password` varchar(120) not null, `perfil_photo` varchar(120) null, `access` varchar(20) null, `is_owner` tinyint(1) not null default '0', `active` tinyint(1) not null default '1', `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'user_cod' (Connection: mariadb, SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `user_cod` bigint unsigned not null, `user_cod` bigint unsigned not null, `owner_id` bigint unsigned null, `name` varchar(120) not null, `login` varchar(120) null, `password` varchar(120) not null, `perfil_photo` varchar(120) null, `access` varchar(20) null, `is_owner` tinyint(1) not null default '0', `active` tinyint(1) not null default '1', `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
+#6 C:\\Code\\ProjetoWeb\\api\\database\\migrations\\0001_01_01_000004_create_users_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runMigration():428}()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runUp():244}()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
+#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->{closure:Illuminate\\Database\\Console\\Migrations\\MigrateCommand::runMigrations():110}()
+#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#37 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#38 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#39 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#40 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#41 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#42 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#43 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#44 C:\\Code\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#45 {main}
+
+[previous exception] [object] (PDOException(code: 42S21): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'user_cod' at C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
+[stacktrace]
+#0 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
+#1 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->{closure:Illuminate\\Database\\Connection::statement():560}()
+#2 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run()
+#4 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement()
+#5 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build()
+#6 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build()
+#7 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create()
+#8 C:\\Code\\ProjetoWeb\\api\\database\\migrations\\0001_01_01_000004_create_users_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#9 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#11 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runMigration():428}()
+#12 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#13 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->{closure:Illuminate\\Database\\Migrations\\Migrator::runUp():244}()
+#14 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render()
+#15 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write()
+#16 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#17 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#18 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run()
+#19 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->{closure:Illuminate\\Database\\Console\\Migrations\\MigrateCommand::runMigrations():110}()
+#20 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#21 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#22 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#23 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#24 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#25 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#26 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#27 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#28 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#29 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#30 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run()
+#31 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand()
+#32 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call()
+#33 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#34 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::{closure:Illuminate\\Container\\BoundMethod::call():35}()
+#35 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure()
+#36 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#37 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call()
+#38 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call()
+#39 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#40 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run()
+#41 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run()
+#42 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand()
+#43 C:\\Code\\ProjetoWeb\\api\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun()
+#44 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#45 C:\\Code\\ProjetoWeb\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#46 C:\\Code\\ProjetoWeb\\api\\artisan(13): Illuminate\\Foundation\\Application->handleCommand()
+#47 {main}
+"} 
+[2025-05-15 17:23:45] local.INFO: owner {"id":1,"name":"Joao","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"DXo6GapPu7","active":1,"created_at":"2025-05-15T17:23:39.000000Z","updated_at":"2025-05-15T17:23:39.000000Z"}  
+[2025-05-15 17:23:45] local.INFO: Passou o login, token: 1|n78gFiMusx7b7AL0eHv4bWov8DYnV4KH2eEdBWfwf04b8c37  
+[2025-05-15 17:23:48] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 17:24:08] local.INFO: Memória usada no RegisterIssuerRepository 18874368  
+[2025-05-15 17:24:09] local.INFO: array (
+  'company_name' => 'TRANSPORTES LODI',
+  'trade_name' => 'TRANSPORTES LODI',
+  'cnpj' => NULL,
+  'cpf' => '11505315921',
+  'main_activity' => NULL,
+  'cod_cnae' => NULL,
+  'cod_crt' => NULL,
+  'date_of_foundation' => '2005-07-31',
+  'uuse_id' => 'DXo6GapPu7',
+)  
+[2025-05-15 17:24:09] local.INFO: DXo6GapPu7  
+[2025-05-15 17:24:09] local.INFO: $owner {"id":1,"name":"Joao","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"DXo6GapPu7","active":1,"created_at":"2025-05-15T17:23:39.000000Z","updated_at":"2025-05-15T17:23:39.000000Z"}  
+[2025-05-15 17:24:09] local.INFO: --- Criação das espécies padrão ---  
+[2025-05-15 17:24:09] local.INFO: --- Fim da criação das espécies padrão ---  
+[2025-05-15 17:24:09] local.INFO: --- Criação do cliente padrão ---  
+[2025-05-15 17:24:09] local.INFO: {"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","cpf":" ","cnpj":" ","updated_at":"2025-05-15T17:24:09.000000Z","created_at":"2025-05-15T17:24:09.000000Z","id":1}  
+[2025-05-15 17:24:09] local.INFO: --- Fim da criação do cliente padrão ---  
+[2025-05-15 17:24:09] local.INFO: --- Criação das configPDV padrão ---  
+[2025-05-15 17:24:09] local.INFO: --- Fim da criação do configPDV padrão ---  
+[2025-05-15 17:24:09] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 17:24:19] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 17:24:39] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 17:24:39] local.INFO: 1  
+[2025-05-15 17:24:39] local.INFO: array (
+  'company_name' => 'TRANSPORTES LODI',
+  'trade_name' => 'TRANSPORTES LODI',
+  'date_of_foundation' => '2005-07-31',
+  'cep' => '89705228',
+  'uf' => 'SC',
+  'address' => 'Rua Ricardo João Angoneze',
+  'number' => '243',
+  'cod_cnae' => '1111111111',
+  'cnae' => '1',
+  'cod_crt' => 2,
+  'crt' => 'Lucro real',
+  'ie' => '1',
+  'im' => '111111111111',
+)  
+[2025-05-15 17:24:39] local.INFO: $firstSteps {"id":1,"issuer_id":1,"complete_issuer":0,"complete_pdv":0,"complete_customers":0,"complete_products":0,"ignore_first_steps":0,"created_at":"2025-05-15T17:24:09.000000Z","updated_at":"2025-05-15T17:24:09.000000Z"}  
+[2025-05-15 17:24:39] local.INFO: - Vai criar o NCM -   
+[2025-05-15 17:25:12] local.INFO: Emitente é: Lucro real  
+[2025-05-15 17:25:12] local.INFO: csosncst é: 00  
+[2025-05-15 17:25:12] local.INFO: Vai criar os CFOPs  
+[2025-05-15 17:25:13] local.INFO: Já está cadastrado  
+[2025-05-15 17:25:27] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 17:25:47] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 17:25:47] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 17:25:47] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 17:25:47] local.INFO: Buscando por emitente  
+[2025-05-15 17:25:47] local.INFO: Cod. emitente: 1  
+[2025-05-15 17:25:47] local.INFO: Buscando espécies  
+[2025-05-15 17:25:47] local.INFO: Terminou  
+[2025-05-15 17:25:56] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-15 17:25:56] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_id' => 1,
+    'especie_id' => 2,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-15',
+    'input_value' => 100,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-15 17:25:56] local.INFO: Buscando emitente: 1  
+[2025-05-15 17:25:56] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"joao","login":"joaolodi01@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T17:23:39.000000Z","updated_at":"2025-05-15T17:23:39.000000Z"}  
+[2025-05-15 17:25:56] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T17:24:09.000000Z","updated_at":"2025-05-15T17:24:09.000000Z"}  
+[2025-05-15 17:25:56] local.INFO: Buscando espécie: {"id":2,"payment_cod":2,"issuer_id":1,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
+[2025-05-15 17:25:56] local.INFO: Vai criar 1 registro:   
+[2025-05-15 17:25:56] local.INFO: Terminou de cadastrar1  
+[2025-05-15 17:25:56] local.INFO: $issuer_id: 1  
+[2025-05-15 17:25:56] local.INFO: $lastCashBox com issuer_id {"id":1,"cash_register_cod":1,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":2,"especie":"PIX","date_register":"2025-05-15","input_value":"100.00","output_value":"0.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"joao","canceled":0}  
+[2025-05-15 17:25:56] local.INFO: $actualCashBox com issuer_id   
+[2025-05-15 17:25:56] local.INFO: Não foi encontrado um registro anterior do segundo registro no caixa  
+[2025-05-15 17:25:56] local.INFO: $lastCashBoxashBox 2  
+[2025-05-15 17:25:56] local.INFO: {"id":1,"cash_register_cod":1,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":2,"especie":"PIX","date_register":"2025-05-15","input_value":"100.00","output_value":"0.00","real_balance":"100.00","origem":"Caixa (Manual)","user_id":1,"seller":"joao","canceled":0}  
+[2025-05-15 17:25:56] local.INFO: $actualCashBox 2  
+[2025-05-15 17:25:56] local.INFO:   
+[2025-05-15 17:25:56] local.INFO: Vai retornar  
+[2025-05-15 17:25:56] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 17:29:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 17:47:45] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 17:48:28] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"TRANSPORTES LODI","trade_name":"TRANSPORTES LODI","cnpj":null,"cpf":"11505315921","uf":"SC","address":"Rua Ricardo Jo\u00e3o Angoneze","number":"243","cep":"89705228","ie":"1","im":"111111111111","main_activity":"1","cod_cnae":1111111111,"cnae":"1","cod_crt":2,"crt":"Lucro real","date_of_foundation":"2005-07-31","owner_id":1,"active":1,"created_at":"2025-05-15T17:24:09.000000Z","updated_at":"2025-05-15T17:24:39.000000Z"}  
+[2025-05-15 17:50:09] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"TRANSPORTES LODI","trade_name":"TRANSPORTES LODI","cnpj":null,"cpf":"11505315921","uf":"SC","address":"Rua Ricardo Jo\u00e3o Angoneze","number":"243","cep":"89705228","ie":"1","im":"111111111111","main_activity":"1","cod_cnae":1111111111,"cnae":"1","cod_crt":2,"crt":"Lucro real","date_of_foundation":"2005-07-31","owner_id":1,"active":1,"created_at":"2025-05-15T17:24:09.000000Z","updated_at":"2025-05-15T17:24:39.000000Z"}  
+[2025-05-15 18:30:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:30:13] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:30:14] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:30:14] local.INFO: Buscando por emitente  
+[2025-05-15 18:30:14] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:30:14] local.INFO: Buscando espécies  
+[2025-05-15 18:30:14] local.INFO: Terminou  
+[2025-05-15 18:30:33] local.INFO: owner {"id":1,"name":"Joao","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"DXo6GapPu7","active":1,"created_at":"2025-05-15T17:23:39.000000Z","updated_at":"2025-05-15T17:23:39.000000Z"}  
+[2025-05-15 18:30:34] local.INFO: Passou o login, token: 2|bQJUeZgyHSwi30abxc6VdsXQe2VeeU32jWeugvJO01f5f136  
+[2025-05-15 18:30:36] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 18:30:49] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:30:49] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:30:49] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:30:49] local.INFO: Buscando por emitente  
+[2025-05-15 18:30:49] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:30:49] local.INFO: Buscando espécies  
+[2025-05-15 18:30:49] local.INFO: Terminou  
+[2025-05-15 18:32:30] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:32:30] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:32:30] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:32:30] local.INFO: Buscando por emitente  
+[2025-05-15 18:32:30] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:32:30] local.INFO: Buscando espécies  
+[2025-05-15 18:32:30] local.INFO: Terminou  
+[2025-05-15 18:32:35] local.INFO: owner {"id":1,"name":"Joao","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","uuse_id":"DXo6GapPu7","active":1,"created_at":"2025-05-15T17:23:39.000000Z","updated_at":"2025-05-15T17:23:39.000000Z"}  
+[2025-05-15 18:32:35] local.INFO: Passou o login, token: 3|SnXEHepP61rSR3IjKfTHUgBqBjzMUvIhgAQ6ERtn7c3f57a6  
+[2025-05-15 18:32:37] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 18:32:47] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:32:47] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:32:47] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:32:47] local.INFO: Buscando por emitente  
+[2025-05-15 18:32:47] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:32:47] local.INFO: Buscando espécies  
+[2025-05-15 18:32:47] local.INFO: Terminou  
+[2025-05-15 18:40:04] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:40:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:40:07] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:40:07] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:40:07] local.INFO: Buscando por emitente  
+[2025-05-15 18:40:07] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:40:07] local.INFO: Buscando espécies  
+[2025-05-15 18:40:07] local.INFO: Terminou  
+[2025-05-15 18:40:09] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:40:13] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:40:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:41:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:41:09] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:41:09] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:41:09] local.INFO: Buscando por emitente  
+[2025-05-15 18:41:09] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:41:09] local.INFO: Buscando espécies  
+[2025-05-15 18:41:09] local.INFO: Terminou  
+[2025-05-15 18:41:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:41:12] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:41:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:41:15] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:41:16] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:41:16] local.INFO: Buscando por emitente  
+[2025-05-15 18:41:16] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:41:16] local.INFO: Buscando espécies  
+[2025-05-15 18:41:16] local.INFO: Terminou  
+[2025-05-15 18:41:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:41:38] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:41:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:41:40] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:41:40] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:41:40] local.INFO: Buscando por emitente  
+[2025-05-15 18:41:40] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:41:40] local.INFO: Buscando espécies  
+[2025-05-15 18:41:40] local.INFO: Terminou  
+[2025-05-15 18:41:41] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:41:45] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:41:45] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:41:46] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:41:46] local.INFO: Buscando por emitente  
+[2025-05-15 18:41:46] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:41:46] local.INFO: Buscando espécies  
+[2025-05-15 18:41:46] local.INFO: Terminou  
