@@ -36,6 +36,7 @@ class RegisterOwnerRepository implements RegisterOwnerContract
             'password' => Hash::make($data['password']),
             'access' => 'Adminstrador',
             'is_owner' => 1
+            
         ]);
         
         return $owner;

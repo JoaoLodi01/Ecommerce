@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_cod');
-            $table->unique(['owner_id', 'user_cod']);
-            
+            $table->unique(['owner_id', 'user_cod']);            
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
             $table->unsignedBigInteger('owner_id')->nullable();
             $table->string('name', 120);
@@ -27,6 +26,7 @@ return new class extends Migration
             $table->boolean('active')->default(1);
             $table->rememberToken();
             $table->timestamps();
+            
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

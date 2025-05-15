@@ -11,6 +11,7 @@
         class="w-96"
         color="grey"
         @update:model-value="setSpecies"
+
       />
     </div>
   </template>
@@ -23,6 +24,7 @@
     data() {
       return {
         filteredSpecies: [],
+        allSpecies: [],
         speciesData: { 
           id: null,
           especie: 'Escolher...'
@@ -34,11 +36,34 @@
       async selectSpecies() {
         console.log(this.speciesData.especie)
         try {
-          const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
-          this.filteredSpecies = response.data.all
-
+            const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
+            this.allSpecies = response.data.all
+            if(response.data.success)
+            {
+                this.fillterSpecies()
+            }
         } catch (error) {
           console.error('Erro ao carregar espécies:', error)
+        }
+      },
+
+      fillterSpecies()
+      {
+        switch (this.module_) {
+          case 'cash':
+            this.allSpecies.forEach((v, _) => {
+                if(v.tipo_lancamento === 'Caixa')
+                {
+                    this.filteredSpecies.push(v)
+
+                }
+
+            })
+
+            break;
+        
+          default:
+            break;
         }
       },
   
@@ -48,6 +73,13 @@
         this.$emit('selectSpecie', this.speciesData)
       },
 
+    },
+
+    props: {
+      module_: {
+        type: String,
+        required: true
+      }
     },
   
     mounted() {

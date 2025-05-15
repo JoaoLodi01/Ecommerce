@@ -1,218 +1,128 @@
-[2025-05-15 16:54:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 16:54:25] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 16:54:25] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 16:54:25] local.INFO: Buscando por emitente  
-[2025-05-15 16:54:25] local.INFO: Cod. emitente: 1  
-[2025-05-15 16:54:25] local.INFO: Buscando espécies  
-[2025-05-15 16:54:25] local.INFO: Terminou  
-[2025-05-15 16:54:32] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 16:54:32] local.INFO: array (
+[2025-05-15 18:47:54] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:47:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:47:58] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:47:58] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:47:58] local.INFO: Buscando por emitente  
+[2025-05-15 18:47:58] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:47:58] local.INFO: Buscando espécies  
+[2025-05-15 18:47:58] local.INFO: Terminou  
+[2025-05-15 18:48:36] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:48:36] local.INFO: Buscando por emitente  
+[2025-05-15 18:48:36] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:48:36] local.INFO: Buscando espécies  
+[2025-05-15 18:48:36] local.INFO: Terminou  
+[2025-05-15 18:48:37] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:48:37] local.INFO: Buscando por emitente  
+[2025-05-15 18:48:37] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:48:37] local.INFO: Buscando espécies  
+[2025-05-15 18:48:37] local.INFO: Terminou  
+[2025-05-15 18:48:48] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:48:48] local.INFO: Buscando por emitente  
+[2025-05-15 18:48:48] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:48:48] local.INFO: Buscando espécies  
+[2025-05-15 18:48:48] local.INFO: Terminou  
+[2025-05-15 18:49:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:49:10] local.INFO: Buscando por emitente  
+[2025-05-15 18:49:10] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:49:10] local.INFO: Buscando espécies  
+[2025-05-15 18:49:10] local.INFO: Terminou  
+[2025-05-15 18:49:16] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:49:16] local.INFO: Buscando por emitente  
+[2025-05-15 18:49:16] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:49:16] local.INFO: Buscando espécies  
+[2025-05-15 18:49:16] local.INFO: Terminou  
+[2025-05-15 18:49:20] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:49:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:49:23] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:49:23] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:49:23] local.INFO: Buscando por emitente  
+[2025-05-15 18:49:23] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:49:23] local.INFO: Buscando espécies  
+[2025-05-15 18:49:23] local.INFO: Terminou  
+[2025-05-15 18:49:47] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:49:47] local.INFO: Buscando por emitente  
+[2025-05-15 18:49:47] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:49:47] local.INFO: Buscando espécies  
+[2025-05-15 18:49:47] local.INFO: Terminou  
+[2025-05-15 18:50:14] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:50:14] local.INFO: Buscando por emitente  
+[2025-05-15 18:50:14] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:50:14] local.INFO: Buscando espécies  
+[2025-05-15 18:50:14] local.INFO: Terminou  
+[2025-05-15 18:50:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:50:19] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:50:19] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:50:20] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:50:20] local.INFO: Buscando por emitente  
+[2025-05-15 18:50:20] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:50:20] local.INFO: Buscando espécies  
+[2025-05-15 18:50:20] local.INFO: Terminou  
+[2025-05-15 18:50:55] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:50:55] local.INFO: Buscando por emitente  
+[2025-05-15 18:50:55] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:50:55] local.INFO: Buscando espécies  
+[2025-05-15 18:50:55] local.INFO: Terminou  
+[2025-05-15 18:51:02] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:51:02] local.INFO: Buscando por emitente  
+[2025-05-15 18:51:02] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:51:02] local.INFO: Buscando espécies  
+[2025-05-15 18:51:02] local.INFO: Terminou  
+[2025-05-15 18:51:07] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:51:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:51:10] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:51:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:51:10] local.INFO: Buscando por emitente  
+[2025-05-15 18:51:10] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:51:10] local.INFO: Buscando espécies  
+[2025-05-15 18:51:10] local.INFO: Terminou  
+[2025-05-15 18:51:22] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:51:22] local.INFO: Buscando por emitente  
+[2025-05-15 18:51:22] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:51:22] local.INFO: Buscando espécies  
+[2025-05-15 18:51:22] local.INFO: Terminou  
+[2025-05-15 18:52:11] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:52:11] local.INFO: Buscando por emitente  
+[2025-05-15 18:52:11] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:52:11] local.INFO: Buscando espécies  
+[2025-05-15 18:52:11] local.INFO: Terminou  
+[2025-05-15 18:52:14] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:52:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-15 18:52:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 18:52:36] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 18:52:36] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:52:36] local.INFO: Buscando por emitente  
+[2025-05-15 18:52:36] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:52:36] local.INFO: Buscando espécies  
+[2025-05-15 18:52:36] local.INFO: Terminou  
+[2025-05-15 18:53:20] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 18:53:20] local.INFO: Buscando por emitente  
+[2025-05-15 18:53:20] local.INFO: Cod. emitente: 1  
+[2025-05-15 18:53:20] local.INFO: Buscando espécies  
+[2025-05-15 18:53:20] local.INFO: Terminou  
+[2025-05-15 18:53:38] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-15 18:53:38] local.INFO: array (
   0 => 
   array (
     'issuer_id' => 1,
     'description' => 'Registro Manual',
     'document' => 1,
     'customer_id' => 1,
-    'especie_id' => 1,
+    'especie_id' => 2,
     'user_id' => 1,
     'origem' => 'Caixa (Manual)',
     'date_register' => '2025-05-15',
-    'input_value' => 0,
-    'output_value' => 100,
-  ),
-)  
-[2025-05-15 16:54:32] local.INFO: Buscando emitente: 1  
-[2025-05-15 16:54:32] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
-[2025-05-15 16:54:32] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
-[2025-05-15 16:54:32] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 16:54:32] local.INFO: Vai criar 1 registro:   
-[2025-05-15 16:54:32] local.INFO: $issuer_id: 1  
-[2025-05-15 16:54:32] local.INFO: $lastCashBox com issuer_id {"id":7,"cash_register_cod":7,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"100.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 16:54:32] local.INFO: $actualCashBox com issuer_id {"id":6,"cash_register_cod":6,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"50.00","real_balance":"100.00","origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 16:54:32] local.INFO: Foi encontrado mais um registro  
-[2025-05-15 16:54:32] local.INFO: Novo valor: R$ 0.00 + 0.00 -  = 0  
-[2025-05-15 16:54:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 16:55:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 16:55:12] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 16:55:12] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 16:55:12] local.INFO: Buscando por emitente  
-[2025-05-15 16:55:12] local.INFO: Cod. emitente: 1  
-[2025-05-15 16:55:12] local.INFO: Buscando espécies  
-[2025-05-15 16:55:12] local.INFO: Terminou  
-[2025-05-15 16:55:17] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 16:55:17] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 1,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 50,
+    'input_value' => 100,
     'output_value' => 0,
   ),
 )  
-[2025-05-15 16:55:17] local.INFO: Buscando emitente: 1  
-[2025-05-15 16:55:17] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
-[2025-05-15 16:55:17] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
-[2025-05-15 16:55:17] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 16:55:17] local.INFO: Vai criar 1 registro:   
-[2025-05-15 16:55:17] local.INFO: $issuer_id: 1  
-[2025-05-15 16:55:17] local.INFO: $lastCashBox com issuer_id {"id":8,"cash_register_cod":8,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"50.00","output_value":"0.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 16:55:17] local.INFO: $actualCashBox com issuer_id {"id":7,"cash_register_cod":7,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"100.00","real_balance":"100.00","origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 16:55:17] local.INFO: Foi encontrado mais um registro  
-[2025-05-15 16:55:17] local.INFO: Novo valor: R$ 0.00 + 50.00 - 0.00 = 50  
-[2025-05-15 16:55:17] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 16:55:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 16:55:21] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 16:55:21] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 16:55:21] local.INFO: Buscando por emitente  
-[2025-05-15 16:55:21] local.INFO: Cod. emitente: 1  
-[2025-05-15 16:55:21] local.INFO: Buscando espécies  
-[2025-05-15 16:55:21] local.INFO: Terminou  
-[2025-05-15 16:55:30] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 16:55:30] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 1,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 0,
-    'output_value' => 100,
-  ),
-)  
-[2025-05-15 16:55:30] local.INFO: Buscando emitente: 1  
-[2025-05-15 16:55:30] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
-[2025-05-15 16:55:30] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
-[2025-05-15 16:55:30] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 16:55:30] local.INFO: Vai criar 1 registro:   
-[2025-05-15 16:55:30] local.INFO: $issuer_id: 1  
-[2025-05-15 16:55:30] local.INFO: $lastCashBox com issuer_id {"id":9,"cash_register_cod":9,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"100.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 16:55:30] local.INFO: $actualCashBox com issuer_id {"id":8,"cash_register_cod":8,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"50.00","output_value":"0.00","real_balance":"150.00","origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 16:55:30] local.INFO: Foi encontrado mais um registro  
-[2025-05-15 16:55:30] local.INFO: Novo valor: R$ 50.00 + 0.00 - 100.00 = 50  
-[2025-05-15 16:55:31] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 16:59:19] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 16:59:19] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 16:59:20] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 16:59:20] local.INFO: Buscando por emitente  
-[2025-05-15 16:59:20] local.INFO: Cod. emitente: 1  
-[2025-05-15 16:59:20] local.INFO: Buscando espécies  
-[2025-05-15 16:59:20] local.INFO: Terminou  
-[2025-05-15 16:59:28] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 16:59:28] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 1,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 0,
-    'output_value' => 7000000,
-  ),
-)  
-[2025-05-15 16:59:28] local.INFO: Buscando emitente: 1  
-[2025-05-15 16:59:28] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
-[2025-05-15 16:59:28] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
-[2025-05-15 16:59:28] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 16:59:28] local.INFO: Vai criar 1 registro:   
-[2025-05-15 16:59:28] local.INFO: $issuer_id: 1  
-[2025-05-15 16:59:28] local.INFO: $lastCashBox com issuer_id {"id":10,"cash_register_cod":10,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"7000000.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 16:59:28] local.INFO: $actualCashBox com issuer_id {"id":9,"cash_register_cod":9,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"100.00","real_balance":"50.00","origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 16:59:28] local.INFO: Foi encontrado mais um registro  
-[2025-05-15 16:59:28] local.INFO: Novo valor: R$ 0.00 + 0.00 - 7000000.00 = 0  
-[2025-05-15 16:59:29] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 17:02:06] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 17:02:06] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 17:02:07] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-15 17:02:07] local.INFO: Buscando por emitente  
-[2025-05-15 17:02:07] local.INFO: Cod. emitente: 1  
-[2025-05-15 17:02:07] local.INFO: Buscando espécies  
-[2025-05-15 17:02:07] local.INFO: Terminou  
-[2025-05-15 17:02:18] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 17:02:18] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 1,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 0,
-    'output_value' => 7.0E+35,
-  ),
-)  
-[2025-05-15 17:02:18] local.INFO: Buscando emitente: 1  
-[2025-05-15 17:02:18] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
-[2025-05-15 17:02:18] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
-[2025-05-15 17:02:18] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 17:02:18] local.INFO: Vai criar 1 registro:   
-[2025-05-15 17:02:33] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 17:02:33] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 1,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 0,
-    'output_value' => 7000000000000000000,
-  ),
-)  
-[2025-05-15 17:02:33] local.INFO: Buscando emitente: 1  
-[2025-05-15 17:02:33] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
-[2025-05-15 17:02:33] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
-[2025-05-15 17:02:33] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 17:02:33] local.INFO: Vai criar 1 registro:   
-[2025-05-15 17:02:38] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-15 17:02:38] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 1,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-15',
-    'input_value' => 0,
-    'output_value' => 70000000,
-  ),
-)  
-[2025-05-15 17:02:38] local.INFO: Buscando emitente: 1  
-[2025-05-15 17:02:38] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"Gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T16:37:30.000000Z","updated_at":"2025-05-15T16:37:30.000000Z"}  
-[2025-05-15 17:02:38] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T16:37:49.000000Z","updated_at":"2025-05-15T16:37:49.000000Z"}  
-[2025-05-15 17:02:38] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-15 17:02:38] local.INFO: Vai criar 1 registro:   
-[2025-05-15 17:02:38] local.INFO: $issuer_id: 1  
-[2025-05-15 17:02:38] local.INFO: $lastCashBox com issuer_id {"id":11,"cash_register_cod":11,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"70000000.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 17:02:38] local.INFO: $actualCashBox com issuer_id {"id":10,"cash_register_cod":10,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"0.00","output_value":"7000000.00","real_balance":"-6999950.00","origem":"Caixa (Manual)","user_id":1,"seller":"Gabriel","canceled":0}  
-[2025-05-15 17:02:38] local.INFO: Foi encontrado mais um registro  
-[2025-05-15 17:02:38] local.INFO: Novo valor: R$ 0.00 + 0.00 - 70000000.00 = 0  
-[2025-05-15 17:02:39] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 17:02:57] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 17:03:02] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 17:03:05] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 17:03:10] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 17:03:11] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
-[2025-05-15 17:03:33] local.INFO: Memória usada CashRegisterRepository::class, getAll: 20971520  
+[2025-05-15 18:53:38] local.INFO: Buscando emitente: 1  
+[2025-05-15 18:53:38] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-15T17:27:57.000000Z","updated_at":"2025-05-15T17:27:57.000000Z"}  
+[2025-05-15 18:53:38] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T17:28:32.000000Z","updated_at":"2025-05-15T17:28:32.000000Z"}  
+[2025-05-15 18:53:38] local.INFO: Buscando espécie: {"id":2,"payment_cod":2,"issuer_id":1,"especie":"PIX","tipo_lancamento":"Caixa","active":1}  
+[2025-05-15 18:53:38] local.INFO: Vai criar 1 registro:   
+[2025-05-15 18:53:38] local.INFO: $issuer_id: 1  
+[2025-05-15 18:53:38] local.INFO: $lastCashBox com issuer_id {"id":50,"cash_register_cod":50,"issuer_id":1,"description":"Registro Manual","document":"1","pdv_id":null,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":2,"especie":"PIX","date_register":"2025-05-15","input_value":"100.00","output_value":"0.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"gabriel","canceled":0}  
+[2025-05-15 18:53:38] local.INFO: $actualCashBox com issuer_id {"id":49,"cash_register_cod":49,"issuer_id":1,"description":"Venda Nota Manual \n                                N\u00b0 3","document":"3","pdv_id":3,"customer_id":1,"name":"Consumidor Padr\u00e3o","especie_id":1,"especie":"Dinheiro","date_register":"2025-05-15","input_value":"120.00","output_value":"0.00","real_balance":"5880.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-05-15 18:53:38] local.INFO: Foi encontrado mais um registro  
+[2025-05-15 18:53:38] local.INFO: Novo valor: R$ 120.00 + 100.00 - 0.00 = 220  
+[2025-05-15 18:53:39] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  

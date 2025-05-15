@@ -258,8 +258,9 @@ export default {
 
         async getPayments() {
             try {
-                const response = await api.get(`/species/payments/all/${LocalStorage.getItem("issuer_id")}`);
-                this.paymentsForms = response.data;
+                const response = await api.get(`/species/all/${LocalStorage.getItem("issuer_id")}`);
+                console.log(response.data)
+                this.paymentsForms = response.data.all;
                 
             } catch (error) {
                 console.error('Erro no getPayments', error)
@@ -322,7 +323,7 @@ export default {
                         })
                         console.log(response_nfce);
 
-                        if(response_nfce.data.success === true)
+                        if(response_nfce.data.success)
                         {
                             this.cancelOperation()
                             this.$emit('update:selectProducts', []);
@@ -349,10 +350,11 @@ export default {
                         })
 
                         console.log(response_nm);
-                        if(response_nm.data.success === true)
+                        if(response_nm.data.success)
                         {
                             this.cancelOperation()
                             this.$emit('update:selectProducts', []);
+                            LocalStorage.removeItem("pdvID")
                         } else {
                             LocalStorage.removeItem("pdvID")
                             console.log('Erro durante a finalização da venda: ', response_nm.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))

@@ -40,6 +40,8 @@
             
             <SpeciesSearchBar
                 @selectSpecie="getSpecie($event)"
+                :module_="'cash'"
+
             />
 
             <q-input 
