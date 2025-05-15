@@ -18,7 +18,7 @@ class ProductsRequest extends FormRequest
         return [
             'issuer_id' => ['required'],
             'product' => [$required, 'string', 'max:120'],
-            'image' => [$required, 'max:512'],
+            'image' => ['nullable', 'max:512'],
             'barcode' => [$required, 'string'],
             'barcode_internal' => ['sometimes', 'string'],
             'group_id' => ['nullable', 'integer'],
@@ -46,5 +46,15 @@ class ProductsRequest extends FormRequest
             'aliquot_cofins' => [$required],
 
         ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'issuer_id.required' => 'O emitente é obrigatório',
+            'product.required' => 'O nome do produto é obrigatório',
+            'barcode.required' => 'O cód de barras é obrigatório',
+        ];
+
     }
 }

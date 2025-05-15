@@ -68,7 +68,6 @@ Route::prefix('v1')->group( function (){
             });
 
             Route::prefix('tributs')->group( function (){
-                
                 Route::get('/all/{id}', [TributsController::class, 'getAllNCMs']);
                 Route::post('/search', [TributsController::class, 'searchNCM']);
 
@@ -116,6 +115,7 @@ Route::prefix('v1')->group( function (){
 
             });
         });
+
         Route::prefix('species')->group( function(){
             Route::get('/all/{issuer_id}', [PaymentsController::class, 'getAll']);
             Route::post('/create', [PaymentsController::class, 'store']);

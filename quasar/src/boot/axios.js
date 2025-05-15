@@ -1,34 +1,61 @@
-import { defineBoot } from '#q-app/wrappers'
-import { LocalStorage } from 'quasar'
-import axios from 'axios'
+import { defineBoot } from '#q-app/wrappers';
+import { LocalStorage } from 'quasar';
+import axios from 'axios';
+import emitter from 'src/utils/eventBus';
 
-axios.defaults.withCredentials = false
+axios.defaults.withCredentials = false;
 
-const api = axios.create({ 
-    baseURL: process.env.API_URL 
-
+const api = axios.create({
+  baseURL: process.env.API_URL,
 });
 
 export default defineBoot(({ app, router }) => {
-    api.interceptors.request.use((config) => {
-        const token = LocalStorage.getItem("auth_token");
+  api.interceptors.request.use(
+    (config) => {
+      const token = LocalStorage.getItem("auth_token");
 
-        const publicAPIRoutes = ['/forgot-password', '/reset-passowrd', '/auth/me', '/owner']
-        const isPublic = publicAPIRoutes.some(route => config.url.includes(route))
+      const publicAPIRoutes = [
+        '/forgot-password',
+        '/reset-password',
+        '/auth/me',
+        '/owner'
+      ];
 
-        if (!token && !isPublic) {
-            router.replace({path: '/login'})
-            
-        } else {
-            config.headers.Authorization = `Bearer ${token}`;
+      const isPublic = publicAPIRoutes.some(route => config.url.includes(route));
 
-        }
-    
-        return config;
-    });
+      if (!token && !isPublic) {
+        router.replace({ path: '/login' });
+        return Promise.reject(new Error("Usuário não autenticado"));
+      }
 
-    app.config.globalProperties.$api = api;
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+
+      return config;
+    },
+    (error) => {
+      emitter.emit('global-error', 'Erro ao enviar requisição');
+      return Promise.reject(error);
+    }
+  );
+
+  api.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      const msg =
+        error.response?.data?.message ||
+        error.response?.data?.errorMessage ||
+        error.message ||
+        'Erro inesperado na resposta da API';
+
+      emitter.emit('global-error', msg);
+      return Promise.reject(error);
+    }
+  );
+
+  app.config.globalProperties.$api = api;
+  app.config.globalProperties.$bus = emitter;
 });
-
 
 export { api };

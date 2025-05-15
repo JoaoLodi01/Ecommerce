@@ -229,7 +229,6 @@
                     }
                     
                 } catch (error) {
-                    alert("Ocorreu um erro ao cadastrar o cliente.");
                     console.error('Erro', error)
                 }
             },

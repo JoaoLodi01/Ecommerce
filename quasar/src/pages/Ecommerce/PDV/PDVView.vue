@@ -688,7 +688,6 @@
                                 if(!data.success)
                                 {
                                     console.log(response.data) 
-                                    alert(response.data)
                                 }
                             } 
                         
@@ -736,7 +735,6 @@
                     
                 } catch (error) {
                     console.error('Erro finalizeSale', error)
-                    alert(error.response.data.errors)
                     this.errorMessages.push(error.response.data.errors)
                     
                 }
@@ -769,8 +767,6 @@
                 } catch (error) {
                     if(error.response.data.message === 'Hotel não encontrado')
                     {
-                        alert(error.response.data.message)
-                        alert('Por favor faça o cadastro do hotel!')
                         this.$router.push('/hotel/create')
                         
                     }
