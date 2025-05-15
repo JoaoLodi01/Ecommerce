@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('description', 120);
             $table->date('issue_date');
             $table->integer('n_nfce', false)->nullable();
-            $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->string('client', 120);
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->string('customer', 120);
             $table->decimal('gross_value', 16,2);
             $table->decimal('net_value', 16,2);
             $table->decimal('discount', 16,2)->nullable();

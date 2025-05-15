@@ -63,7 +63,7 @@ class PDVRepository
     
     public function findByID(int $id, int $issuerID)
     {
-        $pdv = PDV::where('id', $id)
+        $pdv = PDV::where('pdv_cod', $id)
                     ->where(function($q) use ($issuerID){
                         $q->where('issuer_id', $issuerID);
                     })            
@@ -87,8 +87,8 @@ class PDVRepository
     {
         Log::info('Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0');
         $pdvs = PDV::with('getItens')
-                        ->where('is_nfce_nm', null)
-                        ->where('id', $id)
+                        ->where('pdv_cod', $id)
+
                         ->first();
 
         return $pdvs;
@@ -110,7 +110,7 @@ class PDVRepository
                     'cost_price' => $product[$i]['cost_price'],
                     'sale_price' => $product[$i]['sale_price'],
                     'cfop' => $product[$i]['cfop'],
-                    'csosn' => $product[$i]['csosncst'],
+                    'csosncst' => $product[$i]['csosncst'],
                     'ncm' => $product[$i]['ncm'],
                     'cest' => $product[$i]['cest'],
                     'unit' => $product[$i]['unit'],
@@ -163,7 +163,10 @@ class PDVRepository
         Log::info($details);
 
         $customer = $this->customerRepository->findByID($details['customer_id']);
-        
+        Log::info('customer => ' . $customer);
+        $customerName = $customer->company_name ? $customer->company_name : $customer->trade_name;
+        Log::info('customerName => ' . $customerName);
+
         $user = $this->userRepository->findByID($details['user_id']); // "user"
 
         $currentDate = new Carbon();
@@ -173,8 +176,8 @@ class PDVRepository
             'issuer_id' => $details['issuer_id'],
             'description' => $details['description'],
             'issue_date' => $currentDate->format('Y-m-d'),
-            'cliente_id' => $customer->id,
-            'client' => $customer->name,
+            'customer_id' => $customer->customer_cod,
+            'customer' => $customerName,
             'gross_value' => $details['sub_total'],
             'net_value' => $details['total'],
             'addition' => $details['addition'],
@@ -221,11 +224,13 @@ class PDVRepository
 
         $pdv = $this->findByID($id, $issuerID);
         
-        $customer = $this->customerRepository->findByID($pdv->cliente_id);
+        $customer = $this->customerRepository->findByID($pdv->customer_id);
+        Log::info('Customer => ' . $customer);
 
         Log::info('Vai procurar a(s) formas de pagamento');
         $formsPayment = $this->paymentsRepository->findByID($forms); // formsPayment - apenas as espécies
         Log::info('Vai conferir se o $total: R$ ' . $total . ' é maior que o $pdv->net_value, R$' . $pdv->net_value);
+
         if($total >= $pdv->net_value)
         {
             Log::info('Foi maior');

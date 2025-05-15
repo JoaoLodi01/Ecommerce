@@ -17,7 +17,7 @@ class ItensPDV extends Model
         'cost_price',
         'sale_price',
         'cfop',
-        'csosn',
+        'csosncst',
         'ncm',
         'cest',
         'unit',

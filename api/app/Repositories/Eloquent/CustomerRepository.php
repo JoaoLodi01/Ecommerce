@@ -77,7 +77,7 @@ class CustomerRepository
 
     public function findByID(int $id){
         return Customer::with('joinCredit')
-                        ->where('id', $id)
+                        ->where('customer_cod', $id)
                         ->first();
     }
     /*return CustomerCredit::join('customers', 'customers.id', 'customer_credits.customer_id')

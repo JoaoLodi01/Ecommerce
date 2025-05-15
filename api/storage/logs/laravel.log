@@ -1,398 +1,30 @@
-[2025-05-15 02:01:56] local.INFO: Data  
-[2025-05-15 02:01:56] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:01:56] local.INFO: data  
-[2025-05-15 02:01:56] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:02:14] local.INFO: Data  
-[2025-05-15 02:02:14] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:02:14] local.INFO: data  
-[2025-05-15 02:02:14] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:02:40] local.INFO: Data  
-[2025-05-15 02:02:40] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:02:40] local.INFO: data  
-[2025-05-15 02:02:40] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:03:05] local.INFO: Data  
-[2025-05-15 02:03:05] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:03:05] local.INFO: data  
-[2025-05-15 02:03:05] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:03:18] local.INFO: Data  
-[2025-05-15 02:03:18] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:03:18] local.INFO: data  
-[2025-05-15 02:03:18] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:03:29] local.INFO: Data  
-[2025-05-15 02:03:29] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:03:29] local.INFO: data  
-[2025-05-15 02:03:29] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '1111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '1111111111',
-  'cost_price' => '1111111111',
-  'sale_price' => '2222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01019000',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '1',
-  'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.11',
-  'cod_pis' => '53',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '49',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-15 02:03:33] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-14T23:35:48.000000Z","updated_at":"2025-05-14T23:36:00.000000Z"}  
-[2025-05-15 02:03:44] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-14T23:35:48.000000Z","updated_at":"2025-05-14T23:36:00.000000Z"}  
-[2025-05-15 02:03:46] local.INFO: findByID . 1 type: string  
-[2025-05-15 02:03:48] local.INFO: findByID . 1 type: string  
-[2025-05-15 02:03:53] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-14T23:35:48.000000Z","updated_at":"2025-05-14T23:36:00.000000Z"}  
-[2025-05-15 02:03:57] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 02:03:57] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 02:03:57] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
-[2025-05-15 02:03:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 02:03:58] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 02:03:58] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 02:03:58] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 02:03:58] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-15 02:03:58] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 02:04:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 02:04:01] local.INFO: $data  
-[2025-05-15 02:04:01] local.INFO: array (
-  'issuer_id' => 1,
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-  'supervisorPasswordCancelSale' => false,
-  'supervisorPasswordDeleteItem' => false,
-)  
-[2025-05-15 02:04:01] local.INFO: data no repository  
-[2025-05-15 02:04:01] local.INFO: array (
-  'issuer_id' => 1,
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-  'supervisorPasswordCancelSale' => false,
-  'supervisorPasswordDeleteItem' => false,
-)  
-[2025-05-15 02:04:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 02:04:02] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 02:04:03] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-15 02:04:03] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-15 02:04:04] local.INFO: Controller  
-[2025-05-15 02:04:04] local.INFO: array (
+[2025-05-15 10:03:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:03:53] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:03:53] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:03:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:03:53] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:03:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:03:53] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:03:55] local.INFO: Controller  
+[2025-05-15 10:03:55] local.INFO: array (
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
   'issuer_id' => 1,
 )  
-[2025-05-15 02:04:04] local.INFO: -- Vai começar a busca --  
-[2025-05-15 02:04:04] local.INFO: array (
+[2025-05-15 10:03:55] local.INFO: -- Vai começar a busca --  
+[2025-05-15 10:03:55] local.INFO: array (
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
   'issuer_id' => 1,
 )  
-[2025-05-15 02:04:08] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-15 02:04:08] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-15 02:04:08] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-15 02:04:08] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-15 02:04:08] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-15 02:04:08] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
-[2025-05-15 02:04:08] local.INFO: -- Iniciou o saveSale() line 172 --   
-[2025-05-15 02:04:08] local.INFO: array (
+[2025-05-15 10:03:56] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-15 10:03:56] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:03:56] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:03:56] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:03:56] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:03:56] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-05-15 10:03:56] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-05-15 10:03:56] local.INFO: array (
   'issuer_id' => 1,
   'description' => 'Venda Nota Manual N°',
   'products' => 
@@ -404,33 +36,33 @@
         'id' => 1,
         'product_cod' => 1,
         'issuer_id' => 1,
-        'product' => '1111111111',
+        'product' => 'Produto teste',
         'barcode' => '11111111111111',
         'barcode_internal' => '1111111111111111',
         'image' => 'null',
         'group_id' => NULL,
         'group' => NULL,
         'amount' => 1,
-        'cost_price' => '1111111111.00',
-        'sale_price' => '2222222222.00',
+        'cost_price' => '100.00',
+        'sale_price' => '200.00',
         'profit_percentage' => '100.00',
-        'cfop' => '1111',
-        'ncm' => '01019000',
+        'cfop' => '5102',
+        'ncm' => '01022919',
         'cest' => '1111111',
         'unit' => 'UN',
-        'csosncst' => '111',
-        'cod_origem_icms' => 1,
-        'origem_icms' => '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA',
+        'csosncst' => '102',
+        'cod_origem_icms' => 6,
+        'origem_icms' => '6 - ESTRANGEIRA - IMPORTAÇÃO DIRETA SEM SIMILAR NACIONAL',
         'icms_ecf' => 11.11,
         'taxable_amount' => 1,
         'taxable_unit' => '1111',
         'tax_benefit' => '1',
-        'cod_ipi' => '54',
+        'cod_ipi' => '50',
         'aliquot_ipi' => 11.11,
         'cod_pis' => '53',
-        'aliquot_pis' => 11.1,
-        'cod_cofins' => '49',
-        'aliquot_cofins' => 11.1,
+        'aliquot_pis' => 11.11,
+        'cod_cofins' => '3',
+        'aliquot_cofins' => 11.11,
         'cod_use_type' => '1',
         'use_type' => '1',
         'active' => 1,
@@ -439,144 +71,247 @@
   ),
   'user_id' => 1,
   'customer_id' => 1,
-  'total' => 2222222222,
-  'sub_total' => 2222222222,
+  'total' => 200,
+  'sub_total' => 200,
   'addition' => 0,
   'discount' => 0,
   'is_nfce_nm' => 'nm',
 )  
-[2025-05-15 02:04:08] local.INFO: array (
+[2025-05-15 10:03:56] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-15T09:46:45.000000Z","updated_at":"2025-05-15T09:46:45.000000Z","join_credit":[]}  
+[2025-05-15 10:03:56] local.INFO: customerName => Consumidor Padrão  
+[2025-05-15 10:03:56] local.INFO: array (
   'pdv_cod' => 1,
   'issuer_id' => 1,
   'description' => 'Venda Nota Manual N°',
   'issue_date' => '2025-05-15',
-  'cliente_id' => 1,
-  'client' => NULL,
-  'gross_value' => 2222222222,
-  'net_value' => 2222222222,
+  'customer_id' => 1,
+  'customer' => 'Consumidor Padrão',
+  'gross_value' => 200,
+  'net_value' => 200,
   'addition' => 0,
   'discount' => 0,
   'user_id' => 1,
   'user' => 'Gabriel',
   'is_nfce_nm' => 'nm',
 )  
-[2025-05-15 02:04:08] local.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'client' cannot be null (Connection: mariadb, SQL: insert into `pdvs` (`pdv_cod`, `issuer_id`, `description`, `issue_date`, `cliente_id`, `client`, `gross_value`, `net_value`, `addition`, `discount`, `user_id`, `user`, `is_nfce_nm`, `updated_at`, `created_at`) values (1, 1, Venda Nota Manual N°, 2025-05-15, 1, ?, 2222222222, 2222222222, 0, 0, 1, Gabriel, nm, 2025-05-15 02:04:08, 2025-05-15 02:04:08)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'client' cannot be null (Connection: mariadb, SQL: insert into `pdvs` (`pdv_cod`, `issuer_id`, `description`, `issue_date`, `cliente_id`, `client`, `gross_value`, `net_value`, `addition`, `discount`, `user_id`, `user`, `is_nfce_nm`, `updated_at`, `created_at`) values (1, 1, Venda Nota Manual N°, 2025-05-15, 1, ?, 2222222222, 2222222222, 0, 0, 1, Gabriel, nm, 2025-05-15 02:04:08, 2025-05-15 02:04:08)) at D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
-[stacktrace]
-#0 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#1 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
-#2 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
-#3 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
-#4 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2108): Illuminate\\Database\\Query\\Builder->insertGetId()
-#5 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
-#6 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
-#7 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
-#8 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1116): Illuminate\\Database\\Eloquent\\Model->save()
-#9 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}()
-#10 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1115): tap()
-#11 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
-#12 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2368): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
-#13 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2380): Illuminate\\Database\\Eloquent\\Model->__call()
-#14 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Repositories\\Eloquent\\EcommerceEloquent\\PDVRepository.php(189): Illuminate\\Database\\Eloquent\\Model::__callStatic()
-#15 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Services\\EcommerceService\\PDVService.php(67): App\\Repositories\\Eloquent\\EcommerceEloquent\\PDVRepository->saveSale()
-#16 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\EcommerceController\\PDVController.php(34): App\\Services\\EcommerceService\\PDVService->saveSale()
-#17 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\PDVController->saveSale()
-#18 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#19 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#20 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#21 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#22 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#23 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#24 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#25 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#26 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#27 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#28 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#29 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#30 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#31 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#32 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#33 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#34 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#35 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#36 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#37 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#38 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#39 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#40 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#41 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#42 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#43 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#44 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#45 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#46 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#47 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#48 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#49 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#50 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#51 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#52 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
-#53 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#54 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#55 {main}
-
-[previous exception] [object] (PDOException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'client' cannot be null at D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php:53)
-[stacktrace]
-#0 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(53): PDOStatement->execute()
-#1 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\MySqlConnection->Illuminate\\Database\\{closure}()
-#2 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
-#3 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(42): Illuminate\\Database\\Connection->run()
-#4 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert()
-#5 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3766): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId()
-#6 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2108): Illuminate\\Database\\Query\\Builder->insertGetId()
-#7 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1359): Illuminate\\Database\\Eloquent\\Builder->__call()
-#8 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1324): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
-#9 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1163): Illuminate\\Database\\Eloquent\\Model->performInsert()
-#10 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1116): Illuminate\\Database\\Eloquent\\Model->save()
-#11 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}()
-#12 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1115): tap()
-#13 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create()
-#14 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2368): Illuminate\\Database\\Eloquent\\Model->forwardCallTo()
-#15 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2380): Illuminate\\Database\\Eloquent\\Model->__call()
-#16 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Repositories\\Eloquent\\EcommerceEloquent\\PDVRepository.php(189): Illuminate\\Database\\Eloquent\\Model::__callStatic()
-#17 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Services\\EcommerceService\\PDVService.php(67): App\\Repositories\\Eloquent\\EcommerceEloquent\\PDVRepository->saveSale()
-#18 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\app\\Http\\Controllers\\EcommerceController\\PDVController.php(34): App\\Services\\EcommerceService\\PDVService->saveSale()
-#19 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(47): App\\Http\\Controllers\\EcommerceController\\PDVController->saveSale()
-#20 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
-#21 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\Route->runController()
-#22 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
-#23 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
-#24 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#25 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
-#26 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#27 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
-#28 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#29 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
-#30 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
-#31 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute()
-#32 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
-#33 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
-#34 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
-#35 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#36 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#37 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
-#38 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#39 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
-#40 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
-#41 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#42 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
-#43 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#44 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
-#45 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#46 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
-#47 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#48 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
-#49 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#50 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
-#51 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
-#52 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
-#53 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
-#54 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
-#55 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest()
-#56 D:\\Gabriel\\Projetos\\SGBR\\1_Hotel_Ecommerce\\api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('...')
-#57 {main}
-"} 
+[2025-05-15 10:03:56] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-05-15 10:03:56] local.INFO: $iPDV  
+[2025-05-15 10:03:56] local.INFO: 0  
+[2025-05-15 10:03:56] local.INFO: Save sale  
+[2025-05-15 10:03:56] local.INFO: array (
+  'success' => true,
+  'pdvID' => 1,
+)  
+[2025-05-15 10:04:10] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:04:10] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:04:10] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:04:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:04:11] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:04:11] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:04:11] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:05:35] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-15 10:05:35] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:05:35] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:05:35] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:05:35] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:05:35] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:05:36] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:05:36] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:05:36] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:05:36] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:05:36] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:05:36] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:05:47] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:05:47] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:05:47] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:05:47] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:05:47] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:05:47] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:05:47] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:05:47] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:05:47] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:05:47] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:05:47] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:05:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:05:48] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:05:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:05:52] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:05:52] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:05:53] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-15 10:05:53] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:05:53] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:05:53] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:05:53] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:05:53] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:05:53] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:05:53] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:05:54] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-15 10:05:54] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:05:54] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:05:54] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:05:54] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:05:54] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:05:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:05:54] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:05:55] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:05:55] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:05:55] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:05:55] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:05:55] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:05:55] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:05:57] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:05:57] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:05:57] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:05:58] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:05:58] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:05:58] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:05:58] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:05:58] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:05:58] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:05:58] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:05:58] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:05:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:05:58] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:06:49] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:06:49] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:06:49] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:06:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:06:51] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:06:51] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:06:52] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-15 10:06:52] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:06:52] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:06:52] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:06:52] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:06:52] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:06:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:06:52] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:06:52] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:06:52] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:06:52] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:06:52] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:06:52] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:06:52] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:06:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:06:53] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:06:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:06:53] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:06:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:06:53] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:06:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:06:54] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:06:55] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 10:06:55] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:06:55] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:06:55] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:06:55] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:06:55] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:06:55] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:06:55] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:06:55] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:06:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:06:55] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:07:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:07:08] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:07:08] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 10:07:08] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:07:08] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:07:08] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:07:08] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:07:08] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:07:08] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:07:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:07:08] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:07:09] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 10:07:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:07:09] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:07:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:07:09] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:07:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:07:10] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:07:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:07:10] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:07:31] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-15 10:07:31] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:07:31] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:07:31] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:07:31] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:07:31] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:07:33] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:07:33] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:07:33] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:07:33] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:07:33] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:07:33] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:07:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:07:35] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:07:35] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:07:36] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-15 10:07:36] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:07:36] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:07:36] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:07:36] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:07:36] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:07:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:07:36] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:07:36] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:07:36] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:08:09] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:08:09] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:08:10] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:08:10] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:08:10] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:08:10] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:08:10] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:08:10] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:08:12] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:08:12] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:08:12] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:08:12] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:08:12] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:08:12] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:08:12] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:08:12] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:08:12] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:08:12] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:08:12] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:08:13] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:08:13] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:09:47] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-15 10:09:48] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:09:48] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:09:48] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:09:48] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:09:48] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:09:49] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-15 10:09:49] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:09:49] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:09:49] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:09:49] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:09:49] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-05-15 10:09:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:09:54] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:09:55] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-15 10:09:55] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:09:55] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:09:55] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:09:55] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:09:55] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:09:55] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:09:55] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-15 10:09:55] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:09:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:09:55] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:10:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:10:15] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:10:15] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-15 10:10:15] local.INFO: Memória usada ReservationService::class, __construct: 20971520  
+[2025-05-15 10:10:15] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-15 10:10:15] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-15 10:10:15] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-15 10:10:15] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-15 10:10:15] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-05-15 10:10:15] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:10:15] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 10:10:16] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 10:10:16] local.INFO: ConfigController: $issuer_id 1  

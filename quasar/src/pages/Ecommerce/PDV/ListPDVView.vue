@@ -88,7 +88,8 @@
 </template>
 
 <script>
-    import { api } from "src/boot/axios";
+    import { LocalStorage } from "quasar";
+import { api } from "src/boot/axios";
     import ReportErros from "src/components/PDV/Errors/ReportErros.vue";
     
     export default {
@@ -114,7 +115,7 @@
             async getPDVsSaved()
             {   
                 try {
-                    const response = await api.get('/ecommerce/pdv/all')
+                    const response = await api.get(`/ecommerce/pdv/all/${LocalStorage.getItem("issuer_id")}`)
                     this.savedPDVs = response.data.data
                     console.log(response.data.data)
                     /*for (let i = 0; i < response.data.pdvs.length; i++) {
