@@ -322,3 +322,17 @@
 [2025-05-15 20:05:39] local.INFO: Cod. emitente: 1  
 [2025-05-15 20:05:39] local.INFO: Buscando espécies  
 [2025-05-15 20:05:39] local.INFO: Terminou  
+[2025-05-15 20:50:41] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 20:50:41] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 20:50:42] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 20:50:42] local.INFO: Buscando por emitente  
+[2025-05-15 20:50:42] local.INFO: Cod. emitente: 1  
+[2025-05-15 20:50:42] local.INFO: Buscando espécies  
+[2025-05-15 20:50:42] local.INFO: Terminou  
+[2025-05-15 20:51:41] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-15 20:51:41] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-15 20:51:41] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-15 20:51:41] local.INFO: Buscando por emitente  
+[2025-05-15 20:51:41] local.INFO: Cod. emitente: 1  
+[2025-05-15 20:51:41] local.INFO: Buscando espécies  
+[2025-05-15 20:51:41] local.INFO: Terminou  

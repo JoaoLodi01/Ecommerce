@@ -32,7 +32,7 @@ class ReceiveRequest extends FormRequest
             'interest_value' => [$required, 'numeric'],
             'total_amount' => [$required, 'numeric'],
             'origem' => ['nullable'],
-            'user_id' => [$required, 'integer'],
+            'user_id' => [$required],
         ];
     }
 

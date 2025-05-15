@@ -167,7 +167,7 @@
         let total = 0;
 
         if (typeInterest === '%') {
-          total = baseTotal + (baseTotal * (feedValue / 100));
+          total = baseTotal + (baseTotal * (feesValue / 100));
         } else if (typeInterest === 'R$') {
           total = baseTotal + feesValue;
         } else {
@@ -180,72 +180,85 @@
     },
 
     methods: {
-      onReset(){
-        const today = this.today;
-          this.form = {
-            issuer_id: LocalStorage.getItem("issuer_id"),
-            description: "Registro Manual Receber",
-            document: 1,
-            customer_id: 1,
-            user_id: LocalStorage.getItem("user_id"),
-            especie_id: 0,
-            due_date: today.add(30, 'days').format("DD-MM-YYYY"),
-            installment_number: 1,
-            installment_value: 0,
-            type_interest: "",
-            interest_value: 0,
-            total_amount: 0,
-            origem: "Receber (Manual)",
+      parseCurrency(value) {
+      if (!value) return 0;
+
+      return parseFloat(
+        value
+          .toString()
+          .replace(/\s/g, '')
+          .replace('R$', '')
+          .replace(/\./g, '')
+          .replace(',', '.')
+      ) || 0;
+    },
+
+    onReset(){
+      const today = this.today;
+        this.form = {
+          issuer_id: LocalStorage.getItem("issuer_id"),
+          description: "Registro Manual Receber",
+          document: 1,
+          customer_id: 1,
+          user_id: LocalStorage.getItem("user_id"),
+          especie_id: 0,
+          due_date: today.add(30, 'days').format("DD-MM-YYYY"),
+          installment_number: 1,
+          installment_value: 0,
+          type_interest: "",
+          interest_value: 0,
+          total_amount: 0,
+          origem: "Receber (Manual)",
+        }
+    },
+
+    close(){
+      this.$emit('close', false)
+    },
+
+    getCustumer(event){
+      console.log('Chamou o getCustumer')
+      console.log(event)
+      this.form.customer_id = event.id
+    },
+
+    getSpecie(event){
+        console.log("Chamou o getSpecie");
+        console.log(event);
+        this.form.especie_id = event.id;
+        this.form.especie = event.name;
+    },
+
+    async submitForm() {
+      console.log(this.form)
+        try {
+          const response = await api.post(`/ecommerce/receive/create`, this.form);
+
+          if(response.data.success){
+            this.close();
+            this.onReset();
           }
-      },
 
-      close(){
-        this.$emit('close', false)
-      },
-
-      getCustumer(event){
-        console.log('Chamou o getCustumer')
-        console.log(event)
-        this.form.customer_id = event.id
-      },
-
-      getSpecie(event){
-          console.log("Chamou o getSpecie");
-          console.log(event);
-          this.form.especie_id = event.id;
-          this.form.especie = event.name;
-      },
-
-      async submitForm() {
-        console.log(this.form)
-          try {
-            const response = await api.post(`/ecommerce/receive/create`, this.form);
-
-            if(response.data.success){
-              this.close();
-              this.onReset();
-            }
-
-            console.log('Dados enviados!', response.data)
-          } catch (error) {
-              alert("Ocorreu um erro ao cadastrar o registro")
-          }
-      },
+          console.log('Dados enviados!', response.data)
+        } catch (error) {
+            alert("Ocorreu um erro ao cadastrar o registro")
+        }
     },
+  },
 
-    watch: {
-      totalAmoutCalc(newVal){
-        this.form.total_amount = newVal;
-      }
-    },
+  watch: {
+    totalAmoutCalc(newVal){
+      this.form.total_amount = newVal;
+    }
+  },
 
-    components:{
-      CustomerSearchBar,
-      SpeciesSearchBar,
-    },
-    
-    emits:[
-      'close'
-    ],
+  components:{
+    CustomerSearchBar,
+    SpeciesSearchBar,
+  },
+  
+  emits:[
+    'close'
+  ],
 };
 </script>
