@@ -212,6 +212,7 @@ export default {
                     }
                 );
 
+                console.log('usuário: ', LocalStorage.getItem("user_id"));
                 this.onReset();
                 console.log("Dados enviados!", response);
                 
