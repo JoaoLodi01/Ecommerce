@@ -131,7 +131,20 @@ class ProductsRepository
             'cest' => $data['cest'],
             'cfop' => $data['cfop'],            
             'csosncst' => $data['csosncst'],
-            'cod_origem_icms' => $data['cod_origem_icms']
+            'cod_origem_icms' => $data['cod_origem_icms'],
+            'origem_icms' => $data['origem_icms'],
+            'icms_ecf' => $data['icms_ecf'],
+            'taxable_amount' => $data['taxable_amount'] ?? '1',
+            'taxable_unit' => $data['taxable_unit'] ?? '1',
+            'tax_benefit' => $data['tax_benefit'] ?? '1',
+            'cod_ipi' => $data['cod_ipi'],
+            'aliquot_ipi' => $data['aliquot_ipi'],
+            'cod_pis' => $data['cod_pis'],
+            'aliquot_pis' => $data['aliquot_pis'],
+            'cod_cofins' => $data['cod_cofins'],
+            'aliquot_cofins' => $data['aliquot_cofins'],
+            'cod_use_type' => $data['cod_use_type'] ?? '1',
+            'use_type' => $data['use_type'] ?? '1',
 
         ]);
     }
