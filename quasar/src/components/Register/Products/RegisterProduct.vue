@@ -2,7 +2,7 @@
     <div
         class="border border-black -mt-24 p-6 shadow-md rounded "
         :class="{
-            'relative top-12 left-12': widthScreen <= 1080,
+            'w-screen': widthScreen < 1366,
             'relative top-28 text-xl': widthScreen > 1080
         }"
     >

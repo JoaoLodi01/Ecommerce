@@ -8,11 +8,7 @@ main()
 
 	cd $api_path
 
-<<<<<<< HEAD
 	start bash -c "php artisan serve --host=192.168.98.32"
-=======
-	start bash -c "php artisan serve --host=192.168.98.18"
->>>>>>> e82d49a9ee8eb88290ac499f2aa3ac1393af1d84
 
 	bash -c "sh artisan_util.sh"
 

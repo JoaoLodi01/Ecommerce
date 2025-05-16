@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
-            $table->integer('n_nfce', false)->default(1);
+            $table->unsignedBigInteger('config_pdv_cod');
+            $table->unique(['issuer_id', 'config_pdv_cod']);
+
+            $table->unsignedBigInteger('n_nfce')->default(1);
             $table->string('filter_search', 40)->default('');
             $table->string('filter_search_customer', 40)->default('');
             $table->boolean('nm_finaly', 1)->default(1);

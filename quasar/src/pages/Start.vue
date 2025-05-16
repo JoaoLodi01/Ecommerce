@@ -1,9 +1,9 @@
 <template>
     <div 
         class="text-xl mr-5 ml-16 mt-10"
-        v-if="showStart">
-
-        <div class="rounded-lg mb-10 p-2 flex items-center gap-4 text-3xl">
+        v-if="showStart"
+    >
+        <div class="rounded-lg p-2 flex items-center gap-4 text-3xl">
             <div class="font-semibold">
                 <h2>Bem Vindo!</h2>
             </div>
@@ -13,7 +13,16 @@
             </div>
         </div>
 
-        <div class="w-full max-w-3xl">
+        <div class="w-full max-w-3xl" v-if="!ignore">
+            <q-checkbox 
+                right-label 
+                v-model="ignore" 
+                label="Ignorar primeiros passos" 
+                class="mb-3"
+                color="grey"
+                @update:model-value="ignoreFirstSteps()"
+            />
+
             <div class="flex bg-white rounded-lg gap-4 mb-6 p-3 shadow-md">
                 <CompleteOrNo :label="completeIssuer" class="mt-0.5"/>
                 <router-link :to="`/${issuer_name}/companie-data`">
@@ -69,6 +78,7 @@
         data()
         {
             return {
+                ignore: false,
                 showStart: true,
                 completeIssuer: false,
                 completeConfigPDV: false,
@@ -83,19 +93,30 @@
             {
                 const response = await api.get(`/first-steps/${LocalStorage.getItem("issuer_id")}`)
                 const data = response.data.first_steps
+                this.ignore = data.ignore_first_steps === 1 ? true : false
                 this.completeIssuer = data.complete_issuer === 1 ? true : false;
                 this.completeConfigPDV = data.complete_pdv === 1 ? true : false;
                 this.completeConfigCustomer = data.complete_customers === 1 ? true : false;
                 this.completeConfigProducts = data.complete_products === 1 ? true : false;
                 
+            },
+
+            async ignoreFirstSteps()
+            {
+                const response = await api.put(`/first-steps/${LocalStorage.getItem("issuer_id")}`)
+
+                if(response.data.success && response.data.ignore)
+                {
+                    this.ignore = response.data.ignore
+                }
             }
         },
 
         mounted()
         {
             this.issuer_name = this.$route.params.name
-            
             this.completed()
+
         }
     }
 </script>

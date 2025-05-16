@@ -43,7 +43,7 @@
       />
 
       <SpeciesSearchBar
-        @updated:selectSpecie="getSpecie($event)"
+        @selectSpecie="getSpecie($event)"
         :module_="'receive'"
       />
 
@@ -79,8 +79,8 @@
         v-model="form.type_interest"
         label="Tipo de Juros"
         :options="[
-          { label: '%', value: 'Porcentagem' },
-          { label: 'R$', value: 'Valor'}
+          { label: '%', value: '%' },
+          { label: 'R$', value: 'R$'}
         ]"
         emit-value
         map-options
@@ -225,7 +225,7 @@
     getSpecie(event){
         console.log("Chamou o getSpecie");
         console.log(event);
-        this.form.especie_id = event.id;
+        this.form.especie_id = event.payment_cod;
         this.form.especie = event.name;
     },
 

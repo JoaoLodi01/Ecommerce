@@ -86,7 +86,7 @@ Route::prefix('v1')->group( function (){
             // Receive routes
             Route::prefix('receive')->group( function(){
                 Route::get('/all/{issuer_id}', [ReceiveController::class, 'getAll']);
-                Route::post('/create', [ReceiveController::class, 'store']);
+                Route::post('/create', [ReceiveController::class, 'create']);
                 Route::get('/{id}', [ReceiveController::class, 'findByID']);
                 Route::put('/{id}', [ReceiveController::class, 'update']);
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
@@ -192,7 +192,11 @@ Route::prefix('v1')->group( function (){
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
         });
 
-        Route::get('/first-steps/{id}', [FirstStepsController::class, 'getAll']);
+        Route::prefix('first-steps')->group(function (){
+            Route::get('/{id}', [FirstStepsController::class, 'getAll']);
+            Route::put('/{id}', [FirstStepsController::class, 'ignoreFirstSteps']);
+
+        });
     
     });
 

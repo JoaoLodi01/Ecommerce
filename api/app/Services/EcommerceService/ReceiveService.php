@@ -22,7 +22,7 @@ class ReceiveService
         }
     }
 
-    public function findByID(){
+    public function findByID(int $id){
         try {
             return response()->json([
                 'success' => true,
@@ -34,9 +34,9 @@ class ReceiveService
         }
     }
 
-    public function store($data){
+    public function create(array $data){
         try {
-            return $this->receiveRepository->store($data);
+            return $this->receiveRepository->create($data);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }

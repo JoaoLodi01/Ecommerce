@@ -63,7 +63,8 @@
                         <th class="px-6 py-3 text-center">Controle</th>
                         <th class="px-6 py-3 text-center">Documento</th>
                         <th class="px-6 py-3 text-center">Descrição</th>
-                        <th class="px-6 py-3 text-center">Valor entrada</th>
+                        <th class="px-6 py-3 text-center">QTDE Parcela</th>
+                        <th class="px-6 py-3 text-center">Valor</th>
                         <th class="px-6 py-3 text-center">Cliente</th>
                         <th class="px-6 py-3 text-center">Cód. Espécie</th>
                         <th class="px-6 py-3 text-center">Espécie</th>
@@ -72,10 +73,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(register, id) in cashs" :key="id" class="border-t text-center">
-                        <td class="px-6 py-3 text-center">{{ register.id }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.id }}</td>
+                    <tr v-for="(register, id) in receives" :key="id" class="border-t text-center">
+                        <td class="px-6 py-3 text-center">{{ register.receive_cod }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.document }}</td>
                         <td class="px-6 py-3 text-center">{{ register.description }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.installment_number }}</td>
                         <td class="px-6 py-3 text-center">{{ register.installment_value }}</td>
                         <td class="px-6 py-3 text-center">{{ register.name }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
@@ -161,7 +163,7 @@
                 this.showLoading()
                 try {
                     const response = await api.get(`/ecommerce/receive/all/${LocalStorage.getItem("issuer_id")}`)
-                    this.cashs = response.data.all
+                    this.receives = response.data.all
                     console.log(response.data)
 
                     this.dateSearch()

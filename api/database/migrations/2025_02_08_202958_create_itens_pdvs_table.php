@@ -18,10 +18,13 @@ return new class extends Migration
 
             $table->unsignedBigInteger('issuer_id');
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
-            $table->unsignedBigInteger('pdv_id');
-            $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+
+            $table->unsignedBigInteger('pdv_cod');
+            $table->foreign('pdv_cod')->references('pdv_cod')->on('pdvs')->onDelete('cascade');
+
+            $table->unsignedBigInteger('product_cod');
+            $table->foreign('product_cod')->references('product_cod')->on('products')->onDelete('cascade');
+
             $table->string('product', 120);
             $table->decimal('cost_price', 16,2);
             $table->decimal('sale_price', 16,2);

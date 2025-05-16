@@ -51,19 +51,22 @@
                 label="Data Cadastro"
                 color="grey-7"
             />
+
             <q-input
                 v-if="sum"
-                type="number"
+                type="text"
                 v-model="form.input_value"
+                mask="R$ ###.###.###,##"
                 label="Valor Entrada"
                 color="grey-7"
+
             />
+
             <q-input
                 v-else
-                type="number"
+                type="text"
                 placeholder="0,00"
-                mask="##,##"
-                fill-mask="0"
+                mask="R$ ###.###.###,##"
                 v-model="form.output_value"
                 label="Valor Saída"
                 color="grey-7"
@@ -73,14 +76,18 @@
                 v-model="form.obs"
                 label="Observação"
                 color="grey-7"
+
             />
+
             <q-input
                 type="text"
                 :value="totalAmountCalc"
                 v-model="form.total_amount"
                 label="Valor total"
+                mask="R$ ###.###.###,##"
                 readonly
                 color="grey-7"
+                
             />
 
             <div>
@@ -90,7 +97,7 @@
                     class="bg-slate-600 text-white"
                 />
                 <q-btn
-                    @click="sum = !sum"
+                    @click="alternetSum()"
                     :label="sum ? 'entrada' : 'saída'"
                     class="ml-5"
                     :class="{
@@ -206,8 +213,8 @@ export default {
                     issuer_id: LocalStorage.getItem("issuer_id"),
                     description: this.form.description,
                     document: this.form.document,
-                    customer_id: this.form.customer_id,
-                    especie_id: this.form.especie_id,
+                    customer_cod: this.form.customer_id,
+                    especie_cod: this.form.especie_id,
                     date_register: this.form.date_register,
                     input_value: this.parseCurrency(this.form.input_value),
                     output_value: this.parseCurrency(this.form.output_value),
@@ -231,6 +238,13 @@ export default {
                 alert("Ocorreu um erro ao cadastrar o registro");
             }
         },
+        alternetSum()
+        {
+            this.sum = !this.sum
+            this.form.input_value = 0
+            this.form.output_value = 0
+
+        }
     },
 
     components: {

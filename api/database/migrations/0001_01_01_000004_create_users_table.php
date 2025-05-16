@@ -14,11 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_cod');
-<<<<<<< HEAD
-            $table->unique(['owner_id', 'user_cod']);
-=======
             $table->unique(['owner_id', 'user_cod']);            
->>>>>>> e82d49a9ee8eb88290ac499f2aa3ac1393af1d84
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
             $table->unsignedBigInteger('owner_id')->nullable();
             $table->string('name', 120);

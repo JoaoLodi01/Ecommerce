@@ -21,6 +21,7 @@ class ReceiveRequest extends FormRequest
     {
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
+            'issuer_id' => [$required],
             'description' => [$required, 'string', 'max:255'],
             'document' => ['sometimes'],
             'customer_id' => [$required],

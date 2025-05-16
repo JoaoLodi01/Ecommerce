@@ -2,23 +2,28 @@
     <div
         class="border border-black mt-2 p-6 shadow-md rounded"
         :class="{
-            'relative top-12 left-12': widthScreen <= 1080,
-            'relative top-28 text-xl': widthScreen > 1080
+            'w-screen': widthScreen < 1366,
+            'ml-20 form-customer': widthScreen > 1366
         }"
+
     >
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
-        
         <q-form
             @submit="submitForm()"
             @reset="onReset"
-            class="form-customer p-1"
+            
+
         >
             <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max mb-2">Dados cadastrais</h4>
                 <q-select 
                     v-model="type" 
                     :options="options" 
-                    label="Tipo de cadastro" 
+                    label="Tipo de cadastro *" 
                     filled 
+                    color="grey-7"
+                    :rules="[ val => !!val || 'Selecione o tipo de cadastro do cliente' ]"
+                    
                 />
 
                 <div v-if="type === 'Física'">
@@ -28,6 +33,7 @@
                         label="Nome" 
                         maxlength="120" 
                         color="grey-7"
+                        :rules="[ val => !!val || 'O nome fantasia do cliente é obrigatório']"
 
                     />
 
@@ -38,6 +44,8 @@
                         type="text" 
                         label="CPF"
                         color="grey-7"
+                        class="ml-2"
+                        :rules="[ val => !!val || 'O nome fantasia do cliente é obrigatório']"
                         
                     />  
 
@@ -49,6 +57,7 @@
                         label="Razão social" 
                         maxlength="120" 
                         color="grey-7"
+                        class="ml-2"
 
                     />
 
@@ -60,76 +69,98 @@
                         type="text" 
                         label="CNPJ"                 
                         color="grey-7"
+                        class="ml-2"
 
                     />
 
                 </div>
             </div>
 
-            <q-input 
-                v-model="form.cep"
-                v-bind:mask="'#####-###'"
-                type="text" 
-                label="CEP"
-                maxlength="9"
-                color="grey-7"
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
+                <q-input 
+                    v-model="form.cep"
+                    v-bind:mask="'#####-###'"
+                    type="text" 
+                    label="CEP"
+                    maxlength="9"
+                    color="grey-7"
+                    class="ml-2"
+                    :rules="[ val => !!val || 'O CEP é obrigatório' ]"
 
-            />
+                />
 
-            <q-input 
-                v-model="form.address" 
-                type="text" 
-                label="Endereço" 
-                maxlength="120"
-                color="grey-7"
+                <q-input 
+                    v-model="form.address" 
+                    type="text" 
+                    label="Endereço" 
+                    maxlength="120"
+                    color="grey-7"
+                    class="ml-2"
 
-            />
+                />
 
-            <q-input 
-                v-model="form.number" 
-                type="text" 
-                label="Número" 
-                maxlength="30"
-                color="grey-7"
+                <q-input 
+                    v-model="form.number" 
+                    type="text" 
+                    label="Número" 
+                    maxlength="30"
+                    color="grey-7"
+                    class="ml-2"
 
-            />
+                />
+            </div>
             
-            <q-input 
-                v-model="form.email" 
-                type="email" 
-                label="E-mail"
-                maxlength="120" 
-                color="grey-7"
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
+                <q-input 
+                    v-model="form.email" 
+                    type="email" 
+                    label="E-mail"
+                    maxlength="120" 
+                    color="grey-7"
+                    class="ml-2"
 
-            />
-            
-            <q-input 
-                v-model="form.phone" 
-                type="tel"
-                label="Número de telefone" 
-                maxlength="16"
-                color="grey-7"
+                />
+                
+                <q-input 
+                    v-model="form.phone" 
+                    type="tel"
+                    label="Número de telefone" 
+                    maxlength="16"
+                    color="grey-7"
+                    class="ml-2"
 
-            />
-
-            <div class="mt-2">
-                <q-checkbox 
-                    left-label 
-                    v-model="form.is_customer" 
-                    label="Cliente" 
                 />
 
-                <q-checkbox 
-                    left-label 
-                    v-model="form.is_supplier" 
-                    label="Fornecedor" 
-                />
+                <div class="mt-2">
+                    <q-checkbox 
+                        left-label 
+                        v-model="form.is_customer" 
+                        label="Cliente" 
+                        class="ml-2"
+                        color="grey-7"
 
-                <q-checkbox 
-                    left-label 
-                    v-model="form.is_driver" 
-                    label="Motorista" 
-                />
+                    />
+
+                    <q-checkbox 
+                        left-label 
+                        v-model="form.is_supplier" 
+                        label="Fornecedor" 
+                        class="ml-2"
+                        color="grey-7"
+
+                    />
+
+                    <q-checkbox 
+                        left-label 
+                        v-model="form.is_driver" 
+                        label="Motorista" 
+                        class="ml-2"
+                        color="grey-7"
+                        
+                    />
+                </div>
             </div>
 
             <div

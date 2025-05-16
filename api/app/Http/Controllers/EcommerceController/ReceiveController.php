@@ -16,9 +16,9 @@ class ReceiveController extends Controller
         return $this->receiveService->getAll($issuer_id);
     }
 
-    public function store(ReceiveRequest $request){
+    public function create(ReceiveRequest $request){
         $data = $request->validated();
-        return $this->receiveService->store($data);
+        return $this->receiveService->create($data);
     }
 
     public function findByID(int $id){

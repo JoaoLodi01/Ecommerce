@@ -75,11 +75,14 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             Log::info('--- Fim da criação do cliente padrão ---');
 
             Log::info('--- Criação das configPDV padrão ---');
+            $configPDVCod = ConfigPDV::where('issuer_id', $issuer->id)->max('config_pdv_cod');
             ConfigPDV::create([
+                'config_pdv_cod' => $configPDVCod ? $configPDVCod + 1 : 1,
                 'issuer_id' => $issuer->id,
                 'filter_search' => 'Cód barras interno',
                 'filter_search_customer' => 'Padrão (cód.cliente ou nome)'
             ]);
+            
             Log::info('--- Fim da criação do configPDV padrão ---');
 
             FirstSteps::create([

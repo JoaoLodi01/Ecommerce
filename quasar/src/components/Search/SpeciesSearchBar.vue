@@ -71,14 +71,14 @@
             })
 
             break;
-
+            
           default:
             break;
         }
       },
   
       setSpecies(specie){
-        this.speciesData.id = specie.id;
+        this.speciesData.payment_cod = specie.payment_cod;
         this.speciesData.especie = specie.especie;
         this.$emit('selectSpecie', this.speciesData)
       },

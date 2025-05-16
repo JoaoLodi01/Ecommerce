@@ -55,7 +55,7 @@
           class="text-xl font-semibold ml-5 mt-0.5"
           v-if="sidebarActive"
         >
-          {{ issuer_name }}
+          {{ issuer_name.substring(0, 12) }}
         </h1>
         
       </div>
@@ -561,15 +561,29 @@ import { api } from 'src/boot/axios';
         if(ofCourse)
         {
           LocalStorage.remove("issuer_name")
+          LocalStorage.remove("issuer_id")
           LocalStorage.remove("first_name")
           this.$router.push({ path: '/companies' })
         }
       },
       
       toggleSidebar() {
-        this.sidebarActive = !this.sidebarActive;
-        console.log('this.sidebarActive', this.sidebarActive)
-        this.$emit('toggleSidebar', this.sidebarActive)
+            this.sidebarActive = !this.sidebarActive;
+            
+            this.showFinancial = false;
+            this.downRowFinancial = false;
+
+            // Cadastros
+            this.showRegisters = false;
+            this.downRowRegisters = false;
+
+            // Vendas
+            this.showPDV = false;
+            this.downRowSales = false;
+
+            // Usuários
+            this.showUsers = false;
+            this.downRowUsers = false;
       },
 
       toggleFinancial() {
@@ -656,7 +670,8 @@ import { api } from 'src/boot/axios';
 
     mounted()
     { 
-      this.widthScreen += screen.width
+      this.widthScreen = screen.width
+      this.widthScreen < 1366 ? this.sidebarActive = false : this.sidebarActive= true
       
     }       
 

@@ -35,6 +35,6 @@ class PDV extends Model
 
     public function getItens()
     {
-        return $this->hasMany(ItensPDV::class, 'pdv_id');
+        return $this->hasMany(ItensPDV::class, 'pdv_cod');
     }
 }
