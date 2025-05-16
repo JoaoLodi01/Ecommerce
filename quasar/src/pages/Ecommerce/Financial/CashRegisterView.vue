@@ -86,7 +86,7 @@
                         <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ register.output_value }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ register.real_balance }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.name }}</td>
-                        <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie_id }}</td>
+                        <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie_cod }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.origem.toUpperCase() }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">

@@ -1,309 +1,184 @@
-[2025-05-16 10:04:05] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:04:05] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:04:05] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:04:05] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:04:05] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:04:06] local.INFO: Dados no PDVController::finalizeSale  
-[2025-05-16 10:04:06] local.INFO: array (
+[2025-05-16 12:12:35] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-16 12:12:35] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_cod' => 1,
+    'especie_cod' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-16',
+    'input_value' => 10000,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-16 12:12:35] local.INFO: Buscando emitente: 1  
+[2025-05-16 12:12:35] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:53:18.000000Z","updated_at":"2025-05-16T10:53:18.000000Z"}  
+[2025-05-16 12:12:35] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z"}  
+[2025-05-16 12:12:35] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:12:35] local.INFO: Vai criar 1 registro:   
+[2025-05-16 12:14:52] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-16 12:14:52] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_cod' => 1,
+    'especie_cod' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-16',
+    'input_value' => 10000,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-16 12:14:52] local.INFO: Buscando emitente: 1  
+[2025-05-16 12:14:52] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:53:18.000000Z","updated_at":"2025-05-16T10:53:18.000000Z"}  
+[2025-05-16 12:14:52] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z"}  
+[2025-05-16 12:14:52] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:14:52] local.INFO: Vai criar 1 registro:   
+[2025-05-16 12:15:05] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-16 12:15:05] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_cod' => 1,
+    'especie_cod' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-16',
+    'input_value' => 10000,
+    'output_value' => 0,
+  ),
+)  
+[2025-05-16 12:15:05] local.INFO: Buscando emitente: 1  
+[2025-05-16 12:15:05] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:53:18.000000Z","updated_at":"2025-05-16T10:53:18.000000Z"}  
+[2025-05-16 12:15:05] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z"}  
+[2025-05-16 12:15:05] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:15:05] local.INFO: Vai criar 1 registro:   
+[2025-05-16 12:15:05] local.INFO: $issuer_id: 1  
+[2025-05-16 12:15:05] local.INFO: $lastCashBox com issuer_id {"id":15,"cash_register_cod":2,"document":"2","issuer_id":1,"description":"Registro Manual","pdv_cod":null,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"10000.00","output_value":"0.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"gabriel","canceled":0}  
+[2025-05-16 12:15:05] local.INFO: $actualCashBox com issuer_id {"id":2,"cash_register_cod":1,"document":"1","issuer_id":1,"description":"Registro Manual","pdv_cod":null,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"0.00","output_value":"1000.00","real_balance":"-1000.00","origem":"Caixa (Manual)","user_id":1,"seller":"gabriel","canceled":0}  
+[2025-05-16 12:15:05] local.INFO: Foi encontrado mais um registro  
+[2025-05-16 12:15:05] local.INFO: Novo valor: R$ 0.00 + 10000.00 - 0.00 = 10000  
+[2025-05-16 12:15:06] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-16 12:22:25] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":2,"crt":"Lucro real","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:54:10.000000Z"}  
+[2025-05-16 12:23:06] local.INFO: Data  
+[2025-05-16 12:23:06] local.INFO: array (
+  'issuer_id' => '1',
+  'product' => 'Produto teste',
+  'image' => 'null',
+  'barcode' => '11111111111111',
+  'barcode_internal' => '1111111111111111',
+  'group_id' => NULL,
+  'amount' => '100',
+  'cost_price' => '20',
+  'sale_price' => '40',
+  'profit_percentage' => '100',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '01013000',
+  'cest' => '1111111',
+  'unit' => 'UN',
+  'cod_origem_icms' => '8',
+  'origem_icms' => '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%',
+  'icms_ecf' => '11.11',
+  'taxable_unit' => '1111',
+  'cod_ipi' => '55',
+  'aliquot_ipi' => '11.1',
+  'cod_pis' => '6',
+  'aliquot_pis' => '11.1',
+  'cod_cofins' => '6',
+  'aliquot_cofins' => '11.1',
+)  
+[2025-05-16 12:23:06] local.INFO: data  
+[2025-05-16 12:23:06] local.INFO: array (
+  'issuer_id' => '1',
+  'product' => 'Produto teste',
+  'image' => 'null',
+  'barcode' => '11111111111111',
+  'barcode_internal' => '1111111111111111',
+  'group_id' => NULL,
+  'amount' => '100',
+  'cost_price' => '20',
+  'sale_price' => '40',
+  'profit_percentage' => '100',
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'ncm' => '01013000',
+  'cest' => '1111111',
+  'unit' => 'UN',
+  'cod_origem_icms' => '8',
+  'origem_icms' => '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%',
+  'icms_ecf' => '11.11',
+  'taxable_unit' => '1111',
+  'cod_ipi' => '55',
+  'aliquot_ipi' => '11.1',
+  'cod_pis' => '6',
+  'aliquot_pis' => '11.1',
+  'cod_cofins' => '6',
+  'aliquot_cofins' => '11.1',
+)  
+[2025-05-16 12:23:07] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":2,"crt":"Lucro real","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:54:10.000000Z"}  
+[2025-05-16 12:25:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-16 12:25:06] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:25:06] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-16 12:25:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-16 12:25:07] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:25:07] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-16 12:25:07] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:25:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-16 12:25:08] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:25:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-16 12:25:09] local.INFO: $data  
+[2025-05-16 12:25:09] local.INFO: array (
   'issuer_id' => 1,
-  'type_operation' => 'nm',
-  'change' => 0,
-  'payments_values' => 
-  array (
-    0 => 120,
-  ),
-  'pdv_id' => 5,
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
 )  
-[2025-05-16 10:04:06] local.INFO: PDVService.php, class:finalizeSale, $total: 120  
-[2025-05-16 10:04:06] local.INFO: -- Iniciou o finalizeSale() line 172 --   
-[2025-05-16 10:04:06] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
-[2025-05-16 10:04:06] local.INFO: PDV pelo issuer_ud {"pdv":{"App\\Models\\EcommerceModels\\PDV":{"id":5,"pdv_cod":5,"issuer_id":1,"description":"Venda Nota Manual N°","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padrão","gross_value":"120.00","net_value":"120.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}}} 
-[2025-05-16 10:04:06] local.INFO: Customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T09:56:13.000000Z","updated_at":"2025-05-16T09:56:13.000000Z","join_credit":[]}  
-[2025-05-16 10:04:06] local.INFO: Vai procurar a(s) formas de pagamento  
-[2025-05-16 10:04:06] local.INFO: Buscando a espécie pelo ID.  
-[2025-05-16 10:04:06] local.INFO: array (
-  0 => 1,
+[2025-05-16 12:25:09] local.INFO: data no repository  
+[2025-05-16 12:25:09] local.INFO: array (
+  'issuer_id' => 1,
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
 )  
-[2025-05-16 10:04:06] local.INFO: $result  
-[2025-05-16 10:04:06] local.INFO: array (
-  0 => 
-  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
-     'connection' => 'mariadb',
-     'table' => 'payments_forms',
-     'primaryKey' => 'id',
-     'keyType' => 'int',
-     'incrementing' => true,
-     'with' => 
-    array (
-    ),
-     'withCount' => 
-    array (
-    ),
-     'preventsLazyLoading' => false,
-     'perPage' => 15,
-     'exists' => true,
-     'wasRecentlyCreated' => false,
-     'escapeWhenCastingToString' => false,
-     'attributes' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 09:56:13',
-      'updated_at' => '2025-05-16 09:56:13',
-    ),
-     'original' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 09:56:13',
-      'updated_at' => '2025-05-16 09:56:13',
-    ),
-     'changes' => 
-    array (
-    ),
-     'casts' => 
-    array (
-    ),
-     'classCastCache' => 
-    array (
-    ),
-     'attributeCastCache' => 
-    array (
-    ),
-     'dateFormat' => NULL,
-     'appends' => 
-    array (
-    ),
-     'dispatchesEvents' => 
-    array (
-    ),
-     'observables' => 
-    array (
-    ),
-     'relations' => 
-    array (
-    ),
-     'touches' => 
-    array (
-    ),
-     'timestamps' => true,
-     'usesUniqueIds' => false,
-     'hidden' => 
-    array (
-      0 => 'created_at',
-      1 => 'updated_at',
-    ),
-     'visible' => 
-    array (
-    ),
-     'fillable' => 
-    array (
-      0 => 'payment_cod',
-      1 => 'issuer_id',
-      2 => 'especie',
-      3 => 'tipo_lancamento',
-      4 => 'active',
-    ),
-     'guarded' => 
-    array (
-      0 => '*',
-    ),
-  )),
-)  
-[2025-05-16 10:04:06] local.INFO: Vai conferir se o $total: R$ 120 é maior que o $pdv->net_value, R$120.00  
-[2025-05-16 10:04:06] local.INFO: Foi maior  
-[2025-05-16 10:04:06] local.INFO: Tipo de venda NM/NFCE: nm  
-[2025-05-16 10:04:06] local.INFO: Issuer ID: 1  
-[2025-05-16 10:04:06] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 33 --  
-[2025-05-16 10:04:06] local.INFO: ISSUER_ID 1  
-[2025-05-16 10:04:06] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
-[2025-05-16 10:04:06] local.INFO: $paymentValues[$i] linha - 118: i = 0  
-[2025-05-16 10:04:06] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
-[2025-05-16 10:04:06] local.INFO: forms  
-[2025-05-16 10:04:06] local.INFO: array (
-  0 => 
-  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
-     'connection' => 'mariadb',
-     'table' => 'payments_forms',
-     'primaryKey' => 'id',
-     'keyType' => 'int',
-     'incrementing' => true,
-     'with' => 
-    array (
-    ),
-     'withCount' => 
-    array (
-    ),
-     'preventsLazyLoading' => false,
-     'perPage' => 15,
-     'exists' => true,
-     'wasRecentlyCreated' => false,
-     'escapeWhenCastingToString' => false,
-     'attributes' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 09:56:13',
-      'updated_at' => '2025-05-16 09:56:13',
-    ),
-     'original' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 09:56:13',
-      'updated_at' => '2025-05-16 09:56:13',
-    ),
-     'changes' => 
-    array (
-    ),
-     'casts' => 
-    array (
-    ),
-     'classCastCache' => 
-    array (
-    ),
-     'attributeCastCache' => 
-    array (
-    ),
-     'dateFormat' => NULL,
-     'appends' => 
-    array (
-    ),
-     'dispatchesEvents' => 
-    array (
-    ),
-     'observables' => 
-    array (
-    ),
-     'relations' => 
-    array (
-    ),
-     'touches' => 
-    array (
-    ),
-     'timestamps' => true,
-     'usesUniqueIds' => false,
-     'hidden' => 
-    array (
-      0 => 'created_at',
-      1 => 'updated_at',
-    ),
-     'visible' => 
-    array (
-    ),
-     'fillable' => 
-    array (
-      0 => 'payment_cod',
-      1 => 'issuer_id',
-      2 => 'especie',
-      3 => 'tipo_lancamento',
-      4 => 'active',
-    ),
-     'guarded' => 
-    array (
-      0 => '*',
-    ),
-  )),
-)  
-[2025-05-16 10:04:06] local.INFO: ID linha 120 - : {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:04:06] local.INFO: paymentValues linha 124 - : 120  
-[2025-05-16 10:04:06] local.INFO: Vai conferir os tipos de lançamento  
-[2025-05-16 10:04:06] local.INFO: $form->tipo_lancamento  
-[2025-05-16 10:04:06] local.INFO: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:04:06] local.INFO: Terminou de montar o corpo do caixa:   
-[2025-05-16 10:04:06] local.INFO: Dados:   
-[2025-05-16 10:04:06] local.INFO: array (
-  0 => 
-  array (
-    'cash_register_cod' => 1,
-    'issuer_id' => 1,
-    'description' => 'Venda Nota Manual 
-                                N° 5',
-    'document' => 5,
-    'pdv_cod' => 5,
-    'customer_cod' => 1,
-    'name' => 'Consumidor Padrão',
-    'especie_id' => 1,
-    'especie' => 'Dinheiro',
-    'date_register' => '2025-05-16',
-    'input_value' => 120,
-    'output_value' => 0,
-    'real_balance' => 120,
-    'user_id' => 1,
-    'seller' => 'aa',
-    'origem' => 'pdv',
-  ),
-)  
-[2025-05-16 10:04:06] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
-[2025-05-16 10:04:06] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-16 10:04:06] local.INFO: array (
-  0 => 
-  array (
-    'cash_register_cod' => 1,
-    'issuer_id' => 1,
-    'description' => 'Venda Nota Manual 
-                                N° 5',
-    'document' => 5,
-    'pdv_cod' => 5,
-    'customer_cod' => 1,
-    'name' => 'Consumidor Padrão',
-    'especie_id' => 1,
-    'especie' => 'Dinheiro',
-    'date_register' => '2025-05-16',
-    'input_value' => 120,
-    'output_value' => 0,
-    'real_balance' => 120,
-    'user_id' => 1,
-    'seller' => 'aa',
-    'origem' => 'pdv',
-  ),
-)  
-[2025-05-16 10:04:06] local.INFO: Buscando emitente: 1  
-[2025-05-16 10:04:06] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T09:56:04.000000Z","updated_at":"2025-05-16T09:56:04.000000Z"}  
-[2025-05-16 10:04:06] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T09:56:13.000000Z","updated_at":"2025-05-16T09:56:13.000000Z"}  
-[2025-05-16 10:05:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-16 10:05:25] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:05:26] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-16 10:05:26] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-16 10:05:26] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:05:26] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-16 10:05:26] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:05:27] local.INFO: Controller  
-[2025-05-16 10:05:27] local.INFO: array (
+[2025-05-16 12:25:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-16 12:25:10] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:25:11] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-16 12:25:11] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:25:11] local.INFO: Controller  
+[2025-05-16 12:25:11] local.INFO: array (
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
   'issuer_id' => 1,
 )  
-[2025-05-16 10:05:27] local.INFO: -- Vai começar a busca --  
-[2025-05-16 10:05:27] local.INFO: array (
+[2025-05-16 12:25:11] local.INFO: -- Vai começar a busca --  
+[2025-05-16 12:25:11] local.INFO: array (
   'fillter' => 'Padrão (cód.barras ou cód.produto)',
   'search' => '1',
   'issuer_id' => 1,
 )  
-[2025-05-16 10:05:31] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:05:31] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:05:31] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:05:31] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:05:31] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:05:31] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
-[2025-05-16 10:05:31] local.INFO: -- Iniciou o saveSale() line 172 --   
-[2025-05-16 10:05:31] local.INFO: array (
+[2025-05-16 12:25:14] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-16 12:25:14] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-16 12:25:14] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-16 12:25:14] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-16 12:25:14] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-16 12:25:14] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-05-16 12:25:14] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-05-16 12:25:14] local.INFO: array (
   'issuer_id' => 1,
   'description' => 'Venda Nota Manual N°',
   'products' => 
@@ -322,549 +197,25 @@
         'group_id' => NULL,
         'group' => NULL,
         'amount' => 1,
-        'cost_price' => '100.00',
-        'sale_price' => '120.00',
-        'profit_percentage' => '20.00',
+        'cost_price' => '20.00',
+        'sale_price' => '40.00',
+        'profit_percentage' => '100.00',
         'cfop' => '5102',
-        'ncm' => '00000000',
+        'ncm' => '01013000',
         'cest' => '1111111',
         'unit' => 'UN',
         'csosncst' => '102',
-        'cod_origem_icms' => 0,
-        'origem_icms' => '0 - NACIONAL',
-        'icms_ecf' => 11.11,
-        'taxable_amount' => 1,
-        'taxable_unit' => '1111',
-        'tax_benefit' => '1',
-        'cod_ipi' => '52',
-        'aliquot_ipi' => 11.11,
-        'cod_pis' => '53',
-        'aliquot_pis' => 11.11,
-        'cod_cofins' => '50',
-        'aliquot_cofins' => 11.11,
-        'cod_use_type' => '1',
-        'use_type' => '1',
-        'active' => 1,
-      ),
-    ),
-  ),
-  'user_id' => 1,
-  'customer_id' => 1,
-  'total' => 120,
-  'sub_total' => 120,
-  'addition' => 0,
-  'discount' => 0,
-  'is_nfce_nm' => 'nm',
-)  
-[2025-05-16 10:05:31] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T09:56:13.000000Z","updated_at":"2025-05-16T09:56:13.000000Z","join_credit":[]}  
-[2025-05-16 10:05:31] local.INFO: customerName => Consumidor Padrão  
-[2025-05-16 10:05:31] local.INFO: array (
-  'pdv_cod' => 6,
-  'issuer_id' => 1,
-  'description' => 'Venda Nota Manual N°',
-  'issue_date' => '2025-05-16',
-  'customer_id' => 1,
-  'customer' => 'Consumidor Padrão',
-  'gross_value' => 120,
-  'net_value' => 120,
-  'addition' => 0,
-  'discount' => 0,
-  'user_id' => 1,
-  'user' => 'gabriel',
-  'is_nfce_nm' => 'nm',
-)  
-[2025-05-16 10:05:31] local.INFO: -- Iniciou o saveProducts() line 90 --   
-[2025-05-16 10:05:31] local.INFO: $iPDV  
-[2025-05-16 10:05:31] local.INFO: 0  
-[2025-05-16 10:05:31] local.INFO: Save sale  
-[2025-05-16 10:05:31] local.INFO: array (
-  'success' => true,
-  'pdvID' => 6,
-)  
-[2025-05-16 10:05:32] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-16 10:05:32] local.INFO: Buscando por emitente  
-[2025-05-16 10:05:32] local.INFO: Cod. emitente: 1  
-[2025-05-16 10:05:32] local.INFO: Buscando espécies  
-[2025-05-16 10:05:32] local.INFO: Terminou  
-[2025-05-16 10:05:38] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:05:38] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:05:38] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:05:38] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:05:38] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:05:38] local.INFO: Dados no PDVController::finalizeSale  
-[2025-05-16 10:05:38] local.INFO: array (
-  'issuer_id' => 1,
-  'type_operation' => 'nm',
-  'change' => 0,
-  'payments_values' => 
-  array (
-    0 => 120,
-  ),
-  'pdv_id' => 6,
-)  
-[2025-05-16 10:05:38] local.INFO: PDVService.php, class:finalizeSale, $total: 120  
-[2025-05-16 10:05:38] local.INFO: -- Iniciou o finalizeSale() line 172 --   
-[2025-05-16 10:05:38] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
-[2025-05-16 10:05:38] local.INFO: PDV pelo issuer_ud {"pdv":{"App\\Models\\EcommerceModels\\PDV":{"id":6,"pdv_cod":6,"issuer_id":1,"description":"Venda Nota Manual N°","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padrão","gross_value":"120.00","net_value":"120.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}}} 
-[2025-05-16 10:05:38] local.INFO: Customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T09:56:13.000000Z","updated_at":"2025-05-16T09:56:13.000000Z","join_credit":[]}  
-[2025-05-16 10:05:38] local.INFO: Vai procurar a(s) formas de pagamento  
-[2025-05-16 10:05:38] local.INFO: Buscando a espécie pelo ID.  
-[2025-05-16 10:05:38] local.INFO: array (
-  0 => 1,
-)  
-[2025-05-16 10:05:38] local.INFO: $result  
-[2025-05-16 10:05:38] local.INFO: array (
-  0 => 
-  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
-     'connection' => 'mariadb',
-     'table' => 'payments_forms',
-     'primaryKey' => 'id',
-     'keyType' => 'int',
-     'incrementing' => true,
-     'with' => 
-    array (
-    ),
-     'withCount' => 
-    array (
-    ),
-     'preventsLazyLoading' => false,
-     'perPage' => 15,
-     'exists' => true,
-     'wasRecentlyCreated' => false,
-     'escapeWhenCastingToString' => false,
-     'attributes' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 09:56:13',
-      'updated_at' => '2025-05-16 09:56:13',
-    ),
-     'original' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 09:56:13',
-      'updated_at' => '2025-05-16 09:56:13',
-    ),
-     'changes' => 
-    array (
-    ),
-     'casts' => 
-    array (
-    ),
-     'classCastCache' => 
-    array (
-    ),
-     'attributeCastCache' => 
-    array (
-    ),
-     'dateFormat' => NULL,
-     'appends' => 
-    array (
-    ),
-     'dispatchesEvents' => 
-    array (
-    ),
-     'observables' => 
-    array (
-    ),
-     'relations' => 
-    array (
-    ),
-     'touches' => 
-    array (
-    ),
-     'timestamps' => true,
-     'usesUniqueIds' => false,
-     'hidden' => 
-    array (
-      0 => 'created_at',
-      1 => 'updated_at',
-    ),
-     'visible' => 
-    array (
-    ),
-     'fillable' => 
-    array (
-      0 => 'payment_cod',
-      1 => 'issuer_id',
-      2 => 'especie',
-      3 => 'tipo_lancamento',
-      4 => 'active',
-    ),
-     'guarded' => 
-    array (
-      0 => '*',
-    ),
-  )),
-)  
-[2025-05-16 10:05:38] local.INFO: Vai conferir se o $total: R$ 120 é maior que o $pdv->net_value, R$120.00  
-[2025-05-16 10:05:38] local.INFO: Foi maior  
-[2025-05-16 10:05:38] local.INFO: Tipo de venda NM/NFCE: nm  
-[2025-05-16 10:05:38] local.INFO: Issuer ID: 1  
-[2025-05-16 10:05:38] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 33 --  
-[2025-05-16 10:05:38] local.INFO: ISSUER_ID 1  
-[2025-05-16 10:05:38] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
-[2025-05-16 10:05:38] local.INFO: $paymentValues[$i] linha - 118: i = 0  
-[2025-05-16 10:05:38] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
-[2025-05-16 10:05:38] local.INFO: forms  
-[2025-05-16 10:05:38] local.INFO: array (
-  0 => 
-  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
-     'connection' => 'mariadb',
-     'table' => 'payments_forms',
-     'primaryKey' => 'id',
-     'keyType' => 'int',
-     'incrementing' => true,
-     'with' => 
-    array (
-    ),
-     'withCount' => 
-    array (
-    ),
-     'preventsLazyLoading' => false,
-     'perPage' => 15,
-     'exists' => true,
-     'wasRecentlyCreated' => false,
-     'escapeWhenCastingToString' => false,
-     'attributes' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 09:56:13',
-      'updated_at' => '2025-05-16 09:56:13',
-    ),
-     'original' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 09:56:13',
-      'updated_at' => '2025-05-16 09:56:13',
-    ),
-     'changes' => 
-    array (
-    ),
-     'casts' => 
-    array (
-    ),
-     'classCastCache' => 
-    array (
-    ),
-     'attributeCastCache' => 
-    array (
-    ),
-     'dateFormat' => NULL,
-     'appends' => 
-    array (
-    ),
-     'dispatchesEvents' => 
-    array (
-    ),
-     'observables' => 
-    array (
-    ),
-     'relations' => 
-    array (
-    ),
-     'touches' => 
-    array (
-    ),
-     'timestamps' => true,
-     'usesUniqueIds' => false,
-     'hidden' => 
-    array (
-      0 => 'created_at',
-      1 => 'updated_at',
-    ),
-     'visible' => 
-    array (
-    ),
-     'fillable' => 
-    array (
-      0 => 'payment_cod',
-      1 => 'issuer_id',
-      2 => 'especie',
-      3 => 'tipo_lancamento',
-      4 => 'active',
-    ),
-     'guarded' => 
-    array (
-      0 => '*',
-    ),
-  )),
-)  
-[2025-05-16 10:05:38] local.INFO: ID linha 120 - : {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:05:38] local.INFO: paymentValues linha 124 - : 120  
-[2025-05-16 10:05:38] local.INFO: Vai conferir os tipos de lançamento  
-[2025-05-16 10:05:38] local.INFO: $form->tipo_lancamento  
-[2025-05-16 10:05:38] local.INFO: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:05:38] local.INFO: Terminou de montar o corpo do caixa:   
-[2025-05-16 10:05:38] local.INFO: Dados:   
-[2025-05-16 10:05:38] local.INFO: array (
-  0 => 
-  array (
-    'cash_register_cod' => 1,
-    'issuer_id' => 1,
-    'description' => 'Venda Nota Manual 
-                                N° 6',
-    'document' => 6,
-    'pdv_cod' => 6,
-    'customer_cod' => 1,
-    'name' => 'Consumidor Padrão',
-    'especie_cod' => 1,
-    'especie' => 'Dinheiro',
-    'date_register' => '2025-05-16',
-    'input_value' => 120,
-    'output_value' => 0,
-    'real_balance' => 120,
-    'user_id' => 1,
-    'seller' => 'aa',
-    'origem' => 'pdv',
-  ),
-)  
-[2025-05-16 10:05:38] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
-[2025-05-16 10:05:38] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-16 10:05:38] local.INFO: array (
-  0 => 
-  array (
-    'cash_register_cod' => 1,
-    'issuer_id' => 1,
-    'description' => 'Venda Nota Manual 
-                                N° 6',
-    'document' => 6,
-    'pdv_cod' => 6,
-    'customer_cod' => 1,
-    'name' => 'Consumidor Padrão',
-    'especie_cod' => 1,
-    'especie' => 'Dinheiro',
-    'date_register' => '2025-05-16',
-    'input_value' => 120,
-    'output_value' => 0,
-    'real_balance' => 120,
-    'user_id' => 1,
-    'seller' => 'aa',
-    'origem' => 'pdv',
-  ),
-)  
-[2025-05-16 10:05:38] local.INFO: Buscando emitente: 1  
-[2025-05-16 10:05:38] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T09:56:04.000000Z","updated_at":"2025-05-16T09:56:04.000000Z"}  
-[2025-05-16 10:05:38] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T09:56:13.000000Z","updated_at":"2025-05-16T09:56:13.000000Z"}  
-[2025-05-16 10:05:38] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:05:38] local.INFO: Vai criar 1 registro:   
-[2025-05-16 10:09:27] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"kzPG8HgDKi","active":1,"created_at":"2025-05-16T10:09:24.000000Z","updated_at":"2025-05-16T10:09:24.000000Z"}  
-[2025-05-16 10:09:27] local.INFO: Passou o login, token: 1|ikLk7YfetW4Tf4XfEmvfGvZsv42PZGhSZ8rxUzU23008285a  
-[2025-05-16 10:09:31] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-16 10:09:37] local.INFO: Memória usada no RegisterIssuerRepository 18874368  
-[2025-05-16 10:09:37] local.INFO: array (
-  'company_name' => 'Sgbr Sistemas',
-  'trade_name' => 'Sgbr Sistemas',
-  'cnpj' => '17089484000190',
-  'cpf' => NULL,
-  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
-  'cod_cnae' => 4751201,
-  'cod_crt' => NULL,
-  'date_of_foundation' => '2012-10-30',
-  'uuse_id' => 'kzPG8HgDKi',
-)  
-[2025-05-16 10:09:37] local.INFO: kzPG8HgDKi  
-[2025-05-16 10:09:37] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"kzPG8HgDKi","active":1,"created_at":"2025-05-16T10:09:24.000000Z","updated_at":"2025-05-16T10:09:24.000000Z"}  
-[2025-05-16 10:09:37] local.INFO: --- Criação das espécies padrão ---  
-[2025-05-16 10:09:37] local.INFO: --- Fim da criação das espécies padrão ---  
-[2025-05-16 10:09:37] local.INFO: --- Criação do cliente padrão ---  
-[2025-05-16 10:09:37] local.INFO: {"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","cpf":" ","cnpj":" ","updated_at":"2025-05-16T10:09:37.000000Z","created_at":"2025-05-16T10:09:37.000000Z","id":1}  
-[2025-05-16 10:09:37] local.INFO: --- Fim da criação do cliente padrão ---  
-[2025-05-16 10:09:37] local.INFO: --- Criação das configPDV padrão ---  
-[2025-05-16 10:09:37] local.INFO: --- Fim da criação do configPDV padrão ---  
-[2025-05-16 10:09:38] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-16 10:09:39] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-16 10:09:48] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-16 10:09:48] local.INFO: 1  
-[2025-05-16 10:09:48] local.INFO: array (
-  'company_name' => 'Sgbr Sistemas',
-  'trade_name' => 'Sgbr Sistemas',
-  'date_of_foundation' => '2012-10-30',
-  'cep' => '89711226',
-  'uf' => 'SC',
-  'address' => 'Rua Alexandre Lorenzet',
-  'number' => '135',
-  'cod_cnae' => 4751201,
-  'cnae' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
-  'cod_crt' => 1,
-  'crt' => 'Simples Nacional',
-  'ie' => '11111111111111',
-  'im' => '111111111111',
-)  
-[2025-05-16 10:09:48] local.INFO: $firstSteps {"id":1,"issuer_id":1,"complete_issuer":0,"complete_pdv":0,"complete_customers":0,"complete_products":0,"ignore_first_steps":0,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z"}  
-[2025-05-16 10:09:48] local.INFO: - Vai criar o NCM -   
-[2025-05-16 10:10:45] local.INFO: Emitente é: Simples Nacional  
-[2025-05-16 10:10:45] local.INFO: csosncst é: 000  
-[2025-05-16 10:10:45] local.INFO: Vai criar os CFOPs  
-[2025-05-16 10:10:48] local.INFO: Já está cadastrado  
-[2025-05-16 10:10:55] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:48.000000Z"}  
-[2025-05-16 10:11:16] local.INFO: Data  
-[2025-05-16 10:11:16] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '11111111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '11111111111111',
-  'cost_price' => '11111111111111',
-  'sale_price' => '22222222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01012100',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '8',
-  'origem_icms' => '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.1',
-  'cod_pis' => '49',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '51',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-16 10:11:16] local.INFO: data  
-[2025-05-16 10:11:16] local.INFO: array (
-  'issuer_id' => '1',
-  'product' => '11111111111111',
-  'image' => 'null',
-  'barcode' => '11111111111111',
-  'barcode_internal' => '1111111111111111',
-  'group_id' => NULL,
-  'amount' => '11111111111111',
-  'cost_price' => '11111111111111',
-  'sale_price' => '22222222222222',
-  'profit_percentage' => '100',
-  'cfop' => '1111',
-  'csosncst' => '111',
-  'ncm' => '01012100',
-  'cest' => '1111111',
-  'unit' => 'UN',
-  'cod_origem_icms' => '8',
-  'origem_icms' => '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%',
-  'icms_ecf' => '11.11',
-  'taxable_unit' => '1111',
-  'cod_ipi' => '54',
-  'aliquot_ipi' => '11.1',
-  'cod_pis' => '49',
-  'aliquot_pis' => '11.1',
-  'cod_cofins' => '51',
-  'aliquot_cofins' => '11.1',
-)  
-[2025-05-16 10:11:16] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":"111111111111","main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:48.000000Z"}  
-[2025-05-16 10:11:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-16 10:11:20] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:11:20] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
-[2025-05-16 10:11:20] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-16 10:11:20] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:11:21] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-16 10:11:21] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:11:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-16 10:11:21] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:11:23] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-16 10:11:23] local.INFO: $data  
-[2025-05-16 10:11:23] local.INFO: array (
-  'issuer_id' => 1,
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-  'supervisorPasswordCancelSale' => false,
-  'supervisorPasswordDeleteItem' => false,
-)  
-[2025-05-16 10:11:23] local.INFO: data no repository  
-[2025-05-16 10:11:23] local.INFO: array (
-  'issuer_id' => 1,
-  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
-  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
-  'nmFinaly' => true,
-  'saleNegativeorReset' => false,
-  'supervisorPasswordCancelSale' => false,
-  'supervisorPasswordDeleteItem' => false,
-)  
-[2025-05-16 10:11:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-16 10:11:24] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:11:24] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-16 10:11:24] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:11:25] local.INFO: Controller  
-[2025-05-16 10:11:25] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-  'issuer_id' => 1,
-)  
-[2025-05-16 10:11:25] local.INFO: -- Vai começar a busca --  
-[2025-05-16 10:11:25] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-  'issuer_id' => 1,
-)  
-[2025-05-16 10:11:26] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:11:26] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:11:26] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:11:26] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:11:26] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:11:26] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
-[2025-05-16 10:11:26] local.INFO: -- Iniciou o saveSale() line 172 --   
-[2025-05-16 10:11:26] local.INFO: array (
-  'issuer_id' => 1,
-  'description' => 'Venda Nota Manual N°',
-  'products' => 
-  array (
-    0 => 
-    array (
-      0 => 
-      array (
-        'id' => 1,
-        'product_cod' => 1,
-        'issuer_id' => 1,
-        'product' => '11111111111111',
-        'barcode' => '11111111111111',
-        'barcode_internal' => '1111111111111111',
-        'image' => 'null',
-        'group_id' => NULL,
-        'group' => NULL,
-        'amount' => 1,
-        'cost_price' => '11111111111111.00',
-        'sale_price' => '22222222222222.00',
-        'profit_percentage' => '100.00',
-        'cfop' => '1111',
-        'ncm' => '01012100',
-        'cest' => '1111111',
-        'unit' => 'UN',
-        'csosncst' => '111',
         'cod_origem_icms' => 8,
         'origem_icms' => '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%',
         'icms_ecf' => 11.11,
         'taxable_amount' => 1,
         'taxable_unit' => '1111',
         'tax_benefit' => '1',
-        'cod_ipi' => '54',
+        'cod_ipi' => '55',
         'aliquot_ipi' => 11.1,
-        'cod_pis' => '49',
+        'cod_pis' => '6',
         'aliquot_pis' => 11.1,
-        'cod_cofins' => '51',
+        'cod_cofins' => '6',
         'aliquot_cofins' => 11.1,
         'cod_use_type' => '1',
         'use_type' => '1',
@@ -874,50 +225,433 @@
   ),
   'user_id' => 1,
   'customer_id' => 1,
-  'total' => 22222222222222,
-  'sub_total' => 22222222222222,
+  'total' => 40,
+  'sub_total' => 40,
   'addition' => 0,
   'discount' => 0,
   'is_nfce_nm' => 'nm',
 )  
-[2025-05-16 10:11:26] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z","join_credit":[]}  
-[2025-05-16 10:11:26] local.INFO: customerName => Consumidor Padrão  
-[2025-05-16 10:11:26] local.INFO: array (
+[2025-05-16 12:25:14] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z","join_credit":[]}  
+[2025-05-16 12:25:14] local.INFO: customerName => Consumidor Padrão  
+[2025-05-16 12:25:14] local.INFO: array (
   'pdv_cod' => 1,
   'issuer_id' => 1,
   'description' => 'Venda Nota Manual N°',
   'issue_date' => '2025-05-16',
   'customer_id' => 1,
   'customer' => 'Consumidor Padrão',
-  'gross_value' => 22222222222222,
-  'net_value' => 22222222222222,
+  'gross_value' => 40,
+  'net_value' => 40,
   'addition' => 0,
   'discount' => 0,
   'user_id' => 1,
   'user' => 'gabriel',
   'is_nfce_nm' => 'nm',
 )  
-[2025-05-16 10:11:26] local.INFO: -- Iniciou o saveProducts() line 90 --   
-[2025-05-16 10:11:26] local.INFO: $iPDV  
-[2025-05-16 10:11:26] local.INFO: 0  
-[2025-05-16 10:11:26] local.INFO: Save sale  
-[2025-05-16 10:11:26] local.INFO: array (
+[2025-05-16 12:25:14] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-05-16 12:25:14] local.INFO: $iPDV  
+[2025-05-16 12:25:14] local.INFO: 0  
+[2025-05-16 12:25:14] local.INFO: Save sale  
+[2025-05-16 12:25:14] local.INFO: array (
   'success' => true,
   'pdvID' => 1,
 )  
-[2025-05-16 10:11:27] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-16 10:11:27] local.INFO: Buscando por emitente  
-[2025-05-16 10:11:27] local.INFO: Cod. emitente: 1  
-[2025-05-16 10:11:27] local.INFO: Buscando espécies  
-[2025-05-16 10:11:27] local.INFO: Terminou  
-[2025-05-16 10:11:37] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:11:37] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:11:37] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:11:37] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:11:37] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:11:37] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
-[2025-05-16 10:11:37] local.INFO: -- Iniciou o saveSale() line 172 --   
-[2025-05-16 10:11:37] local.INFO: array (
+[2025-05-16 12:25:14] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-16 12:25:14] local.INFO: Buscando por emitente  
+[2025-05-16 12:25:14] local.INFO: Cod. emitente: 1  
+[2025-05-16 12:25:14] local.INFO: Buscando espécies  
+[2025-05-16 12:25:14] local.INFO: Terminou  
+[2025-05-16 12:25:21] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-16 12:25:21] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-16 12:25:21] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-16 12:25:21] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-16 12:25:21] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-16 12:25:21] local.INFO: Dados no PDVController::finalizeSale  
+[2025-05-16 12:25:21] local.INFO: array (
+  'issuer_id' => 1,
+  'type_operation' => 'nm',
+  'change' => 0,
+  'payments_values' => 
+  array (
+    0 => 40,
+  ),
+  'pdv_id' => 1,
+)  
+[2025-05-16 12:25:21] local.INFO: PDVService.php, class:finalizeSale, $total: 40  
+[2025-05-16 12:25:21] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-05-16 12:25:21] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-05-16 12:25:21] local.INFO: PDV pelo issuer_ud {"pdv":{"App\\Models\\EcommerceModels\\PDV":{"id":1,"pdv_cod":1,"issuer_id":1,"description":"Venda Nota Manual N°","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padrão","gross_value":"40.00","net_value":"40.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}}} 
+[2025-05-16 12:25:21] local.INFO: Customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z","join_credit":[]}  
+[2025-05-16 12:25:21] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-05-16 12:25:21] local.INFO: Buscando a espécie pelo ID.  
+[2025-05-16 12:25:21] local.INFO: array (
+  0 => 1,
+)  
+[2025-05-16 12:25:21] local.INFO: $result  
+[2025-05-16 12:25:21] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments_forms',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'payment_cod' => 1,
+      'issuer_id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-05-16 10:53:52',
+      'updated_at' => '2025-05-16 10:53:52',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'payment_cod' => 1,
+      'issuer_id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-05-16 10:53:52',
+      'updated_at' => '2025-05-16 10:53:52',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'payment_cod',
+      1 => 'issuer_id',
+      2 => 'especie',
+      3 => 'tipo_lancamento',
+      4 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-05-16 12:25:21] local.INFO: Vai conferir se o $total: R$ 40 é maior que o $pdv->net_value, R$40.00  
+[2025-05-16 12:25:21] local.INFO: Foi maior  
+[2025-05-16 12:25:21] local.INFO: Tipo de venda NM/NFCE: nm  
+[2025-05-16 12:25:21] local.INFO: Issuer ID: 1  
+[2025-05-16 12:25:21] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 33 --  
+[2025-05-16 12:25:21] local.INFO: ISSUER_ID 1  
+[2025-05-16 12:25:21] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-05-16 12:25:21] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-05-16 12:25:21] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-05-16 12:25:21] local.INFO: forms  
+[2025-05-16 12:25:21] local.INFO: array (
+  0 => 
+  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
+     'connection' => 'mariadb',
+     'table' => 'payments_forms',
+     'primaryKey' => 'id',
+     'keyType' => 'int',
+     'incrementing' => true,
+     'with' => 
+    array (
+    ),
+     'withCount' => 
+    array (
+    ),
+     'preventsLazyLoading' => false,
+     'perPage' => 15,
+     'exists' => true,
+     'wasRecentlyCreated' => false,
+     'escapeWhenCastingToString' => false,
+     'attributes' => 
+    array (
+      'id' => 1,
+      'payment_cod' => 1,
+      'issuer_id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-05-16 10:53:52',
+      'updated_at' => '2025-05-16 10:53:52',
+    ),
+     'original' => 
+    array (
+      'id' => 1,
+      'payment_cod' => 1,
+      'issuer_id' => 1,
+      'especie' => 'Dinheiro',
+      'tipo_lancamento' => 'Caixa',
+      'active' => 1,
+      'created_at' => '2025-05-16 10:53:52',
+      'updated_at' => '2025-05-16 10:53:52',
+    ),
+     'changes' => 
+    array (
+    ),
+     'casts' => 
+    array (
+    ),
+     'classCastCache' => 
+    array (
+    ),
+     'attributeCastCache' => 
+    array (
+    ),
+     'dateFormat' => NULL,
+     'appends' => 
+    array (
+    ),
+     'dispatchesEvents' => 
+    array (
+    ),
+     'observables' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'timestamps' => true,
+     'usesUniqueIds' => false,
+     'hidden' => 
+    array (
+      0 => 'created_at',
+      1 => 'updated_at',
+    ),
+     'visible' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+      0 => 'payment_cod',
+      1 => 'issuer_id',
+      2 => 'especie',
+      3 => 'tipo_lancamento',
+      4 => 'active',
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+  )),
+)  
+[2025-05-16 12:25:21] local.INFO: ID linha 120 - : {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:25:21] local.INFO: paymentValues linha 124 - : 40  
+[2025-05-16 12:25:21] local.INFO: Vai conferir os tipos de lançamento  
+[2025-05-16 12:25:21] local.INFO: $form->tipo_lancamento  
+[2025-05-16 12:25:21] local.INFO: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:25:21] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-05-16 12:25:21] local.INFO: Dados:   
+[2025-05-16 12:25:21] local.INFO: array (
+  0 => 
+  array (
+    'cash_register_cod' => 3,
+    'issuer_id' => 1,
+    'description' => 'Venda Nota Manual 
+                                N° 1',
+    'document' => 1,
+    'pdv_cod' => 1,
+    'customer_cod' => 1,
+    'name' => 'Consumidor Padrão',
+    'especie_cod' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-05-16',
+    'input_value' => 40,
+    'output_value' => 0,
+    'real_balance' => 40,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-05-16 12:25:21] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-05-16 12:25:21] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-16 12:25:21] local.INFO: array (
+  0 => 
+  array (
+    'cash_register_cod' => 3,
+    'issuer_id' => 1,
+    'description' => 'Venda Nota Manual 
+                                N° 1',
+    'document' => 1,
+    'pdv_cod' => 1,
+    'customer_cod' => 1,
+    'name' => 'Consumidor Padrão',
+    'especie_cod' => 1,
+    'especie' => 'Dinheiro',
+    'date_register' => '2025-05-16',
+    'input_value' => 40,
+    'output_value' => 0,
+    'real_balance' => 40,
+    'user_id' => 1,
+    'seller' => 'aa',
+    'origem' => 'pdv',
+  ),
+)  
+[2025-05-16 12:25:21] local.INFO: Buscando emitente: 1  
+[2025-05-16 12:25:21] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:53:18.000000Z","updated_at":"2025-05-16T10:53:18.000000Z"}  
+[2025-05-16 12:25:21] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z"}  
+[2025-05-16 12:25:21] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:25:21] local.INFO: Vai criar 1 registro:   
+[2025-05-16 12:25:21] local.INFO: $issuer_id: 1  
+[2025-05-16 12:25:21] local.INFO: $lastCashBox com issuer_id {"id":16,"cash_register_cod":3,"document":"3","issuer_id":1,"description":"Venda Nota Manual \n                                N\u00b0 1","pdv_cod":1,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"40.00","output_value":"0.00","real_balance":null,"origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-05-16 12:25:21] local.INFO: $actualCashBox com issuer_id {"id":15,"cash_register_cod":2,"document":"2","issuer_id":1,"description":"Registro Manual","pdv_cod":null,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"10000.00","output_value":"0.00","real_balance":"9000.00","origem":"Caixa (Manual)","user_id":1,"seller":"gabriel","canceled":0}  
+[2025-05-16 12:25:21] local.INFO: Foi encontrado mais um registro  
+[2025-05-16 12:25:21] local.INFO: Novo valor: R$ 10000.00 + 40.00 - 0.00 = 10040  
+[2025-05-16 12:25:21] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-05-16 12:25:21] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-05-16 12:25:21] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-05-16 12:25:21] local.INFO: payMentMethodService  
+[2025-05-16 12:25:21] local.INFO: array (
+  'line' => 215,
+  'success' => true,
+)  
+[2025-05-16 12:25:21] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":1,"pdv_cod":1,"issuer_id":1,"description":"Venda Nota Manual N\u00b0","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padr\u00e3o","gross_value":"40.00","net_value":"40.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}  
+[2025-05-16 12:25:21] local.INFO: $type nm  
+[2025-05-16 12:25:21] local.INFO: Buscar e alterar os produtos, pdv_cod = 1  
+[2025-05-16 12:25:21] local.INFO: Alteração dentro do for = 1  
+[2025-05-16 12:25:21] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-05-16 12:25:21] local.INFO: Produto encontrado 1  
+[2025-05-16 12:25:21] local.INFO: {"id":1,"product_cod":1,"issuer_id":1,"product":"Produto teste","barcode":"11111111111111","barcode_internal":"1111111111111111","image":"null","group_id":null,"group":null,"amount":100,"cost_price":"20.00","sale_price":"40.00","profit_percentage":"100.00","cfop":"5102","ncm":"01013000","cest":"1111111","unit":"UN","csosncst":"102","cod_origem_icms":8,"origem_icms":"8 - NACIONAL - CONTE\u00daDO DE IMPORTA\u00c7\u00c3O > 70%","icms_ecf":11.11,"taxable_amount":1,"taxable_unit":"1111","tax_benefit":"1","cod_ipi":"55","aliquot_ipi":11.1,"cod_pis":"6","aliquot_pis":11.1,"cod_cofins":"6","aliquot_cofins":11.1,"cod_use_type":"1","use_type":"1","active":1}  
+[2025-05-16 12:25:21] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-05-16 12:25:24] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-16 12:26:39] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-16 12:26:39] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:26:39] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-16 12:26:39] local.INFO: Buscando por emitente  
+[2025-05-16 12:26:39] local.INFO: Cod. emitente: 1  
+[2025-05-16 12:26:39] local.INFO: Buscando espécies  
+[2025-05-16 12:26:39] local.INFO: Terminou  
+[2025-05-16 12:26:46] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-16 12:26:46] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_cod' => 1,
+    'especie_cod' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-16',
+    'input_value' => 0,
+    'output_value' => 90000,
+  ),
+)  
+[2025-05-16 12:26:46] local.INFO: Buscando emitente: 1  
+[2025-05-16 12:26:46] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:53:18.000000Z","updated_at":"2025-05-16T10:53:18.000000Z"}  
+[2025-05-16 12:26:46] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z"}  
+[2025-05-16 12:26:46] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:26:46] local.INFO: Vai criar 1 registro:   
+[2025-05-16 12:26:46] local.INFO: $issuer_id: 1  
+[2025-05-16 12:26:46] local.INFO: $lastCashBox com issuer_id {"id":17,"cash_register_cod":4,"document":"4","issuer_id":1,"description":"Registro Manual","pdv_cod":null,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"0.00","output_value":"90000.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"gabriel","canceled":0}  
+[2025-05-16 12:26:46] local.INFO: $actualCashBox com issuer_id {"id":16,"cash_register_cod":3,"document":"3","issuer_id":1,"description":"Venda Nota Manual \n                                N\u00b0 1","pdv_cod":1,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"40.00","output_value":"0.00","real_balance":"9040.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-05-16 12:26:46] local.INFO: Foi encontrado mais um registro  
+[2025-05-16 12:26:46] local.INFO: Novo valor: R$ 40.00 + 0.00 - 90000.00 = 40  
+[2025-05-16 12:26:46] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-16 12:31:33] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-16 12:31:33] local.INFO: Buscando por emitente  
+[2025-05-16 12:31:33] local.INFO: Cod. emitente: 1  
+[2025-05-16 12:31:33] local.INFO: Buscando espécies  
+[2025-05-16 12:31:33] local.INFO: Terminou  
+[2025-05-16 12:31:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-16 12:31:34] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:31:46] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-16 12:31:46] local.INFO: array (
+  0 => 
+  array (
+    'issuer_id' => 1,
+    'description' => 'Registro Manual',
+    'document' => 1,
+    'customer_cod' => 1,
+    'especie_cod' => 1,
+    'user_id' => 1,
+    'origem' => 'Caixa (Manual)',
+    'date_register' => '2025-05-16',
+    'input_value' => 0,
+    'output_value' => 60,
+  ),
+)  
+[2025-05-16 12:31:46] local.INFO: Buscando emitente: 1  
+[2025-05-16 12:31:46] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:53:18.000000Z","updated_at":"2025-05-16T10:53:18.000000Z"}  
+[2025-05-16 12:31:46] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z"}  
+[2025-05-16 12:31:46] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:31:46] local.INFO: Vai criar 1 registro:   
+[2025-05-16 12:31:46] local.INFO: $issuer_id: 1  
+[2025-05-16 12:31:46] local.INFO: $lastCashBox com issuer_id {"id":18,"cash_register_cod":5,"document":"5","issuer_id":1,"description":"Registro Manual","pdv_cod":null,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"0.00","output_value":"60.00","real_balance":null,"origem":"Caixa (Manual)","user_id":1,"seller":"gabriel","canceled":0}  
+[2025-05-16 12:31:46] local.INFO: $actualCashBox com issuer_id {"id":17,"cash_register_cod":4,"document":"4","issuer_id":1,"description":"Registro Manual","pdv_cod":null,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"0.00","output_value":"90000.00","real_balance":"-80960.00","origem":"Caixa (Manual)","user_id":1,"seller":"gabriel","canceled":0}  
+[2025-05-16 12:31:46] local.INFO: Foi encontrado mais um registro  
+[2025-05-16 12:31:46] local.INFO: Novo valor: R$ 0.00 + 0.00 - 60.00 = 0  
+[2025-05-16 12:31:46] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-16 12:36:19] local.INFO: Controller  
+[2025-05-16 12:36:19] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+  'issuer_id' => 1,
+)  
+[2025-05-16 12:36:19] local.INFO: -- Vai começar a busca --  
+[2025-05-16 12:36:19] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+  'issuer_id' => 1,
+)  
+[2025-05-16 12:36:24] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-16 12:36:24] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-16 12:36:24] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-16 12:36:24] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-16 12:36:24] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-16 12:36:24] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-05-16 12:36:24] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-05-16 12:36:24] local.INFO: array (
   'issuer_id' => 1,
   'description' => 'Venda Nota Manual N°',
   'products' => 
@@ -929,32 +663,32 @@
         'id' => 1,
         'product_cod' => 1,
         'issuer_id' => 1,
-        'product' => '11111111111111',
+        'product' => 'Produto teste',
         'barcode' => '11111111111111',
         'barcode_internal' => '1111111111111111',
         'image' => 'null',
         'group_id' => NULL,
         'group' => NULL,
-        'amount' => 1,
-        'cost_price' => '11111111111111.00',
-        'sale_price' => '22222222222222.00',
+        'amount' => '100',
+        'cost_price' => '20.00',
+        'sale_price' => '40.00',
         'profit_percentage' => '100.00',
-        'cfop' => '1111',
-        'ncm' => '01012100',
+        'cfop' => '5102',
+        'ncm' => '01013000',
         'cest' => '1111111',
         'unit' => 'UN',
-        'csosncst' => '111',
+        'csosncst' => '102',
         'cod_origem_icms' => 8,
         'origem_icms' => '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%',
         'icms_ecf' => 11.11,
         'taxable_amount' => 1,
         'taxable_unit' => '1111',
         'tax_benefit' => '1',
-        'cod_ipi' => '54',
+        'cod_ipi' => '55',
         'aliquot_ipi' => 11.1,
-        'cod_pis' => '49',
+        'cod_pis' => '6',
         'aliquot_pis' => 11.1,
-        'cod_cofins' => '51',
+        'cod_cofins' => '6',
         'aliquot_cofins' => 11.1,
         'cod_use_type' => '1',
         'use_type' => '1',
@@ -964,70 +698,70 @@
   ),
   'user_id' => 1,
   'customer_id' => 1,
-  'total' => 22222222222222,
-  'sub_total' => 22222222222222,
+  'total' => 4000,
+  'sub_total' => 4000,
   'addition' => 0,
   'discount' => 0,
   'is_nfce_nm' => 'nm',
 )  
-[2025-05-16 10:11:37] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z","join_credit":[]}  
-[2025-05-16 10:11:37] local.INFO: customerName => Consumidor Padrão  
-[2025-05-16 10:11:37] local.INFO: array (
+[2025-05-16 12:36:24] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z","join_credit":[]}  
+[2025-05-16 12:36:24] local.INFO: customerName => Consumidor Padrão  
+[2025-05-16 12:36:24] local.INFO: array (
   'pdv_cod' => 2,
   'issuer_id' => 1,
   'description' => 'Venda Nota Manual N°',
   'issue_date' => '2025-05-16',
   'customer_id' => 1,
   'customer' => 'Consumidor Padrão',
-  'gross_value' => 22222222222222,
-  'net_value' => 22222222222222,
+  'gross_value' => 4000,
+  'net_value' => 4000,
   'addition' => 0,
   'discount' => 0,
   'user_id' => 1,
   'user' => 'gabriel',
   'is_nfce_nm' => 'nm',
 )  
-[2025-05-16 10:11:37] local.INFO: -- Iniciou o saveProducts() line 90 --   
-[2025-05-16 10:11:37] local.INFO: $iPDV  
-[2025-05-16 10:11:37] local.INFO: 0  
-[2025-05-16 10:11:37] local.INFO: Save sale  
-[2025-05-16 10:11:37] local.INFO: array (
+[2025-05-16 12:36:24] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-05-16 12:36:24] local.INFO: $iPDV  
+[2025-05-16 12:36:24] local.INFO: 0  
+[2025-05-16 12:36:24] local.INFO: Save sale  
+[2025-05-16 12:36:24] local.INFO: array (
   'success' => true,
   'pdvID' => 2,
 )  
-[2025-05-16 10:11:38] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-16 10:11:38] local.INFO: Buscando por emitente  
-[2025-05-16 10:11:38] local.INFO: Cod. emitente: 1  
-[2025-05-16 10:11:38] local.INFO: Buscando espécies  
-[2025-05-16 10:11:38] local.INFO: Terminou  
-[2025-05-16 10:11:45] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:11:45] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:11:45] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:11:45] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:11:45] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:11:45] local.INFO: Dados no PDVController::finalizeSale  
-[2025-05-16 10:11:45] local.INFO: array (
+[2025-05-16 12:36:25] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-16 12:36:25] local.INFO: Buscando por emitente  
+[2025-05-16 12:36:25] local.INFO: Cod. emitente: 1  
+[2025-05-16 12:36:25] local.INFO: Buscando espécies  
+[2025-05-16 12:36:25] local.INFO: Terminou  
+[2025-05-16 12:36:49] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-16 12:36:49] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-16 12:36:49] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-16 12:36:49] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-16 12:36:49] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-16 12:36:49] local.INFO: Dados no PDVController::finalizeSale  
+[2025-05-16 12:36:49] local.INFO: array (
   'issuer_id' => 1,
   'type_operation' => 'nm',
-  'change' => 200000000000000.22,
+  'change' => 0,
   'payments_values' => 
   array (
-    0 => 222222222222222.22,
+    0 => 4000,
   ),
   'pdv_id' => 2,
 )  
-[2025-05-16 10:11:45] local.INFO: PDVService.php, class:finalizeSale, $total: 2.2222222222222E+14  
-[2025-05-16 10:11:45] local.INFO: -- Iniciou o finalizeSale() line 172 --   
-[2025-05-16 10:11:45] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
-[2025-05-16 10:11:45] local.INFO: PDV pelo issuer_ud {"pdv":{"App\\Models\\EcommerceModels\\PDV":{"id":2,"pdv_cod":2,"issuer_id":1,"description":"Venda Nota Manual N°","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padrão","gross_value":"22222222222222.00","net_value":"22222222222222.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}}} 
-[2025-05-16 10:11:45] local.INFO: Customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z","join_credit":[]}  
-[2025-05-16 10:11:45] local.INFO: Vai procurar a(s) formas de pagamento  
-[2025-05-16 10:11:45] local.INFO: Buscando a espécie pelo ID.  
-[2025-05-16 10:11:45] local.INFO: array (
+[2025-05-16 12:36:49] local.INFO: PDVService.php, class:finalizeSale, $total: 4000  
+[2025-05-16 12:36:49] local.INFO: -- Iniciou o finalizeSale() line 172 --   
+[2025-05-16 12:36:49] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
+[2025-05-16 12:36:49] local.INFO: PDV pelo issuer_ud {"pdv":{"App\\Models\\EcommerceModels\\PDV":{"id":2,"pdv_cod":2,"issuer_id":1,"description":"Venda Nota Manual N°","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padrão","gross_value":"4000.00","net_value":"4000.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}}} 
+[2025-05-16 12:36:49] local.INFO: Customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z","join_credit":[]}  
+[2025-05-16 12:36:49] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-05-16 12:36:49] local.INFO: Buscando a espécie pelo ID.  
+[2025-05-16 12:36:49] local.INFO: array (
   0 => 1,
 )  
-[2025-05-16 10:11:45] local.INFO: $result  
-[2025-05-16 10:11:45] local.INFO: array (
+[2025-05-16 12:36:49] local.INFO: $result  
+[2025-05-16 12:36:49] local.INFO: array (
   0 => 
   \App\Models\EcommerceModels\PaymentForms::__set_state(array(
      'connection' => 'mariadb',
@@ -1054,8 +788,8 @@
       'especie' => 'Dinheiro',
       'tipo_lancamento' => 'Caixa',
       'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
+      'created_at' => '2025-05-16 10:53:52',
+      'updated_at' => '2025-05-16 10:53:52',
     ),
      'original' => 
     array (
@@ -1065,8 +799,8 @@
       'especie' => 'Dinheiro',
       'tipo_lancamento' => 'Caixa',
       'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
+      'created_at' => '2025-05-16 10:53:52',
+      'updated_at' => '2025-05-16 10:53:52',
     ),
      'changes' => 
     array (
@@ -1120,17 +854,17 @@
     ),
   )),
 )  
-[2025-05-16 10:11:45] local.INFO: Vai conferir se o $total: R$ 2.2222222222222E+14 é maior que o $pdv->net_value, R$22222222222222.00  
-[2025-05-16 10:11:45] local.INFO: Foi maior  
-[2025-05-16 10:11:45] local.INFO: Tipo de venda NM/NFCE: nm  
-[2025-05-16 10:11:45] local.INFO: Issuer ID: 1  
-[2025-05-16 10:11:45] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 33 --  
-[2025-05-16 10:11:45] local.INFO: ISSUER_ID 1  
-[2025-05-16 10:11:45] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
-[2025-05-16 10:11:45] local.INFO: $paymentValues[$i] linha - 118: i = 0  
-[2025-05-16 10:11:45] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
-[2025-05-16 10:11:45] local.INFO: forms  
-[2025-05-16 10:11:45] local.INFO: array (
+[2025-05-16 12:36:49] local.INFO: Vai conferir se o $total: R$ 4000 é maior que o $pdv->net_value, R$4000.00  
+[2025-05-16 12:36:49] local.INFO: Foi maior  
+[2025-05-16 12:36:49] local.INFO: Tipo de venda NM/NFCE: nm  
+[2025-05-16 12:36:49] local.INFO: Issuer ID: 1  
+[2025-05-16 12:36:49] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 33 --  
+[2025-05-16 12:36:49] local.INFO: ISSUER_ID 1  
+[2025-05-16 12:36:49] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
+[2025-05-16 12:36:49] local.INFO: $paymentValues[$i] linha - 118: i = 0  
+[2025-05-16 12:36:49] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
+[2025-05-16 12:36:49] local.INFO: forms  
+[2025-05-16 12:36:49] local.INFO: array (
   0 => 
   \App\Models\EcommerceModels\PaymentForms::__set_state(array(
      'connection' => 'mariadb',
@@ -1157,8 +891,8 @@
       'especie' => 'Dinheiro',
       'tipo_lancamento' => 'Caixa',
       'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
+      'created_at' => '2025-05-16 10:53:52',
+      'updated_at' => '2025-05-16 10:53:52',
     ),
      'original' => 
     array (
@@ -1168,8 +902,8 @@
       'especie' => 'Dinheiro',
       'tipo_lancamento' => 'Caixa',
       'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
+      'created_at' => '2025-05-16 10:53:52',
+      'updated_at' => '2025-05-16 10:53:52',
     ),
      'changes' => 
     array (
@@ -1223,17 +957,17 @@
     ),
   )),
 )  
-[2025-05-16 10:11:45] local.INFO: ID linha 120 - : {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:11:45] local.INFO: paymentValues linha 124 - : 2.2222222222222E+14  
-[2025-05-16 10:11:45] local.INFO: Vai conferir os tipos de lançamento  
-[2025-05-16 10:11:45] local.INFO: $form->tipo_lancamento  
-[2025-05-16 10:11:45] local.INFO: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:11:45] local.INFO: Terminou de montar o corpo do caixa:   
-[2025-05-16 10:11:45] local.INFO: Dados:   
-[2025-05-16 10:11:45] local.INFO: array (
+[2025-05-16 12:36:49] local.INFO: ID linha 120 - : {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:36:49] local.INFO: paymentValues linha 124 - : 4000  
+[2025-05-16 12:36:49] local.INFO: Vai conferir os tipos de lançamento  
+[2025-05-16 12:36:49] local.INFO: $form->tipo_lancamento  
+[2025-05-16 12:36:49] local.INFO: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:36:49] local.INFO: Terminou de montar o corpo do caixa:   
+[2025-05-16 12:36:49] local.INFO: Dados:   
+[2025-05-16 12:36:49] local.INFO: array (
   0 => 
   array (
-    'cash_register_cod' => 1,
+    'cash_register_cod' => 6,
     'issuer_id' => 1,
     'description' => 'Venda Nota Manual 
                                 N° 2',
@@ -1244,20 +978,20 @@
     'especie_cod' => 1,
     'especie' => 'Dinheiro',
     'date_register' => '2025-05-16',
-    'input_value' => 222222222222222.22,
+    'input_value' => 4000,
     'output_value' => 0,
-    'real_balance' => 222222222222222.22,
+    'real_balance' => 4000,
     'user_id' => 1,
     'seller' => 'aa',
     'origem' => 'pdv',
   ),
 )  
-[2025-05-16 10:11:45] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
-[2025-05-16 10:11:45] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-16 10:11:45] local.INFO: array (
+[2025-05-16 12:36:49] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
+[2025-05-16 12:36:49] local.INFO: INICIOU REGISTRO NO CAIXA  
+[2025-05-16 12:36:49] local.INFO: array (
   0 => 
   array (
-    'cash_register_cod' => 1,
+    'cash_register_cod' => 6,
     'issuer_id' => 1,
     'description' => 'Venda Nota Manual 
                                 N° 2',
@@ -1268,899 +1002,54 @@
     'especie_cod' => 1,
     'especie' => 'Dinheiro',
     'date_register' => '2025-05-16',
-    'input_value' => 222222222222222.22,
+    'input_value' => 4000,
     'output_value' => 0,
-    'real_balance' => 222222222222222.22,
+    'real_balance' => 4000,
     'user_id' => 1,
     'seller' => 'aa',
     'origem' => 'pdv',
   ),
 )  
-[2025-05-16 10:11:45] local.INFO: Buscando emitente: 1  
-[2025-05-16 10:11:45] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:09:24.000000Z","updated_at":"2025-05-16T10:09:24.000000Z"}  
-[2025-05-16 10:11:45] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z"}  
-[2025-05-16 10:11:45] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:11:45] local.INFO: Vai criar 1 registro:   
-[2025-05-16 10:11:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-16 10:11:51] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:11:52] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
-[2025-05-16 10:11:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-16 10:11:52] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:11:52] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
-[2025-05-16 10:11:52] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:12:06] local.INFO: Controller  
-[2025-05-16 10:12:06] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-  'issuer_id' => 1,
-)  
-[2025-05-16 10:12:06] local.INFO: -- Vai começar a busca --  
-[2025-05-16 10:12:06] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-  'issuer_id' => 1,
-)  
-[2025-05-16 10:12:10] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:12:10] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:12:10] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:12:10] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:12:10] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:12:10] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
-[2025-05-16 10:12:10] local.INFO: -- Iniciou o saveSale() line 172 --   
-[2025-05-16 10:12:10] local.INFO: array (
-  'issuer_id' => 1,
-  'description' => 'Venda Nota Manual N°',
-  'products' => 
-  array (
-    0 => 
-    array (
-      0 => 
-      array (
-        'id' => 1,
-        'product_cod' => 1,
-        'issuer_id' => 1,
-        'product' => '11111111111111',
-        'barcode' => '11111111111111',
-        'barcode_internal' => '1111111111111111',
-        'image' => 'null',
-        'group_id' => NULL,
-        'group' => NULL,
-        'amount' => 1,
-        'cost_price' => '11111111111111.00',
-        'sale_price' => '100.00',
-        'profit_percentage' => '100.00',
-        'cfop' => '1111',
-        'ncm' => '01012100',
-        'cest' => '1111111',
-        'unit' => 'UN',
-        'csosncst' => '111',
-        'cod_origem_icms' => 8,
-        'origem_icms' => '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%',
-        'icms_ecf' => 11.11,
-        'taxable_amount' => 1,
-        'taxable_unit' => '1111',
-        'tax_benefit' => '1',
-        'cod_ipi' => '54',
-        'aliquot_ipi' => 11.1,
-        'cod_pis' => '49',
-        'aliquot_pis' => 11.1,
-        'cod_cofins' => '51',
-        'aliquot_cofins' => 11.1,
-        'cod_use_type' => '1',
-        'use_type' => '1',
-        'active' => 1,
-      ),
-    ),
-  ),
-  'user_id' => 1,
-  'customer_id' => 1,
-  'total' => 100,
-  'sub_total' => 100,
-  'addition' => 0,
-  'discount' => 0,
-  'is_nfce_nm' => 'nm',
-)  
-[2025-05-16 10:12:10] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z","join_credit":[]}  
-[2025-05-16 10:12:10] local.INFO: customerName => Consumidor Padrão  
-[2025-05-16 10:12:10] local.INFO: array (
-  'pdv_cod' => 3,
-  'issuer_id' => 1,
-  'description' => 'Venda Nota Manual N°',
-  'issue_date' => '2025-05-16',
-  'customer_id' => 1,
-  'customer' => 'Consumidor Padrão',
-  'gross_value' => 100,
-  'net_value' => 100,
-  'addition' => 0,
-  'discount' => 0,
-  'user_id' => 1,
-  'user' => 'gabriel',
-  'is_nfce_nm' => 'nm',
-)  
-[2025-05-16 10:12:10] local.INFO: -- Iniciou o saveProducts() line 90 --   
-[2025-05-16 10:12:10] local.INFO: $iPDV  
-[2025-05-16 10:12:10] local.INFO: 0  
-[2025-05-16 10:12:10] local.INFO: Save sale  
-[2025-05-16 10:12:10] local.INFO: array (
-  'success' => true,
-  'pdvID' => 3,
-)  
-[2025-05-16 10:12:10] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-16 10:12:10] local.INFO: Buscando por emitente  
-[2025-05-16 10:12:10] local.INFO: Cod. emitente: 1  
-[2025-05-16 10:12:10] local.INFO: Buscando espécies  
-[2025-05-16 10:12:10] local.INFO: Terminou  
-[2025-05-16 10:12:21] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:12:21] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:12:21] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:12:21] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:12:21] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:12:22] local.INFO: Dados no PDVController::finalizeSale  
-[2025-05-16 10:12:22] local.INFO: array (
-  'issuer_id' => 1,
-  'type_operation' => 'nm',
-  'change' => 0,
-  'payments_values' => 
-  array (
-    0 => 100,
-  ),
-  'pdv_id' => 3,
-)  
-[2025-05-16 10:12:22] local.INFO: PDVService.php, class:finalizeSale, $total: 100  
-[2025-05-16 10:12:22] local.INFO: -- Iniciou o finalizeSale() line 172 --   
-[2025-05-16 10:12:22] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
-[2025-05-16 10:12:22] local.INFO: PDV pelo issuer_ud {"pdv":{"App\\Models\\EcommerceModels\\PDV":{"id":3,"pdv_cod":3,"issuer_id":1,"description":"Venda Nota Manual N°","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padrão","gross_value":"100.00","net_value":"100.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}}} 
-[2025-05-16 10:12:22] local.INFO: Customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z","join_credit":[]}  
-[2025-05-16 10:12:22] local.INFO: Vai procurar a(s) formas de pagamento  
-[2025-05-16 10:12:22] local.INFO: Buscando a espécie pelo ID.  
-[2025-05-16 10:12:22] local.INFO: array (
-  0 => 1,
-)  
-[2025-05-16 10:12:22] local.INFO: $result  
-[2025-05-16 10:12:22] local.INFO: array (
-  0 => 
-  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
-     'connection' => 'mariadb',
-     'table' => 'payments_forms',
-     'primaryKey' => 'id',
-     'keyType' => 'int',
-     'incrementing' => true,
-     'with' => 
-    array (
-    ),
-     'withCount' => 
-    array (
-    ),
-     'preventsLazyLoading' => false,
-     'perPage' => 15,
-     'exists' => true,
-     'wasRecentlyCreated' => false,
-     'escapeWhenCastingToString' => false,
-     'attributes' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
-    ),
-     'original' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
-    ),
-     'changes' => 
-    array (
-    ),
-     'casts' => 
-    array (
-    ),
-     'classCastCache' => 
-    array (
-    ),
-     'attributeCastCache' => 
-    array (
-    ),
-     'dateFormat' => NULL,
-     'appends' => 
-    array (
-    ),
-     'dispatchesEvents' => 
-    array (
-    ),
-     'observables' => 
-    array (
-    ),
-     'relations' => 
-    array (
-    ),
-     'touches' => 
-    array (
-    ),
-     'timestamps' => true,
-     'usesUniqueIds' => false,
-     'hidden' => 
-    array (
-      0 => 'created_at',
-      1 => 'updated_at',
-    ),
-     'visible' => 
-    array (
-    ),
-     'fillable' => 
-    array (
-      0 => 'payment_cod',
-      1 => 'issuer_id',
-      2 => 'especie',
-      3 => 'tipo_lancamento',
-      4 => 'active',
-    ),
-     'guarded' => 
-    array (
-      0 => '*',
-    ),
-  )),
-)  
-[2025-05-16 10:12:22] local.INFO: Vai conferir se o $total: R$ 100 é maior que o $pdv->net_value, R$100.00  
-[2025-05-16 10:12:22] local.INFO: Foi maior  
-[2025-05-16 10:12:22] local.INFO: Tipo de venda NM/NFCE: nm  
-[2025-05-16 10:12:22] local.INFO: Issuer ID: 1  
-[2025-05-16 10:12:22] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 33 --  
-[2025-05-16 10:12:22] local.INFO: ISSUER_ID 1  
-[2025-05-16 10:12:22] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
-[2025-05-16 10:12:22] local.INFO: $paymentValues[$i] linha - 118: i = 0  
-[2025-05-16 10:12:22] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
-[2025-05-16 10:12:22] local.INFO: forms  
-[2025-05-16 10:12:22] local.INFO: array (
-  0 => 
-  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
-     'connection' => 'mariadb',
-     'table' => 'payments_forms',
-     'primaryKey' => 'id',
-     'keyType' => 'int',
-     'incrementing' => true,
-     'with' => 
-    array (
-    ),
-     'withCount' => 
-    array (
-    ),
-     'preventsLazyLoading' => false,
-     'perPage' => 15,
-     'exists' => true,
-     'wasRecentlyCreated' => false,
-     'escapeWhenCastingToString' => false,
-     'attributes' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
-    ),
-     'original' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
-    ),
-     'changes' => 
-    array (
-    ),
-     'casts' => 
-    array (
-    ),
-     'classCastCache' => 
-    array (
-    ),
-     'attributeCastCache' => 
-    array (
-    ),
-     'dateFormat' => NULL,
-     'appends' => 
-    array (
-    ),
-     'dispatchesEvents' => 
-    array (
-    ),
-     'observables' => 
-    array (
-    ),
-     'relations' => 
-    array (
-    ),
-     'touches' => 
-    array (
-    ),
-     'timestamps' => true,
-     'usesUniqueIds' => false,
-     'hidden' => 
-    array (
-      0 => 'created_at',
-      1 => 'updated_at',
-    ),
-     'visible' => 
-    array (
-    ),
-     'fillable' => 
-    array (
-      0 => 'payment_cod',
-      1 => 'issuer_id',
-      2 => 'especie',
-      3 => 'tipo_lancamento',
-      4 => 'active',
-    ),
-     'guarded' => 
-    array (
-      0 => '*',
-    ),
-  )),
-)  
-[2025-05-16 10:12:22] local.INFO: ID linha 120 - : {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:12:22] local.INFO: paymentValues linha 124 - : 100  
-[2025-05-16 10:12:22] local.INFO: Vai conferir os tipos de lançamento  
-[2025-05-16 10:12:22] local.INFO: $form->tipo_lancamento  
-[2025-05-16 10:12:22] local.INFO: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:12:22] local.INFO: Terminou de montar o corpo do caixa:   
-[2025-05-16 10:12:22] local.INFO: Dados:   
-[2025-05-16 10:12:22] local.INFO: array (
-  0 => 
-  array (
-    'cash_register_cod' => 1,
-    'issuer_id' => 1,
-    'description' => 'Venda Nota Manual 
-                                N° 3',
-    'document' => 3,
-    'pdv_cod' => 3,
-    'customer_cod' => 1,
-    'name' => 'Consumidor Padrão',
-    'especie_cod' => 1,
-    'especie' => 'Dinheiro',
-    'date_register' => '2025-05-16',
-    'input_value' => 100,
-    'output_value' => 0,
-    'real_balance' => 100,
-    'user_id' => 1,
-    'seller' => 'aa',
-    'origem' => 'pdv',
-  ),
-)  
-[2025-05-16 10:12:22] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
-[2025-05-16 10:12:22] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-16 10:12:22] local.INFO: array (
-  0 => 
-  array (
-    'cash_register_cod' => 1,
-    'issuer_id' => 1,
-    'description' => 'Venda Nota Manual 
-                                N° 3',
-    'document' => 3,
-    'pdv_cod' => 3,
-    'customer_cod' => 1,
-    'name' => 'Consumidor Padrão',
-    'especie_cod' => 1,
-    'especie' => 'Dinheiro',
-    'date_register' => '2025-05-16',
-    'input_value' => 100,
-    'output_value' => 0,
-    'real_balance' => 100,
-    'user_id' => 1,
-    'seller' => 'aa',
-    'origem' => 'pdv',
-  ),
-)  
-[2025-05-16 10:12:22] local.INFO: Buscando emitente: 1  
-[2025-05-16 10:12:22] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:09:24.000000Z","updated_at":"2025-05-16T10:09:24.000000Z"}  
-[2025-05-16 10:12:22] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z"}  
-[2025-05-16 10:12:22] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:12:22] local.INFO: Vai criar 1 registro:   
-[2025-05-16 10:12:22] local.INFO: $issuer_id: 1  
-[2025-05-16 10:12:22] local.INFO: $lastCashBox com issuer_id {"id":1,"cash_register_cod":1,"document":"3","issuer_id":1,"description":"Venda Nota Manual \n                                N\u00b0 3","pdv_cod":3,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"100.00","output_value":"0.00","real_balance":null,"origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
-[2025-05-16 10:12:22] local.INFO: $actualCashBox com issuer_id   
-[2025-05-16 10:12:22] local.INFO: Não foi encontrado um registro anterior do segundo registro no caixa  
-[2025-05-16 10:12:22] local.INFO: $lastCashBoxashBox 2  
-[2025-05-16 10:12:22] local.INFO: {"id":1,"cash_register_cod":1,"document":"3","issuer_id":1,"description":"Venda Nota Manual 
-                                N\u00b0 3","pdv_cod":3,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"100.00","output_value":"0.00","real_balance":"100.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
-[2025-05-16 10:12:22] local.INFO: $actualCashBox 2  
-[2025-05-16 10:12:22] local.INFO:   
-[2025-05-16 10:12:22] local.INFO: Vai retornar  
-[2025-05-16 10:12:22] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
-[2025-05-16 10:12:22] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
-[2025-05-16 10:12:22] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
-[2025-05-16 10:12:22] local.INFO: payMentMethodService  
-[2025-05-16 10:12:22] local.INFO: array (
+[2025-05-16 12:36:49] local.INFO: Buscando emitente: 1  
+[2025-05-16 12:36:49] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:53:18.000000Z","updated_at":"2025-05-16T10:53:18.000000Z"}  
+[2025-05-16 12:36:49] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:53:52.000000Z","updated_at":"2025-05-16T10:53:52.000000Z"}  
+[2025-05-16 12:36:49] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
+[2025-05-16 12:36:49] local.INFO: Vai criar 1 registro:   
+[2025-05-16 12:36:49] local.INFO: $issuer_id: 1  
+[2025-05-16 12:36:49] local.INFO: $lastCashBox com issuer_id {"id":19,"cash_register_cod":6,"document":"6","issuer_id":1,"description":"Venda Nota Manual \n                                N\u00b0 2","pdv_cod":2,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"4000.00","output_value":"0.00","real_balance":null,"origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
+[2025-05-16 12:36:49] local.INFO: $actualCashBox com issuer_id {"id":18,"cash_register_cod":5,"document":"5","issuer_id":1,"description":"Registro Manual","pdv_cod":null,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"0.00","output_value":"60.00","real_balance":"-81020.00","origem":"Caixa (Manual)","user_id":1,"seller":"gabriel","canceled":0}  
+[2025-05-16 12:36:49] local.INFO: Foi encontrado mais um registro  
+[2025-05-16 12:36:49] local.INFO: Novo valor: R$ 0.00 + 4000.00 - 0.00 = 4000  
+[2025-05-16 12:36:49] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
+[2025-05-16 12:36:49] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
+[2025-05-16 12:36:49] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
+[2025-05-16 12:36:49] local.INFO: payMentMethodService  
+[2025-05-16 12:36:49] local.INFO: array (
   'line' => 215,
   'success' => true,
 )  
-[2025-05-16 10:12:22] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":3,"pdv_cod":3,"issuer_id":1,"description":"Venda Nota Manual N\u00b0","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padr\u00e3o","gross_value":"100.00","net_value":"100.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}  
-[2025-05-16 10:12:22] local.INFO: $type nm  
-[2025-05-16 10:12:22] local.INFO: Buscar e alterar os produtos, pdv_cod = 3  
-[2025-05-16 10:12:22] local.INFO: Alteração dentro do for = 3  
-[2025-05-16 10:12:22] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
-[2025-05-16 10:12:22] local.INFO: Produto encontrado 1  
-[2025-05-16 10:12:22] local.INFO: {"id":1,"product_cod":1,"issuer_id":1,"product":"11111111111111","barcode":"11111111111111","barcode_internal":"1111111111111111","image":"null","group_id":null,"group":null,"amount":11111100000000,"cost_price":"11111111111111.00","sale_price":"100.00","profit_percentage":"100.00","cfop":"1111","ncm":"01012100","cest":"1111111","unit":"UN","csosncst":"111","cod_origem_icms":8,"origem_icms":"8 - NACIONAL - CONTE\u00daDO DE IMPORTA\u00c7\u00c3O > 70%","icms_ecf":11.11,"taxable_amount":1,"taxable_unit":"1111","tax_benefit":"1","cod_ipi":"54","aliquot_ipi":11.1,"cod_pis":"49","aliquot_pis":11.1,"cod_cofins":"51","aliquot_cofins":11.1,"cod_use_type":"1","use_type":"1","active":1}  
-[2025-05-16 10:12:22] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
-[2025-05-16 10:12:34] local.INFO: Controller  
-[2025-05-16 10:12:34] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-  'issuer_id' => 1,
-)  
-[2025-05-16 10:12:34] local.INFO: -- Vai começar a busca --  
-[2025-05-16 10:12:34] local.INFO: array (
-  'fillter' => 'Padrão (cód.barras ou cód.produto)',
-  'search' => '1',
-  'issuer_id' => 1,
-)  
-[2025-05-16 10:12:37] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:12:37] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:12:37] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:12:37] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:12:37] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:12:37] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
-[2025-05-16 10:12:37] local.INFO: -- Iniciou o saveSale() line 172 --   
-[2025-05-16 10:12:37] local.INFO: array (
-  'issuer_id' => 1,
-  'description' => 'Venda Nota Manual N°',
-  'products' => 
-  array (
-    0 => 
-    array (
-      0 => 
-      array (
-        'id' => 1,
-        'product_cod' => 1,
-        'issuer_id' => 1,
-        'product' => '11111111111111',
-        'barcode' => '11111111111111',
-        'barcode_internal' => '1111111111111111',
-        'image' => 'null',
-        'group_id' => NULL,
-        'group' => NULL,
-        'amount' => 1,
-        'cost_price' => '11111111111111.00',
-        'sale_price' => '100.00',
-        'profit_percentage' => '100.00',
-        'cfop' => '1111',
-        'ncm' => '01012100',
-        'cest' => '1111111',
-        'unit' => 'UN',
-        'csosncst' => '111',
-        'cod_origem_icms' => 8,
-        'origem_icms' => '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%',
-        'icms_ecf' => 11.11,
-        'taxable_amount' => 1,
-        'taxable_unit' => '1111',
-        'tax_benefit' => '1',
-        'cod_ipi' => '54',
-        'aliquot_ipi' => 11.1,
-        'cod_pis' => '49',
-        'aliquot_pis' => 11.1,
-        'cod_cofins' => '51',
-        'aliquot_cofins' => 11.1,
-        'cod_use_type' => '1',
-        'use_type' => '1',
-        'active' => 1,
-      ),
-    ),
-  ),
-  'user_id' => 1,
-  'customer_id' => 1,
-  'total' => 100,
-  'sub_total' => 100,
-  'addition' => 0,
-  'discount' => 0,
-  'is_nfce_nm' => 'nm',
-)  
-[2025-05-16 10:12:37] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z","join_credit":[]}  
-[2025-05-16 10:12:37] local.INFO: customerName => Consumidor Padrão  
-[2025-05-16 10:12:37] local.INFO: array (
-  'pdv_cod' => 4,
-  'issuer_id' => 1,
-  'description' => 'Venda Nota Manual N°',
-  'issue_date' => '2025-05-16',
-  'customer_id' => 1,
-  'customer' => 'Consumidor Padrão',
-  'gross_value' => 100,
-  'net_value' => 100,
-  'addition' => 0,
-  'discount' => 0,
-  'user_id' => 1,
-  'user' => 'gabriel',
-  'is_nfce_nm' => 'nm',
-)  
-[2025-05-16 10:12:37] local.INFO: -- Iniciou o saveProducts() line 90 --   
-[2025-05-16 10:12:37] local.INFO: $iPDV  
-[2025-05-16 10:12:37] local.INFO: 0  
-[2025-05-16 10:12:37] local.INFO: Save sale  
-[2025-05-16 10:12:37] local.INFO: array (
-  'success' => true,
-  'pdvID' => 4,
-)  
-[2025-05-16 10:12:37] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-16 10:12:37] local.INFO: Buscando por emitente  
-[2025-05-16 10:12:37] local.INFO: Cod. emitente: 1  
-[2025-05-16 10:12:37] local.INFO: Buscando espécies  
-[2025-05-16 10:12:37] local.INFO: Terminou  
-[2025-05-16 10:12:44] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
-[2025-05-16 10:12:44] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
-[2025-05-16 10:12:44] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
-[2025-05-16 10:12:44] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
-[2025-05-16 10:12:44] local.INFO: Memória usada PDVController::class, __construct: 23068672  
-[2025-05-16 10:12:44] local.INFO: Dados no PDVController::finalizeSale  
-[2025-05-16 10:12:44] local.INFO: array (
-  'issuer_id' => 1,
-  'type_operation' => 'nm',
-  'change' => 0,
-  'payments_values' => 
-  array (
-    0 => 100,
-  ),
-  'pdv_id' => 4,
-)  
-[2025-05-16 10:12:44] local.INFO: PDVService.php, class:finalizeSale, $total: 100  
-[2025-05-16 10:12:44] local.INFO: -- Iniciou o finalizeSale() line 172 --   
-[2025-05-16 10:12:44] local.INFO: Memória usada PDVRepository::class, finalizeSale: 23068672  
-[2025-05-16 10:12:44] local.INFO: PDV pelo issuer_ud {"pdv":{"App\\Models\\EcommerceModels\\PDV":{"id":4,"pdv_cod":4,"issuer_id":1,"description":"Venda Nota Manual N°","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padrão","gross_value":"100.00","net_value":"100.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}}} 
-[2025-05-16 10:12:44] local.INFO: Customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z","join_credit":[]}  
-[2025-05-16 10:12:44] local.INFO: Vai procurar a(s) formas de pagamento  
-[2025-05-16 10:12:44] local.INFO: Buscando a espécie pelo ID.  
-[2025-05-16 10:12:44] local.INFO: array (
-  0 => 1,
-)  
-[2025-05-16 10:12:44] local.INFO: $result  
-[2025-05-16 10:12:44] local.INFO: array (
-  0 => 
-  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
-     'connection' => 'mariadb',
-     'table' => 'payments_forms',
-     'primaryKey' => 'id',
-     'keyType' => 'int',
-     'incrementing' => true,
-     'with' => 
-    array (
-    ),
-     'withCount' => 
-    array (
-    ),
-     'preventsLazyLoading' => false,
-     'perPage' => 15,
-     'exists' => true,
-     'wasRecentlyCreated' => false,
-     'escapeWhenCastingToString' => false,
-     'attributes' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
-    ),
-     'original' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
-    ),
-     'changes' => 
-    array (
-    ),
-     'casts' => 
-    array (
-    ),
-     'classCastCache' => 
-    array (
-    ),
-     'attributeCastCache' => 
-    array (
-    ),
-     'dateFormat' => NULL,
-     'appends' => 
-    array (
-    ),
-     'dispatchesEvents' => 
-    array (
-    ),
-     'observables' => 
-    array (
-    ),
-     'relations' => 
-    array (
-    ),
-     'touches' => 
-    array (
-    ),
-     'timestamps' => true,
-     'usesUniqueIds' => false,
-     'hidden' => 
-    array (
-      0 => 'created_at',
-      1 => 'updated_at',
-    ),
-     'visible' => 
-    array (
-    ),
-     'fillable' => 
-    array (
-      0 => 'payment_cod',
-      1 => 'issuer_id',
-      2 => 'especie',
-      3 => 'tipo_lancamento',
-      4 => 'active',
-    ),
-     'guarded' => 
-    array (
-      0 => '*',
-    ),
-  )),
-)  
-[2025-05-16 10:12:44] local.INFO: Vai conferir se o $total: R$ 100 é maior que o $pdv->net_value, R$100.00  
-[2025-05-16 10:12:44] local.INFO: Foi maior  
-[2025-05-16 10:12:44] local.INFO: Tipo de venda NM/NFCE: nm  
-[2025-05-16 10:12:44] local.INFO: Issuer ID: 1  
-[2025-05-16 10:12:44] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 33 --  
-[2025-05-16 10:12:44] local.INFO: ISSUER_ID 1  
-[2025-05-16 10:12:44] local.INFO: Não possui mais de uma espécie informada: 1 Dados:   
-[2025-05-16 10:12:44] local.INFO: $paymentValues[$i] linha - 118: i = 0  
-[2025-05-16 10:12:44] local.INFO: Vai pegar as posições maiores que zero, vezes: 0  
-[2025-05-16 10:12:44] local.INFO: forms  
-[2025-05-16 10:12:44] local.INFO: array (
-  0 => 
-  \App\Models\EcommerceModels\PaymentForms::__set_state(array(
-     'connection' => 'mariadb',
-     'table' => 'payments_forms',
-     'primaryKey' => 'id',
-     'keyType' => 'int',
-     'incrementing' => true,
-     'with' => 
-    array (
-    ),
-     'withCount' => 
-    array (
-    ),
-     'preventsLazyLoading' => false,
-     'perPage' => 15,
-     'exists' => true,
-     'wasRecentlyCreated' => false,
-     'escapeWhenCastingToString' => false,
-     'attributes' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
-    ),
-     'original' => 
-    array (
-      'id' => 1,
-      'payment_cod' => 1,
-      'issuer_id' => 1,
-      'especie' => 'Dinheiro',
-      'tipo_lancamento' => 'Caixa',
-      'active' => 1,
-      'created_at' => '2025-05-16 10:09:37',
-      'updated_at' => '2025-05-16 10:09:37',
-    ),
-     'changes' => 
-    array (
-    ),
-     'casts' => 
-    array (
-    ),
-     'classCastCache' => 
-    array (
-    ),
-     'attributeCastCache' => 
-    array (
-    ),
-     'dateFormat' => NULL,
-     'appends' => 
-    array (
-    ),
-     'dispatchesEvents' => 
-    array (
-    ),
-     'observables' => 
-    array (
-    ),
-     'relations' => 
-    array (
-    ),
-     'touches' => 
-    array (
-    ),
-     'timestamps' => true,
-     'usesUniqueIds' => false,
-     'hidden' => 
-    array (
-      0 => 'created_at',
-      1 => 'updated_at',
-    ),
-     'visible' => 
-    array (
-    ),
-     'fillable' => 
-    array (
-      0 => 'payment_cod',
-      1 => 'issuer_id',
-      2 => 'especie',
-      3 => 'tipo_lancamento',
-      4 => 'active',
-    ),
-     'guarded' => 
-    array (
-      0 => '*',
-    ),
-  )),
-)  
-[2025-05-16 10:12:44] local.INFO: ID linha 120 - : {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:12:44] local.INFO: paymentValues linha 124 - : 100  
-[2025-05-16 10:12:44] local.INFO: Vai conferir os tipos de lançamento  
-[2025-05-16 10:12:44] local.INFO: $form->tipo_lancamento  
-[2025-05-16 10:12:44] local.INFO: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:12:44] local.INFO: Terminou de montar o corpo do caixa:   
-[2025-05-16 10:12:44] local.INFO: Dados:   
-[2025-05-16 10:12:44] local.INFO: array (
-  0 => 
-  array (
-    'cash_register_cod' => 2,
-    'issuer_id' => 1,
-    'description' => 'Venda Nota Manual 
-                                N° 4',
-    'document' => 4,
-    'pdv_cod' => 4,
-    'customer_cod' => 1,
-    'name' => 'Consumidor Padrão',
-    'especie_cod' => 1,
-    'especie' => 'Dinheiro',
-    'date_register' => '2025-05-16',
-    'input_value' => 100,
-    'output_value' => 0,
-    'real_balance' => 100,
-    'user_id' => 1,
-    'seller' => 'aa',
-    'origem' => 'pdv',
-  ),
-)  
-[2025-05-16 10:12:44] local.INFO: -- Vai chamar o cashRegisterRepository linha 183 --   
-[2025-05-16 10:12:44] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-16 10:12:44] local.INFO: array (
-  0 => 
-  array (
-    'cash_register_cod' => 2,
-    'issuer_id' => 1,
-    'description' => 'Venda Nota Manual 
-                                N° 4',
-    'document' => 4,
-    'pdv_cod' => 4,
-    'customer_cod' => 1,
-    'name' => 'Consumidor Padrão',
-    'especie_cod' => 1,
-    'especie' => 'Dinheiro',
-    'date_register' => '2025-05-16',
-    'input_value' => 100,
-    'output_value' => 0,
-    'real_balance' => 100,
-    'user_id' => 1,
-    'seller' => 'aa',
-    'origem' => 'pdv',
-  ),
-)  
-[2025-05-16 10:12:44] local.INFO: Buscando emitente: 1  
-[2025-05-16 10:12:44] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:09:24.000000Z","updated_at":"2025-05-16T10:09:24.000000Z"}  
-[2025-05-16 10:12:44] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z"}  
-[2025-05-16 10:12:44] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:12:44] local.INFO: Vai criar 1 registro:   
-[2025-05-16 10:12:44] local.INFO: $issuer_id: 1  
-[2025-05-16 10:12:44] local.INFO: $lastCashBox com issuer_id {"id":2,"cash_register_cod":2,"document":"4","issuer_id":1,"description":"Venda Nota Manual \n                                N\u00b0 4","pdv_cod":4,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"100.00","output_value":"0.00","real_balance":null,"origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
-[2025-05-16 10:12:44] local.INFO: $actualCashBox com issuer_id {"id":1,"cash_register_cod":1,"document":"3","issuer_id":1,"description":"Venda Nota Manual \n                                N\u00b0 3","pdv_cod":3,"customer_cod":1,"name":"Consumidor Padr\u00e3o","especie_cod":1,"especie":"Dinheiro","date_register":"2025-05-16","input_value":"100.00","output_value":"0.00","real_balance":"100.00","origem":"pdv","user_id":1,"seller":"aa","canceled":0}  
-[2025-05-16 10:12:44] local.INFO: Foi encontrado mais um registro  
-[2025-05-16 10:12:44] local.INFO: Novo valor: R$ 100.00 + 100.00 - 0.00 = 200  
-[2025-05-16 10:12:44] local.INFO: -- Vai chamar o reservationRepository linha 185 --   
-[2025-05-16 10:12:44] local.INFO: -- Terminou de chamar o cashRegisterRepository --   
-[2025-05-16 10:12:44] local.INFO: -- Fim do registro no caixa, PayMentMethodService.php, linha 188 --  
-[2025-05-16 10:12:44] local.INFO: payMentMethodService  
-[2025-05-16 10:12:44] local.INFO: array (
-  'line' => 215,
-  'success' => true,
-)  
-[2025-05-16 10:12:44] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":4,"pdv_cod":4,"issuer_id":1,"description":"Venda Nota Manual N\u00b0","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padr\u00e3o","gross_value":"100.00","net_value":"100.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}  
-[2025-05-16 10:12:44] local.INFO: $type nm  
-[2025-05-16 10:12:44] local.INFO: Buscar e alterar os produtos, pdv_cod = 4  
-[2025-05-16 10:12:44] local.INFO: Alteração dentro do for = 4  
-[2025-05-16 10:12:44] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
-[2025-05-16 10:12:44] local.INFO: Produto encontrado 1  
-[2025-05-16 10:12:44] local.INFO: {"id":1,"product_cod":1,"issuer_id":1,"product":"11111111111111","barcode":"11111111111111","barcode_internal":"1111111111111111","image":"null","group_id":null,"group":null,"amount":100,"cost_price":"11111111111111.00","sale_price":"100.00","profit_percentage":"100.00","cfop":"1111","ncm":"01012100","cest":"1111111","unit":"UN","csosncst":"111","cod_origem_icms":8,"origem_icms":"8 - NACIONAL - CONTE\u00daDO DE IMPORTA\u00c7\u00c3O > 70%","icms_ecf":11.11,"taxable_amount":1,"taxable_unit":"1111","tax_benefit":"1","cod_ipi":"54","aliquot_ipi":11.1,"cod_pis":"49","aliquot_pis":11.1,"cod_cofins":"51","aliquot_cofins":11.1,"cod_use_type":"1","use_type":"1","active":1}  
-[2025-05-16 10:12:44] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
-[2025-05-16 10:12:52] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-16 10:12:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-16 10:12:58] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:12:59] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-16 10:12:59] local.INFO: Buscando por emitente  
-[2025-05-16 10:12:59] local.INFO: Cod. emitente: 1  
-[2025-05-16 10:12:59] local.INFO: Buscando espécies  
-[2025-05-16 10:12:59] local.INFO: Terminou  
-[2025-05-16 10:13:05] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-16 10:13:05] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_id' => 1,
-    'especie_id' => 1,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-16',
-    'input_value' => 0,
-    'output_value' => 10000,
-  ),
-)  
-[2025-05-16 10:13:05] local.INFO: Buscando emitente: 1  
-[2025-05-16 10:13:05] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:09:24.000000Z","updated_at":"2025-05-16T10:09:24.000000Z"}  
-[2025-05-16 10:13:05] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z"}  
-[2025-05-16 10:14:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-16 10:14:20] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:14:20] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-16 10:14:20] local.INFO: Buscando por emitente  
-[2025-05-16 10:14:20] local.INFO: Cod. emitente: 1  
-[2025-05-16 10:14:20] local.INFO: Buscando espécies  
-[2025-05-16 10:14:20] local.INFO: Terminou  
-[2025-05-16 10:14:22] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
-[2025-05-16 10:14:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
-[2025-05-16 10:14:24] local.INFO: ConfigController: $issuer_id 1  
-[2025-05-16 10:14:24] local.INFO: Iniciou getAll PaymentsRepository  
-[2025-05-16 10:14:24] local.INFO: Buscando por emitente  
-[2025-05-16 10:14:24] local.INFO: Cod. emitente: 1  
-[2025-05-16 10:14:24] local.INFO: Buscando espécies  
-[2025-05-16 10:14:24] local.INFO: Terminou  
-[2025-05-16 10:14:28] local.INFO: INICIOU REGISTRO NO CAIXA  
-[2025-05-16 10:14:28] local.INFO: array (
-  0 => 
-  array (
-    'issuer_id' => 1,
-    'description' => 'Registro Manual',
-    'document' => 1,
-    'customer_cod' => 1,
-    'especie_cod' => 1,
-    'user_id' => 1,
-    'origem' => 'Caixa (Manual)',
-    'date_register' => '2025-05-16',
-    'input_value' => 0,
-    'output_value' => 50,
-  ),
-)  
-[2025-05-16 10:14:28] local.INFO: Buscando emitente: 1  
-[2025-05-16 10:14:28] local.INFO: Buscando usuário: {"id":1,"user_cod":1,"owner_id":1,"name":"gabriel","login":"gabikochem55@gmail.com","perfil_photo":null,"access":"Adminstrador","is_owner":1,"active":1,"created_at":"2025-05-16T10:09:24.000000Z","updated_at":"2025-05-16T10:09:24.000000Z"}  
-[2025-05-16 10:14:28] local.INFO: Buscando cliente: {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-16T10:09:37.000000Z","updated_at":"2025-05-16T10:09:37.000000Z"}  
-[2025-05-16 10:14:28] local.INFO: Buscando espécie: {"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","active":1}  
-[2025-05-16 10:14:28] local.INFO: Vai criar 1 registro:   
+[2025-05-16 12:36:49] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":2,"pdv_cod":2,"issuer_id":1,"description":"Venda Nota Manual N\u00b0","issue_date":"2025-05-16","n_nfce":null,"customer_id":1,"customer":"Consumidor Padr\u00e3o","gross_value":"4000.00","net_value":"4000.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}  
+[2025-05-16 12:36:49] local.INFO: $type nm  
+[2025-05-16 12:36:49] local.INFO: Buscar e alterar os produtos, pdv_cod = 2  
+[2025-05-16 12:36:49] local.INFO: Alteração dentro do for = 2  
+[2025-05-16 12:36:49] local.INFO: -- Inicio decreaseQuantiy, linha 50 --  
+[2025-05-16 12:36:49] local.INFO: Produto encontrado 1  
+[2025-05-16 12:36:49] local.INFO: {"id":1,"product_cod":1,"issuer_id":1,"product":"Produto teste","barcode":"11111111111111","barcode_internal":"1111111111111111","image":"null","group_id":null,"group":null,"amount":99,"cost_price":"20.00","sale_price":"40.00","profit_percentage":"100.00","cfop":"5102","ncm":"01013000","cest":"1111111","unit":"UN","csosncst":"102","cod_origem_icms":8,"origem_icms":"8 - NACIONAL - CONTE\u00daDO DE IMPORTA\u00c7\u00c3O > 70%","icms_ecf":11.11,"taxable_amount":1,"taxable_unit":"1111","tax_benefit":"1","cod_ipi":"55","aliquot_ipi":11.1,"cod_pis":"6","aliquot_pis":11.1,"cod_cofins":"6","aliquot_cofins":11.1,"cod_use_type":"1","use_type":"1","active":1}  
+[2025-05-16 12:36:49] local.INFO: -- Fim decreaseQuantiy, linha 62 --  
+[2025-05-16 12:37:16] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-16 12:51:21] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-16 12:54:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-16 12:54:24] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:54:24] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-16 12:54:24] local.INFO: Buscando por emitente  
+[2025-05-16 12:54:24] local.INFO: Cod. emitente: 1  
+[2025-05-16 12:54:24] local.INFO: Buscando espécies  
+[2025-05-16 12:54:24] local.INFO: Terminou  
+[2025-05-16 12:54:28] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-05-16 12:55:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-16 12:55:56] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:55:57] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-16 12:55:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-16 12:55:57] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-16 12:55:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-16 12:55:57] local.INFO: ConfigController: $issuer_id 1  

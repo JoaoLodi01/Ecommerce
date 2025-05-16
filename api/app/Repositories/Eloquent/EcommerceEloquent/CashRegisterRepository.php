@@ -39,7 +39,7 @@ class CashRegisterRepository
 
         $nameCustomer = $customer->company_name ? $customer->company_name : $customer->trade_name;
         $cashRegisterCod = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])->max('cash_register_cod');
-        $newCod = $cashRegisterCod ? $cashRegisterCod + 1 : 1;
+        $document = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])->max('document');
 
         if(count($cashRegisters) >= 2)
         {
@@ -50,10 +50,10 @@ class CashRegisterRepository
                 Log::info('Vai chamar o updateCurrentCash($cashRegisters[$i]), dados x: ' . $i);
                 Log::info($cashRegisters[$i]);
                 CashRegister::create([
-                    'cash_register_cod' => $newCod,
+                    'cash_register_cod' => $cashRegisterCod ? $cashRegisterCod + 1 : 1,
                     'issuer_id' => $cashRegisters[$i]['issuer_id'],
                     'description'  => $cashRegisters[$i]['description'],
-                    'document' => $cashRegisters[$i]['document'],
+                    'document' => $cashRegisters[$i]['document'] ?? $document ?  $document + 1 : 1,
                     'pdv_cod' => $cashRegisters[$i]['pdv_cod'],
                     'customer_cod' => $cashRegisters[$i]['customer_cod'],
                     'name' => $cashRegisters[$i]['name'] ?? $nameCustomer,
@@ -76,10 +76,10 @@ class CashRegisterRepository
         {
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             CashRegister::create([
-                    'cash_register_cod' => $newCod,
+                    'cash_register_cod' => $cashRegisterCod ? $cashRegisterCod + 1 : 1,
                     'issuer_id' => $cashRegisters[0]['issuer_id'],
                     'description'  => $cashRegisters[0]['description'],
-                    'document' => $cashRegisters[0]['document'],
+                    'document' => $cashRegisters[0]['document'] ?? $document ?  $document + 1 : 1,
                     'pdv_cod' => $cashRegisters[0]['pdv_cod'] ?? null,
                     'customer_cod' => $cashRegisters[0]['customer_cod'],
                     'name' => $cashRegisters[0]['name'] ?? $nameCustomer,
@@ -111,10 +111,27 @@ class CashRegisterRepository
         if(!$actualCashBox)
         {
             Log::info('Não foi encontrado um registro anterior do segundo registro no caixa');
-            $lastCashBox->update([
-                'real_balance' => $lastCashBox->input_value
+            if($lastCashBox->input_value > 0)
+            {
+                Log::info('Foi informado um valor de entrada');
+                Log::info('real_balance: R$ ' . $lastCashBox->input_value);
+                $lastCashBox->update([
+                    'real_balance' => $lastCashBox->input_value
 
-            ]);
+                ]);
+            }
+
+            if($lastCashBox->output_value > 0)
+            {
+                Log::info('Foi informado um valor de saída');
+                Log::info('real_balance: R$ ' . $lastCashBox->output_value - ($lastCashBox->output_value * 2));
+                $lastCashBox->update([
+                    'real_balance' => $lastCashBox->output_value - ($lastCashBox->output_value * 2)
+
+                ]);
+
+            }
+            
             
             Log::info('$lastCashBoxashBox 2');
             Log::info($lastCashBox);
@@ -123,6 +140,7 @@ class CashRegisterRepository
             Log::info($actualCashBox);
             Log::info('Vai retornar');
             return;
+            
         } else {
             Log::info('Foi encontrado mais um registro');
             Log::info('Novo valor: R$ ' . $actualCashBox->input_value . ' + '  . $lastCashBox->input_value . ' - ' . $lastCashBox->output_value . ' = ' . $actualCashBox->input_value + $lastCashBox->input_value);

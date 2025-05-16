@@ -30,10 +30,10 @@
                             <q-input
                                 v-model="paymentsValues[i]"
                                 input-class="text-right"
+                                class="w-24"
                                 dense
                                 outlined
                                 placeholder="0,00"
-                                class="w-24"
                                 mask="##,##"
                                 fill-mask="0"
                                 reverse-fill-mask
