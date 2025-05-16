@@ -28,9 +28,11 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_cod');
             $table->foreign('customer_cod')->references('customer_cod')->on('customers')->onDelete('cascade');
 
-            $table->string('name', 120);
             $table->unsignedBigInteger('especie_cod');
             $table->foreign('especie_cod')->references('payment_cod')->on('payments_forms')->onDelete('cascade');;
+
+            $table->string('name', 120);
+            
             $table->string('especie', 120);
             $table->date('date_register');
             $table->decimal('input_value', 16,2)->nullable();
