@@ -34,7 +34,7 @@ class CashRegisterRepository
         $customer = Customer::where('issuer_id', $cashRegisters[0]['issuer_id'])->first();
         Log::info('Buscando cliente: '. $customer);
         
-        $specie = PaymentForms::where('issuer_id', $cashRegisters[0]['issuer_id'])->where('payment_cod', $cashRegisters[0]['especie_id'])->first();
+        $specie = PaymentForms::where('issuer_id', $cashRegisters[0]['issuer_id'])->where('payment_cod', $cashRegisters[0]['especie_cod'])->first();
         Log::info('Buscando espécie: '. $specie);
 
         $nameCustomer = $customer->company_name ? $customer->company_name : $customer->trade_name;
@@ -54,10 +54,10 @@ class CashRegisterRepository
                     'issuer_id' => $cashRegisters[$i]['issuer_id'],
                     'description'  => $cashRegisters[$i]['description'],
                     'document' => $cashRegisters[$i]['document'],
-                    'pdv_id' => $cashRegisters[$i]['pdv_id'],
-                    'customer_id' => $cashRegisters[$i]['customer_id'],
+                    'pdv_cod' => $cashRegisters[$i]['pdv_cod'],
+                    'customer_cod' => $cashRegisters[$i]['customer_cod'],
                     'name' => $cashRegisters[$i]['name'] ?? $nameCustomer,
-                    'especie_id' => $cashRegisters[$i]['especie_id'] ?? $specie->payment_cod,
+                    'especie_cod' => $cashRegisters[$i]['especie_cod'] ?? $specie->payment_cod,
                     'especie' => $cashRegisters[$i]['especie'] ?? $specie->especie,
                     'date_register' => $cashRegisters[$i]['date_register'],
                     'input_value' => $cashRegisters[$i]['input_value'],
@@ -80,10 +80,10 @@ class CashRegisterRepository
                     'issuer_id' => $cashRegisters[0]['issuer_id'],
                     'description'  => $cashRegisters[0]['description'],
                     'document' => $cashRegisters[0]['document'],
-                    'pdv_id' => $cashRegisters[0]['pdv_id'] ?? null,
-                    'customer_id' => $cashRegisters[0]['customer_id'],
+                    'pdv_cod' => $cashRegisters[0]['pdv_cod'] ?? null,
+                    'customer_cod' => $cashRegisters[0]['customer_cod'],
                     'name' => $cashRegisters[0]['name'] ?? $nameCustomer,
-                    'especie_id' => $cashRegisters[0]['especie_id'] ?? $specie->payment_cod,
+                    'especie_cod' => $cashRegisters[0]['especie_cod'] ?? $specie->payment_cod,
                     'especie' => $cashRegisters[0]['especie'] ?? $specie->especie,
                     'date_register' => $cashRegisters[0]['date_register'],
                     'input_value' => $cashRegisters[0]['input_value'],

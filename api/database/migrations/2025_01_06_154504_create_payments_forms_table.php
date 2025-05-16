@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('payments_forms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('payment_cod');
+            $table->unsignedBigInteger('payment_cod')->index();
             $table->unique(['issuer_id', 'payment_cod']);
             
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');

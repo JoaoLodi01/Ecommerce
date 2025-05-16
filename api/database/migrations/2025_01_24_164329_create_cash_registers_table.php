@@ -21,13 +21,16 @@ return new class extends Migration
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('description', 200);
-            $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
-            $table->unsignedBigInteger('pdv_id')->nullable();
-            $table->unsignedBigInteger('customer_id');
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+
+            $table->unsignedBigInteger('pdv_cod')->nullable();
+            $table->foreign('pdv_cod')->references('pdv_cod')->on('pdvs')->onDelete('cascade');
+
+            $table->unsignedBigInteger('customer_cod');
+            $table->foreign('customer_cod')->references('customer_cod')->on('customers')->onDelete('cascade');
+
             $table->string('name', 120);
-            $table->unsignedBigInteger('especie_id');
-            $table->foreign('especie_id')->references('id')->on('payments_forms')->onDelete('cascade');;
+            $table->unsignedBigInteger('especie_cod');
+            $table->foreign('especie_cod')->references('payment_cod')->on('payments_forms')->onDelete('cascade');;
             $table->string('especie', 120);
             $table->date('date_register');
             $table->decimal('input_value', 16,2)->nullable();

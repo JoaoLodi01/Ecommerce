@@ -104,8 +104,8 @@ class PDVRepository
                 $itensPDV = array(
                     'iten_pdv_cod' => $maxItensPDV ? $maxItensPDV + 1 : 1,
                     'issuer_id' => $product[$i]['issuer_id'],
-                    'pdv_id' => $pdvID,
-                    'product_id' => $product[$i]['id'],
+                    'pdv_cod' => $pdvID,
+                    'product_cod' => $product[$i]['product_cod'],
                     'product' => $product[$i]['product'],
                     'cost_price' => $product[$i]['cost_price'],
                     'sale_price' => $product[$i]['sale_price'],
@@ -191,9 +191,9 @@ class PDVRepository
         
         $pdv = PDV::create($pdvData);  
 
-        if($pdv && $pdv->id)
+        if($pdv && $pdv->id && $pdv->pdv_cod)
         {            
-            $iPDV = $this->saveProducts($productsArray, $pdv->id, $user, $details['is_nfce_nm']);
+            $iPDV = $this->saveProducts($productsArray, $pdv->pdv_cod, $user, $details['is_nfce_nm']);
             Log::info('$iPDV');
             Log::info(count($iPDV['errors']));
 
@@ -201,18 +201,25 @@ class PDVRepository
             {
                 return array(
                     'success' => true,
-                    'pdvID' => $pdv->id,
+                    'pdvID' => $pdv->pdv_cod,
 
                 );
             } else {
                 return array(
                     'success' => false,
                     'message' => 'Erro no produto',
-                    'pdvID' => $pdv->id,
+                    'pdvID' => $pdv->pdv_cod,
                     'errors' => $iPDV['errors']
 
                 );
             }   
+        } else {
+            return array(
+                'success' => false,
+                'pdv' => $pdv,
+                'pdv_id' => $pdv->id,
+                'pdv_cod' => $pdv->pdv_cod
+            );
         }
         
     }
@@ -246,20 +253,20 @@ class PDVRepository
                 Log::info('$type ' . $type);
 
                 $pdv->update([
-                    'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->id" : "Venda Nota Manual N° $pdv->id",
+                    'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->pdv_cod" : "Venda Nota Manual N° $pdv->pdv_cod",
                     'is_nfce_nm' => $type === 'saleNM' ? 'nm' : 'nfce',
                     'status' => $type === 'saleNM' ? 'Venda Finalizada' : 'Autorizado uso da NF-e',
                     'finished' => 1
         
                 ]);
 
-                Log::info('Buscar e alterar os produtos, pdv_id = ' . $pdv->id);
-                $products = ItensPDV::where('pdv_id', $pdv->id)->get();
+                Log::info('Buscar e alterar os produtos, pdv_cod = ' . $pdv->pdv_cod);
+                $products = ItensPDV::where('pdv_cod', $pdv->pdv_cod)->get();
         
                 for ($i=0; $i < count($products); $i++) { 
-                    Log::info('Alteração dentro do for = ' . $pdv->id);
+                    Log::info('Alteração dentro do for = ' . $pdv->pdv_cod);
                     $product = $products[$i];
-                    $this->productsRepository->decreaseQuantiy($product->product_id, $product->amount);
+                    $this->productsRepository->decreaseQuantiy($product->product_cod, $product->amount);
                     $product->update([
                         'is_nfce_nm' => $pdv->is_nfce_nm,
                         'finished' => 1
