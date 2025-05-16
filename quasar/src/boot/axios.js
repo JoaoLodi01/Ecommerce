@@ -44,14 +44,24 @@ export default defineBoot(({ app, router }) => {
   api.interceptors.response.use(
     (response) => response,
     (error) => {
-      const msg =
-        error.response?.data?.message ||
-        error.response?.data?.errorMessage ||
-        error.message ||
-        'Erro inesperado na resposta da API';
+      if(error.response?.status === 401)
+      {
+        const msg = 'Usuário não autenticado';
+        router.replace({ path: '/login' });
 
-      emitter.emit('global-error', msg);
-      return Promise.reject(error);
+        emitter.emit('global-error', msg);
+        return Promise.reject(error);
+      } else {
+        const msg =
+          error.response?.data?.message ||
+          error.response?.data?.errorMessage ||
+          error.message ||
+          'Erro inesperado na resposta da API';
+        emitter.emit('global-error', msg);
+        return Promise.reject(error);
+      }
+    
+      
     }
   );
 

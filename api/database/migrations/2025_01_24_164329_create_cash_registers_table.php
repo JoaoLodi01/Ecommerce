@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('cash_register_cod');
             $table->unique(['issuer_id', 'cash_register_cod']);
-
+            $table->unique(['issuer_id', 'document']);
+            
+            $table->string('document', 200);
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('description', 200);
-            $table->string('document', 200);
             $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
             $table->unsignedBigInteger('pdv_id')->nullable();
             $table->unsignedBigInteger('customer_id');

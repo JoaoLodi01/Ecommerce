@@ -23,7 +23,6 @@
   const message = ref('');
 
   function showError(msg) {
-    console.log('Message', msg)
     message.value = msg || 'Erro desconhecido';
     visible.value = true;
   }

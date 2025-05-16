@@ -192,7 +192,11 @@ Route::prefix('v1')->group( function (){
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
         });
 
-        Route::get('/first-steps/{id}', [FirstStepsController::class, 'getAll']);
+        Route::prefix('first-steps')->group(function (){
+            Route::get('/{id}', [FirstStepsController::class, 'getAll']);
+            Route::put('/{id}', [FirstStepsController::class, 'ignoreFirstSteps']);
+
+        });
     
     });
 

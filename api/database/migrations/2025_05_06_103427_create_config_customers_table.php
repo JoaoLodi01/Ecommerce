@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
-
+            $table->unique(['issuer_id', 'config_customer_cod']);
+            
+            $table->unsignedBigInteger('config_customer_cod');
             $table->boolean('allow_addres_null', 1)->default(0);
             $table->boolean('allow_cnpj_null', 1)->default(0);
             $table->boolean('allow_cpf_null', 1)->default(0);
-            $table->boolean('allow_company_name_null', 1)->default(0);
-            $table->boolean('allow_trade_name_null', 1)->default(0);
             $table->string('default_register', 1)->default('');
             $table->timestamps();
         });

@@ -17,4 +17,13 @@ class FirstStepsService
             'first_steps' => $this->firstStepsRepository->getAll($id)
         ], 200);
     }
+
+    public function ignoreFirstSteps(int $id)
+    {
+        $ignore = $this->firstStepsRepository->ignoreFirstSteps($id);
+        return response()->json([
+            'success' => true,
+            'ignore' => $ignore
+        ], 200);
+    }
 }

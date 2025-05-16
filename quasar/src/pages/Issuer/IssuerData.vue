@@ -149,10 +149,15 @@
                     filled        
                     label="IE *" 
                     v-model="form.ie"
-                    :rules="[ val => !!val || 'Preencha a IE' ]"
                     class="mb-4"
                     color="grey"
                     maxlength="14"
+                    v-if="form.cnpj"
+                    :rules="[ val => {
+                            if(!form.cnpj) return true
+                            return !!val || 'Preencha a IE'
+                        }  
+                    ]"
 
                 />  
 
@@ -163,7 +168,12 @@
                     class="mb-4"
                     color="grey"
                     maxlength="12"
-                    :rules="[ val => !!val || 'Preencha a IM' ]"
+                    v-if="form.cnpj"
+                    :rules="[ val => {
+                            if(!form.cnpj) return true
+                            return !!val || 'Preencha a IM'
+                        }  
+                    ]"
 
                 />  
             </div>
