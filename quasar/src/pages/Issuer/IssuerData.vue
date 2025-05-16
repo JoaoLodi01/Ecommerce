@@ -152,12 +152,7 @@
                     class="mb-4"
                     color="grey"
                     maxlength="14"
-                    v-if="form.cnpj"
-                    :rules="[ val => {
-                            if(!form.cnpj) return true
-                            return !!val || 'Preencha a IE'
-                        }  
-                    ]"
+                    :rules="[ val => !!val || 'Preencha a IE']"
 
                 />  
 

@@ -1,18 +1,17 @@
 <template>
     <div
-        class="border border-black -mt-24 p-6 shadow-md rounded "
+        class="-mt-24 p-6 rounded  "
         :class="{
             'w-screen': widthScreen < 1366,
             'relative top-28 text-xl': widthScreen > 1080
         }"
     >
-        <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de produtos</h2>
         <q-form
             @submit="onSubmit"
             class="form-product p-1"
             
         >
-            <div class="border border-black p-5 bg-white rounded-md mb-5">
+            <div class="border p-5 bg-whiteP rounded-md mb-5 ">
                 <h4 class="ml-1.5 border-b w-max">Dados cadastrais</h4>
                 <q-input
                     v-model="productDetails.product"
@@ -20,31 +19,47 @@
                     label="Produto"
                     color="grey-7"
                     class="m-2"
-                />
-
-                <q-input
-                    v-model="productDetails.barcode"
-                    type="text"
-                    label="Cód. Barras"
-                    color="grey-7"
-                    maxlength="14"
-                    minlength="14"
-                    class="m-2"
 
                 />
 
-                <q-input
-                    v-model="productDetails.barcode_internal"
-                    type="text"
-                    label="Cód. Barras Interno"
-                    color="grey-7"
-                    maxlength="16"
-                    class="m-2"
-                />
+                <div 
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-28"
+                >
+                    <div class="w-52">
+                        <q-input
+                            v-model="productDetails.barcode"
+                            type="text"
+                            label="Cód. Barras"
+                            color="grey-7"
+                            maxlength="14"
+                            minlength="14"
+                            class="m-2"
+    
+                        />
 
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
+                        <q-input
+                            v-model="productDetails.barcode_internal"
+                            type="text"
+                            label="Cód. Barras Interno"
+                            color="grey-7"
+                            maxlength="16"
+                            minlength="16"
+                            class="m-2"
+
+                        />
+                        <q-btn 
+                            color="primary" 
+                            label="Gerar Cód."
+                            class="h-4 w-28 mt-6 mb-auto"
+                        />
+                    </div>
+                </div>
             </div>            
 
-            <div class="border border-black p-5 bg-white rounded-md mb-5">
+            <div class="border p-5 bg-white rounded-md mb-5 w-[150vh]">
                 <h4 class="ml-1.5 border-b w-max">Quantias e valores de vendas</h4>
                 <q-input
                     v-model="productDetails.amount"
@@ -85,7 +100,7 @@
 
             </div>
 
-            <div class="border border-black p-5 bg-white rounded-md mb-5">
+            <div class="border p-5 bg-white rounded-md mb-5 w-[150vh]">
                 <h4 class="ml-1.5 border-b w-max">Dados de referência</h4>
                 <q-select
                     v-model="productDetails.group_id"
@@ -107,7 +122,7 @@
                 />
             </div>
             
-            <div class="border border-black p-5 bg-white rounded-md mb-5">
+            <div class="border p-5 bg-white rounded-md mb-5 w-[150vh]">
                 <h4 class="ml-1.5 border-b w-max">Dados tributários</h4>
 
                 <q-input
@@ -237,22 +252,21 @@
                     />
                 </div>
 
-            </div>            
-                    
-            <div class="">
-                <q-btn
-                    type="submit"
-                    class="mr-5"
-                >
-                    <button>Criar</button>
-                </q-btn>
+                <div class="">
+                    <q-btn
+                        type="submit"
+                        class="mr-5"
+                    >
+                        <button>Criar</button>
+                    </q-btn>
 
-                <q-btn
-                    @click="onReset()"
-                >
-                    <button>Limpar</button>
-                </q-btn>
-            </div>
+                    <q-btn
+                        @click="onReset()"
+                    >
+                        <button>Limpar</button>
+                    </q-btn>
+                </div>
+            </div>            
         </q-form>
     </div>
 </template>
@@ -481,8 +495,6 @@
 </script>
 
 <style lang="scss">
-    .form-product {
-        width: 60vh;
-    }
+    
     
 </style>

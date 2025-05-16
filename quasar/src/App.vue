@@ -1,9 +1,6 @@
 <template>
-    <div class="">
-        <router-view/>
-        <ErrorDialog ref="errorDialog" />
-    </div>
-    
+    <router-view/>
+    <ErrorDialog ref="errorDialog" />
 </template>
 
 <script setup>
@@ -15,6 +12,7 @@
 
     const showGlobalError = (msg) => {
         errorDialog.value?.showError(msg);
+        
     };
 
     onMounted(() => {
@@ -34,6 +32,10 @@
             overflow-x: hidden;
 
         }
+    }
+
+    html {
+        background-color: rgb(229 231 235);
     }
 
 </style>

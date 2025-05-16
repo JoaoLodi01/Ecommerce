@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-gray-200 h-screen">
+  <div class="relative h-screen">
     <!-- Sidebar com transição -->
     <div
         :class="{
