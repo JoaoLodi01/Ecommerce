@@ -39,7 +39,9 @@ class CashRegisterRepository
 
         $nameCustomer = $customer->company_name ? $customer->company_name : $customer->trade_name;
         $cashRegisterCod = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])->max('cash_register_cod');
-        $document = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])->max('document');
+        $document = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])
+                                        ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
+                                        ->value('max_doc');
 
         if(count($cashRegisters) >= 2)
         {

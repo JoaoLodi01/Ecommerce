@@ -203,7 +203,6 @@
         methods: {
             async getProducts() {
                 const response = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
-                console.log(response.data.all)
                 this.products = response.data.all;
 
             },
@@ -227,6 +226,7 @@
                 this.showRegisterProduct = false
                 this.showProducts = true
                 this.showReportProducts = true
+                this.getProducts();
             },
 
             toggleRegisterProductVisibility()

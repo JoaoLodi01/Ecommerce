@@ -88,8 +88,6 @@
 
         </q-card-section>
     
-        <q-inner-loading :showing="isLoanding" label="Processando..." />
-    
         <q-dialog v-model="bigger">
             <q-card>
             <q-card-section>

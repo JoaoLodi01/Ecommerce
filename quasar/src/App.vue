@@ -7,6 +7,7 @@
     import ErrorDialog from 'src/components/Error/ErrorDialog.vue';
     import { onMounted, ref, onBeforeUnmount } from 'vue';
     import emitter from 'src/utils/eventBus';
+    import { LocalStorage } from 'quasar';
 
     const errorDialog = ref(null);
 
@@ -16,6 +17,7 @@
     };
 
     onMounted(() => {
+        LocalStorage.removeItem("pdvID")
         emitter.on('global-error', showGlobalError);
     });
 

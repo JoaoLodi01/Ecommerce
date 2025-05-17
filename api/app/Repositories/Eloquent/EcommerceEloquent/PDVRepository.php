@@ -187,6 +187,7 @@ class PDVRepository
             'is_nfce_nm' => $details['is_nfce_nm']
         );
 
+        Log::info('pdvData: ');
         Log::info($pdvData);
         
         $pdv = PDV::create($pdvData);  

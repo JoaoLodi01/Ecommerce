@@ -51,9 +51,10 @@
 
                         />
                         <q-btn 
-                            color="primary" 
+                            color="grey-7" 
                             label="Gerar Cód."
                             class="h-4 w-28 mt-6 mb-auto"
+                            @click="generateCode()"
                         />
                     </div>
                 </div>
@@ -473,6 +474,18 @@
             {
                 this.productDetails.aliquot_ipi = parseFloat(this.productDetails.aliquot_ipi.replace(',', '.'))
             },
+
+            generateCode()
+            {
+                let randomCode = ''
+                for (let i = 0; i < 16; i++) {
+                    let digit = Math.floor(Math.random() * 10)
+                    randomCode += digit.toString()
+                    
+                }
+                this.productDetails.barcode_internal = randomCode;
+
+            }
 
         },
 
