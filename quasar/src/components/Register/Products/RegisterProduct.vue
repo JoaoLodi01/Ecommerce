@@ -228,10 +228,6 @@
                         label="Origem ICMS" 
                         color="grey-7"
                         class="m-2"
-                        :rules="[
-                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
-
-                        ]"
                         
                     />
 
@@ -327,7 +323,7 @@
 <script>
     import { LocalStorage, useQuasar } from 'quasar'
     import { onBeforeUnmount, toRaw } from 'vue'
-    import { api } from 'src/boot/axios'
+    import { api } from 'src/boot/axios';
     import NCMSearch from 'src/components/Search/Tributs/NCMSearch.vue'
     import PISSearch from 'src/components/Search/Tributs/PISSearch.vue'
     import IPISearch from 'src/components/Search/Tributs/IPISearch.vue'

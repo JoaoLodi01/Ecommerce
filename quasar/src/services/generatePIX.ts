@@ -1,15 +1,23 @@
 import { QrCodePix } from 'qrcode-pix';
 
-async function generatePIX(totalOperation: number, pix_key: string) {
+type Issuer = {
+    company_name: string,
+    cep: string
+}
 
+async function generatePIX(
+        totalOperation: number, 
+        pix_key: string,
+        issuer: Issuer
+) {
     const qrCodePix = QrCodePix({
         version: '01',
         key: pix_key, 
-        name: 'Fulano de Tal',
+        name: issuer.company_name,
         city: 'SAO PAULO',
         transactionId: 'TX123456789',
-        message: 'Teste',
-        cep: '99999999',
+        message: 'Isso ai',
+        cep: issuer.cep,
         value: totalOperation,
     });
 

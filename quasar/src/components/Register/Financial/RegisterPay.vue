@@ -123,7 +123,7 @@
 </template>
 
 <script>
-  import { api } from "boot/axios"
+  import { api } from "src/boot/axios"
   import {LocalStorage} from "quasar";
   import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
   import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";

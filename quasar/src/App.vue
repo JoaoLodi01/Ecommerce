@@ -6,7 +6,7 @@
 <script setup>
     import ErrorDialog from 'src/components/Error/ErrorDialog.vue';
     import { onMounted, ref, onBeforeUnmount } from 'vue';
-    import emitter from 'src/utils/eventBus';
+    import emitter from 'src/utils/eventBus.ts';
     import { LocalStorage } from 'quasar';
 
     const errorDialog = ref(null);

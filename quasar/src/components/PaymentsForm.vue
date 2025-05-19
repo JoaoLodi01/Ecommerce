@@ -117,12 +117,14 @@
             :payments="paymentsReceive"
             :total-amount="totalOperation"
             @installments-saved="handleInstallments"
+
         />
         
         <QRCode
             v-if="showQRCode"
             :total_amount="totalOperation"
             :issuer_id="this.issuer_id"
+            @close="handlePIX"
             
         />
     </q-card>
@@ -163,6 +165,7 @@ export default {
     data(){
         return {
             generatedInstallments: false,
+            paymentInPIX: false,
             paymentsReceive: [],
             paymentPIX: [],
             paymentsValues: [],
@@ -265,6 +268,13 @@ export default {
             this.finalizeSale();
         },
 
+        handlePIX()
+        {
+            this.paymentInPIX = true
+            this.finalizeSale();
+            
+        },
+
         async getPayments() {
             try {
                 const response = await api.get(`/species/all/${LocalStorage.getItem("issuer_id")}`);
@@ -302,7 +312,7 @@ export default {
                 return;
             }
 
-            if (paymentPIX.length > 0) {
+            if (paymentPIX.length > 0 && !this.paymentInPIX ) {
                 console.log(`tem ${paymentsReceive.length} espécies PIXs`)
                 this.paymentPIX = paymentPIX;
                 this.paymentsValues = this.paymentsValues;

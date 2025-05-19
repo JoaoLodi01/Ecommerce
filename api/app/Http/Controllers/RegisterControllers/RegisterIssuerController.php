@@ -30,7 +30,7 @@ class RegisterIssuerController extends Controller
     {
         return $this->registerIssuerService->find($id);
     }
-
+    
     public function completeRegister(Request $request, int $id)
     {
         $data = $request->all();

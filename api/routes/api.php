@@ -189,10 +189,11 @@ Route::prefix('v1')->group( function (){
 
         Route::prefix('issuer')->group(function(){
             Route::get('/all/companies/{id}', [RegisterIssuerController::class, 'getAll']);
+            Route::get('/{id}', [RegisterIssuerController::class, 'findByID']);
             Route::get('/companie/{id}', [RegisterIssuerController::class, 'find']);
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
         });
-
+        
         Route::prefix('first-steps')->group(function (){
             Route::get('/{id}', [FirstStepsController::class, 'getAll']);
             Route::put('/{id}', [FirstStepsController::class, 'ignoreFirstSteps']);

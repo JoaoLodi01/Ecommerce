@@ -5,9 +5,7 @@
         <p>Payload: {{ payLoad }}</p>
         
     </div>
-    <div v-else>
-        deu erro
-    </div>
+    
     <button @click="getKey()">Gerar</button>
 </template>
 

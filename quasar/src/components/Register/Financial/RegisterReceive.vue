@@ -122,7 +122,7 @@
   </div>
 </template>
 <script>
-  import { api } from "boot/axios"
+  import { api } from "src/boot/axios"
   import {LocalStorage} from "quasar";
   import dayjs from "dayjs";
   import 'dayjs/locale/pt-br';

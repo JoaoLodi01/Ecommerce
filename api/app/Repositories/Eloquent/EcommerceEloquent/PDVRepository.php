@@ -94,7 +94,7 @@ class PDVRepository
         return $pdvs;
     }
 
-    public function saveProducts(array $products, int $pdvID, object $user, string $type)
+    public function saveProducts(array $products, int $pdvID, object $user, string|null $type)
     {
         Log::info('-- Iniciou o saveProducts() line 90 -- ');     
         $errors = [];

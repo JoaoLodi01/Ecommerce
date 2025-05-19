@@ -432,7 +432,7 @@
     import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
     import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     
-    import { api } from "boot/axios"
+    import { api } from "src/boot/axios"
     import { onBeforeUnmount, toRaw } from 'vue'   
     import { useQuasar, LocalStorage } from 'quasar';
     
@@ -573,41 +573,37 @@
                 const saveSale = confirm('Deseja salvar a venda?')
                 if (saveSale) {
                     try {
-                        if (this.totalOperation > 1000){
-                            if(!this.isOpenedPDV)
+                        if(!this.isOpenedPDV)
+                        {
+                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                issuer_id: this.issuer_id,
+                                products: this.productsSeletion, // Produtos da 
+                                user_id: this.sellerData.id,
+                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
+                                sub_total: this.calculateTotal.subtotal,
+                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                addition: this.calculateTotal.addition,
+                                discount: this.calculateTotal.discount,
+                                description: 'Venda guardada',
+                                is_nfce_nm: '',
+                                status: 'Em Aberto'
+                                
+                            })
+
+                            if(response.data.success === true)
                             {
-                                const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                    issuer_id: this.issuer_id,
-                                    products: this.productsSeletion, // Produtos da 
-                                    user_id: this.sellerData.id,
-                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                    sub_total: this.calculateTotal.subtotal,
-                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                    addition: this.calculateTotal.addition,
-                                    discount: this.calculateTotal.discount,
-                                    description: 'Venda guardada',
-                                    is_nfce_nm: null,
-                                    status: 'Em Aberto'
-                                    
-                                })
-
-                                if(response.data.success === true)
-                                {
-                                    alert('Venda guardarda para enviar posteriormente!')
-                                    this.productsSeletion = []
-
-                                } else {
-                                    console.log(response.data)
-                                }
-
-                            } else {
-
                                 alert('Venda guardarda para enviar posteriormente!')
                                 this.productsSeletion = []
-                                this.$router.push({ name: "PDV" })
+
+                            } else {
+                                console.log(response.data)
                             }
+
                         } else {
-                            alert('Não calculou o total')
+
+                            alert('Venda guardarda para enviar posteriormente!')
+                            this.productsSeletion = []
+                            this.$router.push({ name: "PDV" })
                         }
                         
                     } catch (error) {
