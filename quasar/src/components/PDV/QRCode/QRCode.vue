@@ -36,8 +36,9 @@
     }>();
 
     const getKey = async () => {
-        const res = await api.get(`/species/find-key/${LocalStorage.getItem("issuer_id")}`);
-        pix_key.value = res.data.key
+        const res_key = await api.get(`/species/find-key/${LocalStorage.getItem("issuer_id")}`);
+        
+        pix_key.value = res_key.data.key
         console.log('pix_key.value: ', pix_key.value)
         if(pix_key.value && props.total_amount > 0)
         {

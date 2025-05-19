@@ -11,7 +11,7 @@
             class="form-product p-1"
             
         >
-            <div class="border p-5 bg-whiteP rounded-md mb-5 ">
+            <div class="border p-5 bg-white rounded-md mb-5 ">
                 <h4 class="ml-1.5 border-b w-max">Dados cadastrais</h4>
                 <q-input
                     v-model="productDetails.product"
@@ -31,12 +31,14 @@
                             type="text"
                             label="Cód. Barras"
                             color="grey-7"
-                            maxlength="14"
-                            minlength="14"
+                            maxlength="16"
+                            minlength="16"
                             class="m-2"
-    
-                        />
+                            :rules="[
+                                val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
 
+                            ]"
+                        />
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
@@ -68,6 +70,10 @@
                     label="Quantidade"
                     color="grey-7"
                     class="m-2"
+                    :rules="[
+                        val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                    ]"
 
                 />
 
@@ -77,6 +83,10 @@
                     label="Preço de custo"
                     color="grey-7"
                     class="m-2"
+                    :rules="[
+                        val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                    ]"
 
                 />
 
@@ -86,6 +96,10 @@
                     label="Percentual de lucro"
                     color="grey-7"
                     class="m-2"
+                    :rules="[
+                        val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                    ]"
 
                 />
 
@@ -96,6 +110,10 @@
                     color="grey-7"
                     readonly
                     class="m-2"
+                    :rules="[
+                        val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                    ]"
 
                 />
 
@@ -134,6 +152,10 @@
                     maxlength="4"
                     minlength="4"
                     class="m-2"
+                    :rules="[
+                        val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                    ]"
 
                 />
                 
@@ -156,6 +178,10 @@
                     maxlength="7"
                     minlength="7"
                     class="m-2"
+                    :rules="[
+                        val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                    ]"
 
                 />
 
@@ -167,6 +193,10 @@
                     minlength="3"
                     color="grey-7"
                     class="m-2"
+                    :rules="[
+                        val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                    ]"
 
                 />
 
@@ -185,6 +215,11 @@
                         class="m-2"
                         v-bind:mask="'##,##'"
                         @update:model-value="replaceICMS"
+                        :rules="[
+                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                        ]"
+                        
                     />
 
                     <q-select 
@@ -193,6 +228,10 @@
                         label="Origem ICMS" 
                         color="grey-7"
                         class="m-2"
+                        :rules="[
+                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                        ]"
                         
                     />
 
@@ -208,6 +247,11 @@
                         class="m-2"
                         v-bind:mask="'##,##'"
                         @update:model-value="replaceIPI"
+                        :rules="[
+                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                        ]"
+
                     />
 
                     <IPISearch
@@ -226,6 +270,10 @@
                         class="m-2"
                         v-bind:mask="'##,##'"
                         @update:model-value="replacePIS"
+                        :rules="[
+                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                        ]"
 
                     />
 
@@ -245,6 +293,10 @@
                         class="m-2"
                         v-bind:mask="'##,##'"
                         @update:model-value="replaceCOFINS"
+                        :rules="[
+                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+
+                        ]"
 
                     />
 
