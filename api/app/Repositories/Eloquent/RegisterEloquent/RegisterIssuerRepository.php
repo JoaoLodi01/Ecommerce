@@ -183,30 +183,36 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'issuer_id' => $issuer_id,
                 'especie' => 'Dinheiro',
                 'tipo_lancamento' => 'Caixa',
+                'payments_form_type' => 'DINHEIRO'
             ],
             [
                 'payment_cod' => 2,
                 'issuer_id' => $issuer_id,
                 'especie' => 'PIX',
                 'tipo_lancamento' => 'Caixa',
+                'payments_form_type' => 'PIX'
+
             ],
             [
                 'payment_cod' => 3,
                 'issuer_id' => $issuer_id,
                 'especie' => 'Boleto',
                 'tipo_lancamento' => 'Receber',
+                'payments_form_type' => 'BOLETO'
             ],
             [
                 'payment_cod' => 4,
                 'issuer_id' => $issuer_id,
                 'especie' => 'Cartão de Crédito',
                 'tipo_lancamento' => 'Caixa',
+                'payments_form_type' => 'CARTAO DE CREDITO'
             ],
             [
                 'payment_cod' => 5,
                 'issuer_id' => $issuer_id,
                 'especie' => 'Cartão de Débito',
                 'tipo_lancamento' => 'Receber',
+                'payments_form_type' => 'CARTAO DE DEBITO'
             ],
             
         ];

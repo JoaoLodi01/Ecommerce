@@ -34,7 +34,7 @@ class PaymentsRepository
         
         $result = [];
         foreach ($data as $id) {
-            $result[] = PaymentForms::where('id', $id)->first();
+            $result[] = PaymentForms::where('payment_cod', $id)->first();
             
         }
         Log::info('$result');
@@ -42,21 +42,54 @@ class PaymentsRepository
         return $result;
     }
 
-    public function store(array $data){
-        
-        Log::info("Se o campo especie NÃO estiver vazio vai criar");
-        if (!empty($data['especie'])){
-            
+    public function findKey(int $issuer_id)
+    {
+        $paymentForm = PaymentForms::where('issuer_id', $issuer_id)
+                                    ->where('payments_form_type', 'PIX')
+                                    ->where('pix_key', '<>', '')
+                                    ->first();
+        Log::info('paymentForm ' . $paymentForm);
+        if($paymentForm)
+        {
+            return array(
+                'success' => true,
+                'key' => $paymentForm->pix_key
+            );
+        } elseif ($paymentForm->pix_key){
+            return array(
+                'success' => false,
+                'message' => 'Chave PIX ausente'
+            );
+        }
+
+    }
+
+    public function create(array $data){
+        if (!empty($data)){
             Log::info("Criando espécie");
+            $paymentCod = PaymentForms::where('issuer_id', $data['issuer_id'])->max('payment_cod');
             $payment = PaymentForms::create([
+                'payment_cod' => $paymentCod ? $paymentCod + 1 : 1,
+                'issuer_id' => $data['issuer_id'],
                 'especie' => $data['especie'],
                 'tipo_lancamento' => $data['tipo_lancamento'],
-                'active' => 1,
-            ], 201);
+                'payments_form_type' => $data['payments_form_type'],
+                'pix_key' => preg_replace('/[^a-zA-Z0-9]/', '', $data['pix_key']) ?? null,
+                'bank_key' => preg_replace('/[^a-zA-Z0-9]/', '', $data['bank_key']) ?? null,
+                'other_key' => preg_replace('/[^a-zA-Z0-9]/', '', $data['other_key']) ?? null,
+            ]);
+            if($payment)
+            {
+                return array(
+                    'status' => 201,
+                    'success' => true
+                );
+            }
+
         } else {
             return response()->json([
                 'success' => false,
-                'error' => 'Preencha o nome da espécie.',
+                'error' => 'Campos necessários.',
             ], 400);
         }
 

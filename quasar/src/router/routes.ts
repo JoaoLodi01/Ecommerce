@@ -5,6 +5,11 @@ const salePrefix = 'sale';
 
 const routes = [
   {
+    path: '/teste',
+    name: 'TestsArea',
+    component: () => import('src/pages/Tests/QRCode.vue')
+  },
+  {
     path: '/',
     name: 'Home',
     component: () => import('src/pages/Home/HomePage.vue')

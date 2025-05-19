@@ -1,0 +1,12 @@
+[2025-05-19 00:45:47] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-19 00:45:47] local.INFO: Buscando por emitente  
+[2025-05-19 00:45:47] local.INFO: Cod. emitente: 1  
+[2025-05-19 00:45:47] local.INFO: Buscando espécies  
+[2025-05-19 00:45:47] local.INFO: Terminou  
+[2025-05-19 00:45:53] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-19 00:45:53] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-19 00:45:54] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-19 00:45:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-19 00:45:54] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-19 00:45:54] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-19 00:45:54] local.INFO: ConfigController: $issuer_id 1  

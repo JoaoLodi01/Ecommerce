@@ -5,6 +5,7 @@ namespace App\Http\Controllers\EcommerceController;
 use Illuminate\Http\Request;
 use App\Services\EcommerceService\PaymentsService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PayMentForm\PayMentFormRequest;
 
 class PaymentsController extends Controller
 {
@@ -17,9 +18,14 @@ class PaymentsController extends Controller
         return $this->paymentsService->getAll($issuer_id);
     }
 
-    public function store(Request $request){
+    public function create(PayMentFormRequest $request){
         $data = $request->validated();
-        return $this->paymentsService->store($data);
+        return $this->paymentsService->create($data);
+    }
+
+    public function findKey(int $issuer_id)
+    {
+        return $this->paymentsService->findKey($issuer_id);
     }
 
     public function update(Request $request, int $id){

@@ -118,6 +118,13 @@
             :total-amount="totalOperation"
             @installments-saved="handleInstallments"
         />
+        
+        <QRCode
+            v-if="showQRCode"
+            :total_amount="totalOperation"
+            :issuer_id="this.issuer_id"
+            
+        />
     </q-card>
 </template>
 
@@ -126,6 +133,7 @@ import { api } from "src/boot/axios";
 import { onBeforeUnmount } from 'vue';
 import { LocalStorage, useQuasar  } from "quasar";
 import Installments from "./PDV/Installments.vue";
+import QRCode from "./PDV/QRCode/QRCode.vue";
 
 export default {
     setup(){
@@ -155,15 +163,17 @@ export default {
     data(){
         return {
             generatedInstallments: false,
-            showInstallments: false,
             paymentsReceive: [],
+            paymentPIX: [],
             paymentsValues: [],
             paymentsForms: [],
             valueInformed: [],
             message: null,
-            isLoanding: false,
+            showInstallments: false,
+            showQRCode: false,
             bigger: false,
             extraAmount: 0,
+            issuer_id: LocalStorage.getItem("issuer_id")
 
         };
         
@@ -178,7 +188,8 @@ export default {
     ],
 
     components: {
-        Installments
+        Installments,
+        QRCode
     },
 
     props: {
@@ -267,7 +278,6 @@ export default {
         },
         
         async finalizeSale() {
-            this.isLoanding = true
             this.message = ''
 
             if (this.installments && this.installments.length > 0) {
@@ -275,13 +285,28 @@ export default {
             }
 
             const paymentsReceive = this.paymentsForms.filter((payment, index) => {
+                console.log('Vai conferir se tem alguma espécie do RECEBER')
                 return payment.tipo_lancamento === 'Receber' && parseFloat(this.paymentsValues[index]) > 0;
-            })
+            }) // Busca pelo RECEBER
+
+            const paymentPIX = this.paymentsForms.filter((payment, i) =>{
+                console.log('Vai conferir se tem alguma espécie do PIX')
+                return payment.pix_key !== '' && payment.payments_form_type === 'PIX' && parseFloat(this.paymentsValues[i]) > 0
+            }) // Busca pelo PIX
 
             if (paymentsReceive.length > 0 && !this.generatedInstallments) {
+                console.log(`tem ${paymentsReceive.length} espécies do RECEBER`)
                 this.paymentsReceive = paymentsReceive;
                 this.paymentsValues = this.paymentsValues;
                 this.showInstallments = true;
+                return;
+            }
+
+            if (paymentPIX.length > 0) {
+                console.log(`tem ${paymentsReceive.length} espécies PIXs`)
+                this.paymentPIX = paymentPIX;
+                this.paymentsValues = this.paymentsValues;
+                this.showQRCode = true;
                 return;
             }
 
@@ -370,7 +395,6 @@ export default {
                 
                 if(error.response)
                 {
-                    this.isLoanding = !this.isLoanding
                     this.message = error.response.data.message
           
                 }  

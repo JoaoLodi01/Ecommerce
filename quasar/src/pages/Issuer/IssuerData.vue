@@ -158,17 +158,12 @@
 
                 <q-input 
                     filled        
-                    label="IM *" 
+                    label="IM" 
                     v-model="form.im"
                     class="mb-4"
                     color="grey"
                     maxlength="12"
                     v-if="form.cnpj"
-                    :rules="[ val => {
-                            if(!form.cnpj) return true
-                            return !!val || 'Preencha a IM'
-                        }  
-                    ]"
 
                 />  
             </div>

@@ -7,11 +7,12 @@
                     class="bg-blue-500 text-white p-2 rounded-lg"
                     @click="showSpeciesRegister = !showSpeciesRegister"
                     label="Cadastrar"
+
                 />
             </div>
         </div>
 
-        <div>
+        <div v-if="showSpeciesRegister">
             <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
                 <thead>
                     <tr class="bg-gray-200">
@@ -37,18 +38,23 @@
                 </tbody>
             </table>
         </div>
+        <div class="" v-else>
+            <RegisterSpecies/>
+
+        </div>
     </div>
 </template>
 
 <script>
     import { api } from 'src/boot/axios';
+    import RegisterSpecies from 'src/components/Register/Others/RegisterSpecies.vue';
     import { LocalStorage } from 'quasar';
 
     export default {
         data(){
             return{
                 species: [],
-                showSpeciesRegister: false,
+                showSpeciesRegister: true,
                 showUpdateUsers: false,
             }
         },  
@@ -74,5 +80,9 @@
         mounted() {
             this.getRegisters()
         },
+
+        components: {
+            RegisterSpecies
+        }
     }
 </script>
