@@ -91,7 +91,7 @@
 </template>
 
 <script>
-    import { api } from "boot/axios"
+    import { api } from "src/boot/axios"
     import { useQuasar, LocalStorage } from 'quasar';
     import { onBeforeUnmount } from "vue";
 

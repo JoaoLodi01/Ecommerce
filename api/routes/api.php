@@ -118,10 +118,11 @@ Route::prefix('v1')->group( function (){
 
         Route::prefix('species')->group( function(){
             Route::get('/all/{issuer_id}', [PaymentsController::class, 'getAll']);
-            Route::post('/create', [PaymentsController::class, 'store']);
+            Route::post('/create', [PaymentsController::class, 'create']);
             Route::get('/{id}', [PaymentsController::class, 'findByID']);
             Route::put('/{id}', [PaymentsController::class, 'update']);
             Route::put('/{id}/deactivate', [PaymentsController::class, 'delete']);
+            Route::get('/find-key/{issuer_id}', [PaymentsController::class, 'findKey']);
     
         });
 
@@ -188,10 +189,11 @@ Route::prefix('v1')->group( function (){
 
         Route::prefix('issuer')->group(function(){
             Route::get('/all/companies/{id}', [RegisterIssuerController::class, 'getAll']);
+            Route::get('/{id}', [RegisterIssuerController::class, 'findByID']);
             Route::get('/companie/{id}', [RegisterIssuerController::class, 'find']);
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
         });
-
+        
         Route::prefix('first-steps')->group(function (){
             Route::get('/{id}', [FirstStepsController::class, 'getAll']);
             Route::put('/{id}', [FirstStepsController::class, 'ignoreFirstSteps']);

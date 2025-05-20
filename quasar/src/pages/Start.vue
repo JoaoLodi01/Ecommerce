@@ -14,15 +14,6 @@
         </div>
 
         <div class="w-full max-w-3xl" v-if="!ignore">
-            <q-checkbox 
-                right-label 
-                v-model="ignore" 
-                label="Ignorar primeiros passos" 
-                class="mb-3"
-                color="grey"
-                @update:model-value="ignoreFirstSteps()"
-            />
-
             <div class="flex bg-white rounded-lg gap-4 mb-6 p-3 shadow-md">
                 <CompleteOrNo :label="completeIssuer" class="mt-0.5"/>
                 <router-link :to="`/${issuer_name}/companie-data`">
@@ -62,6 +53,18 @@
                     Configure seu PDV
                 </router-link>
             </div>
+            <div class="flex justify-end">
+                <q-checkbox 
+                    right-label 
+                    v-model="ignore" 
+                    label="Ignorar primeiros passos" 
+                    class="mb-3"
+                    color="grey"
+                    @update:model-value="ignoreFirstSteps()"
+                />
+
+            </div>
+            
         </div>
     </div>
 </template>

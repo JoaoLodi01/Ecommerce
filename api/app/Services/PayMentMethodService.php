@@ -36,6 +36,14 @@ class PayMentMethodService
 
         $currentDate = new Carbon();
         $cashRegisters = [];
+
+        Log::info('-- Máximo encontrado iniciado --');
+        $maxDocument = CashRegister::where('issuer_id', $issuerID)
+                                        ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
+                                        ->value('max_doc');
+
+        Log::info($maxDocument);
+        Log::info('-- Fim do máximo encontrado --');
         if(count($forms) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $forms
         {   
             // Percore todo o array enviado de valores
@@ -48,14 +56,15 @@ class PayMentMethodService
                     foreach ($forms as $form) 
                     {
                         Log::info('ID linha 43 - : ' . $form);
-                        Log::info('paymentValues linha 44 - : ' . $paymentValues[$i]);
+                        Log::info('paymentValues linha 51 - : ' . $paymentValues[$i]);
                         Log::info('Vai conferir os tipos de lançamento');
+
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
                                 'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->pdv_cod" : "Venda Nota Manual N° $pdv->pdv_cod",
-                                'document' => $pdv->pdv_cod,
+                                'document' => $maxDocument ? $maxDocument + 1 : 1,
                                 'pdv_cod' => $pdv->pdv_cod,
                                 'customer_cod' => $customer->id,
                                 'name' => $customer->company_name,
@@ -81,7 +90,7 @@ class PayMentMethodService
                                 'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->pdv_cod" : "Parcelamento Venda Nota Manual 
                                 N° $pdv->pdv_cod",
-                                'document' => $pdv->pdv_cod,
+                                'document' => $maxDocument ? $maxDocument + 1 : 1,
                                 'pdv_cod' => $pdv->pdv_cod,
                                 'customer_cod' => $customer->customer_cod,
                                 'name' => $customer->company_name,
@@ -136,6 +145,14 @@ class PayMentMethodService
 
         if(count($forms) <= 1)
         {
+            $maxDocument = CashRegister::where('issuer_id', $issuerID)
+                                        ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
+                                        ->value('max_doc');
+
+            Log::info('-- Máximo encontrado --');
+            Log::info($maxDocument);
+            Log::info('-- Fim do máximo encontrado --');
+
             Log::info('Não possui mais de uma espécie informada: ' . count($forms) . ' Dados: ');
             for ($i=0; $i < count($paymentValues); $i++)
             {
@@ -153,15 +170,13 @@ class PayMentMethodService
                         Log::info($form);
 
                         $maxCashRegister = CashRegister::where('issuer_id', $issuerID)->max('cash_register_cod');
-
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
                                 'cash_register_cod' => $maxCashRegister ? $maxCashRegister + 1 : 1,
                                 'issuer_id' => $issuerID,
-                                'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->pdv_cod" : "Venda Nota Manual 
-                                N° $pdv->pdv_cod",
-                                'document' => $pdv->pdv_cod,
+                                'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->pdv_cod" : "Venda Nota Manual N° $pdv->pdv_cod",
+                                'document' => $maxDocument ? $maxDocument + 1 : 1,
                                 'pdv_cod' => $pdv->pdv_cod,
                                 'customer_cod' => $customer->customer_cod,
                                 'name' => $customer->company_name,
@@ -186,7 +201,7 @@ class PayMentMethodService
                                 'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->pdv_cod" : "Parcelamento Venda Nota Manual 
                                 N° $pdv->pdv_cod",
-                                'document' => $pdv->pdv_cod,
+                                'document' => $maxDocument ? $maxDocument + 1 : 1,
                                 'pdv_cod' => $pdv->pdv_cod,
                                 'customer_cod' => $customer->customer_cod,
                                 'name' => $customer->company_name,
@@ -249,12 +264,19 @@ class PayMentMethodService
         $currentDate = new Carbon();
         $cashRegisters = [];
         $maxCashRegister = CashRegister::where('issuer_id', $issuerID)->max('cash_register_cod');
+        Log::info('-- Máximo encontrado iniciado --');
+        $maxDocument = CashRegister::where('issuer_id', $issuerID)
+                                        ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
+                                        ->value('max_doc');
+
+        Log::info($maxDocument);
+        Log::info('-- Fim do máximo encontrado --');
 
         $cashRegisters[] = [
             'cash_register_cod' => $maxCashRegister ? $maxCashRegister + 1 : 1,
             'issuer_id' => $issuerID,
             'description' => $description,
-            'document' => 1,
+            'document' => $maxDocument ? $maxDocument + 1 : 1,
             'customer_cod' => $customer->id,
             'name' => $customer->company_name,
             'especie_cod' => 1,

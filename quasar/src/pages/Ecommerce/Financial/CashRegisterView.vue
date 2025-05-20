@@ -56,8 +56,8 @@
             
         </div>
 
-        <div class="max-w-[1600px] max-h-[600px] overflow-y-auto border rounded-lg shadow-lg">
-            <table class="table-auto border-collapse border border-gray-300 bg-white">
+        <div class="cash-register-grid relative overflow-y-auto border border-black rounded-lg shadow-lg">
+            <table class="table-auto border-collapse border border-gray-300 bg-white ">
                 <thead class="font-semibold sticky top-0 z-10">
                     <tr class="bg-blue-600 text-white">
                         <th scope="col" class="text-center px-6 py-3">Código</th>
@@ -281,6 +281,15 @@
 
         th, td {
             padding: 0.5rem;
+        }
+    }
+
+    @media(min-width: 1366px)
+    {
+        .cash-register-grid
+        {
+            height: 65vh;
+            max-height: 90vh;
         }
     }
 </style>

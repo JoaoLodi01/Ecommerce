@@ -20,7 +20,7 @@ class ReportCustomersController extends Controller
         $this->spreadsheet = new Spreadsheet();        
     }
 
-    public function exportAllClients()
+    public function exportAllClients(int $issuer_id)
     {
         $sheet = $this->spreadsheet->getActiveSheet();
         $sheet->setCellValue('A1', 'Cliente');
@@ -29,7 +29,7 @@ class ReportCustomersController extends Controller
         $sheet->setCellValue('D1', 'E-mail');
         $sheet->setCellValue('E1', 'Status');
 
-        $customersData = $this->customerService->getAll();
+        $customersData = $this->customerService->getAll($issuer_id);
         $customersArray = $customersData->toArray()['data'];
 
         foreach ($customersArray as $i => $value) {

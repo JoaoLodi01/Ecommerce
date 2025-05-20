@@ -10,7 +10,6 @@ const api = axios.create({
 });
 
 export default defineBoot(({ app, router }) => {
-  // ✅ Interceptador de requisição para autenticação
   api.interceptors.request.use(
     (config) => {
       const token = LocalStorage.getItem("auth_token");

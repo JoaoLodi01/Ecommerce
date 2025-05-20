@@ -120,7 +120,7 @@
 </template>
 
 <script>
-import { api } from "boot/axios";
+import { api } from "src/boot/axios";
 import dayjs from "dayjs";
 import { LocalStorage } from "quasar";
 import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";

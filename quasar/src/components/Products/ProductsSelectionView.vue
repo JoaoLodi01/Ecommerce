@@ -142,8 +142,8 @@ import { api } from "src/boot/axios";
             async getProducts(){
                 try {
                     const response = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
-                    console.log('Produtos', response.data)
-                    this.products = response.data.all.data.map(product => ({
+                    console.log('Produtos', response.data.all)
+                    this.products = response.data.all.map(product => ({
                         ...product,
                         isSelected: false
 

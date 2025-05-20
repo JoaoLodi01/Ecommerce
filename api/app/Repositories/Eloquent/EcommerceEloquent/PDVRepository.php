@@ -94,7 +94,7 @@ class PDVRepository
         return $pdvs;
     }
 
-    public function saveProducts(array $products, int $pdvID, object $user, string $type)
+    public function saveProducts(array $products, int $pdvID, object $user, string|null $type)
     {
         Log::info('-- Iniciou o saveProducts() line 90 -- ');     
         $errors = [];
@@ -187,6 +187,7 @@ class PDVRepository
             'is_nfce_nm' => $details['is_nfce_nm']
         );
 
+        Log::info('pdvData: ');
         Log::info($pdvData);
         
         $pdv = PDV::create($pdvData);  

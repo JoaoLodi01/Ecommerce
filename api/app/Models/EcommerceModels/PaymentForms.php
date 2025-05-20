@@ -13,6 +13,10 @@ class PaymentForms extends Model
         'issuer_id',
         'especie',
         'tipo_lancamento',
+        'payments_form_type',
+        'pix_key',
+        'bank_key',
+        'other_key',
         'active',
     ];
 

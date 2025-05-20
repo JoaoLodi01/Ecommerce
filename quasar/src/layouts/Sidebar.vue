@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-gray-200 h-screen">
+  <div class="relative h-screen">
     <!-- Sidebar com transição -->
     <div
         :class="{
@@ -516,7 +516,7 @@
 
 <script>
   import { LocalStorage } from 'quasar';
-import { api } from 'src/boot/axios';
+  import { api } from 'src/boot/axios';
 
   export default {
     data() {

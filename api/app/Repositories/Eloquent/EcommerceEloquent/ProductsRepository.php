@@ -81,18 +81,6 @@ class ProductsRepository
         return $products;
     }
 
-    public function findByID(int $id){
-        return Products::where('id', $id)->first();
-    }
-    
-    public function findImage(int $id){
-        $product = Products::where('id', $id)->first();
-
-        Log::info($product->image);
-
-        return response($product->image)->header('Content-Type', 'image/jpeg');
-    }
-
     public function create(array $data)
     {
         Log::info("data");
@@ -167,20 +155,23 @@ class ProductsRepository
         ]);
     }
 
-    public function delete(int $id){
-        return Products::where('id', $id)->update([
+    public function delete(int $product_cod){
+        return Products::where('product_cod', $product_cod)->update([
             'active' => 0,
         ]);
     }
+    
+    public function findByID(int $product_cod){
+        return Products::where('product_cod', $product_cod)->first();
+    }
 
-    public function decreaseQuantiy(int $id, float|int $quantiy)
+    public function decreaseQuantiy(int $product_cod, float|int $quantiy)
     {
         Log::info('-- Inicio decreaseQuantiy, linha 50 --');
-        $product = $this->findByID($id);
+        $product = $this->findByID($product_cod);
         if($product)
         {
-            Log::info('Produto encontrado ' . $product->id);
-            Log::info($product);
+            Log::info('Produto encontrado ' . $product->product_cod . ' produto: ' . $product);
             $product->update([
                 'amount' => $product->amount - $quantiy
             ]);
@@ -189,6 +180,5 @@ class ProductsRepository
 
         Log::info('-- Fim decreaseQuantiy, linha 62 --');
     }
-
-        
+       
 }
