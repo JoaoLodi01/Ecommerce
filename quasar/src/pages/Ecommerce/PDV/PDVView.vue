@@ -525,7 +525,6 @@
                     nmFinaly: false,
                     saleNegativeorReset: false
                 },
-
                 issuer_id: LocalStorage.getItem("issuer_id")
             }
         },
@@ -1003,7 +1002,8 @@
                         this.$router.push({ name: 'PDV' });
                     }
                 }
-            }
+            },
+
         },
         
         components: {
@@ -1055,6 +1055,23 @@
                 
             }
 
+            document.addEventListener('keydown', (event) => {
+                const keyName = event.key
+                
+                if(keyName === 'F2')
+                {
+                    this.showOptions()
+
+                } else if (keyName === 'F8')
+                {
+                    this.finalizeSale('nm')
+
+                } else if (keyName === 'F9')
+                {
+                    this.finalizeSale('nfce')
+            
+                } 
+            })
         }
       }
 </script>

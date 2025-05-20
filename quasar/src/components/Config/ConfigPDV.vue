@@ -209,7 +209,7 @@
         
             async onSubmit()
             {
-                this.showLoading('Salvando')
+                this.showLoading('Salvando as')
 
                 const response = await api.put(`/config/config-pdv/update-config/${LocalStorage.getItem("issuer_id")}`, {
                     searchOptionProduct: this.configs.searchOptionProduct,
@@ -249,6 +249,16 @@
         mounted()
         {
             this.getConfig()
+            document.addEventListener('keydown', (event) => {
+                const keyName = event.key
+                console.log('keyName: ', keyName)
+                if(keyName === 'Escape')
+                {
+                    this.onClose()
+                } else {
+                    return;
+                }
+            })
             
         }
     }
