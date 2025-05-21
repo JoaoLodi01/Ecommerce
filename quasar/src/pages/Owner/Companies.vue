@@ -115,7 +115,6 @@
             async getCompanies()
             {
                 const response = await api.get(`issuer/all/companies/${LocalStorage.getItem("uuse_id")}`);
-                console.log(response.data.companies.length)
 
                 if(response.data.success)
                 {
@@ -188,7 +187,6 @@
             }
 
             this.witdhScreen = screen.width
-            console.log(this.witdhScreen)
         },
 
         components: {

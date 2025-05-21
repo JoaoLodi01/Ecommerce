@@ -271,13 +271,8 @@
                             <!-- COMPONENTE BUSCA DE CLIENTE -->                            
                         </div>
 
-                        <div class="p-4">
-                            <img 
-                                src="https://imgs.search.brave.com/MoYaYTNKcUf4WZ7AWmX_TQp1YL21SVA8qTSjj-_apNI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLnNk/ZS5nbG9iby5jb20v/bWVkaWEvb3JnYW5p/emF0aW9ucy8yMDE4/LzAzLzExL2ludGVy/bmFjaW9uYWwuc3Zn" 
-                                class="rounded-lg"
-                                height="236px"
-                                width="236px"
-                            />
+                        <div class="">
+                            
                         </div>
                     <div
                         class="m-2 p-2 rounded-lg border border-gray-700" 
@@ -300,6 +295,7 @@
                             class="text-black rounded-lg border border-black w-20 p-0.5 ml-3.5 m-1"
                         />
                         <br>
+                        
                         <label class="text-black" for="discount">Frete R$</label>
                         <input 
                             id="freight"

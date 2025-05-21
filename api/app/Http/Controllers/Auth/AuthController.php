@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\{
     Log,
     Hash
 };
+
+use Carbon\Carbon;
+
 class AuthController extends Controller
 {
     public function __construct(
@@ -31,6 +34,9 @@ class AuthController extends Controller
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
             $user = $this->userService->findById($owner->id);
+            $expired = Carbon::now()->setTimezone('America/Sao_Paulo')->addSeconds(50)->format('H:i:s');
+
+            Log::info("Vai exbirar em: $expired");
 
             Log::info("Passou o login, token: $token");
 
@@ -40,6 +46,7 @@ class AuthController extends Controller
                 'owner' => $owner,
                 'user' => $user->original['user'],
                 'token' => $token,
+                'expire' => $expired,
                 'uuse_id' => $owner->uuse_id
                 
             ], 200);
