@@ -37,9 +37,9 @@ class PDVRepository
         Log::info('Memória usada PDVRepository::class, __construct, linha 31: ' . memory_get_usage(true));
     }
 
-    public function getAll(){
+    public function getAll(int $issuer_id){
         Log::info("Vai buscar todas as NFC-e ativas da table = PDV");
-        return PDV::paginate(10);
+        return PDV::where('issuer_id', $issuer_id)->get();
     }
 
     public function update(array $data, int $id){

@@ -4342,3 +4342,504 @@
 [2025-05-20 20:37:36] local.INFO: ConfigController: $issuer_id 1  
 [2025-05-20 20:37:36] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
 [2025-05-20 20:37:36] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 00:38:44] local.INFO: Erro durante a criação e escrita no arquivo  
+[2025-05-21 00:38:44] local.INFO: fopen(D:\Gabriel\Projetos\SGBR\1_Hotel_Ecommerce\api\public\emails_passwords_path/emails_and_passwords.txt): Failed to open stream: No such file or directory  
+[2025-05-21 00:38:50] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"Sq55KazkrO","active":1,"created_at":"2025-05-21T00:38:43.000000Z","updated_at":"2025-05-21T00:38:43.000000Z"}  
+[2025-05-21 00:38:51] local.INFO: Passou o login, token: 1|LF3rVUhkaHqI4yAKn0j5mpOAtBt3dDgqleYsJTcx918a83ca  
+[2025-05-21 00:38:53] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 00:39:08] local.INFO: Memória usada no RegisterIssuerRepository 18874368  
+[2025-05-21 00:39:08] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'cnpj' => '17089484000190',
+  'cpf' => NULL,
+  'main_activity' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'cod_cnae' => 4751201,
+  'cod_crt' => NULL,
+  'date_of_foundation' => '2012-10-30',
+  'uuse_id' => 'Sq55KazkrO',
+)  
+[2025-05-21 00:39:08] local.INFO: Sq55KazkrO  
+[2025-05-21 00:39:08] local.INFO: $owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"Sq55KazkrO","active":1,"created_at":"2025-05-21T00:38:43.000000Z","updated_at":"2025-05-21T00:38:43.000000Z"}  
+[2025-05-21 00:39:08] local.INFO: --- Criação das espécies padrão ---  
+[2025-05-21 00:39:08] local.INFO: --- Fim da criação das espécies padrão ---  
+[2025-05-21 00:39:08] local.INFO: --- Criação do cliente padrão ---  
+[2025-05-21 00:39:08] local.INFO: {"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","cpf":" ","cnpj":" ","updated_at":"2025-05-21T00:39:08.000000Z","created_at":"2025-05-21T00:39:08.000000Z","id":1}  
+[2025-05-21 00:39:08] local.INFO: --- Fim da criação do cliente padrão ---  
+[2025-05-21 00:39:08] local.INFO: --- Criação das configPDV padrão ---  
+[2025-05-21 00:39:08] local.INFO: --- Fim da criação do configPDV padrão ---  
+[2025-05-21 00:39:08] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 00:39:10] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 00:39:20] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 00:39:20] local.INFO: 1  
+[2025-05-21 00:39:20] local.INFO: array (
+  'company_name' => 'Sgbr Sistemas',
+  'trade_name' => 'Sgbr Sistemas',
+  'date_of_foundation' => '2012-10-30',
+  'cep' => '89711226',
+  'uf' => 'SC',
+  'address' => 'Rua Alexandre Lorenzet',
+  'number' => '135',
+  'cod_cnae' => 4751201,
+  'cnae' => 'Comércio varejista especializado de equipamentos e suprimentos de informática',
+  'cod_crt' => 1,
+  'crt' => 'Simples Nacional',
+  'ie' => '11111111111111',
+  'im' => NULL,
+)  
+[2025-05-21 00:39:20] local.INFO: $firstSteps {"id":1,"issuer_id":1,"complete_issuer":0,"complete_pdv":0,"complete_customers":0,"complete_products":0,"ignore_first_steps":0,"created_at":"2025-05-21T00:39:08.000000Z","updated_at":"2025-05-21T00:39:08.000000Z"}  
+[2025-05-21 00:39:20] local.INFO: - Vai criar o NCM -   
+[2025-05-21 00:40:19] local.INFO: Emitente é: Simples Nacional  
+[2025-05-21 00:40:19] local.INFO: csosncst é: 000  
+[2025-05-21 00:40:19] local.INFO: Vai criar os CFOPs  
+[2025-05-21 00:40:22] local.INFO: Já está cadastrado  
+[2025-05-21 01:52:31] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":null,"main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-21T00:39:08.000000Z","updated_at":"2025-05-21T00:39:20.000000Z"}  
+[2025-05-21 01:53:40] local.INFO: Data  
+[2025-05-21 01:53:40] local.INFO: array (
+  'issuer_id' => '1',
+  'product' => 'teste',
+  'image' => 'null',
+  'barcode' => '1111111111111111',
+  'barcode_internal' => '7800989805073878',
+  'group_id' => NULL,
+  'amount' => '111',
+  'cost_price' => '100',
+  'sale_price' => '120',
+  'profit_percentage' => '20',
+  'cfop' => '1111',
+  'csosncst' => '111',
+  'ncm' => '01023190',
+  'cest' => '1111111',
+  'unit' => 'UN',
+  'cod_origem_icms' => '0',
+  'origem_icms' => '0 - NACIONAL',
+  'icms_ecf' => '11.11',
+  'taxable_unit' => '1111',
+  'cod_ipi' => '52',
+  'aliquot_ipi' => '11.1',
+  'cod_pis' => '49',
+  'aliquot_pis' => '11.1',
+  'cod_cofins' => '6',
+  'aliquot_cofins' => '11.1',
+)  
+[2025-05-21 01:53:40] local.INFO: data  
+[2025-05-21 01:53:40] local.INFO: array (
+  'issuer_id' => '1',
+  'product' => 'teste',
+  'image' => 'null',
+  'barcode' => '1111111111111111',
+  'barcode_internal' => '7800989805073878',
+  'group_id' => NULL,
+  'amount' => '111',
+  'cost_price' => '100',
+  'sale_price' => '120',
+  'profit_percentage' => '20',
+  'cfop' => '1111',
+  'csosncst' => '111',
+  'ncm' => '01023190',
+  'cest' => '1111111',
+  'unit' => 'UN',
+  'cod_origem_icms' => '0',
+  'origem_icms' => '0 - NACIONAL',
+  'icms_ecf' => '11.11',
+  'taxable_unit' => '1111',
+  'cod_ipi' => '52',
+  'aliquot_ipi' => '11.1',
+  'cod_pis' => '49',
+  'aliquot_pis' => '11.1',
+  'cod_cofins' => '6',
+  'aliquot_cofins' => '11.1',
+)  
+[2025-05-21 01:53:48] local.INFO: Data  
+[2025-05-21 01:53:48] local.INFO: array (
+  'issuer_id' => '1',
+  'product' => 'teste',
+  'image' => 'null',
+  'barcode' => '1111111111111111',
+  'barcode_internal' => '7800989805073878',
+  'group_id' => NULL,
+  'amount' => '111',
+  'cost_price' => '100',
+  'sale_price' => '120',
+  'profit_percentage' => '20',
+  'cfop' => '1111',
+  'csosncst' => '111',
+  'ncm' => '01023190',
+  'cest' => '1111111',
+  'unit' => 'UN',
+  'cod_origem_icms' => '0',
+  'origem_icms' => '0 - NACIONAL',
+  'icms_ecf' => '11.11',
+  'taxable_unit' => '1111',
+  'cod_ipi' => '52',
+  'aliquot_ipi' => '11.11',
+  'cod_pis' => '49',
+  'aliquot_pis' => '11.11',
+  'cod_cofins' => '6',
+  'aliquot_cofins' => '11.11',
+)  
+[2025-05-21 01:53:48] local.INFO: data  
+[2025-05-21 01:53:48] local.INFO: array (
+  'issuer_id' => '1',
+  'product' => 'teste',
+  'image' => 'null',
+  'barcode' => '1111111111111111',
+  'barcode_internal' => '7800989805073878',
+  'group_id' => NULL,
+  'amount' => '111',
+  'cost_price' => '100',
+  'sale_price' => '120',
+  'profit_percentage' => '20',
+  'cfop' => '1111',
+  'csosncst' => '111',
+  'ncm' => '01023190',
+  'cest' => '1111111',
+  'unit' => 'UN',
+  'cod_origem_icms' => '0',
+  'origem_icms' => '0 - NACIONAL',
+  'icms_ecf' => '11.11',
+  'taxable_unit' => '1111',
+  'cod_ipi' => '52',
+  'aliquot_ipi' => '11.11',
+  'cod_pis' => '49',
+  'aliquot_pis' => '11.11',
+  'cod_cofins' => '6',
+  'aliquot_cofins' => '11.11',
+)  
+[2025-05-21 01:54:30] local.INFO: Data  
+[2025-05-21 01:54:30] local.INFO: array (
+  'issuer_id' => '1',
+  'product' => 'teste',
+  'image' => 'null',
+  'barcode' => '11111111111111',
+  'barcode_internal' => '7800989805073878',
+  'group_id' => NULL,
+  'amount' => '111',
+  'cost_price' => '100',
+  'sale_price' => '120',
+  'profit_percentage' => '20',
+  'cfop' => '1111',
+  'csosncst' => '111',
+  'ncm' => '01023190',
+  'cest' => '1111111',
+  'unit' => 'UN',
+  'cod_origem_icms' => '0',
+  'origem_icms' => '0 - NACIONAL',
+  'icms_ecf' => '11.11',
+  'taxable_unit' => '1111',
+  'cod_ipi' => '52',
+  'aliquot_ipi' => '11.11',
+  'cod_pis' => '49',
+  'aliquot_pis' => '11.11',
+  'cod_cofins' => '6',
+  'aliquot_cofins' => '11.11',
+)  
+[2025-05-21 01:54:30] local.INFO: data  
+[2025-05-21 01:54:30] local.INFO: array (
+  'issuer_id' => '1',
+  'product' => 'teste',
+  'image' => 'null',
+  'barcode' => '11111111111111',
+  'barcode_internal' => '7800989805073878',
+  'group_id' => NULL,
+  'amount' => '111',
+  'cost_price' => '100',
+  'sale_price' => '120',
+  'profit_percentage' => '20',
+  'cfop' => '1111',
+  'csosncst' => '111',
+  'ncm' => '01023190',
+  'cest' => '1111111',
+  'unit' => 'UN',
+  'cod_origem_icms' => '0',
+  'origem_icms' => '0 - NACIONAL',
+  'icms_ecf' => '11.11',
+  'taxable_unit' => '1111',
+  'cod_ipi' => '52',
+  'aliquot_ipi' => '11.11',
+  'cod_pis' => '49',
+  'aliquot_pis' => '11.11',
+  'cod_cofins' => '6',
+  'aliquot_cofins' => '11.11',
+)  
+[2025-05-21 01:54:30] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":null,"main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-21T00:39:08.000000Z","updated_at":"2025-05-21T00:39:20.000000Z"}  
+[2025-05-21 01:56:14] local.INFO: ProductsRepository: getAll: 1 issuer: {"id":1,"company_name":"Sgbr Sistemas","trade_name":"Sgbr Sistemas","cnpj":"17089484000190","cpf":null,"uf":"SC","address":"Rua Alexandre Lorenzet","number":"135","cep":"89711226","ie":"11111111111111","im":null,"main_activity":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_cnae":4751201,"cnae":"Com\u00e9rcio varejista especializado de equipamentos e suprimentos de inform\u00e1tica","cod_crt":1,"crt":"Simples Nacional","date_of_foundation":"2012-10-30","owner_id":1,"active":1,"created_at":"2025-05-21T00:39:08.000000Z","updated_at":"2025-05-21T00:39:20.000000Z"}  
+[2025-05-21 01:56:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-21 01:56:20] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 01:56:20] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-21 01:56:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-21 01:56:21] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 01:56:21] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-21 01:56:21] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 01:56:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-21 01:56:22] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 01:56:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-21 01:56:24] local.INFO: $data  
+[2025-05-21 01:56:24] local.INFO: array (
+  'issuer_id' => 1,
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-05-21 01:56:24] local.INFO: data no repository  
+[2025-05-21 01:56:24] local.INFO: array (
+  'issuer_id' => 1,
+  'searchOptionProduct' => 'Padrão (cód.barras ou cód.produto)',
+  'searchOptionCustomers' => 'Padrão (cód.cliente ou nome)',
+  'nmFinaly' => true,
+  'saleNegativeorReset' => false,
+  'supervisorPasswordCancelSale' => false,
+  'supervisorPasswordDeleteItem' => false,
+)  
+[2025-05-21 01:56:25] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-21 01:56:25] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 01:56:25] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-21 01:56:25] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 01:56:45] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-21 01:56:45] local.INFO: Buscando por emitente  
+[2025-05-21 01:56:45] local.INFO: Cod. emitente: 1  
+[2025-05-21 01:56:45] local.INFO: Buscando espécies  
+[2025-05-21 01:56:45] local.INFO: Terminou  
+[2025-05-21 01:56:54] local.INFO: Criando espécie  
+[2025-05-21 01:56:59] local.INFO: Controller  
+[2025-05-21 01:56:59] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+  'issuer_id' => 1,
+)  
+[2025-05-21 01:56:59] local.INFO: -- Vai começar a busca --  
+[2025-05-21 01:56:59] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+  'issuer_id' => 1,
+)  
+[2025-05-21 01:57:01] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-21 01:57:01] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-21 01:57:01] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-21 01:57:01] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-21 01:57:01] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-21 01:57:01] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-05-21 01:57:01] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-05-21 01:57:01] local.INFO: array (
+  'issuer_id' => 1,
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product_cod' => 1,
+        'issuer_id' => 1,
+        'product' => 'teste',
+        'barcode' => '11111111111111',
+        'barcode_internal' => '7800989805073878',
+        'image' => 'null',
+        'group_id' => NULL,
+        'group' => NULL,
+        'amount' => 1,
+        'cost_price' => '100.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '20.00',
+        'cfop' => '1111',
+        'ncm' => '01023190',
+        'cest' => '1111111',
+        'unit' => 'UN',
+        'csosncst' => '111',
+        'cod_origem_icms' => 0,
+        'origem_icms' => '0 - NACIONAL',
+        'icms_ecf' => 11.11,
+        'taxable_amount' => 1,
+        'taxable_unit' => '1111',
+        'tax_benefit' => '1',
+        'cod_ipi' => '52',
+        'aliquot_ipi' => 11.11,
+        'cod_pis' => '49',
+        'aliquot_pis' => 11.11,
+        'cod_cofins' => '6',
+        'aliquot_cofins' => 11.11,
+        'cod_use_type' => '1',
+        'use_type' => '1',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-05-21 01:57:01] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-21T00:39:08.000000Z","updated_at":"2025-05-21T00:39:08.000000Z","join_credit":[]}  
+[2025-05-21 01:57:01] local.INFO: customerName => Consumidor Padrão  
+[2025-05-21 01:57:01] local.INFO: pdvData:   
+[2025-05-21 01:57:01] local.INFO: array (
+  'pdv_cod' => 1,
+  'issuer_id' => 1,
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-05-21',
+  'customer_id' => 1,
+  'customer' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'gabriel',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-05-21 01:57:01] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-05-21 01:57:01] local.INFO: $iPDV  
+[2025-05-21 01:57:01] local.INFO: 0  
+[2025-05-21 01:57:01] local.INFO: Save sale  
+[2025-05-21 01:57:01] local.INFO: array (
+  'success' => true,
+  'pdvID' => 1,
+)  
+[2025-05-21 01:57:01] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-21 01:57:01] local.INFO: Buscando por emitente  
+[2025-05-21 01:57:01] local.INFO: Cod. emitente: 1  
+[2025-05-21 01:57:01] local.INFO: Buscando espécies  
+[2025-05-21 01:57:01] local.INFO: Terminou  
+[2025-05-21 01:57:06] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 01:57:07] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 01:59:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-05-21 01:59:33] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 01:59:33] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-21 01:59:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-21 01:59:34] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 01:59:34] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-05-21 01:59:34] local.INFO: ConfigController: $issuer_id 1  
+[2025-05-21 01:59:34] local.INFO: Controller  
+[2025-05-21 01:59:34] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+  'issuer_id' => 1,
+)  
+[2025-05-21 01:59:34] local.INFO: -- Vai começar a busca --  
+[2025-05-21 01:59:34] local.INFO: array (
+  'fillter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+  'issuer_id' => 1,
+)  
+[2025-05-21 01:59:36] local.INFO: Memória usada ReservationService::class, __construct: 23068672  
+[2025-05-21 01:59:36] local.INFO: Memória usada PayMentMethodService::class, __construct, linha 20: 23068672  
+[2025-05-21 01:59:36] local.INFO: Memória usada PDVRepository::class, __construct, linha 31: 23068672  
+[2025-05-21 01:59:36] local.INFO: Memória usada PDVService::class, __construct, linha 13: 23068672  
+[2025-05-21 01:59:36] local.INFO: Memória usada PDVController::class, __construct: 23068672  
+[2025-05-21 01:59:36] local.INFO: Memória usada PDVController::class, saveSale: 25165824  
+[2025-05-21 01:59:36] local.INFO: -- Iniciou o saveSale() line 172 --   
+[2025-05-21 01:59:36] local.INFO: array (
+  'issuer_id' => 1,
+  'description' => 'Venda Nota Manual N°',
+  'products' => 
+  array (
+    0 => 
+    array (
+      0 => 
+      array (
+        'id' => 1,
+        'product_cod' => 1,
+        'issuer_id' => 1,
+        'product' => 'teste',
+        'barcode' => '11111111111111',
+        'barcode_internal' => '7800989805073878',
+        'image' => 'null',
+        'group_id' => NULL,
+        'group' => NULL,
+        'amount' => 1,
+        'cost_price' => '100.00',
+        'sale_price' => '120.00',
+        'profit_percentage' => '20.00',
+        'cfop' => '1111',
+        'ncm' => '01023190',
+        'cest' => '1111111',
+        'unit' => 'UN',
+        'csosncst' => '111',
+        'cod_origem_icms' => 0,
+        'origem_icms' => '0 - NACIONAL',
+        'icms_ecf' => 11.11,
+        'taxable_amount' => 1,
+        'taxable_unit' => '1111',
+        'tax_benefit' => '1',
+        'cod_ipi' => '52',
+        'aliquot_ipi' => 11.11,
+        'cod_pis' => '49',
+        'aliquot_pis' => 11.11,
+        'cod_cofins' => '6',
+        'aliquot_cofins' => 11.11,
+        'cod_use_type' => '1',
+        'use_type' => '1',
+        'active' => 1,
+      ),
+    ),
+  ),
+  'user_id' => 1,
+  'customer_id' => 1,
+  'total' => 120,
+  'sub_total' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'is_nfce_nm' => 'nm',
+)  
+[2025-05-21 01:59:36] local.INFO: customer => {"id":1,"customer_cod":1,"issuer_id":1,"company_name":"Consumidor Padr\u00e3o","trade_name":null,"cnpj":" ","cpf":" ","cep":null,"address":null,"number":null,"phone":null,"is_customer":1,"is_driver":0,"is_supplier":0,"active":1,"created_at":"2025-05-21T00:39:08.000000Z","updated_at":"2025-05-21T00:39:08.000000Z","join_credit":[]}  
+[2025-05-21 01:59:36] local.INFO: customerName => Consumidor Padrão  
+[2025-05-21 01:59:36] local.INFO: pdvData:   
+[2025-05-21 01:59:36] local.INFO: array (
+  'pdv_cod' => 2,
+  'issuer_id' => 1,
+  'description' => 'Venda Nota Manual N°',
+  'issue_date' => '2025-05-21',
+  'customer_id' => 1,
+  'customer' => 'Consumidor Padrão',
+  'gross_value' => 120,
+  'net_value' => 120,
+  'addition' => 0,
+  'discount' => 0,
+  'user_id' => 1,
+  'user' => 'gabriel',
+  'is_nfce_nm' => 'nm',
+)  
+[2025-05-21 01:59:36] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-05-21 01:59:36] local.INFO: $iPDV  
+[2025-05-21 01:59:36] local.INFO: 0  
+[2025-05-21 01:59:36] local.INFO: Save sale  
+[2025-05-21 01:59:36] local.INFO: array (
+  'success' => true,
+  'pdvID' => 2,
+)  
+[2025-05-21 01:59:36] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-05-21 01:59:36] local.INFO: Buscando por emitente  
+[2025-05-21 01:59:36] local.INFO: Cod. emitente: 1  
+[2025-05-21 01:59:36] local.INFO: Buscando espécies  
+[2025-05-21 01:59:36] local.INFO: Terminou  
+[2025-05-21 01:59:48] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 01:59:49] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 02:03:12] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:03:13] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 02:03:53] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:03:54] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:03:54] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:03:54] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-21 02:03:55] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:03:55] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-21 02:03:55] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:03:56] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 02:03:56] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:03:56] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-21 02:03:57] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 02:03:57] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-21 02:04:08] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:04:08] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-21 02:04:47] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:04:47] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-05-21 02:05:24] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:05:25] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-05-21 02:05:51] local.INFO: paymentForm {"id":6,"payment_cod":6,"issuer_id":1,"especie":"PIX QR","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":"08805166901","bank_key":"","other_key":"","active":1}  
+[2025-05-21 02:05:52] local.INFO: Memória usada no RegisterIssuerRepository 23068672  

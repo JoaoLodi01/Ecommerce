@@ -1,24 +1,27 @@
 <template>
-    <h5>QR-Code</h5>
-    <div v-if="qrCode" class="p-10">
-        <img :src=qrCode alt="qrCode - PIX">
-        <p
-            :data-clipboard-text="payLoad"
-            @click="clipBoard"
-            class="btn cursor-pointer"
-            title="Copiar"
-        >
-            Payload: {{ payLoad }}
-        </p>      
-
-        <q-btn 
-            color="primary"
-            label="Finalizar" 
-            @click="finaly" 
-            
-        />
-    </div>
-   
+    <q-card class="w-[40rem]" v-if="qrCode">
+        
+        <img :src=qrCode alt="qrCode - PIX" class="border border-black p-5">
+        
+        <q-card-section>
+            <p
+                :data-clipboard-text="payLoad"
+                @click="clipBoard"
+                class="btn cursor-pointer"
+                title="Copiar"
+            >
+                {{ payLoad }}
+            </p>      
+        </q-card-section>
+        <q-card-section class="flex justify-center">
+            <q-btn 
+                color="primary"
+                label="Finalizar venda" 
+                @click="finaly" 
+                
+            />
+        </q-card-section>
+    </q-card>   
 </template>
 
 <script setup lang="ts">

@@ -23,8 +23,8 @@ class PDVService
         ], 400);
     }
 
-    public function getAll(){
-        return $this->pdvRepository->getAll();
+    public function getAll(int $issuer_id){
+        return $this->pdvRepository->getAll($issuer_id);
     }
 
     public function update(array $data, int $id){
