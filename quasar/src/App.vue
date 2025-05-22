@@ -6,9 +6,8 @@
 <script setup lang="ts">
     import ErrorDialog from 'src/components/Error/ErrorDialog.vue';
     import emitter from 'src/utils/eventBus';
-    import { onMounted, ref, onBeforeUnmount } from 'vue';
+    import { onMounted, onBeforeUnmount, ref } from 'vue';
     import { LocalStorage } from 'quasar';
-    import { api } from './boot/axios';
 
     const errorDialog: any = ref(null);
     const expire: any = ref(LocalStorage.getItem("expire"));
@@ -35,9 +34,6 @@
         
         currentHour.value = formatter.format(currentDate)
 
-        console.log("expire.value", expire.value)
-        console.log("currentHour.value", currentHour.value)
-        
         // Resolver isso daqui
         // Se a currentHour = 22:00:00 pm e o expire = 10:00:00 am, vai dar expirado, mesmo que não seja maior
         if(currentHour.value >= expire.value)
@@ -52,7 +48,6 @@
     onMounted(() => {
         if(token.value)
         {
-            console.log("Conferindo se está logado: \n")
             intervalID = setInterval(confirmExpireToken, 3000)
         }
 

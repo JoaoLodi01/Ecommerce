@@ -20,6 +20,9 @@
                     label="E-mail"
                     class="mb-4"
                     color="grey-7"
+                    :rules="[
+                        val => !!val || 'O e-mail é obrigatório'
+                    ]"
                 />
 
                 <q-input
@@ -29,6 +32,9 @@
                     :type="showPassword ? 'text' : 'password'"
                     class="mb-4"
                     color="grey-7"
+                    :rules="[
+                        val => !!val || 'A senha é obrigatório'
+                    ]"
                 >
                     <svg
                         @click="showPassword = !showPassword"
@@ -78,14 +84,6 @@
 
                 </div>
             </q-form>
-
-            <div 
-                class="flex justify-center bg-red-400 text-white rounded-lg cursor-pointer" 
-                v-for="message in messages"
-                @click="messages = []"
-            >
-                {{ message }}
-            </div>
         </div>
     </div>
 </template>
@@ -132,14 +130,12 @@
                 },
 
                 showPassword: false,
-                messages: []
 
             }
         },
 
         methods: {
             async loginMethod() {
-                this.messages = []
                 try {
                     this.showLoading()
                     const response = await api.post("/auth/owner", this.details);
@@ -167,8 +163,7 @@
 
                     } else {
                         console.error("Erro no login:", error);
-                        this.messages.push(error.response.data.message ?? 'Erro no login');
-
+                        
                     }
                 }
             }

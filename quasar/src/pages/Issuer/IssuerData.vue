@@ -169,7 +169,12 @@
             </div>
             
             <div>
-                <q-btn label="Salvar" type="submit" color="grey"/>
+                <q-btn 
+                    label="Salvar" 
+                    type="submit" 
+                    class="ml-2 submit-btn"
+                    :class="`bg-[${color}] text-white`"
+                />
                 
             </div>
         </q-form>
@@ -203,6 +208,7 @@
                 _completed: LocalStorage.getItem("_completed"),
                 timer: null,
                 cep: '',
+                color: '#E75A7C',
                 form: {
                     company_name: '',
                     trade_name: '',
