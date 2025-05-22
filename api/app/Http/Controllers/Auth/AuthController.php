@@ -25,7 +25,7 @@ class AuthController extends Controller
     public function authOwner(LoginRequest $request)
     {
         $data = $request->validated();
-    
+        
         $owner = $this->registerOwnerService->findByEmail($data['email']);
 
         Log::info('owner ' . $owner);
@@ -34,19 +34,15 @@ class AuthController extends Controller
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
             $user = $this->userService->findById($owner->id);
-            $expired = Carbon::now()->setTimezone('America/Sao_Paulo')->addHours(10)->format('H:i:s');
-
-            Log::info("Vai exbirar em: $expired");
 
             Log::info("Passou o login, token: $token");
-
+            
             return response()->json([
                 'success' => true,
                 'message' => 'Login bem sucedido!',
                 'owner' => $owner,
                 'user' => $user->original['user'],
                 'token' => $token,
-                'expire' => $expired,
                 'uuse_id' => $owner->uuse_id
                 
             ], 200);

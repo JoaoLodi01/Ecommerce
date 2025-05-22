@@ -75,10 +75,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border-b border-gray-200"
+                    <tr
+                        class="border-b border-gray-200"
                         v-for="(register, id) in cashs"
-                        :key="id">
-
+                        :key="id"
+                    >
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.cash_register_cod }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.document }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.description }}</td>
@@ -92,38 +93,44 @@
                         <td scope="row" class="text-center ml-4 px-6 py-3">
                         <span class="w-[80px] px-4 py-2 rounded-xl text-white text-sm font-medium text-center inline-block"
                             :class="{
-                            'bg-green-500': register.input_value > 0,
-                            'bg-red-500': register.input_value < 1
-                            }">
+                                'bg-green-500': register.input_value > 0,
+                                'bg-red-500': register.input_value < 1
+                            }"
+                        >
                             {{ register.input_value > 0 ? 'Entrada' : 'Saída' }}
                         </span>
                         </td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">
-                        <q-btn @click="transferRegister(register)" class="text-blue-600 hover:text-blue-100">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 mx-auto">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332
-                                    A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18
-                                    M12 6.75h.008v.008H12V6.75Z" />
-                            </svg>
-                        </q-btn>
+                            <q-btn @click="transferRegister(register)" class="text-blue-600 hover:text-blue-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-6 h-6 mx-auto">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332
+                                        A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18
+                                        M12 6.75h.008v.008H12V6.75Z" />
+                                </svg>
+                            </q-btn>
                         </td>
                     </tr>
                 </tbody>
             </table>
+
             <div
                 v-if="showCashClosing"
                 class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
 
-                <div class="bg-white border border-black rounded-xl">
+                <div 
+                    class="bg-white border border-black rounded-xl"
+                
+                >
                     <RegisterCash
                         @close="closeRegister($event)"
                         :width-screen="withScreen"
                     />
                 </div>
             </div>
+
         </div>
     </div>
 </template>

@@ -33,33 +33,14 @@ class PDVRepository
         protected PaymentsRepository $paymentsRepository,
         protected NFCeValidation $nfceValidation
 
-    ){
-        Log::info('Memória usada PDVRepository::class, __construct, linha 31: ' . memory_get_usage(true));
-    }
+    ){}
 
     public function getAll(int $issuer_id){
         Log::info("Vai buscar todas as NFC-e ativas da table = PDV");
         return PDV::where('issuer_id', $issuer_id)->get();
     }
 
-    public function update(array $data, int $id){
-        Log::info("Buscando registro por ID");
-        $pdvID = PDV::where('id', $id)->update($data, $id);
-
-        if ($pdvID){
-            Log::info("Registro atualizado com sucesso!");
-            return response()->json([
-                'success' => true,
-                'message' => 'Registro atualizado com sucesso!',
-            ], 200);
-        } else {
-            Log::info("NFC-e não encontrada.");
-            return response()->json([
-                'success' => false,
-                'error' => 'Registro não encontrado.',
-            ], 404);
-        }
-    }
+    public function update(array $data, int $id){ }
     
     public function findByID(int $id, int $issuerID)
     {
@@ -245,7 +226,16 @@ class PDVRepository
             Log::info('Tipo de venda NM/NFCE: ' . $pdv->is_nfce_nm);
             Log::info('Issuer ID: ' . $issuerID);
             
-            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, $issuerID);
+            $payMentMethodService = $this->payMentMethodService->payment(
+                    $formsPayment, // Formas de pagamento
+                    $paymentsValues, // Valores pagos
+                    $customer, // Cliente da nota
+                    $pdv->is_nfce_nm, // Tipo de venda
+                    'pdv', // Origem
+                    $pdv, 
+                    $issuerID
+            );
+
             Log::info('payMentMethodService');
             Log::info($payMentMethodService);
 

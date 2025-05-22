@@ -16,31 +16,28 @@ class PayMentMethodService
         protected ReceiveRepository $receiveRepository,
         protected ReservationService $reservationService,
   
-    ){
-        Log::info('Memória usada PayMentMethodService::class, __construct, linha 20: ' . memory_get_usage(true));
-    }
+    ){}
 
     public function payment(
-        array $forms, 
-        array $paymentValues, 
-        object $customer, 
-        string $description, 
-        string $origem, 
-        object $pdv,
-        int $issuerID
+        array $forms, // Formas de pagamento
+        array $paymentValues, // Valores pagos
+        object $customer, // Cliente da nota
+        string $description, // Tipo de venda
+        string $origem, // Origem
+        object $pdv, // Corpo do PDV
+        int $issuerID // ID do emitente
                 
     )
     {   // Método para ser adicioando ao caixa                
-        Log::info('-- Inicio do registro no caixa, PayMentMethodService.php, linha 33 --');
-        Log::info("ISSUER_ID $issuerID");
+        Log::info('-- Inicio do registro no caixa, PayMentMethodService.php, linha 32 --');
 
         $currentDate = new Carbon();
         $cashRegisters = [];
 
         Log::info('-- Máximo encontrado iniciado --');
-        $maxDocument = CashRegister::where('issuer_id', $issuerID)
-                                        ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
-                                        ->value('max_doc');
+            $maxDocument = CashRegister::where('issuer_id', $issuerID)
+                                            ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
+                                            ->value('max_doc');
 
         Log::info($maxDocument);
         Log::info('-- Fim do máximo encontrado --');
