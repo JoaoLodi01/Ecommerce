@@ -201,6 +201,7 @@
 
                 } catch (error) {
                     console.error("Erro ao buscar registros: ", error)
+                    console.error("token ", LocalStorage.getItem("auth_token"))
                     
                 }
             },

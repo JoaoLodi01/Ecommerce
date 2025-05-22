@@ -34,7 +34,7 @@ class AuthController extends Controller
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
             $user = $this->userService->findById($owner->id);
-            $expired = Carbon::now()->setTimezone('America/Sao_Paulo')->addSeconds(50)->format('H:i:s');
+            $expired = Carbon::now()->setTimezone('America/Sao_Paulo')->addHours(10)->format('H:i:s');
 
             Log::info("Vai exbirar em: $expired");
 

@@ -10,57 +10,52 @@
     import { LocalStorage } from 'quasar';
     import { api } from './boot/axios';
 
-    const errorDialog = ref(null);
-    const expire = ref(LocalStorage.getItem("expire"))
-    const token = ref(LocalStorage.getItem("auth_token"))
-    const hour = ref(null)
-    let intervalID
+    const errorDialog: any = ref(null);
+    const expire: any = ref(LocalStorage.getItem("expire"));
+    const token: any = ref(LocalStorage.getItem("auth_token"));
+    const currentHour: any = ref(null);
+    let intervalID: any = null
 
     const showGlobalError = (msg: string) => {
         errorDialog.value?.showError(msg);
         
     };
 
-    const confirmExpireToken = () => {
+    const confirmExpireToken = async () => {
+        console.log("Conferindo se está logado dentro de confirmExpireToken: \n")
+        
         const currentDate = new Date()
         const formatter = new Intl.DateTimeFormat('pt-BR', {
             hour: '2-digit',
             minute: '2-digit',
             second: '2-digit',
             timeZone: 'America/Sao_Paulo'
-
+            
         })
         
-        hour.value = formatter.format(currentDate)
-        if(hour.value >= expire.value)
-        {   
-            LocalStorage.removeItem("auth_token");
-            LocalStorage.removeItem("expire");
-            console.log('O tempo expirou faça login novamente!')
+        currentHour.value = formatter.format(currentDate)
 
-            const res = api.get('auth/me', {
-                headers: {
-                    Authorization: `Bearer ${token.value}`
-                }
-            })
-            console.log('Res: ', res.data)
-            clearInterval(intervalID)
-
-        } else {
-            console.log('O tempo ainda não expirou, não precisa fazer login novamente!')
-
+        console.log("expire.value", expire.value)
+        console.log("currentHour.value", currentHour.value)
+        
+        // Resolver isso daqui
+        // Se a currentHour = 22:00:00 pm e o expire = 10:00:00 am, vai dar expirado, mesmo que não seja maior
+        if(currentHour.value >= expire.value)
+        {
+            console.log("logout");
+            LocalStorage.remove('auth_token');
+            LocalStorage.remove('expire');
+            clearInterval(intervalID);
         }
     }
 
     onMounted(() => {
-        console.log('Expire: ', expire.value)
-        console.log('Token: ', token.value)
-        if(token.value && expire.value)
+        if(token.value)
         {
-            console.log('Tem expire e token')
-            intervalID = setInterval(confirmExpireToken, 3000);               
+            console.log("Conferindo se está logado: \n")
+            intervalID = setInterval(confirmExpireToken, 3000)
         }
-        
+
         LocalStorage.removeItem("pdvID")
         emitter.on('global-error', showGlobalError);
 
@@ -68,6 +63,10 @@
 
     onBeforeUnmount(() => {
         emitter.off('global-error', showGlobalError);
+        if(intervalID)
+        {
+            clearInterval(intervalID);
+        }
     });
 </script>
 
