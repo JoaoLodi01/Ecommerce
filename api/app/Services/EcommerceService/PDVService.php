@@ -75,7 +75,8 @@ class PDVService
         array $paymentsValues, 
         string $typeOperation, 
         int $pdvID, 
-        int $issuerID
+        int $issuerID,
+        int $userID,
     )
     {
         try {
@@ -97,7 +98,8 @@ class PDVService
                 $paymentsValues, 
                 $payMentsID, 
                 $total,
-                $issuerID
+                $issuerID,
+                $userID,
             );
 
             if ($pdv['success']) {

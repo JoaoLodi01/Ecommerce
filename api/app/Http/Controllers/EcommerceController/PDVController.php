@@ -44,7 +44,8 @@ class PDVController extends Controller
             $data['payments_values'], 
             $data['type_operation'], 
             $data['pdv_id'], 
-            $data['issuer_id']
+            $data['issuer_id'],
+            $data['user_id']
         );
         // Se der errado, voltar para $request->input()
     }

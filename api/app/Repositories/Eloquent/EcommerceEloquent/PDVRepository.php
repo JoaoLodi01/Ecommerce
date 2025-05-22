@@ -206,7 +206,15 @@ class PDVRepository
         
     }
 
-    public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total, int $issuerID)
+    public function finalizeSale(
+            string $type, 
+            int $id, 
+            array $paymentsValues, 
+            array $forms, 
+            float $total, 
+            int $issuerID, 
+            int $userID
+        )   
     {
         Log::info('-- Iniciou o finalizeSale() line 172 -- ');
         Log::info('Memória usada PDVRepository::class, finalizeSale: ' . memory_get_usage(true));
@@ -232,8 +240,9 @@ class PDVRepository
                     $customer, // Cliente da nota
                     $pdv->is_nfce_nm, // Tipo de venda
                     'pdv', // Origem
-                    $pdv, 
-                    $issuerID
+                    $pdv, // Corpo do PDV
+                    $issuerID, // ID do emitente
+                    $userID // Usuário que fez a venda
             );
 
             Log::info('payMentMethodService');

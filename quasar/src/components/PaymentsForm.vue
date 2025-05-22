@@ -1,14 +1,20 @@
 <template>
     <QRCode
-            v-if="showQRCode"
-            :total_amount="totalOperation"
-            :issuer_id="this.issuer_id"
-            @close="handlePIX"
-            class="relative left-[43rem] z-50 -bottom-44 w-[20rem]"
-            
-        />
+        v-if="showQRCode"
+        :total_amount="totalOperation"
+        :issuer_id="this.issuer_id"
+        @close="handlePIX"
+        class="relative left-[43rem] z-50 -bottom-44 w-[20rem]"
+        
+    />
     
-    <q-card class="relative -top-[46rem] left-[45rem] mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded">
+    <q-card 
+        class="relative left-[45rem] mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded" 
+        :class="{
+            '-top-[46rem]': showQRCode,
+            'top-1': !showQRCode
+        }"
+    >
         <q-card-section>
             <div class="text-h6">Formas de Pagamento</div>
         </q-card-section>
@@ -180,7 +186,8 @@ export default {
             showQRCode: false,
             bigger: false,
             extraAmount: 0,
-            issuer_id: LocalStorage.getItem("issuer_id")
+            issuer_id: LocalStorage.getItem("issuer_id"),
+            user_id: LocalStorage.getItem("user_id")
 
         };
         
@@ -349,8 +356,9 @@ export default {
 
                     case 'nfce':
                         console.log('Issuer_id no LocalStorage ( venda NFC-e ): ', LocalStorage.getItem("issuer_id"))
-                        const response_nfce = await api.put(`ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            issuer_id: LocalStorage.getItem("issuer_id"),
+                        const response_nfce = await api.put('/ecommerce/pdv/finalize-sale', {
+                            issuer_id: this.issuer_id,
+                            user_id: this.user_id,
                             type_operation: 'nfce',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
@@ -376,14 +384,15 @@ export default {
 
                     case 'nm':
                         console.log('Issuer_id no LocalStorage ( venda NM ): ', LocalStorage.getItem("issuer_id"))
-                        const response_nm = await api.put(`/ecommerce/pdv/finalize-sale/${this.pdvID}`, {
-                            issuer_id: LocalStorage.getItem("issuer_id"),
+                        const response_nm = await api.put('/ecommerce/pdv/finalize-sale', {
+                            issuer_id: this.issuer_id,
+                            user_id: this.user_id,
                             type_operation: 'nm',
                             change: this.calculateValueChange.change,
                             payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
                             pdv_id: this.pdvID,
                             installments: this.installments
-
+                            
                         })
 
                         console.log(response_nm);

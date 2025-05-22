@@ -5,11 +5,12 @@ namespace App\Services;
 use App\Models\EcommerceModels\CashRegister;
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
 use App\Repositories\Eloquent\ReceiveRepository;
+use App\Services\Contract\PayMentMethodContract;
 use App\Services\HotelServices\ReservationService;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
-class PayMentMethodService
+class PayMentMethodService implements PayMentMethodContract
 {    
     public function __construct(
         protected CashRegisterRepository $cashRegisterRepository,
@@ -25,7 +26,8 @@ class PayMentMethodService
         string $description, // Tipo de venda
         string $origem, // Origem
         object $pdv, // Corpo do PDV
-        int $issuerID // ID do emitente
+        int $issuerID, // ID do emitente,
+        int $userID // Usuário que fez a venda
                 
     )
     {   // Método para ser adicioando ao caixa                
