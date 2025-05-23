@@ -10,7 +10,7 @@
                 
                 <router-link 
                     to="/" 
-                    class="mt-auto mb-auto mr-6" 
+                    class="mt-auto mb-auto mr-6"
                     v-if="witdhScreen >= 1366"
                 >
                     <span class="mt-0.5 ml-2 hover:text-slate-300 hover:border-b">Voltar ao início</span>
@@ -30,65 +30,65 @@
             </div>
         </header>
 
-        <div class="companies flex justify-center">
-            <q-card class="w-80">
-                <q-card-section>
-                    <div class="flex justify-center p-10">
-                        <router-link to="/register-issuer">
-                            <svg   
-                                xmlns="http://www.w3.org/2000/svg" 
-                                fill="none" 
-                                viewBox="0 0 24 24" 
-                                stroke-width="1.5" 
-                                stroke="currentColor" 
-                                class="size-12"
-                            >
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                            </svg>
-                        </router-link>
-                        
-                    </div>
-                    <div class="text-h6 text-center">Adicionar uma nova empresa</div>
+        <Transition name="slide-up">
+            <div class="companies flex justify-center" v-if="showContent">
+                <q-card class="w-80 hover:drop-shadow-lg">
+                    <q-card-section>
+                        <div class="flex justify-center p-10">
+                            <router-link to="/register-issuer">
+                                <svg   
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    fill="none" 
+                                    viewBox="0 0 24 24" 
+                                    stroke-width="1.5" 
+                                    stroke="currentColor" 
+                                    class="size-12"
 
-                </q-card-section>
-            
-            </q-card>
-            <q-card v-if="!has || companies.length < 0">
-                <q-card-section>
-                    <q-skeleton  height="150px" square />
-                    <span class="mt-5">Carregando dados... {{ has }}</span>
-                </q-card-section>
-            </q-card>
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </router-link>
+                            
+                        </div>
+                        <div class="text-h6 text-center">Adicionar uma nova empresa</div>
 
-            <q-card
-                class="q-card" 
-                v-for="(companie, id) in companies" 
-                :key="id"
+                    </q-card-section>
                 
-            >
-                <q-card-section>
-                    <div class="" v-if="has">
-                        <span class="text-xl">{{ companie.company_name }}</span>
-                        <br>
-                        <q-btn 
-                            color="primary" 
-                            icon="check" 
-                            label="Entrar" 
-                            @click="joinCompanie(companie.company_name, companie.id)"
-                            class="mt-8"
+                </q-card>
+                <q-card v-if="!has || companies.length < 0">
+                    <q-card-section>
+                        <q-skeleton  height="150px" square />
+                        <span class="mt-5">Carregando dados...</span>
+                    </q-card-section>
+                </q-card>
 
-                        />
-                        
-                        <p class="mt-5">
-                            {{ companie.cnpj ? 'CNPJ' : 'CPF' }} : {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
-                        </p>
+                <q-card
+                    class="q-card ml-5 mr-5 hover:drop-shadow-lg"
+                    v-for="(companie, id) in companies" 
+                    :key="id"
+                    
+                >
+                    <q-card-section>
+                        <div class="" v-if="has">
+                            <span class="text-xl">{{ companie.company_name }}</span>
+                            <br>
+                            <q-btn 
+                                label="Entrar" 
+                                @click="joinCompanie(companie.company_name, companie.id)"
+                                class="mt-8 bg-[#F1E2DD] text-white"
 
-                    </div>
+                            />
+                            
+                            <p class="mt-5">
+                                {{ companie.cnpj ? 'CNPJ' : 'CPF' }} : {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                            </p>
 
-                </q-card-section>
-            </q-card>
-        </div>
-        
+                        </div>
+
+                    </q-card-section>
+                </q-card>
+            </div>
+        </Transition>
     </div>
 </template>
 
@@ -106,7 +106,8 @@
                 owner_name: LocalStorage.getItem("owner_name"),
                 owner_cpf: LocalStorage.getItem("owner_cpf"),
                 witdhScreen: 0,
-                showOptions: true
+                showOptions: true,
+                showContent: false
 
             }
         },
@@ -179,6 +180,7 @@
         mounted()
         {
             this.getCompanies()
+            this.showContent = true;
             const uuse_id = LocalStorage.getItem("uuse_id")
             
             if(!uuse_id)
@@ -196,6 +198,22 @@
 </script> 
 
 <style lang="scss">
+    .slide-up-enter-from {
+        opacity: 0;
+        transform: translateY(50px);
+
+    }
+
+    .slide-up-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+        
+    }
+
+    .slide-up-enter-active {
+        transition: all 0.5s ease-out;
+    }
+
     @media (max-width: 1680px)
     {
         .q-card{
