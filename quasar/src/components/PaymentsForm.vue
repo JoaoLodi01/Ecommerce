@@ -4,16 +4,12 @@
         :total_amount="totalOperation"
         :issuer_id="this.issuer_id"
         @close="handlePIX"
-        class="relative left-[43rem] z-50 -bottom-44 w-[20rem]"
+        class="relative left-[20rem] top-5 z-50 bottom-44 w-[20rem]"
         
     />
     
     <q-card 
-        class="relative left-[45rem] mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded" 
-        :class="{
-            '-top-[46rem]': showQRCode,
-            'top-1': !showQRCode
-        }"
+        class="absolute top-0 left-[30rem] mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded" 
     >
         <q-card-section>
             <div class="text-h6">Formas de Pagamento</div>

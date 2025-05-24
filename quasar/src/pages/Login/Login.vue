@@ -12,13 +12,13 @@
         <div v-if="showContent" class="flex justify-center">
             <div class="bg-white border border-black p-5 rounded-lg shadow-xl">
                 <q-form
-                    @submit.prevent="loginMethod"
+                    @submit.prevent="login"
                 >
                     <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Login</h1>
 
                     <q-input
                         filled
-                        v-model="details.email"
+                        v-model="email"
                         label="E-mail"
                         class="mb-4"
                         color="grey-7"
@@ -29,7 +29,7 @@
 
                     <q-input
                         filled
-                        v-model="details.password"
+                        v-model="password"
                         label="Senha"
                         :type="showPassword ? 'text' : 'password'"
                         class="mb-4"
@@ -91,93 +91,59 @@
     </Transition>
 </template>
 
-<script>
+<script setup lang="ts">
     import { api } from "src/boot/axios"
     import { useQuasar, LocalStorage } from 'quasar';
-    import { onBeforeUnmount, Transition } from "vue";
+    import { ref, onMounted, Transition } from "vue";
+    import { useRouter } from 'vue-router'
 
-    export default {
-        name: "LoginPage",
+    const router = useRouter();
+    const $q = useQuasar();
 
-        setup () {
-            const $q = useQuasar()
-            let timer
+    const email: any = ref(null);
+    const password: any = ref(null);
+    const showPassword: any = ref(false);
+    const showContent: any = ref(false);
 
-            onBeforeUnmount(() => {
-                if (timer !== void 0) {
-                    clearTimeout(timer)
-                    $q.loading.hide()
-                }
-            })
-
-            return {
-                showLoading () {
-                    $q.loading.show({
-                        message: 'Carregando...'
-                    })
-
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 3000)
-                }
-            }
-        },
-
-        data(){
-
-            return {
-                details: {
-                    email: '',
-                    password: ''
-                },
-
-                showContent: false,
-                showPassword: false,
-
-            }
-        },
-
-        methods: {
-            async loginMethod() {
-                try {
-                    this.showLoading()
-                    const response = await api.post("/auth/owner", this.details);
-            
-                    if (response.data.success && response.data.token) {
-                        this.$router.push('/companies')
-                        console.log('Res: ', response.data)
-                        alert('Login bem sucedido!')
-
-                        LocalStorage.setItem("expire", response.data.expire);
-                        LocalStorage.setItem("auth_token", response.data.token);
-                        
-                        LocalStorage.setItem("owner_name", response.data.owner.name)
-                        LocalStorage.setItem("owner_cpf", response.data.owner.cpf)
-                        LocalStorage.setItem("user_id", response.data.user.user_cod)
-                        LocalStorage.setItem("user_name", response.data.user.name)
-                        LocalStorage.setItem("uuse_id", response.data.uuse_id)
-
-                    }
-
-                } catch (error) {
-                    if(error.status === 429)
-                    {
-                        alert('Muitas tentativas de login mal sucedidas! Tente novamente mais tarde')
-
-                    } else {
-                        console.error("Erro no login:", error);
-                        
-                    }
-                }
-            }
-        },
-
-        mounted()
-        {
-            this.showContent = true
-        }
+    const showLoading = () => {
+        $q.loading.show({
+            message: 'Efetuando login ...'
+        })
     }
+
+    const hideLoading = () => {
+        $q.loading.hide();
+    }
+
+    const login = async () => {
+        showLoading
+        const details = { email: email.value, password: password.value }
+
+        try {
+            const res = await api.post("/auth/owner", details)
+            console.log('Res: ', res.data);
+            if(res.data.success)
+            {
+                LocalStorage.set("auth_token", res.data.token);
+                LocalStorage.set("owner_name", res.data.owner.name)
+                LocalStorage.set("owner_cpf", res.data.owner.cpf)
+                LocalStorage.set("user_id", res.data.user.user_cod)
+                LocalStorage.set("user_name", res.data.user.name)
+                LocalStorage.set("uuse_id", res.data.uuse_id)
+                router.push('/companies')
+            }
+            
+        } catch (error) {
+            console.error('Erro no login: ', error)
+        } finally {
+            hideLoading
+        }
+
+    }
+
+    onMounted(() => {
+        showContent.value = true
+    })
 
 </script>
 

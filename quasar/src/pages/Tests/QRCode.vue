@@ -1,17 +1,16 @@
 <template>
-    <q-card class="w-[40rem]" v-if="qrCode">
-        
+    <q-card class="w-[40rem]" v-if="qrCode">        
         <img :src=qrCode alt="qrCode - PIX" class="border border-black p-5">
         
         <q-card-section>
-            <p
+            <h3>Chave cópia e cola</h3>
+            <q-btn
                 :data-clipboard-text="payLoad"
                 @click="clipBoard"
                 class="btn cursor-pointer"
                 title="Copiar"
-            >
-                {{ payLoad }}
-            </p>      
+            />
+                
         </q-card-section>
         <q-card-section class="flex justify-center">
             <q-btn 

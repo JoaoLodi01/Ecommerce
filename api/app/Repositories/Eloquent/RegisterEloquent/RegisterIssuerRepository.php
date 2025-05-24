@@ -46,8 +46,8 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             $issuer = Issuer::create([
                 'company_name' => $data['company_name'],
                 'trade_name' => $data['trade_name'],
-                'cnpj' => $data['cnpj'],
-                'cpf' => $data['cpf'],
+                'cnpj' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cnpj']),
+                'cpf' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cpf']),
                 'date_of_foundation' => $data['date_of_foundation'],
                 'cod_cnae' => $data['cod_cnae'],
                 'cnae' => $data['main_activity'],
@@ -117,8 +117,10 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         Log::info('$firstSteps ' . $firstSteps);
 
         $issuer->update([
-            'cep' => $data['cep'],
+            'cep' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cep']),
             'uf' => $data['uf'],
+            'cod_ibge' => $data['cod_ibge'], 
+            'city' => $data['city'],
             'address' => $data['address'],
             'number' => $data['number'],
             'cod_crt' => $data['cod_crt'],
@@ -146,6 +148,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         $firstSteps->save();
 
         $csosncst = '';
+        Log::info('Emitente é: ' . $issuer->crt, ' CRT: ' . $issuer->cod_crt);
         if($issuer->cod_crt && $issuer->cod_crt > 0)
         {
             $crt = $issuer->cod_crt;
@@ -157,7 +160,6 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
             }
         }
-        Log::info('Emitente é: ' . $issuer->crt);
         Log::info('csosncst é: ' . $csosncst);
         $this->registerTributs($issuer->id, $csosncst);
 

@@ -1,20 +1,28 @@
 <template>
-    <q-card class="w-[40rem]" v-if="qrCode">
-        
-        <img :src=qrCode alt="qrCode - PIX" class="border border-black p-5">
-        
-        <q-card-section>
-            <p
-                :data-clipboard-text="payLoad"
-                @click="clipBoard"
-                class="btn cursor-pointer"
-                title="Copiar"
+    <q-card class="w-[40rem] text-center" v-if="qrCode">        
+        <img :src=qrCode alt="qrCode - PIX" class="border border-black p-">
+
+        <div class="-mt-5">
+            <span 
+                class="bg-green-500 text-white p-2 rounded-md cursor-pointer"
+                v-if="successClip"
+                @click="successClip = !successClip"
             >
-                {{ payLoad }}
-            </p>      
-        </q-card-section>
-        <q-card-section class="flex justify-center">
-            <q-btn 
+                Chave copiada com sucesso!
+            </span>
+            <q-card-section>
+                <q-btn
+                    label="Chave cópia e cola"
+                    :data-clipboard-text="payLoad"
+                    @click="fnClipBoard"
+                    class="btn cursor-pointer"
+                    title="Copiar"
+                />
+                
+            </q-card-section>
+        </div>
+            <q-card-section class="flex justify-center">
+                <q-btn 
                 color="primary"
                 label="Finalizar venda" 
                 @click="finaly" 
@@ -36,10 +44,11 @@
         cep: string
     }
 
-    let qrCode = ref(null)
-    let payLoad = ref(null)
-    let pix_key = ref(null)
-    let issuer = ref<Issuer>({
+    let successClip: any = ref(null)
+    let qrCode: any = ref(null)
+    let payLoad: any = ref(null)
+    let pix_key: any = ref(null)
+    let issuer: any = ref<Issuer>({
         company_name: '',
         cep: ''
     })
@@ -75,6 +84,17 @@
 
         qrCode.value = res.base64;
         payLoad.value = res.payload;
+    }
+
+    const fnClipBoard = async () => {
+        try {
+            const res = await clipBoard();
+            successClip.value = res
+            console.log('Res: ', res)
+        } catch (error) {
+            console.error('Falha')
+            
+        }
     }
 
     const finaly = () => {

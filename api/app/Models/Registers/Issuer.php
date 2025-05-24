@@ -14,6 +14,8 @@ class Issuer extends Model
         'cnpj',
         'cpf',
         'uf',
+        'cod_ibge',
+        'city',
         'address',
         'number',
         'cep',
