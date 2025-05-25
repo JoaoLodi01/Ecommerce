@@ -51,10 +51,19 @@ class RegisterIssuerService
 
     public function update(array $data, int $id) 
     {
-        $issuer = $this->registerIssuerRepository->update($data, $id);
-        return response()->json([
-            'success' => true,
-            'issuer' => $issuer
-        ], 200);
+        try {
+            $issuer = $this->registerIssuerRepository->update($data, $id);
+            return response()->json([
+                'success' => true,
+                'issuer' => $issuer
+            ], 200);
+            
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'message' => $th->getMessage()
+                
+            ]);
+        }
     }
 }

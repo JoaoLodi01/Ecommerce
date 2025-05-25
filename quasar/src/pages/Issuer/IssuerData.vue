@@ -267,10 +267,12 @@
     const getIssuer = async () => {
         const res = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
         issuer.value = res.data.issuer
+
     }
 
     const completeIssuer = async () => {
         showLoading();
+        issuer.value.cod_crt = crtOptions.value.indexOf(issuer.value.crt) + 1;
         try {
             const res = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, issuer.value, {
                 headers: {
@@ -286,6 +288,7 @@
         } finally {
             hideLoading();
         }
+        
     }
     
     const getCEPData = async () => {

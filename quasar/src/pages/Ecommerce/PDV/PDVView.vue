@@ -25,7 +25,7 @@
                 :witdhScreen="this.witdhScreen"
                 :typeOperation=this.typeOperation
                 :totalOperation=this.totalOperation
-                :pdvID=this.pdvID
+                :pdvID=this.pdvID 
                 @resetTotal="totalOperation = $event"
                 @resetPDVID="pdvID = $event"
                 @close="cancelOperation"
@@ -48,6 +48,7 @@
                 }"
             />
 
+
         </div>
         
         <div class="h-4">
@@ -65,9 +66,9 @@
                         v-if="witdhScreen > 1366"
                         class="mr-16 mt-1"
                     >
-                        <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configurações</button>
-                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
-                        <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
+                        <button @click="showOptions" class="bg-[#BF3658] text-white p-1 mr-5 rounded-lg">Configurações</button>
+                        <button class="bg-[#BF3658] text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
+                        <button @click="closeCashClosing(true)" class="bg-[#BF3658] text-white p-1 mr-5 rounded-lg">Fechamento</button>
 
                     </div>
                 </div>
@@ -102,7 +103,7 @@
             >
                 <table class="block text-left rounded-t-xl rtl:text-right ">
                     <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
-                        <tr class="bg-white">
+                        <tr class="">
                             <th scope="col" class="px-6 py-3">Cód.</th>
                             <th scope="col" class="px-6 py-3 text-left">Produto</th>
                             <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
@@ -315,23 +316,29 @@
                     <p class="flex justify-between">Frete <span>R$ {{ calculateTotal.freight.toFixed(2) }}</span></p>
                 
                 </div>
-             
-                    <div class="flex m-2 p-2 rounded-lg border border-gray-700">
+                
+                <div class="mb-0 mt-0">
+                    <img src="" alt="">
+                    <div class="bg-black h-[16rem]"></div>
+                </div>
+                <!-- A imagem vai ter que ficar por aqui -->
+
+                    <div class="flex m-2 p-2 mt-2 rounded-lg border border-gray-700">
                         <button
                             v-if="productsSeletion.length <= 0"
                             disabled
                             title="Sem vendas no momento"
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
+                            class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
                             
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                             </svg>
                         </button>
 
                         <button
                             v-else @click="cancelSale()"
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
+                            class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
@@ -342,14 +349,14 @@
                             v-if="productsSeletion.length <= 0"
                             disabled
                             title="Sem vendas no momento"
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
+                            class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
                             </svg>
                         </button>
                         <button 
-                            class="mr-1 ml-2 bg-slate-600 rounded-md"
+                            class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
                             title="Salvar venda"
                             @click="saveSale()"
                             v-else
@@ -360,7 +367,7 @@
                         </button>
 
                         <div class="mb-auto ml-auto text-xl w-auto">
-                            <span class="mr-1 text-white p-1 bg-slate-600 rounded-md">Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}</span>
+                            <span class="mr-1 text-white p-1 bg-[#BF3658] rounded-md">Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}</span>
                         
                         </div>
                     </div>
@@ -380,7 +387,7 @@
                                     'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
                                 }" 
                                 @click="finalizeSale('nm')"
-                                class="mr-1 ml-2 p-1 bg-slate-600 rounded-md"
+                                class="mr-1 ml-2 p-1 bg-[#BF3658] rounded-md"
                             >
                                 Finalizar
                             </button>
@@ -390,7 +397,12 @@
                             outline 
                             size="1.2rem"
                         >
-                            <button @click="finalizeSale('nfce')" class="mr-1 ml-2 p-1 bg-slate-600 rounded-md">Finalizar e emitir NFC-e</button>
+                            <button 
+                                @click="finalizeSale('nfce')" 
+                                class="mr-1 ml-2 p-1 bg-[#BF3658] rounded-md"
+                            >
+                                Finalizar e emitir NFC-e
+                            </button>
     
                         </q-btn>
                         
@@ -399,9 +411,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- oder options -->
-        
     </div>
     <div>
         <ConfigPDV
@@ -1119,7 +1128,7 @@
     }
 
     #pdv-view{
-        height: auto;
+        height: 97.3vh;
         
     }
 

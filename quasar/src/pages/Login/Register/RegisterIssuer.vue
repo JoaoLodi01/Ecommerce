@@ -23,7 +23,7 @@
                     label="Razão Social" 
                     stack-label
                     class="mb-4"
-                    color="grey"
+                    color="[#BF3658]"
                     
                 />
 
@@ -34,7 +34,7 @@
                     label="Nome Fantasia" 
                     stack-label
                     class="mb-4"
-                    color="grey"
+                    color="[#BF3658]"
                     
                 />
 
@@ -44,7 +44,7 @@
                     label="CNPJ" 
                     stack-label
                     class="mb-4"
-                    color="grey"
+                    color="[#BF3658]"
                     v-bind:mask="'##.###.###/####-##'"
                     maxlength="18"
                     @update:model-value="getDataCNPJ()"
@@ -57,7 +57,7 @@
                     label="CPF" 
                     stack-label
                     class="mb-4"
-                    color="grey"
+                    color="[#BF3658]"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
 
@@ -70,7 +70,7 @@
                     label="Data de fundação" 
                     stack-label
                     class="mb-4"
-                    color="grey"
+                    color="[#BF3658]"
 
                 /> 
                 
@@ -79,8 +79,7 @@
                         type="submit"
                         label="Criar Empresa"
                         class="m-2"
-                        flat 
-                        style="color: #1F2937"   
+                        color="[#BF3658]"   
                     />
                 </div>
             

@@ -75,7 +75,7 @@
                             <q-btn 
                                 label="Entrar" 
                                 @click="joinCompanie(companie.company_name, companie.id)"
-                                class="mt-8 bg-[#F1E2DD] text-white"
+                                class="mt-8 bg-[#BF3658] text-white"
 
                             />
                             

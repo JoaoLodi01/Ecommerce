@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('uf', 2)->nullable();
             $table->integer('cod_ibge', false, 2)->nullable();
             $table->string('city', 100)->nullable();
-            $table->string('uf', 2)->nullable();
             $table->string('address', 100)->nullable();
             $table->string('number', 10)->nullable();
             $table->string('cep', 11)->nullable();

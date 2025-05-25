@@ -103,59 +103,85 @@
     
 </template>
 
-<script setup lang="ts">
+<script>
     import { LocalStorage } from "quasar";
     import { api } from "src/boot/axios";
     import ReportErros from "src/components/PDV/Errors/ReportErros.vue";
-    import { ref } from 'vue';
-    import { useRouter } from "vue-router";
     
-    type SearchFill = {
-        all: boolean,
-        finaly_: boolean,
-        noFinaly: boolean
-    };
+    export default {
+        data()
+        {
+            return {
+                showReportPDV: false,
+                showListPDV: true,
 
-    type PDV = {
-        id: number
-    };  
+                searchFill: {
+                    all: true,
+                    finaly: false,
+                    noFinaly: false
+                },
+                countErros: 0,
+                savedPDVs: [],
+                itensPDVs: [],                
 
-    const router = useRouter();
+            }
+        },
+        
+        methods: {
+            async getPDVsSaved()
+            {   
+                try {
+                    const response = await api.get(`/ecommerce/pdv/all/${LocalStorage.getItem("issuer_id")}`)
+                    this.savedPDVs = response.data.data
+                    console.log(response.data.data)
+                    /*for (let i = 0; i < response.data.pdvs.length; i++) {
+                        this.itensPDVs = response.data.pdvs[i]['get_itens']
+                        
+                    }*/
 
-    const showReportPDV = ref(false);
-    const showListPDV = ref(true);
-    const searchFill = ref<SearchFill | null>({
-        all: true,
-        finaly_: false,
-        noFinaly: false
-    });
+                } catch (error) {
+                    console.error('Erro getPDVs', error)
+                    
+                }
+            },
+            
+            openPDV(pdv)
+            {
+                this.$router.push({
+                    name: 'PDVID', 
+                    params: { idPDV: pdv.id, },
+                    state: { isOpenedPDV: true }
+                })
+                
 
-    const countErros = ref(0);
-    const savedPDVs = ref([]);
-    const itensPDVs = ref([]);
+            },
 
-    const getPDVsSaved = async () => {
-        const res = await api.get(`/ecommerce/pdv/all/${LocalStorage.getItem("issuer_id")}`);
-        savedPDVs.value = res.data.data
+            openReportErros()
+            {
+                this.showReportPDV = true
+                this.showListPDV = false
+            },
+            closeReportErros(event)
+            {
+                this.showReportPDV = event
+                this.showListPDV = !event
+            }
+        },
 
-    }
+        mounted()
+        {
+            this.getPDVsSaved()   
+            const countErrorsFun = async () => {
+                const response = await api.get('/ecommerce/pdv/get-all-errors')
+                this.countErros = response.data.all.count
+                console.log(response.data)
+            }
+            countErrorsFun()
 
-    const openPDV = (pdv: PDV) => {
-        router.push({
-            name: 'PDVID',
-            params: { idPDV: pdv.id },
-            state: { isOpenedPDV: true }
-        })
-    }
+        },
 
-    const openReportErros = () => {
-        showReportPDV.value = true
-        showListPDV.value = false
-
-    }
-
-    const closeReportErros = (event: any) => {
-        showReportPDV.value = event 
-        showListPDV.value = event 
+        components: {
+            ReportErros
+        }
     }
 </script>
