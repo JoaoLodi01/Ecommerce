@@ -28,6 +28,8 @@ class AuthController extends Controller
         
         $owner = $this->registerOwnerService->findByEmail($data['email']);
 
+        $checkToken = $this->readFile($owner->uuse_id);
+
         Log::info('owner ' . $owner);
         if($owner && Hash::check($data['password'], $owner->password))
         {
@@ -75,8 +77,8 @@ class AuthController extends Controller
         
     }
 
-    public function accessSupervisor()
+    public function readFile(string $token)
     {
-        
+        $file = public_path('auth');
     }
 }

@@ -7,8 +7,8 @@ use App\Models\Registers\User;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\{
-    Hash,
-    Log
+    Hash
+    
 };
 
 use App\Repositories\Contracts\RegisterContract\RegisterOwnerContract;
