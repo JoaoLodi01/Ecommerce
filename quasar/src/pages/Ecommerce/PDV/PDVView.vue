@@ -256,9 +256,7 @@
                             <q-input 
                                 :placeholder="sellerData.name"
                                 disable
-                                id="discount"
                                 type="text"
-                                class="w-16"
                             />
 
                             <br>
@@ -271,13 +269,8 @@
                             />
                             <!-- COMPONENTE BUSCA DE CLIENTE -->                            
                         </div>
-
-                        <div class="">
-                            
-                        </div>
                     <div
                         class="m-2 p-2 rounded-lg border border-gray-700" 
-                        id="values"
                         
                     >
                         <label class="text-black" for="addition">Acréscimo R$</label>
@@ -304,6 +297,8 @@
                             type="text"
                             class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
                         />
+
+                        <p class="flex justify-between">Frete: R$ <input id="freight" v-model.number="emitProducts.freight" type="text" class="text-right"/></p>
                     </div>
                 <div
                     class="m-2 p-2 rounded-lg border border-gray-700"
@@ -317,97 +312,97 @@
                 
                 </div>
                 
-                <div class="mb-0 mt-0">
+                <div class="mb-0 mt-3 p-2">
                     <img src="" alt="">
                     <div class="bg-black h-[16rem]"></div>
                 </div>
                 <!-- A imagem vai ter que ficar por aqui -->
+                    <div class="fixed bottom-4">
+                        <div class="flex m-2 p-2 mt-2 rounded-lg border border-gray-700">
+                            <button
+                                v-if="productsSeletion.length <= 0"
+                                disabled
+                                title="Sem vendas no momento"
+                                class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+                            </button>
 
-                    <div class="flex m-2 p-2 mt-2 rounded-lg border border-gray-700">
-                        <button
-                            v-if="productsSeletion.length <= 0"
-                            disabled
-                            title="Sem vendas no momento"
-                            class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                            <button
+                                v-else @click="cancelSale()"
+                                class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+                            </button>
+
+                            <button
+                                v-if="productsSeletion.length <= 0"
+                                disabled
+                                title="Sem vendas no momento"
+                                class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                                </svg>
+                            </button>
+                            <button 
+                                class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                title="Salvar venda"
+                                @click="saveSale()"
+                                v-else
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                                </svg>
+                            </button>
+
+                            <div class="mb-auto ml-auto text-xl w-auto">
+                                <span class="mr-1 text-white p-1 bg-[#BF3658] rounded-md">Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}</span>
                             
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                            </svg>
-                        </button>
+                            </div>
+                        </div>
 
-                        <button
-                            v-else @click="cancelSale()"
-                            class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                            </svg>
-                        </button>
-
-                        <button
-                            v-if="productsSeletion.length <= 0"
-                            disabled
-                            title="Sem vendas no momento"
-                            class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                            </svg>
-                        </button>
-                        <button 
-                            class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
-                            title="Salvar venda"
-                            @click="saveSale()"
-                            v-else
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                            </svg>
-                        </button>
-
-                        <div class="mb-auto ml-auto text-xl w-auto">
-                            <span class="mr-1 text-white p-1 bg-[#BF3658] rounded-md">Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}</span>
+                        <div 
+                            class="flex text-white rounded-lg border border-gray-700 w-[26.2rem]"
                         
+                        >
+                            <q-btn 
+                                class="ml-5 border-none" 
+                                outline 
+                                size="1rem"
+                            >
+                                <button
+                                    v-if="configs.nmFinaly"
+                                    :class="{
+                                        'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
+                                    }" 
+                                    @click="finalizeSale('nm')"
+                                    class="mr-1 ml-2 p-1 bg-[#BF3658] rounded-md"
+                                >
+                                    Finalizar
+                                </button>
+                            </q-btn>
+                            <q-btn 
+                                class="ml-5" 
+                                outline 
+                                size="1rem"
+                            >
+                                <button 
+                                    @click="finalizeSale('nfce')" 
+                                    class="mr-1 ml-2 p-1 bg-[#BF3658] rounded-md"
+                                >
+                                    Finalizar e emitir NFC-e
+                                </button>
+        
+                            </q-btn>
+                            
                         </div>
                     </div>
-
-                    <div 
-                        class="flex text-white p-1 rounded-lg border border-gray-700 w-full"
-                    
-                    >
-                        <q-btn 
-                            class="ml-5" 
-                            outline 
-                            size="1.2rem"
-                        >
-                            <button
-                                v-if="configs.nmFinaly"
-                                :class="{
-                                    'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
-                                }" 
-                                @click="finalizeSale('nm')"
-                                class="mr-1 ml-2 p-1 bg-[#BF3658] rounded-md"
-                            >
-                                Finalizar
-                            </button>
-                        </q-btn>
-                        <q-btn 
-                            class="ml-5" 
-                            outline 
-                            size="1.2rem"
-                        >
-                            <button 
-                                @click="finalizeSale('nfce')" 
-                                class="mr-1 ml-2 p-1 bg-[#BF3658] rounded-md"
-                            >
-                                Finalizar e emitir NFC-e
-                            </button>
-    
-                        </q-btn>
-                        
-                    </div>
-
                 </div>
             </div>
         </div>
