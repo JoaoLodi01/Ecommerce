@@ -115,9 +115,9 @@
                         </tr>
                     </thead>
 
-                    <tbody v-for="products in productsSeletion">
+                    <tbody v-for="(products, i) in productsSeletion">
                         <tr
-                            v-for="(product, id) in products" :key="id"
+                            v-for="(product, k) in products" :key="k"
                             class="border border-black"
                         >    
 
@@ -179,7 +179,7 @@
                                         </svg>
                                     </button>
 
-                                    <button @click="productOptions(product, 'options')">
+                                    <button @click="productOptions(product, i, 'options')">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 16 16" fill="currentColor"
@@ -918,27 +918,17 @@
 
             productOptions(product, i, action)
             {
-                let rawProducts = toRaw(this.productsSeletion)
-
                 switch (action) {
                     case 'delete':
-                        /*for (let i = 0; i < rawProducts.length; i++) 
-                        {
-                            const products = rawProducts[i];
-                            const index = products.findIndex(p => p.id === product.id)                            
+                        let maped = this.productsSeletion
+                                        .map(products => product)
+                                        
 
-                            if(index !== -1)
-                            {
-                                products.splice(index, 1)
-                                
-                                while (products.length <= 0 ) {
-                                    this.productsSeletion = []
-                                    break
-                                }
-                                break
-                            }
-                        }*/
-                        console.log('product.id', product.id, ' i: ', i)
+                        this.productsSeletion = maped.splice(i, 2);
+                        this.productsSeletion = this.productsSeletion.filter(p => p != null)
+
+                        console.log('this.productsSeletion: ', this.productsSeletion, ' .length', this.productsSeletion.length);
+                        
                         break;
                         
                     case 'view':
@@ -948,7 +938,9 @@
                             amount: product.amount,
                             salePrice: product.sale_price,
                             total: product.amount * product.sale_price
-                        }
+
+                        };
+
                         this.viewProduct.show = !this.viewProduct.show
                         
                         break;
