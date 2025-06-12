@@ -28,11 +28,13 @@ class AuthController extends Controller
         
         $owner = $this->registerOwnerService->findByEmail($data['email']);
 
-        $checkToken = $this->readFile($owner->uuse_id);
-
+        
         Log::info('owner ' . $owner);
         if($owner && Hash::check($data['password'], $owner->password))
         {
+            //$checkToken = $this->readFile($owner->uuse_id);
+
+
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
             $user = $this->userService->findById($owner->id);

@@ -9,7 +9,7 @@
 
         }"
         
-        class="transition-transform duration-300 bg-[#2C363F] text-white text-base h-screen fixed top-0 left-0 z-40 sideBar"
+        class="transition-transform duration-300 bg-[#2C363F] text-white text-base h-screen fixed top-0 left-0 z-40"
         title="Sidebar"
       >
       
@@ -692,14 +692,10 @@
     outline: none;
   }
 
-  @media (min-width: 1080px)
-  {
-      .closeSideBar {
-        position: relative;
-        left: 4.7rem;
-        top: 2rem;
-
-      }
+  .closeSideBar {
+    position: relative;
+    left: 4.7rem;
+    top: 2rem;
 
   }
 
@@ -712,10 +708,5 @@
         border: solid #000;
         
     }
-
-    .sideBar {
-        border: solid #000;
-    }
-
   }
 </style>
