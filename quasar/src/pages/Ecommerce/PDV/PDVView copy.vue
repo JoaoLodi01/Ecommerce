@@ -423,7 +423,7 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import PaymentsForm from 'src/components/PaymentsForm.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing/CashClosing.vue'
@@ -433,308 +433,305 @@
     import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     
     import { api } from "src/boot/axios"
-    import { onBeforeUnmount, toRaw } from 'vue'   
+    import { ref, computed, watch, defineProps } from 'vue'   
+    import { useRoute, useRouter } from 'vue-router';
     import { useQuasar, LocalStorage } from 'quasar';
-    
-    export default{
-        setup(){
-            const $q = useQuasar()
-            let timer
-            onBeforeUnmount(() => {
-                if(timer !== void 0) {
-                    clearTimeout(timer)
-                    $q.loading.hide()
 
-                }
-            })
+    type products = {
+        product: string,
+        cfop: string,
+        csosn: string,
+        amount: number,
+        sale_price: number,
+    };
 
-            return { 
-                showLoading () {
-                    $q.loading.show({
-                        message: 'Carregando pagamento e validando a venda ...'
-                    })
+    const props = defineProps({
+        idPDV: {
+            type: number,
+            required: true
+        }
+    });
 
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 3000)
-                }
-            }
-        },  
+    const $q = useQuasar();
+    const route = useRoute();
+    const router = useRouter();
 
-        data(){
-            return {
-                productsSeletion: [],
-                clients: [],
+    let timer;
 
-                errorsOfSale: {
+    let productsSeletion = ref([]);
+    let clients = ref([]);
+    let errorsOfSale = ref({
                     showErrosModal: false,
                     erros: []
 
-                },
+                });
             
-                emitProducts: {
+    let emitProducts = ref({
                     addition: 0,
                     discount: 0,
                     freight: 0,
                     userID: 0,
                     
-                },
-
-                CRT: 0,
-
-                sellerData: {
-                    id: 0,
-                    name: ''
-                },
-
-                clientsData: {
-                    id: 0,
-                    name: ''
-                },
-
-                totalOperation: 0,
-                witdhScreen: 0,
-                textSize: 4,
-                pdvID: 0,
-                show: false,
-                showGrid: true,
-                isLoanding: true,
-                showPaymentsForm: false,
-                showProductsSearch: true,
-                showCashClosing: false,
-                
-                showOptionsPDV: false,
-                
-                viewProduct: {
-                    show: false,
-                    id: '',
-                    name: '',
-                    amount: 0,
-                    salePrice: 0,
-                    total: 0
-                    
-                },
-
-                isOpenedPDV: false,
-                success: null,
-                typeOperation: '',
-                csosncst: '',
-            
-                configs: {
-                    nmFinaly: false,
-                    saleNegativeorReset: false
-                },
-                issuer_id: LocalStorage.getItem("issuer_id")
-            }
-        },
-
-        watch: {
-            '$route'(to, from) {
-                if(to.fullPath === '/sale/pdv'){
-                    this.productsSeletion = []
-
-                } 
-            }
-        },  
-
-        computed: {
-            calculateTotal(){
-                const rawproductsSeletion = toRaw(this.productsSeletion)
-                
-                let subtotal = 0
-                
-                rawproductsSeletion.forEach(products => {
-                    for (let i = 0; i < products.length; i++) {
-                        const p = products[i];
-                        subtotal += p.sale_price * p.amount
-                        
-                    }
                 });
 
-                const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
-                const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
-                const freight = typeof this.emitProducts.freight === 'number' ? this.emitProducts.freight : 0
-                
-                return {
-                    subtotal: subtotal,
-                    addition: addition,
-                    discount: discount,
-                    freight: freight
-                    
-                }
-            },
-        },
+    const CRT = ref(0);
+
+    const sellerData = ref({
+                    id: 0,
+                    name: ''
+                });
+
+    const clientsData = ref({
+                    id: 0,
+                    name: ''
+                })
+
+    let totalOperation= ref(0);
+    let witdhScreen= ref( 0);
+    let textSize= ref( 4);
+    let pdvID= ref( 0);
+    let show= ref( false);
+    let showGrid= ref( true);
+    let isLoanding= ref( true);
+    let showPaymentsForm= ref( false);
+    let showProductsSearch= ref( true);
+    let showCashClosing= ref( false);
+    
+    let showOptionsPDV= ref( false);
+    
+    let viewProduct= ref( {
+        show: false,
+        id: '',
+        name: '',
+        amount: 0,
+        salePrice: 0,
+        total: 0
         
-        methods: {
-            async saveSale()
+    });
+
+    let isOpenedPDV = ref(false);
+    let success = ref( null);
+    let typeOperation = ref('');
+    let csosncst = ref('');
+            
+    let configs = ref({
+        nmFinaly: false,
+        saleNegativeorReset: false
+    });
+
+    const issuer_id = ref(LocalStorage.getItem("issuer_id"));
+
+    const showLoading = () => {
+        $q.loading.show({
+            message: 'Carregando pagamento e validando a venda ...'
+        })
+
+        timer = setTimeout(() => {
+            $q.loading.hide()
+            timer = void 0
+        }, 3000)
+    }
+
+    const hideLoanding = () => {
+        if(timer !== void 0) {
+            clearTimeout(timer)
+            $q.loading.hide()
+
+        }
+    }
+    
+    watch(
+        () => route.fullPath,
+        (to, from) => {
+            if(to === '/sale/pdv') productsSeletion.value = [];
+            return;
+        }
+    );
+        
+    const calculateTotal = computed(() => {
+        let subtotal: number = 0;
+
+        productsSeletion.value.forEach((products: products[]) => {
+            for(let i = 0; i < products.length; i++)
             {
-                const saveSale = confirm('Deseja salvar a venda?')
-                if (saveSale) {
-                    try {
-                        if(!this.isOpenedPDV)
-                        {
+                const p = products[i];
+                subtotal += p.sale_price * p.amount;
+            };
+        });
+
+        const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
+        const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.addition : 0;
+        const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.addition : 0;
+
+        return { 
+            subtotal: subtotal,
+            addition: addition,
+            discount: discount,
+            freight: freight
+        };
+    });
+
+    const saveSale = async() => {
+        const saveSale = confirm('Deseja salvar a venda?');
+        if (saveSale) 
+        {
+            if(isOpenedPDV.value)
+            {
+                const response = await api.post('/ecommerce/pdv/save-sale', { 
+                    issuer_id:  issuer_id,
+                    products: productsSeletion, 
+                    user_id: sellerData.value.id,
+                    customer_id: clientsData.value.id >= 1 ? clientsData.value.id : 1,
+                    sub_total: calculateTotal.value.subtotal,
+                    total: calculateTotal.value.subtotal- calculateTotal.value.discount + calculateTotal.value.addition,
+                    addition: calculateTotal.value.addition,
+                    discount: calculateTotal.value.discount,
+                    description: 'Venda guardada',
+                    is_nfce_nm: '',
+                    status: 'Em Aberto'
+                    
+                })
+
+                if(response.data.success === true)
+                {
+                    alert('Venda guardarda para enviar posteriormente!')
+                    productsSeletion// Salva apenas a venda = []
+
+                } else {
+                    console.log(response.data)
+                }
+
+            } else {
+
+                alert('Venda guardarda para enviar posteriormente!')
+                productsSeletion// Salva apenas a venda = []
+                router.push({ name: "PDV" })
+            }
+        }
+    }
+    
+    const finalizeSale = async (type: string) => {
+        showLoading()
+            try {
+                if(sellerData.value.id)
+                {
+                    totalOperation.value += calculateTotal.value.subtotal + calculateTotal.value.freight + calculateTotal.value.addition - calculateTotal.value.discount
+                    
+                } else {
+                    console.log('Não deu, clientsData.id: ', clientsData.value.id, ' sellerData.id:', sellerData.value.id)
+                }
+
+                if(idPDV)
+                {
+                    console.log('Venda importada')
+                    if(type === 'nm')
+                    {
+                        typeOperation = type
+                        showPaymentsForm.value = !showPaymentsForm
+                        pdvID.value = Number(idPDV.value)
+
+                    }   
+
+                    if(type === 'nfce')
+                    {
+                        typeOperation = type
+                        showPaymentsForm = !showPaymentsForm
+                        pdvID = Number(idPDV)
+                    }
+                
+                } else {
+                    const pdvID = LocalStorage.getItem("pdvID")
+                    if(!pdvID)
+                    {
+                        console.log('Finalizar venda')
+                        console.log('Total', this.totalOperation)
+                        if(type === 'nm')   
+                        { 
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 issuer_id: this.issuer_id,
                                 products: this.productsSeletion, // Produtos da 
                                 user_id: this.sellerData.id,
                                 customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                sub_total: this.calculateTotal.subtotal,
                                 total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                sub_total: this.calculateTotal.subtotal,
                                 addition: this.calculateTotal.addition,
                                 discount: this.calculateTotal.discount,
-                                description: 'Venda guardada',
-                                is_nfce_nm: '',
-                                status: 'Em Aberto'
+                                description: 'Venda Nota Manual N°',
+                                is_nfce_nm: type,
+                                status: 'Finalizada'
                                 
                             })
 
-                            if(response.data.success === true)
+                            const data = response.data
+                            console.log(data)
+
+                            if(data.success)
                             {
-                                alert('Venda guardarda para enviar posteriormente!')
-                                this.productsSeletion = []
+                                LocalStorage.setItem("pdvID", response.data.pdvID)
+                                this.typeOperation = type
+                                this.showPaymentsForm = true
+                                this.pdvID = LocalStorage.getItem("pdvID")
+                                console.log('this.typeOperation linha 682: ', this.typeOperation)
+                                console.log('this.showPaymentsForm linha 683: ', this.showPaymentsForm)
+                                console.log('this.pdvID linha 684: ', this.pdvID)
+
+                            }
+                        
+                            if(!data.success)
+                            {
+                                console.log(response.data) 
+                            }
+                        } 
+                    
+                        if(type === 'nfce')
+                        {  
+                            const response = await api.post('/ecommerce/pdv/save-sale', {
+                                issuer_id: this.issuer_id,
+                                products: this.productsSeletion, // Produtos da 
+                                user_id: this.sellerData.id,
+                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
+                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
+                                sub_total: this.calculateTotal.subtotal,
+                                addition: this.calculateTotal.addition,
+                                discount: this.calculateTotal.discount,
+                                description: 'Venda NFC-e N°',
+                                is_nfce_nm: type,
+                                status: 'Finalizada'
+                                
+                            })
+
+                            console.log('response.dat PDVView, line 718: ', response)
+                            const data = response.data
+
+                            if(data.success)
+                            {
+                                LocalStorage.setItem("pdvID", response.data.pdvID)
+                                this.typeOperation = type
+                                this.showPaymentsForm = true
+                                this.pdvID = LocalStorage.getItem("pdvID")
 
                             } else {
-                                console.log(response.data)
+                                this.errorsOfSale.erros = data.errors
+                                this.errorsOfSale.showErrosModal = true
+
                             }
 
-                        } else {
-
-                            alert('Venda guardarda para enviar posteriormente!')
-                            this.productsSeletion = []
-                            this.$router.push({ name: "PDV" })
                         }
-                        
-                    } catch (error) {
-                        console.error('Erro saveSale() = error.response', error)
-                        
-                    }
-                }
-            },
-            
-            async finalizeSale(type)
-            {
-                this.showLoading()
-                try {
-                    if(this.sellerData.id)
-                    {
-                        this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.freight + this.calculateTotal.addition - this.calculateTotal.discount
-                        
-                    } else {
-                        console.log('Não deu, this.clientsData.id: ', this.clientsData.id, ' this.sellerData.id:', this.sellerData.id)
-                    }
-
-                    if(this.idPDV)
-                    {
-                        console.log('Venda importada')
-                        if(type === 'nm')
-                        {
-                            this.typeOperation = type
-                            this.showPaymentsForm = !this.showPaymentsForm
-                            this.pdvID = Number(this.idPDV)
-
-                        }   
-
-                        if(type === 'nfce')
-                        {
-                            this.typeOperation = type
-                            this.showPaymentsForm = !this.showPaymentsForm
-                            this.pdvID = Number(this.idPDV)
-                        }
-                    
-                    } else {
-                        const pdvID = LocalStorage.getItem("pdvID")
-                        if(!pdvID)
-                        {
-                            console.log('Finalizar venda')
-                            console.log('Total', this.totalOperation)
-                            if(type === 'nm')   
-                            { 
-                                const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                    issuer_id: this.issuer_id,
-                                    products: this.productsSeletion, // Produtos da 
-                                    user_id: this.sellerData.id,
-                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                    sub_total: this.calculateTotal.subtotal,
-                                    addition: this.calculateTotal.addition,
-                                    discount: this.calculateTotal.discount,
-                                    description: 'Venda Nota Manual N°',
-                                    is_nfce_nm: type,
-                                    status: 'Finalizada'
-                                    
-                                })
-
-                                const data = response.data
-                                console.log(data)
-
-                                if(data.success)
-                                {
-                                    LocalStorage.setItem("pdvID", response.data.pdvID)
-                                    this.typeOperation = type
-                                    this.showPaymentsForm = true
-                                    this.pdvID = LocalStorage.getItem("pdvID")
-                                    console.log('this.typeOperation linha 682: ', this.typeOperation)
-                                    console.log('this.showPaymentsForm linha 683: ', this.showPaymentsForm)
-                                    console.log('this.pdvID linha 684: ', this.pdvID)
-
-                                }
                             
-                                if(!data.success)
-                                {
-                                    console.log(response.data) 
-                                }
-                            } 
-                        
-                            if(type === 'nfce')
-                            {  
-                                const response = await api.post('/ecommerce/pdv/save-sale', {
-                                    issuer_id: this.issuer_id,
-                                    products: this.productsSeletion, // Produtos da 
-                                    user_id: this.sellerData.id,
-                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                    sub_total: this.calculateTotal.subtotal,
-                                    addition: this.calculateTotal.addition,
-                                    discount: this.calculateTotal.discount,
-                                    description: 'Venda NFC-e N°',
-                                    is_nfce_nm: type,
-                                    status: 'Finalizada'
-                                    
-                                })
-
-                                console.log('response.dat PDVView, line 718: ', response)
-                                const data = response.data
-
-                                if(data.success)
-                                {
-                                    LocalStorage.setItem("pdvID", response.data.pdvID)
-                                    this.typeOperation = type
-                                    this.showPaymentsForm = true
-                                    this.pdvID = LocalStorage.getItem("pdvID")
-
-                                } else {
-                                    this.errorsOfSale.erros = data.errors
-                                    this.errorsOfSale.showErrosModal = true
-
-                                }
-
-                            }
-                               
-                        } else {
-                            console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
-                            this.showPaymentsForm = true
-                            this.pdvID = LocalStorage.getItem("pdvID")
-                        }
+                    } else {
+                        console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
+                        this.showPaymentsForm = true
+                        this.pdvID = LocalStorage.getItem("pdvID")
                     }
-                    
-                } catch (error) {
-                    console.error('Erro finalizeSale', error)
-                    this.errorMessages.push(error.response.data.errors)
-                    
                 }
-            },
+                
+            } catch (error) {
+                console.error('Erro finalizeSale', error)
+                this.errorMessages.push(error.response.data.errors)
+                
+            }
 
+    }
             async getCRT()
             {
                 try {
@@ -1058,7 +1055,9 @@
                 } 
             })
         }
-      }
+
+        
+      
 </script>
 
 <style>
