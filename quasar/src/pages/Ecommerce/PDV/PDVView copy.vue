@@ -548,6 +548,7 @@
             addition: addition,
             discount: discount,
             freight: freight
+            
         };
     });
 
