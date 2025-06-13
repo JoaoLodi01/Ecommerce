@@ -1,0 +1,3 @@
+type TEvent = {
+    key: string
+}
