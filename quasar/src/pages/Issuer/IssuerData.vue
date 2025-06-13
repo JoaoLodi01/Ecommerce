@@ -256,7 +256,7 @@
 
     const showLoading = () => {
         $q.loading.show({
-            message: _completed ? 'Atualizando dados' : 'Salvando dados'
+            message: _completed ? 'Atualizando dados' : 'Salvando dados ( pode levar alguns minutos )'
         });
     }
 
