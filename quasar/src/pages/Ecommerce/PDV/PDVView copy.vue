@@ -22,10 +22,10 @@
         >
             <PaymentsForm
                 v-if="showPaymentsForm"
-                :witdhScreen="this.witdhScreen"
-                :typeOperation=this.typeOperation
-                :totalOperation=this.totalOperation
-                :pdvID=this.pdvID 
+                :witdhScreen="witdhScreen"
+                :typeOperation=typeOperation
+                :totalOperation=totalOperation
+                :pdvID=pdvID 
                 @resetTotal="totalOperation = $event"
                 @resetPDVID="pdvID = $event"
                 @close="cancelOperation"
@@ -89,7 +89,7 @@
                 <div class="mr-1">
                     <ProductsSearchBar
                         v-if="showProductsSearch"
-                        :witdhScreen="this.witdhScreen"
+                        :witdhScreen="witdhScreen"
                         @update:selectProducts="updateProductsSeletion($event)"
 
                     />
@@ -121,7 +121,7 @@
                             class="border border-black"
                         >    
 
-                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.product_cod }}</td>
+                            <td class="px-6" scope="row">{{ props.idPDV ? product.product_id : product.product_cod }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
 
                             <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
@@ -415,8 +415,8 @@
 
         <ProductsSelectionView
             v-if="show"
-            :witdhScreen="this.witdhScreen"
-            :CRT="this.CRT"
+            :witdhScreen="witdhScreen"
+            :CRT="CRT"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion($event)"
         />
@@ -445,12 +445,9 @@
         sale_price: number,
     };
 
-    const props = defineProps({
-        idPDV: {
-            type: number,
-            required: true
-        }
-    });
+    const props = defineProps<{
+        idPDV: Number
+    }>();
 
     const $q = useQuasar();
     const route = useRoute();
@@ -489,7 +486,7 @@
     let totalOperation= ref(0);
     let witdhScreen= ref( 0);
     let textSize= ref( 4);
-    let pdvID= ref( 0);
+    let pdvID= ref<Number>( 0);
     let show= ref( false);
     let showGrid= ref( true);
     let isLoanding= ref( true);
@@ -621,41 +618,41 @@
                     console.log('Não deu, clientsData.id: ', clientsData.value.id, ' sellerData.id:', sellerData.value.id)
                 }
 
-                if(idPDV)
+                if(props.idPDV)
                 {
                     console.log('Venda importada')
                     if(type === 'nm')
                     {
-                        typeOperation = type
-                        showPaymentsForm.value = !showPaymentsForm
-                        pdvID.value = Number(idPDV.value)
+                        typeOperation.value = type
+                        showPaymentsForm.value = !showPaymentsForm.value
+                        pdvID.value = props.idPDV
 
                     }   
 
                     if(type === 'nfce')
                     {
-                        typeOperation = type
-                        showPaymentsForm = !showPaymentsForm
-                        pdvID = Number(idPDV)
+                        typeOperation.value = type
+                        showPaymentsForm.value = !showPaymentsForm.value
+                        pdvID.value = props.idPDV
                     }
                 
                 } else {
-                    const pdvID = LocalStorage.getItem("pdvID")
+                    let pdvID = LocalStorage.getItem("pdvID")
                     if(!pdvID)
                     {
                         console.log('Finalizar venda')
-                        console.log('Total', this.totalOperation)
+                        console.log('Total', totalOperation.value)
                         if(type === 'nm')   
                         { 
                             const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                issuer_id: this.issuer_id,
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                sub_total: this.calculateTotal.subtotal,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
+                                issuer_id: issuer_id.value,
+                                products: productsSeletion.value, // Produtos da 
+                                user_id: sellerData.value.id,
+                                customer_id: clientsData.value.id >= 1 ? clientsData.value.id : 1,
+                                total: calculateTotal.value.subtotal - calculateTotal.value.discount + calculateTotal.value.addition,
+                                sub_total: calculateTotal.value.subtotal,
+                                addition: calculateTotal.value.addition,
+                                discount: calculateTotal.value.discount,
                                 description: 'Venda Nota Manual N°',
                                 is_nfce_nm: type,
                                 status: 'Finalizada'
@@ -668,12 +665,12 @@
                             if(data.success)
                             {
                                 LocalStorage.setItem("pdvID", response.data.pdvID)
-                                this.typeOperation = type
-                                this.showPaymentsForm = true
-                                this.pdvID = LocalStorage.getItem("pdvID")
-                                console.log('this.typeOperation linha 682: ', this.typeOperation)
-                                console.log('this.showPaymentsForm linha 683: ', this.showPaymentsForm)
-                                console.log('this.pdvID linha 684: ', this.pdvID)
+                                typeOperation.value = type
+                                showPaymentsForm.value = true
+                                pdvID = LocalStorage.getItem("pdvID")
+                                console.log('typeOperation linha 682: ', typeOperation)
+                                console.log('showPaymentsForm linha 683: ', showPaymentsForm)
+                                console.log('pdvID linha 684: ', pdvID)
 
                             }
                         
@@ -686,14 +683,14 @@
                         if(type === 'nfce')
                         {  
                             const response = await api.post('/ecommerce/pdv/save-sale', {
-                                issuer_id: this.issuer_id,
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                sub_total: this.calculateTotal.subtotal,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
+                                issuer_id: issuer_id,
+                                products: productsSeletion, // Produtos da 
+                                user_id: sellerData.id,
+                                customer_id: clientsData.id >= 1 ? clientsData.id : 1,
+                                total: calculateTotal.subtotal - calculateTotal.discount + calculateTotal.addition,
+                                sub_total: calculateTotal.subtotal,
+                                addition: calculateTotal.addition,
+                                discount: calculateTotal.discount,
                                 description: 'Venda NFC-e N°',
                                 is_nfce_nm: type,
                                 status: 'Finalizada'
@@ -706,13 +703,13 @@
                             if(data.success)
                             {
                                 LocalStorage.setItem("pdvID", response.data.pdvID)
-                                this.typeOperation = type
-                                this.showPaymentsForm = true
-                                this.pdvID = LocalStorage.getItem("pdvID")
+                                typeOperation = type
+                                showPaymentsForm = true
+                                pdvID = LocalStorage.getItem("pdvID")
 
                             } else {
-                                this.errorsOfSale.erros = data.errors
-                                this.errorsOfSale.showErrosModal = true
+                                errorsOfSale.erros = data.errors
+                                errorsOfSale.showErrosModal = true
 
                             }
 
@@ -720,14 +717,14 @@
                             
                     } else {
                         console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
-                        this.showPaymentsForm = true
-                        this.pdvID = LocalStorage.getItem("pdvID")
+                        showPaymentsForm = true
+                        pdvID = LocalStorage.getItem("pdvID")
                     }
                 }
                 
             } catch (error) {
                 console.error('Erro finalizeSale', error)
-                this.errorMessages.push(error.response.data.errors)
+                errorMessages.push(error.response.data.errors)
                 
             }
 
@@ -739,15 +736,15 @@
 
                     if(response.data.success === true)
                     {
-                        this.CRT += response.data.issuer.cod_crt
-                        if(Number(this.CRT) && this.CRT > 0)
+                        CRT += response.data.issuer.cod_crt
+                        if(Number(CRT) && CRT > 0)
                         {
-                            if(this.CRT == 1 || this.CRT >= 4)
+                            if(CRT == 1 || CRT >= 4)
                             {
-                                this.csosncst = 'CSOSN'
+                                csosncst = 'CSOSN'
 
                             } else {
-                                this.csosncst = 'CST'
+                                csosncst = 'CST'
                             }
                         }
                     }
@@ -759,7 +756,7 @@
                 } catch (error) {
                     if(error.response.data.message === 'Hotel não encontrado')
                     {
-                        this.$router.push('/hotel/create')
+                        $router.push('/hotel/create')
                         
                     }
                 }
@@ -771,15 +768,15 @@
                 if(choose === 'after')
                 {
                     console.log('Depois')
-                    this.productsSeletion = []
-                    this.errorsOfSale.showErrosModal = false
+                    productsSeletion = []
+                    errorsOfSale.showErrosModal = false
                 } 
 
                 if(choose === 'now')
                 {
                     console.log('agora')
-                    this.productsSeletion = []
-                    this.$router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
+                    productsSeletion = []
+                    $router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
                 }
 
             },
@@ -787,9 +784,9 @@
             async importSale()
             {
                 try {
-                    const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
+                    const response = await api.get(`/ecommerce/pdv/get-saved-sale/${props.idPDV}`)
                     console.log('importSale', response.data)
-                    this.updateProductsSeletion(response.data.pdvs.get_itens)
+                    updateProductsSeletion(response.data.pdvs.get_itens)
 
                 } catch (error) {
                     console.error('Erro importSale', error)
@@ -798,36 +795,36 @@
             },
 
             showOptions(){
-                this.showOptionsPDV = true
-                this.showPaymentsForm = false
-                this.showGrid = false
-                this.show = false
+                showOptionsPDV = true
+                showPaymentsForm = false
+                showGrid = false
+                show = false
                 
             },
 
             showProductsSelection(){
-                this.showPaymentsForm = false
-                this.showGrid = !this.showGrid
-                this.show = !this.show
+                showPaymentsForm = false
+                showGrid = !showGrid
+                show = !show
                 
             },
             
             showGridEmit(){
-                this.showGrid = !this.showGrid
-                this.show = !this.show
+                showGrid = !showGrid
+                show = !show
                 
             },  
 
             closeConfig(event)
             {
-                this.showOptionsPDV = event
-                this.showGrid = !event
+                showOptionsPDV = event
+                showGrid = !event
 
             },
 
             changeAmount(id, newAmount)
             {
-                const rawProducts = toRaw(this.productsSeletion)   
+                const rawProducts = toRaw(productsSeletion)   
                 
                 let productFound = null;
                 
@@ -850,7 +847,7 @@
 
             changeCFOP(id, newCFOP)
             {
-                const rawProducts = toRaw(this.productsSeletion)
+                const rawProducts = toRaw(productsSeletion)
 
                 let productFound = null;
                 
@@ -870,7 +867,7 @@
 
             changeCSOSN(id, newCSOSN)
             {
-                const rawProducts = toRaw(this.productsSeletion)
+                const rawProducts = toRaw(productsSeletion)
 
                 let productFound = null;
                 
@@ -890,13 +887,13 @@
 
             updateProductsSeletion(selectedProducts)
             {
-                this.productsSeletion = [...this.productsSeletion, selectedProducts]
+                productsSeletion = [...productsSeletion, selectedProducts]
                 
             },
 
             updateCustomerSelection(client)
             {  
-                this.clientsData = {
+                clientsData = {
                     id: client.id,
                     name: client.name
                 }
@@ -904,7 +901,7 @@
 
             cancelOperation()
             {
-                this.showPaymentsForm = false
+                showPaymentsForm = false
 
             },
 
@@ -913,12 +910,12 @@
                 switch (action) {
                     case 'delete':
                         console.log('product.id', product.id, ' i: ', i);
-                        console.log('p: ', this.productsSeletion.map(p => { return p }));
+                        console.log('p: ', productsSeletion.map(p => { return p }));
 
                         break;
                         
                     case 'view':
-                        this.viewProduct ={
+                        viewProduct ={
                             id: product.id,
                             name: product.product,
                             amount: product.amount,
@@ -926,7 +923,7 @@
                             total: product.amount * product.sale_price
 
                         }
-                        this.viewProduct.show = !this.viewProduct.show
+                        viewProduct.show = !viewProduct.show
                         
                         break;
 
@@ -941,20 +938,20 @@
 
             closeCashClosing(event)
             {
-                this.showCashClosing = event
+                showCashClosing = event
             },
 
             resetSale(confirmed)
             {
                 if(confirmed)
                 {
-                    this.emitProducts = [],
-                    this.productsSeletion = [],
-                    this.emitProducts.addition = 0
-                    this.emitProducts.discount = 0
-                    this.emitProducts.freight = 0
-                    this.clientsData.id = null
-                    this.clientsData.name = null
+                    emitProducts = [],
+                    productsSeletion = [],
+                    emitProducts.addition = 0
+                    emitProducts.discount = 0
+                    emitProducts.freight = 0
+                    clientsData.id = null
+                    clientsData.name = null
                     
                 }
             },
@@ -973,15 +970,15 @@
             {
                 const option = confirm('Deseja realmente cancelar a venda? ')
                 if (option === true) {
-                    this.emitProducts = [];
-                    this.productsSeletion = [];
-                    this.emitProducts.addition = 0;
-                    this.emitProducts.discount = 0;
-                    this.emitProducts.freight = 0;
+                    emitProducts = [];
+                    productsSeletion = [];
+                    emitProducts.addition = 0;
+                    emitProducts.discount = 0;
+                    emitProducts.freight = 0;
 
-                    if(this.idPDV)
+                    if(props.idPDV)
                     {
-                        this.$router.push({ name: 'PDV' });
+                        $router.push({ name: 'PDV' });
                     }
                 }
             },
@@ -999,15 +996,10 @@
 
         },
 
-        props: [
-            'idPDV',
-    
-        ],
-
         mounted(){
-            this.getCRT()
-            this.witdhScreen += screen.width
-            this.isOpenedPDV = history.state?.isOpenedPDV
+            getCRT()
+            witdhScreen += screen.width
+            isOpenedPDV = history.state?.isOpenedPDV
             
             const getUser = async () => { 
                 const response = await api.get('/auth/me', {
@@ -1016,7 +1008,7 @@
                     }
                 })
 
-                this.sellerData = {
+                sellerData = {
                     id: response.data.user.id,
                     name: response.data.user.name,
                 }
@@ -1026,14 +1018,14 @@
 
             const getConfig = async () => {
                 const config = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
-                this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
+                configs.nmFinaly = config.data.configPDV[0].nm_finaly
                 
             }
             getConfig()
 
-            if(this.idPDV)
+            if(props.idPDV)
             {
-                this.importSale()            
+                importSale()            
                 
             }
 
@@ -1042,15 +1034,15 @@
                 
                 if(keyName === 'F2')
                 {
-                    this.showOptions()
+                    showOptions()
 
                 } else if (keyName === 'F8')
                 {
-                    this.finalizeSale('nm')
+                    finalizeSale('nm')
 
                 } else if (keyName === 'F9')
                 {
-                    this.finalizeSale('nfce')
+                    finalizeSale('nfce')
             
                 } 
             })
