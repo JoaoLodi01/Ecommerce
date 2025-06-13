@@ -328,96 +328,88 @@ export default {
             }
 
             console.log('pdvID: ', this.pdvID)
-            try {
-                switch (this.typeOperation) {
-                    case 'reservation':
-                        const generateCredit = this.calculeCredit(this.paymentsValues);
-                        
-                        this.isLoanding = !this.isLoanding
-                        
-                        const response = await api.post('/hotel/stay/reservation', {
-                            customer_id: 1,
-                            installments: this.installments,
-                            payments_values: this.paymentsValues,
-                            room_id: this.roomID,
-                            generate_credit: generateCredit
-                            
-                        });
-                        
-                        const reservation = response.data
-                        
-                        this.message = reservation.message ? reservation.message : reservation.errorMessage
+            switch (this.typeOperation) {
+                case 'reservation':
+                    const generateCredit = this.calculeCredit(this.paymentsValues);
                     
-                        break;
+                    this.isLoanding = !this.isLoanding
+                    
+                    const response = await api.post('/hotel/stay/reservation', {
+                        customer_id: 1,
+                        installments: this.installments,
+                        payments_values: this.paymentsValues,
+                        room_id: this.roomID,
+                        generate_credit: generateCredit
+                        
+                    });
+                    
+                    const reservation = response.data
+                    
+                    this.message = reservation.message ? reservation.message : reservation.errorMessage
+                
+                    break;
 
-                    case 'nfce':
-                        console.log('Issuer_id no LocalStorage ( venda NFC-e ): ', LocalStorage.getItem("issuer_id"))
-                        const response_nfce = await api.put('/ecommerce/pdv/finalize-sale', {
-                            issuer_id: this.issuer_id,
-                            user_id: this.user_id,
-                            type_operation: 'nfce',
-                            change: this.calculateValueChange.change,
-                            payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
-                            pdv_id: this.pdvID,
-                            installments: this.installments
+                case 'nfce':
+                    console.log('Issuer_id no LocalStorage ( venda NFC-e ): ', LocalStorage.getItem("issuer_id"))
+                    const response_nfce = await api.put('/ecommerce/pdv/finalize-sale', {
+                        issuer_id: this.issuer_id,
+                        user_id: this.user_id,
+                        type_operation: 'nfce',
+                        change: this.calculateValueChange.change,
+                        payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
+                        pdv_id: this.pdvID,
+                        installments: this.installments
 
-                        })
-                        console.log(response_nfce);
+                    })
+                    console.log(response_nfce);
 
-                        if(response_nfce.data.success)
-                        {
-                            this.cancelOperation()
-                            this.$emit('update:selectProducts', []);
-                            LocalStorage.removeItem("pdvID")
+                    if(response_nfce.data.success)
+                    {
+                        this.cancelOperation()
+                        this.$emit('update:selectProducts', []);
+                        LocalStorage.removeItem("pdvID")
 
-                        } else {
-                            LocalStorage.removeItem("pdvID")
-                            console.log('Erro durante a finalização da venda: ', response_nfce.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
+                    } else {
+                        LocalStorage.removeItem("pdvID")
+                        console.log('Erro durante a finalização da venda: ', response_nfce.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
 
-                        }
-
-                        break
-
-                    case 'nm':
-                        console.log('Issuer_id no LocalStorage ( venda NM ): ', LocalStorage.getItem("issuer_id"))
-                        const response_nm = await api.put('/ecommerce/pdv/finalize-sale', {
-                            issuer_id: this.issuer_id,
-                            user_id: this.user_id,
-                            type_operation: 'nm',
-                            change: this.calculateValueChange.change,
-                            payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
-                            pdv_id: this.pdvID,
-                            installments: this.installments
-                            
-                        })
-
-                        console.log(response_nm);
-                        if(response_nm.data.success)
-                        {
-                            this.cancelOperation()
-                            this.$emit('update:selectProducts', []);
-                            LocalStorage.removeItem("pdvID")
-                        } else {
-                            LocalStorage.removeItem("pdvID")
-                            console.log('Erro durante a finalização da venda: ', response_nm.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
-                        }
-
-                        break
-
-                    default:
-                        console.log('Operation not defined',  this.typeOperation)
-                        break;
                     }
-                
-            } catch (error) {
-                console.error('Error: ', error)
-                
-                if(error.response)
-                {
-                    this.message = error.response.data.message
-          
-                }  
-            }
+
+                    break
+
+                case 'nm':
+                    console.log('Issuer_id no LocalStorage ( venda NM ): ', LocalStorage.getItem("issuer_id"))
+                    const response_nm = await api.put('/ecommerce/pdv/finalize-sale', {
+                        issuer_id: this.issuer_id,
+                        user_id: this.user_id,
+                        type_operation: 'nm',
+                        change: this.calculateValueChange.change,
+                        payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
+                        pdv_id: this.pdvID,
+                        installments: this.installments
+                        
+                    })
+
+                    if(response_nm.data.success)
+                    {
+                        this.cancelOperation()
+                        this.$emit('update:selectProducts', []);
+                        LocalStorage.removeItem("pdvID")
+                        console.log(response_nm);    
+                    
+                    } else {
+                        LocalStorage.removeItem("pdvID")
+                        console.error('Erro durante a finalização da venda: ', response_nm.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
+                        console.log(response_nm);
+                        
+                    }
+
+                    break
+
+                default:
+                    console.log('Operation not defined',  this.typeOperation)
+                    break;
+                }
         },
 
         calculeCredit(paymentsValues = [])

@@ -55,7 +55,7 @@ class PaymentsRepository
                 'success' => true,
                 'key' => $paymentForm->pix_key
             );
-        } elseif ($paymentForm->pix_key){
+        } elseif (!$paymentForm->pix_key){
             return array(
                 'success' => false,
                 'message' => 'Chave PIX ausente'

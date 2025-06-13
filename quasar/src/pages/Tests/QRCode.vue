@@ -16,7 +16,7 @@
             <q-btn 
                 color="primary"
                 label="Finalizar venda" 
-                @click="finaly" 
+                @click="finallyOperation" 
                 
             />
         </q-card-section>
@@ -62,9 +62,12 @@
 
         pix_key.value = res_key.data.key
         console.log('pix_key.value: ', pix_key.value)
+        
         if(pix_key.value && props.total_amount > 0)
         {
             getQRCode()
+        } else {
+            alert('Chave ausente!')
         }
     }
     
@@ -76,7 +79,7 @@
         payLoad.value = res.payload;
     }
 
-    const finaly = () => {
+    const finallyOperation = () => {
         emit('close', true);
     }
     

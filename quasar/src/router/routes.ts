@@ -71,7 +71,7 @@ const routes = [
       {
         path: `/:name/${salePrefix}/save/pdv/:idPDV`,
         name: 'PDVID',
-        component: () => import('src/pages/Ecommerce/PDV/PDVView.vue'),
+        component: () => import('src/pages/Ecommerce/PDV/PDVView original.vue'),
         props: true
 
       },

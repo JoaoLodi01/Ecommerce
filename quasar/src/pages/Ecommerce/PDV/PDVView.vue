@@ -225,7 +225,7 @@
                 <p>
                     <input 
                         v-model="viewProduct.amount"
-                        :placeholder=viewProduct.amount
+                        :placeholder=String(viewProduct.amount)
                         type="text"
                         class="w-10 text-center border-b-4 border-b-gray-500 text-black"
                         @input="changeAmount(viewProduct.id, viewProduct.amount)"
@@ -440,13 +440,13 @@
     import { useQuasar, LocalStorage } from 'quasar';
 
     const props = defineProps<{
-        idPDV: Number
+        idPDV?: number;
     }>();
 
     const $q = useQuasar();
     const route = useRoute();
     const router = useRouter();
-    let timer;
+    let timer: any;
 
     let productsSeletion = ref<IProducts[][]>([]);
     let clients = ref<object[]>([]);
@@ -467,7 +467,10 @@
 
     let crt = ref<number>(0);
 
-    const sellerData = ref<Iseller>();
+    const sellerData = ref<Iseller>({
+        id: 0,
+        name: ''
+    });
 
     const customerData = ref<Icustomer>({
                     id: 0,
@@ -487,7 +490,12 @@
     
     let showOptionsPDV = ref<boolean>(false);
     
-    let viewProduct = ref();
+    let viewProduct = ref<TViewProduct>({
+        show: false,
+        id: 0,
+        amount: 0,
+        salePrice: 0
+    });
 
     let isOpenedPDV = ref<boolean>(false);
     let success = ref<unknown>(null);
@@ -627,7 +635,7 @@
                 if(!pdvID)
                 {
                     console.log('Finalizar venda');
-                    console.log('Total', totalOperation.value);
+                    console.log('Total da venda R$', totalOperation.value);
                     if(type === 'nm')   
                     { 
                         const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
@@ -711,8 +719,13 @@
         } catch (error) {
             console.error('Erro finalizeSale', error);
             
+        } finally {
+            hideLoanding();
+
         };
-    }
+    };
+
+
     const getCRT = async() => 
     {
         try {
@@ -828,22 +841,22 @@
 
     const changeCFOP = (id: number, newCFOP: number) => 
     {
-        // const rawProducts = productsSeletion.value
+        console.log('Chamou o changeCFOP');
+    
+        for(let i = 0; i < productsSeletion.value.length; i++)
+        {
+            for(let k = 0; k < productsSeletion.value[i].length; k++)
+            {
+                if(productsSeletion[i][k].id === id)
+                {
+                    productsSeletion[i][k].cfop = newCFOP;
+                    return;
+                    
+                };
+            };  
+        };
 
-        // let productFound = null;
-        
-        // for (let i = 0; i < rawProducts.length; i++) {
-        //     const productArray = rawProducts[i];
-        //     productFound = productArray.find(p => p.id === id)
-        //     if(productFound) break
-
-        // }
-
-        // if(productFound)
-        // {
-        //     productFound.cfop = newCFOP
-
-        // }
+        console.warn('Produto com id', id, 'não encontrado');
     };
 
     const changeCSOSN = (id: number, newCSOSN: number) =>
@@ -868,7 +881,7 @@
 
     const updateProductsSeletion = (selectedProducts) =>
     {
-        //productsSeletion = [...productsSeletion, selectedProducts]
+        productsSeletion.value = [...productsSeletion.value, selectedProducts]
         
     };
 
@@ -968,7 +981,7 @@
         }
     }
 
-    const getUser = async (): Promise<Iseller> => 
+    const getUser = async () => 
     { 
         const res = await api.get('/auth/me', {
             headers: {
@@ -976,7 +989,7 @@
             }
         });
 
-        return {
+        sellerData.value ={ 
             id: res.data.user.id,
             name: res.data.user.name
         };
@@ -991,10 +1004,10 @@
 
     onMounted(() => {
         getCRT();
-        getUser();
+        getUser()
         getConfig();
-        witdhScreen.value += screen.width;
-        isOpenedPDV.value = history.state?.isOpenedPDV.value;
+        witdhScreen.value = screen.width;
+        isOpenedPDV.value = history.state?.isOpenedPDV ?? false;
 
         if(props.idPDV)
         {
