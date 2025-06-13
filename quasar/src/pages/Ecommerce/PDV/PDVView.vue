@@ -22,10 +22,10 @@
         >
             <PaymentsForm
                 v-if="showPaymentsForm"
-                :witdhScreen="this.witdhScreen"
-                :typeOperation=this.typeOperation
-                :totalOperation=this.totalOperation
-                :pdvID=this.pdvID 
+                :witdhScreen="witdhScreen"
+                :typeOperation=typeOperation
+                :totalOperation=totalOperation
+                :pdvID=pdvID 
                 @resetTotal="totalOperation = $event"
                 @resetPDVID="pdvID = $event"
                 @close="cancelOperation"
@@ -89,7 +89,7 @@
                 <div class="mr-1">
                     <ProductsSearchBar
                         v-if="showProductsSearch"
-                        :witdhScreen="this.witdhScreen"
+                        :witdhScreen="witdhScreen"
                         @update:selectProducts="updateProductsSeletion($event)"
 
                     />
@@ -121,18 +121,18 @@
                             class="border border-black"
                         >    
 
-                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.product_cod }}</td>
+                            <td class="px-6" scope="row">{{ props.idPDV ? product.product_cod : product.product_cod }}</td>
                             <td class="px-6 py-3">{{ product.product }}</td>
 
                             <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.cfop"
-                                    :placeholder=product.cfop
+                                    :placeholder=String(product.cfop)
                                     type="text"
                                     class="w-12 text-center border-b-4 border-b-gray-500"
                                     maxlength="4"
                                     minlength="4"
-                                    @input="changeCFOP(product.id, product.cfop)"
+                                    @input="changeCFOP(product.id, Number(product.cfop))"
 
                                 />
                             </td>
@@ -140,13 +140,13 @@
                             <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.csosncst"
-                                    :placeholder=product.csosncst
+                                    :placeholder=String(product.csosncst)
                                     type="number"
                                     :maxlength="maxlength(csosncst.toLowerCase())"
                                     :minlength="maxlength(csosncst.toLowerCase())"
                                     class="w-10 text-center border-b-4 border-b-gray-500"
                                     id="csosnInput"
-                                    @input="changeCSOSN(product.id, product.csosn)"
+                                    @input="changeCSOSN(product.id, Number(product.csosncst))"
 
                                 />
                             </td>
@@ -154,18 +154,18 @@
                             <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                 <input 
                                     v-model="product.amount"
-                                    :placeholder=product.amount 
+                                    :placeholder="String(product.amount)"
                                     type="text"
                                     class="w-10 text-center border-b-4 border-b-gray-500 "
-                                    @input="changeAmount(product.id, product.amount)"
+                                    @input="changeAmount(product.id, Number(product.amount))"
                                     
                                 />
                             </td>
                             <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                            <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
+                            <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * Number(product.amount)).toFixed(2) }}</td>
                             <td class="text-center">
                                 <div class="m-auto">
-                                    <button @click="productOptions(product, i, 'delete')">
+                                    <button @click="productOptions(product.id, i, 'delete')">
                                         <svg 
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none" 
@@ -179,7 +179,7 @@
                                         </svg>
                                     </button>
 
-                                    <button @click="productOptions(product, i, 'options')">
+                                    <button @click="productOptions(product.id, i, 'options')">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 16 16" fill="currentColor"
@@ -190,7 +190,7 @@
                                         </svg>
                                     </button>
 
-                                    <button @click="productOptions(product, 'view')">
+                                    <button @click="productOptions(product.id, i, 'view')">
                                         <svg 
                                             v-if="witdhScreen < 1080"
                                             xmlns="http://www.w3.org/2000/svg"
@@ -257,6 +257,8 @@
                                 :placeholder="sellerData.name"
                                 disable
                                 type="text"
+                                v-model="sellerData.name"
+
                             />
 
                             <br>
@@ -415,15 +417,15 @@
 
         <ProductsSelectionView
             v-if="show"
-            :witdhScreen="this.witdhScreen"
-            :CRT="this.CRT"
+            :witdhScreen="witdhScreen"
+            :hotelCodCRT="crt"
             @close="showGridEmit()"
             @update:selectProducts="updateProductsSeletion($event)"
         />
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import PaymentsForm from 'src/components/PaymentsForm.vue';
     import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing/CashClosing.vue'
@@ -433,632 +435,593 @@
     import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     
     import { api } from "src/boot/axios"
-    import { onBeforeUnmount, toRaw } from 'vue'   
+    import { ref, computed, watch, defineProps, onMounted } from 'vue'   
+    import { useRoute, useRouter } from 'vue-router';
     import { useQuasar, LocalStorage } from 'quasar';
-    
-    export default{
-        setup(){
-            const $q = useQuasar()
-            let timer
-            onBeforeUnmount(() => {
-                if(timer !== void 0) {
-                    clearTimeout(timer)
-                    $q.loading.hide()
 
-                }
-            })
+    const props = defineProps<{
+        idPDV: Number
+    }>();
 
-            return { 
-                showLoading () {
-                    $q.loading.show({
-                        message: 'Carregando pagamento e validando a venda ...'
-                    })
+    const $q = useQuasar();
+    const route = useRoute();
+    const router = useRouter();
+    let timer;
 
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 3000)
-                }
-            }
-        },  
+    let productsSeletion = ref<IProducts[][]>([]);
+    let clients = ref<object[]>([]);
 
-        data(){
-            return {
-                productsSeletion: [],
-                clients: [],
-
-                errorsOfSale: {
+    let errorsOfSale = ref<TErrorsOfSale>({
                     showErrosModal: false,
                     erros: []
 
-                },
+                });
             
-                emitProducts: {
+    let emitProducts = ref<IEmitProducts>({
                     addition: 0,
                     discount: 0,
                     freight: 0,
                     userID: 0,
                     
-                },
-
-                CRT: 0,
-
-                sellerData: {
-                    id: 0,
-                    name: ''
-                },
-
-                clientsData: {
-                    id: 0,
-                    name: ''
-                },
-
-                totalOperation: 0,
-                witdhScreen: 0,
-                textSize: 4,
-                pdvID: 0,
-                show: false,
-                showGrid: true,
-                isLoanding: true,
-                showPaymentsForm: false,
-                showProductsSearch: true,
-                showCashClosing: false,
-                
-                showOptionsPDV: false,
-                
-                viewProduct: {
-                    show: false,
-                    id: '',
-                    name: '',
-                    amount: 0,
-                    salePrice: 0,
-                    total: 0
-                    
-                },
-
-                isOpenedPDV: false,
-                success: null,
-                typeOperation: '',
-                csosncst: '',
-            
-                configs: {
-                    nmFinaly: false,
-                    saleNegativeorReset: false
-                },
-                issuer_id: LocalStorage.getItem("issuer_id")
-            }
-        },
-
-        watch: {
-            '$route'(to, from) {
-                if(to.fullPath === '/sale/pdv'){
-                    this.productsSeletion = []
-
-                } 
-            }
-        },  
-
-        computed: {
-            calculateTotal(){
-                const rawproductsSeletion = toRaw(this.productsSeletion)
-                
-                let subtotal = 0
-                
-                rawproductsSeletion.forEach(products => {
-                    for (let i = 0; i < products.length; i++) {
-                        const p = products[i];
-                        subtotal += p.sale_price * p.amount
-                        
-                    }
                 });
 
-                const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
-                const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
-                const freight = typeof this.emitProducts.freight === 'number' ? this.emitProducts.freight : 0
-                
-                return {
-                    subtotal: subtotal,
-                    addition: addition,
-                    discount: discount,
-                    freight: freight
-                    
-                }
-            },
-        },
-        
-        methods: {
-            async saveSale()
-            {
-                const saveSale = confirm('Deseja salvar a venda?')
-                if (saveSale) {
-                    try {
-                        if(!this.isOpenedPDV)
-                        {
-                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                issuer_id: this.issuer_id,
-                                products: this.productsSeletion, // Produtos da 
-                                user_id: this.sellerData.id,
-                                customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                sub_total: this.calculateTotal.subtotal,
-                                total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                addition: this.calculateTotal.addition,
-                                discount: this.calculateTotal.discount,
-                                description: 'Venda guardada',
-                                is_nfce_nm: '',
-                                status: 'Em Aberto'
-                                
-                            })
+    let crt = ref<number>(0);
 
-                            if(response.data.success === true)
-                            {
-                                alert('Venda guardarda para enviar posteriormente!')
-                                this.productsSeletion = []
+    const sellerData = ref<Iseller>();
 
-                            } else {
-                                console.log(response.data)
-                            }
-
-                        } else {
-
-                            alert('Venda guardarda para enviar posteriormente!')
-                            this.productsSeletion = []
-                            this.$router.push({ name: "PDV" })
-                        }
-                        
-                    } catch (error) {
-                        console.error('Erro saveSale() = error.response', error)
-                        
-                    }
-                }
-            },
-            
-            async finalizeSale(type)
-            {
-                this.showLoading()
-                try {
-                    if(this.sellerData.id)
-                    {
-                        this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.freight + this.calculateTotal.addition - this.calculateTotal.discount
-                        
-                    } else {
-                        console.log('Não deu, this.clientsData.id: ', this.clientsData.id, ' this.sellerData.id:', this.sellerData.id)
-                    }
-
-                    if(this.idPDV)
-                    {
-                        console.log('Venda importada')
-                        if(type === 'nm')
-                        {
-                            this.typeOperation = type
-                            this.showPaymentsForm = !this.showPaymentsForm
-                            this.pdvID = Number(this.idPDV)
-
-                        }   
-
-                        if(type === 'nfce')
-                        {
-                            this.typeOperation = type
-                            this.showPaymentsForm = !this.showPaymentsForm
-                            this.pdvID = Number(this.idPDV)
-                        }
-                    
-                    } else {
-                        const pdvID = LocalStorage.getItem("pdvID")
-                        if(!pdvID)
-                        {
-                            console.log('Finalizar venda')
-                            console.log('Total', this.totalOperation)
-                            if(type === 'nm')   
-                            { 
-                                const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                    issuer_id: this.issuer_id,
-                                    products: this.productsSeletion, // Produtos da 
-                                    user_id: this.sellerData.id,
-                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                    sub_total: this.calculateTotal.subtotal,
-                                    addition: this.calculateTotal.addition,
-                                    discount: this.calculateTotal.discount,
-                                    description: 'Venda Nota Manual N°',
-                                    is_nfce_nm: type,
-                                    status: 'Finalizada'
-                                    
-                                })
-
-                                const data = response.data
-                                console.log(data)
-
-                                if(data.success)
-                                {
-                                    LocalStorage.setItem("pdvID", response.data.pdvID)
-                                    this.typeOperation = type
-                                    this.showPaymentsForm = true
-                                    this.pdvID = LocalStorage.getItem("pdvID")
-                                    console.log('this.typeOperation linha 682: ', this.typeOperation)
-                                    console.log('this.showPaymentsForm linha 683: ', this.showPaymentsForm)
-                                    console.log('this.pdvID linha 684: ', this.pdvID)
-
-                                }
-                            
-                                if(!data.success)
-                                {
-                                    console.log(response.data) 
-                                }
-                            } 
-                        
-                            if(type === 'nfce')
-                            {  
-                                const response = await api.post('/ecommerce/pdv/save-sale', {
-                                    issuer_id: this.issuer_id,
-                                    products: this.productsSeletion, // Produtos da 
-                                    user_id: this.sellerData.id,
-                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                    sub_total: this.calculateTotal.subtotal,
-                                    addition: this.calculateTotal.addition,
-                                    discount: this.calculateTotal.discount,
-                                    description: 'Venda NFC-e N°',
-                                    is_nfce_nm: type,
-                                    status: 'Finalizada'
-                                    
-                                })
-
-                                console.log('response.dat PDVView, line 718: ', response)
-                                const data = response.data
-
-                                if(data.success)
-                                {
-                                    LocalStorage.setItem("pdvID", response.data.pdvID)
-                                    this.typeOperation = type
-                                    this.showPaymentsForm = true
-                                    this.pdvID = LocalStorage.getItem("pdvID")
-
-                                } else {
-                                    this.errorsOfSale.erros = data.errors
-                                    this.errorsOfSale.showErrosModal = true
-
-                                }
-
-                            }
-                               
-                        } else {
-                            console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
-                            this.showPaymentsForm = true
-                            this.pdvID = LocalStorage.getItem("pdvID")
-                        }
-                    }
-                    
-                } catch (error) {
-                    console.error('Erro finalizeSale', error)
-                    this.errorMessages.push(error.response.data.errors)
-                    
-                }
-            },
-
-            async getCRT()
-            {
-                try {
-                    const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
-
-                    if(response.data.success === true)
-                    {
-                        this.CRT += response.data.issuer.cod_crt
-                        if(Number(this.CRT) && this.CRT > 0)
-                        {
-                            if(this.CRT == 1 || this.CRT >= 4)
-                            {
-                                this.csosncst = 'CSOSN'
-
-                            } else {
-                                this.csosncst = 'CST'
-                            }
-                        }
-                    }
-
-                    if(response.data.success === false){
-                        console.log(response.data)
-
-                    }
-                } catch (error) {
-                    if(error.response.data.message === 'Hotel não encontrado')
-                    {
-                        this.$router.push('/hotel/create')
-                        
-                    }
-                }
-            },
-
-            chooseErrors(choose)
-            {
-                console.log('chooseErrors: ', choose)
-                if(choose === 'after')
-                {
-                    console.log('Depois')
-                    this.productsSeletion = []
-                    this.errorsOfSale.showErrosModal = false
-                } 
-
-                if(choose === 'now')
-                {
-                    console.log('agora')
-                    this.productsSeletion = []
-                    this.$router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
-                }
-
-            },
-
-            async importSale()
-            {
-                try {
-                    const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
-                    console.log('importSale', response.data)
-                    this.updateProductsSeletion(response.data.pdvs.get_itens)
-
-                } catch (error) {
-                    console.error('Erro importSale', error)
-                    
-                }
-            },
-
-            showOptions(){
-                this.showOptionsPDV = true
-                this.showPaymentsForm = false
-                this.showGrid = false
-                this.show = false
-                
-            },
-
-            showProductsSelection(){
-                this.showPaymentsForm = false
-                this.showGrid = !this.showGrid
-                this.show = !this.show
-                
-            },
-            
-            showGridEmit(){
-                this.showGrid = !this.showGrid
-                this.show = !this.show
-                
-            },  
-
-            closeConfig(event)
-            {
-                this.showOptionsPDV = event
-                this.showGrid = !event
-
-            },
-
-            changeAmount(id, newAmount)
-            {
-                const rawProducts = toRaw(this.productsSeletion)   
-                
-                let productFound = null;
-                
-                for (let i = 0; i < rawProducts.length; i++) {
-                    const productArray = rawProducts[i];
-                    productFound = productArray.find(p => p.id === id)
-                    
-
-                    if(productFound) break
-
-                }
-
-                if(productFound)
-                {
-                    productFound.amount = newAmount
-
-                }
-                
-            },
-
-            changeCFOP(id, newCFOP)
-            {
-                const rawProducts = toRaw(this.productsSeletion)
-
-                let productFound = null;
-                
-                for (let i = 0; i < rawProducts.length; i++) {
-                    const productArray = rawProducts[i];
-                    productFound = productArray.find(p => p.id === id)
-                    if(productFound) break
-
-                }
-
-                if(productFound)
-                {
-                    productFound.cfop = newCFOP
-
-                }
-            },
-
-            changeCSOSN(id, newCSOSN)
-            {
-                const rawProducts = toRaw(this.productsSeletion)
-
-                let productFound = null;
-                
-                for (let i = 0; i < rawProducts.length; i++) {
-                    const productArray = rawProducts[i];
-                    productFound = productArray.find(p => p.id === id)
-                    if(productFound) break
-
-                }
-
-                if(productFound)
-                {
-                    productFound.csosn = newCSOSN
-
-                }
-            },
-
-            updateProductsSeletion(selectedProducts)
-            {
-                this.productsSeletion = [...this.productsSeletion, selectedProducts]
-                
-            },
-
-            updateCustomerSelection(client)
-            {  
-                this.clientsData = {
-                    id: client.id,
-                    name: client.name
-                }
-            },
-
-            cancelOperation()
-            {
-                this.showPaymentsForm = false
-
-            },
-
-            productOptions(product, i, action)
-            {
-                switch (action) {
-                    case 'delete':
-                        console.log('product.id', product.id, ' i: ', i);
-                        console.log('p: ', this.productsSeletion.map(p => { return p }));
-
-                        break;
-                        
-                    case 'view':
-                        this.viewProduct ={
-                            id: product.id,
-                            name: product.product,
-                            amount: product.amount,
-                            salePrice: product.sale_price,
-                            total: product.amount * product.sale_price
-
-                        }
-                        this.viewProduct.show = !this.viewProduct.show
-                        
-                        break;
-
-                    case 'options':
-                        
-                        break;
-                
-                    default:
-                        break;
-                }
-            },
-
-            closeCashClosing(event)
-            {
-                this.showCashClosing = event
-            },
-
-            resetSale(confirmed)
-            {
-                if(confirmed)
-                {
-                    this.emitProducts = [],
-                    this.productsSeletion = [],
-                    this.emitProducts.addition = 0
-                    this.emitProducts.discount = 0
-                    this.emitProducts.freight = 0
-                    this.clientsData.id = null
-                    this.clientsData.name = null
-                    
-                }
-            },
-
-            maxlength(csosncst)
-            {
-                if(csosncst == 'csosn')
-                {
-                    return 3
-                } else if (csosncst == 'cst'){
-                    return 2
-                }
-            },
-
-            cancelSale()
-            {
-                const option = confirm('Deseja realmente cancelar a venda? ')
-                if (option === true) {
-                    this.emitProducts = [];
-                    this.productsSeletion = [];
-                    this.emitProducts.addition = 0;
-                    this.emitProducts.discount = 0;
-                    this.emitProducts.freight = 0;
-
-                    if(this.idPDV)
-                    {
-                        this.$router.push({ name: 'PDV' });
-                    }
-                }
-            },
-
-        },
-        
-        components: {
-            ProductsSelectionView,
-            PaymentsForm,
-            CashClosing,
-            ConfigPDV,
-            ProductsSearchBar,
-            CustomerSearchBar,
-            ErrorsModal
-
-        },
-
-        props: [
-            'idPDV',
-    
-        ],
-
-        mounted(){
-            this.getCRT()
-            this.witdhScreen += screen.width
-            this.isOpenedPDV = history.state?.isOpenedPDV
-            
-            const getUser = async () => { 
-                const response = await api.get('/auth/me', {
-                    headers: {
-                        'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
-                    }
+    const customerData = ref<Icustomer>({
+                    id: 0,
+                    name: ''
                 })
 
-                this.sellerData = {
-                    id: response.data.user.id,
-                    name: response.data.user.name,
+    let totalOperation = ref<number>(0);
+    let witdhScreen = ref<number>(0);
+    let textSize = ref<number>(4);
+    let pdvID = ref<number>( 0);
+    let show = ref<boolean>(false);
+    let showGrid = ref<boolean>(true);
+    let isLoanding = ref<boolean>(true);
+    let showPaymentsForm = ref<boolean>(false);
+    let showProductsSearch = ref<boolean>(true);
+    let showCashClosing = ref<boolean>(false);
+    
+    let showOptionsPDV = ref<boolean>(false);
+    
+    let viewProduct = ref();
+
+    let isOpenedPDV = ref<boolean>(false);
+    let success = ref<unknown>(null);
+    let typeOperation = ref<string>('');
+    let csosncst = ref<string>('');
+            
+    let configs = ref<Tconfig>({
+        nmFinaly: false,
+        saleNegativeorReset: false
+    });
+
+    const issuer_id = ref<number>(LocalStorage.getItem("issuer_id"));
+
+    const showLoading = () => {
+        $q.loading.show({
+            message: 'Carregando pagamento e validando a venda ...'
+        });
+
+        timer = setTimeout(() => {
+            $q.loading.hide()
+            timer = void 0
+        }, 3000);
+    };
+
+    const hideLoanding = () => {
+        if(timer !== void 0) {
+            clearTimeout(timer)
+            $q.loading.hide();
+
+        };
+    };
+    
+    watch(
+        () => route.fullPath,
+        (to, from) => {
+            if(to === '/sale/pdv') productsSeletion.value = [];
+            return;
+        }
+    );
+        
+    const calculateTotal = computed(() => {
+        let subtotal: number = 0;
+
+        productsSeletion.value.forEach((products: IProducts[]) => {
+            for(let i = 0; i < products.length; i++)
+            {
+                const p = products[i];
+                subtotal += p.sale_price * p.amount;
+            };
+        });
+
+        const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
+        const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.addition : 0;
+        const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.addition : 0;
+
+        return { 
+            subtotal: subtotal,
+            addition: addition,
+            discount: discount,
+            freight: freight
+            
+        };
+    });
+
+    const saveSale = async() => {
+        const saveSale = confirm('Deseja salvar a venda?');
+        if (saveSale) 
+        {
+            if(isOpenedPDV.value)
+            {
+                const response = await api.post('/ecommerce/pdv/save-sale', { 
+                    issuer_id:  issuer_id,
+                    products: productsSeletion, 
+                    user_id: sellerData.value.id,
+                    customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
+                    sub_total: calculateTotal.value.subtotal,
+                    total: calculateTotal.value.subtotal- calculateTotal.value.discount + calculateTotal.value.addition,
+                    addition: calculateTotal.value.addition,
+                    discount: calculateTotal.value.discount,
+                    description: 'Venda guardada',
+                    is_nfce_nm: '',
+                    status: 'Em Aberto'
+                    
+                })
+
+                if(response.data.success === true)
+                {
+                    alert('Venda guardarda para enviar posteriormente!');
+                    productsSeletion// Salva apenas a venda = [];
+
+                } else {
+                    console.log(response.data);
                 }
 
-            }
-            getUser()
+            } else {
 
-            const getConfig = async () => {
-                const config = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
-                this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
-                
-            }
-            getConfig()
-
-            if(this.idPDV)
+                alert('Venda guardarda para enviar posteriormente!');
+                productsSeletion// Salva apenas a venda = []
+                router.push({ name: "PDV" });
+            };
+        };
+    };
+    
+    const finalizeSale = async (type: string) => 
+    {
+        showLoading()
+        try {
+            if(sellerData.value.id)
             {
-                this.importSale()            
+                totalOperation.value += calculateTotal.value.subtotal + calculateTotal.value.freight + calculateTotal.value.addition - calculateTotal.value.discount
                 
+            } else {
+                console.log('Não deu, customerData.id: ', customerData.value.id, ' sellerData.id:', sellerData.value.id)
             }
 
-            document.addEventListener('keydown', (event) => {
-                const keyName = event.key
-                
-                if(keyName === 'F2')
+            if(props.idPDV)
+            {
+                console.log('Venda importada');
+                if(type === 'nm')
                 {
-                    this.showOptions()
+                    typeOperation.value = type;
+                    showPaymentsForm.value = !showPaymentsForm.value;
+                    pdvID.value = Number(props.idPDV);
 
-                } else if (keyName === 'F8')
-                {
-                    this.finalizeSale('nm')
+                };
 
-                } else if (keyName === 'F9')
+                if(type === 'nfce')
                 {
-                    this.finalizeSale('nfce')
+                    typeOperation.value = type;
+                    showPaymentsForm.value = !showPaymentsForm.value;
+                    pdvID.value = Number(props.idPDV);
+                };
             
-                } 
-            })
+            } else {
+                let pdvID = LocalStorage.getItem("pdvID");
+
+                if(!pdvID)
+                {
+                    console.log('Finalizar venda');
+                    console.log('Total', totalOperation.value);
+                    if(type === 'nm')   
+                    { 
+                        const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                            issuer_id: issuer_id.value,
+                            products: productsSeletion.value, // Produtos da 
+                            user_id: sellerData.value.id,
+                            customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
+                            total: calculateTotal.value.subtotal - calculateTotal.value.discount + calculateTotal.value.addition,
+                            sub_total: calculateTotal.value.subtotal,
+                            addition: calculateTotal.value.addition,
+                            discount: calculateTotal.value.discount,
+                            description: 'Venda Nota Manual N°',
+                            is_nfce_nm: type,
+                            status: 'Finalizada'
+                            
+                        });
+
+                        const data = response.data;
+                        console.log(data);
+
+                        if(data.success)
+                        {
+                            LocalStorage.setItem("pdvID", response.data.pdvID);
+                            typeOperation.value = type;
+                            showPaymentsForm.value = true;
+                            pdvID = LocalStorage.getItem("pdvID");
+                            console.log('typeOperation linha 682: ', typeOperation);
+                            console.log('showPaymentsForm linha 683: ', showPaymentsForm);
+                            console.log('pdvID linha 684: ', pdvID);
+
+                        };
+                    
+                        if(!data.success)
+                        {
+                            console.log(response.data); 
+                        };
+                    };
+                
+                    if(type === 'nfce')
+                    {  
+                        const response = await api.post('/ecommerce/pdv/save-sale', {
+                            issuer_id: issuer_id,
+                            products: productsSeletion, // Produtos da 
+                            user_id: sellerData.value.id,
+                            customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
+                            total: calculateTotal.value.subtotal - calculateTotal.value.discount + calculateTotal.value.addition,
+                            sub_total: calculateTotal.value.subtotal,
+                            addition: calculateTotal.value.addition,
+                            discount: calculateTotal.value.discount,
+                            description: 'Venda NFC-e N°',
+                            is_nfce_nm: type,
+                            status: 'Finalizada'
+                            
+                        });
+
+                        console.log('response.dat PDVView, line 718: ', response);
+                        const data = response.data;
+
+                        if(data.success)
+                        {
+                            LocalStorage.setItem("pdvID", response.data.pdvID);
+                            typeOperation.value = type;
+                            showPaymentsForm.value = true;
+                            pdvID = LocalStorage.getItem("pdvID");
+
+                        } else {
+                            errorsOfSale.value.erros = data.errors;
+                            errorsOfSale.value.showErrosModal = true;
+
+                        }
+
+                    }
+                        
+                } else {
+                    console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"));
+                    showPaymentsForm.value = true;
+                    pdvID = LocalStorage.getItem("pdvID");
+                };
+            };
+            
+        } catch (error) {
+            console.error('Erro finalizeSale', error);
+            
+        };
+    }
+    const getCRT = async() => 
+    {
+        try {
+            const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`);
+
+            if(response.data.success === true)
+            {
+                crt.value += response.data.issuer.cod_crt;
+                if(crt.value === 1 || crt.value >= 4)
+                {
+                    csosncst.value = 'CSOSN';
+                } else {
+                    csosncst.value = 'CST';
+                };
+            };
+
+            if(response.data.success === false){
+                console.log(response.data)
+
+            }
+        } catch (error) {
+            if(error.response.data.message === 'Hotel não encontrado')
+            {
+                router.push('/hotel/create');
+                
+            };
+        };
+    };
+
+    const chooseErrors = (choose: string) => 
+    {
+        console.log('chooseErrors: ', choose);
+        if(choose === 'after')
+        {
+            productsSeletion.value = []
+            errorsOfSale.value.showErrosModal = false
+        } 
+
+        if(choose === 'now')
+        {
+            productsSeletion.value = []
+            router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
         }
-      }
+
+    };
+
+    const importSale = async () =>
+    {
+        try {
+            const response = await api.get(`/ecommerce/pdv/get-saved-sale/${props.idPDV}`)
+            console.log('importSale', response.data)
+            updateProductsSeletion(response.data.pdvs.get_itens)
+
+        } catch (error) {
+            console.error('Erro importSale', error)
+            
+        }
+    };
+
+    const showOptions = () => 
+    {
+        showOptionsPDV.value = true
+        showPaymentsForm.value = false
+        showGrid.value = false
+        show.value = false
+        
+    };
+
+    const showProductsSelection = () => 
+    {
+        showPaymentsForm.value = false
+        showGrid.value = !showGrid.value
+        show.value = !show.value
+        
+    };
+    
+    const showGridEmit = () => 
+    {
+        showGrid.value = !showGrid.value
+        show.value = !show.value
+        
+    };  
+
+    const closeConfig = (event: boolean) =>
+    {
+        showOptionsPDV.value = event
+        showGrid.value = !event
+
+    };
+
+    const changeAmount = (id: number, newAmount: number) =>
+    {
+        // const rawProducts = productsSeletion.value
+        
+        // let productFound = null;
+        
+        // for (let i = 0; i < rawProducts.length; i++) {
+        //const productArray = rawProducts[i];
+        //     productFound = productArray.find((p: IProducts) => p.id === id)
+            
+
+        //     if(productFound) break
+
+        // }
+
+        // if(productFound)
+        // {
+        //     productFound.amount = newAmount
+
+        // }
+        
+    };
+
+    const changeCFOP = (id: number, newCFOP: number) => 
+    {
+        // const rawProducts = productsSeletion.value
+
+        // let productFound = null;
+        
+        // for (let i = 0; i < rawProducts.length; i++) {
+        //     const productArray = rawProducts[i];
+        //     productFound = productArray.find(p => p.id === id)
+        //     if(productFound) break
+
+        // }
+
+        // if(productFound)
+        // {
+        //     productFound.cfop = newCFOP
+
+        // }
+    };
+
+    const changeCSOSN = (id: number, newCSOSN: number) =>
+    {
+        // const rawProducts = productsSeletion.value
+
+        // let productFound = null;
+        
+        // for (let i = 0; i < rawProducts.length; i++) {
+        //     const productArray = rawProducts[i];
+        //     productFound = productArray.find(p => p.id === id)
+        //     if(productFound) break
+
+        // }
+
+        // if(productFound)
+        // {
+        //     productFound.csosn = newCSOSN
+
+        // }
+    };
+
+    const updateProductsSeletion = (selectedProducts) =>
+    {
+        //productsSeletion = [...productsSeletion, selectedProducts]
+        
+    };
+
+    const updateCustomerSelection = (client: Icustomer) => 
+    {  
+        customerData.value = {
+            id: client.id,
+            name: client.name
+        };
+    };
+
+    const cancelOperation = () => 
+    {
+        showPaymentsForm.value = false;
+
+    };
+
+    const productOptions = (product_id: number, i: number, action: string) => 
+    {
+        switch (action) {
+            case 'delete':
+                console.log('product_id', product_id, ' i: ', i);
+                console.log('p: ', productsSeletion.value.map(p => { return p }));
+
+                break;
+                
+            case 'view':
+                
+                
+                break;
+
+            case 'options':
+                
+                break;
+        
+            default:
+                break;
+        }
+    };
+
+    const closeCashClosing = (event: boolean) =>
+    {
+        showCashClosing.value = event;
+    };
+
+    const resetSale = (confirmed: boolean) =>
+    {
+        if(confirmed)
+        {
+            emitProducts.value = {
+                addition: 0,
+                discount: 0,
+                freight: 0,
+                userID: 0
+            };
+
+            productsSeletion.value = [];
+            emitProducts.value.addition = 0;
+            emitProducts.value.discount = 0;
+            emitProducts.value.freight = 0;
+            //customerData.value.id = null;
+            customerData.value.name = null;
+            
+        };
+    };
+
+    const maxlength = (csosncst: string) =>
+    {
+        if(csosncst == 'csosn')
+        {
+            return 3;
+        } else if (csosncst == 'cst'){
+            return 2;
+        };
+    };
+
+    const cancelSale = () =>
+    {
+        const option = confirm('Deseja realmente cancelar a venda? ')
+        if (option === true) {
+            emitProducts.value = {
+                addition: 0,
+                discount: 0,
+                freight: 0,
+                userID: 0
+            };
+            
+            productsSeletion.value = [];
+            emitProducts.value.addition = 0;
+            emitProducts.value.discount = 0;
+            emitProducts.value.freight = 0;
+
+            if(props.idPDV)
+            {
+                router.push({ name: 'PDV' });
+            };
+        }
+    }
+
+    const getUser = async (): Promise<Iseller> => 
+    { 
+        const res = await api.get('/auth/me', {
+            headers: {
+                'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
+            }
+        });
+
+        return {
+            id: res.data.user.id,
+            name: res.data.user.name
+        };
+    };
+
+    const getConfig = async () => 
+    {
+        const config = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
+        configs.value.nmFinaly = config.data.configPDV[0].nm_finaly;
+            
+    };
+
+    onMounted(() => {
+        getCRT();
+        getUser();
+        getConfig();
+        witdhScreen.value += screen.width;
+        isOpenedPDV.value = history.state?.isOpenedPDV.value;
+
+        if(props.idPDV)
+        {
+            importSale();
+                
+        };
+
+        document.addEventListener('keydown', (event: TEvent) => {
+            const keyName = event.key
+                
+            if(keyName === 'F2')
+            {
+                showOptions()
+
+            } else if (keyName === 'F8')
+            {
+                finalizeSale('nm')
+
+            } else if (keyName === 'F9')
+            {
+                finalizeSale('nfce')
+            
+            } 
+        });
+
+    });
+      
 </script>
 
 <style>

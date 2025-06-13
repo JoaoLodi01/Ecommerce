@@ -15,11 +15,7 @@ main() {
     start bash -c "quasar dev"
 
     cd "$api_path" || { echo "Erro ao acessar $api_path"; exit 1; }
-<<<<<<< HEAD
-    start bash -c "php artisan serve --host=192.168.1.103"
-=======
     start bash -c "php artisan serve --host=192.168.98.18"
->>>>>>> 8715eaca88ca029700d48cbdebf3fb28c6086be6
 }
 
 main
