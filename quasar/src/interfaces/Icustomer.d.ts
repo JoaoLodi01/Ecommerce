@@ -1,5 +1,5 @@
 interface Icustomer 
 {
-    readonly id: number,
+    id: number,
     name: string
 };

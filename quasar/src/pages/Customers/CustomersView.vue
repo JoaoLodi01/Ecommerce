@@ -6,7 +6,6 @@
             
         }"  
     >
-        {{ widthScreen }}
         <div
             class="flex justify-between "
             

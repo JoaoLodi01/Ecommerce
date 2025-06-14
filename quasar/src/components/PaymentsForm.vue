@@ -371,7 +371,7 @@ export default {
 
                     } else {
                         LocalStorage.removeItem("pdvID")
-                        console.log('Erro durante a finalização da venda: ', response_nfce.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
+                        console.error('Erro durante a finalização da venda: ', response_nfce.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
 
                     }
 
@@ -379,30 +379,37 @@ export default {
 
                 case 'nm':
                     console.log('Issuer_id no LocalStorage ( venda NM ): ', LocalStorage.getItem("issuer_id"))
-                    const response_nm = await api.put('/ecommerce/pdv/finalize-sale', {
-                        issuer_id: this.issuer_id,
-                        user_id: this.user_id,
-                        type_operation: 'nm',
-                        change: this.calculateValueChange.change,
-                        payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
-                        pdv_id: this.pdvID,
-                        installments: this.installments
-                        
-                    })
-
-                    if(response_nm.data.success)
+                    if(this.pdvID)
                     {
-                        this.cancelOperation()
-                        this.$emit('update:selectProducts', []);
-                        LocalStorage.removeItem("pdvID")
-                        console.log(response_nm);    
-                    
-                    } else {
-                        LocalStorage.removeItem("pdvID")
-                        console.error('Erro durante a finalização da venda: ', response_nm.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
-                        console.log(response_nm);
+                        const response_nm = await api.put('/ecommerce/pdv/finalize-sale', {
+                            issuer_id: this.issuer_id,
+                            user_id: this.user_id,
+                            type_operation: 'nm',
+                            change: this.calculateValueChange.change,
+                            payments_values: this.paymentsValues.map(v => parseFloat(v.replace(',', '.'))),
+                            pdv_id: this.pdvID,
+                            installments: this.installments
+                            
+                        });
+
+                        if(response_nm.data.success)
+                        {
+                            this.cancelOperation()
+                            this.$emit('update:selectProducts', []);
+                            LocalStorage.removeItem("pdvID")
+                            console.log(response_nm.data);    
                         
-                    }
+                        } else {
+                            LocalStorage.removeItem("pdvID")
+                            console.error('Erro durante a finalização da venda: ', response_nm.data, ' novo PDV ID: ', LocalStorage.getItem("pdvID"))
+                            console.error(response_nm);
+                            
+                        };
+                        
+                    } else {
+                        alert('ID da venda ausente');
+
+                    };
 
                     break
 

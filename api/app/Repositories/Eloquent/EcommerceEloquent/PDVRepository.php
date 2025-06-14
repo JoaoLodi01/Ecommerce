@@ -251,11 +251,12 @@ class PDVRepository
             if ($payMentMethodService['success'] === true) {
                 Log::info('Pagamento bem sucessido, vai alterar o PDV: ' . $pdv);
                 Log::info('$type ' . $type);
+                Log::info('Tipo de venda: NFC-e/NM' . $pdv->is_nfce_nm);
 
                 $pdv->update([
                     'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->pdv_cod" : "Venda Nota Manual N° $pdv->pdv_cod",
-                    'is_nfce_nm' => $type === 'saleNM' ? 'nm' : 'nfce',
-                    'status' => $type === 'saleNM' ? 'Venda Finalizada' : 'Autorizado uso da NF-e',
+                    'is_nfce_nm' => $pdv->is_nfce_nm,
+                    'status' => $pdv->is_nfce_nm === 'nfce' ? 'Autorizado uso da NF-e' : 'Venda Finalizada',
                     'finished' => 1
         
                 ]);
