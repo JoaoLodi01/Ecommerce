@@ -3,10 +3,8 @@
 
 <script setup lang="ts">
     import { useQuasar } from 'quasar';
-    import { onMounted, defineProps, defineEmits } from 'vue';
+    import { onMounted, defineEmits } from 'vue';
     
-    const props = defineProps<PPdv>();
-
     const emits = defineEmits<{
         (e: 'showPage', value: boolean): void
 
@@ -18,31 +16,20 @@
     const showLoading = () => 
     {
         $q.loading.show({
-            message: 'Carregando esse djabão ...'
+            message: 'Carregando esse djabão ...',
+            
         });
 
         timer = setTimeout(() => {
             $q.loading.hide()
             timer = void 0
+            emits('showPage', true);
 
         }, 3000);
-    };
-
-    const hideLoanding = () => 
-    {    
-        if(timer !== void 0) {
-            clearTimeout(timer)
-            $q.loading.hide();
-
-        };
     };
 
     onMounted(() => {
         showLoading();
 
-        if(props.pdvView)
-        {
-            
-        };
     });
 </script>

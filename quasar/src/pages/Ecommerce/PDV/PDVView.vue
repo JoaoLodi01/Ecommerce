@@ -2,9 +2,9 @@
     <div v-if="!showPage">
         <LoandingPage
             @show-page="showPage = $event"
-            :pdv-view="true"
-            
+                        
         />
+
     </div>
     <div v-if="showPage"> <!-- SHOW PAGE -->
         <div
@@ -448,7 +448,6 @@
     import { ref, computed, watch, defineProps, onMounted } from 'vue'   
     import { useRoute, useRouter } from 'vue-router';
     import { useQuasar, LocalStorage } from 'quasar';
-import { pdv } from '@/interfaces/pages/Props';
 
     const props = defineProps<{
         idPDV?: number;
@@ -460,13 +459,6 @@ import { pdv } from '@/interfaces/pages/Props';
     let timer: any;
 
     let showPage = ref<boolean>(false);
-
-    let showPageProps = ref<pdv>({
-        csosncst: '',
-        sellerID: 0,
-        configs: false
-
-    });
     
     let productsSeletion = ref<IProducts[][]>([]);
 
