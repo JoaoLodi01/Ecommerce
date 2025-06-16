@@ -1,4 +1,0 @@
-type PPdv = {
-    pdvView?: boolean
-}
-

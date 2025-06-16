@@ -3,8 +3,12 @@
 
 <script setup lang="ts">
     import { useQuasar } from 'quasar';
-    import { onMounted, defineEmits } from 'vue';
+    import { onMounted, defineEmits, defineProps } from 'vue';
     
+    const props = defineProps<{
+        page: string
+    }>();
+
     const emits = defineEmits<{
         (e: 'showPage', value: boolean): void
 
@@ -16,7 +20,7 @@
     const showLoading = () => 
     {
         $q.loading.show({
-            message: 'Carregando esse djabão ...',
+            message: `Carregando a página ${props.page} ...`
             
         });
 

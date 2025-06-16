@@ -2,6 +2,7 @@
     <div v-if="!showPage">
         <LoandingPage
             @show-page="showPage = $event"
+            :page="'do PDV'"
                         
         />
 
@@ -473,6 +474,7 @@
         discount: 0,
         freight: 0,
         userID: 0
+        
     });
 
     let crt = ref<number>(0);
@@ -681,7 +683,7 @@
                         {  
                             const response = await api.post('/ecommerce/pdv/save-sale', {
                                 issuer_id: issuer_id,
-                                products: productsSeletion, // Produtos da 
+                                products: productsSeletion.value, // Produtos da 
                                 user_id: sellerData.value.id,
                                 customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
                                 total: calculateTotal.value.subtotal - calculateTotal.value.discount + calculateTotal.value.addition,
