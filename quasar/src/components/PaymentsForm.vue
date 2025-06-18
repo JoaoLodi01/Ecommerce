@@ -390,6 +390,10 @@ export default {
                             pdv_id: this.pdvID,
                             installments: this.installments
                             
+                        }, {
+                            headers: {
+                                Accept: 'application/json'
+                            }
                         });
 
                         if(response_nm.data.success)
