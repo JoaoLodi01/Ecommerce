@@ -26,6 +26,7 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
+use App\Http\Controllers\Exceptions\ExceptionsController;
 use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\TributsController\TributsController;
 use App\Http\Controllers\RegisterControllers\{
@@ -212,6 +213,8 @@ Route::prefix('v1')->group( function (){
     
     Route::post('/reset-passowrd', [ForgotPasswordController::class, 'resetPassowrd'])->name('password.update');    
 });
+
+Route::get('/exception', [ExceptionsController::class, 'test']);
 
 Route::get('/info', function(){
     return phpinfo();

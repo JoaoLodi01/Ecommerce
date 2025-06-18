@@ -40,7 +40,7 @@ class ComposerStaticInit2f8fad98d414b6e76b3cad63a981e25e
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'a1cfe24d14977df6878b9bf804af2d1c' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/Autoload.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
-        '590ec21c39c1fd4912c48b1b7469cbfa' => __DIR__ . '/../..' . '/app/Helpers/Response/APIresponse.php',
+        'c4dfe64cac12b12adea44994ed38b0fd' => __DIR__ . '/../..' . '/app/Helpers/Response/APIResponse.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -570,7 +570,10 @@ class ComposerStaticInit2f8fad98d414b6e76b3cad63a981e25e
         'App\\Actions\\FixCode' => __DIR__ . '/..' . '/laravel/pint/app/Actions/FixCode.php',
         'App\\Commands\\DefaultCommand' => __DIR__ . '/..' . '/laravel/pint/app/Commands/DefaultCommand.php',
         'App\\Contracts\\PathsRepository' => __DIR__ . '/..' . '/laravel/pint/app/Contracts/PathsRepository.php',
+        'App\\Exceptions\\ExceptionCreateCustomer' => __DIR__ . '/../..' . '/app/Exceptions/ExceptionCreateCustomer.php',
         'App\\Exceptions\\HandleExceptions' => __DIR__ . '/..' . '/laravel/pint/app/Exceptions/HandleExceptions.php',
+        'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Exceptions\\InsufficientPayment' => __DIR__ . '/../..' . '/app/Exceptions/InsufficientPayment.php',
         'App\\Factories\\ConfigurationFactory' => __DIR__ . '/..' . '/laravel/pint/app/Factories/ConfigurationFactory.php',
         'App\\Factories\\ConfigurationResolverFactory' => __DIR__ . '/..' . '/laravel/pint/app/Factories/ConfigurationResolverFactory.php',
         'App\\Http\\Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthController.php',
@@ -585,6 +588,7 @@ class ComposerStaticInit2f8fad98d414b6e76b3cad63a981e25e
         'App\\Http\\Controllers\\EcommerceController\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/EcommerceController/ProductsController.php',
         'App\\Http\\Controllers\\EcommerceController\\ReceiveController' => __DIR__ . '/../..' . '/app/Http/Controllers/EcommerceController/ReceiveController.php',
         'App\\Http\\Controllers\\EcommerceController\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/EcommerceController/UserController.php',
+        'App\\Http\\Controllers\\Exceptions\\ExceptionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Exceptions/ExceptionsController.php',
         'App\\Http\\Controllers\\FirstSteps\\FirstStepsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FirstSteps/FirstStepsController.php',
         'App\\Http\\Controllers\\HotelController\\HotelController' => __DIR__ . '/../..' . '/app/Http/Controllers/HotelController/HotelController.php',
         'App\\Http\\Controllers\\HotelController\\RoomController' => __DIR__ . '/../..' . '/app/Http/Controllers/HotelController/RoomController.php',
@@ -695,6 +699,7 @@ class ComposerStaticInit2f8fad98d414b6e76b3cad63a981e25e
         'App\\Services\\EcommerceService\\ProductsService' => __DIR__ . '/../..' . '/app/Services/EcommerceService/ProductsService.php',
         'App\\Services\\EcommerceService\\ReceiveService' => __DIR__ . '/../..' . '/app/Services/EcommerceService/ReceiveService.php',
         'App\\Services\\EcommerceService\\UserService' => __DIR__ . '/../..' . '/app/Services/EcommerceService/UserService.php',
+        'App\\Services\\Exceptions\\ExceptionsService' => __DIR__ . '/../..' . '/app/Services/Exceptions/ExceptionsService.php',
         'App\\Services\\FirstSteps\\FirstStepsService' => __DIR__ . '/../..' . '/app/Services/FirstSteps/FirstStepsService.php',
         'App\\Services\\HotelServices\\HotelService' => __DIR__ . '/../..' . '/app/Services/HotelServices/HotelService.php',
         'App\\Services\\HotelServices\\ReservationService' => __DIR__ . '/../..' . '/app/Services/HotelServices/ReservationService.php',

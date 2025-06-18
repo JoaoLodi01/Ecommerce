@@ -3,7 +3,6 @@
 namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PDVRepository;
-use App\Exceptions\InsufficientPayment;
 use Illuminate\Support\Facades\Log;
 
 class PDVService
@@ -84,6 +83,7 @@ class PDVService
 
         if($total < $pdv->net_value)
         {
+            Log::info('Vai lançar o InsufficientPayment');
             throw new \App\Exceptions\InsufficientPayment("Pagamento insuficiente");
 
         } else {
@@ -96,6 +96,7 @@ class PDVService
                 $issuerID,
                 $userID,
             );
+            
             return $finallyPDV;
         }
 
