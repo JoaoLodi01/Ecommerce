@@ -64,12 +64,12 @@ class PDVRepository
         return $pdvs;
     }
 
-    public function findSavePDVByID(int $id)
+    public function findSavePDVByID(int $id, int $issuerID)
     {
         Log::info('Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0');
         $pdvs = PDV::with('getItens')
                         ->where('pdv_cod', $id)
-
+                        ->where('issuer_id', $issuerID)
                         ->first();
 
         return $pdvs;
@@ -282,25 +282,7 @@ class PDVRepository
                 
                 );
             }
-        } elseif ($total < $pdv->net_value)
-        {
-            Log::info('Foi menor');
-            return array(
-                'success' => false,
-                'errorMessage' => 'O valor pago é menor que o total líquido da compra!',
-                'pdv' => $pdv
-            
-            );
-            
-        } else {
-            Log::info('Falhou');
-            return array(
-                'success' => false,
-                'message' => 'O pagamento falhou!',
-                'pdv' => $pdv
-            
-            );
-
+        
         }
     }
 

@@ -212,7 +212,7 @@
         is_driver: false,
         is_supplier: false,
         phone: '',
-        issuer_id: 0
+        issuer_id: LocalStorage.getItem("issuer_id")
 
     });
 

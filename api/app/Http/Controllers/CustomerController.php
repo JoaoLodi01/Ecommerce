@@ -32,7 +32,8 @@ class CustomerController extends Controller
         $data = $request->validated();
         Log::info('Dados recebidos: ');
         Log::info($data);
-        return $this->customerService->create($data);
+        $customer = $this->customerService->create($data);
+        return apiSuccess('Cliente cadastrado com sucesso!', $customer);
         
     }
 

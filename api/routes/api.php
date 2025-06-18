@@ -109,7 +109,7 @@ Route::prefix('v1')->group( function (){
                 Route::put('/finalize-sale', [PDVController::class, 'finalizeSale']);
 
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
-                Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
+                Route::post('/get-saved-sale', [PDVController::class, 'findSavePDVByID']);
 
                 Route::get('/get-all-errors', [ErrorsPDVController::class, 'all']);
 

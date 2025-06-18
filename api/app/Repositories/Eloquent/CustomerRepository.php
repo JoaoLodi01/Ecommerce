@@ -95,6 +95,7 @@ class CustomerRepository
             'complete_customers' => 1
             
         ]);
+        
         $stpes->save();
 
         return Customer::create([

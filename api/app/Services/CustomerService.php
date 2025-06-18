@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Exceptions\ExceptionCreateCustomer;
 use App\Repositories\Eloquent\CustomerRepository;
 use Illuminate\Support\Facades\Log;
 
@@ -34,11 +35,15 @@ class CustomerService
 
     public function create(array $data){
         $customer = $this->customerRepository->create($data);
-        return response()->json([
-            'success' => true,
-            'customer' => $customer
-            
-        ], 201);
+    
+        if(!$customer)
+        {
+            throw new ExceptionCreateCustomer("Erro ao criar usuário");
+
+        }
+        
+        return $customer;
+
     }
 
     public function update(array $data, int $id){
