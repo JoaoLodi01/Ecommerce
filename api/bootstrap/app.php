@@ -1,6 +1,5 @@
 <?php
 
-use App\Exceptions\InsufficientPayment;
 use App\Http\Middleware\EnsureTokenIsValid;
 use App\Http\Middleware\UserAuth;
 use Illuminate\Foundation\Application;

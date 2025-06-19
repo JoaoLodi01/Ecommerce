@@ -3,19 +3,23 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 use Throwable;
-use App\Exceptions\InsufficientPayment;
-
 class Handler extends ExceptionHandler
 {
-    public function register(): void
+    public function render($request, Throwable $e)
     {
-        $this->renderable(function (InsufficientPayment $e, $request) {
-            dd('Entrou no renderable');
-            
+        if ($e instanceof InsufficientPayment) {
             return apiError($e->getMessage(), [], false, 400);
-        });
+
+        }
+
+        if($e instanceof CustomerNotFound)
+        {
+            return apiError($e->getMessage(), [], false, 400);
+            
+        }
+
+        return parent::render($request, $e);
     }
-
-
 }

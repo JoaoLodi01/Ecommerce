@@ -22,17 +22,21 @@ class ProductsService
                 'all' => $all
             ], 200);
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+            
         }
     }
 
-    public function search(array $data){
-        try {
-            return $this->productsRepository->search($data);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+    public function search(array $data)
+    {
+        $product = $this->productsRepository->search($data);    
+
+        if(!$product)
+        {
+            throw new \App\Exceptions\ProductNotFound("Produto não encontrado");
+
         }
     
+        return $product;
     }
 
     public function findByID(int $id){
@@ -42,10 +46,6 @@ class ProductsService
         ]);
     }
     
-    public function findImage(int $id){
-        $this->productsRepository->findImage($id);
-    }
-
     public function create(array $data){
         try {
            /* Log::info("Vai chamar checkGTIN");
@@ -57,7 +57,7 @@ class ProductsService
             ], 201);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+            
         }
     }
 
@@ -70,7 +70,7 @@ class ProductsService
             ], 200);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+            
         }
     }
 
@@ -119,21 +119,11 @@ class ProductsService
             ], 201);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
         }
     }
 
     public function allGroup()
     {
         return $this->groupRepository->all();
-    }
-
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ]);
     }
 }

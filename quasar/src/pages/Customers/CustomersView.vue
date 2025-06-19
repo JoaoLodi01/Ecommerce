@@ -89,7 +89,7 @@
             v-for="(customer, id) in customers" :key="id" 
             class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
         >
-            <div @click="editCustomer(customer.id, customer.company_name || customer.trade_name)">
+            <div @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name)">
                 <div class="text-sm text-gray-500 mb-2">
                     <span class="font-semibold">ID:</span> {{ customer.customer_cod }}
                 </div>
@@ -99,11 +99,11 @@
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">CPF:</span> {{ customer.cpf.lenth < 0 ? customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'Sem CPF'}}
+                    <span class="font-semibold">CPF:</span> {{ customer.cpf.length < 0 ? customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'Sem CPF'}}
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">CNPJ:</span> {{ customer.cnpj.lenth < 0 ? customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : 'Sem CNPJ' }}
+                    <span class="font-semibold">CNPJ:</span> {{ customer.cnpj.length < 0 ? customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : 'Sem CNPJ' }}
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
@@ -118,7 +118,7 @@
             <!-- Ações -->
             <div class="flex space-x-2" >
                 <q-btn
-                    @click="editCustomer(customer.id, customer.company_name || customer.trade_name)"
+                    @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
@@ -129,7 +129,7 @@
                     Editar
                 </q-btn>
                 <q-btn
-                    @click="deleteCustomer(customer.id, customer.company_name || customer.trade_name)"
+                    @click="deleteCustomer(customer.customer_cod, customer.company_name || customer.trade_name)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
@@ -146,7 +146,7 @@
                     :class="{
                         'text-gray-400 bg-slate-500': !customer.active
                     }"
-                    @click="activeCustomer(customer.id, customer.company_name || customer.trade_name)"
+                    @click="activeCustomer(customer.customer_cod, customer.company_name || customer.trade_name)"
                 >   
                     Ativar
                 </q-btn>
@@ -179,134 +179,112 @@
     </div>
 </template>
   
-<script>
+<script setup lang="ts">
     import { LocalStorage } from 'quasar';
     import { api } from 'src/boot/axios';
+    import { ref, onMounted } from 'vue';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
     import UpdateCustomer from 'src/components/Register/Customers/UpdateCustomer.vue';
     import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
+    
+    let customers = ref<ICustomer[]>([]);
+    let showCustomers = ref<boolean>(true);
+    let showReportCustomer = ref<boolean>(true);
+    let showReportCustomerMini = ref<boolean>(false);
+    let showRegisterCustomers = ref<boolean>(false);
+    let showConfig = ref<boolean>(false);
+    let showUpdateCustomers = ref<boolean>(false);
+    let customerID = ref<number>(0);
+    let customerName = ref<string>('');
+    let widthScreen = ref<number>(0);
 
-    export default {
-        data() {
-            return {
-                customers: [],
-                showCustomers: true,
-                showReportCustomer: true,
-                showReportCustomerMini: false,
-                showRegisterCustomers: false,
-                showConfig: false,
-                showUpdateCustomers: false,
-                customerID: '',
-                customerName: '',
-                widthScreen: 0                
-            };
-        },
-
-        mounted(){
-            this.getCustomers();
-            this.widthScreen += screen.width
-
-        },
-
-        methods: {
-            async getCustomers() {
-                const response = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
-                this.customers = response.data.all;
-                
-            },
-
-            async deleteCustomer(id, name)
-            {
-                const confirmed = confirm(`Deseja inativar o cliente: ${name}`);
-                if(confirmed && name)
-                {
-                    const res = await api.delete(`/customers/${id}/deactivate`);
-                    res.data.success ? window.location.reload() : alert('Erro ao desativar');
-                    
-                }
-
-            },
-
-            async activeCustomer(id, name)
-            {
-                const confirmed = confirm(`Deseja ativar o cliente: ${name}`);
-                if(confirmed && name)
-                {
-                    const res = await api.put(`/customers/${id}/active`);
-                    res.data.success ? window.location.reload() : alert('Erro ao ativar');
-                    
-                }
-                
-            },
-
-            openRegister()
-            {
-                this.showRegisterCustomers = true;
-                this.showUpdateCustomers = false;
-                this.showCustomers = false;
-                this.showReportCustomer = false;
-                this.showReportCustomerMini = false;
-                
-            },  
-
-            closeRegister()
-            {
-                this.showCustomers = true
-                this.showRegisterCustomers = false
-                this.showUpdateCustomers = false
-                this.showReportCustomer = false
-
-            },
-
-            openConfig()
-            {
-                this.showConfig = true
-                this.showUpdateCustomers = false
-                this.showCustomers = false
-                this.showReportCustomer = false
-            },
-
-            openReportCustomerMini()
-            {
-                this.showReportCustomerMini = !this.showReportCustomerMini
-            },
-
-            closeRegister()
-            {
-                this.showRegisterCustomers = false
-                this.showUpdateCustomers = false
-                this.showCustomers = true
-                this.showReportCustomer = true
-            },
-
-            closeReload(event)
-            {
-                this.showUpdateCustomers = event
-                this.showRegisterCustomers = event
-                window.location.reload()
-            },
-
-            editCustomer(id, name)
-            {
-                this.showUpdateCustomers = true
-                this.showCustomers = false
-                this.showRegisterCustomers = false
-                this.showReportCustomer = false
-                this.customerID = id
-                this.customerName = name
-
-            }
-        },
-
-        components: {
-            RegisterCustomer,
-            ReportCustomer,
-            UpdateCustomer,
-            ConfigCustomers
-
-        }
+    const getCustomers = async () =>
+    {
+        const response = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
+        customers.value = response.data.all;
+        
     };
+
+    const deleteCustomer = async (id: number, name: string) => 
+    {
+        const confirmed = confirm(`Deseja inativar o cliente: ${name}`);
+        if(confirmed && name)
+        {
+            const res = await api.delete(`/customers/${id}/deactivate`);
+            res.data.success ? window.location.reload() : alert('Erro ao desativar');
+            
+        };
+
+    };
+
+    const activeCustomer = async (id: number, name: string) => 
+    {
+        const confirmed = confirm(`Deseja ativar o cliente: ${name}`);
+        if(confirmed && name)
+        {
+            const res = await api.put(`/customers/${id}/active`);
+            res.data.success ? window.location.reload() : alert('Erro ao ativar');
+            
+        };
+    };
+
+    const openRegister = () => 
+    {
+        showRegisterCustomers.value = true;
+        showUpdateCustomers.value = false;
+        showCustomers.value = false;
+        showReportCustomer.value = false;
+        showReportCustomerMini.value = false;
+        
+    };     
+
+
+    const closeRegister = () => 
+    {
+        showCustomers.value = true;
+        showRegisterCustomers.value = false;
+        showUpdateCustomers.value = false;
+        showReportCustomer.value = false;
+
+    };            
+
+    const openConfig = () => 
+    {
+        showConfig.value = true;
+        showUpdateCustomers.value = false;
+        showCustomers.value = false;
+        showReportCustomer.value = false;
+    };
+
+    const openReportCustomerMini = () => 
+    {
+        showReportCustomerMini.value = !showReportCustomerMini;
+    };
+
+    const closeReload = (event: boolean) =>
+    {
+        showUpdateCustomers.value = event;
+        showRegisterCustomers.value = event;
+        window.location.reload();
+    };
+
+    const editCustomer = (id: number, name: string) =>
+    {
+        showUpdateCustomers.value = true;
+        showCustomers.value = false;
+        showRegisterCustomers.value = false;
+        showReportCustomer.value = false;
+        customerID.value = id;
+        customerName.value = name;
+
+    };
+
+    onMounted(() => {
+        getCustomers();
+        widthScreen.value = screen.width;
+
+    });
 </script>
 
 <style>

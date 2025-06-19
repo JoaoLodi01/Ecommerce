@@ -13,6 +13,8 @@ class Customer extends Model
 {
     use HasFactory, Notifiable;
 
+    protected $primaryKey = 'customer_cod';
+
     protected $table = 'customers';
     
     protected $fillable = [

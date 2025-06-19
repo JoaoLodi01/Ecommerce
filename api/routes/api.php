@@ -200,7 +200,6 @@ Route::prefix('v1')->group( function (){
             Route::put('/{id}', [FirstStepsController::class, 'ignoreFirstSteps']);
 
         });
-    
     });
 
     Route::prefix('registers')->group( function(){
@@ -213,8 +212,6 @@ Route::prefix('v1')->group( function (){
     
     Route::post('/reset-passowrd', [ForgotPasswordController::class, 'resetPassowrd'])->name('password.update');    
 });
-
-Route::get('/exception', [ExceptionsController::class, 'test']);
 
 Route::get('/info', function(){
     return phpinfo();

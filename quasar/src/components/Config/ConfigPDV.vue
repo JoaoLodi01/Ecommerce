@@ -94,7 +94,7 @@
                 <p class="ml-4 mb-2 border-b border-black text-lg">Alterações</p>
                 <div class="grid grid-cols-3 gap-4 p-2 mb-2">
                 <q-select 
-                    v-model="configs.editFields" 
+                    v-model="configs.permitEditFields" 
                     :options="editFields" 
                     label="Campos" 
                     filled 
@@ -114,155 +114,146 @@
     </div>
 
 </template>
-<script>
+<script setup lang="ts">
     import { api } from 'src/boot/axios'
     import { LocalStorage, useQuasar } from 'quasar';
-    import { onBeforeUnmount } from 'vue';
+    import { ref, onMounted, defineEmits } from 'vue';
 
-    export default {
-        setup()
-        {
-            const $q = useQuasar()
-            let timer
+    const emits = defineEmits<{
+        (e: 'close', value: boolean)
 
-            onBeforeUnmount(() => {
-                if(timer !== void 0)
-                {
-                    clearTimeout(timer)
-                    $q.loading.hide()
+    }>();
 
-                }
-            })
-            return {
-                showLoading (messageValue) {
-                    $q.loading.show({
-                        message: `${messageValue} configurações ...`
-                    })
+    const editFields = ref<string[]>([
+        'Permitir alterar Qtde e Val Unitário e calcular o total',
+        'Permitir alterar o valor unitário e calcular o total',
 
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
+    ]);
 
-                    }, 1000)
-                },
+    const searchOptionProducts = ref<string[]>([
+        'Cód barras',
+        'Cód barras interno',
+        'Cód barras & Cód barras interno',
+        'Padrão (cód.barras ou cód.produto)'
 
-                editFields: [
-                    'Permitir alterar Qtde e Val Unitário e calcular o total',
-                    'Permitir alterar o valor unitário e calcular o total',
-                ],
+    ]);
 
-                searchOptionProducts: [
-                    'Cód barras',
-                    'Cód barras interno',
-                    'Cód barras & Cód barras interno',
-                    'Padrão (cód.barras ou cód.produto)'
-
-                ],
-
-                searchOptionCustomers: [
-                    'CPF ou Cód cliente',
-                    'CNPJ ou Cód cliente',
-                    'CNPJ, CPF ou Cód cliente',
-                    'Padrão (cód.cliente ou nome)'
-                    
-                ]
-            }
-        },
+    const searchOptionCustomers = ref<string[]>([
+        'CPF ou Cód cliente',
+        'CNPJ ou Cód cliente',
+        'CNPJ, CPF ou Cód cliente',
+        'Padrão (cód.cliente ou nome)'
         
-        data()
-        {
-            return {
-                configs: {
-                    searchOptionProduct: null,
-                    searchOptionCustomer: null,
-                    saleNegativeorReset: false,
-                    supervisorPasswordDeleteItem: false,
-                    supervisorPasswordCancelSale: false,
-                    groupLikeItens: false,
-                    permitEditFields: false,
-                    nmFinaly: true,
-                   
-                },
-                
-            }
-        },
+    ]);
 
-        methods: {
-            async getConfig()
-            {
-                this.showLoading('Carregando as')
-                const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
-                const data = response.data.configPDV[0]
+    const $q = useQuasar();
+    let timer: unknown;
 
-                console.log(data)
-                
-                this.configs = {
-                    nmFinaly: data.nm_finaly === 1 ? true : false,
-                    saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
-                    searchOptionProduct: data.filter_search,
-                    searchOptionCustomer: data.filter_search_customer,
-                    supervisorPasswordDeleteItem: data.supervisor_password_delete_item === 1 ? true : false,
-                    supervisorPasswordCancelSale: data.supervisor_password_cancel_sale === 1 ? true : false,
-                    groupLikeItens: false
-                    
-                }
-            },
-        
-            async onSubmit()
-            {
-                this.showLoading('Salvando as')
+    let configs = ref<IConfig>({
+        searchOptionProduct: null,
+        searchOptionCustomer: null,
+        saleNegativeorReset: false,
+        supervisorPasswordDeleteItem: false,
+        supervisorPasswordCancelSale: false,
+        groupLikeItens: false,
+        permitEditFields: null,
+        nmFinaly: true
+    
+    });
+    
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
-                const response = await api.put(`/config/config-pdv/update-config/${LocalStorage.getItem("issuer_id")}`, {
-                    searchOptionProduct: this.configs.searchOptionProduct,
-                    searchOptionCustomers: this.configs.searchOptionCustomer,
-                    nmFinaly: this.configs.nmFinaly,
-                    saleNegativeorReset: this.configs.saleNegativeorReset,
-                    supervisorPasswordCancelSale: this.configs.supervisorPasswordCancelSale,
-                    supervisorPasswordDeleteItem: this.configs.supervisorPasswordDeleteItem,
-                    issuer_id: LocalStorage.getItem("issuer_id")
-                });
+    const showLoading = (messageValue: string) =>
+    {
+        $q.loading.show({
+            message: `${messageValue} configurações ...`
 
-                const data = response.data;
-                console.log(data)
-                if(data.success)
-                {
-                    alert('Configurações gravadas com sucesso!');
-                    this.onClose();
-                }
-            },
+        });
 
-            onReset()
-            {
-                this.showLoading('Restaurando')
-                this.getConfig()
-            },
+        timer = setTimeout(() => {
+            $q.loading.hide();
+            timer = void 0;
 
-            onClose()
-            {
-                this.$emit("close", false)
-            }
-        },
+        }, 1000);
+    };
 
-        emits: [
-            'close'
-        ],
-        
-        mounted()
-        {
-            this.getConfig()
-            document.addEventListener('keydown', (event) => {
-                const keyName = event.key
-                console.log('keyName: ', keyName)
-                if(keyName === 'Escape')
-                {
-                    this.onClose()
-                } else {
-                    return;
-                }
-            })
+    const getConfig = async() =>
+    {
+        showLoading('Carregando as');
+
+        const res = await api.get(`/config/all-configs/${issuerID.value}`);
+
+        const data = res.data.data.pdv[0];
+
+        configs.value = {
+            nmFinaly: data.nm_finaly === 1 ? true : false,
+            saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
+            searchOptionProduct: data.filter_search,
+            searchOptionCustomer: data.filter_search_customer,
+            supervisorPasswordDeleteItem: data.supervisor_password_delete_item === 1 ? true : false,
+            supervisorPasswordCancelSale: data.supervisor_password_cancel_sale === 1 ? true : false,
+            permitEditFields: editFields.value[0],
+            groupLikeItens: false
             
-        }
-    }
+        };
+    };
+        
+    const onSubmit = async () =>
+    {
+        showLoading('Salvando as');
+        console.log(typeof issuerID.value)
+        const res = await api.put(`/config/config-pdv/update-config/${issuerID.value}`, {
+            searchOptionProduct: configs.value.searchOptionProduct,
+            searchOptionCustomers: configs.value.searchOptionCustomer,
+            nmFinaly: configs.value.nmFinaly,
+            saleNegativeorReset: configs.value.saleNegativeorReset,
+            supervisorPasswordCancelSale: configs.value.supervisorPasswordCancelSale,
+            supervisorPasswordDeleteItem: configs.value.supervisorPasswordDeleteItem,
+            issuer_id: issuerID.value
+
+        });
+
+        const data = res.data;
+        
+        if(data.success)
+        {
+            alert('Configurações gravadas com sucesso!');
+            onClose();
+
+        };
+    };
+
+    const onReset = () =>
+    {
+        showLoading('Restaurando ...');
+        getConfig();
+
+    };
+
+    const onClose = () =>
+    {
+        emits('close', false);
+
+    };
+
+    onMounted(() =>
+    {
+        getConfig();
+        document.addEventListener('keydown', (event: TEvent) => {
+            const keyName = event.key;
+            console.log('Aqui: ', keyName);
+
+            if(keyName === 'Escape')
+            {
+                onClose();
+                
+            } else {
+                return;
+
+            };
+        }); 
+    });
+    
 </script>
 
 <style>

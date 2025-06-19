@@ -124,57 +124,57 @@
                             </tr>
                         </thead>
 
-                        <tbody v-for="(product, i) in productsSeletion">
+                        <tbody v-for="(products, i) in productsSeletion">
                             <tr
-                                
+                                v-for="(product, k) in products" :key="k"
                                 class="border border-black"
                             >    
 
-                                <td class="px-6" scope="row">{{ product[0].product_cod }}</td>
-                                <td class="px-6 py-3">{{ product[0].product}}</td>
+                                <td class="px-6" scope="row">{{ product.product_cod }}</td>
+                                <td class="px-6 py-3">{{ product.product }}</td>
 
                                 <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
                                     <input 
-                                        v-model="product[0].cfop"
-                                        :placeholder=String(product[0].cfop)
+                                        v-model="product.cfop"
+                                        :placeholder=String(product.cfop)
                                         type="text"
                                         class="w-12 text-center border-b-4 border-b-gray-500"
                                         maxlength="4"
                                         minlength="4"
-                                        @input="changeCFOP(product[0].id, Number(product[0].cfop))"
+                                        @input="changeCFOP(product.id, Number(product.cfop))"
 
                                     />
                                 </td>
 
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                     <input 
-                                        v-model="product[0].csosncst"
-                                        :placeholder=String(product[0].csosncst)
+                                        v-model="product.csosncst"
+                                        :placeholder=String(product.csosncst)
                                         type="number"
                                         :maxlength="maxlength(csosncst.toLowerCase())"
                                         :minlength="maxlength(csosncst.toLowerCase())"
                                         class="w-10 text-center border-b-4 border-b-gray-500"
                                         id="csosnInput"
-                                        @input="changeCSOSN(product[0].id, Number(product[0].csosncst))"
+                                        @input="changeCSOSN(product.id, Number(product.csosncst))"
 
                                     />
                                 </td>
 
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                     <input 
-                                        v-model="product[0].amount"
-                                        :placeholder="String(product[0].amount)"
+                                        v-model="product.amount"
+                                        :placeholder="String(product.amount)"
                                         type="text"
                                         class="w-10 text-center border-b-4 border-b-gray-500 "
-                                        @input="changeAmount(product[0].id, Number(product[0].amount))"
+                                        @input="changeAmount(product.id, Number(product.amount))"
                                         
                                     />
                                 </td>
-                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product[0].sale_price }}</td>
-                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product[0].sale_price * Number(product[0].amount)).toFixed(2) }}</td>
+                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * Number(product.amount)).toFixed(2) }}</td>
                                 <td class="text-center">
                                     <div class="m-auto">
-                                        <button @click="productOptions(product[0].id, i, 'delete')">
+                                        <button @click="productOptions(product.id, i, 'delete')">
                                             <svg 
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none" 
@@ -188,7 +188,7 @@
                                             </svg>
                                         </button>
 
-                                        <button @click="productOptions(product[0].id, i, 'options')">
+                                        <button @click="productOptions(product.id, i, 'options')">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 16 16" fill="currentColor"
@@ -199,7 +199,7 @@
                                             </svg>
                                         </button>
 
-                                        <button @click="productOptions(product[0].id, i, 'view')">
+                                        <button @click="productOptions(product.id, i, 'view')">
                                             <svg 
                                                 v-if="witdhScreen < 1080"
                                                 xmlns="http://www.w3.org/2000/svg"

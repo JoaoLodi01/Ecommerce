@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 
-class ExceptionCreateCustomer extends Exception
+class ProductNotFound extends Exception
 {
     //
 }

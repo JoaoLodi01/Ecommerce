@@ -20,38 +20,40 @@ class CustomerRepository
         return Customer::where('issuer_id', $issuer->id)->get();
         
     }
-
+ 
     public function search(array $data)
     {
-        Log::info('data - customer');
-        Log::info($data);
-        
         $customer = null;
         $search = $data['search'];
+
         switch ($data['fillter']) {
             case 'Padrão (cód.cliente ou nome)':
                 $customer = Customer::where('active', 1)
+                        ->where('issuer_id', $data['issuer_id'])
                         ->where(function ($query) use ($search){
                             $query->where('customer_cod', $search)
-                                  ->orWhere('name', 'like', '%' . $search . '%');
+                                  ->orWhere('company_name', 'like', '%' . $search . '%' )
+                                  ->orWhere('trade_name', 'like', '%' . $search . '%' );
                         })
+
                         ->get();
                 break;
 
             case 'CPF ou Cód cliente':
                 $customer = Customer::where('active', 1)
-                           ->where(function($query) use ($search){
-                             $query->where('cpf', 'like', '%' . $search . '%')
-                                   ->orWhere('customer_cod', $search);
-                           })
-                           ->get();
+                            ->where('issuer_id', $data['issuer_id'])
+                            ->where(function($query) use ($search){
+                                $query->where('customer_cod', $search)
+                                    ->orWhere('cpf', 'like' . '%' . $search . '%');
+                            })
+                            ->get();
                 break;
 
             case 'CNPJ ou Cód cliente':
                 $customer = Customer::where('active', 1)
                             ->where(function($query) use ($search){
-                            $query->where('cnpj', 'like', '%' . $search . '%')
-                                    ->orWhere('customer_cod', $search);
+                            $query->where('customer_cod', $search)
+                                    ->orWhere('cnpj', 'like', '%' . $search . '%');
                             })
                             ->get();
                 break;
@@ -59,9 +61,9 @@ class CustomerRepository
             case 'CNPJ, CPF ou Cód cliente':
                 $customer = Customer::where('active', 1)
                            ->where(function($query) use ($search){
-                             $query->where('cpf', 'like', '%' . $search . '%')
+                             $query->where('customer_cod', $search)
                                    ->orWhere('cnpj', 'like', '%' . $search . '%')
-                                   ->orWhere('customer_cod', $search);
+                                   ->orWhere('cpf', 'like', '%' . $search . '%');
                            })
                            ->get();
                 break;
@@ -71,7 +73,6 @@ class CustomerRepository
                 break;
         }
 
-        Log::info('cusotmer');
         return $customer;
     }
 

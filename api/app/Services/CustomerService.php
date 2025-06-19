@@ -21,8 +21,16 @@ class CustomerService
         ], 200);
     }
 
-    public function search(array $search){
-        return $this->customerRepository->search($search);
+    public function search(array $searchData){
+        $customer = $this->customerRepository->search($searchData);
+        
+        if($customer)
+        {
+            throw new \App\Exceptions\CustomerNotFound("Cliente não encontrado", 1);
+            
+        }
+
+        return $customer;
     }
 
     public function findByID(int $id){
@@ -35,12 +43,6 @@ class CustomerService
 
     public function create(array $data){
         $customer = $this->customerRepository->create($data);
-    
-        if(!$customer)
-        {
-            throw new ExceptionCreateCustomer("Erro ao criar usuário");
-
-        }
         
         return $customer;
 

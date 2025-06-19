@@ -21,11 +21,11 @@ class ProductsController extends Controller
         return $this->productsService->getAll($issuer_id);
     }
 
-    public function search(SearchProducts $request){
-        $data = $request->validated();
-        Log::info('Controller');
-        Log::info($data);
-        return $this->productsService->search($data);
+    public function search(SearchProducts $request)
+    {        
+        $product = $this->productsService->search($request->validated());
+        return apiSuccess('Produto encontrado!', $product);
+        
     }
 
     public function create(ProductsRequest $request)
@@ -39,10 +39,6 @@ class ProductsController extends Controller
     public function findByID(string|int $id){
         Log::info('findByID . ' . $id . ' type: ' . gettype($id));
         return $this->productsService->findByID($id);
-    }
-
-    public function findImage(int $id){
-        return $this->productsService->findImage($id);
     }
 
     public function update(ProductsRequest $request, int $id)
