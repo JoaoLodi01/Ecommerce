@@ -118,13 +118,12 @@
                 <div class="text-sm text-gray-500 mb-4">
                     <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
                 </div>
-
             </div>
 
           <!-- Ações -->
           <div class="flex space-x-2">
                 <q-btn
-                    @click="editProduct(product.product, product.product_cod)"
+                    @click="editProduct(product.product, product.id)"
                     class="px-4 py-2 mr-2 rounded-lg transition"
                     :disabled=!product.active
                     :class="{
@@ -147,12 +146,12 @@
                     Desativar
                 </q-btn>
                 <q-btn
-                    v-if="!product.active"
+                    v-else
                     class="px-4 py-2 rounded-lg transition"
                     :class="{
                         'text-gray-400 bg-slate-500': !product.active
                     }"
-                    @click="activeProduct(product.product_cod)"
+                    @click="activeproduct(product.id)"
                 >
                     Ativar
                 </q-btn>
@@ -177,98 +176,107 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script>
     import { LocalStorage } from 'quasar';
-    import { ref, onMounted } from 'vue';
     import { api } from 'src/boot/axios';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
 
-    let products = ref<IProducts[]>([]);
-    let showProducts = ref<boolean>(true);
-    let showReportProducts = ref<boolean>(true);
-    let showUpdateProduct = ref<boolean>(false);
-    let showRegisterProduct = ref<boolean>(false);
-    let showReportProductsMini = ref<boolean>(false);
-    let widthScreen = ref<number>(0);
-    let productName = ref<string>('');
-    let productID = ref<number>(0);
+    export default {
+        data() {
+            return {
+                products: [],
+                showProducts: true,
+                showReportProducts: true,
+                showUpdateProduct: false,
+                showRegisterProduct: false,
+                showReportProductsMini: false,
+                widthScreen: 0,
+                productName: '',
+                productID: ''
 
-    const getProducts = async () => 
-    {
-        const res = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
-        products.value = res.data.all;
+            };
+        },
 
+        methods: {
+            async getProducts() {
+                const response = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
+                this.products = response.data.all;
+
+            },
+
+            async deleteproduct(id) {
+                const product = await api.delete(`/ecommerce/${id}/deactivate`)
+                window.location.reload()
+            },
+
+            openRegister()
+            {
+                this.showRegisterProduct = true
+                this.showUpdateProduct = false
+                this.showProducts = false
+                this.showReportProducts = false
+                this.showReportProductsMini = false
+            },
+
+            closeRegister()
+            {
+                this.showRegisterProduct = false
+                this.showProducts = true
+                this.showReportProducts = true
+                this.getProducts();
+            },
+
+            toggleRegisterProductVisibility()
+            {
+                this.showRegisterProduct = !this.showRegisterProduct;
+                this.showProducts = !this.showProducts;
+            },
+
+            openReportProductsMini()
+            {
+                this.showReportProductsMini = !this.showReportProductsMini
+            },
+
+            editProduct(name, id)
+            {
+                this.productName = name
+                this.productID = id
+                this.showUpdateProduct = true
+                this.showRegisterProduct = false
+                this.showProducts = false
+                this.showReportProducts = false
+
+            },
+
+            closeReload(event)
+            {
+                this.showReportProducts = true
+                this.showUpdateProduct = event
+                this.showRegisterProduct = event
+                this.getProducts();
+            },
+
+        },
+
+        mounted() {
+
+            this.getProducts();
+            this.widthScreen += screen.width
+
+        },
+
+        components: {
+            RegisterProduct,
+            ReportProduct,
+            UpdateProduct,
+            ProductsSearchBar,
+
+        }
     };
 
-    const activeProduct = async (id: number) => 
-    {
-        await api.put(`/ecommerce/products/${id}/active`);
-    };
-
-    const deleteproduct = async (id: number) => 
-    {
-        await api.put(`/ecommerce/products/${id}/deactivate`);  
-    };
-
-
-    const openRegister = () =>
-    {
-        showRegisterProduct.value = true;
-        showUpdateProduct.value = false;
-        showProducts.value = false;
-        showReportProducts.value = false;
-        showReportProductsMini.value = false;
-        
-    };
-
-    const closeRegister = () => 
-    {
-        showRegisterProduct.value = false;
-        showProducts.value = true;
-        showReportProducts.value = true;
-        getProducts();
-    };
-
-    const toggleRegisterProductVisibility = () =>
-    {
-        showRegisterProduct.value = !showRegisterProduct.value;
-        showProducts.value = !showProducts.value;
-    };
-
-    const openReportProductsMini = () =>
-    {
-        showReportProductsMini.value = !showReportProductsMini.value
-    };
-
-    const editProduct = (name: string, id: number) =>
-    {
-        productName.value = name;
-        productID.value = id;
-        showUpdateProduct.value = true;
-        showRegisterProduct.value = false;
-        showProducts.value = false;
-        showReportProducts.value = false;
-
-    };
-
-    const closeReload = (event: boolean) =>
-    {
-        showReportProducts.value = true;
-        showUpdateProduct.value = event;
-        showRegisterProduct.value = event;
-        getProducts();
-    };
-
-        
-
-    onMounted(() => {
-        getProducts();
-        widthScreen.value = screen.width;
-
-    });
 </script>
 
 <style>

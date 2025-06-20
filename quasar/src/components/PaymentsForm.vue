@@ -1,10 +1,11 @@
 <template>
     <QRCode
         v-if="showQRCode"
-        :total_amount="totalOperation"
+        :total_amount="totalPaymentPIX"
         :issuer_id="issuerID"
         @close="handlePIX"
-        class="relative left-[20rem] top-5 z-50 bottom-44 w-[20rem]"
+        @discount=""
+        class="relative left-[20rem] top-5 z-50 w-[20rem]"
         
     />
 
@@ -17,10 +18,12 @@
     />
     
     <q-card 
-        class="absolute w-[100vh] left-[18rem] mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded" 
+        class="absolute w-[100vh] left-[18rem] mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded"
+        v-if="!showQRCode && !showInstallments"
     >
         <q-card-section>
             <div class="text-h6">Formas de Pagamento</div>
+
         </q-card-section>
 
         <q-separator />
@@ -129,10 +132,10 @@
         <q-card-section v-if="message">
             <q-banner dense class="bg-yellow-9 text-white rounded-xl">
                 {{ message }}
+
             </q-banner>
         </q-card-section>
 
-        
     </q-card>
 </template>
 
@@ -151,17 +154,17 @@
     let showInstallments = ref<boolean>(false);
     let showQRCode = ref<boolean>(false);
     let bigger = ref<boolean>(false);
-    let extraAmount = ref<number>(0);
+    let extraAmount = ref<number>(0); // troco
 
     let show = ref<boolean>(false);
     
     // Pagamentos \\
-    let paymentInPIX = ref<boolean>(false);
-    let paymentPIX = [];
-    let paymentsReceive = [];
+    let hasPIX = ref<boolean>(false);
+    let totalPaymentPIX = ref<number>(0);
+
     let paymentsValues = ref([]);
+
     let paymentsForms = ref<IPaymentForm[]>([]);
-    let valueInformed = [];
     
     // -------------------- \\
     
@@ -190,6 +193,12 @@
         totalOperation: number
         
     }>();
+
+    function formatNumber(strNumber: string ): number
+    {
+        return Number(strNumber.replace(',', '.') || 0);
+        
+    }
 
     const showLoading = () =>
     {
@@ -221,36 +230,67 @@
     {
         showLoading();
         
-        console.log('hasReceive: ', paymentsValues.value.map((payValue, i) => {
+        paymentsValues.value.map((pay, i) => {
             const species = paymentsForms.value[i];
 
             if(species.tipo_lancamento === 'Receber')
             {
                 showInstallments.value = true;
-
-            };
-        }));
-
-        console.log(showInstallments.value)
-
-            let totalNotFormated = paymentsValues.value.reduce((sum, acc) => { 
-                return sum + acc;
-
-            });
-
-            let total = totalNotFormated.replace(',', '.') || 0;
-
-            if(total >= props.totalOperation)
-            {
-                hideLoading();
-
-                console.log('Total pago: ', total);
-
-            } else {
-                console.warn(`Caiu no else errado: ${total} - ${props.totalOperation}`);
                 
             };
+
+            if(species.pix_key !== '' && species.payments_form_type === 'PIX')
+            {
+                totalPaymentPIX.value = formatNumber(pay);
+                showQRCode.value = true;
+                
+            };
+        });
+
+        let totalNotFormated = paymentsValues.value.reduce((sum, acc) => { 
+            return sum + acc;
+
+        });
+
+        let total = totalNotFormated.replace(',', '.') || 0;
+
+        if(total >= props.totalOperation)
+        {
+            hideLoading();
+
+            console.log('Total pago: ', total);
+
+        } else {
+            console.warn(`Caiu no else: ${total} - ${props.totalOperation}`);
+            
+        };
     }; // Vai conferir os valores pagos e gerenciar o que precisa ser feito, PIX ou receber...
+
+    const getPayments = async () => 
+    {
+        const res = await api.get(`/species/all/${issuerID.value}`);
+        paymentsForms.value = res.data.all
+        
+    }; // Puxa as espécies de pagamento;
+
+    const handlePIX = () =>
+    {
+        showQRCode.value = false;
+        hasPIX.value = true;
+
+    };
+
+    const discountTotalByPIX = (event: number) =>
+    {
+        
+
+    };
+    
+    const cancelOperation = () =>
+    {
+        
+
+    };
 
     const calculateValueInformed = computed(() =>
     {
@@ -266,24 +306,6 @@
         return total.toFixed(2);
 
     }); 
-
-    const getPayments = async () => 
-    {
-        const res = await api.get(`/species/all/${issuerID.value}`);
-        paymentsForms.value = res.data.all
-        
-    }; // Puxa as espécies de pagamento;
-
-    const handlePIX = () =>
-    {
-
-    };
-    
-    const cancelOperation = () =>
-    {
-        
-
-    };
 
     onMounted(() => {
         console.log('Total a ser pago: ', props.totalOperation);

@@ -4,20 +4,28 @@ namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
 use App\Models\Registers\FirstSteps;
-use App\Models\Registers\Issuer;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 class ProductsRepository 
 {
+    protected $cacheKeyPrefix = 'products';
+    protected $cacheDurration = 10;
+
     public function __construct(
         protected GroupRepository $groupRepository
-    )
-    {}
+    ) {}
 
     public function getAll(int $issuer_id)
     {
-        $issuer = Issuer::where('id', $issuer_id)->first();
-        Log::info('ProductsRepository: getAll: ' . $issuer_id . ' issuer: ' . $issuer);
-        return Products::where('issuer_id', $issuer->id)->get();
+        $cacheKey = "{$this->cacheKeyPrefix}_{$issuer_id}";
+
+        $products = Cache::remember($cacheKey, $this->cacheDurration, function() use ($issuer_id) {
+            return Products::where('issuer_id', $issuer_id)->get();
+
+        });
+
+        return $products;
+        
     }
 
     public function search(array $data)
@@ -153,9 +161,17 @@ class ProductsRepository
         ]);
     }
 
-    public function delete(int $product_cod){
+    public function active(int $product_cod)
+    {
         return Products::where('product_cod', $product_cod)->update([
-            'active' => 0,
+            'active' => 1
+        ]);
+    }
+
+    public function delete(int $product_cod)
+    {
+        return Products::where('product_cod', $product_cod)->update([
+            'active' => 0
         ]);
     }
     

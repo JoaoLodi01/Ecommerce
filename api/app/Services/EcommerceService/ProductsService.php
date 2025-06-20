@@ -2,6 +2,7 @@
 
 namespace App\Services\EcommerceService;
 
+use App\Exceptions\ProductNotFound;
 use App\Repositories\Eloquent\EcommerceEloquent\GroupRepository;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
 use Illuminate\Support\Facades\Log;
@@ -74,13 +75,26 @@ class ProductsService
         }
     }
 
+    public function active(int $id){
+        $product = $this->productsRepository->active($id);
+
+        if(!$product)
+        {
+            throw new ProductNotFound("Produto não encontrado");
+        }
+
+        return $product;
+    }
+
     public function delete(int $id){
-        $this->productsRepository->delete($id);
-        return response()->json([
-            'success' => true,
-            'message' => 'Produto desativado com sucesso!'
-        ], 200);
-            
+        $product = $this->productsRepository->delete($id);
+
+        if(!$product)
+        {
+            throw new ProductNotFound("Produto não encontrado");
+        }
+
+        return $product;
     }
 
     public function checkGTIN(array $gtin){

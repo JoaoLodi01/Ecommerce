@@ -300,7 +300,7 @@
                             <p 
                                 class="flex justify-between border p-2 rounded-lg"
                             >
-                                Frete R$: <input id="freight" v-model.number="emitProducts.freight" type="text" class="text-right"/>
+                                Frete R$:<input id="freight" v-model.number="emitProducts.freight" type="text" class="text-right focus:border-blue-400"/>
                             
                             </p>
                         </div>
@@ -316,12 +316,18 @@
                     
                     </div>
                     
-                    <div class="mb-0 mt-3 p-2">
-                        <img src="" alt="">
-                        <div class="bg-black h-[16rem]"></div>
+                    <div class="">
+                        <img 
+                            width="212px"
+                            height="412px"
+                            class="relative left-24 border"
+                            src="../../../../public/image/defaultLogo.png" 
+                            alt=""
+                        />
+                        
                     </div>
                     <!-- A imagem vai ter que ficar por aqui -->
-                        <div class="fixed bottom-4">
+                        <div class="fixed bottom-0">
                             <div class="flex m-2 p-2 mt-2 rounded-lg border border-gray-700">
                                 <button
                                     v-if="productsSeletion.length <= 0"
