@@ -91,21 +91,20 @@
             <div 
                 class="shadow-lg border bg-white rounded-lg mb-2 p-2"
             >
-            <p class="ml-4 mb-2 border-b border-black text-lg">Alterações</p>
-            <div class="grid grid-cols-3 gap-4 p-2 mb-2">
-                    <q-select 
-                        v-model="configs.editFields" 
-                        :options="editFields" 
-                        label="Campos" 
-                        filled 
-                        color="grey"
-                        
-                    />
+                <p class="ml-4 mb-2 border-b border-black text-lg">Alterações</p>
+                <div class="grid grid-cols-3 gap-4 p-2 mb-2">
+                <q-select 
+                    v-model="configs.editFields" 
+                    :options="editFields" 
+                    label="Campos" 
+                    filled 
+                    color="grey"
                     
-                </div>
-        
+                />
+                
             </div>
-            
+        
+        </div>
             
             <div class="ml-5">
                 <q-btn label="Salvar" type="submit" color="grey" :disable="configs.searchOptionProduct === null"/>
@@ -194,6 +193,8 @@
                 this.showLoading('Carregando as')
                 const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
                 const data = response.data.configPDV[0]
+
+                console.log(data)
                 
                 this.configs = {
                     nmFinaly: data.nm_finaly === 1 ? true : false,
@@ -209,7 +210,7 @@
         
             async onSubmit()
             {
-                this.showLoading('Salvando')
+                this.showLoading('Salvando as')
 
                 const response = await api.put(`/config/config-pdv/update-config/${LocalStorage.getItem("issuer_id")}`, {
                     searchOptionProduct: this.configs.searchOptionProduct,
@@ -219,14 +220,14 @@
                     supervisorPasswordCancelSale: this.configs.supervisorPasswordCancelSale,
                     supervisorPasswordDeleteItem: this.configs.supervisorPasswordDeleteItem,
                     issuer_id: LocalStorage.getItem("issuer_id")
-                })
+                });
 
-                const data = response.data                
-
+                const data = response.data;
+                console.log(data)
                 if(data.success)
                 {
-                    alert('Configurações gravadas com sucesso!')
-                    this.onClose()
+                    alert('Configurações gravadas com sucesso!');
+                    this.onClose();
                 }
             },
 
@@ -249,6 +250,16 @@
         mounted()
         {
             this.getConfig()
+            document.addEventListener('keydown', (event) => {
+                const keyName = event.key
+                console.log('keyName: ', keyName)
+                if(keyName === 'Escape')
+                {
+                    this.onClose()
+                } else {
+                    return;
+                }
+            })
             
         }
     }

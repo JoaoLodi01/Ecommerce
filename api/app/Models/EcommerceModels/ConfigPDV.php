@@ -15,7 +15,9 @@ class ConfigPDV extends Model
         'filter_search_customer',
         'nm_finaly',
         'sale_negative_or_reset',
-        'validate_gtin'
+        'validate_gtin',
+        'supervisor_password_cancel_sale',
+        'supervisor_password_delete_item'
         
     ];
 }

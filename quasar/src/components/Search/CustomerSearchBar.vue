@@ -4,7 +4,7 @@
             <div class="text-sm" v-if="pdv">
                 <q-checkbox
                     size="1.6rem"
-                    label="Cliente cadastrado"
+                    label="Cliente cadastrado - F4"
                     v-model="registredCustomer"
                     color="grey"
                     @vue:updated="watchRegistredCustomer()"
@@ -13,6 +13,7 @@
             </div>
 
             <q-input 
+                ref="customer"
                 v-model="clientsData.name"
                 @update:model-value="selectClient()"
                 class="w-96"
@@ -41,7 +42,6 @@
 
 <script>
     import { api } from 'src/boot/axios';
-    import { toRaw } from 'vue';
     import { LocalStorage } from 'quasar';
         
     export default {    
@@ -53,6 +53,27 @@
 
         mounted()
         {
+            document.addEventListener('keydown', (event) => {
+                const keyName = event.key
+                
+                if(keyName === 'F4')
+                {
+                    const input = this.$refs.customer?.$el?.querySelector('input')
+                    if(input)
+                    {
+                        input.focus()
+                    }
+                    this.registredCustomer = !this.registredCustomer
+
+                    this.clientsData.name = this.defaultCustomer.name
+                    
+                } else {
+                    return
+                } 
+
+
+            })
+
             const getConfig = async () => {
                 try {
                     const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
@@ -101,7 +122,7 @@
         methods: {
             async selectClient() {
                 console.log(this.clientsData.name)
-                if (this.clientsData.name.length > 0 && this.fillter) {
+                if (this.clientsData.name.length > 0 && this.fillter && this.registredCustomer) {
                     try {
                         const response = await api.post('/customers/search', {
                             fillter: this.fillter,

@@ -3,22 +3,23 @@
     <ErrorDialog ref="errorDialog" />
 </template>
 
-<script setup>
+<script setup lang="ts">
     import ErrorDialog from 'src/components/Error/ErrorDialog.vue';
-    import { onMounted, ref, onBeforeUnmount } from 'vue';
-    import emitter from 'src/utils/eventBus.ts';
+    import emitter from 'src/utils/eventBus';
+    import { onMounted, onBeforeUnmount, ref } from 'vue';
     import { LocalStorage } from 'quasar';
 
-    const errorDialog = ref(null);
+    const errorDialog: any = ref(null);
 
-    const showGlobalError = (msg) => {
+    const showGlobalError = (msg: string) => {
         errorDialog.value?.showError(msg);
         
     };
-
+    
     onMounted(() => {
         LocalStorage.removeItem("pdvID")
         emitter.on('global-error', showGlobalError);
+
     });
 
     onBeforeUnmount(() => {

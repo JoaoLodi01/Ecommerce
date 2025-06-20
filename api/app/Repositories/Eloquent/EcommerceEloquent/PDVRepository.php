@@ -33,33 +33,14 @@ class PDVRepository
         protected PaymentsRepository $paymentsRepository,
         protected NFCeValidation $nfceValidation
 
-    ){
-        Log::info('Memória usada PDVRepository::class, __construct, linha 31: ' . memory_get_usage(true));
-    }
+    ){}
 
-    public function getAll(){
+    public function getAll(int $issuer_id){
         Log::info("Vai buscar todas as NFC-e ativas da table = PDV");
-        return PDV::paginate(10);
+        return PDV::where('issuer_id', $issuer_id)->get();
     }
 
-    public function update(array $data, int $id){
-        Log::info("Buscando registro por ID");
-        $pdvID = PDV::where('id', $id)->update($data, $id);
-
-        if ($pdvID){
-            Log::info("Registro atualizado com sucesso!");
-            return response()->json([
-                'success' => true,
-                'message' => 'Registro atualizado com sucesso!',
-            ], 200);
-        } else {
-            Log::info("NFC-e não encontrada.");
-            return response()->json([
-                'success' => false,
-                'error' => 'Registro não encontrado.',
-            ], 404);
-        }
-    }
+    public function update(array $data, int $id){ }
     
     public function findByID(int $id, int $issuerID)
     {
@@ -225,7 +206,15 @@ class PDVRepository
         
     }
 
-    public function finalizeSale(string $type, int $id, array $paymentsValues, array $forms, float $total, int $issuerID)
+    public function finalizeSale(
+            string $type, 
+            int $id, 
+            array $paymentsValues, 
+            array $forms, 
+            float $total, 
+            int $issuerID, 
+            int $userID
+        )   
     {
         Log::info('-- Iniciou o finalizeSale() line 172 -- ');
         Log::info('Memória usada PDVRepository::class, finalizeSale: ' . memory_get_usage(true));
@@ -245,18 +234,29 @@ class PDVRepository
             Log::info('Tipo de venda NM/NFCE: ' . $pdv->is_nfce_nm);
             Log::info('Issuer ID: ' . $issuerID);
             
-            $payMentMethodService = $this->payMentMethodService->payment($formsPayment, $paymentsValues, $customer, $pdv->is_nfce_nm, 'pdv', $pdv, $issuerID);
+            $payMentMethodService = $this->payMentMethodService->payment(
+                    $formsPayment, // Formas de pagamento
+                    $paymentsValues, // Valores pagos
+                    $customer, // Cliente da nota
+                    $pdv->is_nfce_nm, // Tipo de venda
+                    'pdv', // Origem
+                    $pdv, // Corpo do PDV
+                    $issuerID, // ID do emitente
+                    $userID // Usuário que fez a venda
+            );
+
             Log::info('payMentMethodService');
             Log::info($payMentMethodService);
 
             if ($payMentMethodService['success'] === true) {
                 Log::info('Pagamento bem sucessido, vai alterar o PDV: ' . $pdv);
                 Log::info('$type ' . $type);
+                Log::info('Tipo de venda: NFC-e/NM' . $pdv->is_nfce_nm);
 
                 $pdv->update([
                     'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->pdv_cod" : "Venda Nota Manual N° $pdv->pdv_cod",
-                    'is_nfce_nm' => $type === 'saleNM' ? 'nm' : 'nfce',
-                    'status' => $type === 'saleNM' ? 'Venda Finalizada' : 'Autorizado uso da NF-e',
+                    'is_nfce_nm' => $pdv->is_nfce_nm,
+                    'status' => $pdv->is_nfce_nm === 'nfce' ? 'Autorizado uso da NF-e' : 'Venda Finalizada',
                     'finished' => 1
         
                 ]);

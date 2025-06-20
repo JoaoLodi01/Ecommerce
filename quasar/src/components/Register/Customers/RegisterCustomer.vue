@@ -1,9 +1,9 @@
 <template>
     <div
-        class="border border-black mt-2 p-6 shadow-md rounded"
+        class="border border-black bg-white mt-2 p-6 shadow-md rounded"
         :class="{
-            'w-screen': widthScreen < 1366,
-            'ml-20 form-customer': widthScreen > 1366
+            'w-screen': props.widthScreen < 1366,
+            'ml-36 form-customer': props.widthScreen > 1366
         }"
 
     >
@@ -11,7 +11,6 @@
         <q-form
             @submit="submitForm()"
             @reset="onReset"
-            
 
         >
             <div class="border border-black p-5 bg-white rounded-md mb-5">
@@ -28,17 +27,18 @@
 
                 <div v-if="type === 'Física'">
                     <q-input 
-                        v-model="form.trade_name" 
+                        v-model="customerData.trade_name" 
                         type="text" 
                         label="Nome" 
                         maxlength="120" 
                         color="grey-7"
+                        class="ml-2"
                         :rules="[ val => !!val || 'O nome fantasia do cliente é obrigatório']"
 
                     />
 
                     <q-input 
-                        v-model="form.cpf" 
+                        v-model="customerData.cpf" 
                         v-bind:mask="'###.###.###-##'"
                         maxlength="14"
                         type="text" 
@@ -52,7 +52,7 @@
                 </div>
                 <div v-else>
                     <q-input 
-                        v-model="form.company_name" 
+                        v-model="customerData.company_name" 
                         type="text" 
                         label="Razão social" 
                         maxlength="120" 
@@ -60,9 +60,19 @@
                         class="ml-2"
 
                     />
+                    
+                    <q-input 
+                        v-model="customerData.trade_name" 
+                        type="text" 
+                        label="Nome fantasia" 
+                        maxlength="120" 
+                        color="grey-7"
+                        class="ml-2 mt-2 mb-2"
+
+                    />
 
                     <q-input 
-                        v-model="form.cnpj" 
+                        v-model="customerData.cnpj" 
                         v-bind:mask="'##.###.###/####-##'"
                         @update:model-value="getDataCNPJ()"
                         maxlength="18"
@@ -79,7 +89,7 @@
             <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
                 <q-input 
-                    v-model="form.cep"
+                    v-model="customerData.cep"
                     v-bind:mask="'#####-###'"
                     type="text" 
                     label="CEP"
@@ -91,7 +101,7 @@
                 />
 
                 <q-input 
-                    v-model="form.address" 
+                    v-model="customerData.address" 
                     type="text" 
                     label="Endereço" 
                     maxlength="120"
@@ -101,7 +111,7 @@
                 />
 
                 <q-input 
-                    v-model="form.number" 
+                    v-model="customerData.number" 
                     type="text" 
                     label="Número" 
                     maxlength="30"
@@ -114,7 +124,7 @@
             <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
                 <q-input 
-                    v-model="form.email" 
+                    v-model="customerData.email" 
                     type="email" 
                     label="E-mail"
                     maxlength="120" 
@@ -124,7 +134,7 @@
                 />
                 
                 <q-input 
-                    v-model="form.phone" 
+                    v-model="customerData.phone" 
                     type="tel"
                     label="Número de telefone" 
                     maxlength="16"
@@ -136,7 +146,7 @@
                 <div class="mt-2">
                     <q-checkbox 
                         left-label 
-                        v-model="form.is_customer" 
+                        v-model="customerData.is_customer" 
                         label="Cliente" 
                         class="ml-2"
                         color="grey-7"
@@ -145,7 +155,7 @@
 
                     <q-checkbox 
                         left-label 
-                        v-model="form.is_supplier" 
+                        v-model="customerData.is_supplier" 
                         label="Fornecedor" 
                         class="ml-2"
                         color="grey-7"
@@ -154,7 +164,7 @@
 
                     <q-checkbox 
                         left-label 
-                        v-model="form.is_driver" 
+                        v-model="customerData.is_driver" 
                         label="Motorista" 
                         class="ml-2"
                         color="grey-7"
@@ -180,137 +190,125 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
-    import { onBeforeUnmount } from 'vue';
+    import { ref, onBeforeUnmount, defineEmits, defineProps } from 'vue';
     import axios from 'axios'
 
-    export default {
-        setup()
-        {
-            let $q = useQuasar();
-            let timer
+    let $q = useQuasar();
+    let timer: any;
 
-            onBeforeUnmount(() => { 
-                if(timer !== void 0)
-                {
-                    clearTimeout(timer)
-                    $q.loading.hide()
-                }
-            })
+    let customerData = ref<IRegisterCustomer>({
+        company_name: '',
+        trade_name: '',
+        cpf: '',
+        cnpj: '',
+        cep: '',
+        address: '',
+        number: '',
+        email: '',
+        is_customer: false,
+        is_driver: false,
+        is_supplier: false,
+        phone: '',
+        issuer_id: 0
 
-            return {
-                options: [
-                    'Física',
-                    'Júridica'
-                ],
+    });
 
-                showLoading()
-                {
-                    $q.loading.show({
-                        message: 'Criando cliente ...'
+    let type = ref<string>('');
+    
+    const options = ref<string[]>([
+        'Física',
+        'Júridica'
+    ]);
 
-                    })
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 3000)
-                }
-            }
-        
-        },
+    const showLoading = () =>
+    {
+        $q.loading.show({
+            message: 'Criando cliente ...'
 
-        data() {
-            return {
-                type: '',
-                form: {
-                    company_name: '',
-                    trade_name: '',
-                    cpf: '',
-                    cnpj: '',
-                    cep: '',
-                    address: '',
-                    number: '',
-                    email: '',
-                    is_customer: false,
-                    is_driver: false,
-                    is_supplier: false,
-                    phone: '',
-                    issuer_id: LocalStorage.getItem("issuer_id")
-                },
+        });
+
+        timer = setTimeout(() => {
+            $q.loading.hide()
+            timer = void 0
+        }, 3000)
+    }
+
+    const hideLoanding = () =>
+    {
+        onBeforeUnmount(() => { 
+            if(timer !== void 0)
+            {
+                clearTimeout(timer); 
+                $q.loading.hide();
             };
-        },
+        });
+    }
 
-        methods: {
-            async submitForm() {
-                try {
-                    this.form.cpf = this.form.cpf.replace(/\D/g, '')
-                    this.form.cnpj = this.form.cnpj.replace(/\D/g, '')
-                    this.form.cep = this.form.cep.replace(/\D/g, '') 
+    const submitForm = async () =>
+    {
+        const customer = customerData.value;
+        customer.cpf.replace(/\D/g, '');
+        customer.cnpj.replace(/\D/g, '');
+        customer.cep.replace(/\D/g, '');
 
-                    console.log('forms', this.form)
+        const res = await api.post(`/customers/create`, customerData.value);
 
-                    const response = await api.post(`/customers/create`, this.form);
-                    console.log(response.data)
-                    if(response.data.success)
-                    {
-                        alert(`Cliente: ${this.form.name}, cadastrado com sucesso!`)
-                        this.$emit("close", false)
-                    }
-                    
-                } catch (error) {
-                    console.error('Erro', error)
-                }
-            },
+        if(res.data.success)
+        {
+            alert(`Cliente: ${customerData.value.company_name}, cadastrado com sucesso!`)
+            emits('close', false);
+        }
 
-            async getDataCNPJ()
-            {
-                const cnpj = this.form.cnpj.replace(/\D/g, '')
-                if(cnpj.length === 14)
-                {
-                    const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`);
-                    this.form.company_name = data.data.alias
-                }
-
-            },
-
-            onReset()
-            {
-                this.form = {
-                    company_name: '',
-                    trade_name: '',
-                    cpf: '',
-                    cnpj: '',
-                    cep: '',
-                    address: '',
-                    number: '',
-                    email: '',
-                    password: '',
-                    password_: '',
-                    phone: '',
-                }
-            }
-        },
-
-        props: {
-            widthScreen: {
-                type: Number,
-                required: true
-            }
-        },
-
-        emits: [
-            'close'
-        ],
-
-        
     };
+
+    const getDataCNPJ = async () => 
+    {
+        const cnpj = customerData.value.cnpj.replace(/\D/g, '');
+        if(cnpj.length === 14)
+        {
+            const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`);
+            customerData.value.company_name = data.data.alias;
+        };
+
+    };
+
+    const onReset = () => 
+    {
+        customerData.value = {
+            company_name: '',
+            trade_name: '',
+            cpf: '',
+            cnpj: '',
+            cep: '',
+            address: '',
+            number: '',
+            email: '',
+            is_customer: false,
+            is_driver: false,
+            is_supplier: false,
+            phone: '',
+            issuer_id: 0
+        };
+    }
+
+
+    const props = defineProps<{
+        widthScreen: number
+    }>();
+
+    const emits = defineEmits<{
+        (e: 'close', value: boolean)
+
+    }>();
+
 </script>
 
 <style lang="scss">
     .form-customer {
-        width: 60vh;
+        width: 150vh;
     }
     
 </style>

@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\{
     Log,
     Hash
 };
+
+use Carbon\Carbon;
+
 class AuthController extends Controller
 {
     public function __construct(
@@ -22,18 +25,22 @@ class AuthController extends Controller
     public function authOwner(LoginRequest $request)
     {
         $data = $request->validated();
-    
+        
         $owner = $this->registerOwnerService->findByEmail($data['email']);
 
+        
         Log::info('owner ' . $owner);
         if($owner && Hash::check($data['password'], $owner->password))
         {
+            //$checkToken = $this->readFile($owner->uuse_id);
+
+
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
             $user = $this->userService->findById($owner->id);
 
             Log::info("Passou o login, token: $token");
-
+            
             return response()->json([
                 'success' => true,
                 'message' => 'Login bem sucedido!',
@@ -72,8 +79,8 @@ class AuthController extends Controller
         
     }
 
-    public function accessSupervisor()
+    public function readFile(string $token)
     {
-        
+        $file = public_path('auth');
     }
 }

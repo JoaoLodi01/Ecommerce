@@ -1,8 +1,8 @@
 <template>
-    <div
+    <div    
         :class="{
             'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg w-[160vh]': widthScreen > 1366,
-            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1366
+            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
             
         }"  
     >
@@ -88,38 +88,37 @@
         <div
             v-for="(customer, id) in customers" :key="id" 
             class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
-            @click="editCustomer(customer.id, customer.name)"
         >
-        <div>
-            <div class="text-sm text-gray-500 mb-2">
-                <span class="font-semibold">ID:</span> {{ customer.customer_cod }}
-            </div>
+            <div @click="editCustomer(customer.id, customer.company_name || customer.trade_name)">
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">ID:</span> {{ customer.customer_cod }}
+                </div>
 
-            <div class="text-sm text-gray-500 mb-2">
-                <span class="font-semibold">Cliente:</span> {{ customer.company_name }}
-            </div>
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">Cliente:</span> {{ customer.company_name || customer.trade_name }}
+                </div>
 
-            <div class="text-sm text-gray-500 mb-2" v-if="customer.cpf">
-                <span class="font-semibold">CPF:</span> {{ customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
-            </div>
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">CPF:</span> {{ customer.cpf.lenth < 0 ? customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'Sem CPF'}}
+                </div>
 
-            <div class="text-sm text-gray-500 mb-2" v-if="customer.cnpj">
-                <span class="font-semibold">CNPJ:</span> {{ customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5')}}
-            
-            </div>
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">CNPJ:</span> {{ customer.cnpj.lenth < 0 ? customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : 'Sem CNPJ' }}
+                </div>
 
-            <div class="text-sm text-gray-500 mb-2">
-               <span class="font-semibold">Endereço:</span> {{ customer.address ?? 'Sem endereço cadastrado' }}
-            </div>
+                <div class="text-sm text-gray-500 mb-2">
+                <span class="font-semibold">Endereço:</span> {{ customer.address ?? 'Sem endereço cadastrado' }}
+                </div>
 
-            <div class="text-sm text-gray-500 mb-2">
-               <span class="font-semibold">Status:</span> {{ customer.active === 1 ? 'Ativo' : 'Inativo' }}
+                <div class="text-sm text-gray-500 mb-2">
+                <span class="font-semibold">Status:</span> {{ customer.active === 1 ? 'Ativo' : 'Inativo' }}
+                </div>
             </div>
             
             <!-- Ações -->
             <div class="flex space-x-2" >
                 <q-btn
-                    @click="editCustomer(customer.id, customer.name)"
+                    @click="editCustomer(customer.id, customer.company_name || customer.trade_name)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
@@ -130,7 +129,7 @@
                     Editar
                 </q-btn>
                 <q-btn
-                    @click="deleteCustomer(customer.id)"
+                    @click="deleteCustomer(customer.id, customer.company_name || customer.trade_name)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
@@ -147,11 +146,11 @@
                     :class="{
                         'text-gray-400 bg-slate-500': !customer.active
                     }"
-                    @click="activeCustomer(customer.id)"
+                    @click="activeCustomer(customer.id, customer.company_name || customer.trade_name)"
                 >   
                     Ativar
                 </q-btn>
-            </div>
+            
         </div> <!-- For acaba aqui-->
       </div>
     </div>
@@ -213,30 +212,41 @@
         methods: {
             async getCustomers() {
                 const response = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
-                console.log(response)
                 this.customers = response.data.all;
                 
             },
 
-            async deleteCustomer(id)
+            async deleteCustomer(id, name)
             {
-                const response = await api.delete(`/customers/${id}/deactivate`)
-            
+                const confirmed = confirm(`Deseja inativar o cliente: ${name}`);
+                if(confirmed && name)
+                {
+                    const res = await api.delete(`/customers/${id}/deactivate`);
+                    res.data.success ? window.location.reload() : alert('Erro ao desativar');
+                    
+                }
+
             },
 
-            async activeCustomer(id)
+            async activeCustomer(id, name)
             {
-                const response = await api.put(`/customers/${id}/active`)
+                const confirmed = confirm(`Deseja ativar o cliente: ${name}`);
+                if(confirmed && name)
+                {
+                    const res = await api.put(`/customers/${id}/active`);
+                    res.data.success ? window.location.reload() : alert('Erro ao ativar');
+                    
+                }
                 
             },
 
             openRegister()
             {
-                this.showRegisterCustomers = true
-                this.showUpdateCustomers = false
-                this.showCustomers = false
-                this.showReportCustomer = false
-                this.showReportCustomerMini = false
+                this.showRegisterCustomers = true;
+                this.showUpdateCustomers = false;
+                this.showCustomers = false;
+                this.showReportCustomer = false;
+                this.showReportCustomerMini = false;
                 
             },  
 

@@ -12,7 +12,8 @@ use App\Repositories\Eloquent\RegisterEloquent\{
     RegisterOwnerRepository
 
 };
-
+use App\Services\Contract\PayMentMethodContract;
+use App\Services\PayMentMethodService;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(RegisterOwnerContract::class, RegisterOwnerRepository::class);
         $this->app->bind(RegisterIssuerContract::class, RegisterIssuerRepository::class);
+        $this->app->bind(PayMentMethodContract::class, PayMentMethodService::class);
     
     }
 

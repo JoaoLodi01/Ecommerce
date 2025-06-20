@@ -31,8 +31,8 @@
                             type="text"
                             label="Cód. Barras"
                             color="grey-7"
-                            maxlength="16"
-                            minlength="16"
+                            maxlength="14"
+                            minlength="14"
                             class="m-2"
                             :rules="[
                                 val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'

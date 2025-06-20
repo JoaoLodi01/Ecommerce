@@ -22,8 +22,8 @@ class PDVController extends Controller
         Log::info('Memória usada PDVController::class, __construct: ' . memory_get_usage(true));
     }
 
-    public function getAll(){
-        return $this->pdvService->getAll();
+    public function getAll(int $issuer_id){
+        return $this->pdvService->getAll($issuer_id);
     }
 
     public function saveSale(PDVSaveSaleRequest $request)
@@ -44,7 +44,8 @@ class PDVController extends Controller
             $data['payments_values'], 
             $data['type_operation'], 
             $data['pdv_id'], 
-            $data['issuer_id']
+            $data['issuer_id'],
+            $data['user_id']
         );
         // Se der errado, voltar para $request->input()
     }

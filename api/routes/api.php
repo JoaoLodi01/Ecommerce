@@ -99,15 +99,15 @@ Route::prefix('v1')->group( function (){
                 Route::get('/{id}', [ReceiveController::class, 'findByID']);
                 Route::put('/{id}', [ReceiveController::class, 'update']);
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
+
             });
         
             // PDVs routes
             Route::prefix('pdv')->group( function(){
-                Route::post('/save-sale', [PDVController::class, 'saveSale']);
-                //Route::put('/finalize-sale/{id}', [PDVController::class, 'finalizeSale']); <- Qualquer coisa retornar para essa rota
-                Route::put('/finalize-sale/{id}', [PDVController::class, 'finalizeSale']);
-
                 Route::get('/all/{issuer_id}', [PDVController::class, 'getAll']);
+                Route::post('/save-sale', [PDVController::class, 'saveSale']);
+                Route::put('/finalize-sale', [PDVController::class, 'finalizeSale']);
+
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
                 Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
 

@@ -1,24 +1,35 @@
 <template>
-    <h5>QR-Code</h5>
-    <div v-if="qrCode" class="p-10">
-        <img :src=qrCode alt="qrCode - PIX">
-        <p
-            :data-clipboard-text="payLoad"
-            @click="clipBoard"
-            class="btn cursor-pointer"
-            title="Copiar"
-        >
-            Payload: {{ payLoad }}
-        </p>      
+    <q-card class="w-[40rem] text-center" v-if="qrCode">        
+        <img :src=qrCode alt="qrCode - PIX" class="border border-black p-">
 
-        <q-btn 
-            color="primary"
-            label="Finalizar" 
-            @click="finaly" 
-            
-        />
-    </div>
-   
+        <div class="-mt-5">
+            <span 
+                class="bg-green-500 text-white p-2 rounded-md cursor-pointer"
+                v-if="successClip"
+                @click="successClip = !successClip"
+            >
+                Chave copiada com sucesso!
+            </span>
+            <q-card-section>
+                <q-btn
+                    label="Chave cópia e cola"
+                    :data-clipboard-text="payLoad"
+                    @click="fnClipBoard"
+                    class="btn cursor-pointer"
+                    title="Copiar"
+                />
+                
+            </q-card-section>
+        </div>
+            <q-card-section class="flex justify-center">
+                <q-btn 
+                color="primary"
+                label="Finalizar venda" 
+                @click="finaly" 
+                
+            />
+        </q-card-section>
+    </q-card>   
 </template>
 
 <script setup lang="ts">
@@ -33,10 +44,11 @@
         cep: string
     }
 
-    let qrCode = ref(null)
-    let payLoad = ref(null)
-    let pix_key = ref(null)
-    let issuer = ref<Issuer>({
+    let successClip: any = ref(null)
+    let qrCode: any = ref(null)
+    let payLoad: any = ref(null)
+    let pix_key: any = ref(null)
+    let issuer: any = ref<Issuer>({
         company_name: '',
         cep: ''
     })
@@ -72,6 +84,17 @@
 
         qrCode.value = res.base64;
         payLoad.value = res.payload;
+    }
+
+    const fnClipBoard = async () => {
+        try {
+            const res = await clipBoard();
+            successClip.value = res
+            console.log('Res: ', res)
+        } catch (error) {
+            console.error('Falha')
+            
+        }
     }
 
     const finaly = () => {

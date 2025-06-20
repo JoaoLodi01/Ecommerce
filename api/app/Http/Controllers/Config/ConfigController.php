@@ -36,8 +36,9 @@ class ConfigController extends Controller
     public function updatePDV(ConfigPDVRequest $request)
     {
         $data = $request->validated();
-        Log::info('$data');
+        Log::info('-- updatePDV --');
         Log::info($data);
         return $this->configService->updatePDV($data);
+        
     }
 }

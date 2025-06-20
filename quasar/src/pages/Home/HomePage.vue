@@ -1,7 +1,6 @@
 <template>
     <div class="text-xl">
-        <header class="bg-slate-600 text-white flex shadow-2xl">
-
+        <header class="bg-[#242D34] text-white flex shadow-2xl p-4">
             <h1 class="text-3xl font-bold mr-10 ml-4 flex items-center">Bem vindo!</h1>
 
             <div class="flex items-center p-5 space-x-10">
@@ -29,7 +28,6 @@
     const token = ref(LocalStorage.getItem("auth_token"));
     
     const login = async () => {
-        console.log('Token: ', token.value);
         try {
             const res = await api.get('/auth/me', {
                 headers: {
@@ -38,7 +36,6 @@
                 }
             })
 
-            console.log('res:', res);
             res.data.success == true ? location = '/companies' : alert(res.data);
 
         } catch (error) {

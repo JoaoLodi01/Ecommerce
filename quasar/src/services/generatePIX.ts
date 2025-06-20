@@ -22,16 +22,13 @@ async function generatePIX(
     });
 
     let payload = qrCodePix.payload()
-    console.log('Payload PIX:\n', payload);
-
     const base64 = await qrCodePix.base64();
-    console.log('\nQR Code base64:\n', base64);
+    
     return {
         base64,
         payload,
         
     }
-
 }
 
 export default generatePIX

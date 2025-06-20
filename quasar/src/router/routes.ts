@@ -22,7 +22,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('pages/Login/Login.vue')
+    component: () => import('src/pages/Login/Login.vue')
   },
   {
     path: '/register-owner',
@@ -37,7 +37,7 @@ const routes = [
   {
     path: '/forgot-password',
     name: 'ForgotPassowrd',
-    component: () => import('pages/Login/Forgot/ForgotPassword.vue')
+    component: () => import('src/pages/Login/Forgot/ForgotPassword.vue')
   },
   {
     path: '/reset-password/:token',
@@ -71,7 +71,7 @@ const routes = [
       {
         path: `/:name/${salePrefix}/save/pdv/:idPDV`,
         name: 'PDVID',
-        component: () => import('src/pages/Ecommerce/PDV/PDVView.vue'),
+        component: () => import('src/pages/Ecommerce/PDV/PDVView original.vue'),
         props: true
 
       },
@@ -127,9 +127,14 @@ const routes = [
         component: () => import('src/pages/Users/LevelUsers.vue')
       },
       {
+        path: '/:name/configs',
+        name: 'GeneralConfigs',
+        component: () => import('src/pages/Config/GeneralConfigs.vue')
+      },
+      {
         path: '/:name/:catchAll(.*)*',
         name: '404',
-        component: () => import('pages/ErrorNotFound.vue')
+        component: () => import('src/pages/ErrorNotFound.vue')
       },
       
     ]

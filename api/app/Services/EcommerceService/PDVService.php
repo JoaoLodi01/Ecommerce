@@ -23,8 +23,8 @@ class PDVService
         ], 400);
     }
 
-    public function getAll(){
-        return $this->pdvRepository->getAll();
+    public function getAll(int $issuer_id){
+        return $this->pdvRepository->getAll($issuer_id);
     }
 
     public function update(array $data, int $id){
@@ -75,7 +75,8 @@ class PDVService
         array $paymentsValues, 
         string $typeOperation, 
         int $pdvID, 
-        int $issuerID
+        int $issuerID,
+        int $userID,
     )
     {
         try {
@@ -97,7 +98,8 @@ class PDVService
                 $paymentsValues, 
                 $payMentsID, 
                 $total,
-                $issuerID
+                $issuerID,
+                $userID,
             );
 
             if ($pdv['success']) {
