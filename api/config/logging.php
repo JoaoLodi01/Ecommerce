@@ -136,7 +136,16 @@ return [
             'driver' => 'daily',
             'path' => storage_path('logs/auth/auth.log'),
             'level' => 'info',
-            'days' => 14,
+            'days' => 14
+
+        ],
+
+        'payment' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/payments/payment.log'),
+            'level' => 'info',
+            'days' => 14
+            
         ],
     ],
 ];
