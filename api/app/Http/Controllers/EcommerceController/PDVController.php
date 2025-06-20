@@ -52,6 +52,7 @@ class PDVController extends Controller
     public function findSavePDV()
     {
         $pdv = $this->pdvService->findSavePDV();
+        
         if(!$pdv)
         {
             return apiError('PDV não encontrado');

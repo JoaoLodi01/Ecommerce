@@ -163,7 +163,13 @@ class ProductsRepository
 
     public function active(int $product_cod)
     {
-        return Products::where('product_cod', $product_cod)->update([
+        $product = Products::where('product_cod', $product_cod)->first();
+        $issuer_id = $product->issuer_id;
+        
+        $cacheKey = "{$this->cacheKeyPrefix}_{$issuer_id}";
+
+        Cache::forget($cacheKey);
+        return $product->update([
             'active' => 1
         ]);
     }
@@ -172,6 +178,7 @@ class ProductsRepository
     {
         return Products::where('product_cod', $product_cod)->update([
             'active' => 0
+
         ]);
     }
     

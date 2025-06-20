@@ -85,7 +85,7 @@ class PDVService
         {
             Log::info('Vai lançar o InsufficientPayment');
             throw new \App\Exceptions\InsufficientPayment("Pagamento insuficiente");
-
+        
         } else {
             $finallyPDV = $this->pdvRepository->finalizeSale(
                 $typeOperation, 
@@ -99,6 +99,5 @@ class PDVService
             
             return $finallyPDV;
         }
-
     }
 }

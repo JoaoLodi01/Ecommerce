@@ -20,6 +20,12 @@ class Handler extends ExceptionHandler
             
         }
 
+        if($e instanceof ProductNotFound)
+        {
+            return apiError($e->getMessage(), [], false, 400);
+            
+        }
+
         return parent::render($request, $e);
     }
 }
