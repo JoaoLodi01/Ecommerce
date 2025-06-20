@@ -121,7 +121,7 @@
                 amount: 1
             });
 
-            console.log('productsData.value: ', productsData.value);
+            console.log('productsData.value: ', productsData.value, ' productsData.value.length: ', productsData.value.length);
             
             emits('update:selectProducts', productsData.value);
             

@@ -35,6 +35,7 @@
                     :typeOperation=typeOperation
                     :totalOperation=totalOperation
                     :pdvID=pdvID 
+                    :room-i-d="0"
                     @resetTotal="totalOperation = $event"
                     @resetPDVID="pdvID = $event"
                     @close="cancelOperation"
@@ -261,7 +262,7 @@
                             <div 
                                 class="m-2 p-2 rounded-lg border border-gray-700"
                             >
-                                <label class="text-black" for="discount">Vendedor</label>
+                                <label class="text-black">Vendedor</label>
                                 <q-input 
                                     :placeholder="sellerData.name"
                                     disable
@@ -284,32 +285,24 @@
                             class="m-2 p-2 rounded-lg border border-gray-700" 
                             
                         >
-                            <label class="text-black" for="addition">Acréscimo R$</label>
-                            <input 
-                                id="addition"
-                                v-model.number="emitProducts.addition"
-                                type="text"
-                                class="text-black rounded-lg border border-black w-20 p-0.5 ml-1 m-1"
-                            />
-                            <br>
-                            <label class="text-black" for="discount">Desconto R$</label>
-                            <input 
-                                id="discount"
-                                v-model.number="emitProducts.discount"
-                                type="text"
-                                class="text-black rounded-lg border border-black w-20 p-0.5 ml-3.5 m-1"
-                            />
-                            <br>
+                            <p 
+                                class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
+                            >
+                                Acréscimo R$: <input id="addition" v-model.number="emitProducts.addition" type="text" class="text-right"/>
+                            </p>
                             
-                            <label class="text-black" for="discount">Frete R$</label>
-                            <input 
-                                id="freight"
-                                v-model.number="emitProducts.freight"
-                                type="text"
-                                class="text-black rounded-lg  border border-black w-20 p-0.5 ml-3.5 m-1"
-                            />
-
-                            <p class="flex justify-between">Frete: R$ <input id="freight" v-model.number="emitProducts.freight" type="text" class="text-right"/></p>
+                            <p 
+                                class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
+                            >
+                                Desconto R$: <input id="discount" v-model.number="emitProducts.discount" type="text" class="text-right" />
+                            </p>
+                                                    
+                            <p 
+                                class="flex justify-between border p-2 rounded-lg"
+                            >
+                                Frete R$: <input id="freight" v-model.number="emitProducts.freight" type="text" class="text-right"/>
+                            
+                            </p>
                         </div>
                     <div
                         class="m-2 p-2 rounded-lg border border-gray-700"
@@ -373,7 +366,7 @@
                                 </button>
 
                                 <div class="mb-auto ml-auto text-xl w-auto">
-                                    <span class="mr-1 text-white p-1 bg-[#BF3658] rounded-md">Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}</span>
+                                    <span class="mr-1 text-white p-1 bg-[#BF3658] rounded-md">Total: R$ {{ Math.max((calculateTotal.total), 0).toFixed(2) }}</span>
                                 
                                 </div>
                             </div>
@@ -470,10 +463,10 @@
     });
             
     let emitProducts = ref<IEmitProducts>({
+        subtotal: 0,
         addition: 0,
         discount: 0,
-        freight: 0,
-        userID: 0
+        freight: 0
         
     });
 
@@ -558,15 +551,15 @@
         });
 
         const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
-        const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.addition : 0;
-        const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.addition : 0;
-
-        return { 
+        const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
+        const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
+        
+        return {
+            total: subtotal + (addition + freight) - discount,
             subtotal: subtotal,
             addition: addition,
             discount: discount,
             freight: freight
-            
         };
     });
 
@@ -582,7 +575,7 @@
                     user_id: sellerData.value.id,
                     customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
                     sub_total: calculateTotal.value.subtotal,
-                    total: calculateTotal.value.subtotal- calculateTotal.value.discount + calculateTotal.value.addition,
+                    total: calculateTotal.value.total,
                     addition: calculateTotal.value.addition,
                     discount: calculateTotal.value.discount,
                     description: 'Venda guardada',
@@ -601,10 +594,10 @@
                 }
 
             } else {
-
                 alert('Venda guardarda para enviar posteriormente!');
                 productsSeletion// Salva apenas a venda = []
                 router.push({ name: "PDV" });
+
             };
         };
     };
@@ -619,20 +612,10 @@
                 if(props.idPDV)
                 {
                     console.log('Venda importada');
-                    if(type === 'nm')
-                    {
-                        typeOperation.value = type;
-                        showPaymentsForm.value = !showPaymentsForm.value;
-                        pdvID.value = Number(props.idPDV);
-
-                    };
-
-                    if(type === 'nfce')
-                    {
-                        typeOperation.value = type;
-                        showPaymentsForm.value = !showPaymentsForm.value;
-                        pdvID.value = Number(props.idPDV);
-                    };
+                    console.log('type: ', type);
+                    typeOperation.value = type;
+                    showPaymentsForm.value = !showPaymentsForm.value;
+                    pdvID.value = Number(props.idPDV);
                 
                 } else {
                     let importedPDV = LocalStorage.getItem("pdvID");
@@ -641,29 +624,29 @@
                     {
                         console.log('Nova venda!');
                         console.log('Total da venda R$', totalOperation.value);
-                        if(type === 'nm')   
+                        if(type)   
                         { 
-                            const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                            const res = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 issuer_id: issuer_id.value,
                                 products: productsSeletion.value, // Produtos da 
                                 user_id: sellerData.value.id,
-                                customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
-                                total: calculateTotal.value.subtotal - calculateTotal.value.discount + calculateTotal.value.addition,
+                                customer_id: customerData.value.id != 1 ? customerData.value.id : 1,
                                 sub_total: calculateTotal.value.subtotal,
+                                total: calculateTotal.value.total,
                                 addition: calculateTotal.value.addition,
                                 discount: calculateTotal.value.discount,
-                                description: 'Venda Nota Manual N°',
+                                description: type === 'nm' ? 'Venda Nota Manual N°' : 'Venda NFC-e N°',
                                 is_nfce_nm: type,
                                 status: 'Finalizada'
                                 
                             });
 
-                            const data = response.data;
+                            const data = res.data;
                             console.log(data);
 
                             if(data.success)
                             {
-                                LocalStorage.setItem("pdvID", response.data.pdvID);
+                                LocalStorage.setItem("pdvID", res.data.pdvID);
                                 typeOperation.value = type;
                                 showPaymentsForm.value = true;
                                 pdvID = LocalStorage.getItem("pdvID");
@@ -672,47 +655,8 @@
                                 console.log('pdvID linha 684: ', pdvID);
 
                             };
+                        };
                         
-                            if(!data.success)
-                            {
-                                console.log(response.data); 
-                            };
-                        };
-                    
-                        if(type === 'nfce')
-                        {  
-                            const response = await api.post('/ecommerce/pdv/save-sale', {
-                                issuer_id: issuer_id,
-                                products: productsSeletion.value, // Produtos da 
-                                user_id: sellerData.value.id,
-                                customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
-                                total: calculateTotal.value.subtotal - calculateTotal.value.discount + calculateTotal.value.addition,
-                                sub_total: calculateTotal.value.subtotal,
-                                addition: calculateTotal.value.addition,
-                                discount: calculateTotal.value.discount,
-                                description: 'Venda NFC-e N°',
-                                is_nfce_nm: type,
-                                status: 'Finalizada'
-                                
-                            });
-
-                            console.log('response.dat PDVView, line 718: ', response);
-                            const data = response.data;
-
-                            if(data.success)
-                            {
-                                LocalStorage.setItem("pdvID", response.data.pdvID);
-                                typeOperation.value = type;
-                                showPaymentsForm.value = true;
-                                pdvID = LocalStorage.getItem("pdvID");
-
-                            } else {
-                                errorsOfSale.value.erros = data.errors;
-                                errorsOfSale.value.showErrosModal = true;
-
-                            };
-                        };
-                            
                     } else {
                         console.log('Não é uma nova venda!');
                         console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"));
@@ -942,10 +886,11 @@
         if(confirmed)
         {
             emitProducts.value = {
+                subtotal: 0,
                 addition: 0,
                 discount: 0,
                 freight: 0,
-                userID: 0
+                
             };
 
             productsSeletion.value = [];
@@ -973,10 +918,10 @@
         const option = confirm('Deseja realmente cancelar a venda? ')
         if (option === true) {
             emitProducts.value = {
+                subtotal: 0,
                 addition: 0,
                 discount: 0,
-                freight: 0,
-                userID: 0
+                freight: 0
             };
             
             productsSeletion.value = [];

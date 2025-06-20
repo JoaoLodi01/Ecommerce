@@ -241,8 +241,6 @@
         getConfig();
         document.addEventListener('keydown', (event: TEvent) => {
             const keyName = event.key;
-            console.log('Aqui: ', keyName);
-
             if(keyName === 'Escape')
             {
                 onClose();
