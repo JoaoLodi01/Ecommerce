@@ -31,7 +31,6 @@ class CashRegisterRequest extends FormRequest
             'especie_cod' => [$required, 'integer'],
             'user_id' => ['required'],
             'origem' =>  ['required'],
-            'date_register' => [$required, 'date'],
             'input_value' => [$required, 'numeric'],
             'output_value' => [$required, 'numeric'],
         ];
@@ -61,10 +60,7 @@ class CashRegisterRequest extends FormRequest
             'especie.required' => 'A espécie é obrigatória.',
             'especie.string' => 'A espécie deve estar em um formato válido.',
             'especie.max' => 'A espécie não pode ter mais de :max caracteres.',
-            
-            'date_register.required' => 'A data de registro é obrigatória.',
-            'date_register.date' => 'A data de registro deve estar em um formato válido.',
-            
+
             'input_value.required' => 'O valor de entrada é obrigatório.',
             'input_value.numeric' => 'O valor de entrada deve ser um número válido.',
             

@@ -8,113 +8,148 @@
 
     <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastrar recebimentos</h2>
 
-    <form
-      @submit.prevent="submitForm"
-      @reset="onReset"
-      class="p-1"
-        :class="{
-            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
-        }">
+        <form
+            @submit.prevent="submitForm"
+            @reset="onReset"
+            class="p-1"
+                :class="{
+                    'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
+                }">
 
-      <q-input
-          type="number" 
-          v-model="form.document" 
-          label="Nº Documento" 
-          color="grey-7" 
-      />
+            <div class="border border-gray-400 rounded-md p-5">
+                <q-input
+                    type="number" 
+                    v-model="form.document" 
+                    label="Nº Documento" 
+                    color="grey-7" 
+                />
 
-      <q-input
-        type="text"
-        v-model="form.description"
-        label="Descrição"
-        color="grey-7"
-      />
+                <q-input
+                    type="text"
+                    v-model="form.description"
+                    label="Descrição"
+                    color="grey-7"
+                />
 
-      <CustomerSearchBar
-        @updated:selectCustomer="getCustumer($event)"
-      />
+                <CustomerSearchBar
+                    @updated:selectCustomer="getCustumer($event)"
+                />
 
-      <q-input
-        type="text"
-        v-model="user"
-        label="Usuário"
-        color="grey-7"
-        readonly
-      />
+                <q-input
+                    type="text"
+                    v-model="user"
+                    label="Usuário"
+                    color="grey-7"
+                    readonly
+                />
 
-      <SpeciesSearchBar
-        @selectSpecie="getSpecie($event)"
-        :module_="'receive'"
-      />
+                <SpeciesSearchBar
+                    @selectSpecie="getSpecie($event)"
+                    :module_="'receive'"
+                />
 
-      <q-input
-        v-model="form.due_date"
-        label="Data de Vencimento"
-        mask="##/##/####">
+                <q-input
+                    v-model="form.due_date"
+                    label="Data de Vencimento"
+                    type="date">
 
-        <template v-slot:append>
-          <q-icon name="event" class="cursor-pointer">
-            <q-popup-proxy>
-            <q-date v-model="form.due_date" mask="DD/MM/YYYY" />
-            </q-popup-proxy>
-          </q-icon>
-        </template>
-      </q-input>
+                    <template v-slot:append>
+                        <q-icon name="event" class="cursor-pointer">
+                        <q-popup-proxy>
+                        <q-date v-model="form.due_date" mask="DD/MM/YYYY" />
+                        </q-popup-proxy>
+                        </q-icon>
+                    </template>
+                </q-input>
 
-      <q-input
-        type="number"
-        v-model="form.installment_number"
-        label="Nº Parcelas"
-        color="grey-7"
-      />
+                <q-input
+                    type="number"
+                    v-model="form.installment_number"
+                    label="Nº Parcelas"
+                    color="grey-7"
+                />
 
-      <q-input
-        type="number"
-        v-model="form.installment_value"
-        label="Valor Parcelas"
-        color="grey-7"
-      />
+                <q-input
+                    type="number"
+                    v-model="form.installment_value"
+                    label="Valor Parcelas"
+                    color="grey-7"
+                />
 
-      <q-select
-        v-model="form.type_interest"
-        label="Tipo de Juros"
-        :options="[
-          { label: '%', value: '%' },
-          { label: 'R$', value: 'R$'}
-        ]"
-        emit-value
-        map-options
-      />
+                <q-select
+                    v-model="form.type_interest"
+                    label="Tipo de Juros"
+                    emit-value
+                    map-options
+                        :options="[
+                            { label: '%', value: '%' },
+                            { label: 'R$', value: 'R$'}
+                        ]"
+                />
 
-      <q-input
-        type="number"
-        v-model="form.interest_value"
-        label="Valor juros"
-        color="grey-7"
-      />
+                <q-input
+                    type="number"
+                    v-model="form.interest_value"
+                    label="Valor juros"
+                    color="grey-7"
+                />
 
-      <q-input
-        type="number"
-        v-model="form.total_amount"
-        label="Valor total"
-        color="grey=7"
-      />
+                <q-input
+                    type="number"
+                    v-model="form.addition"
+                    label="Acréscimo"
+                    color="grey-7"
+                />
 
-      <div>
-        <q-btn
-          type="submit"
-          label="Registrar"
-          class="bg-blue-600 text-white">
-        </q-btn>
+                <q-input
+                    type="number"
+                    v-model="form.discount"
+                    label="Desconto"
+                    color="grey-7"
+                />
+            </div>
 
-        <q-btn
-          @click="close()"
-          label="Voltar"
-          class="ml-5 bg-slate-600 text-white">
-        </q-btn>
-      </div>
-    </form>
-  </div>
+            <div class="border border-gray-400 rounded-md p-5">
+                <q-input
+                    type="number"
+                    v-model="form.value_entry"
+                    label="Juros a ser pago"
+                    color="grey-7"
+                    readonly
+                />
+
+                <q-input
+                    type="number"
+                    v-model="form.value_paid"
+                    label="Valor a ser pago"
+                    color="grey-7"
+                    readonly
+                />
+
+                <q-input
+                    type="number"
+                    v-model="form.value_original"
+                    label="Valor original"
+                    color="grey-7"
+                    readonly
+                />
+            </div>
+
+            <div>
+                <q-btn
+                    type="submit"
+                    label="Registrar"
+                    class="bg-blue-600 text-white">
+                </q-btn>
+
+                <q-btn
+                    @click="close()"
+                    label="Voltar"
+                    class="ml-5 bg-slate-600 text-white">
+                </q-btn>
+            </div>
+        </form>
+    </div>
 </template>
 <script>
   import { api } from "src/boot/axios"
@@ -145,11 +180,15 @@
           user_id: LocalStorage.getItem("user_id"),
           especie_id: 0,
           due_date: today.add(30, 'days').format("DD-MM-YYYY"),
-          installment_number: 0,
+          installment_number: 1,
           installment_value: 0,
           type_interest: "",
           interest_value: 0,
-          total_amount: 0,
+          addition: 0,
+          discount: 0,
+          value_entry: 0,
+          value_paid: 0,
+          value_original: 0,
           origem: "Receber (Manual)",
         },
       };
@@ -159,20 +198,7 @@
       totalAmoutCalc() {
         const number = this.parseCurrency(this.form.installment_number);
         const value = this.parseCurrency(this.form.installment_value);
-        const feesValue = this.parseCurrency(this.form.interest_value);
-        const typeInterest = this.form.type_interest;
-
-        const baseTotal = number * value;
-
-        let total = 0;
-
-        if (typeInterest === '%') {
-          total = baseTotal + (baseTotal * (feesValue / 100));
-        } else if (typeInterest === 'R$') {
-          total = baseTotal + feesValue;
-        } else {
-          total = baseTotal;
-        }
+        const total = number * value;
 
         return total.toFixed(2);
 
@@ -207,7 +233,11 @@
           installment_value: 0,
           type_interest: "",
           interest_value: 0,
-          total_amount: 0,
+          addition: 0,
+          discount: 0,
+          value_entry: 0,
+          value_paid: 0,
+          value_original: 0,
           origem: "Receber (Manual)",
         }
     },

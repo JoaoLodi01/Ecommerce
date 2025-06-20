@@ -12,7 +12,8 @@
                 />
             </div>
 
-            <q-input 
+            <q-input
+                label="Cliente" 
                 ref="customer"
                 v-model="clientsData.name"
                 @update:model-value="selectClient()"

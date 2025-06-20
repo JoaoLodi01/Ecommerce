@@ -42,14 +42,6 @@
             <SpeciesSearchBar
                 @selectSpecie="getSpecie($event)"
                 :module_="'cash'"
-
-            />
-
-            <q-input 
-                type="date"
-                v-model="form.date_register"
-                label="Data Cadastro"
-                color="grey-7"
             />
 
             <q-input
@@ -121,7 +113,6 @@
 
 <script>
 import { api } from "src/boot/axios";
-import dayjs from "dayjs";
 import { LocalStorage } from "quasar";
 import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
 import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
@@ -135,7 +126,6 @@ export default {
     },
 
     data() {
-        const today = dayjs();
 
         return {
             sum: true,
@@ -146,7 +136,6 @@ export default {
                 customer_id: 1,
                 user_id: LocalStorage.getItem("user_id"),
                 especie_id: 0,
-                date_register: today.format("YYYY-MM-DD"),
                 input_value: 0,
                 output_value: 0,
                 total_amount: 0,
@@ -174,14 +163,12 @@ export default {
         },
 
         onReset() {
-            const today = dayjs();
             this.form = {
                 description: "Registro Manual",
                 document: 1,
                 customer_id: 0,
                 user: LocalStorage.getItem("user_name"),
                 especie: "",
-                date_register: today.format("YYYY-MM-DD"),
                 input_value: 0,
                 output_value: 0,
                 total_amount: 0,
@@ -210,16 +197,15 @@ export default {
             try {
                 const response = await api.post('/ecommerce/cash-register/create',
                     {
-                    issuer_id: LocalStorage.getItem("issuer_id"),
-                    description: this.form.description,
-                    document: this.form.document,
-                    customer_cod: this.form.customer_id,
-                    especie_cod: this.form.especie_id,
-                    date_register: this.form.date_register,
-                    input_value: this.parseCurrency(this.form.input_value),
-                    output_value: this.parseCurrency(this.form.output_value),
-                    user_id: LocalStorage.getItem("user_id"),
-                    origem: this.form.origem,
+                        issuer_id: LocalStorage.getItem("issuer_id"),
+                        description: this.form.description,
+                        document: this.form.document,
+                        customer_cod: this.form.customer_id,
+                        especie_cod: this.form.especie_id,
+                        input_value: this.parseCurrency(this.form.input_value),
+                        output_value: this.parseCurrency(this.form.output_value),
+                        user_id: LocalStorage.getItem("user_id"),
+                        origem: this.form.origem,
                     }
                 );
 
