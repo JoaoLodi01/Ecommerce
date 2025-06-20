@@ -26,14 +26,14 @@ class ProductsRepository
         Log::info($data);
         $products = null;
         $search = $data['search'];
-        $issuer_id = $data['issuer_id'];
+        $issuerID = $data['issuer_id'];
         
-        switch ($data['fillter']) {
+        switch ($data['filter']) {
             case 'Cód barras interno':
                 $products = Products::where('active', 1)
-                    ->where(function($query) use ($search, $issuer_id){
+                    ->where(function($query) use ($search, $issuerID){
                         $query->where('barcode_internal', $search)
-                              ->where('issuer_id', $issuer_id);
+                              ->where('issuer_id', $issuerID);
                         
 
                     })->get();
@@ -42,9 +42,9 @@ class ProductsRepository
             case 'Cód barras':
                 $products = Products::where('active', 1)
                     
-                    ->where(function($query) use ($search, $issuer_id){
+                    ->where(function($query) use ($search, $issuerID){
                         $query->where('barcode', $search)
-                               ->where('issuer_id', $issuer_id);
+                               ->where('issuer_id', $issuerID);
 
                     })->get();
 
@@ -52,10 +52,9 @@ class ProductsRepository
 
             case 'Cód barras & Cód barras interno':
                 $products = Products::where('active', 1)
-                    
-                    ->where(function($query) use ($search, $issuer_id){
-                        $query->where('barcode', $search)
-                              ->where('issuer_id', $issuer_id)
+                    ->where(function($query) use ($search, $issuerID){
+                        $query->where('issuer_id', $issuerID)
+                              ->where('barcode', $search)
                               ->orWhere('barcode_internal');
 
                     })->get();
@@ -63,10 +62,9 @@ class ProductsRepository
     
             case 'Padrão (cód.barras ou cód.produto)':
                 $products = Products::where('active', 1)
-                    
-                    ->where(function($query) use ($search, $issuer_id){
+                    ->where(function($query) use ($search, $issuerID){
                         $query->where('product_cod', $search)
-                                ->where('issuer_id', $issuer_id)
+                                ->where('issuer_id', $issuerID)
                                 ->orWhere('barcode', $search)
                                 ->orWhere('product', 'like', '%' . $search . '%');
                     })->get();

@@ -26,6 +26,7 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
+use App\Http\Controllers\Exceptions\ExceptionsController;
 use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\TributsController\TributsController;
 use App\Http\Controllers\RegisterControllers\{
@@ -109,7 +110,7 @@ Route::prefix('v1')->group( function (){
                 Route::put('/finalize-sale', [PDVController::class, 'finalizeSale']);
 
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
-                Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
+                Route::post('/get-saved-sale', [PDVController::class, 'findSavePDVByID']);
 
                 Route::get('/get-all-errors', [ErrorsPDVController::class, 'all']);
 
@@ -199,7 +200,6 @@ Route::prefix('v1')->group( function (){
             Route::put('/{id}', [FirstStepsController::class, 'ignoreFirstSteps']);
 
         });
-    
     });
 
     Route::prefix('registers')->group( function(){
