@@ -17,14 +17,17 @@ export default defineBoot(({ app, router }) => {
       const publicAPIRoutes = [
         '/forgot-password',
         '/reset-password',
-        '/auth/me',
+        '/auth/check',
         '/owner'
       ];
 
       const isPublic = publicAPIRoutes.some(route => config.url.includes(route));
 
-      if (!token && !isPublic) {
+      if (!token && !isPublic)
+      {
+        console.log('token:', token)
         router.replace({ path: '/login' });
+        
         return Promise.reject(new Error("Usuário não autenticado"));
       }
 
@@ -43,7 +46,18 @@ export default defineBoot(({ app, router }) => {
   api.interceptors.response.use(
     (response) => response,
     (error) => {
-      if(error.response?.status === 401)
+      const publicAPIRoutes = [
+        '/forgot-password',
+        '/reset-password',
+        '/auth/check',
+        '/owner'
+      ];
+
+      // Corrigido: verifica se a URL da requisição é pública
+      const requestUrl = error.config?.url || '';
+      const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
+
+      if(error.response?.status === 401 && !isPublic)
       {
         const msg = 'Usuário não autenticado';
         router.replace({ path: '/login' });
@@ -56,11 +70,10 @@ export default defineBoot(({ app, router }) => {
           error.response?.data?.errorMessage ||
           error.message ||
           'Erro inesperado na resposta da API';
-        emitter.emit('global-error', msg);
-        return Promise.reject(error);
-      }
-    
-      
+          emitter.emit('global-error', msg);
+          return Promise.reject(error);
+
+      };
     }
   );
 

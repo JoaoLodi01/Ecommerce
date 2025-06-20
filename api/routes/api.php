@@ -37,21 +37,15 @@ use App\Http\Controllers\RegisterControllers\{
 use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
         Route::post('/owner', [AuthController::class, 'authOwner']);
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
-
-        Route::get('/me', function (Request $request) {
-            return response()->json([
-                'success' => $request->header('Authorization') ? true : false,
-                'user' => $request->user(),
-                'token_received' => $request->header('Authorization'),
-    
-            ]);
-        })->middleware('auth:sanctum');
+        Route::get('/check', [AuthController::class, 'checkLogin']);
+        
     }); 
     
     Route::middleware('auth:sanctum')->group(function (){        

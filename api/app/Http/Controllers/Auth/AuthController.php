@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\{
     Hash
 };
 
-use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -28,13 +28,9 @@ class AuthController extends Controller
         
         $owner = $this->registerOwnerService->findByEmail($data['email']);
 
-        
         Log::info('owner ' . $owner);
         if($owner && Hash::check($data['password'], $owner->password))
         {
-            //$checkToken = $this->readFile($owner->uuse_id);
-
-
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
             $user = $this->userService->findById($owner->id);
@@ -79,8 +75,20 @@ class AuthController extends Controller
         
     }
 
-    public function readFile(string $token)
+    public function checkLogin(Request $request)
     {
-        $file = public_path('auth');
+        Log::channel('auth')->info('Log login');
+        
+        $header = $request->header('Authorization');
+        
+        if($header)
+        {
+            Log::channel('auth')->error("Token ausente: {$header}");
+            apiError('Usuário não logadoooooo', $header, false, 400);
+                
+        };
+
+        apiSuccess('Usuário logado', $header, true, 200);
+
     }
 }
