@@ -1,14 +1,14 @@
 main() {
-    frontend_path="C:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/quasar"
-    api_path="C:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/api"
+    frontend_path="C:/Ferramentas/Luiz/Ecommerce/quasar"
+    api_path="C:/Ferramentas/Luiz/Ecommerce/api"
 
     # Tenta no C:
     if [ ! -d "$frontend_path" ]; then
-        frontend_path="D:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/quasar"
+        frontend_path="C:/Ferramentas/Luiz/Ecommerce/quasar"
     fi
 
     if [ ! -d "$api_path" ]; then
-        api_path="D:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/api"
+        api_path="C:/Ferramentas/Luiz/Ecommerce/api"
     fi
 
     cd "$frontend_path" || { echo "Erro ao acessar $frontend_path"; exit 1; }
