@@ -5,19 +5,25 @@ const resData = <IDataCEP>{
     addres: ''
 }
 
-async function getCEPData(cep: string): Promise<IDataCEP>
+let errorMessage = <string> '';
+
+async function getCEPData(cep: string): Promise<IDataCEP|string>
 {
     const res = await axios.get(`${process.env.API_CEP}/${cep}/json`);
 
-    if(res)
+    if(res.data.erro !== 'true')
     {
-        console.log('getCEPData: res ', res, ' res.status: ', res.status);
+        console.log('getCEPData: res ', res.data, ' res.status: ', res.status);
         resData.cep = cep;
         resData.addres = res.data.logradouro;
-        
+        return resData;;
     };
 
-    return resData;
+    if(res.data.erro === 'true')
+    {
+        errorMessage = 'Erro na busca do CEP'
+        return errorMessage;
+    };
 };
 
 export default getCEPData;

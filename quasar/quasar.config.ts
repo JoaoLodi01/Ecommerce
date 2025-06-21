@@ -13,6 +13,7 @@ export default defineConfig((/* ctx */) => {
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
     boot: [
       'axios.ts',
+      'i18n.ts'
     ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
@@ -76,7 +77,7 @@ export default defineConfig((/* ctx */) => {
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework
     framework: {
       config: {},
-
+      i18n: 'de',
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
 

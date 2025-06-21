@@ -22,20 +22,17 @@ async function getCNPJData(cnpj: string): Promise<IDataCNPJ|string>
             resData.cep = res.data.address.zip;
             resData.number = Number(res.data.address.number);
             resData.address = res.data.address.street;
-            return;
+            return resData;
+
         };
         
     } catch (error) {
-        console.error('Erro: ', error);
-
-    };
-    
-    if(errorMessage)
-    {
+        console.error('Erro na busca do cep', error)
+        errorMessage = error.response.data.constraints;
         return errorMessage;
-    }
+        
+    };
 
-    return resData;
 };
 
 export default getCNPJData;

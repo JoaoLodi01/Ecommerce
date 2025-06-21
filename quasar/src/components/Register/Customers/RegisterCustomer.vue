@@ -7,6 +7,18 @@
         }"
 
     >
+        <div 
+            class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-red-500 text-white z-50 p-4 rounded shadow-lg cursor-pointer"
+            v-if="errorPopUp"
+            @click="errorPopUp = false"
+        >
+            <ErrorPoPUp
+                class="p-5"
+                :message="errorMessage";
+                :type-error="typeError"
+            />
+        </div>
+
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
         <q-form
             @submit="submitForm()"
@@ -185,6 +197,7 @@
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
     import { ref, defineEmits, defineProps } from 'vue';
+    import ErrorPoPUp from './ErrorPoPUp.vue';
     import getCNPJData from 'src/services/getData/getCNPJData';
     import getCEPData from 'src/services/getData/getCEPData';
 
@@ -225,6 +238,8 @@
     ]);
 
     let errorPopUp = ref<boolean>(false);
+    let errorMessage = ref<string>('Erro teste');
+    let typeError = ref<string>('');
 
     const showLoading = () =>
     {
@@ -268,9 +283,13 @@
         {
             const res = await getCNPJData(formatedCNPJ);
             
-            if(typeof res === 'string')
+            if(typeof res === 'string' || Array.isArray(res))
             {
                 errorPopUp.value = true;
+                errorMessage.value = res[0];
+                typeError.value = 'cnpj';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
                 return;   
 
             };
@@ -302,6 +321,16 @@
             const res = await getCEPData(fomratedCEP);
             console.log('Res: ', res);
 
+            if(typeof res === 'string')
+            {
+                errorPopUp.value = true;
+                errorMessage.value = res;
+                typeError.value = 'cep';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                return;
+            };
+
             customerData.value = {
                 company_name: customerData.value.company_name, // Mantem padrão
                 trade_name: customerData.value.trade_name, // Mantem padrão
@@ -317,6 +346,7 @@
                 issuer_id: customerData.value.issuer_id // Mantem padrão
 
             };
+
             return;  
         };
     };
