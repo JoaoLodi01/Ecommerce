@@ -12,7 +12,6 @@
                 v-model="firstPay" 
                 type="date" 
                 label="Data do primeiro vencimento" 
-
             />
 
         </q-card-section>

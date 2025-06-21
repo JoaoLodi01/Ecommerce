@@ -1,139 +1,156 @@
 <template>
   <div
     class="mr-14 mt-5 mb-5 p-6 bg-white"
-    :class="{
-      'relative top-12 left-12': widthScreen <=1080,
-      'ml-14': widthScreen > 1080
-    }">
+        :class="{
+        'relative top-12 left-12': widthScreen <=1080,
+        'ml-14': widthScreen > 1080
+        }"
+    >
 
     <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastrar recebimentos</h2>
 
         <form
             @submit.prevent="submitForm"
             @reset="onReset"
-            class="p-1"
-                :class="{
-                    'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
-                }">
+            class="grid gap-4 mx-auto"
+            style="max-width: 1000px;"
+            :class="{
+                'grid-cols-1 lg:grid-cols-2': widthScreen > 1080,
+                'grid-cols-1': widthScreen <= 1080
+            }"
+        >
 
-            <div class="border border-gray-400 rounded-md p-5">
-                <q-input
-                    type="number" 
-                    v-model="form.document" 
-                    label="Nº Documento" 
-                    color="grey-7" 
-                />
+            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+                <div class="flex flex-wrap gap-4">
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.document"
+                        label="Nº Doc"
+                        color="grey-7"
+                    />
 
-                <q-input
-                    type="text"
-                    v-model="form.description"
-                    label="Descrição"
-                    color="grey-7"
-                />
+                    <q-input
+                        class="w-[200px]"
+                        type="text"
+                        v-model="form.description"
+                        label="Descrição"
+                        color="grey-7"
+                    />
 
-                <CustomerSearchBar
-                    @updated:selectCustomer="getCustumer($event)"
-                />
+                    <q-input
+                        class="w-[150px]"
+                        type="date"
+                        v-model="form.due_date"
+                        label="1º Vencimento"
+                        color="grey-7"
+                    />
 
-                <q-input
-                    type="text"
-                    v-model="user"
-                    label="Usuário"
-                    color="grey-7"
-                    readonly
-                />
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.installment_number"
+                        label="Nº Parcelas"
+                        color="grey-7"
+                    />
 
-                <SpeciesSearchBar
-                    @selectSpecie="getSpecie($event)"
-                    :module_="'receive'"
-                />
+                    <q-input
+                        class="w-[150px]"
+                        type="number"
+                        v-model="form.installment_value"
+                        label="Valor Parcela"
+                        color="grey-7"
+                    />
 
-                <q-input
-                    v-model="form.due_date"
-                    label="Data de Vencimento"
-                    type="date">
+                    <CustomerSearchBar @updated:selectCustomer="getCustumer($event)" />
+                </div>
+            </div>
 
-                    <template v-slot:append>
-                        <q-icon name="event" class="cursor-pointer">
-                        <q-popup-proxy>
-                        <q-date v-model="form.due_date" mask="DD/MM/YYYY" />
-                        </q-popup-proxy>
-                        </q-icon>
-                    </template>
-                </q-input>
-
-                <q-input
-                    type="number"
-                    v-model="form.installment_number"
-                    label="Nº Parcelas"
-                    color="grey-7"
-                />
-
-                <q-input
-                    type="number"
-                    v-model="form.installment_value"
-                    label="Valor Parcelas"
-                    color="grey-7"
-                />
-
-                <q-select
-                    v-model="form.type_interest"
-                    label="Tipo de Juros"
-                    emit-value
-                    map-options
+            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+                <div class="flex flex-wrap gap-4">
+                    <q-select
+                        class="w-[80px]"
+                        v-model="form.type_interest"
+                        label="Tipo"
+                        emit-value
+                        map-options
                         :options="[
                             { label: '%', value: '%' },
-                            { label: 'R$', value: 'R$'}
+                            { label: 'R$', value: 'R$' }
                         ]"
-                />
+                    />
 
-                <q-input
-                    type="number"
-                    v-model="form.interest_value"
-                    label="Valor juros"
-                    color="grey-7"
-                />
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.interest_value"
+                        label="Juros"
+                        color="grey-7"
+                    />
 
-                <q-input
-                    type="number"
-                    v-model="form.addition"
-                    label="Acréscimo"
-                    color="grey-7"
-                />
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.addition"
+                        label="Acréscimo"
+                        color="grey-7"
+                    />
 
-                <q-input
-                    type="number"
-                    v-model="form.discount"
-                    label="Desconto"
-                    color="grey-7"
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.discount"
+                        label="Desconto"
+                        color="grey-7"
+                    />
+
+                    <q-input
+                        class="w-[130px]"
+                        type="number"
+                        v-model="form.value_entry"
+                        label="Juros a pagar"
+                        color="grey-7"
+                        readonly
+                    />
+
+                    <SpeciesSearchBar @selectSpecie="getSpecie($event)" :module_="'receive'" />
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 flex justify-end">
+                <q-btn
+                    label="Gerar Parcelas"
+                    color="primary"
+                    class="mb-2"
+                    @click="gerarParcelas"
                 />
             </div>
 
-            <div class="border border-gray-400 rounded-md p-5">
-                <q-input
-                    type="number"
-                    v-model="form.value_entry"
-                    label="Juros a ser pago"
-                    color="grey-7"
-                    readonly
-                />
-
-                <q-input
-                    type="number"
-                    v-model="form.value_paid"
-                    label="Valor a ser pago"
-                    color="grey-7"
-                    readonly
-                />
-
-                <q-input
-                    type="number"
-                    v-model="form.value_original"
-                    label="Valor original"
-                    color="grey-7"
-                    readonly
-                />
-            </div>
+            <div
+                class="lg:col-span-2 overflow-y-auto border border-gray-400 rounded-md shadow-sm"
+                style="height: 230px;"
+            >
+                <table class="min-w-full border-collapse bg-white text-sm">
+                    <thead class="sticky top-0 z-10 bg-blue-600 text-white">
+                        <tr>
+                            <th class="px-2 py-1">Parcela</th>
+                            <th class="px-2 py-1">Nº Parcela</th>
+                            <th class="px-2 py-1">Data Vencimento</th>
+                            <th class="px-2 py-1">Valor à pagar</th>
+                            <th class="px-2 py-1">Valor Original</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr :key="id" class="text-center border-t border-gray-300">
+                            <td class="py-1"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
 
             <div>
                 <q-btn
