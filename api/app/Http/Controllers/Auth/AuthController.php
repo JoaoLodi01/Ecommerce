@@ -74,18 +74,19 @@ class AuthController extends Controller
     }
 
     public function checkLogin(Request $request)
-    {        
+    {       
+        Log::channel('auth')->info("-- checkLogin --"); 
         $header = $request->header('Authorization');
         
         $user = $request->user();
         
-        if(empty($header) || empty($user))
+        if(empty($header) && empty($user))
         {
-            Log::channel('auth')->error("Token ausente: {$header}");
-            return apiError('Usuário não logadoooooo', $header, false, 400);
+            Log::channel('auth')->error("Erro no login");
+            return apiError('Usuário não logado (1)', $header, false, 401);
                 
         };
-
+        Log::channel('auth')->info("Estava logado"); 
         return apiSuccess('Usuário logado', $user, true, 200);
     }
 }

@@ -35,7 +35,8 @@
             }
         });
 
-        console.log('Res: ', res);
+        console.log('Aqui', res)
 
-        res.data.success !== true ? location = '/companies' : alert(res.data);    }
+        res.data.success !== true ? location = '/companies' : location = '/login';
+    };
 </script>

@@ -153,7 +153,7 @@
                     this.form.cod_cnae = data.data.mainActivity.id
                     this.form.main_activity = data.data.mainActivity.text
                     
-                }
+                };
                 
             },
 

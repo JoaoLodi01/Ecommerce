@@ -50,7 +50,7 @@
                     />  
 
                 </div>
-                <div v-else>
+                <div v-if="type === 'Júridica'">
                     <q-input 
                         v-model="customerData.company_name" 
                         type="text" 
@@ -90,7 +90,7 @@
                 <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
                 <q-input 
                     v-model="customerData.cep"
-                    @input="getDataCEP()"
+                    @update:model-value="getDataCEP()"
                     v-bind:mask="'#####-###'"
                     type="text" 
                     label="CEP"
@@ -266,19 +266,20 @@
         const formatedCNPJ = customerData.value.cnpj.replace(/\D/g, '');
         if(formatedCNPJ.length === 14)
         {
-            const res = await getCNPJData(customerData.value.cnpj);
+            const res = await getCNPJData(formatedCNPJ);
+            
             if(typeof res === 'string')
             {
                 errorPopUp.value = true;
                 return;   
 
-            }
+            };
 
             customerData.value = {
                 company_name: res.alias,
                 trade_name: customerData.value.trade_name, // Mantem padrão
                 cpf: customerData.value.cpf, // Mantem padrão
-                cnpj: res.cnpj,
+                cnpj: customerData.value.cnpj,
                 cep: res.cep,
                 address: res.address,
                 number: res.number, 
@@ -287,23 +288,26 @@
                 is_supplier: customerData.value.is_supplier, // Mantem padrão
                 phone: customerData.value.phone, // Mantem padrão
                 issuer_id: customerData.value.issuer_id // Mantem padrão
-
+                
             };  
-
+            return;
         } 
     };
 
     const getDataCEP = async () => 
     {
-        const res = await getCEPData(customerData.value.cep);
-        if(res)
+        const fomratedCEP = customerData.value.cep.replace(/\D/g, '');
+        if(fomratedCEP.length === 8)
         {
+            const res = await getCEPData(fomratedCEP);
+            console.log('Res: ', res);
+
             customerData.value = {
                 company_name: customerData.value.company_name, // Mantem padrão
                 trade_name: customerData.value.trade_name, // Mantem padrão
                 cpf: customerData.value.cpf, // Mantem padrão
                 cnpj: customerData.value.cnpj, // Mantem padrão
-                cep: res.cep,
+                cep: customerData.value.cep,
                 address: res.addres,
                 number: customerData.value.number, // Mantem padrão
                 is_customer: customerData.value.is_customer, // Mantem padrão
@@ -312,8 +316,9 @@
                 phone: customerData.value.phone, // Mantem padrão
                 issuer_id: customerData.value.issuer_id // Mantem padrão
 
-            };  
-        }
+            };
+            return;  
+        };
     };
 
     const onReset = () => 

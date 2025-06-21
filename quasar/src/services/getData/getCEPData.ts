@@ -7,14 +7,14 @@ const resData = <IDataCEP>{
 
 async function getCEPData(cep: string): Promise<IDataCEP>
 {
-    const fomratedCEP = cep.replace(/\D/g, '');
-    const res = await axios.get(`${process.env.API_CEP}/${fomratedCEP}/json`);
+    const res = await axios.get(`${process.env.API_CEP}/${cep}/json`);
 
     if(res)
     {
-        resData.cep = fomratedCEP;
-        resData.cep = res.data.logradouro;
-
+        console.log('getCEPData: res ', res, ' res.status: ', res.status);
+        resData.cep = cep;
+        resData.addres = res.data.logradouro;
+        
     };
 
     return resData;

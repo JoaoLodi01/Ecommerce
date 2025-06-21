@@ -52,7 +52,7 @@ export default defineBoot(({ app, router }) => {
         '/auth/check',
         '/owner'
       ];
-
+      
       // Corrigido: verifica se a URL da requisição é pública
       const requestUrl = error.config?.url || '';
       const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
@@ -65,6 +65,12 @@ export default defineBoot(({ app, router }) => {
         emitter.emit('global-error', msg);
         return Promise.reject(error);
       } else {
+        if(error.response.data.status === 401)
+        {
+            router.replace({ path: '/login' });
+            console.log('Error: ', error.response.data)
+
+        }
         const msg =
           error.response?.data?.message ||
           error.response?.data?.errorMessage ||
