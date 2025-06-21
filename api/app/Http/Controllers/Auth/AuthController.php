@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\{
 };
 
 use Illuminate\Http\Request;
-
 class AuthController extends Controller
 {
     public function __construct(
@@ -72,7 +71,6 @@ class AuthController extends Controller
             'message' => 'Logout bem sucedido!',
             'route' => '/login'
         ]);
-        
     }
 
     public function checkLogin(Request $request)
@@ -89,6 +87,5 @@ class AuthController extends Controller
         };
 
         return apiSuccess('Usuário logado', $user, true, 200);
-
     }
 }

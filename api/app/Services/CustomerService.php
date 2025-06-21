@@ -51,6 +51,11 @@ class CustomerService
     public function create(array $data){
         $customer = $this->customerRepository->create($data);
         
+        if(!$customer)
+        {
+            throw new \App\Exceptions\CustomersExceptions\CustomerCreateException("Erro na criação do cliente");
+        }
+
         return $customer;
 
     }

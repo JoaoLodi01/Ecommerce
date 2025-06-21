@@ -90,6 +90,7 @@
                 <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
                 <q-input 
                     v-model="customerData.cep"
+                    @input="getDataCEP()"
                     v-bind:mask="'#####-###'"
                     type="text" 
                     label="CEP"
@@ -122,17 +123,7 @@
             </div>
             
             <div class="border border-black p-5 bg-white rounded-md mb-5">
-                <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
-                <q-input 
-                    v-model="customerData.email" 
-                    type="email" 
-                    label="E-mail"
-                    maxlength="120" 
-                    color="grey-7"
-                    class="ml-2"
-
-                />
-                
+                <h4 class="ml-1.5 border-b w-max mb-2">Outros dados</h4>
                 <q-input 
                     v-model="customerData.phone" 
                     type="tel"
@@ -193,11 +184,23 @@
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
-    import { ref, onBeforeUnmount, defineEmits, defineProps } from 'vue';
-    import axios from 'axios'
+    import { ref, defineEmits, defineProps } from 'vue';
+    import getCNPJData from 'src/services/getData/getCNPJData';
+    import getCEPData from 'src/services/getData/getCEPData';
+
+    const props = defineProps<{
+        widthScreen: number
+    }>();
+
+    const emits = defineEmits<{
+        (e: 'close', value: boolean)
+
+    }>();
 
     let $q = useQuasar();
     let timer: any;
+
+    let type = ref<string>('');
 
     let customerData = ref<IRegisterCustomer>({
         company_name: '',
@@ -206,22 +209,22 @@
         cnpj: '',
         cep: '',
         address: '',
-        number: '',
-        email: '',
+        number: 0,
         is_customer: false,
         is_driver: false,
         is_supplier: false,
         phone: '',
         issuer_id: LocalStorage.getItem("issuer_id")
-
+        
     });
-
-    let type = ref<string>('');
     
     const options = ref<string[]>([
         'Física',
         'Júridica'
+
     ]);
+
+    let errorPopUp = ref<boolean>(false);
 
     const showLoading = () =>
     {
@@ -238,13 +241,7 @@
 
     const hideLoanding = () =>
     {
-        onBeforeUnmount(() => { 
-            if(timer !== void 0)
-            {
-                clearTimeout(timer); 
-                $q.loading.hide();
-            };
-        });
+        $q.loading.hide();
     }
 
     const submitForm = async () =>
@@ -266,13 +263,57 @@
 
     const getDataCNPJ = async () => 
     {
-        const cnpj = customerData.value.cnpj.replace(/\D/g, '');
-        if(cnpj.length === 14)
+        const formatedCNPJ = customerData.value.cnpj.replace(/\D/g, '');
+        if(formatedCNPJ.length === 14)
         {
-            const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`);
-            customerData.value.company_name = data.data.alias;
-        };
+            const res = await getCNPJData(customerData.value.cnpj);
+            if(typeof res === 'string')
+            {
+                errorPopUp.value = true;
+                return;   
 
+            }
+
+            customerData.value = {
+                company_name: res.alias,
+                trade_name: customerData.value.trade_name, // Mantem padrão
+                cpf: customerData.value.cpf, // Mantem padrão
+                cnpj: res.cnpj,
+                cep: res.cep,
+                address: res.address,
+                number: res.number, 
+                is_customer: customerData.value.is_customer, // Mantem padrão
+                is_driver: customerData.value.is_driver, // Mantem padrão
+                is_supplier: customerData.value.is_supplier, // Mantem padrão
+                phone: customerData.value.phone, // Mantem padrão
+                issuer_id: customerData.value.issuer_id // Mantem padrão
+
+            };  
+
+        } 
+    };
+
+    const getDataCEP = async () => 
+    {
+        const res = await getCEPData(customerData.value.cep);
+        if(res)
+        {
+            customerData.value = {
+                company_name: customerData.value.company_name, // Mantem padrão
+                trade_name: customerData.value.trade_name, // Mantem padrão
+                cpf: customerData.value.cpf, // Mantem padrão
+                cnpj: customerData.value.cnpj, // Mantem padrão
+                cep: res.cep,
+                address: res.addres,
+                number: customerData.value.number, // Mantem padrão
+                is_customer: customerData.value.is_customer, // Mantem padrão
+                is_driver: customerData.value.is_driver, // Mantem padrão
+                is_supplier: customerData.value.is_supplier, // Mantem padrão
+                phone: customerData.value.phone, // Mantem padrão
+                issuer_id: customerData.value.issuer_id // Mantem padrão
+
+            };  
+        }
     };
 
     const onReset = () => 
@@ -284,8 +325,7 @@
             cnpj: '',
             cep: '',
             address: '',
-            number: '',
-            email: '',
+            number: 0,
             is_customer: false,
             is_driver: false,
             is_supplier: false,
@@ -295,14 +335,6 @@
     }
 
 
-    const props = defineProps<{
-        widthScreen: number
-    }>();
-
-    const emits = defineEmits<{
-        (e: 'close', value: boolean)
-
-    }>();
 
 </script>
 

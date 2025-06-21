@@ -79,8 +79,7 @@
     
     let registredCustomer = ref<boolean>(false);
     let filter = ref<string>('');
-    let message = ref<string>('');
-    
+    let message = ref<string>('');    
 
     let issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 

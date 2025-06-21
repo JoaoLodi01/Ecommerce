@@ -18,7 +18,7 @@ class CustomerController extends Controller
     ) {}
 
     public function getAll(int $issuer_id){
-        return $this->customerService->getAll($issuer_id);
+        return apiSuccess('Todos os clientes', $this->customerService->getAll($issuer_id));
    
     }
 

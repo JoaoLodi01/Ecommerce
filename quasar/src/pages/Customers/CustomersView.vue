@@ -201,9 +201,8 @@
 
     const getCustomers = async () =>
     {
-        const response = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
-        customers.value = response.data.all;
-        
+        const res = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
+        customers.value = res.data.data;
     };
 
     const deleteCustomer = async (id: number, name: string) => 
@@ -215,7 +214,6 @@
             res.data.success ? window.location.reload() : alert('Erro ao desativar');
             
         };
-
     };
 
     const activeCustomer = async (id: number, name: string) => 

@@ -260,9 +260,7 @@
         showUpdateProduct.value = event;
         showRegisterProduct.value = event;
         getProducts();
-    };
-
-        
+    };        
 
     onMounted(() => {
         getProducts();

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 
 class CustomerRepository
 {
-    protected $cacheKeyPrefix = 'products';
+    protected $cacheKeyPrefix = 'customer';
     protected $cacheDurration = 10;
 
     public function getAll(int $issuer_id){
