@@ -5,20 +5,22 @@ namespace App\Repositories\Eloquent;
 use App\Models\Customer;
 use App\Models\Registers\FirstSteps;
 use App\Models\Registers\Issuer;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
+
 class CustomerRepository
 {
+    protected $cacheKeyPrefix = 'products';
+    protected $cacheDurration = 10;
+
     public function getAll(int $issuer_id){
-        $issuer = Issuer::where('id', $issuer_id)->first();
-        if(empty($issuer))
-        {
-            return array(
-                'success' => false,
-                'message' => 'Emitente não encontrado'
-            );
-        }
-        return Customer::where('issuer_id', $issuer->id)->get();
+        $cacheKey = "{$this->cacheKeyPrefix}_{$issuer_id}";
+
+        $customers = Cache::remember($cacheKey, $this->cacheDurration, function() use ($issuer_id) {
+            return Customer::where('issuer_id', $issuer_id)->get();
+
+        });
         
+        return $customers;
     }
  
     public function search(array $data)
@@ -26,7 +28,7 @@ class CustomerRepository
         $customer = null;
         $search = $data['search'];
 
-        switch ($data['fillter']) {
+        switch ($data['filter']) {
             case 'Padrão (cód.cliente ou nome)':
                 $customer = Customer::where('active', 1)
                         ->where('issuer_id', $data['issuer_id'])

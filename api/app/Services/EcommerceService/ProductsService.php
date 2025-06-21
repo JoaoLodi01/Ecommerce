@@ -2,29 +2,31 @@
 
 namespace App\Services\EcommerceService;
 
-use App\Exceptions\ProductNotFound;
+use App\Exceptions\IssuerExceptions\IssuerNotFound;
 use App\Repositories\Eloquent\EcommerceEloquent\GroupRepository;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
+use App\Exceptions\ProductsExceptions\ProductNotFound;
+use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
 use Illuminate\Support\Facades\Log;
 
 class ProductsService
 {
     public function __construct(
         protected ProductsRepository $productsRepository,
-        protected GroupRepository $groupRepository
-    )
-    {}
+        protected GroupRepository $groupRepository,
+        protected RegisterIssuerRepository $registerIssuerRepository
+    ) {}
     
     public function getAll(int $issuer_id){
-        $all = $this->productsRepository->getAll($issuer_id);
-        try {
-            return response()->json([
-                'success' => true,
-                'all' => $all
-            ], 200);
-        } catch (\Throwable $th) {
-            
+        $issuer = $this->registerIssuerRepository->find($issuer_id);
+
+        if(!$issuer)
+        {
+            throw new IssuerNotFound("Emitente não encontrado faça login novamente");
+
         }
+
+        return $this->productsRepository->getAll($issuer_id);;
     }
 
     public function search(array $data)
@@ -33,7 +35,7 @@ class ProductsService
 
         if(!$product)
         {
-            throw new \App\Exceptions\ProductNotFound("Produto não encontrado");
+            throw new ProductNotFound("Produto não encontrado");
 
         }
     

@@ -5,28 +5,30 @@ namespace App\Services;
 use App\Exceptions\ExceptionCreateCustomer;
 use App\Repositories\Eloquent\CustomerRepository;
 use Illuminate\Support\Facades\Log;
+use App\Exceptions\CustomersExceptions\CustomerNotFound;
+use Illuminate\Support\Facades\Cache;
 
 class CustomerService
 {
-    
+    protected $cacheKeyPrefix;
+    protected $chaceTime;
+
     public function __construct(
         protected CustomerRepository $customerRepository
     )
     {}
 
     public function getAll(int $issuer_id){
-        return response()->json([
-            'success' => true,
-            'all' => $this->customerRepository->getAll($issuer_id)
-        ], 200);
+        return $this->customerRepository->getAll($issuer_id);
+
     }
 
     public function search(array $searchData){
         $customer = $this->customerRepository->search($searchData);
         
-        if($customer)
+        if(!$customer)
         {
-            throw new \App\Exceptions\CustomerNotFound("Cliente não encontrado", 1);
+            throw new CustomerNotFound("Cliente não encontrado");
             
         }
 
@@ -34,10 +36,15 @@ class CustomerService
     }
 
     public function findByID(int $id){
-        return response()->json([
-            'success' => true,
-            'customer' => $this->customerRepository->findByID($id)
-        ], 200);
+        $customer = $this->customerRepository->findByID($id);
+        
+        if(!$customer)
+        {
+            throw new CustomerNotFound("Cliente não encontrado");
+
+        }
+
+        return $customer;
         
     }
 
@@ -49,40 +56,41 @@ class CustomerService
     }
 
     public function update(array $data, int $id){
-        try {
-            $customer = $this->customerRepository->update($data, $id);
-            return response()->json([
-                'success' => true,
-                'customer' => $customer
-                
-            ], 201);
+        $customer = $this->customerRepository->update($data, $id);
 
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+        if(!$customer)
+        {
+            throw new CustomerNotFound("Cliente não encontrado");
+
         }
+
+        return $customer;
+
     }
 
-    public function delete($id){
-        $this->customerRepository->delete($id);
-        return response()->json([
-            'success' => true,
-        ], 200);
+    public function delete($id)
+    {
+        $customer = $this->customerRepository->delete($id);
+
+        if(!$customer)
+        {
+            throw new CustomerNotFound("Cliente não encontrado");
+
+        }
+
+        return $customer;
     }
 
     public function active($id)
     {
-        $this->customerRepository->active($id);
-        return response()->json([
-            'success' => true
-        ], 200);
-    }
+        $customer = $this->customerRepository->active($id);
 
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ]);
+        if(!$customer)
+        {
+            throw new CustomerNotFound("Cliente não encontrado");
+
+        }
+
+        return $customer;
     }
 }

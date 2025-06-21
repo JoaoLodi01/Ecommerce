@@ -9,18 +9,18 @@ class Handler extends ExceptionHandler
 {
     public function render($request, Throwable $e)
     {
-        if ($e instanceof InsufficientPayment) {
+        if ($e instanceof \App\Exceptions\PDVExceptions\InsufficientPayment) {
             return apiError($e->getMessage(), [], false, 400);
 
         }
 
-        if($e instanceof CustomerNotFound)
+        if($e instanceof \App\Exceptions\CustomersExceptions\CustomerNotFound)
         {
             return apiError($e->getMessage(), [], false, 400);
             
         }
 
-        if($e instanceof ProductNotFound)
+        if($e instanceof \App\Exceptions\ProductsExceptions\ProductNotFound)
         {
             return apiError($e->getMessage(), [], false, 400);
             

@@ -44,8 +44,7 @@ Route::prefix('v1')->group( function (){
         Route::post('/owner', [AuthController::class, 'authOwner']);
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
-        Route::get('/check', [AuthController::class, 'checkLogin']);
-        
+        Route::get('/check', [AuthController::class, 'checkLogin'])->middleware('auth:sanctum');;
     }); 
     
     Route::middleware('auth:sanctum')->group(function (){        

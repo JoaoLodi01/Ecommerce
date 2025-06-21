@@ -318,16 +318,16 @@
                     
                     <div class="">
                         <img 
-                            width="212px"
+                            width="282px"
                             height="412px"
-                            class="relative left-24 border"
+                            class="relative left-20 border"
                             src="../../../../public/image/defaultLogo.png" 
                             alt=""
                         />
                         
                     </div>
                     <!-- A imagem vai ter que ficar por aqui -->
-                        <div class="fixed bottom-0">
+                        <div class="fixed bottom-4">
                             <div class="flex m-2 p-2 mt-2 rounded-lg border border-gray-700">
                                 <button
                                     v-if="productsSeletion.length <= 0"
@@ -944,15 +944,15 @@
 
     const getUser = async () => 
     { 
-        const res = await api.get('/auth/me', {
+        const res = await api.get('/auth/check', {
             headers: {
                 'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
             }
         });
-
+        
         sellerData.value ={ 
-            id: res.data.user.id,
-            name: res.data.user.name
+            id: res.data.data.id,
+            name: res.data.data.name
         };
     };
 

@@ -14,17 +14,17 @@
 
             <q-input 
                 ref="customer"
-                v-model="clientsData.name"
+                v-model="customersData.name"
                 @update:model-value="selectClient()"
                 class="w-96"
                 color="grey"
-                :disabled="!fillter"
+                :disabled="!filter"
 
             />
             
         </div>    
             <ul 
-                v-if="filteredClients.length > 0 && clientsData.name !== ''" 
+                v-if="filteredClients.length > 0 && customersData.name !== ''" 
                 class="fixed z-50 p-3 bg-white border border-gray-300 mt-14"
             >
                 <li
@@ -33,7 +33,7 @@
                     @click="setClient(client)"
                     class="p-2 hover:bg-gray-200 cursor-pointer"
                 >
-                    {{client.id}} - {{ client.name }}
+                    {{client.id}} - {{ client.company_name ? client.company_name : client.trad_name }}
 
                 </li>
             </ul>
@@ -45,13 +45,20 @@
     import { LocalStorage } from 'quasar';
     import { ref, onMounted, defineProps, defineEmits } from 'vue';
     
-    type TclientsData = {
+    type TcustomersData = {
         id: number,
         name: string
+    };
+
+    interface IFiltredCustomerData
+    {
+        readonly id: number,
+        company_name: string,
+        trad_name: string
     }
 
     const emits = defineEmits<{
-        (e: 'update:selectCustomer', value: TclientsData)
+        (e: 'update:selectCustomer', value: TcustomersData)
 
     }>();
 
@@ -62,22 +69,18 @@
     
     const customer = ref<any>(null);
 
-    const defaultCustomer = ref<TclientsData>({
+    let customersData = ref<TcustomersData>({
         id: 1,
         name: 'Consumidor Padrão'
 
     });
 
-    let clientsData = ref<TclientsData>({
-        id: 0,
-        name: ''
-
-    });
+    let filteredClients = ref<IFiltredCustomerData[]>([]);
     
     let registredCustomer = ref<boolean>(false);
-    let fillter = ref<string>('');
+    let filter = ref<string>('');
     let message = ref<string>('');
-    let filteredClients = ref<TclientsData[]>([]);
+    
 
     let issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
@@ -86,89 +89,84 @@
         const configs = res.data.data.pdv[0];
         
         if (configs) {
-            fillter.value = configs.filter_search_customer;
+            filter.value = configs.filter_search_customer;
 
         } else {
             console.warn('Configuração filter_search_customer não encontrada.', configs.filter_search_customer);
-            fillter.value = null;
+            filter.value = null;
         };
 
     };   
 
     const selectClient = async () =>
     {
-        if (clientsData.value.name.length > 0 && fillter.value && registredCustomer) {
-            try {
-                const res = await api.post('/customers/search', {
-                    fillter: fillter.value,
-                    search: clientsData.value.name,
-                    issuer_id: issuerID.value
+        if (customersData.value.name.length > 0 && filter.value && registredCustomer.value) {
+            const res = await api.post('/customers/search', {
+                filter: filter.value,
+                search: customersData.value.name,
+                issuer_id: issuerID.value
 
-                });
+            });
 
-                console.log('response', res)
-
-                //clients = toRaw(response.data);
-                typeof res.data === 'string'
-                    ? message.value = res.data
-                    : filterClients();
-
-            } catch (error) {
-                console.error('Erro ao buscar cliente:', error);
-
-            };
+            const customer: IFiltredCustomerData[] = res.data.data;
+            console.log(customer)
+            filterClients(customer);
         };
     };
 
     const watchRegistredCustomer = () => 
     {
-        if(registredCustomer)
+        if(registredCustomer.value)
         {
-            clientsData.value.name = '';
-            
+            customersData.value.name = '';
+
         } else {
-            clientsData.value.name = defaultCustomer.value.name;
+            customersData.value.name = 'Consumidor Padrão';
 
         };
     };
 
-    const filterClients = () => 
+    const filterClients = (customer: IFiltredCustomerData[]) => 
     {
-        
+        filteredClients.value = customer.map(c => {return c});
+        console.log(filteredClients.value);
     };
 
-    const setClient = (client) => 
+    const setClient = (client: IFiltredCustomerData): void => 
     {
-        clientsData.value.id = client.id;
-        clientsData.value.name = client.name;
+        customersData.value.id = client.id;
+        customersData.value.name = client.company_name ? client.company_name : client.trad_name;
 
-        emits('update:selectCustomer', clientsData.value);
+        emits('update:selectCustomer', customersData.value);
 
         filteredClients.value = [];
     };   
     
     onMounted(() => {
+        
         document.addEventListener('keydown', (event: TEvent) => {
             const keyName = event.key;
             
             if(keyName === 'F4')
             {
+                console.log('Chamou');
+                console.log(customersData.value.name);
                 const input = customer.value?.$el?.querySelector('input');
 
                 if(input)
                 {
                     input.focus();
 
-                };
+                } 
 
                 registredCustomer.value = !registredCustomer.value ;
+                customersData.value.name = 'Consumidor Padrão';
 
-                clientsData.value.name = defaultCustomer.value.name;
-                
             } else {
                 return;
             };
         });
+
 
         getConfig();
     });

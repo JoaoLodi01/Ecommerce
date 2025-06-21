@@ -6,7 +6,7 @@ class ExceptionsController
 {
     public function test()
     {
-        throw new \App\Exceptions\InsufficientPayment("grana curta");
+        throw new \App\Exceptions\PDVExceptions\InsufficientPayment("grana curta");
 
     }
 }
