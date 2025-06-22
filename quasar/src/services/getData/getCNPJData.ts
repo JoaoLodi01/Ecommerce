@@ -27,12 +27,15 @@ async function getCNPJData(cnpj: string): Promise<IDataCNPJ|string>
         };
         
     } catch (error) {
-        console.error('Erro na busca do cep', error)
-        errorMessage = error.response.data.constraints;
+        console.error('Erro na busca do cep', error);
+
+        error.response.data.constraints[0] === "taxId must be a string that obeys cnpj verification algorithm" ?
+                                                errorMessage = 'CNPJ não encontrado ou inválido' :
+                                                errorMessage = error.response.data.constraints;
+        
         return errorMessage;
         
     };
-
 };
 
 export default getCNPJData;

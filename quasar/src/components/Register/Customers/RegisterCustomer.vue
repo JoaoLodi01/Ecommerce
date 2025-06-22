@@ -7,17 +7,20 @@
         }"
 
     >
-        <div 
-            class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-red-500 text-white z-50 p-4 rounded shadow-lg cursor-pointer"
-            v-if="errorPopUp"
-            @click="errorPopUp = false"
-        >
+        <Transition name="slide-up">
+            <div 
+                class="fixed top-5 left-1/2 transition-transform bg-red-500 text-white z-50 p-4 rounded shadow-lg cursor-pointer"
+                v-if="errorPopUp"
+                @click="errorPopUp = false"
+            >
             <ErrorPoPUp
                 class="p-5"
-                :message="errorMessage";
+                :message="errorMessage"
                 :type-error="typeError"
-            />
-        </div>
+                />
+            </div>
+
+        </Transition>
 
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
         <q-form
@@ -252,20 +255,23 @@
             $q.loading.hide()
             timer = void 0
         }, 3000)
-    }
+    };
 
     const hideLoanding = () =>
     {
         $q.loading.hide();
-    }
+    };
+
+    const hideErrorPoPUp = () => 
+    {
+        setTimeout(() => {
+            errorPopUp.value = false;
+            
+        }, 1000);
+    };
 
     const submitForm = async () =>
     {
-        const customer = customerData.value;
-        customer.cpf.replace(/\D/g, '');
-        customer.cnpj.replace(/\D/g, '');
-        customer.cep.replace(/\D/g, '');
-
         const res = await api.post(`/customers/create`, customerData.value);
 
         if(res.data.success)
@@ -286,9 +292,13 @@
             if(typeof res === 'string' || Array.isArray(res))
             {
                 errorPopUp.value = true;
-                errorMessage.value = res[0];
+                errorMessage.value = res || res[0];
                 typeError.value = 'cnpj';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                customerData.value.cnpj = '';
+
+                hideErrorPoPUp();
 
                 return;   
 
@@ -309,6 +319,7 @@
                 issuer_id: customerData.value.issuer_id // Mantem padrão
                 
             };  
+
             return;
         } 
     };
@@ -327,6 +338,8 @@
                 errorMessage.value = res;
                 typeError.value = 'cep';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                hideErrorPoPUp()
 
                 return;
             };
@@ -367,10 +380,7 @@
             phone: '',
             issuer_id: 0
         };
-    }
-
-
-
+    };
 </script>
 
 <style lang="scss">
@@ -378,4 +388,19 @@
         width: 150vh;
     }
     
+    .slide-up-enter-from {
+        opacity: 0;
+        transform: translateY(-50px);
+
+    }
+
+    .slide-up-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+        
+    }
+
+    .slide-up-enter-active {
+        transition: all 0.5s ease-out;
+    }
 </style>

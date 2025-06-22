@@ -87,6 +87,12 @@ class CustomerRepository
                     ->where('customer_id', $id)
                     ->first();*/
 
+    public function formatField(string|null $str): string
+    {
+        $words = array('-', '.', '/');
+        return str_replace($words, "", $str);
+    }
+
     public function create(array $data){
         $issuer = Issuer::where('id', $data['issuer_id'])->first();
         $maxCod = Customer::where('issuer_id', $issuer->id)->max('customer_cod');
@@ -94,6 +100,7 @@ class CustomerRepository
         $customerCod = $maxCod ? $maxCod + 1 : 1;
 
         $stpes = FirstSteps::where('issuer_id', $issuer->id)->first();
+        
         $stpes->update([
             'complete_customers' => 1
             
@@ -106,9 +113,9 @@ class CustomerRepository
             'issuer_id' => $issuer->id,
             'company_name' => $data['company_name'] ?? null,
             'trade_name' => $data['trade_name'] ?? null,
-            'cpf' => $data['cpf'] ?? null,
-            'cnpj' => $data['cnpj'] ?? null,
-            'cep' => $data['cep'],
+            'cpf' => null ?? $this->formatField($data['cpf']),
+            'cnpj' => null ?? $this->formatField($data['cnpj']),
+            'cep' => $this->formatField($data['cep']),
             'address' => $data['address'],
             'number' => $data['number'],
             'is_customer' => $data['type'][0] ?? null,

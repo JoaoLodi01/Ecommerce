@@ -21,7 +21,7 @@ async function getCEPData(cep: string): Promise<IDataCEP|string>
 
     if(res.data.erro === 'true')
     {
-        errorMessage = 'Erro na busca do CEP'
+        errorMessage = 'CEP não encontrado'
         return errorMessage;
     };
 };

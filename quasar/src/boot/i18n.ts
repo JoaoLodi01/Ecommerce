@@ -1,5 +1,5 @@
 import { createI18n } from "vue-i18n";
-import ptBR from "src/i18n/pt-BR";
+import ptBR from 'src/i18n/pt-BR';
 
 const messages = {
     'pt-BR': ptBR
