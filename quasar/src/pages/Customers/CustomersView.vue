@@ -272,6 +272,7 @@
             if(customer)
             {
                 customer.active = action === 'active' ? 1 : 0;
+                
             };
         };
 
