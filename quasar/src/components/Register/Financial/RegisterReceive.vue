@@ -117,40 +117,7 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-2 flex justify-end">
-                <q-btn
-                    label="Gerar Parcelas"
-                    color="primary"
-                    class="mb-2"
-                    @click="gerarParcelas"
-                />
-            </div>
-
-            <div
-                class="lg:col-span-2 overflow-y-auto border border-gray-400 rounded-md shadow-sm"
-                style="height: 230px;"
-            >
-                <table class="min-w-full border-collapse bg-white text-sm">
-                    <thead class="sticky top-0 z-10 bg-blue-600 text-white">
-                        <tr>
-                            <th class="px-2 py-1">Parcela</th>
-                            <th class="px-2 py-1">Nº Parcela</th>
-                            <th class="px-2 py-1">Data Vencimento</th>
-                            <th class="px-2 py-1">Valor à pagar</th>
-                            <th class="px-2 py-1">Valor Original</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr :key="id" class="text-center border-t border-gray-300">
-                            <td class="py-1"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
+            <InstallmentsTable :pdv="false" @updated:inspecInstallment="createInstallments(event)"/>
 
             <div>
                 <q-btn
@@ -175,6 +142,7 @@
   import 'dayjs/locale/pt-br';
   import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
   import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
+  import InstallmentsTable from "./InstallmentsTable.vue";
 
   export default {
     props: {
@@ -269,6 +237,10 @@
       this.form.customer_id = event.id
     },
 
+    createInstallments(event){
+      
+    },
+
     getSpecie(event){
         console.log("Chamou o getSpecie");
         console.log(event);
@@ -302,6 +274,7 @@
   components:{
     CustomerSearchBar,
     SpeciesSearchBar,
+    InstallmentsTable
   },
   
   emits:[

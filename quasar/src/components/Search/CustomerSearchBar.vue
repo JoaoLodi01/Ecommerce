@@ -94,7 +94,7 @@
             fillter.value = null;
         };
 
-    };   
+    };
 
     const selectClient = async () =>
     {
