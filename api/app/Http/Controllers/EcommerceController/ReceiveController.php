@@ -13,7 +13,7 @@ class ReceiveController extends Controller
     ){}
 
     public function getAll(int $issuer_id){
-        return $this->receiveService->getAll($issuer_id);
+        return apiSuccess('Todas as parcelas receber', $this->receiveService->getAll($issuer_id));
     }
 
     public function create(ReceiveRequest $request){

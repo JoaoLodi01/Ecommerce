@@ -163,7 +163,7 @@
                 this.showLoading()
                 try {
                     const response = await api.get(`/ecommerce/receive/all/${LocalStorage.getItem("issuer_id")}`)
-                    this.receives = response.data.all
+                    this.receives = response.data.data
                     console.log(response.data)
 
                     this.dateSearch()
@@ -175,10 +175,12 @@
 
             dateSearch(){
                 if(this.startDate || this.endDate){
-                    this.filteredCashs = this.cashs.filter(register => {
+                    this.filteredCashs = this.receives.filter(register => {
                         const registerDate = dayjs(register.created_at);
                         return registerDate.isBetween(this.startDate, this.endDate, null, '[]')
+
                     });
+
                     this.cashs = this.filteredCashs;
                 }
             },

@@ -28,11 +28,11 @@
             </thead>
             <tbody>
                 <tr v-for="(installment, id) in installmentsData" :key="id" class="text-center border-t border-gray-300">
-                    <td>{{ installment.numberInstallment }}</td>
-                    <td>{{ installment.qtdeInstallment }}</td>
-                    <td>{{ installment.dueDate }}</td>
-                    <td>{{ installment.valuePaid }}</td>
-                    <td>{{ installment.valueOriginal }}</td>
+                    <td>{{ installment.number_installment }}</td>
+                    <td>{{ installment.installment_amount }}</td>
+                    <td>{{ installment.due_date }}</td>
+                    <td>R$ {{ installment.value_paid }}</td>
+                    <td>R$ {{ installment.value_original }}</td>
                 </tr>
             </tbody>
         </table>
@@ -45,19 +45,20 @@
 
     type TinstallmentsData = {
         id: number;
-        numberInstallment: number;
-        qtdeInstallment: number;
-        dueDate: string;
-        valuePaid: number;
-        valueOriginal: number;
+        number_installment: number;
+        installment_amount: number;
+        due_date: string;
+        value_paid: number;
+        value_original: number;
     };
 
     const emits = defineEmits<{
-        (e: 'update:inspecInstallment', value: TinstallmentsData)
+        (e: 'updated:inspecInstallment', value: TinstallmentsData)
     }>();
 
     const props = defineProps<{
-        pdv: boolean
+        pdv: boolean,
+        amount: number
 
     }>();
 
@@ -65,12 +66,32 @@
 
     const generateInstallments = async () =>
     {
-        
+        let amount = props.amount + 1;
+        console.log('generateInstallments, amount: ', amount);
+
+        while(props.amount > 0)
+        {
+            amount--;
+            if(amount === 0) break;
+            console.log('A: ', amount);
+            installmentsData.value.push({
+                id: props.amount,
+                number_installment: amount,
+                installment_amount: props.amount,
+                value_original: 100,
+                value_paid: 100,
+                due_date: '01/01/2025'
+
+            });
+        };
+
+        console.log(installmentsData.value);
+        //emits('updated:inspecInstallment', installmentsData.value);
     };
 
     const deleteInstallments = async () => 
     {
-
+        installmentsData.value = [];
     };
 
 </script>

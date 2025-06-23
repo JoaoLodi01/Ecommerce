@@ -11,15 +11,14 @@ class ReceiveService
     ){}
 
     public function getAll(int $issuer_id){
-        try {
-            return response()->json([
-                'success' => true,
-                'all' => $this->receiveRepository->getAll($issuer_id)
-            ], 200);
+        $all = $this->receiveRepository->getAll($issuer_id);
+        if(!$all)
+        {
+            throw new \App\Exceptions\EcommerceExceptions\ReceiveException("Erro ao buscar todas as parcelas do receber");
 
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
         }
+
+        return $all;
     }
 
     public function findByID(int $id){

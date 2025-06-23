@@ -1,254 +1,293 @@
 <template>
-    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-semibold">Receber</h1>
-            <div class="flex space-x-4">
-                <q-btn class="bg-blue-500 text-white p-2 rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
-                        <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
-                    </svg>
+  <div
+    class="mr-14 mt-5 mb-5 p-6 bg-white"
+        :class="{
+        'relative top-12 left-12': widthScreen <=1080,
+        'ml-14': widthScreen > 1080
+        }"
+    >
+
+    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastrar recebimentos</h2>
+
+        <form
+            @submit.prevent="submitForm"
+            @reset="onReset"
+            class="grid gap-4 mx-auto"
+            style="max-width: 1000px;"
+            :class="{
+                'grid-cols-1 lg:grid-cols-2': widthScreen > 1080,
+                'grid-cols-1': widthScreen <= 1080
+            }"
+        >
+
+            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+                <div class="flex flex-wrap gap-4">
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.document"
+                        label="Nº Doc"
+                        color="grey-7"
+                    />
+
+                    <q-input
+                        class="w-[200px]"
+                        type="text"
+                        v-model="form.description"
+                        label="Descrição"
+                        color="grey-7"
+                    />
+
+                    <q-input
+                        class="w-[150px]"
+                        type="date"
+                        v-model="form.due_date"
+                        label="1º Vencimento"
+                        color="grey-7"
+                    />
+
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.installment_number"
+                        label="Nº Parcelas"
+                        color="grey-7"
+                    />
+
+                    <q-input
+                        class="w-[150px]"
+                        type="number"
+                        v-model="form.installment_value"
+                        label="Valor Parcela"
+                        color="grey-7"
+                    />
+
+                    <CustomerSearchBar @updated:selectCustomer="getCustumer($event)" />
+                </div>
+            </div>
+
+            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+                <div class="flex flex-wrap gap-4">
+                    <q-select
+                        class="w-[80px]"
+                        v-model="form.type_interest"
+                        label="Tipo"
+                        emit-value
+                        map-options
+                        :options="[
+                            { label: '%', value: '%' },
+                            { label: 'R$', value: 'R$' }
+                        ]"
+                    />
+
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.interest_value"
+                        label="Juros"
+                        color="grey-7"
+                    />
+
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.addition"
+                        label="Acréscimo"
+                        color="grey-7"
+                    />
+
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.discount"
+                        label="Desconto"
+                        color="grey-7"
+
+                    />
+
+                    <q-input
+                        class="w-[130px]"
+                        type="number"
+                        v-model="form.value_entry"
+                        label="Juros a pagar"
+                        color="grey-7"
+                        readonly
+                    />
+
+                    <SpeciesSearchBar 
+                        :module_="'receive'" 
+                        @selectSpecie="getSpecie($event)" 
+
+                    />
+                </div>
+            </div>
+
+            <InstallmentsTable 
+                :pdv="false" 
+                @updated:inspecInstallment="createInstallments($event)"
+                
+            />
+
+            <div>
+                <q-btn
+                    type="submit"
+                    label="Registrar"
+                    class="bg-blue-600 text-white">
                 </q-btn>
 
                 <q-btn
-                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
-                    @click="showRegister()"
-                    label="Cadastrar"
-                />
-
-                <q-btn
-                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
-                    @click="getRegister()"
-                    label="Atualizar receber"
-
-                />
+                    @click="close()"
+                    label="Voltar"
+                    class="ml-5 bg-slate-600 text-white">
+                </q-btn>
             </div>
-        </div>
-
-        <div class="filterDate flex justify-start mb-6 p-4 border border-gray-300 rounded-lg w-max">
-            <q-input
-                class="mr-10 cursor-text"
-                type="date"
-                @keydown="dateSearch()"
-                v-model="startDate"
-                label="Data Inicial"
-            />
-
-            <q-input
-                class="cursor-pointer"
-                @keydown="dateSearch()"
-                type="date"
-                v-model="endDate"
-                label="Data Final"
-            />
-
-            <q-btn
-                class="bg-blue-500 hover:bg-blue-400 transition text-white ml-5 h-max mb-auto mt-auto rounded-lg"
-                label="Filtrar"
-                @click="dateSearch()"
-            />
-        </div>
-
-        <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
-            <div><p>Total Quitadas: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
-
-            <div><p>Total Vencidas: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
-
-            <div><p>Total Em aberto: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
-        </div>
-
-        <div class="relative overflow-x-auto overflow-y-auto">
-            <table class="min-w-full table-auto border-collapse border border-gray-200">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th class="px-6 py-3 text-center">Controle</th>
-                        <th class="px-6 py-3 text-center">Documento</th>
-                        <th class="px-6 py-3 text-center">Descrição</th>
-                        <th class="px-6 py-3 text-center">QTDE Parcela</th>
-                        <th class="px-6 py-3 text-center">Valor</th>
-                        <th class="px-6 py-3 text-center">Cliente</th>
-                        <th class="px-6 py-3 text-center">Cód. Espécie</th>
-                        <th class="px-6 py-3 text-center">Espécie</th>
-                        <th class="px-6 py-3 text-center">Origem</th>
-                        <th class="px-6 py-3 text-center">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(register, id) in receives" :key="id" class="border-t text-center">
-                        <td class="px-6 py-3 text-center">{{ register.receive_cod }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.document }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.description }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.installment_number }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.installment_value }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.name }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.especie.toUpperCase() }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
-                        <td class="px-6 py-3">
-                            <q-btn @click="editRegister(register)" class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                                </svg>
-                            </q-btn>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div
-            v-if="showReceiveClosing"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
-
-            <div class="bg-white border border-black rounded-xl">
-                <RegisterReceive 
-                    @close="closeRegister($event)"
-                    :width-screen="withScreen"
-                />
-            </div>
-        </div>
+        </form>
     </div>
 </template>
-
 <script>
-    import { api } from "src/boot/axios";
-    import { useQuasar } from "quasar";
-    import { onBeforeUnmount } from "vue";
-    import { LocalStorage } from "quasar";
-    import RegisterReceive from "@/components/Register/Financial/RegisterReceive_old.vue";
-    import dayjs from 'dayjs';
-    import isBetween from 'dayjs/plugin/isBetween';
-    dayjs.extend(isBetween);
+  import { api } from "src/boot/axios"
+  import {LocalStorage} from "quasar";
+  import dayjs from "dayjs";
+  import 'dayjs/locale/pt-br';
+  import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+  import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
+  import InstallmentsTable from "./InstallmentsTable.vue";
 
-    export default {
-        setup(){
-            const $q = useQuasar()
-            let timer
+  export default {
+    props: {
+      widthScreen: {
+        required: true,
+        type: Number,
+      }
+    },
 
-            onBeforeUnmount(() => {
-                if(timer !== void 0){
-                    clearTimeout(timer)
-                    $q.loading.hide()
+    data() {
+      const today = dayjs();
 
-                }
-
-            })
-            return {
-                showLoading () {
-                    $q.loading.show({
-                        message: 'Carregando registros do receber ...'
-                    })
-
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 1200)
-                }
-            }
+      return {
+        user: LocalStorage.getItem("user_name"),
+        form: {
+          issuer_id: LocalStorage.getItem("issuer_id"),
+          description: "Registro Manual Receber",
+          document: 1,
+          customer_id: 1,
+          user_id: LocalStorage.getItem("user_id"),
+          especie_id: 0,
+          due_date: today.add(30, 'days').format("DD-MM-YYYY"),
+          installment_number: 1,
+          installment_value: 0,
+          type_interest: "",
+          interest_value: 0,
+          addition: 0,
+          discount: 0,
+          value_entry: 0,
+          value_paid: 0,
+          value_original: 0,
+          origem: "Receber (Manual)",
         },
+      };
+    },
 
-        data(){
-            const today = dayjs();
+    computed: {
+      totalAmoutCalc() {
+        const number = this.parseCurrency(this.form.installment_number);
+        const value = this.parseCurrency(this.form.installment_value);
+        const total = number * value;
 
-            return{
-                receives: [],
-                startDate: today.startOf('month').format('YYYY-MM-DD'),
-                endDate: today.endOf('month').format('YYYY-MM-DD'),
-                filteredCashs: [],
-                withScreen: 0,
-                showReceiveClosing: false,
-            };
-        },
+        return total.toFixed(2);
 
-        methods: {
-            async getRegister(){
-                this.showLoading()
-                try {
-                    const response = await api.get(`/ecommerce/receive/all/${LocalStorage.getItem("issuer_id")}`)
-                    this.receives = response.data.all
-                    console.log(response.data)
+      }
+    },
 
-                    this.dateSearch()
-                    
-                } catch (error) {
-                    console.error("Erro ao buscar registros:", error)
-                }
-            },
+    methods: {
+      parseCurrency(value) {
+      if (!value) return 0;
 
-            dateSearch(){
-                if(this.startDate || this.endDate){
-                    this.filteredCashs = this.cashs.filter(register => {
-                        const registerDate = dayjs(register.created_at);
-                        return registerDate.isBetween(this.startDate, this.endDate, null, '[]')
-                    });
-                    this.cashs = this.filteredCashs;
-                }
-            },
-            
-            showRegister(){
-                this.showReceiveClosing = true
-            },
-            
-            closeRegister(event){
-                this.showReceiveClosing = event
-            },
-        },
-        components: {
-            RegisterReceive
-        },
+      return parseFloat(
+        value
+          .toString()
+          .replace(/\s/g, '')
+          .replace('R$', '')
+          .replace(/\./g, '')
+          .replace(',', '.')
+      ) || 0;
+    },
 
-        mounted(){
-            this.getRegister()
-            this.withScreen += screen.width
-            
+    onReset(){
+      const today = this.today;
+        this.form = {
+          issuer_id: LocalStorage.getItem("issuer_id"),
+          description: "Registro Manual Receber",
+          document: 1,
+          customer_id: 1,
+          user_id: LocalStorage.getItem("user_id"),
+          especie_id: 0,
+          due_date: today.add(30, 'days').format("DD-MM-YYYY"),
+          installment_number: 1,
+          installment_value: 0,
+          type_interest: "",
+          interest_value: 0,
+          addition: 0,
+          discount: 0,
+          value_entry: 0,
+          value_paid: 0,
+          value_original: 0,
+          origem: "Receber (Manual)",
         }
-    };
+    },
 
+    close(){
+      this.$emit('close', false)
+    },
+
+    getCustumer(event){
+      console.log('Chamou o getCustumer')
+      console.log(event)
+      this.form.customer_id = event.id
+    },
+
+    createInstallments(event){
+        console.log('a');
+    },
+
+    getSpecie(event){
+        console.log("Chamou o getSpecie");
+        console.log(event);
+        this.form.especie_id = event.payment_cod;
+        this.form.especie = event.name;
+    },
+
+    async submitForm() {
+      console.log(this.form)
+        try {
+          const response = await api.post(`/ecommerce/receive/create`, this.form);
+
+          if(response.data.success){
+            this.close();
+            this.onReset();
+          }
+
+          console.log('Dados enviados!', response.data)
+        } catch (error) {
+            alert("Ocorreu um erro ao cadastrar o registro")
+        }
+    },
+  },
+
+  watch: {
+    totalAmoutCalc(newVal){
+      this.form.total_amount = newVal;
+    }
+  },
+
+  components:{
+    CustomerSearchBar,
+    SpeciesSearchBar,
+    InstallmentsTable
+  },
+  
+  emits:[
+    'close'
+  ],
+};
 </script>
-
-<style scoped>
-    .container {
-        max-width: 85%;
-        width: 100%;
-        height: 90vh;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    thead {
-        background-color: #f3f4f6;
-    }
-
-    tbody tr:hover {
-        background-color: #f9fafb;
-    }
-
-    th, td {
-        padding: 0.75rem;
-        text-align: left;
-    }
-
-    th {
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    button {
-        transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-        background-color: #4b5563;
-    }
-
-    @media (max-width: 768px) {
-        table {
-            font-size: 0.875rem;
-        }
-
-        th, td {
-            padding: 0.5rem;
-        }
-    }
-</style>

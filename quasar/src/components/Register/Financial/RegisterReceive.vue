@@ -11,7 +11,6 @@
 
         <form
             @submit.prevent="submitForm"
-            @reset="onReset"
             class="grid gap-4 mx-auto"
             style="max-width: 1000px;"
             :class="{
@@ -62,7 +61,10 @@
                         color="grey-7"
                     />
 
-                    <CustomerSearchBar @updated:selectCustomer="getCustumer($event)" />
+                    <CustomerSearchBar 
+                        @updated:selectCustomer="getCustumer($event)" 
+                        :pdv="false"
+                    />
                 </div>
             </div>
 
@@ -78,6 +80,7 @@
                             { label: '%', value: '%' },
                             { label: 'R$', value: 'R$' }
                         ]"
+                        
                     />
 
                     <q-input
@@ -118,8 +121,9 @@
             </div>
 
             <InstallmentsTable 
-              :pdv="false" 
-              @updated:inspecInstallment="createInstallments(event)"
+                :pdv="false" 
+                :amount="Number(form.installment_number)"
+                @updated:inspecInstallment="createInstallments($event)"
             />
 
             <div>
@@ -160,24 +164,25 @@
     const today = dayjs();
     
     const user = ref<number>(LocalStorage.getItem("user_name"));
-    const form = ref<object>({
+    const form = ref<IReceiveBody>({
         issuer_id: LocalStorage.getItem("issuer_id"),
-        description: "Registro Manual Receber",
+        description: 'Registro Manual Receber',
         document: 1,
         customer_id: 1,
         user_id: LocalStorage.getItem("user_id"),
         especie_id: 0,
+        especie: '',
         due_date: today.add(30, 'days').format("DD-MM-YYYY"),
         installment_number: 1,
         installment_value: 0,
-        type_interest: "",
+        type_interest: '',
         interest_value: 0,
         addition: 0,
         discount: 0,
         value_entry: 0,
         value_paid: 0,
         value_original: 0,
-        origem: "Receber (Manual)",
+        origem: 'Receber (Manual)',
 
     });
     
@@ -211,43 +216,38 @@
         emits('close', false);
     };
 
-    getCustumer(event){
-      console.log('Chamou o getCustumer')
-      console.log(event)
-      this.form.customer_id = event.id
-    },
+    const getCustumer = (event) =>
+    {
+        console.log(event);
+        form.value.customer_id = event.id;
+    };
 
-    createInstallments(event){
+    const createInstallments = (event) => 
+    {
       
-    },
+    };
 
-    getSpecie(event){
+    const getSpecie = (event) => 
+    {
         console.log("Chamou o getSpecie");
         console.log(event);
-        this.form.especie_id = event.payment_cod;
-        this.form.especie = event.name;
-    },
+        form.value.especie_id = event.payment_cod;
+        form.value.especie = event.name;
+    };
 
-    async submitForm() {
-      console.log(this.form)
+    const submitForm = async () =>
+    {
         try {
-          const response = await api.post(`/ecommerce/receive/create`, this.form);
+            const response = await api.post(`/ecommerce/receive/create`, form.value);
 
-          if(response.data.success){
-            this.close();
-            this.onReset();
-          }
+            if(response.data.success){
+                close();
+            }
 
-          console.log('Dados enviados!', response.data)
+            console.log('Dados enviados!', response.data)
         } catch (error) {
             alert("Ocorreu um erro ao cadastrar o registro")
         }
-    },
-  watch: {
-    totalAmoutCalc(newVal){
-      this.form.total_amount = newVal;
-    }
-  },
-
+    };
   
 </script>
