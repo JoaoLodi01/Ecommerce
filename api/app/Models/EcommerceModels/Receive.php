@@ -11,15 +11,16 @@ class Receive extends Model
     protected $fillable = [
         'receive_cod',
         'issuer_id',
+        'document',
         'description',
         'customer_cod',
         'name',
         'especie_cod',
         'especie',
-        'date_register',
         'due_date',
+        'installment_amount', // qtde parcelas
         'installment_number', // nmr parcela
-        'installment_value', // valor da parcela
+        'installment_value', // valor parcela
         'type_interest', // Tipo de juros
         'interest_value', // valor de juros
         'total_amount', // Valor total
@@ -27,7 +28,6 @@ class Receive extends Model
         'canceled',
         'user_id',
         'user',
-        
     ];
 
     protected $hidden = [

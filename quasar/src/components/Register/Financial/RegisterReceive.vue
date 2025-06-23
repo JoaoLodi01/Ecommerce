@@ -1,216 +1,253 @@
 <template>
   <div
     class="mr-14 mt-5 mb-5 p-6 bg-white"
-    :class="{
-      'relative top-12 left-12': widthScreen <=1080,
-      'ml-14': widthScreen > 1080
-    }">
+        :class="{
+            'relative top-12 left-12': props.widthScreen <=1080,
+            'ml-14': props.widthScreen > 1080
+        }"
+    >
 
     <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastrar recebimentos</h2>
 
-    <form
-      @submit.prevent="submitForm"
-      @reset="onReset"
-      class="p-1"
-        :class="{
-            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
-        }">
+        <form
+            @submit.prevent="submitForm"
+            @reset="onReset"
+            class="grid gap-4 mx-auto"
+            style="max-width: 1000px;"
+            :class="{
+                'grid-cols-1 lg:grid-cols-2': widthScreen > 1080,
+                'grid-cols-1': widthScreen <= 1080
+            }"
+        >
 
-      <q-input
-        type="text"
-        v-model="form.description"
-        label="Descrição"
-        color="grey-7"
-      />
+            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+                <div class="flex flex-wrap gap-4">
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.document"
+                        label="Nº Doc"
+                        color="grey-7"
+                    />
 
-      <CustomerSearchBar
-        @updated:selectCustomer="getCustumer($event)"
-      />
+                    <q-input
+                        class="w-[200px]"
+                        type="text"
+                        v-model="form.description"
+                        label="Descrição"
+                        color="grey-7"
+                    />
 
-      <q-input
-        type="text"
-        v-model="form.user"
-        label="Usuário"
-        color="grey-7"
-        readonly
-      />
+                    <q-input
+                        class="w-[150px]"
+                        type="date"
+                        v-model="form.due_date"
+                        label="1º Vencimento"
+                        color="grey-7"
+                    />
 
-      <SpeciesSearchBar
-        @updated:selectSpecie="getSpecie($event)"
-      />
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.installment_number"
+                        label="Nº Parcelas"
+                        color="grey-7"
+                    />
 
-      <q-input
-        v-model="form.due_date"
-        label="Data de Vencimento"
-        mask="##/##/####">
+                    <q-input
+                        class="w-[150px]"
+                        type="number"
+                        v-model="form.installment_value"
+                        label="Valor Parcela"
+                        color="grey-7"
+                    />
 
-        <template v-slot:append>
-          <q-icon name="event" class="cursor-pointer">
-            <q-popup-proxy>
-            <q-date v-model="form.due_date" mask="DD/MM/YYYY" />
-            </q-popup-proxy>
-          </q-icon>
-        </template>
-      </q-input>
+                    <CustomerSearchBar @updated:selectCustomer="getCustumer($event)" />
+                </div>
+            </div>
 
-      <q-input
-        type="number"
-        v-model="form.installment_number"
-        label="Nº Parcelas"
-        color="grey-7"
-      />
+            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+                <div class="flex flex-wrap gap-4">
+                    <q-select
+                        class="w-[80px]"
+                        v-model="form.type_interest"
+                        label="Tipo"
+                        emit-value
+                        map-options
+                        :options="[
+                            { label: '%', value: '%' },
+                            { label: 'R$', value: 'R$' }
+                        ]"
+                    />
 
-      <q-input
-        type="number"
-        v-model="form.installment_value"
-        label="Valor Parcelas"
-        color="grey-7"
-      />
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.interest_value"
+                        label="Juros"
+                        color="grey-7"
+                    />
 
-      <q-select
-        v-model="form.type_interest"
-        label="Tipo de Juros"
-        :options="[
-          { label: '%', value: 'Porcentagem' },
-          { label: 'R$', value: 'Valor'}
-        ]"
-        emit-value
-        map-options
-      />
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.addition"
+                        label="Acréscimo"
+                        color="grey-7"
+                    />
 
-      <q-input
-        type="number"
-        v-model="form.interest_value"
-        label="Valor juros"
-        color="grey-7"
-      />
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.discount"
+                        label="Desconto"
+                        color="grey-7"
+                    />
 
-      <q-input
-        type="number"
-        v-model="form.total_amount"
-        label="Valor total"
-        color="grey=7"
-      />
+                    <q-input
+                        class="w-[130px]"
+                        type="number"
+                        v-model="form.value_entry"
+                        label="Juros a pagar"
+                        color="grey-7"
+                        readonly
+                    />
 
-      <q-input
-        type="text"
-        readonly
-        label="Luiz que pediu"
-        color="grey=7"
-      />  
+                    <SpeciesSearchBar @selectSpecie="getSpecie($event)" :module_="'receive'" />
+                </div>
+            </div>
 
-      <div>
-        <q-btn
-          type="submit"
-          label="Registrar"
-          class="bg-slate-600 text-white">
-        </q-btn>
+            <InstallmentsTable 
+              :pdv="false" 
+              @updated:inspecInstallment="createInstallments(event)"
+            />
 
-        <q-btn
-          @click="onReset()"
-          label="Limpar"
-          class="ml-5 bg-slate-600 text-white">
-        </q-btn>
+            <div>
+                <q-btn
+                    type="submit"
+                    label="Registrar"
+                    class="bg-blue-600 text-white">
+                </q-btn>
 
-        <q-btn
-          @click="close()"
-          label="Voltar"
-          class="ml-5 bg-slate-600 text-white">
-        </q-btn>
-      </div>
-    </form>
-  </div>
+                <q-btn
+                    @click="close()"
+                    label="Voltar"
+                    class="ml-5 bg-slate-600 text-white">
+                </q-btn>
+            </div>
+        </form>
+    </div>
 </template>
-<script>
-  import { api } from "src/boot/axios"
-  import {LocalStorage} from "quasar";
-  import dayjs from "dayjs";
-  import 'dayjs/locale/pt-br';
-  import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
-import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
+<script setup lang=ts>
+    import { api } from "src/boot/axios"
+    import {LocalStorage} from "quasar";
+    import { ref, computed, watch, defineProps, defineEmits } from 'vue';
+    import dayjs from "dayjs";
+    import 'dayjs/locale/pt-br';
+    import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+    import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
+    import InstallmentsTable from "./InstallmentsTable.vue";
 
-  export default {
-    props: {
-      widthScreen: {
-        required: true,
-        type: Number,
-      }
-    },
+    const props = defineProps<{
+        widthScreen: number
 
-    data() {
-      const today = dayjs();
+    }>();
 
-      return {
-        form: {
-            description: "",
-            name: "",
-            user: LocalStorage.getItem("user_name"),
-            cpf: "",
-            especie: "",
-            due_date: today.add(30, 'days').format("DD-MM-YYYY"),
-            installment_number: "",
-            installment_value: "",
-            type_interest: "",
-            interest_value: "",
-            total_amount: ""
-        },
-      };
-    },
-    methods: {
-      onReset(){
-        const today = this.today;
-            this.form = {
-                description: "",
-                name: "",
-                user: LocalStorage.getItem("user_name"),
-                cpf: "",
-                especie: "",
-                due_date: today.format("DD-MM-YYYY"),
-                installment_number: "",
-                installment_value: "",
-                type_interest: "",
-                interest_value: "",
-                total_amount: ""
-            }
-        },
+    const emits = defineEmits<{
+        (e: 'close', value: boolean)
+    }>();
 
-        close(){
-          this.$emit('close', false)
-        },
-
-        getCustumer(event){
-          console.log('Chamou o getCustumer')
-          console.log(event)
-          this.form.name = event.name
-        },
-
-        getSpecie(event){
-            console.log("Chamou o getSpecie");
-            console.log(event);
-            this.form.especie = event.name;
-        },
-
-        async submitForm() {
-          console.log(this.form)
-            try {
-                const response = await api.post(`${this.api}`, {
-
-                }); // Lembrar de criar rota e inserir aqui
-                this.onReset();
-                console.log('Dados enviados!', response.data)
-            } catch (error) {
-                alert("Ocorreu um erro ao cadastrar o registro")
-            }
-        },
-    },
-
-    components:{
-      CustomerSearchBar,
-      SpeciesSearchBar,
-    },
+    const today = dayjs();
     
-    emits:[
-      'close'
-    ],
-  };
+    const user = ref<number>(LocalStorage.getItem("user_name"));
+    const form = ref<object>({
+        issuer_id: LocalStorage.getItem("issuer_id"),
+        description: "Registro Manual Receber",
+        document: 1,
+        customer_id: 1,
+        user_id: LocalStorage.getItem("user_id"),
+        especie_id: 0,
+        due_date: today.add(30, 'days').format("DD-MM-YYYY"),
+        installment_number: 1,
+        installment_value: 0,
+        type_interest: "",
+        interest_value: 0,
+        addition: 0,
+        discount: 0,
+        value_entry: 0,
+        value_paid: 0,
+        value_original: 0,
+        origem: "Receber (Manual)",
+
+    });
+    
+    const totalAmoutCalc = computed(() => 
+    {
+        const number = parseCurrency(form.value.installment_number);
+        const value = parseCurrency(form.value.installment_value);
+        const total = number * value;
+
+        return total.toFixed(2);
+
+    });
+
+    const parseCurrency = (value: number): number =>
+    {
+        if (!value) return 0;
+
+        return parseFloat(
+            value
+            .toString()
+            .replace(/\s/g, '')
+            .replace('R$', '')
+            .replace(/\./g, '')
+            .replace(',', '.')
+        ) || 0;
+    };
+      
+
+    const close = () =>
+    {
+        emits('close', false);
+    };
+
+    getCustumer(event){
+      console.log('Chamou o getCustumer')
+      console.log(event)
+      this.form.customer_id = event.id
+    },
+
+    createInstallments(event){
+      
+    },
+
+    getSpecie(event){
+        console.log("Chamou o getSpecie");
+        console.log(event);
+        this.form.especie_id = event.payment_cod;
+        this.form.especie = event.name;
+    },
+
+    async submitForm() {
+      console.log(this.form)
+        try {
+          const response = await api.post(`/ecommerce/receive/create`, this.form);
+
+          if(response.data.success){
+            this.close();
+            this.onReset();
+          }
+
+          console.log('Dados enviados!', response.data)
+        } catch (error) {
+            alert("Ocorreu um erro ao cadastrar o registro")
+        }
+    },
+  watch: {
+    totalAmoutCalc(newVal){
+      this.form.total_amount = newVal;
+    }
+  },
+
+  
 </script>

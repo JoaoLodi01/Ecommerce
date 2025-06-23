@@ -12,7 +12,6 @@
                 v-model="firstPay" 
                 type="date" 
                 label="Data do primeiro vencimento" 
-
             />
 
         </q-card-section>
@@ -50,7 +49,7 @@
 
     onMounted(() => {
         firstPay.value = today;
-
+        alert('taaq')
     });
 
 </script>

@@ -113,7 +113,7 @@
     import { useQuasar } from "quasar";
     import { onBeforeUnmount } from "vue";
     import { LocalStorage } from "quasar";
-    import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
+    import RegisterReceive from "@/components/Register/Financial/RegisterReceive_old.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     dayjs.extend(isBetween);

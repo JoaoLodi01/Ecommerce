@@ -52,23 +52,33 @@
         switch (this.module_) {
           case 'cash':
             this.allSpecies.forEach((v, _) => {
+
                 if(v.tipo_lancamento === 'Caixa')
                 {
-                    this.filteredSpecies.push(v)
-
+                  this.filteredSpecies.push(v)
                 }
-
             })
 
             break;
-        
+            
+          case 'receive':
+            this.allSpecies.forEach((v, _) => {
+
+              if(v.tipo_lancamento === 'Receber')
+              {
+                this.filteredSpecies.push(v)
+              }
+            })
+
+            break;
+            
           default:
             break;
         }
       },
   
       setSpecies(specie){
-        this.speciesData.id = specie.id;
+        this.speciesData.payment_cod = specie.payment_cod;
         this.speciesData.especie = specie.especie;
         this.$emit('selectSpecie', this.speciesData)
       },

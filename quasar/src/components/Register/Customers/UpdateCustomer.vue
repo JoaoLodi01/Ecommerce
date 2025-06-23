@@ -255,7 +255,7 @@
                     
                 });
 
-                emits('close', false);
+                emits('close', true);
                 hideLoanding();
 
             } else {
@@ -353,7 +353,7 @@
 
     const cancelUpdate = () => 
     {
-        emits('close', false);
+        emits('close', true);
     };
 
     const getCustomerData = async () => 

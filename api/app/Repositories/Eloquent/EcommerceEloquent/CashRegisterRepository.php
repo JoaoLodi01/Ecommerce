@@ -95,6 +95,7 @@ class CashRegisterRepository
                     'seller' => $cashRegisters[0]['seller'] ?? $user->name,
                 ]);
                 
+            Log::info('Terminou de cadastrar' . count($cashRegisters));
             $this->updateCurrentCash($cashRegisters[0]['issuer_id']);
 
         }

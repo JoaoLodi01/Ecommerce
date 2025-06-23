@@ -12,13 +12,13 @@ class ReceiveController extends Controller
         protected ReceiveService $receiveService
     ){}
 
-    public function getAll(){
-        return $this->receiveService->getAll();
+    public function getAll(int $issuer_id){
+        return $this->receiveService->getAll($issuer_id);
     }
 
-    public function store(ReceiveRequest $request){
+    public function create(ReceiveRequest $request){
         $data = $request->validated();
-        return $this->receiveService->store($data);
+        return $this->receiveService->create($data);
     }
 
     public function findByID(int $id){

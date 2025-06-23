@@ -81,7 +81,7 @@ Route::prefix('v1')->group( function (){
             // Receive routes
             Route::prefix('receive')->group( function(){
                 Route::get('/all/{issuer_id}', [ReceiveController::class, 'getAll']);
-                Route::post('/create', [ReceiveController::class, 'store']);
+                Route::post('/create', [ReceiveController::class, 'create']);
                 Route::get('/{id}', [ReceiveController::class, 'findByID']);
                 Route::put('/{id}', [ReceiveController::class, 'update']);
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);

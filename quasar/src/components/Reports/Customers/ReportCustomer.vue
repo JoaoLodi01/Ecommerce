@@ -1,106 +1,75 @@
 <template>
     <div class="">
-        <q-btn @click="reportCustomer('Listagem_Completa')" class="mr-5 bg-white" :class="{
-            'mb-5': widthScreen <= 1080
+        <q-btn @click="reportCustomer('all')" class="mr-5 bg-white" :class="{
+            'mb-5': props.widthScreen <= 1080
         }">    
-            <span v-if="widthScreen <= 1080">Listagem dos clientes ativos</span>
+            <span v-if="props.widthScreen <= 1080">Listagem dos clientes ativos</span>
             <span v-else>Listagem completa de todos clientes</span>
         </q-btn>
 
-        <q-btn @click="reportCustomer('Listagem_Completa_Inativos')" class="bg-white">
-            <span v-if="widthScreen <= 1080">Listagem dos clientes inativos</span>
+        <q-btn @click="reportCustomer('all-disabled')" class="bg-white">
+            <span v-if="props.widthScreen <= 1080">Listagem dos clientes inativos</span>
             <span v-else>Listagem completa de todos os clientes inativos</span>
         </q-btn>
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { useQuasar } from 'quasar';
-    import { onBeforeUnmount } from 'vue';
+    import { defineProps } from 'vue';
 
-    export default {
-        setup () {
-            const $q = useQuasar()
-            let timer
+    let timer;
 
-            onBeforeUnmount(() => {
-                if (timer !== void 0) {
-                    clearTimeout(timer)
-                    $q.loading.hide()
+    const props = defineProps<{
+        widthScreen: number,
+        issuerID: number
+    }>();
+
+    const $q = useQuasar();
+
+    const showLoading = () =>
+    {
+        $q.loading.show({
+            message: 'Gerando relatório...'
+        });
+
+        timer = setTimeout(() => {
+            $q.loading.hide()
+            timer = void 0
+        }, 2000);
+    };
+
+    const hideLoanding = () =>
+    {
+        $q.loading.hide()
+    };
+
+    const reportCustomer = async (type: string) =>
+    {
+        try {
+            const apiURL = `/report/customers/${type}/${props.issuerID}`;
+            const res = await api.get(apiURL, { 
+                headers: {
+                    responseType: 'blob'
                 }
-            })
+            });
 
-            return {
-                showLoading () {
-                    $q.loading.show({
-                        message: 'Gerando relatório...'
-                    })
-
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 2000)
-                }
-            }
-        },
-
-        methods: {
-            downloadFile(response, type)
-            {
-                const blob = new Blob([response.data], { type: response.headers['content-type'] });
-                const url = window.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-
-                link.href = url;
-                link.setAttribute('download', `${type}.xlsx`);
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-
-            },
-
-            async reportCustomer(type) {
-                this.showLoading()
-                try {
-                    const prefix = '/report/customers'
-                    switch (type) {
-                        case 'Listagem_Completa':
-                            let responseAll = await api.get(`${prefix}/all`, {
-                                responseType: 'blob',
-
-                            });
-                            
-                            this.downloadFile(responseAll, type)
-
-                            break;
-
-                        case 'Listagem_Completa_Inativos':
-                            const responseAllDisabled = await api.get(`${prefix}/all-disabled`, {
-                                responseType: 'blob',
-                            });
-                            
-                            this.downloadFile(responseAllDisabled, type)
+            const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
+            const link = document.createElement('a');
     
-                            break;
-                    
-                    
-                        default:
-                            break;
-                    }
-                    
-                } catch (error) {
-                    console.error('Erro', error)
-                }
-            }
-        },
+            link.href = url;
+            link.setAttribute('download', `Listagem_de_Clientes.xlsx`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+        } catch (error) {
+            hideLoanding();
 
-        props: {
-            widthScreen: {
-                type: Number,
-                required: true
-            }
-        },
+        } finally {
+            hideLoanding();
 
-    }
+        };
+    };
 </script>

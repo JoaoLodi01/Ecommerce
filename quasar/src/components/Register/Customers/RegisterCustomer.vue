@@ -249,9 +249,8 @@
         if(res.data.success)
         {
             alert(`Cliente: ${customerData.value.company_name ?? customerData.value.trade_name}, cadastrado com sucesso!`)
-            emits('close', false);
-        }
-
+            emits('close', true);
+        };
     };
 
     const getDataCNPJ = async () => 

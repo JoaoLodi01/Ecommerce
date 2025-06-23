@@ -10,6 +10,7 @@
             ref="confirmDialog"
 
         />
+
         <div
             class="flex justify-between "
             
@@ -53,11 +54,13 @@
             <ReportCustomer
                 v-if="showReportCustomer"
                 :widthScreen="widthScreen"
+                :issuerID="issuerID"
             />
             
             <div 
                 class="ml-auto"
                 v-if="showReportCustomer"
+
             >
                 <q-option-group
                     v-model="searchFilter"
@@ -98,6 +101,7 @@
                 <ReportCustomer
                     v-if="showReportCustomerMini"
                     :widthScreen="widthScreen"
+                    :issuerID="issuerID"
                 />
 
             </div>
@@ -195,6 +199,7 @@
             :customerID="customerID"
             :widthScreen="widthScreen"
             @close="closeReload($event)"
+
         />
 
         <ConfigCustomers
@@ -318,9 +323,9 @@
     {   
         console.log('Chamnou: closeReload')
         showRegisterCustomers.value = event;
-        showUpdateCustomers.value = event;
+        showUpdateCustomers.value = !event;
         showReportCustomer.value = event;
-        showCustomers.value = !event;
+        showCustomers.value = event;
         await getCustomers();
 
     };

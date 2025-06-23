@@ -12,7 +12,8 @@
                 />
             </div>
 
-            <q-input 
+            <q-input
+                label="Cliente" 
                 ref="customer"
                 v-model="customersData.name"
                 @update:model-value="selectClient()"
@@ -95,7 +96,7 @@
             filter.value = null;
         };
 
-    };   
+    };
 
     const selectClient = async () =>
     {
