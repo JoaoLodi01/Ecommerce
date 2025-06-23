@@ -56,28 +56,31 @@ export default defineBoot(({ app, router }) => {
       // Corrigido: verifica se a URL da requisição é pública
       const requestUrl = error.config?.url || '';
       const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
-
-      if(error.response?.status === 401 && !isPublic)
+      
+      if(error.response.data.message === 'Unauthenticated')
       {
+        console.log('Vai pro login');
         const msg = 'Usuário não autenticado';
         router.replace({ path: '/login' });
-
+        
         emitter.emit('global-error', msg);
         return Promise.reject(error);
+
       } else {
         if(error.response.data.status === 401)
         {
             router.replace({ path: '/login' });
-            console.log('Error: ', error.response.data)
+            console.log('Error: ', error.response.data);
 
         }
+        
         const msg =
           error.response?.data?.message ||
           error.response?.data?.errorMessage ||
           error.message ||
           'Erro inesperado na resposta da API';
           emitter.emit('global-error', msg);
-          return Promise.reject(error);
+          return Promise.reject(error); 
 
       };
     }

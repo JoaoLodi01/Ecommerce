@@ -6,11 +6,18 @@
             
         }"  
     >
+        <ConfirmDialog 
+            ref="confirmDialog"
+
+        />
         <div
             class="flex justify-between "
             
         >
-            <h1 class="text-3xl font-semibold m-5">Clientes</h1>        
+            <h1 v-if="!showRegisterCustomers && !showUpdateCustomers" class="text-3xl font-semibold m-5">Clientes</h1>
+            <h1 v-if="showRegisterCustomers" class="text-3xl font-semibold m-5">Novo cliente</h1>
+            <h1 v-if="showUpdateCustomers" class="text-3xl font-semibold m-5">Edição de cliente</h1>
+            
             <div 
                 :class="{
                     'mt-5': widthScreen > 1366,
@@ -21,6 +28,7 @@
                     v-if="showCustomers"
                     @click="openRegister()"
                     class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
+
                 >
                     <span v-if="widthScreen <= 1080" > Novo cliente </span>
                     <span v-else>Cadastrar um novo cliente</span>
@@ -39,12 +47,31 @@
         </div>
         
         <div 
-            v-if="widthScreen > 1080" class="mt-2 ml-2"
+            v-if="widthScreen > 1080" class="mt-2 ml-2 flex"
+
         >
             <ReportCustomer
                 v-if="showReportCustomer"
                 :widthScreen="widthScreen"
             />
+            
+            <div 
+                class="ml-auto"
+                v-if="showReportCustomer"
+            >
+                <q-option-group
+                    v-model="searchFilter"
+                    type="radio"
+                    toggle
+                    class="flex"
+                    :options="[
+                        {label: 'Todos', value: 'all'},
+                        {label: 'Ativos', value: 'active'},
+                        {label: 'Inativos', value: 'disabled'},
+                    ]"
+                />
+
+            </div>
 
         </div>
         <div 
@@ -99,15 +126,15 @@
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">CPF:</span> {{ customer.cpf.length < 0 ? customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'Sem CPF'}}
+                    <span class="font-semibold">CPF:</span> {{ customer.cpf? customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'Sem CPF'}}
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">CNPJ:</span> {{ customer.cnpj.length < 0 ? customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : 'Sem CNPJ' }}
+                    <span class="font-semibold">CNPJ:</span> {{ customer.cnpj ? customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : 'Sem CNPJ' }}
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
-                <span class="font-semibold">Endereço:</span> {{ customer.address ?? 'Sem endereço cadastrado' }}
+                    <span class="font-semibold">Endereço:</span> {{ customer.address ?? 'Sem endereço cadastrado' }}
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
@@ -129,7 +156,7 @@
                     Editar
                 </q-btn>
                 <q-btn
-                    @click="deleteCustomer(customer.customer_cod, customer.company_name || customer.trade_name)"
+                    @click="deleteOrActive('disable', customer.customer_cod)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
@@ -141,16 +168,16 @@
                     Desativar
                 </q-btn>
                 <q-btn
+                    @click="deleteOrActive('active', customer.customer_cod)"
                     v-else
                     class="px-4 py-2 rounded-lg transition"
                     :class="{
                         'text-gray-400 bg-slate-500': !customer.active
                     }"
-                    @click="activeCustomer(customer.customer_cod, customer.company_name || customer.trade_name)"
+                    
                 >   
                     Ativar
                 </q-btn>
-            
         </div> <!-- For acaba aqui-->
       </div>
     </div>
@@ -166,7 +193,6 @@
         <UpdateCustomer
             v-if="showUpdateCustomers"
             :customerID="customerID"
-            :customerName="customerName"
             :widthScreen="widthScreen"
             @close="closeReload($event)"
         />
@@ -180,15 +206,20 @@
 </template>
   
 <script setup lang="ts">
-    import { LocalStorage } from 'quasar';
+    import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted, watch } from 'vue';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
     import UpdateCustomer from 'src/components/Register/Customers/UpdateCustomer.vue';
     import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
+    import ConfirmDialog from 'src/components/QDialog/ConfirmDialog.vue';
     
+    const $q = useQuasar();
+    const confirmDialog = ref();
+    let allCustomers = ref<ICustomer[]>([]);
     let customers = ref<ICustomer[]>([]);
+
     let showCustomers = ref<boolean>(true);
     let showReportCustomer = ref<boolean>(true);
     let showReportCustomerMini = ref<boolean>(false);
@@ -198,33 +229,52 @@
     let customerID = ref<number>(0);
     let customerName = ref<string>('');
     let widthScreen = ref<number>(0);
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+    const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
+
+    watch(searchFilter, async (newOption) =>
+    {
+        if(newOption === 'active')
+        {
+            customers.value = allCustomers.value.filter(c => c.active === 1);
+        } else if (newOption === 'disabled')
+        {
+            customers.value = allCustomers.value.filter(c => c.active === 0);
+
+        } else {
+            customers.value = [...allCustomers.value];
+        };
+        
+    });
 
     const getCustomers = async () =>
     {
-        const res = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
-        customers.value = res.data.data;
+        const res = await api.get(`/customers/all/${issuerID.value}`);
+        allCustomers.value = res.data.data;
+        customers.value = [...allCustomers.value];
+        
     };
 
-    const deleteCustomer = async (id: number, name: string) => 
+    const deleteOrActive = async (action: string, id: number) =>
     {
-        const confirmed = confirm(`Deseja inativar o cliente: ${name}`);
-        if(confirmed && name)
+        const res = action === 'disable' ? await api.put(`customers/${id}/${action}`) : await api.put(`customers/${id}/${action}`);
+        if(res.data.success)
         {
-            const res = await api.delete(`/customers/${id}/deactivate`);
-            res.data.success ? window.location.reload() : alert('Erro ao desativar');
-            
-        };
-    };
+            $q.notify({
+                color: `green`,
+                message: res.data.message,
+                timeout: 2000,
+                position: 'top'
+                
+            });
 
-    const activeCustomer = async (id: number, name: string) => 
-    {
-        const confirmed = confirm(`Deseja ativar o cliente: ${name}`);
-        if(confirmed && name)
-        {
-            const res = await api.put(`/customers/${id}/active`);
-            res.data.success ? window.location.reload() : alert('Erro ao ativar');
-            
+            const customer = customers.value.find(c => c.customer_cod === id);
+            if(customer)
+            {
+                customer.active = action === 'active' ? 1 : 0;
+            };
         };
+
     };
 
     const openRegister = () => 
@@ -237,34 +287,19 @@
         
     };     
 
-
     const closeRegister = () => 
     {
         showCustomers.value = true;
+        showReportCustomer.value = true;
+        
         showRegisterCustomers.value = false;
         showUpdateCustomers.value = false;
-        showReportCustomer.value = false;
 
-    };            
-
-    const openConfig = () => 
-    {
-        showConfig.value = true;
-        showUpdateCustomers.value = false;
-        showCustomers.value = false;
-        showReportCustomer.value = false;
-    };
+    };           
 
     const openReportCustomerMini = () => 
     {
         showReportCustomerMini.value = !showReportCustomerMini;
-    };
-
-    const closeReload = (event: boolean) =>
-    {
-        showUpdateCustomers.value = event;
-        showRegisterCustomers.value = event;
-        window.location.reload();
     };
 
     const editCustomer = (id: number, name: string) =>
@@ -275,6 +310,17 @@
         showReportCustomer.value = false;
         customerID.value = id;
         customerName.value = name;
+
+    };
+
+    const closeReload = async (event: boolean) => 
+    {   
+        console.log('Chamnou: closeReload')
+        showRegisterCustomers.value = event;
+        showUpdateCustomers.value = event;
+        showReportCustomer.value = event;
+        showCustomers.value = !event;
+        await getCustomers();
 
     };
 

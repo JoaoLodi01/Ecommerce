@@ -13,7 +13,6 @@ async function getCEPData(cep: string): Promise<IDataCEP|string>
 
     if(res.data.erro !== 'true')
     {
-        console.log('getCEPData: res ', res.data, ' res.status: ', res.status);
         resData.cep = cep;
         resData.addres = res.data.logradouro;
         return resData;;

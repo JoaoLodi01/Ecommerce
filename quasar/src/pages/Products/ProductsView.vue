@@ -181,7 +181,6 @@
     import { LocalStorage } from 'quasar';
     import { ref, onMounted } from 'vue';
     import { api } from 'src/boot/axios';
-    import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
@@ -199,7 +198,7 @@
     const getProducts = async () => 
     {
         const res = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
-        products.value = res.data.all;
+        products.value = res.data.data;
 
     };
 

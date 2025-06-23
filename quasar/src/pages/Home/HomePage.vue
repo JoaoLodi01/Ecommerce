@@ -28,15 +28,12 @@
     const token = ref(LocalStorage.getItem("auth_token"));
     
     const login = async () => {
-        const res = await api.get('/auth/check', {
-            headers: {
-                'Authorization': `Bearer ${token.value}`
+        if(token.value)
+        {
+            location = '/companies' 
+        } else {
+            location = '/login';
 
-            }
-        });
-
-        console.log('Aqui', res)
-
-        res.data.success !== true ? location = '/companies' : location = '/login';
+        }; 
     };
 </script>

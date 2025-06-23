@@ -151,7 +151,7 @@ Route::prefix('v1')->group( function (){
             Route::post('/create', [CustomerController::class, 'create']);
             Route::get('/{id}', [CustomerController::class, 'findByID']);
             Route::put('/{id}', [CustomerController::class, 'update']);
-            Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
+            Route::put('/{id}/disable', [CustomerController::class, 'delete']); // desactive
             Route::put('/{id}/active', [CustomerController::class, 'active']);
 
         });

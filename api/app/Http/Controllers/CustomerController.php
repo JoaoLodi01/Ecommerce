@@ -29,6 +29,7 @@ class CustomerController extends Controller
     }
 
     public function create(CustomerRequest $request){
+        Log::info($request->validated());
         $customer = $this->customerService->create($request->validated());
         return apiSuccess('Cliente cadastrado com sucesso!', $customer);
         
@@ -39,17 +40,18 @@ class CustomerController extends Controller
     }
 
     public function update(CustomerRequest $request, int $id){
-        $data = $request->validated();
-        return $this->customerService->update($data, $id);
+        $this->customerService->update($request->validated(), $id);
+
+        return apiSuccess('Cliente alterado com sucesso!', $this->findByID($id));
         
     }
 
     public function delete(int $id){
-        return $this->customerService->delete($id);
+        return apiSuccess('Cliente desativado com sucesso!', $this->customerService->delete($id));
     }
 
     public function active(int $id)
     {
-        return $this->customerService->active($id);
+        return apiSuccess('Cliente ativado com sucesso!', $this->customerService->active($id));
     }
 }

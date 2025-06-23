@@ -7,21 +7,6 @@
         }"
 
     >
-        <Transition name="slide-up">
-            <div 
-                class="fixed top-5 left-1/2 transition-transform bg-red-500 text-white z-50 p-4 rounded shadow-lg cursor-pointer"
-                v-if="errorPopUp"
-                @click="errorPopUp = false"
-            >
-            <ErrorPoPUp
-                class="p-5"
-                :message="errorMessage"
-                :type-error="typeError"
-                />
-            </div>
-
-        </Transition>
-
         <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
         <q-form
             @submit="submitForm()"
@@ -200,7 +185,6 @@
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
     import { ref, defineEmits, defineProps } from 'vue';
-    import ErrorPoPUp from './ErrorPoPUp.vue';
     import getCNPJData from 'src/services/getData/getCNPJData';
     import getCEPData from 'src/services/getData/getCEPData';
 
@@ -221,8 +205,8 @@
     let customerData = ref<IRegisterCustomer>({
         company_name: '',
         trade_name: '',
-        cpf: '',
-        cnpj: '',
+        cpf: null,
+        cnpj: null,
         cep: '',
         address: '',
         number: 0,
@@ -239,10 +223,6 @@
         'Júridica'
 
     ]);
-
-    let errorPopUp = ref<boolean>(false);
-    let errorMessage = ref<string>('Erro teste');
-    let typeError = ref<string>('');
 
     const showLoading = () =>
     {
@@ -262,21 +242,13 @@
         $q.loading.hide();
     };
 
-    const hideErrorPoPUp = () => 
-    {
-        setTimeout(() => {
-            errorPopUp.value = false;
-            
-        }, 1000);
-    };
-
     const submitForm = async () =>
     {
         const res = await api.post(`/customers/create`, customerData.value);
 
         if(res.data.success)
         {
-            alert(`Cliente: ${customerData.value.company_name}, cadastrado com sucesso!`)
+            alert(`Cliente: ${customerData.value.company_name ?? customerData.value.trade_name}, cadastrado com sucesso!`)
             emits('close', false);
         }
 
@@ -291,14 +263,13 @@
             
             if(typeof res === 'string' || Array.isArray(res))
             {
-                errorPopUp.value = true;
-                errorMessage.value = res || res[0];
-                typeError.value = 'cnpj';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                $q.notify({
+                    type: 'negative',
+                    message: res || res[0],
+                    timeout: 3500 ,
+                    position: 'top'
 
-                customerData.value.cnpj = '';
-
-                hideErrorPoPUp();
+                });
 
                 return;   
 
@@ -334,12 +305,13 @@
 
             if(typeof res === 'string')
             {
-                errorPopUp.value = true;
-                errorMessage.value = res;
-                typeError.value = 'cep';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                $q.notify({
+                    type: 'negative',
+                    message: res || res[0],
+                    timeout: 3500 ,
+                    position: 'top'
 
-                hideErrorPoPUp()
+                });                
 
                 return;
             };
