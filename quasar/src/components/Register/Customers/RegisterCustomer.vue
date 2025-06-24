@@ -7,10 +7,8 @@
         }"
 
     >
-        <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
         <q-form
             @submit="submitForm()"
-            @reset="onReset"
 
         >
             <div class="border border-black p-5 bg-white rounded-md mb-5">
@@ -237,24 +235,20 @@
         }, 3000)
     };
 
-    const hideLoanding = () =>
-    {
-        $q.loading.hide();
-    };
-
     const submitForm = async () =>
     {
         const res = await api.post(`/customers/create`, customerData.value);
 
         if(res.data.success)
         {
-            alert(`Cliente: ${customerData.value.company_name ?? customerData.value.trade_name}, cadastrado com sucesso!`)
+            alert(`Cliente: ${customerData.value.company_name ?? customerData.value.trade_name}, cadastrado com sucesso!`);
             emits('close', true);
         };
     };
 
     const getDataCNPJ = async () => 
     {
+        showLoading();
         const formatedCNPJ = customerData.value.cnpj.replace(/\D/g, '');
         if(formatedCNPJ.length === 14)
         {

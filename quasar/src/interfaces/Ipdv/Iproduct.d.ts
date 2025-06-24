@@ -1,8 +1,8 @@
 interface IProducts 
 {
-    readonly id: number,
-    readonly product_cod: number,
-    active: boolean,
+    id: number,
+    product_cod: number,
+    active: number,
     barcode: number,
     barcode_internal: number,
     product: string,

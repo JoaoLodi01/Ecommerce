@@ -1,17 +1,18 @@
 <template>
     <div
-        class="-mt-24 p-6 rounded  "
+        class="border border-black bg-white mt-2 p-6 shadow-md rounded"
         :class="{
             'w-screen': widthScreen < 1366,
-            'relative top-28 text-xl': widthScreen > 1080
+            'ml-36 form-customer': widthScreen > 1366
         }"
+
     >
         <q-form
             @submit="onSubmit"
             class="form-product p-1"
             
         >
-            <div class="border p-5 bg-white rounded-md mb-5 ">
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max">Dados cadastrais</h4>
                 <q-input
                     v-model="productDetails.product"
@@ -556,6 +557,8 @@
 </script>
 
 <style lang="scss">
-    
+    .form-product {
+        width: 150vh;
+    }
     
 </style>

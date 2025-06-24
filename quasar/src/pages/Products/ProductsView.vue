@@ -1,59 +1,82 @@
 <template>
-    <div 
+    <div    
         :class="{
             'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg w-[160vh]': widthScreen > 1366,
-            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1366
+            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
             
         }"  
     >
         <div
-            class="flex"
-            :class="{
-                'div1': widthScreen > 1080
-            }">
-
-            <h1 class="text-3xl font-semibold m-5">Produtos</h1>
-
-            <div
-                class="mt-auto mb-auto"
+            class="flex justify-between "
+            
+        >
+            <h1 v-if="!showRegisterProduct && !showUpdateProduct" class="text-3xl font-semibold m-5">Produtos</h1>
+            <h1 v-if="showRegisterProduct" class="text-3xl font-semibold m-5">Novo produto</h1>
+            <h1 v-if="showUpdateProduct" class="text-3xl font-semibold m-5">Edição do produto</h1>
+            
+            <div 
                 :class="{
-                    'ml-auto': widthScreen > 1366
+                    'mt-5': widthScreen > 1366,
+                    'mt-5 mr-5': widthScreen <= 1366
                 }"
             >
                 <q-btn
                     v-if="showProducts"
                     @click="openRegister()"
-                    class="bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-lg"
+                    class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
+
                 >
-                    <span v-if="widthScreen <= 1080">Novo produto</span>
+                    <span v-if="widthScreen <= 1080" > Novo produto </span>
                     <span v-else>Cadastrar um novo produto</span>
-
+                    
                 </q-btn>
-
-                <q-btn
+                
+                <q-btn 
                     v-else
                     @click="closeRegister()"
                     class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
                 >
                     <span>Voltar</span>
-
+                    
                 </q-btn>
-
             </div>
         </div>
-        <div v-if="widthScreen > 1080" class="mt-2 ml-2">
+        
+        <div 
+            v-if="widthScreen > 1080" class="mt-2 ml-2 flex"
+
+        >
             <ReportProduct
-                :widthScreen="widthScreen"
                 v-if="showReportProducts"
+                :widthScreen="widthScreen"
+                
             />
+            
+            <div 
+                class="ml-auto"
+                v-if="showReportProducts"
+
+            >
+                <q-option-group
+                    v-model="searchFilter"
+                    type="radio"
+                    toggle
+                    class="flex"
+                    :options="[
+                        {label: 'Todos', value: 'all'},
+                        {label: 'Ativos', value: 'active'},
+                        {label: 'Inativos', value: 'disabled'},
+                    ]"
+                />
+
+            </div>
 
         </div>
-        
-        <div
+        <div 
             v-else
             class="ml-5"
         >
-            <q-btn
+            <q-btn 
                 v-if="showReportProducts"
                 @click="openReportProductsMini()"
                 color="grey"
@@ -67,24 +90,26 @@
                 <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 ml-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                 </svg>
-            </q-btn>
 
+            </q-btn>
             <div class="mt-4">
                 <ReportProduct
                     v-if="showReportProductsMini"
                     :widthScreen="widthScreen"
+                    
                 />
-               
+
             </div>
         </div>
     </div>
-
-    <div
-        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 ml-20 mt-6"
-        v-if="showProducts && products && products.length > 0"
+  
+    <div 
+        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10" 
+        v-if="showProducts"
         :class="{
-            'relative right-7 top-10': widthScreen <= 1080
-        }"
+            'ml-20 w-[160vh]': widthScreen > 1366,
+            'ml-12': widthScreen <= 1366
+        }"    
     >
         <div
           v-for="product in products" :key="product.id"
@@ -135,7 +160,7 @@
                     Editar
                 </q-btn>
                 <q-btn
-                    @click="deleteproduct(product.id)"
+                    @click="deleteOrActive('disable', product.id)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!product.active
                     :class="{
@@ -152,38 +177,42 @@
                     :class="{
                         'text-gray-400 bg-slate-500': !product.active
                     }"
-                    @click="activeProduct(product.product_cod)"
+                    @click="deleteOrActive('active', product.product_cod)"
                 >
                     Ativar
                 </q-btn>
             </div>
-        </div>
+      </div>
     </div>
 
-    <div v-if="!showProducts" class="ml-24">
+    <div v-if="!showProducts" >
         <RegisterProduct
             v-if="showRegisterProduct"
-            :widthScreen="widthScreen"
             @close="closeReload($event)"
+            :widthScreen="widthScreen"
+            
         />
 
         <UpdateProduct
             v-if="showUpdateProduct"
-            :widthScreen="widthScreen"
-            :productName="productName"
             :productID="productID"
+            :productName="productName"
+            :widthScreen="widthScreen"
             @close="closeReload($event)"
+
         />
     </div>
 </template>
 
 <script setup lang="ts">
-    import { LocalStorage } from 'quasar';
-    import { ref, onMounted } from 'vue';
+    import { LocalStorage, useQuasar } from 'quasar';
+    import { ref, onMounted, watch } from 'vue';
     import { api } from 'src/boot/axios';
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
+
+    let $q = useQuasar();
 
     let products = ref<IProducts[]>([]);
     let showProducts = ref<boolean>(true);
@@ -194,6 +223,7 @@
     let widthScreen = ref<number>(0);
     let productName = ref<string>('');
     let productID = ref<number>(0);
+    const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
     const getProducts = async () => 
     {
@@ -202,16 +232,29 @@
 
     };
 
-    const activeProduct = async (id: number) => 
+    const deleteOrActive = async (action: string, id: number) =>
     {
-        await api.put(`/ecommerce/products/${id}/active`);
+        const res = action === 'disable' ? await api.put(`customers/${id}/${action}`) : await api.put(`customers/${id}/${action}`);
+        if(res.data.success)
+        {
+            $q.notify({
+                color: `green`,
+                message: res.data.message,
+                timeout: 2000,
+                position: 'top'
+                
+            });
+
+            const product = products.value.find(c => c.product_cod === id);
+            if(product)
+            {
+                product.active = action === 'active' ? 1 : 0;
+                
+            };
+        };
     };
 
-    const deleteproduct = async (id: number) => 
-    {
-        await api.put(`/ecommerce/products/${id}/deactivate`);  
-    };
-
+    watch
 
     const openRegister = () =>
     {
