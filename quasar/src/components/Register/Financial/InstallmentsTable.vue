@@ -5,6 +5,7 @@
             color="primary"
             class="mb-2"
             @click="generateInstallments()"
+            :disable="originalValue <= 0 || amount <= 0"
         />
 
         <q-btn
@@ -30,7 +31,16 @@
                 <tr v-for="(installment, id) in installmentsData" :key="id" class="text-center border-t border-gray-300">
                     <td>{{ installment.number_installment }}</td>
                     <td>{{ installment.installment_amount }}</td>
-                    <td>{{ installment.due_date }}</td>
+                    <td>
+                        <q-input
+                            type="date"
+                            v-model="installment.due_date"
+                            dense
+                            outlined
+                            color="primary"
+                            class="w-[150px] flex justify-center"
+                        />
+                    </td>
                     <td>R$ {{ installment.value_paid }}</td>
                     <td>R$ {{ installment.value_original }}</td>
                 </tr>
@@ -42,6 +52,7 @@
 
 <script setup lang="ts">
     import { ref, defineProps, defineEmits } from 'vue';
+    import dayjs from 'dayjs';
 
     type TinstallmentsData = {
         id: number;
@@ -50,48 +61,60 @@
         due_date: string;
         value_paid: number;
         value_original: number;
+
     };
 
     const emits = defineEmits<{
-        (e: 'updated:inspecInstallment', value: TinstallmentsData)
+        (e: 'updated:inspecInstallment', value: TinstallmentsData),
+        (e: 'existsInstallments', value: boolean)
+
     }>();
 
     const props = defineProps<{
-        pdv: boolean,
-        amount: number
-
+        pdv?: boolean,
+        amount: number,
+        originalValue: number,
+        dueDate: string
     }>();
 
     let installmentsData = ref<TinstallmentsData[]>([]);
 
     const generateInstallments = async () =>
     {
-        let amount = props.amount + 1;
-        console.log('generateInstallments, amount: ', amount);
+        let receiveAmount = props.amount;
+        let originalValue = props.originalValue;
+        let dueDate = props.dueDate
+        console.log('generateInstallments, amount: ', props.amount);
+        console.log(originalValue)
 
-        while(props.amount > 0)
+        if (installmentsData.value.length > 1) {
+            emits('existsInstallments', true);
+            return;
+        }
+
+        for(let i = 1; i < receiveAmount + 1; i++)
         {
-            amount--;
-            if(amount === 0) break;
-            console.log('A: ', amount);
             installmentsData.value.push({
-                id: props.amount,
-                number_installment: amount,
-                installment_amount: props.amount,
-                value_original: 100,
-                value_paid: 100,
-                due_date: '01/01/2025'
+                id: i,
+                number_installment: i,
+                installment_amount: receiveAmount,
+                value_original: props.originalValue,
+                value_paid: Number(String(originalValue).replace(',','.')) / receiveAmount,
+                due_date: dayjs(dueDate).add(i - 1, 'month').format('YYYY-MM-DD')
 
-            });
+            }); 
         };
 
-        console.log(installmentsData.value);
-        //emits('updated:inspecInstallment', installmentsData.value);
     };
 
-    const deleteInstallments = async () => 
+    const deleteInstallments = () => 
     {
         installmentsData.value = [];
     };
+
+    defineExpose({
+        generateInstallments,
+        deleteInstallments,
+    });
 
 </script>

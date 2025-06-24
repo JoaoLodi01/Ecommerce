@@ -55,9 +55,10 @@
 
                     <q-input
                         class="w-[150px]"
-                        type="number"
+                        type="text"
                         v-model="form.installment_value"
                         label="Valor Parcela"
+                        v-bind:mask="'##,##'"
                         color="grey-7"
                     />
 
@@ -113,17 +114,26 @@
                         v-model="form.value_entry"
                         label="Juros a pagar"
                         color="grey-7"
+                        v-bind:mask="'##,##'"
                         readonly
                     />
 
-                    <SpeciesSearchBar @selectSpecie="getSpecie($event)" :module_="'receive'" />
+                    <SpeciesSearchBar
+                        @selectSpecie="getSpecie($event)"
+                        :module_="'receive'"
+                    />
+
                 </div>
             </div>
 
             <InstallmentsTable 
                 :pdv="false" 
                 :amount="Number(form.installment_number)"
+                :original-value="form.installment_value"
+                :due-date="form.due_date"
+                @exists-installments="exists($event)"
                 @updated:inspecInstallment="createInstallments($event)"
+                @request:generateInstallmentes=""
             />
 
             <div>
@@ -144,7 +154,7 @@
 </template>
 <script setup lang=ts>
     import { api } from "src/boot/axios"
-    import {LocalStorage} from "quasar";
+    import {LocalStorage, useQuasar} from "quasar";
     import { ref, computed, watch, defineProps, defineEmits } from 'vue';
     import dayjs from "dayjs";
     import 'dayjs/locale/pt-br';
@@ -162,8 +172,10 @@
     }>();
 
     const today = dayjs();
+    const $q = useQuasar();
     
-    const user = ref<number>(LocalStorage.getItem("user_name"));
+    //const user = ref<number>(LocalStorage.getItem("user_name"));
+
     const form = ref<IReceiveBody>({
         issuer_id: LocalStorage.getItem("issuer_id"),
         description: 'Registro Manual Receber',
@@ -172,10 +184,10 @@
         user_id: LocalStorage.getItem("user_id"),
         especie_id: 0,
         especie: '',
-        due_date: today.add(30, 'days').format("DD-MM-YYYY"),
+        due_date: today.add(30, 'days').format("YYYY-MM-DD"),
         installment_number: 1,
         installment_value: 0,
-        type_interest: '',
+        type_interest: '%',
         interest_value: 0,
         addition: 0,
         discount: 0,
@@ -195,6 +207,20 @@
         return total.toFixed(2);
 
     });
+
+    const exists = (event: boolean) =>
+    {
+        if(event)
+        {
+            $q.notify({
+                color: 'red',
+                message: 'Parcelas já existentes',
+                position: 'top',
+                timeout: 2000
+            });
+        };
+
+    };
 
     const parseCurrency = (value: number): number =>
     {
