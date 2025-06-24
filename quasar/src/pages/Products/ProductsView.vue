@@ -104,102 +104,112 @@
     </div>
   
     <div 
-        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10" 
-        v-if="showProducts"
-        :class="{
-            'ml-20 w-[160vh]': widthScreen > 1366,
-            'ml-12': widthScreen <= 1366
-        }"    
+        v-if="products.length > 0"    
     >
-        <div
-          v-for="product in products" :key="product.id"
-          class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+        <div 
+            class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10" 
+            v-if="showProducts"
+            :class="{
+                'ml-20 w-[160vh]': widthScreen > 1366,
+                'ml-12': widthScreen <= 1366
+            }"    
         >
-
-            <div 
-                @click="editProduct(product.product, product.id)"
+            <div
+            v-for="product in products" :key="product.id"
+            class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
             >
-                <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">ID:</span> {{ product.product_cod }}
-                </div>
 
-                <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">Produto:</span> {{ product.product }}
-                </div>
-
-                <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">Cód barras:</span> {{ product.barcode }}
-                </div>
-
-                <div class="text-sm text-gray-500 mb-4">
-                    <span class="font-semibold">Cód barras interno:</span> {{ product.barcode_internal }}
-
-                </div>
-
-                <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">Quantidade:</span> {{ product.amount }}
-                </div>
-
-                <div class="text-sm text-gray-500 mb-4">
-                    <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
-                </div>
-
-            </div>
-
-          <!-- Ações -->
-          <div class="flex space-x-2">
-                <q-btn
-                    @click="editProduct(product.product, product.product_cod)"
-                    class="px-4 py-2 mr-2 rounded-lg transition"
-                    :disabled=!product.active
-                    :class="{
-                        'text-gray-400 bg-slate-500': !product.active,
-                        'text-blue-500 bg-blue-100 hover:bg-blue-200': product.active,
-                    }"
+                <div 
+                    @click="editProduct(product.product, product.id)"
                 >
-                    Editar
-                </q-btn>
-                <q-btn
-                    @click="deleteOrActive('disable', product.id)"
-                    class="px-4 py-2 rounded-lg transition"
-                    :disabled=!product.active
-                    :class="{
-                        'text-gray-400 bg-slate-500': !product.active,
-                        'text-red-500 bg-red-100 hover:bg-red-200': product.active,
-                    }"
-                    v-if="product.active"
-                >
-                    Desativar
-                </q-btn>
-                <q-btn
-                    v-if="!product.active"
-                    class="px-4 py-2 rounded-lg transition"
-                    :class="{
-                        'text-gray-400 bg-slate-500': !product.active
-                    }"
-                    @click="deleteOrActive('active', product.product_cod)"
-                >
-                    Ativar
-                </q-btn>
-            </div>
-      </div>
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span class="font-semibold">ID:</span> {{ product.product_cod }}
+                    </div>
+
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span class="font-semibold">Produto:</span> {{ product.product }}
+                    </div>
+
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span class="font-semibold">Cód barras:</span> {{ product.barcode }}
+                    </div>
+
+                    <div class="text-sm text-gray-500 mb-4">
+                        <span class="font-semibold">Cód barras interno:</span> {{ product.barcode_internal }}
+
+                    </div>
+
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span class="font-semibold">Quantidade:</span> {{ product.amount }}
+                    </div>
+
+                    <div class="text-sm text-gray-500 mb-4">
+                        <span class="font-semibold">Preço de Venda:</span> R$ {{ Number(product.sale_price).toFixed(2) || '0.00' }}
+                    </div>
+
+                </div>
+
+            <!-- Ações -->
+            <div class="flex space-x-2">
+                    <q-btn
+                        @click="editProduct(product.product, product.product_cod)"
+                        class="px-4 py-2 mr-2 rounded-lg transition"
+                        :disabled=!product.active
+                        :class="{
+                            'text-gray-400 bg-slate-500': !product.active,
+                            'text-blue-500 bg-blue-100 hover:bg-blue-200': product.active,
+                        }"
+                    >
+                        Editar
+                    </q-btn>
+                    <q-btn
+                        @click="deleteOrActive('disable', product.id)"
+                        class="px-4 py-2 rounded-lg transition"
+                        :disabled=!product.active
+                        :class="{
+                            'text-gray-400 bg-slate-500': !product.active,
+                            'text-red-500 bg-red-100 hover:bg-red-200': product.active,
+                        }"
+                        v-if="product.active"
+                    >
+                        Desativar
+                    </q-btn>
+                    <q-btn
+                        v-if="!product.active"
+                        class="px-4 py-2 rounded-lg transition"
+                        :class="{
+                            'text-gray-400 bg-slate-500': !product.active
+                        }"
+                        @click="deleteOrActive('active', product.product_cod)"
+                    >
+                        Ativar
+                    </q-btn>
+                </div>
+        </div>
+        </div>
+
+        <div v-if="!showProducts" >
+            <RegisterProduct
+                v-if="showRegisterProduct"
+                @close="closeReload($event)"
+                :widthScreen="widthScreen"
+                
+            />
+
+            <UpdateProduct
+                v-if="showUpdateProduct"
+                :productID="productID"
+                :productName="productName"
+                :widthScreen="widthScreen"
+                @close="closeReload($event)"
+
+            />
+        </div>
     </div>
 
-    <div v-if="!showProducts" >
-        <RegisterProduct
-            v-if="showRegisterProduct"
-            @close="closeReload($event)"
-            :widthScreen="widthScreen"
-            
-        />
-
-        <UpdateProduct
-            v-if="showUpdateProduct"
-            :productID="productID"
-            :productName="productName"
-            :widthScreen="widthScreen"
-            @close="closeReload($event)"
-
+    <div v-else>
+        <LoandingPage
+            :text="'Carregando produtos'"
         />
     </div>
 </template>
@@ -211,10 +221,13 @@
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
     import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
 
     let $q = useQuasar();
 
+    let allProducts = ref<IProducts[]>([]);
     let products = ref<IProducts[]>([]);
+
     let showProducts = ref<boolean>(true);
     let showReportProducts = ref<boolean>(true);
     let showUpdateProduct = ref<boolean>(false);
@@ -225,10 +238,27 @@
     let productID = ref<number>(0);
     const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
+    watch(searchFilter, async(newOption) =>{
+        if(newOption === 'active')
+        {
+            products.value = allProducts.value.filter(p => p.active === 1);
+
+        } else if(newOption === 'disabled')
+        {
+            products.value = allProducts.value.filter(p => p.active === 0);
+            
+        } else {
+            products.value = [...allProducts.value];
+
+        };
+
+    });
+
     const getProducts = async () => 
     {
         const res = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
-        products.value = res.data.data;
+        allProducts.value = res.data.data;
+        products.value = [...allProducts.value];
 
     };
 
@@ -253,8 +283,6 @@
             };
         };
     };
-
-    watch
 
     const openRegister = () =>
     {

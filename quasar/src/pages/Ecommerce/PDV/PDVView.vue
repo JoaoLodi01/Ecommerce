@@ -2,7 +2,7 @@
     <div v-if="!showPage">
         <LoandingPage
             @show-page="showPage = $event"
-            :page="'do PDV'"
+            :text="'Carregando PDV'"
                         
         />
 

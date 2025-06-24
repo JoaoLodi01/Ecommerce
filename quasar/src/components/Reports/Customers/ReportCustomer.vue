@@ -1,10 +1,10 @@
 <template>
-    <div class="">
+    <div>
         <q-btn @click="reportCustomer('all')" class="mr-5 bg-blue-500 hover:bg-blue-400 text-white" :class="{
             'mb-5': props.widthScreen <= 1080
         }">    
             <span v-if="props.widthScreen <= 1080">Listagem dos clientes ativos</span>
-            <span v-else>Listagem completa de todos clientes</span>
+            <span v-else>Listagem completa de todos os clientes</span>
         </q-btn>
 
         <q-btn @click="reportCustomer('all-disabled')" class="bg-blue-500 hover:bg-blue-400 text-white">
@@ -12,14 +12,19 @@
             <span v-else>Listagem completa de todos os clientes inativos</span>
         </q-btn>
     </div>
+
+    <ReportLoanding
+        :generate="generate"
+        :report="'customer'"        
+    />
+
 </template>
 
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { useQuasar } from 'quasar';
-    import { defineProps } from 'vue';
-
-    let timer;
+    import { ref, defineProps } from 'vue';
+    import ReportLoanding from 'src/components/Loanding/ReportLoanding.vue';
 
     const props = defineProps<{
         widthScreen: number,
@@ -27,32 +32,15 @@
     }>();
 
     const $q = useQuasar();
-
-    const showLoading = () =>
-    {
-        $q.loading.show({
-            message: 'Gerando relatório...'
-        });
-
-        timer = setTimeout(() => {
-            $q.loading.hide()
-            timer = void 0
-        }, 2000);
-    };
-
-    const hideLoanding = () =>
-    {
-        $q.loading.hide()
-    };
+    let generate = ref<boolean>(false);
 
     const reportCustomer = async (type: string) =>
     {
+        generate.value = true;
         try {
             const apiURL = `/report/customers/${type}/${props.issuerID}`;
             const res = await api.get(apiURL, { 
-                headers: {
-                    responseType: 'blob'
-                }
+                responseType: 'blob'
             });
 
             const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
@@ -63,13 +51,22 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+
+            if(res.status === 200) generate.value = false;
             
         } catch (error) {
-            hideLoanding();
+            console.error('Erro: ', error);
+            $q.notify({
+                color: 'red',
+                message: 'Erro ao gerar relatório!',
+                timeout: 2000,
+                position: 'top'
+
+            });
 
         } finally {
-            hideLoanding();
-
-        };
+            generate.value = false;
+            
+        };  
     };
 </script>

@@ -27,12 +27,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(installment, id) in installmentsData" :key="id" class="text-center border-t border-gray-300">
+                <tr v-for="(installment, id) in installmentsData" :key="id" class="text-center border-t border-gray-300 hover:bg-gray-100">
                     <td>{{ installment.number_installment }}</td>
                     <td>{{ installment.installment_amount }}</td>
                     <td>{{ installment.due_date }}</td>
-                    <td>R$ {{ installment.value_paid }}</td>
-                    <td>R$ {{ installment.value_original }}</td>
+                    <td>R$ {{ installment.value_paid.toFixed(2).replace('.', ',') }}</td>
+                    <td>R$ {{ installment.value_original.toFixed(2).replace('.', ',') }}</td>
                 </tr>
             </tbody>
         </table>
@@ -54,6 +54,7 @@
 
     const emits = defineEmits<{
         (e: 'updated:inspecInstallment', value: TinstallmentsData)
+        
     }>();
 
     const props = defineProps<{
@@ -66,26 +67,22 @@
 
     const generateInstallments = async () =>
     {
-        let amount = props.amount + 1;
-        console.log('generateInstallments, amount: ', amount);
-
-        while(props.amount > 0)
+        let receiveAmount = props.amount;
+        console.log('generateInstallments, amount: ', props.amount);
+        
+        for(let i = 1; i < receiveAmount + 1; i++)
         {
-            amount--;
-            if(amount === 0) break;
-            console.log('A: ', amount);
             installmentsData.value.push({
-                id: props.amount,
-                number_installment: amount,
-                installment_amount: props.amount,
+                id: i,
+                number_installment: i,
+                installment_amount: receiveAmount,
                 value_original: 100,
-                value_paid: 100,
+                value_paid: Number((100 / receiveAmount).toFixed(2)),
                 due_date: '01/01/2025'
 
-            });
+            }); 
         };
 
-        console.log(installmentsData.value);
         //emits('updated:inspecInstallment', installmentsData.value);
     };
 
