@@ -1,25 +1,35 @@
 <template>
-    <QRCode
+    <div 
         v-if="showQRCode"
-        :total_amount="totalPaymentPIX"
-        :issuer_id="issuerID"
-        @close="handlePIX"
-        @discount=""
-        class="relative left-[20rem] top-5 z-50 w-[20rem]"
-        
-    />
+        class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
+    >
+        <QRCode
+            :total_amount="totalPaymentPIX"
+            :issuer_id="issuerID"
+            @close="handlePIX"
+            @discount=""
+            class="relative left-[20rem] top-5 z-50 w-[20rem]"
+            
+        />
+    </div>
 
-    <Installments
+    <div 
         v-if="showInstallments"
-        :total_amount="totalOperation"
-        @installments-generated="handleInstallments"
-        class="relative left-[20rem] top-16 z-50 bottom-44 w-[20rem]"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
+    >
+        <RegisterReceive
+            :total_amount="totalOperation"
+            :width-screen="witdhScreen"
+            :pdv="true"
+            class="border border-gray-500 rounded-md"    
+        />
 
-    />
+    </div>
     
     <q-card 
         class="absolute w-[100vh] left-[18rem] mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded"
-        v-if="!showQRCode && !showInstallments"
+        v-if="!showQRCode && !showInstallments && showPayMentForms"
+
     >
         <q-card-section>
             <div class="text-h6">Formas de Pagamento</div>
@@ -108,6 +118,7 @@
 
                 </div>
             </q-form>
+    
         </q-card-section>
     
         <q-separator />
@@ -137,18 +148,26 @@
         </q-card-section>
 
     </q-card>
+    <div v-if="!showInstallments && !showPayMentForms && !showQRCode">
+        <LoandingPage
+            @show-page="showPayMentForms = $event"
+            :text="'Carregando formas de pagamento ...'"
+        />
+    </div>
 </template>
 
 <script setup lang="ts">
     import { api } from "src/boot/axios";
     import { ref, defineProps, defineEmits, onMounted, computed, warn } from 'vue';
     import { LocalStorage, useQuasar  } from "quasar";
-    import Installments from "./PDV/Installments__deve_ser_propayment.vue";
-    import QRCode from "./PDV/QRCode/QRCode.vue";
+    import RegisterReceive from './Register/Financial/RegisterReceive.vue';
+    import QRCode from './PDV/QRCode/QRCode.vue';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
 
     const $q = useQuasar();
     let timer: unknown;
     
+    let showPayMentForms = ref<boolean>(false);
     let generatedInstallments = ref<boolean>(false);
     let message = ref<string>('');
     let showInstallments = ref<boolean>(false);
@@ -227,8 +246,7 @@
     };
 
     const confirmPayMent = () =>
-    {
-        showLoading();
+    {   
         
         paymentsValues.value.map((pay, i) => {
             const species = paymentsForms.value[i];
@@ -239,8 +257,9 @@
                 
             };
 
-            if(species.pix_key !== '' && species.payments_form_type === 'PIX')
+            if(species.pix_key !== null && species.payments_form_type === 'PIX')
             {
+                console.log('Abriu não sei por que');
                 totalPaymentPIX.value = formatNumber(pay);
                 showQRCode.value = true;
                 
@@ -256,13 +275,11 @@
 
         if(total >= props.totalOperation)
         {
-            hideLoading();
-
             console.log('Total pago: ', total);
+            console.log(`Teve pix ou receber? ${showInstallments.value} | ${showQRCode.value}`);
 
         } else {
-            console.warn(`Caiu no else: ${total} - ${props.totalOperation}`);
-            
+            console.log('Total a ser pago: ', props.totalOperation - total);
         };
     }; // Vai conferir os valores pagos e gerenciar o que precisa ser feito, PIX ou receber...
 

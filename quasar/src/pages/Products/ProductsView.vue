@@ -104,11 +104,10 @@
     </div>
   
     <div 
-        v-if="products.length > 0"    
+        v-if="showProducts"
     >
         <div 
             class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10" 
-            v-if="showProducts"
             :class="{
                 'ml-20 w-[160vh]': widthScreen > 1366,
                 'ml-12': widthScreen <= 1366
@@ -209,7 +208,9 @@
 
     <div v-else>
         <LoandingPage
-            :text="'Carregando produtos'"
+            @show-page="showProducts = $event"
+            :text="'Carregando produtos ...'"
+            
         />
     </div>
 </template>
@@ -228,7 +229,7 @@
     let allProducts = ref<IProducts[]>([]);
     let products = ref<IProducts[]>([]);
 
-    let showProducts = ref<boolean>(true);
+    let showProducts = ref<boolean>(false);
     let showReportProducts = ref<boolean>(true);
     let showUpdateProduct = ref<boolean>(false);
     let showRegisterProduct = ref<boolean>(false);

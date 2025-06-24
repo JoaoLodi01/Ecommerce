@@ -142,7 +142,7 @@
         </form>
     </div>
 </template>
-<script setup lang=ts>
+<script setup lang="ts">
     import { api } from "src/boot/axios"
     import {LocalStorage} from "quasar";
     import { ref, computed, watch, defineProps, defineEmits } from 'vue';
@@ -153,7 +153,8 @@
     import InstallmentsTable from "./InstallmentsTable.vue";
 
     const props = defineProps<{
-        widthScreen: number
+        widthScreen: number,
+        pdv?: boolean
 
     }>();
 

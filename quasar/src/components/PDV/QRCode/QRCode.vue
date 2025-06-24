@@ -108,8 +108,7 @@
     }
     
     onMounted(() => {
-        alert('ta aberto')
-        getKey()
+        getKey();
     })
 
 </script>   

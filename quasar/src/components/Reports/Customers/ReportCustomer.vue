@@ -29,6 +29,7 @@
     const props = defineProps<{
         widthScreen: number,
         issuerID: number
+
     }>();
 
     const $q = useQuasar();
@@ -52,7 +53,17 @@
             link.click();
             document.body.removeChild(link);
 
-            if(res.status === 200) generate.value = false;
+            if(res.status === 200)
+            {
+                generate.value = false;
+                $q.notify({
+                    color: 'green',
+                    message: 'Relatório gerado com sucesso!',
+                    timeout: 2000,
+                    position: 'top'
+                    
+                });
+            };
             
         } catch (error) {
             console.error('Erro: ', error);

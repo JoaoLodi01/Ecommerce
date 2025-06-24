@@ -58,7 +58,7 @@
     }>();
 
     const props = defineProps<{
-        pdv: boolean,
+        pdv?: boolean,
         amount: number
 
     }>();

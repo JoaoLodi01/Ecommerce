@@ -103,13 +103,11 @@
         </div>
     </div>
   
-
     <div 
-        v-if="customers.length > 0"
+        v-if="showCustomers"
     >
         <div 
             class="customer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10" 
-            v-if="showCustomers"
             :class="{
                 'ml-20 w-[160vh]': widthScreen > 1366,
                 'ml-12': widthScreen <= 1366
@@ -210,7 +208,8 @@
     </div>
     <div v-else>
         <LoandingPage
-            :text="'Carregando clientes'"
+            @show-page="showCustomers = $event"
+            :text="'Carregando clientes ...'"
         />
 
     </div>
@@ -231,7 +230,7 @@
     let allCustomers = ref<ICustomer[]>([]);
     let customers = ref<ICustomer[]>([]);
 
-    let showCustomers = ref<boolean>(true);
+    let showCustomers = ref<boolean>(false);
     let showReportCustomer = ref<boolean>(true);
     let showReportCustomerMini = ref<boolean>(false);
     let showRegisterCustomers = ref<boolean>(false);
