@@ -84,8 +84,6 @@
         let receiveAmount = props.amount;
         let originalValue = props.originalValue;
         let dueDate = props.dueDate
-        console.log('generateInstallments, amount: ', props.amount);
-        console.log(originalValue)
 
         if (installmentsData.value.length > 1) {
             emits('existsInstallments', true);
