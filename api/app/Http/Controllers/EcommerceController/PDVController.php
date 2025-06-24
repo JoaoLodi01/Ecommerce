@@ -38,27 +38,34 @@ class PDVController extends Controller
     public function finalizeSale(PDVSaleRequest $request)
     {
         $data = $request->validated();
-        Log::info('Dados no PDVController::finalizeSale');
-        Log::info($data);
-        return $this->pdvService->finalizeSale(
+        $pdv = $this->pdvService->finalizeSale(
             $data['payments_values'], 
             $data['type_operation'], 
             $data['pdv_id'], 
             $data['issuer_id'],
             $data['user_id']
         );
-        // Se der errado, voltar para $request->input()
+
+        return apiSuccess('Sucesso!', $pdv);
     }
 
     public function findSavePDV()
     {
-        return $this->pdvService->findSavePDV();
+        $pdv = $this->pdvService->findSavePDV();
+        
+        if(!$pdv)
+        {
+            return apiError('PDV não encontrado');
+
+        };
+        
+        return apiSuccess($pdv);
         
     }
     
-    public function findSavePDVByID(int $id)
+    public function findSavePDVByID(Request $request)
     {
-        return $this->pdvService->findSavePDVByID($id);
+        return $this->pdvService->findSavePDVByID($request->input('pdv_id'), $request->input('issuer_id'));
         
     }
 }

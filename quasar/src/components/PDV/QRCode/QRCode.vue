@@ -1,7 +1,8 @@
 <template>
     <q-card class="w-[40rem] text-center" v-if="qrCode">        
-        <img :src=qrCode alt="qrCode - PIX" class="border border-black p-">
-
+        <img :src=qrCode alt="qrCode - PIX" class="border border-black">
+        R$: {{ props.total_amount }}
+        
         <div class="-mt-5">
             <span 
                 class="bg-green-500 text-white p-2 rounded-md cursor-pointer"
@@ -16,6 +17,7 @@
                     :data-clipboard-text="payLoad"
                     @click="fnClipBoard"
                     class="btn cursor-pointer"
+                    color="primary"
                     title="Copiar"
                 />
                 
@@ -59,8 +61,9 @@
 
     }>();
 
-    const emit = defineEmits<{
-        (e: 'close', value: boolean): void
+    const emits = defineEmits<{
+        (e: 'close', value: boolean): void,
+        (e: 'discount', value: number): void
 
     }>();
 
@@ -86,7 +89,8 @@
         payLoad.value = res.payload;
     }
 
-    const fnClipBoard = async () => {
+    const fnClipBoard = async () => 
+    {
         try {
             const res = await clipBoard();
             successClip.value = res
@@ -97,12 +101,14 @@
         }
     }
 
-    const finaly = () => {
-        emit('close', true);
+    const finaly = () => 
+    {
+        emits('close', true);
+        emits('discount', props.total_amount)
     }
     
     onMounted(() => {
-        getKey()
+        getKey();
     })
 
 </script>   

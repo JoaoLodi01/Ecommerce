@@ -4,20 +4,28 @@ namespace App\Repositories\Eloquent\EcommerceEloquent;
 
 use App\Models\EcommerceModels\Products;
 use App\Models\Registers\FirstSteps;
-use App\Models\Registers\Issuer;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 class ProductsRepository 
 {
+    protected $cacheKeyPrefix = 'products';
+    protected $cacheDurration = 10;
+
     public function __construct(
         protected GroupRepository $groupRepository
-    )
-    {}
+    ) {}
 
     public function getAll(int $issuer_id)
     {
-        $issuer = Issuer::where('id', $issuer_id)->first();
-        Log::info('ProductsRepository: getAll: ' . $issuer_id . ' issuer: ' . $issuer);
-        return Products::where('issuer_id', $issuer->id)->get();
+        $cacheKey = "{$this->cacheKeyPrefix}_{$issuer_id}";
+
+        $products = Cache::remember($cacheKey, $this->cacheDurration, function() use ($issuer_id) {
+            return Products::where('issuer_id', $issuer_id)->get();
+
+        });
+
+        return $products;
+        
     }
 
     public function search(array $data)
@@ -26,14 +34,14 @@ class ProductsRepository
         Log::info($data);
         $products = null;
         $search = $data['search'];
-        $issuer_id = $data['issuer_id'];
+        $issuerID = $data['issuer_id'];
         
-        switch ($data['fillter']) {
+        switch ($data['filter']) {
             case 'Cód barras interno':
                 $products = Products::where('active', 1)
-                    ->where(function($query) use ($search, $issuer_id){
+                    ->where(function($query) use ($search, $issuerID){
                         $query->where('barcode_internal', $search)
-                              ->where('issuer_id', $issuer_id);
+                              ->where('issuer_id', $issuerID);
                         
 
                     })->get();
@@ -42,9 +50,9 @@ class ProductsRepository
             case 'Cód barras':
                 $products = Products::where('active', 1)
                     
-                    ->where(function($query) use ($search, $issuer_id){
+                    ->where(function($query) use ($search, $issuerID){
                         $query->where('barcode', $search)
-                               ->where('issuer_id', $issuer_id);
+                               ->where('issuer_id', $issuerID);
 
                     })->get();
 
@@ -52,10 +60,9 @@ class ProductsRepository
 
             case 'Cód barras & Cód barras interno':
                 $products = Products::where('active', 1)
-                    
-                    ->where(function($query) use ($search, $issuer_id){
-                        $query->where('barcode', $search)
-                              ->where('issuer_id', $issuer_id)
+                    ->where(function($query) use ($search, $issuerID){
+                        $query->where('issuer_id', $issuerID)
+                              ->where('barcode', $search)
                               ->orWhere('barcode_internal');
 
                     })->get();
@@ -63,10 +70,9 @@ class ProductsRepository
     
             case 'Padrão (cód.barras ou cód.produto)':
                 $products = Products::where('active', 1)
-                    
-                    ->where(function($query) use ($search, $issuer_id){
+                    ->where(function($query) use ($search, $issuerID){
                         $query->where('product_cod', $search)
-                                ->where('issuer_id', $issuer_id)
+                                ->where('issuer_id', $issuerID)
                                 ->orWhere('barcode', $search)
                                 ->orWhere('product', 'like', '%' . $search . '%');
                     })->get();
@@ -155,9 +161,24 @@ class ProductsRepository
         ]);
     }
 
-    public function delete(int $product_cod){
+    public function active(int $product_cod)
+    {
+        $product = Products::where('product_cod', $product_cod)->first();
+        $issuer_id = $product->issuer_id;
+        
+        $cacheKey = "{$this->cacheKeyPrefix}_{$issuer_id}";
+
+        Cache::forget($cacheKey);
+        return $product->update([
+            'active' => 1
+        ]);
+    }
+
+    public function delete(int $product_cod)
+    {
         return Products::where('product_cod', $product_cod)->update([
-            'active' => 0,
+            'active' => 0
+
         ]);
     }
     

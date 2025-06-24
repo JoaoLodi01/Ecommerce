@@ -2,37 +2,44 @@
 
 namespace App\Services\EcommerceService;
 
+use App\Exceptions\IssuerExceptions\IssuerNotFound;
 use App\Repositories\Eloquent\EcommerceEloquent\GroupRepository;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
+use App\Exceptions\ProductsExceptions\ProductNotFound;
+use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
 use Illuminate\Support\Facades\Log;
 
 class ProductsService
 {
     public function __construct(
         protected ProductsRepository $productsRepository,
-        protected GroupRepository $groupRepository
-    )
-    {}
+        protected GroupRepository $groupRepository,
+        protected RegisterIssuerRepository $registerIssuerRepository
+    ) {}
     
     public function getAll(int $issuer_id){
-        $all = $this->productsRepository->getAll($issuer_id);
-        try {
-            return response()->json([
-                'success' => true,
-                'all' => $all
-            ], 200);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+        $issuer = $this->registerIssuerRepository->find($issuer_id);
+
+        if(!$issuer)
+        {
+            throw new IssuerNotFound("Emitente não encontrado faça login novamente");
+
         }
+
+        return $this->productsRepository->getAll($issuer_id);;
     }
 
-    public function search(array $data){
-        try {
-            return $this->productsRepository->search($data);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+    public function search(array $data)
+    {
+        $product = $this->productsRepository->search($data);    
+
+        if(!$product)
+        {
+            throw new ProductNotFound("Produto não encontrado");
+
         }
     
+        return $product;
     }
 
     public function findByID(int $id){
@@ -42,10 +49,6 @@ class ProductsService
         ]);
     }
     
-    public function findImage(int $id){
-        $this->productsRepository->findImage($id);
-    }
-
     public function create(array $data){
         try {
            /* Log::info("Vai chamar checkGTIN");
@@ -57,7 +60,7 @@ class ProductsService
             ], 201);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+            
         }
     }
 
@@ -70,17 +73,30 @@ class ProductsService
             ], 200);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+            
         }
     }
 
+    public function active(int $id){
+        $product = $this->productsRepository->active($id);
+
+        if(!$product)
+        {
+            throw new ProductNotFound("Produto não encontrado");
+        }
+
+        return $product;
+    }
+
     public function delete(int $id){
-        $this->productsRepository->delete($id);
-        return response()->json([
-            'success' => true,
-            'message' => 'Produto desativado com sucesso!'
-        ], 200);
-            
+        $product = $this->productsRepository->delete($id);
+
+        if(!$product)
+        {
+            throw new ProductNotFound("Produto não encontrado");
+        }
+
+        return $product;
     }
 
     public function checkGTIN(array $gtin){
@@ -119,21 +135,11 @@ class ProductsService
             ], 201);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
         }
     }
 
     public function allGroup()
     {
         return $this->groupRepository->all();
-    }
-
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ]);
     }
 }

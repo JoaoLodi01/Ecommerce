@@ -2,7 +2,7 @@
   "name": "quasar",
   "version": "0.0.1",
   "description": "Um projeto de estudos",
-  "productName": "KL System",
+  "productName": "G2L DevHouse",
   "author": "TsukiKtk <gabikochem55@gmail.com>",
   "type": "module",
   "private": true,
@@ -21,6 +21,7 @@
     "quasar": "^2.16.0",
     "tailwindcss": "^3",
     "vue": "^3.4.18",
+    "vue-i18n": "^9.14.4",
     "vue-router": "^4.0.0",
     "vue-the-mask": "^0.11.1"
   },

@@ -674,7 +674,6 @@
       this.widthScreen < 1366 ? this.sidebarActive = false : this.sidebarActive= true
       document.addEventListener('keydown', (event) => {
           const keyName = event.key
-          console.log('keyName: ', keyName)
           if(event.altKey && keyName.toLowerCase() === 'g')
           {
             this.toggleSidebar()

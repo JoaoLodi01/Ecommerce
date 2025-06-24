@@ -278,18 +278,18 @@
                 headers: {
                     Accept: "*/*"
                 }
-            }) 
+            });
 
-            console.log('Res: ', res.data)
+            console.log('Res: ', res.data);
             
         } catch (error) {
-            console.error('Error: ', error)
+            console.error('Error: ', error);
             
         } finally {
             hideLoading();
-        }
+        };
         
-    }
+    };
     
     const getCEPData = async () => {
         if(issuer.value.cep)
@@ -297,17 +297,17 @@
             const formatedCEP = issuer.value.cep.replace(/\D/, '');
             if(formatedCEP.length === 8)
             {  
-                const res = await axios.get(`${process.env.API_CEP}/${formatedCEP}/json`)
-                console.log('Res cep:', res.data)
+                const res = await axios.get(`${process.env.API_CEP}/${formatedCEP}/json`);
+                console.log('Res cep:', res.data);
 
-                issuer.value.cod_ibg = res.data.ibge,
-                issuer.value.city = res.data.localidade,
-                issuer.value.address = res.data.logradouro
-                issuer.value.uf = res.data.uf
+                issuer.value.cod_ibg = res.data.ibge;
+                issuer.value.city = res.data.localidade;
+                issuer.value.address = res.data.logradouro;
+                issuer.value.uf = res.data.uf;
                                 
-            }
-        }
-    }
+            };
+        };
+    };
 
     onMounted(() => {
         getIssuer();

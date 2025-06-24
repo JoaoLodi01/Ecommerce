@@ -26,6 +26,7 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
+use App\Http\Controllers\Exceptions\ExceptionsController;
 use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\TributsController\TributsController;
 use App\Http\Controllers\RegisterControllers\{
@@ -36,21 +37,14 @@ use App\Http\Controllers\RegisterControllers\{
 use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
         Route::post('/owner', [AuthController::class, 'authOwner']);
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
-
-        Route::get('/me', function (Request $request) {
-            return response()->json([
-                'success' => $request->header('Authorization') ? true : false,
-                'user' => $request->user(),
-                'token_received' => $request->header('Authorization'),
-    
-            ]);
-        })->middleware('auth:sanctum');
+        Route::get('/check', [AuthController::class, 'checkLogin'])->middleware('auth:sanctum');;
     }); 
     
     Route::middleware('auth:sanctum')->group(function (){        
@@ -63,7 +57,8 @@ Route::prefix('v1')->group( function (){
                 Route::get('/{id}', [ProductsController::class, 'findByID']);
                 Route::get('/imagem/{id}', [ProductsController::class, 'findImage']);
                 Route::put('/{id}', [ProductsController::class, 'update']);
-                Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
+                Route::put('/{id}/active', [ProductsController::class, 'active']);
+                Route::put('/{id}/disable', [ProductsController::class, 'delete']);
         
             });
 
@@ -86,7 +81,7 @@ Route::prefix('v1')->group( function (){
             // Receive routes
             Route::prefix('receive')->group( function(){
                 Route::get('/all/{issuer_id}', [ReceiveController::class, 'getAll']);
-                Route::post('/create', [ReceiveController::class, 'store']);
+                Route::post('/create', [ReceiveController::class, 'create']);
                 Route::get('/{id}', [ReceiveController::class, 'findByID']);
                 Route::put('/{id}', [ReceiveController::class, 'update']);
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
@@ -109,7 +104,7 @@ Route::prefix('v1')->group( function (){
                 Route::put('/finalize-sale', [PDVController::class, 'finalizeSale']);
 
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
-                Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
+                Route::post('/get-saved-sale', [PDVController::class, 'findSavePDVByID']);
 
                 Route::get('/get-all-errors', [ErrorsPDVController::class, 'all']);
 
@@ -156,7 +151,7 @@ Route::prefix('v1')->group( function (){
             Route::post('/create', [CustomerController::class, 'create']);
             Route::get('/{id}', [CustomerController::class, 'findByID']);
             Route::put('/{id}', [CustomerController::class, 'update']);
-            Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
+            Route::put('/{id}/disable', [CustomerController::class, 'delete']); // desactive
             Route::put('/{id}/active', [CustomerController::class, 'active']);
 
         });
@@ -199,7 +194,6 @@ Route::prefix('v1')->group( function (){
             Route::put('/{id}', [FirstStepsController::class, 'ignoreFirstSteps']);
 
         });
-    
     });
 
     Route::prefix('registers')->group( function(){

@@ -63,7 +63,8 @@
                         <th class="px-6 py-3 text-center">Controle</th>
                         <th class="px-6 py-3 text-center">Documento</th>
                         <th class="px-6 py-3 text-center">Descrição</th>
-                        <th class="px-6 py-3 text-center">Valor entrada</th>
+                        <th class="px-6 py-3 text-center">QTDE Parcela</th>
+                        <th class="px-6 py-3 text-center">Valor</th>
                         <th class="px-6 py-3 text-center">Cliente</th>
                         <th class="px-6 py-3 text-center">Cód. Espécie</th>
                         <th class="px-6 py-3 text-center">Espécie</th>
@@ -72,10 +73,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(register, id) in cashs" :key="id" class="border-t text-center">
-                        <td class="px-6 py-3 text-center">{{ register.id }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.id }}</td>
+                    <tr v-for="(register, id) in receives" :key="id" class="border-t text-center">
+                        <td class="px-6 py-3 text-center">{{ register.receive_cod }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.document }}</td>
                         <td class="px-6 py-3 text-center">{{ register.description }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.installment_number }}</td>
                         <td class="px-6 py-3 text-center">{{ register.installment_value }}</td>
                         <td class="px-6 py-3 text-center">{{ register.name }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
@@ -110,6 +112,7 @@
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
     import { onBeforeUnmount } from "vue";
+    import { LocalStorage } from "quasar";
     import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
@@ -146,15 +149,10 @@
             const today = dayjs();
 
             return{
-                cash:{
-                    description: "",
-                    valor_entrada: "",
-                    valor_saida: "",
-                },
+                receives: [],
                 startDate: today.startOf('month').format('YYYY-MM-DD'),
                 endDate: today.endOf('month').format('YYYY-MM-DD'),
                 filteredCashs: [],
-                cashs: [],
                 withScreen: 0,
                 showReceiveClosing: false,
             };
@@ -164,22 +162,25 @@
             async getRegister(){
                 this.showLoading()
                 try {
-                    const response = await api.get('/ecommerce/cash-register/all/receive')
-                    this.cashs = response.data.data
+                    const response = await api.get(`/ecommerce/receive/all/${LocalStorage.getItem("issuer_id")}`)
+                    this.receives = response.data.data
+                    console.log(response.data)
+
                     this.dateSearch()
-                    console.log('response.data.data', response.data.data)
+                    
                 } catch (error) {
                     console.error("Erro ao buscar registros:", error)
-
                 }
             },
 
             dateSearch(){
                 if(this.startDate || this.endDate){
-                    this.filteredCashs = this.cashs.filter(register => {
+                    this.filteredCashs = this.receives.filter(register => {
                         const registerDate = dayjs(register.created_at);
                         return registerDate.isBetween(this.startDate, this.endDate, null, '[]')
+
                     });
+
                     this.cashs = this.filteredCashs;
                 }
             },

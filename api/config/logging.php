@@ -51,7 +51,6 @@ return [
     */
 
     'channels' => [
-
         'stack' => [
             'driver' => 'stack',
             'channels' => explode(',', env('LOG_STACK', 'single')),
@@ -127,6 +126,24 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
-    ],
+        'stack' => [
+            'driver' => 'stack',
+            'channels' => explode(',', env('LOG_STACK', 'single')),
+            'ignore_exceptions' => false,
+        ],
+        
+        'auth' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/auth/auth.log'),
+            'level' => 'info',
+            'days' => 1
+        ],
 
+        'payment' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/payments/payment.log'),
+            'level' => 'info',
+            'days' => 1
+        ],
+    ],
 ];

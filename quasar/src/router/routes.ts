@@ -15,6 +15,11 @@ const routes = [
     component: () => import('src/pages/Tests/clip/Clip.vue')
   },
   {
+    path: '/teste/api',
+    name: 'TestsAreaClip',
+    component: () => import('src/pages/Tests/api.vue')
+  },
+  {
     path: '/',
     name: 'Home',
     component: () => import('src/pages/Home/HomePage.vue')
@@ -71,7 +76,7 @@ const routes = [
       {
         path: `/:name/${salePrefix}/save/pdv/:idPDV`,
         name: 'PDVID',
-        component: () => import('src/pages/Ecommerce/PDV/PDVView original.vue'),
+        component: () => import('src/pages/Ecommerce/PDV/PDVView.vue'),
         props: true
 
       },

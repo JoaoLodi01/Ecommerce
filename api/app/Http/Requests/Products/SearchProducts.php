@@ -15,7 +15,7 @@ class SearchProducts extends FormRequest
     public function rules(): array
     {
         return [
-            'fillter' => ['required'],
+            'filter' => ['required'],
             'search' => ['required'],
             'issuer_id' => ['required']
         ];
@@ -24,7 +24,7 @@ class SearchProducts extends FormRequest
     public function messages(): array
     {
         return [
-            'fillter.required' => 'O filtro da busca é necessário.',
+            'filter.required' => 'O filtro da busca é necessário.',
             'search.required' => 'O parametro para a busca é necessário.'
         ];
     }

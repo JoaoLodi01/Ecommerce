@@ -146,7 +146,6 @@
 </script>
 
 <style>
-
     .slide-up-enter-from {
         opacity: 0;
         transform: translateY(50px);

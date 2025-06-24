@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\{
     Hash
 };
 
-use Carbon\Carbon;
-
+use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     public function __construct(
@@ -28,13 +27,9 @@ class AuthController extends Controller
         
         $owner = $this->registerOwnerService->findByEmail($data['email']);
 
-        
         Log::info('owner ' . $owner);
         if($owner && Hash::check($data['password'], $owner->password))
         {
-            //$checkToken = $this->readFile($owner->uuse_id);
-
-
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
             $user = $this->userService->findById($owner->id);
@@ -76,11 +71,22 @@ class AuthController extends Controller
             'message' => 'Logout bem sucedido!',
             'route' => '/login'
         ]);
-        
     }
 
-    public function readFile(string $token)
-    {
-        $file = public_path('auth');
+    public function checkLogin(Request $request)
+    {       
+        Log::channel('auth')->info("-- checkLogin --"); 
+        $header = $request->header('Authorization');
+        
+        $user = $request->user();
+        
+        if(empty($header) && empty($user))
+        {
+            Log::channel('auth')->error("Erro no login");
+            return apiError('Usuário não logado (1)', $header, false, 401);
+                
+        };
+        Log::channel('auth')->info("Estava logado"); 
+        return apiSuccess('Usuário logado', $user, true, 200);
     }
 }

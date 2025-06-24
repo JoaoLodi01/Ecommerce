@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Exceptions\Handler;
 use App\Repositories\Contracts\RegisterContract\{
     RegisterIssuerContract,
     RegisterOwnerContract
@@ -14,8 +15,10 @@ use App\Repositories\Eloquent\RegisterEloquent\{
 };
 use App\Services\Contract\PayMentMethodContract;
 use App\Services\PayMentMethodService;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -27,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(RegisterIssuerContract::class, RegisterIssuerRepository::class);
         $this->app->bind(PayMentMethodContract::class, PayMentMethodService::class);
     
+        $this->app->singleton(ExceptionHandler::class, Handler::class);
+        
     }
 
     /**

@@ -17,15 +17,16 @@ class ProductsController extends Controller
         protected ProductsService $productsService
     ){}
 
-    public function getAll(int $issuer_id){
-        return $this->productsService->getAll($issuer_id);
+    public function getAll(int $issuer_id)
+    {
+        return apiSuccess('Todos os produtos', $this->productsService->getAll($issuer_id));
     }
 
-    public function search(SearchProducts $request){
-        $data = $request->validated();
-        Log::info('Controller');
-        Log::info($data);
-        return $this->productsService->search($data);
+    public function search(SearchProducts $request)
+    {        
+        $product = $this->productsService->search($request->validated());
+        return apiSuccess('Produto encontrado!', $product);
+        
     }
 
     public function create(ProductsRequest $request)
@@ -41,10 +42,6 @@ class ProductsController extends Controller
         return $this->productsService->findByID($id);
     }
 
-    public function findImage(int $id){
-        return $this->productsService->findImage($id);
-    }
-
     public function update(ProductsRequest $request, int $id)
     {
         $data = $request->validated();
@@ -54,8 +51,14 @@ class ProductsController extends Controller
         return $this->productsService->update($data, $id);
     }
 
-    public function delete(int $id){
-        return $this->productsService->delete($id);
+    public function active(int $id)
+    {
+        return apiSuccess("Produto ativado com sucesso!", $this->productsService->active($id));
+    }
+
+    public function delete(int $id)
+    {
+        return apiSuccess("Produto ativado com sucesso!", $this->productsService->delete($id));
     }
 
     public function allGroup()

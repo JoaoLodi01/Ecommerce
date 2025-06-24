@@ -1,25 +1,14 @@
-main() {
-    frontend_path="C:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/quasar"
-    api_path="C:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/api"
+main()
+{
+	frontend_path="c:/Code/ProjetoWeb/quasar"
+	api_path="c:/Code/ProjetoWeb/api"
+	
+	cd $frontend_path
+	start bash -c "quasar dev"
 
-    # Tenta no C:
-    if [ ! -d "$frontend_path" ]; then
-        frontend_path="D:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/quasar"
-    fi
+    cd $api_path
 
-<<<<<<< HEAD
-    if [ ! -d "$api_path" ]; then
-        api_path="D:/Gabriel/Projetos/SGBR/1_Hotel_Ecommerce/api"
-    fi
-=======
-	start bash -c "php artisan serve --host=192.168.98.18"
->>>>>>> ae52f3c8638b5633cc334edc7b542844072697e4
-
-    cd "$frontend_path" || { echo "Erro ao acessar $frontend_path"; exit 1; }
-    start bash -c "quasar dev"
-
-    cd "$api_path" || { echo "Erro ao acessar $api_path"; exit 1; }
-    start bash -c "php artisan serve --host=192.168.1.11"
+	start bash -c "php artisan serve --host=192.168.98.32"
 }
 
 main

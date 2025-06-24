@@ -16,7 +16,7 @@ class SearchCustomer extends FormRequest
     {
         return [
             'issuer_id' => ['required'],
-            'fillter' => ['required'],
+            'filter' => ['required'],
             'search' => ['required']
         ];
     }
@@ -24,7 +24,7 @@ class SearchCustomer extends FormRequest
     public function messages(): array
     {
         return [
-            'fillter.required' => 'O filtro da busca é necessário.',
+            'filter.required' => 'O filtro da busca é necessário.',
             'search.required' => 'O parametro para a busca é necessário.'
         ];
     }

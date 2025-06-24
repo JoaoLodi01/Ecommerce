@@ -6,6 +6,19 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
+=======
+    'App\\Actions\\ElaborateSummary' => $vendorDir . '/laravel/pint/app/Actions/ElaborateSummary.php',
+    'App\\Actions\\FixCode' => $vendorDir . '/laravel/pint/app/Actions/FixCode.php',
+    'App\\Commands\\DefaultCommand' => $vendorDir . '/laravel/pint/app/Commands/DefaultCommand.php',
+    'App\\Contracts\\PathsRepository' => $vendorDir . '/laravel/pint/app/Contracts/PathsRepository.php',
+    'App\\Exceptions\\ExceptionCreateCustomer' => $baseDir . '/app/Exceptions/ExceptionCreateCustomer.php',
+    'App\\Exceptions\\HandleExceptions' => $vendorDir . '/laravel/pint/app/Exceptions/HandleExceptions.php',
+    'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Exceptions\\InsufficientPayment' => $baseDir . '/app/Exceptions/InsufficientPayment.php',
+    'App\\Factories\\ConfigurationFactory' => $vendorDir . '/laravel/pint/app/Factories/ConfigurationFactory.php',
+    'App\\Factories\\ConfigurationResolverFactory' => $vendorDir . '/laravel/pint/app/Factories/ConfigurationResolverFactory.php',
+>>>>>>> 27847248784e12c0ca0c362dbf50d1b5fee23ed2
     'App\\Http\\Controllers\\Auth\\AuthController' => $baseDir . '/app/Http/Controllers/Auth/AuthController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Config\\ConfigController' => $baseDir . '/app/Http/Controllers/Config/ConfigController.php',
@@ -18,6 +31,10 @@ return array(
     'App\\Http\\Controllers\\EcommerceController\\ProductsController' => $baseDir . '/app/Http/Controllers/EcommerceController/ProductsController.php',
     'App\\Http\\Controllers\\EcommerceController\\ReceiveController' => $baseDir . '/app/Http/Controllers/EcommerceController/ReceiveController.php',
     'App\\Http\\Controllers\\EcommerceController\\UserController' => $baseDir . '/app/Http/Controllers/EcommerceController/UserController.php',
+<<<<<<< HEAD
+=======
+    'App\\Http\\Controllers\\Exceptions\\ExceptionsController' => $baseDir . '/app/Http/Controllers/Exceptions/ExceptionsController.php',
+>>>>>>> 27847248784e12c0ca0c362dbf50d1b5fee23ed2
     'App\\Http\\Controllers\\FirstSteps\\FirstStepsController' => $baseDir . '/app/Http/Controllers/FirstSteps/FirstStepsController.php',
     'App\\Http\\Controllers\\HotelController\\HotelController' => $baseDir . '/app/Http/Controllers/HotelController/HotelController.php',
     'App\\Http\\Controllers\\HotelController\\RoomController' => $baseDir . '/app/Http/Controllers/HotelController/RoomController.php',
@@ -52,6 +69,10 @@ return array(
     'App\\Http\\Requests\\Register\\RegisterOwnerRequest' => $baseDir . '/app/Http/Requests/Register/RegisterOwnerRequest.php',
     'App\\Http\\Requests\\Report\\PDVReport\\ReportCashClosingPeriodRequest' => $baseDir . '/app/Http/Requests/Report/PDVReport/ReportCashClosingPeriodRequest.php',
     'App\\Http\\Requests\\UserRequest' => $baseDir . '/app/Http/Requests/UserRequest.php',
+<<<<<<< HEAD
+=======
+    'App\\Kernel' => $vendorDir . '/laravel/pint/app/Kernel.php',
+>>>>>>> 27847248784e12c0ca0c362dbf50d1b5fee23ed2
     'App\\Models\\ConfigCustomers' => $baseDir . '/app/Models/ConfigCustomers.php',
     'App\\Models\\ConfigProducts' => $baseDir . '/app/Models/ConfigProducts.php',
     'App\\Models\\Customer' => $baseDir . '/app/Models/Customer.php',
@@ -79,7 +100,19 @@ return array(
     'App\\Models\\Registers\\Tributs\\NCM' => $baseDir . '/app/Models/Registers/Tributs/NCM.php',
     'App\\Models\\Registers\\User' => $baseDir . '/app/Models/Registers/User.php',
     'App\\Models\\SiteColors' => $baseDir . '/app/Models/SiteColors.php',
+<<<<<<< HEAD
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
+=======
+    'App\\Output\\Concerns\\InteractsWithSymbols' => $vendorDir . '/laravel/pint/app/Output/Concerns/InteractsWithSymbols.php',
+    'App\\Output\\ProgressOutput' => $vendorDir . '/laravel/pint/app/Output/ProgressOutput.php',
+    'App\\Output\\SummaryOutput' => $vendorDir . '/laravel/pint/app/Output/SummaryOutput.php',
+    'App\\Project' => $vendorDir . '/laravel/pint/app/Project.php',
+    'App\\Providers\\ActionsServiceProvider' => $vendorDir . '/laravel/pint/app/Providers/ActionsServiceProvider.php',
+    'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
+    'App\\Providers\\CommandsServiceProvider' => $vendorDir . '/laravel/pint/app/Providers/CommandsServiceProvider.php',
+    'App\\Providers\\RepositoriesServiceProvider' => $vendorDir . '/laravel/pint/app/Providers/RepositoriesServiceProvider.php',
+    'App\\Repositories\\ConfigurationJsonRepository' => $vendorDir . '/laravel/pint/app/Repositories/ConfigurationJsonRepository.php',
+>>>>>>> 27847248784e12c0ca0c362dbf50d1b5fee23ed2
     'App\\Repositories\\Contracts\\EcommerceContract\\Products' => $baseDir . '/app/Repositories/Contracts/EcommerceContract/Products.php',
     'App\\Repositories\\Contracts\\FirstStepsContract\\FirstStepsContract' => $baseDir . '/app/Repositories/Contracts/FirstStepsContract/FirstStepsContract.php',
     'App\\Repositories\\Contracts\\HotelContract\\HotelDetailContract' => $baseDir . '/app/Repositories/Contracts/HotelContract/HotelDetailContract.php',
@@ -108,6 +141,10 @@ return array(
     'App\\Repositories\\Eloquent\\Reports\\PDV\\ReportCashClosingPeriodRepository' => $baseDir . '/app/Repositories/Eloquent/Reports/PDV/ReportCashClosingPeriodRepository.php',
     'App\\Repositories\\Eloquent\\TributsEloquent\\TributsRepository' => $baseDir . '/app/Repositories/Eloquent/TributsEloquent/TributsRepository.php',
     'App\\Repositories\\Eloquent\\UserRepository' => $baseDir . '/app/Repositories/Eloquent/UserRepository.php',
+<<<<<<< HEAD
+=======
+    'App\\Repositories\\GitPathsRepository' => $vendorDir . '/laravel/pint/app/Repositories/GitPathsRepository.php',
+>>>>>>> 27847248784e12c0ca0c362dbf50d1b5fee23ed2
     'App\\Services\\Config\\ConfigService' => $baseDir . '/app/Services/Config/ConfigService.php',
     'App\\Services\\Contract\\PayMentMethodContract' => $baseDir . '/app/Services/Contract/PayMentMethodContract.php',
     'App\\Services\\CustomerService' => $baseDir . '/app/Services/CustomerService.php',
@@ -118,6 +155,10 @@ return array(
     'App\\Services\\EcommerceService\\ProductsService' => $baseDir . '/app/Services/EcommerceService/ProductsService.php',
     'App\\Services\\EcommerceService\\ReceiveService' => $baseDir . '/app/Services/EcommerceService/ReceiveService.php',
     'App\\Services\\EcommerceService\\UserService' => $baseDir . '/app/Services/EcommerceService/UserService.php',
+<<<<<<< HEAD
+=======
+    'App\\Services\\Exceptions\\ExceptionsService' => $baseDir . '/app/Services/Exceptions/ExceptionsService.php',
+>>>>>>> 27847248784e12c0ca0c362dbf50d1b5fee23ed2
     'App\\Services\\FirstSteps\\FirstStepsService' => $baseDir . '/app/Services/FirstSteps/FirstStepsService.php',
     'App\\Services\\HotelServices\\HotelService' => $baseDir . '/app/Services/HotelServices/HotelService.php',
     'App\\Services\\HotelServices\\ReservationService' => $baseDir . '/app/Services/HotelServices/ReservationService.php',
@@ -130,6 +171,10 @@ return array(
     'App\\Services\\ReportsService\\PDVReportService\\ReportCashClosingPeriodService' => $baseDir . '/app/Services/ReportsService/PDVReportService/ReportCashClosingPeriodService.php',
     'App\\Services\\ReportsService\\ReportCustomerService' => $baseDir . '/app/Services/ReportsService/ReportCustomerService.php',
     'App\\Services\\TributsService\\TributsServices' => $baseDir . '/app/Services/TributsService/TributsServices.php',
+<<<<<<< HEAD
+=======
+    'App\\ValueObjects\\Issue' => $vendorDir . '/laravel/pint/app/ValueObjects/Issue.php',
+>>>>>>> 27847248784e12c0ca0c362dbf50d1b5fee23ed2
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Brick\\Math\\BigDecimal' => $vendorDir . '/brick/math/src/BigDecimal.php',
     'Brick\\Math\\BigInteger' => $vendorDir . '/brick/math/src/BigInteger.php',

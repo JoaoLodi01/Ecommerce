@@ -10,7 +10,10 @@
             class="flex justify-between "
             
         >
-            <h1 class="text-3xl font-semibold m-5">Clientes</h1>        
+            <h1 v-if="!showRegisterCustomers && !showUpdateCustomers" class="text-3xl font-semibold m-5">Clientes</h1>
+            <h1 v-if="showRegisterCustomers" class="text-3xl font-semibold m-5">Novo cliente</h1>
+            <h1 v-if="showUpdateCustomers" class="text-3xl font-semibold m-5">Edição de cliente</h1>
+            
             <div 
                 :class="{
                     'mt-5': widthScreen > 1366,
@@ -21,6 +24,7 @@
                     v-if="showCustomers"
                     @click="openRegister()"
                     class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
+
                 >
                     <span v-if="widthScreen <= 1080" > Novo cliente </span>
                     <span v-else>Cadastrar um novo cliente</span>
@@ -39,12 +43,33 @@
         </div>
         
         <div 
-            v-if="widthScreen > 1080" class="mt-2 ml-2"
+            v-if="widthScreen > 1080" class="mt-2 ml-2 flex"
+
         >
             <ReportCustomer
                 v-if="showReportCustomer"
                 :widthScreen="widthScreen"
+                :issuerID="issuerID"
             />
+            
+            <div 
+                class="ml-auto"
+                v-if="showReportCustomer"
+
+            >
+                <q-option-group
+                    v-model="searchFilter"
+                    type="radio"
+                    toggle
+                    class="flex"
+                    :options="[
+                        {label: 'Todos', value: 'all'},
+                        {label: 'Ativos', value: 'active'},
+                        {label: 'Inativos', value: 'disabled'},
+                    ]"
+                />
+
+            </div>
 
         </div>
         <div 
@@ -71,6 +96,7 @@
                 <ReportCustomer
                     v-if="showReportCustomerMini"
                     :widthScreen="widthScreen"
+                    :issuerID="issuerID"
                 />
 
             </div>
@@ -78,235 +104,242 @@
     </div>
   
     <div 
-        class="customer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10" 
         v-if="showCustomers"
-        :class="{
-            'ml-20 w-[160vh]': widthScreen > 1366,
-            'ml-12': widthScreen <= 1366
-        }"    
     >
-        <div
-            v-for="(customer, id) in customers" :key="id" 
-            class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+        <div 
+            class="customer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10" 
+            :class="{
+                'ml-20 w-[160vh]': widthScreen > 1366,
+                'ml-12': widthScreen <= 1366
+            }"    
         >
-            <div @click="editCustomer(customer.id, customer.company_name || customer.trade_name)">
-                <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">ID:</span> {{ customer.customer_cod }}
-                </div>
+            <div
+                v-for="(customer, id) in customers" :key="id" 
+                class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+            >
+                <div @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name)">
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span class="font-semibold">ID:</span> {{ customer.customer_cod }}
+                    </div>
 
-                <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">Cliente:</span> {{ customer.company_name || customer.trade_name }}
-                </div>
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span class="font-semibold">Cliente:</span> {{ customer.company_name || customer.trade_name }}
+                    </div>
 
-                <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">CPF:</span> {{ customer.cpf.lenth < 0 ? customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'Sem CPF'}}
-                </div>
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span class="font-semibold">CPF:</span> {{ customer.cpf? customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'Sem CPF'}}
+                    </div>
 
-                <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">CNPJ:</span> {{ customer.cnpj.lenth < 0 ? customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : 'Sem CNPJ' }}
-                </div>
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span class="font-semibold">CNPJ:</span> {{ customer.cnpj ? customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : 'Sem CNPJ' }}
+                    </div>
 
-                <div class="text-sm text-gray-500 mb-2">
-                <span class="font-semibold">Endereço:</span> {{ customer.address ?? 'Sem endereço cadastrado' }}
-                </div>
+                    <div class="text-sm text-gray-500 mb-2">
+                        <span class="font-semibold">Endereço:</span> {{ customer.address ?? 'Sem endereço cadastrado' }}
+                    </div>
 
-                <div class="text-sm text-gray-500 mb-2">
-                <span class="font-semibold">Status:</span> {{ customer.active === 1 ? 'Ativo' : 'Inativo' }}
+                    <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">Status:</span> {{ customer.active === 1 ? 'Ativo' : 'Inativo' }}
+                    </div>
                 </div>
-            </div>
+                
+                <!-- Ações -->
+                <div class="flex space-x-2" >
+                    <q-btn
+                        @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name)"
+                        class="px-4 py-2 rounded-lg transition"
+                        :disabled=!customer.active
+                        :class="{
+                            'text-gray-400 bg-slate-500': !customer.active,
+                            'text-blue-500 bg-blue-100 hover:bg-blue-200': customer.active,
+                        }"    
+                    >
+                        Editar
+                    </q-btn>
+                    <q-btn
+                        @click="deleteOrActive('disable', customer.customer_cod)"
+                        class="px-4 py-2 rounded-lg transition"
+                        :disabled=!customer.active
+                        :class="{
+                            'text-gray-400 bg-slate-500': !customer.active,
+                            'text-red-500 bg-red-100 hover:bg-red-200': customer.active,
+                        }"    
+                        v-if="customer.active"
+                    >
+                        Desativar
+                    </q-btn>
+                    <q-btn
+                        @click="deleteOrActive('active', customer.customer_cod)"
+                        v-else
+                        class="px-4 py-2 rounded-lg transition"
+                        :class="{
+                            'text-gray-400 bg-slate-500': !customer.active
+                        }"
+                        
+                    >   
+                        Ativar
+                    </q-btn>
+            </div> <!-- For acaba aqui-->
+        </div>
+        </div>
+
+        <div v-if="!showCustomers" >
+            <RegisterCustomer
+                v-if="showRegisterCustomers"
+                @close="closeReload($event)"
+                :widthScreen="widthScreen"
+                
+            />
+
+            <UpdateCustomer
+                v-if="showUpdateCustomers"
+                :customerID="customerID"
+                :widthScreen="widthScreen"
+                @close="closeReload($event)"
+
+            />
+
+            <ConfigCustomers
+                v-if="showConfig"
+                
+            />
             
-            <!-- Ações -->
-            <div class="flex space-x-2" >
-                <q-btn
-                    @click="editCustomer(customer.id, customer.company_name || customer.trade_name)"
-                    class="px-4 py-2 rounded-lg transition"
-                    :disabled=!customer.active
-                    :class="{
-                        'text-gray-400 bg-slate-500': !customer.active,
-                        'text-blue-500 bg-blue-100 hover:bg-blue-200': customer.active,
-                    }"    
-                >
-                    Editar
-                </q-btn>
-                <q-btn
-                    @click="deleteCustomer(customer.id, customer.company_name || customer.trade_name)"
-                    class="px-4 py-2 rounded-lg transition"
-                    :disabled=!customer.active
-                    :class="{
-                        'text-gray-400 bg-slate-500': !customer.active,
-                        'text-red-500 bg-red-100 hover:bg-red-200': customer.active,
-                    }"    
-                    v-if="customer.active"
-                >
-                    Desativar
-                </q-btn>
-                <q-btn
-                    v-else
-                    class="px-4 py-2 rounded-lg transition"
-                    :class="{
-                        'text-gray-400 bg-slate-500': !customer.active
-                    }"
-                    @click="activeCustomer(customer.id, customer.company_name || customer.trade_name)"
-                >   
-                    Ativar
-                </q-btn>
-            
-        </div> <!-- For acaba aqui-->
-      </div>
+        </div>
     </div>
-
-    <div v-if="!showCustomers" >
-        <RegisterCustomer
-            v-if="showRegisterCustomers"
-            @close="closeReload($event)"
-            :widthScreen="widthScreen"
-            
+    <div v-else>
+        <LoandingPage
+            @show-page="showCustomers = $event"
+            :text="'Carregando clientes ...'"
         />
 
-        <UpdateCustomer
-            v-if="showUpdateCustomers"
-            :customerID="customerID"
-            :customerName="customerName"
-            :widthScreen="widthScreen"
-            @close="closeReload($event)"
-        />
-
-        <ConfigCustomers
-            v-if="showConfig"
-
-        />
-        
     </div>
 </template>
   
-<script>
-    import { LocalStorage } from 'quasar';
+<script setup lang="ts">
+    import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
+    import { ref, onMounted, watch } from 'vue';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
     import UpdateCustomer from 'src/components/Register/Customers/UpdateCustomer.vue';
     import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
+    
+    const $q = useQuasar();
+    
+    let allCustomers = ref<ICustomer[]>([]);
+    let customers = ref<ICustomer[]>([]);
 
-    export default {
-        data() {
-            return {
-                customers: [],
-                showCustomers: true,
-                showReportCustomer: true,
-                showReportCustomerMini: false,
-                showRegisterCustomers: false,
-                showConfig: false,
-                showUpdateCustomers: false,
-                customerID: '',
-                customerName: '',
-                widthScreen: 0                
-            };
-        },
+    let showCustomers = ref<boolean>(false);
+    let showReportCustomer = ref<boolean>(true);
+    let showReportCustomerMini = ref<boolean>(false);
+    let showRegisterCustomers = ref<boolean>(false);
+    let showConfig = ref<boolean>(false);
+    let showUpdateCustomers = ref<boolean>(false);
+    let customerID = ref<number>(0);
+    let customerName = ref<string>('');
+    let widthScreen = ref<number>(0);
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+    const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
-        mounted(){
-            this.getCustomers();
-            this.widthScreen += screen.width
+    watch(searchFilter, async (newOption) =>
+    {
+        if(newOption === 'active')
+        {
+            customers.value = allCustomers.value.filter(c => c.active === 1);
+        } else if (newOption === 'disabled')
+        {
+            customers.value = allCustomers.value.filter(c => c.active === 0);
 
-        },
+        } else {
+            customers.value = [...allCustomers.value];
+        };
+        
+    });
 
-        methods: {
-            async getCustomers() {
-                const response = await api.get(`/customers/all/${LocalStorage.getItem("issuer_id")}`);
-                this.customers = response.data.all;
-                
-            },
-
-            async deleteCustomer(id, name)
-            {
-                const confirmed = confirm(`Deseja inativar o cliente: ${name}`);
-                if(confirmed && name)
-                {
-                    const res = await api.delete(`/customers/${id}/deactivate`);
-                    res.data.success ? window.location.reload() : alert('Erro ao desativar');
-                    
-                }
-
-            },
-
-            async activeCustomer(id, name)
-            {
-                const confirmed = confirm(`Deseja ativar o cliente: ${name}`);
-                if(confirmed && name)
-                {
-                    const res = await api.put(`/customers/${id}/active`);
-                    res.data.success ? window.location.reload() : alert('Erro ao ativar');
-                    
-                }
-                
-            },
-
-            openRegister()
-            {
-                this.showRegisterCustomers = true;
-                this.showUpdateCustomers = false;
-                this.showCustomers = false;
-                this.showReportCustomer = false;
-                this.showReportCustomerMini = false;
-                
-            },  
-
-            closeRegister()
-            {
-                this.showCustomers = true
-                this.showRegisterCustomers = false
-                this.showUpdateCustomers = false
-                this.showReportCustomer = false
-
-            },
-
-            openConfig()
-            {
-                this.showConfig = true
-                this.showUpdateCustomers = false
-                this.showCustomers = false
-                this.showReportCustomer = false
-            },
-
-            openReportCustomerMini()
-            {
-                this.showReportCustomerMini = !this.showReportCustomerMini
-            },
-
-            closeRegister()
-            {
-                this.showRegisterCustomers = false
-                this.showUpdateCustomers = false
-                this.showCustomers = true
-                this.showReportCustomer = true
-            },
-
-            closeReload(event)
-            {
-                this.showUpdateCustomers = event
-                this.showRegisterCustomers = event
-                window.location.reload()
-            },
-
-            editCustomer(id, name)
-            {
-                this.showUpdateCustomers = true
-                this.showCustomers = false
-                this.showRegisterCustomers = false
-                this.showReportCustomer = false
-                this.customerID = id
-                this.customerName = name
-
-            }
-        },
-
-        components: {
-            RegisterCustomer,
-            ReportCustomer,
-            UpdateCustomer,
-            ConfigCustomers
-
-        }
+    const getCustomers = async () =>
+    {
+        const res = await api.get(`/customers/all/${issuerID.value}`);
+        allCustomers.value = res.data.data;
+        customers.value = [...allCustomers.value];
+        
     };
+
+    const deleteOrActive = async (action: string, id: number) =>
+    {
+        const res = action === 'disable' ? await api.put(`customers/${id}/${action}`) : await api.put(`customers/${id}/${action}`);
+        if(res.data.success)
+        {
+            $q.notify({
+                color: `green`,
+                message: res.data.message,
+                timeout: 2000,
+                position: 'top'
+                
+            });
+
+            const customer = customers.value.find(c => c.customer_cod === id);
+            if(customer)
+            {
+                customer.active = action === 'active' ? 1 : 0;
+                
+            };
+        };
+    };
+
+    const openRegister = () => 
+    {
+        showRegisterCustomers.value = true;
+        showUpdateCustomers.value = false;
+        showCustomers.value = false;
+        showReportCustomer.value = false;
+        showReportCustomerMini.value = false;
+        
+    };     
+
+    const closeRegister = () => 
+    {
+        showCustomers.value = true;
+        showReportCustomer.value = true;
+        
+        showRegisterCustomers.value = false;
+        showUpdateCustomers.value = false;
+
+    };           
+
+    const openReportCustomerMini = () => 
+    {
+        showReportCustomerMini.value = !showReportCustomerMini;
+    };
+
+    const editCustomer = (id: number, name: string) =>
+    {
+        showUpdateCustomers.value = true;
+        showCustomers.value = false;
+        showRegisterCustomers.value = false;
+        showReportCustomer.value = false;
+        customerID.value = id;
+        customerName.value = name;
+
+    };
+
+    const closeReload = async (event: boolean) => 
+    {   
+        console.log('Chamnou: closeReload')
+        showRegisterCustomers.value = event;
+        showUpdateCustomers.value = !event;
+        showReportCustomer.value = event;
+        showCustomers.value = event;
+        await getCustomers();
+
+    };
+
+    onMounted(() => {
+        getCustomers();
+        widthScreen.value = screen.width;
+
+    });
+
 </script>
 
 <style>
