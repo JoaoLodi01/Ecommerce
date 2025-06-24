@@ -219,23 +219,6 @@
         
     }
 
-    const showLoading = () =>
-    {
-        $q.loading.show({
-            message: 'Conferindo pagamento  ...'
-        });
-
-        timer = setTimeout(() => {
-            $q.loading.hide()
-            timer = void 0
-
-        }, 3000);
-    };
-
-    const hideLoading = () => {
-        $q.loading.hide();
-    }
-
     const handleInstallments = (installments) =>
     {
         installments = installments;

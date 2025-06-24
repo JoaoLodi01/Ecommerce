@@ -2865,6 +2865,7 @@
 [2025-06-24 02:41:21] local.INFO: Chamou o apiSuccess  
 [2025-06-24 02:41:22] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
 [2025-06-24 02:41:22] local.INFO: Chamou o apiSuccess  
+<<<<<<< HEAD
 [2025-06-24 10:56:27] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
 [2025-06-24 10:56:29] local.INFO: Passou o login, token: 9|cheqf9hHz3EFtZhVm9t1EfzNcdbsotsEKmZUWWkk79608903  
 [2025-06-24 10:56:29] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
@@ -4683,3 +4684,388 @@
 [2025-06-24 17:24:53] local.INFO: Cod. emitente: 1  
 [2025-06-24 17:24:53] local.INFO: Buscando espécies  
 [2025-06-24 17:24:53] local.INFO: Terminou  
+=======
+[2025-06-24 12:32:51] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:06:42] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:09:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 13:09:35] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:09:36] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 13:09:36] local.INFO: Buscando por emitente  
+[2025-06-24 13:09:36] local.INFO: Cod. emitente: 1  
+[2025-06-24 13:09:36] local.INFO: Buscando espécies  
+[2025-06-24 13:09:36] local.INFO: Terminou  
+[2025-06-24 13:09:37] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 13:09:37] local.INFO: Buscando por emitente  
+[2025-06-24 13:09:37] local.INFO: Cod. emitente: 1  
+[2025-06-24 13:09:37] local.INFO: Buscando espécies  
+[2025-06-24 13:09:37] local.INFO: Terminou  
+[2025-06-24 13:09:38] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 13:09:38] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:15:46] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:19:04] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:20:37] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 13:20:37] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:20:38] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 13:20:38] local.INFO: Buscando por emitente  
+[2025-06-24 13:20:38] local.INFO: Cod. emitente: 1  
+[2025-06-24 13:20:38] local.INFO: Buscando espécies  
+[2025-06-24 13:20:38] local.INFO: Terminou  
+[2025-06-24 13:21:12] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:21:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 13:21:14] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:21:14] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 13:21:14] local.INFO: Buscando por emitente  
+[2025-06-24 13:21:14] local.INFO: Cod. emitente: 1  
+[2025-06-24 13:21:14] local.INFO: Buscando espécies  
+[2025-06-24 13:21:14] local.INFO: Terminou  
+[2025-06-24 13:21:44] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 13:21:44] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:21:45] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 13:21:45] local.INFO: Buscando por emitente  
+[2025-06-24 13:21:45] local.INFO: Cod. emitente: 1  
+[2025-06-24 13:21:45] local.INFO: Buscando espécies  
+[2025-06-24 13:21:45] local.INFO: Terminou  
+[2025-06-24 13:23:19] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:23:21] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 13:23:21] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:23:22] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 13:23:22] local.INFO: Buscando por emitente  
+[2025-06-24 13:23:22] local.INFO: Cod. emitente: 1  
+[2025-06-24 13:23:22] local.INFO: Buscando espécies  
+[2025-06-24 13:23:22] local.INFO: Terminou  
+[2025-06-24 13:23:46] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:23:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 13:23:48] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:23:48] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 13:23:48] local.INFO: Buscando por emitente  
+[2025-06-24 13:23:48] local.INFO: Cod. emitente: 1  
+[2025-06-24 13:23:48] local.INFO: Buscando espécies  
+[2025-06-24 13:23:48] local.INFO: Terminou  
+[2025-06-24 13:24:00] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:24:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 13:24:02] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:24:03] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 13:24:03] local.INFO: Buscando por emitente  
+[2025-06-24 13:24:03] local.INFO: Cod. emitente: 1  
+[2025-06-24 13:24:03] local.INFO: Buscando espécies  
+[2025-06-24 13:24:03] local.INFO: Terminou  
+[2025-06-24 13:32:52] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:32:54] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 13:32:54] local.INFO: Chamou o apiSuccess  
+[2025-06-24 13:32:55] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 13:32:55] local.INFO: Buscando por emitente  
+[2025-06-24 13:32:55] local.INFO: Cod. emitente: 1  
+[2025-06-24 13:32:55] local.INFO: Buscando espécies  
+[2025-06-24 13:32:55] local.INFO: Terminou  
+[2025-06-24 14:19:11] local.INFO: Chamou o apiSuccess  
+[2025-06-24 14:19:14] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 14:19:14] local.INFO: Buscando por emitente  
+[2025-06-24 14:19:14] local.INFO: Cod. emitente: 1  
+[2025-06-24 14:19:14] local.INFO: Buscando espécies  
+[2025-06-24 14:19:14] local.INFO: Terminou  
+[2025-06-24 14:19:14] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 14:19:14] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:41:08] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:41:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 15:41:10] local.INFO: Buscando por emitente  
+[2025-06-24 15:41:10] local.INFO: Cod. emitente: 1  
+[2025-06-24 15:41:10] local.INFO: Buscando espécies  
+[2025-06-24 15:41:10] local.INFO: Terminou  
+[2025-06-24 15:41:11] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 15:41:11] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:45:30] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:45:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 15:45:35] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:45:36] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 15:45:36] local.INFO: Buscando por emitente  
+[2025-06-24 15:45:36] local.INFO: Cod. emitente: 1  
+[2025-06-24 15:45:36] local.INFO: Buscando espécies  
+[2025-06-24 15:45:36] local.INFO: Terminou  
+[2025-06-24 15:53:42] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:53:57] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 15:53:57] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:53:58] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 15:53:58] local.INFO: Buscando por emitente  
+[2025-06-24 15:53:58] local.INFO: Cod. emitente: 1  
+[2025-06-24 15:53:58] local.INFO: Buscando espécies  
+[2025-06-24 15:53:58] local.INFO: Terminou  
+[2025-06-24 15:57:17] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:57:20] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 15:57:20] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:57:20] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 15:57:20] local.INFO: Buscando por emitente  
+[2025-06-24 15:57:20] local.INFO: Cod. emitente: 1  
+[2025-06-24 15:57:20] local.INFO: Buscando espécies  
+[2025-06-24 15:57:20] local.INFO: Terminou  
+[2025-06-24 15:59:40] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:59:42] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 15:59:42] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:59:43] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 15:59:43] local.INFO: Buscando por emitente  
+[2025-06-24 15:59:43] local.INFO: Cod. emitente: 1  
+[2025-06-24 15:59:43] local.INFO: Buscando espécies  
+[2025-06-24 15:59:43] local.INFO: Terminou  
+[2025-06-24 15:59:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 15:59:51] local.INFO: Chamou o apiSuccess  
+[2025-06-24 15:59:52] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 15:59:52] local.INFO: Buscando por emitente  
+[2025-06-24 15:59:52] local.INFO: Cod. emitente: 1  
+[2025-06-24 15:59:52] local.INFO: Buscando espécies  
+[2025-06-24 15:59:52] local.INFO: Terminou  
+[2025-06-24 16:01:06] local.INFO: Chamou o apiSuccess  
+[2025-06-24 16:01:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 16:01:07] local.INFO: Chamou o apiSuccess  
+[2025-06-24 16:01:07] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 16:01:07] local.INFO: Buscando por emitente  
+[2025-06-24 16:01:07] local.INFO: Cod. emitente: 1  
+[2025-06-24 16:01:07] local.INFO: Buscando espécies  
+[2025-06-24 16:01:07] local.INFO: Terminou  
+[2025-06-24 16:03:58] local.INFO: Chamou o apiSuccess  
+[2025-06-24 16:04:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 16:04:01] local.INFO: Chamou o apiSuccess  
+[2025-06-24 16:04:01] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 16:04:01] local.INFO: Buscando por emitente  
+[2025-06-24 16:04:02] local.INFO: Cod. emitente: 1  
+[2025-06-24 16:04:02] local.INFO: Buscando espécies  
+[2025-06-24 16:04:02] local.INFO: Terminou  
+[2025-06-24 17:05:10] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:05:10] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:05:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:05:10] local.INFO: Buscando por emitente  
+[2025-06-24 17:05:10] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:05:10] local.INFO: Buscando espécies  
+[2025-06-24 17:05:10] local.INFO: Terminou  
+[2025-06-24 17:05:11] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:05:11] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:05:11] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:05:11] local.INFO: Buscando por emitente  
+[2025-06-24 17:05:11] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:05:11] local.INFO: Buscando espécies  
+[2025-06-24 17:05:11] local.INFO: Terminou  
+[2025-06-24 17:05:18] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:05:18] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:05:19] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:05:19] local.INFO: Buscando por emitente  
+[2025-06-24 17:05:19] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:05:19] local.INFO: Buscando espécies  
+[2025-06-24 17:05:19] local.INFO: Terminou  
+[2025-06-24 17:05:22] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:05:22] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:05:23] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:05:23] local.INFO: Buscando por emitente  
+[2025-06-24 17:05:23] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:05:23] local.INFO: Buscando espécies  
+[2025-06-24 17:05:23] local.INFO: Terminou  
+[2025-06-24 17:05:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:05:24] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:05:25] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:05:25] local.INFO: Buscando por emitente  
+[2025-06-24 17:05:25] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:05:25] local.INFO: Buscando espécies  
+[2025-06-24 17:05:25] local.INFO: Terminou  
+[2025-06-24 17:05:26] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:05:26] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:05:27] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:05:27] local.INFO: Buscando por emitente  
+[2025-06-24 17:05:27] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:05:27] local.INFO: Buscando espécies  
+[2025-06-24 17:05:27] local.INFO: Terminou  
+[2025-06-24 17:05:29] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:05:29] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:05:29] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:05:29] local.INFO: Buscando por emitente  
+[2025-06-24 17:05:29] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:05:29] local.INFO: Buscando espécies  
+[2025-06-24 17:05:29] local.INFO: Terminou  
+[2025-06-24 17:15:58] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:15:58] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:16:01] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:16:01] local.INFO: Buscando por emitente  
+[2025-06-24 17:16:01] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:16:01] local.INFO: Buscando espécies  
+[2025-06-24 17:16:01] local.INFO: Terminou  
+[2025-06-24 17:16:03] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:16:08] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:16:08] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:16:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:16:10] local.INFO: Buscando por emitente  
+[2025-06-24 17:16:10] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:16:10] local.INFO: Buscando espécies  
+[2025-06-24 17:16:10] local.INFO: Terminou  
+[2025-06-24 17:18:02] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:18:06] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:18:06] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:18:07] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:18:07] local.INFO: Buscando por emitente  
+[2025-06-24 17:18:07] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:18:07] local.INFO: Buscando espécies  
+[2025-06-24 17:18:07] local.INFO: Terminou  
+[2025-06-24 17:18:24] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:18:24] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:18:24] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:18:24] local.INFO: Buscando por emitente  
+[2025-06-24 17:18:24] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:18:24] local.INFO: Buscando espécies  
+[2025-06-24 17:18:24] local.INFO: Terminou  
+[2025-06-24 17:18:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:18:33] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:18:34] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:18:34] local.INFO: Buscando por emitente  
+[2025-06-24 17:18:34] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:18:34] local.INFO: Buscando espécies  
+[2025-06-24 17:18:34] local.INFO: Terminou  
+[2025-06-24 17:18:56] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:18:56] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:18:56] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:18:56] local.INFO: Buscando por emitente  
+[2025-06-24 17:18:56] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:18:56] local.INFO: Buscando espécies  
+[2025-06-24 17:18:56] local.INFO: Terminou  
+[2025-06-24 17:20:43] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:20:43] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:20:43] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:20:43] local.INFO: Buscando por emitente  
+[2025-06-24 17:20:43] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:20:43] local.INFO: Buscando espécies  
+[2025-06-24 17:20:43] local.INFO: Terminou  
+[2025-06-24 17:23:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:23:09] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:23:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:23:10] local.INFO: Buscando por emitente  
+[2025-06-24 17:23:10] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:23:10] local.INFO: Buscando espécies  
+[2025-06-24 17:23:10] local.INFO: Terminou  
+[2025-06-24 17:35:48] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:35:48] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:35:49] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:35:49] local.INFO: Buscando por emitente  
+[2025-06-24 17:35:49] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:35:49] local.INFO: Buscando espécies  
+[2025-06-24 17:35:49] local.INFO: Terminou  
+[2025-06-24 17:38:50] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:38:50] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:38:51] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:38:51] local.INFO: Buscando por emitente  
+[2025-06-24 17:38:51] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:38:51] local.INFO: Buscando espécies  
+[2025-06-24 17:38:51] local.INFO: Terminou  
+[2025-06-24 17:39:24] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:39:27] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:39:27] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:39:27] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:39:27] local.INFO: Buscando por emitente  
+[2025-06-24 17:39:27] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:39:27] local.INFO: Buscando espécies  
+[2025-06-24 17:39:27] local.INFO: Terminou  
+[2025-06-24 17:40:29] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:40:31] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:40:31] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:40:32] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:40:32] local.INFO: Buscando por emitente  
+[2025-06-24 17:40:32] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:40:32] local.INFO: Buscando espécies  
+[2025-06-24 17:40:32] local.INFO: Terminou  
+[2025-06-24 17:41:42] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:41:42] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:41:43] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:41:43] local.INFO: Buscando por emitente  
+[2025-06-24 17:41:43] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:41:43] local.INFO: Buscando espécies  
+[2025-06-24 17:41:43] local.INFO: Terminou  
+[2025-06-24 17:47:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:47:10] local.INFO: Buscando por emitente  
+[2025-06-24 17:47:10] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:47:10] local.INFO: Buscando espécies  
+[2025-06-24 17:47:10] local.INFO: Terminou  
+[2025-06-24 17:47:11] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:47:11] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:47:46] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:47:46] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:47:47] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:47:47] local.INFO: Buscando por emitente  
+[2025-06-24 17:47:47] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:47:47] local.INFO: Buscando espécies  
+[2025-06-24 17:47:47] local.INFO: Terminou  
+[2025-06-24 17:50:43] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:50:43] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:50:43] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:50:43] local.INFO: Buscando por emitente  
+[2025-06-24 17:50:43] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:50:43] local.INFO: Buscando espécies  
+[2025-06-24 17:50:43] local.INFO: Terminou  
+[2025-06-24 17:51:09] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:51:09] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:51:10] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:51:10] local.INFO: Buscando por emitente  
+[2025-06-24 17:51:10] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:51:10] local.INFO: Buscando espécies  
+[2025-06-24 17:51:10] local.INFO: Terminou  
+[2025-06-24 17:53:00] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:53:00] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:53:00] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:53:00] local.INFO: Buscando por emitente  
+[2025-06-24 17:53:00] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:53:00] local.INFO: Buscando espécies  
+[2025-06-24 17:53:00] local.INFO: Terminou  
+[2025-06-24 17:53:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:53:02] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:53:03] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:53:03] local.INFO: Buscando por emitente  
+[2025-06-24 17:53:03] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:53:03] local.INFO: Buscando espécies  
+[2025-06-24 17:53:03] local.INFO: Terminou  
+[2025-06-24 17:53:03] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 17:53:03] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:53:04] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:53:04] local.INFO: Buscando por emitente  
+[2025-06-24 17:53:04] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:53:04] local.INFO: Buscando espécies  
+[2025-06-24 17:53:04] local.INFO: Terminou  
+[2025-06-24 17:53:07] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 17:53:07] local.INFO: Chamou o apiSuccess  
+[2025-06-24 17:53:08] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 17:53:08] local.INFO: Buscando por emitente  
+[2025-06-24 17:53:08] local.INFO: Cod. emitente: 1  
+[2025-06-24 17:53:08] local.INFO: Buscando espécies  
+[2025-06-24 17:53:08] local.INFO: Terminou  
+[2025-06-24 18:03:32] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 18:03:32] local.INFO: Buscando por emitente  
+[2025-06-24 18:03:32] local.INFO: Cod. emitente: 1  
+[2025-06-24 18:03:32] local.INFO: Buscando espécies  
+[2025-06-24 18:03:32] local.INFO: Terminou  
+[2025-06-24 18:03:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 18:03:34] local.INFO: Chamou o apiSuccess  
+[2025-06-24 18:13:50] local.INFO: Chamou o apiSuccess  
+[2025-06-24 18:13:53] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 18:13:53] local.INFO: Buscando por emitente  
+[2025-06-24 18:13:53] local.INFO: Cod. emitente: 1  
+[2025-06-24 18:13:53] local.INFO: Buscando espécies  
+[2025-06-24 18:13:53] local.INFO: Terminou  
+[2025-06-24 18:13:55] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 18:13:55] local.INFO: Chamou o apiSuccess  
+[2025-06-24 18:14:27] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 18:14:27] local.INFO: Chamou o apiSuccess  
+[2025-06-24 18:14:28] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 18:14:28] local.INFO: Buscando por emitente  
+[2025-06-24 18:14:28] local.INFO: Cod. emitente: 1  
+[2025-06-24 18:14:28] local.INFO: Buscando espécies  
+[2025-06-24 18:14:28] local.INFO: Terminou  
+[2025-06-24 18:15:06] local.INFO: Chamou o apiSuccess  
+[2025-06-24 18:15:08] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 18:15:08] local.INFO: Buscando por emitente  
+[2025-06-24 18:15:08] local.INFO: Cod. emitente: 1  
+[2025-06-24 18:15:08] local.INFO: Buscando espécies  
+[2025-06-24 18:15:08] local.INFO: Terminou  
+[2025-06-24 18:15:08] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 18:15:08] local.INFO: Chamou o apiSuccess  
+>>>>>>> 64da57df283437f7483970d28d3074fe68102f7b
+[2025-06-24 19:31:27] local.INFO: Chamou o apiSuccess  
+[2025-06-24 19:31:35] local.INFO: Chamou o apiSuccess  
+[2025-06-24 19:31:37] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 19:31:37] local.INFO: Buscando por emitente  
+[2025-06-24 19:31:37] local.INFO: Cod. emitente: 1  
+[2025-06-24 19:31:37] local.INFO: Buscando espécies  
+[2025-06-24 19:31:37] local.INFO: Terminou  
+[2025-06-24 19:31:38] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 19:31:38] local.INFO: Chamou o apiSuccess  
+[2025-06-24 19:35:10] local.INFO: Chamou o apiSuccess  
