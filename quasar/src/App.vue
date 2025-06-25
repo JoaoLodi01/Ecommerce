@@ -7,19 +7,54 @@
     import ErrorDialog from 'src/components/Error/ErrorDialog.vue';
     import emitter from 'src/utils/eventBus';
     import { onMounted, onBeforeUnmount, ref } from 'vue';
-    import { LocalStorage } from 'quasar';
+    import { useRouter } from 'vue-router';
+    import { LocalStorage, useQuasar } from 'quasar';
+    import dayjs from 'dayjs';
 
-    const errorDialog: any = ref(null);
+    const $q = useQuasar();
+    const router = useRouter();
+    const errorDialog = ref(null);
 
-    const showGlobalError = (msg: string) => {
+    const showGlobalError = (msg: string) => 
+    {
         errorDialog.value?.showError(msg);
         
     };
     
+    const checkLogin = () =>
+    {
+        const now = dayjs();
+        const expireStr = LocalStorage.getItem("expire");
+
+        if(expireStr && typeof expireStr === 'string')
+        {
+            const expireDate = dayjs(expireStr);
+            if(now.isAfter(expireDate))
+            {
+                $q.notify({
+                    color: 'yellow-7',
+                    message: 'Sessão expirada!',
+                    position: 'top'
+
+                });
+
+                LocalStorage.remove("auth_token");
+                LocalStorage.remove("expire");
+                router.push('/');
+                
+            } else {
+                console.log('Ta deboa, consulta as: ', now.format('HH:mm:ss'));
+                console.log('expireDate: ', expireDate.format('HH:mm:ss'));
+            };
+        };
+    }
+
     onMounted(() => {
         LocalStorage.removeItem("pdvID")
         emitter.on('global-error', showGlobalError);
-
+    
+        checkLogin();
+        setInterval(checkLogin, 30 * 1000);
     });
 
     onBeforeUnmount(() => {

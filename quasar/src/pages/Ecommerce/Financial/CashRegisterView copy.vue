@@ -135,29 +135,61 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script >
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
-    import { ref, onMounted } from "vue";
+    import { onBeforeUnmount } from "vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     import RegisterCash from "src/components/Register/Financial/RegisterCash.vue";
     import { LocalStorage } from 'quasar';
     dayjs.extend(isBetween);
 
-    const $q = useQuasar()
-    const today = dayjs();
-    let cashs = [];
-    let withScreen = ref<number>(0);
-    let inputTotal = ref<number>(0);
-    let outputTotal = ref<number>(0);
-    let total = ref<number>(0);
-    let showCashClosing = ref<boolean>(false);
-    let startDate = today.startOf('month').format('YYYY-MM-DD');
-    let endDate = today.endOf('month').format('YYYY-MM-DD');
-    let filteredCashs = [];
+    export default {
+        setup(){
+            const $q = useQuasar()
+            let timer
 
-    async getRegister(){
+            onBeforeUnmount(() => {
+                if(timer !== void 0){
+                    clearTimeout(timer)
+                    $q.loading.hide()
+
+                }
+
+            })
+            return { 
+                showLoading () {
+                    $q.loading.show({
+                        message: 'Carregando registros do caixa ...'
+                    })
+
+                    timer = setTimeout(() => {
+                        $q.loading.hide()
+                        timer = void 0
+                    }, 1200)
+                }
+            }
+        },
+
+        data(){
+            const today = dayjs();
+
+            return{
+                cashs: [],
+                withScreen: 0,
+                input_total: 0,
+                output_total: 0,
+                total: 0,
+                showCashClosing: false,
+                startDate: today.startOf('month').format('YYYY-MM-DD'),
+                endDate: today.endOf('month').format('YYYY-MM-DD'),
+                filteredCashs: []
+            };
+        },
+
+        methods: {
+            async getRegister(){
                 this.showLoading()
                 try {
                     const response = await api.get(`/ecommerce/cash-register/all/${LocalStorage.getItem("issuer_id")}`)

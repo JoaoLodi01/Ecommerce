@@ -13,6 +13,9 @@
             <div class="bg-white border border-black p-5 rounded-lg shadow-xl">
                 <q-form
                     @submit.prevent="login"
+                    :class="{
+                        'w-[18.8rem] h-[17.9rem]': loandingLogin
+                    }"
                 >
                     <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Login</h1>
 
@@ -66,7 +69,7 @@
                         </svg>
                     </q-input>
 
-                    <div class="">
+                    <div v-if="!loandingLogin">
                         <q-btn
                             type="submit"
                             class="m-2 text-white bg-[#BF3658]" 
@@ -81,7 +84,10 @@
                                 label="Esqueceu sua senha?"
                             />
                         </router-link> 
-
+                    </div>
+                    
+                    <div v-if="loandingLogin">
+                        <span class="loader"></span>
                     </div>
                 </q-form>
             </div>
@@ -90,58 +96,66 @@
 </template>
 
 <script setup lang="ts">
-    import { api } from "src/boot/axios"
+    import { api } from 'src/boot/axios';
     import { useQuasar, LocalStorage } from 'quasar';
     import { ref, onMounted, Transition } from "vue";
     import { useRouter } from 'vue-router'
+    import dayjs from 'dayjs';
 
+    const today = dayjs();
     const router = useRouter();
     const $q = useQuasar();
 
-    const email: any = ref(null);
-    const password: any = ref(null);
-    const showPassword: any = ref(false);
-    const showContent: any = ref(false);
-
-    const showLoading = () => {
-        $q.loading.show({
-            message: 'Efetuando login ...'
-        })
-    }
-
-    const hideLoading = () => {
-        $q.loading.hide();
-    }
+    let loandingLogin = ref<boolean>(false);
+    const email = ref<string>('');
+    const password = ref<string>('');
+    const showPassword = ref<boolean>(false);
+    const showContent = ref<boolean>(false);
 
     const login = async () => {
-        showLoading
         const details = { email: email.value, password: password.value }
+        loandingLogin.value = true;
 
         try {
             const res = await api.post("/auth/owner", details)
-            console.log('Res: ', res.data);
+            
             if(res.data.success)
             {
+                loandingLogin.value = false;
                 LocalStorage.set("auth_token", res.data.token);
-                LocalStorage.set("owner_name", res.data.owner.name)
-                LocalStorage.set("owner_cpf", res.data.owner.cpf)
-                LocalStorage.set("user_id", res.data.user.user_cod)
-                LocalStorage.set("user_name", res.data.user.name)
-                LocalStorage.set("uuse_id", res.data.uuse_id)
+                LocalStorage.set("owner_name", res.data.owner.name);
+                LocalStorage.set("owner_cpf", res.data.owner.cpf);
+                LocalStorage.set("user_id", res.data.user.user_cod);
+                LocalStorage.set("user_name", res.data.user.name);
+                LocalStorage.set("uuse_id", res.data.uuse_id);
+
+                const expire = today.add(8, 'hours');
+
+                LocalStorage.set("expire", expire.toISOString());
+
+                $q.notify({
+                    color: 'green',
+                    message: 'Login bem sucedido!',
+                    position: 'top',
+                    timeout: 2000
+                    
+                });
+
                 router.push('/companies')
-            }
+
+            };
             
         } catch (error) {
-            console.error('Erro no login: ', error)
+            console.error('Erro no login: ', error);
         } finally {
-            hideLoading
-        }
+            loandingLogin.value = false;
+        };
 
     }
 
     onMounted(() => {
-        showContent.value = true
-    })
+        showContent.value = true;
+    });
 
 </script>
 
@@ -160,6 +174,36 @@
 
     .slide-up-enter-active {
         transition: all 0.5s ease-out;
+    }
+
+    .loader {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: block;
+        margin:15px auto;
+        position: relative;
+        color: #000;
+        box-sizing: border-box;
+        animation: animloader 2s linear infinite;
+    }
+
+    @keyframes animloader {
+    0% {
+        box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+    }
+    25% {
+        box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 2px;
+    }
+    50% {
+        box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 2px,  -38px 0 0 -2px;
+    }
+    75% {
+        box-shadow: 14px 0 0 2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+    }
+    100% {
+        box-shadow: 14px 0 0 -2px,  38px 0 0 2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+    }
     }
 
 </style>

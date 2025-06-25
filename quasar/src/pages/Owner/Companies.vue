@@ -107,7 +107,7 @@
     const getCompanies = async () =>
     {
         const res = await api.get(`issuer/all/companies/${LocalStorage.getItem("uuse_id")}`);
-        console.log(res.data.data)
+        
         if(res.data.success)
         {
             has.value = true;
@@ -153,6 +153,8 @@
             if(res.data.success)
             {
                 LocalStorage.remove("auth_token");
+                LocalStorage.getItem("expire");
+
                 router.push(res.data.route);
 
             };
