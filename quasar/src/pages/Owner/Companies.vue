@@ -26,7 +26,7 @@
             </div>
             <div class="mt-auto mb-auto border-b">
                 Usuário: {{ owner_name }} |
-                CPF: {{ owner_cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                CPF: {{ String(owner_cpf).replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
             </div>
         </header>
 
@@ -55,13 +55,7 @@
                     </q-card-section>
                 
                 </q-card>
-                <q-card v-if="!has || companies.length < 0">
-                    <q-card-section>
-                        <q-skeleton  height="150px" square />
-                        <span class="mt-5">Carregando dados...</span>
-                    </q-card-section>
-                </q-card>
-
+                
                 <q-card
                     class="q-card ml-5 mr-5 hover:drop-shadow-lg"
                     v-for="(companie, id) in companies" 
@@ -69,22 +63,18 @@
                     
                 >
                     <q-card-section>
-                        <div class="" v-if="has">
-                            <span class="text-xl">{{ companie.company_name }}</span>
-                            <br>
-                            <q-btn 
-                                label="Entrar" 
-                                @click="joinCompanie(companie.company_name, companie.id)"
-                                class="mt-8 bg-[#BF3658] text-white"
+                        <span class="text-xl">{{ companie.companyName }}</span>
+                        <br>
+                        <q-btn 
+                            label="Entrar" 
+                            @click="joinCompanie(companie.companyName, companie.id)"
+                            class="mt-8 bg-[#BF3658] text-white"
 
-                            />
-                            
-                            <p class="mt-5">
-                                {{ companie.cnpj ? 'CNPJ' : 'CPF' }} : {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
-                            </p>
-
-                        </div>
-
+                        />
+                        
+                        <p class="mt-5">
+                            {{ companie.cnpj ? 'CNPJ' : 'CPF' }} : {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                        </p>
                     </q-card-section>
                 </q-card>
             </div>
@@ -92,109 +82,95 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import { LocalStorage } from 'quasar';
+    import { ref, onMounted } from 'vue';
     import { api } from 'src/boot/axios';   
-    import OwnerData from './OwnerData.vue';
+    import { useRouter } from 'vue-router';
+    import camelcaseKeys from 'camelcase-keys';
 
-    export default {
-        data()
+    type TCompanies = {
+        id: number,
+        companyName: string,
+        cnpj: string,
+        cpf: string
+    };
+
+    const router = useRouter();
+    const owner_name = ref<number>(LocalStorage.getItem("owner_name"));
+    const owner_cpf = ref<number>(LocalStorage.getItem("owner_cpf"));
+    let companies = ref<TCompanies[]>([ ]);
+    let witdhScreen = ref<number>(0);
+    let has = ref<boolean>(false);
+    let showContent = ref<boolean>(false);
+        
+    const getCompanies = async () =>
+    {
+        const res = await api.get(`issuer/all/companies/${LocalStorage.getItem("uuse_id")}`);
+        console.log(res.data.data)
+        if(res.data.success)
         {
-            return {
-                companies: [ ],
-                has: false,
-                owner_name: LocalStorage.getItem("owner_name"),
-                owner_cpf: LocalStorage.getItem("owner_cpf"),
-                witdhScreen: 0,
-                showOptions: true,
-                showContent: false
+            has.value = true;
+            const customers = camelcaseKeys(res.data.data, { deep: true });
+            companies.value = customers;
+        };
+    };
 
-            }
-        },
+    const joinCompanie = async (name: string, issuer_id: number) =>
+    {
+        console.log('issuer_id', issuer_id);
+        const first_name = name.split(" ")[0];
+    
+        LocalStorage.setItem("issuer_id", issuer_id);
+        LocalStorage.setItem("first_name", first_name);
+        LocalStorage.setItem("issuer_name", name);
 
-        methods: {
-            async getCompanies()
-            {
-                const response = await api.get(`issuer/all/companies/${LocalStorage.getItem("uuse_id")}`);
-
-                if(response.data.success)
-                {
-                    if(response.data.companies.length > 0)
-                    {
-                        this.has = true
-                        this.companies = response.data.companies
-
-                    } else {
-                        this.has = !this.has
-
-                    }
-                }
-            },
-
-            async joinCompanie(name, issuer_id)
-            {
-                console.log('issuer_id', issuer_id)
-                const first_name = name.split(" ")[0]
-            
-                LocalStorage.setItem("issuer_id", issuer_id)
-                LocalStorage.setItem("first_name", first_name)
-                LocalStorage.setItem("issuer_name", name)
-
-                const response = await api.get(`/first-steps/${issuer_id}`)
-                const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
-                
-                if(!completed)
-                {
-                    LocalStorage.setItem("_completed", false)
-                    this.$router.push({ 
-                        path:`/${first_name}/first/companie-data`, 
-                        params: { name: LocalStorage.getItem("first_name") }
-                    })
-                    
-                } else {
-                    this.$router.push({ 
-                        path:`/${first_name}/home`, 
-                        params: { name: LocalStorage.getItem("first_name") }
-                    })
-
-                }
-                
-            },
-
-            async logout()
-            {
-                const ofCourse = confirm('Deseja realmente sair?')
-                if(ofCourse)
-                {
-                const res = await api.post('/auth/logout')
-                if(res.data.success)
-                {
-                    LocalStorage.remove("auth_token")  
-                    this.$router.push(res.data.route)
-
-                }
-                }
-            }
-        },
-
-        mounted()
+        const response = await api.get(`/first-steps/${issuer_id}`);
+        const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
+        
+        if(!completed)
         {
-            this.getCompanies()
-            this.showContent = true;
-            const uuse_id = LocalStorage.getItem("uuse_id")
+            LocalStorage.setItem("_completed", false);
+            router.push({ 
+                name: `FirstIssuerData`, 
+                params: { name: LocalStorage.getItem("first_name") }
+            });
             
-            if(!uuse_id)
+        } else {
+            router.push({ 
+                name: 'Start', 
+                params: { name: LocalStorage.getItem("first_name") }
+            });
+        };
+    };
+
+    const logout = async () =>
+    {
+        const ofCourse = confirm('Deseja realmente sair?');
+        if(ofCourse)
+        {
+            const res = await api.post('/auth/logout');
+            if(res.data.success)
             {
-                this.$router.push('/register-owner')   
-            }
+                LocalStorage.remove("auth_token");
+                router.push(res.data.route);
 
-            this.witdhScreen = screen.width
-        },
+            };
+        };
+    };
 
-        components: {
-            OwnerData
-        }
-    }
+    onMounted(() => {
+        getCompanies();
+        showContent.value = true;
+        const uuse_id = LocalStorage.getItem("uuse_id");
+        
+        if(!uuse_id)
+        {
+            router.push('/register-owner');
+        };
+
+        witdhScreen.value = screen.width;
+    });
 </script> 
 
 <style lang="scss">

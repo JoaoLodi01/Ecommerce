@@ -1,5 +1,14 @@
 <template>
+    <div v-if="_loanding">
+        <LoandingPage
+            @show-page="showPage($event)"
+            :text="'Carregando clientes ...'"
+        />
+
+    </div>
+    
     <div    
+        v-if="!_loanding"
         :class="{
             'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg w-[160vh]': widthScreen > 1366,
             'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
@@ -11,7 +20,7 @@
             
         >
             <h1 v-if="!showRegisterCustomers && !showUpdateCustomers" class="text-3xl font-semibold m-5">Clientes</h1>
-            <h1 v-if="showRegisterCustomers" class="text-3xl font-semibold m-5">Novo cliente</h1>
+            <h1 v-if="showRegisterCustomers && !showCustomers" class="text-3xl font-semibold m-5">Novo cliente</h1>
             <h1 v-if="showUpdateCustomers" class="text-3xl font-semibold m-5">Edição de cliente</h1>
             
             <div 
@@ -70,10 +79,11 @@
                 />
 
             </div>
-
         </div>
+
+        <!-- É pra cell-->
         <div 
-            v-else
+            v-else 
             class="ml-5"
         >
             <q-btn 
@@ -102,116 +112,108 @@
             </div>
         </div>
     </div>
-  
+
     <div 
-        v-if="showCustomers"
+        class="customer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-2" 
+        :class="{
+            'ml-20 w-[160vh]': widthScreen > 1366,
+            'ml-12': widthScreen <= 1366
+        }"    
     >
-        <div 
-            class="customer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10" 
-            :class="{
-                'ml-20 w-[160vh]': widthScreen > 1366,
-                'ml-12': widthScreen <= 1366
-            }"    
+        <div
+            v-if="showCustomers"
+            v-for="(customer, id) in customers" :key="id" 
+            class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
         >
-            <div
-                v-for="(customer, id) in customers" :key="id" 
-                class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+            <div 
+                @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name)"
             >
-                <div @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name)">
-                    <div class="text-sm text-gray-500 mb-2">
-                        <span class="font-semibold">ID:</span> {{ customer.customer_cod }}
-                    </div>
-
-                    <div class="text-sm text-gray-500 mb-2">
-                        <span class="font-semibold">Cliente:</span> {{ customer.company_name || customer.trade_name }}
-                    </div>
-
-                    <div class="text-sm text-gray-500 mb-2">
-                        <span class="font-semibold">CPF:</span> {{ customer.cpf? customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'Sem CPF'}}
-                    </div>
-
-                    <div class="text-sm text-gray-500 mb-2">
-                        <span class="font-semibold">CNPJ:</span> {{ customer.cnpj ? customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : 'Sem CNPJ' }}
-                    </div>
-
-                    <div class="text-sm text-gray-500 mb-2">
-                        <span class="font-semibold">Endereço:</span> {{ customer.address ?? 'Sem endereço cadastrado' }}
-                    </div>
-
-                    <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">Status:</span> {{ customer.active === 1 ? 'Ativo' : 'Inativo' }}
-                    </div>
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">ID:</span> {{ customer.customer_cod }}
                 </div>
-                
-                <!-- Ações -->
-                <div class="flex space-x-2" >
-                    <q-btn
-                        @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name)"
-                        class="px-4 py-2 rounded-lg transition"
-                        :disabled=!customer.active
-                        :class="{
-                            'text-gray-400 bg-slate-500': !customer.active,
-                            'text-blue-500 bg-blue-100 hover:bg-blue-200': customer.active,
-                        }"    
-                    >
-                        Editar
-                    </q-btn>
-                    <q-btn
-                        @click="deleteOrActive('disable', customer.customer_cod)"
-                        class="px-4 py-2 rounded-lg transition"
-                        :disabled=!customer.active
-                        :class="{
-                            'text-gray-400 bg-slate-500': !customer.active,
-                            'text-red-500 bg-red-100 hover:bg-red-200': customer.active,
-                        }"    
-                        v-if="customer.active"
-                    >
-                        Desativar
-                    </q-btn>
-                    <q-btn
-                        @click="deleteOrActive('active', customer.customer_cod)"
-                        v-else
-                        class="px-4 py-2 rounded-lg transition"
-                        :class="{
-                            'text-gray-400 bg-slate-500': !customer.active
-                        }"
-                        
-                    >   
-                        Ativar
-                    </q-btn>
+
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">Cliente:</span> {{ customer.company_name || customer.trade_name }}
+                </div>
+
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">CPF:</span> {{ customer.cpf? customer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'Sem CPF'}}
+                </div>
+
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">CNPJ:</span> {{ customer.cnpj ? customer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : 'Sem CNPJ' }}
+                </div>
+
+                <div class="text-sm text-gray-500 mb-2">
+                    <span class="font-semibold">Endereço:</span> {{ customer.address ?? 'Sem endereço cadastrado' }}
+                </div>
+
+                <div class="text-sm text-gray-500 mb-2">
+                <span class="font-semibold">Status:</span> {{ customer.active === 1 ? 'Ativo' : 'Inativo' }}
+                </div>
+            </div>
+            
+            <!-- Ações -->
+            <div class="flex space-x-2" >
+                <q-btn
+                    @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name)"
+                    class="px-4 py-2 rounded-lg transition"
+                    :disabled=!customer.active
+                    :class="{
+                        'text-gray-400 bg-slate-500': !customer.active,
+                        'text-blue-500 bg-blue-100 hover:bg-blue-200': customer.active,
+                    }"    
+                >
+                    Editar
+                </q-btn>
+                <q-btn
+                    @click="deleteOrActive('disable', customer.customer_cod)"
+                    class="px-4 py-2 rounded-lg transition"
+                    :disabled=!customer.active
+                    :class="{
+                        'text-gray-400 bg-slate-500': !customer.active,
+                        'text-red-500 bg-red-100 hover:bg-red-200': customer.active,
+                    }"    
+                    v-if="customer.active"
+                >
+                    Desativar
+                </q-btn>
+                <q-btn
+                    @click="deleteOrActive('active', customer.customer_cod)"
+                    v-else
+                    class="px-4 py-2 rounded-lg transition"
+                    :class="{
+                        'text-gray-400 bg-slate-500': !customer.active
+                    }"
+                    
+                >   
+                    Ativar
+                </q-btn>
             </div> <!-- For acaba aqui-->
         </div>
-        </div>
-
-        <div v-if="!showCustomers" >
-            <RegisterCustomer
-                v-if="showRegisterCustomers"
-                @close="closeReload($event)"
-                :widthScreen="widthScreen"
-                
-            />
-
-            <UpdateCustomer
-                v-if="showUpdateCustomers"
-                :customerID="customerID"
-                :widthScreen="widthScreen"
-                @close="closeReload($event)"
-
-            />
-
-            <ConfigCustomers
-                v-if="showConfig"
-                
-            />
-            
-        </div>
     </div>
-    <div v-else>
-        <LoandingPage
-            @show-page="showCustomers = $event"
-            :text="'Carregando clientes ...'"
+
+    <div v-if="!showCustomers">
+        <RegisterCustomer
+            v-if="showRegisterCustomers"
+            @close="closeReload($event)"
+            :widthScreen="widthScreen"
+            
         />
 
+        <UpdateCustomer
+            v-if="showUpdateCustomers"
+            :customerID="customerID"
+            :widthScreen="widthScreen"
+            @close="closeReload($event)"
+
+        />
+
+        <ConfigCustomers
+            v-if="showConfig"
+            
+        />
+        
     </div>
 </template>
   
@@ -230,6 +232,7 @@
     let allCustomers = ref<ICustomer[]>([]);
     let customers = ref<ICustomer[]>([]);
 
+    let _loanding = ref<boolean>(true);
     let showCustomers = ref<boolean>(false);
     let showReportCustomer = ref<boolean>(true);
     let showReportCustomerMini = ref<boolean>(false);
@@ -239,6 +242,7 @@
     let customerID = ref<number>(0);
     let customerName = ref<string>('');
     let widthScreen = ref<number>(0);
+
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
     const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
@@ -256,6 +260,13 @@
         };
         
     });
+    
+    const showPage = (event: boolean) =>
+    {
+        showCustomers.value = event;
+        _loanding.value = !event;
+    };
+
 
     const getCustomers = async () =>
     {

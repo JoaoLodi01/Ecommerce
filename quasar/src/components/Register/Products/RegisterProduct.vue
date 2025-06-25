@@ -1,6 +1,6 @@
 <template>
     <div
-        class="border border-black bg-white mt-2 p-6 shadow-md rounded"
+        class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
             'w-screen': widthScreen < 1366,
             'ml-36 form-customer': widthScreen > 1366
@@ -8,9 +8,8 @@
 
     >
         <q-form
-            @submit="onSubmit"
-            class="form-product p-1"
-            
+            @submit="submitForm()"
+
         >
             <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max">Dados cadastrais</h4>
@@ -63,7 +62,7 @@
                 </div>
             </div>            
 
-            <div class="border p-5 bg-white rounded-md mb-5 w-[150vh]">
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max">Quantias e valores de vendas</h4>
                 <q-input
                     v-model="productDetails.amount"
@@ -120,7 +119,7 @@
 
             </div>
 
-            <div class="border p-5 bg-white rounded-md mb-5 w-[150vh]">
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max">Dados de referência</h4>
                 <q-select
                     v-model="productDetails.group_id"
@@ -142,7 +141,7 @@
                 />
             </div>
             
-            <div class="border p-5 bg-white rounded-md mb-5 w-[150vh]">
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max">Dados tributários</h4>
 
                 <q-input
@@ -557,8 +556,23 @@
 </script>
 
 <style lang="scss">
-    .form-product {
+    .form-customer {
         width: 150vh;
     }
     
+    .slide-up-enter-from {
+        opacity: 0;
+        transform: translateY(-50px);
+
+    }
+
+    .slide-up-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+        
+    }
+
+    .slide-up-enter-active {
+        transition: all 0.5s ease-out;
+    }
 </style>
