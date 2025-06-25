@@ -5115,3 +5115,153 @@
 [2025-06-24 20:58:27] local.INFO: Chamou o apiSuccess  
 [2025-06-24 20:58:30] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
 [2025-06-24 20:58:30] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:20:02] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"Sq55KazkrO","active":1,"created_at":"2025-05-21T00:38:43.000000Z","updated_at":"2025-05-21T00:38:43.000000Z"}  
+[2025-06-24 22:20:03] local.INFO: Passou o login, token: 33|ULJYFjBfn9aZKvmURjvMR563Im6Dn4LTWY4KjlQFda85462c  
+[2025-06-24 22:20:04] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:20:26] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:21:18] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:21:18] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:21:41] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:21:52] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:21:57] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:21:57] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:21:57] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 22:21:57] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:21:59] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:21:59] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:21:59] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 22:21:59] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:22:06] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:22:06] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:22:11] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:22:14] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:22:14] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:22:14] local.INFO: Iniciou getAll PaymentsRepository  
+[2025-06-24 22:22:14] local.INFO: Buscando por emitente  
+[2025-06-24 22:22:14] local.INFO: Cod. emitente: 1  
+[2025-06-24 22:22:14] local.INFO: Buscando espécies  
+[2025-06-24 22:22:14] local.INFO: Terminou  
+[2025-06-24 22:22:40] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:22:40] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:22:41] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:22:41] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:22:42] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:22:42] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:22:42] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 22:22:42] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:40:01] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:40:01] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:40:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 22:40:01] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:40:02] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:40:02] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:40:02] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 22:40:02] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:42:40] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:42:41] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:42:41] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-24 22:42:41] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:42:42] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:42:42] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:42:43] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:42:43] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:46:32] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:46:32] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:46:33] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:46:33] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:46:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:46:34] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:46:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-24 22:46:35] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:46:40] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:47:03] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:47:08] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:47:10] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:47:16] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:48:06] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:48:06] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:48:20] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:48:20] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:48:22] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:48:22] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:48:35] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:48:35] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:48:38] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:48:38] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:49:24] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:49:24] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:49:26] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:49:26] local.INFO: Chamou o apiSuccess  
+[2025-06-24 22:49:40] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 22:49:40] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:24:10] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 23:24:10] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:24:19] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 23:24:19] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:26:29] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 23:26:29] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:27:12] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 23:27:12] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:27:35] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 23:27:35] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:27:36] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 23:27:36] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:28:16] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 23:28:16] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:35:16] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-24 23:35:16] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:41:22] local.INFO: Chamou o apiSuccess  
+[2025-06-24 23:55:37] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:00:15] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:01:42] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:02:25] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:04:36] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 00:04:36] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:26:53] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:31:52] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:31:52] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:32:17] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:32:17] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:32:19] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:32:19] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:45:14] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:45:21] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:45:24] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:45:31] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:45:36] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:45:40] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:45:59] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:49:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:50:26] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:52:52] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:53:20] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:53:21] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:53:32] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:53:32] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:53:36] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:53:36] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:53:56] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 00:53:56] local.INFO: Chamou o apiSuccess  
+[2025-06-25 00:54:00] local.INFO: Chamou o apiSuccess  
+[2025-06-25 01:24:34] local.INFO: Chamou o apiSuccess  
+[2025-06-25 01:27:16] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 01:27:16] local.INFO: Chamou o apiSuccess  
+[2025-06-25 01:27:50] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 01:27:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 01:28:03] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 01:28:03] local.INFO: Chamou o apiSuccess  
+[2025-06-25 01:28:09] local.INFO: Memória usada no RegisterIssuerRepository 35651584  
+[2025-06-25 01:29:24] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 01:29:24] local.INFO: Chamou o apiSuccess  
+[2025-06-25 01:29:28] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 01:29:28] local.INFO: Chamou o apiSuccess  
+[2025-06-25 01:29:38] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 01:29:38] local.INFO: Chamou o apiSuccess  
+[2025-06-25 01:29:43] local.INFO: Memória usada no RegisterIssuerRepository 35651584  
+[2025-06-25 01:30:13] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 01:30:13] local.INFO: Chamou o apiSuccess  
+[2025-06-25 01:30:24] local.INFO: Memória usada no RegisterIssuerRepository 35651584  
+[2025-06-25 02:14:06] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 02:14:06] local.INFO: Chamou o apiSuccess  
+[2025-06-25 02:14:06] local.INFO: Chamou o apiSuccess  
+[2025-06-25 02:14:07] local.INFO: Chamou o apiSuccess  
