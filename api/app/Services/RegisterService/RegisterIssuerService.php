@@ -13,12 +13,9 @@ class RegisterIssuerService
 
     public function getAll(string $ownerID)
     {
-        return response()->json([
-            'success' => true,
-            'companies' => $this->registerIssuerRepository->getAll($ownerID)
-
-        ]);
-
+        $all = $this->registerIssuerRepository->getAll($ownerID);
+        
+        return $all;
     }
 
     public function create(array $data)

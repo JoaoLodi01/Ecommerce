@@ -112,7 +112,7 @@
     </div>
   
     <div 
-        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10" 
+        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4" 
         :class="{
             'ml-20 w-[160vh]': widthScreen > 1366,
             'ml-12': widthScreen <= 1366
@@ -302,6 +302,7 @@
     const closeRegister = () => 
     {
         showRegisterProduct.value = false;
+        showUpdateProduct.value = false;
         showProducts.value = true;
         showReportProducts.value = true;
         getProducts();

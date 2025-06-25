@@ -3,7 +3,7 @@
         class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
             'w-screen': props.widthScreen < 1366,
-            'ml-36 form-customer': props.widthScreen > 1366
+            'ml-32 form-customer': props.widthScreen > 1366
         }"
 
     >

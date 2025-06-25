@@ -5115,3 +5115,378 @@
 [2025-06-24 20:58:27] local.INFO: Chamou o apiSuccess  
 [2025-06-24 20:58:30] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
 [2025-06-24 20:58:30] local.INFO: Chamou o apiSuccess  
+[2025-06-25 10:57:46] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 10:57:47] local.INFO: Chamou o apiSuccess  
+[2025-06-25 10:58:13] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 10:58:13] local.INFO: Chamou o apiSuccess  
+[2025-06-25 11:00:04] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 11:00:08] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 11:00:08] local.INFO: Passou o login, token: 12|5TScLHfK07RDdKYsg2CnppWuBGvDHERrcKhaZ4My540b0fc0  
+[2025-06-25 11:01:05] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 11:01:05] local.INFO: Passou o login, token: 13|9wDgKrvq9XYSJvhFSXoh5dJf6Jcuy2bIUmpRJJbh1f0e26ad  
+[2025-06-25 11:01:08] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:01:41] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:01:41] local.INFO: Chamou o apiSuccess  
+[2025-06-25 11:01:42] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:01:59] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:02:01] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:02:40] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:03:06] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:03:15] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:07:49] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:07:49] local.INFO: Chamou o apiSuccess  
+[2025-06-25 11:07:49] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-06-25 11:07:49] local.INFO: Chamou o apiSuccess  
+[2025-06-25 11:09:11] local.INFO: Chamou o apiSuccess  
+[2025-06-25 11:23:14] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 11:23:15] local.INFO: Chamou o apiSuccess  
+[2025-06-25 11:24:10] local.INFO: Memória usada CashRegisterRepository::class, getAll: 23068672  
+[2025-06-25 15:14:09] local.INFO: owner   
+[2025-06-25 15:15:28] local.INFO: owner   
+[2025-06-25 15:15:43] local.INFO: owner   
+[2025-06-25 15:16:52] local.INFO: owner   
+[2025-06-25 15:16:59] local.INFO: owner   
+[2025-06-25 15:17:06] local.INFO: owner   
+[2025-06-25 15:17:20] local.INFO: owner   
+[2025-06-25 15:18:06] local.INFO: owner   
+[2025-06-25 15:18:57] local.INFO: owner   
+[2025-06-25 15:21:01] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:21:12] local.INFO: Passou o login, token: 14|8wZ3MZ8XJy3blYgD4jyxSgz2SWEkb7VFnEWQLB4j478581ae  
+[2025-06-25 15:21:35] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:21:35] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:22:57] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:22:57] local.INFO: Passou o login, token: 15|bGc347N1rVl0IeGXo8QE8pZJCoPsNHkLK8OwfzEud3f29738  
+[2025-06-25 15:22:58] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:22:58] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:24:28] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:24:29] local.INFO: Passou o login, token: 16|XJ7x16sPLmcN2Ocezoo0aY58vEuSOZ92fUJ91Ps82475a588  
+[2025-06-25 15:24:29] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:24:29] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:26:01] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:26:01] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:26:10] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:26:10] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:26:12] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:26:12] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:26:16] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:26:16] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:26:21] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:26:21] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:27:04] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:27:04] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:27:23] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:27:23] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:27:31] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:27:31] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:27:40] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:27:40] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:27:51] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:27:51] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:28:01] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:28:01] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:28:21] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:28:21] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:28:26] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:28:26] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:28:29] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:28:29] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:29:14] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:29:14] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:29:27] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:29:27] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:29:33] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:29:33] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:29:42] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:29:42] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:29:44] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:29:44] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:30:10] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:30:10] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:30:17] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:30:17] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:30:18] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:30:18] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:30:22] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:30:22] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:30:50] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:30:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:30:56] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:30:56] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:31:04] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:31:04] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:31:17] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:31:17] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:31:35] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:31:35] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:31:39] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:31:39] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:32:11] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:32:11] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:33:35] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:33:35] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:33:36] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:33:36] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:33:45] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:33:45] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:34:39] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:34:39] local.INFO: Passou o login, token: 17|BXEFO48fjiUxoiyBfNMrM0pfI6SwVeLvjbzsASlj25cc09a8  
+[2025-06-25 15:34:40] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:34:40] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:34:42] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:34:42] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:34:55] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:34:55] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:35:00] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:35:00] local.INFO: Passou o login, token: 18|1ELaP9jo3i7s5okgmE2o5Od9HG4kBon20BMgWIio93e5078e  
+[2025-06-25 15:35:01] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:35:01] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:35:15] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:35:15] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:35:24] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:35:24] local.INFO: Passou o login, token: 19|Tc2maitG2b1BlVlnZmsm1vGgeil4WIoDmJ62QgCr3b0c468f  
+[2025-06-25 15:35:25] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:35:25] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:35:27] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:35:27] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:35:52] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:35:52] local.INFO: Passou o login, token: 20|FMlAMawtswdRf4IVLwCDRUGZo5BMw0RywrhzUqt3c3b1fda5  
+[2025-06-25 15:35:52] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:35:52] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:35:55] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:35:55] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:36:11] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:36:11] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:36:16] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:36:16] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:36:18] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:36:18] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:37:03] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:37:03] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:37:12] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:37:12] local.INFO: Passou o login, token: 21|gttLwnyHeObTvRtMFzGX6xWLERDYFstmNPwfnYiv8ee2c578  
+[2025-06-25 15:37:13] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:37:13] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:37:15] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:37:15] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:37:34] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:37:34] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:37:43] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:37:43] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:38:08] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:38:08] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:38:11] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:38:11] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:38:16] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:38:16] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:38:18] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:38:18] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:38:22] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:38:22] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:38:31] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:38:31] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:39:12] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:39:12] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:39:20] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:39:20] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:39:26] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:39:26] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:39:39] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:39:39] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:39:50] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:39:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:39:55] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:39:55] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:40:06] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:40:06] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:40:37] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:40:37] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:40:40] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:40:40] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:40:42] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:40:42] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:43:31] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:43:31] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:43:41] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:43:41] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:43:58] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:43:58] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:44:14] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:44:15] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:45:58] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:45:58] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:45:59] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:45:59] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:46:04] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:46:04] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:46:16] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:46:16] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:46:35] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:46:35] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:46:49] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:46:49] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:47:18] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:47:18] local.INFO: Passou o login, token: 22|VziEDXfk9Ds0sA6PBuQq2e2bwvWc02tqaS1hG4mw7b72f758  
+[2025-06-25 15:47:19] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:47:19] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:47:23] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:47:23] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:47:31] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:47:31] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:47:50] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:47:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:48:01] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:48:01] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:48:02] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:48:02] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:48:14] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:48:14] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:48:16] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:48:16] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:48:19] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:48:19] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:48:45] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:48:46] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:48:50] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:48:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:48:59] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:48:59] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:49:30] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:49:30] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:49:58] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:49:58] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:50:02] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:50:02] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:50:06] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:50:06] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:50:14] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:50:14] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:50:19] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:50:19] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:50:48] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:50:48] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:51:12] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:51:12] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:51:49] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:51:50] local.INFO: Passou o login, token: 23|AU3DUA1zChvus7tWKck1LxPOr8dYODyKLZRsdgoMdda377cb  
+[2025-06-25 15:51:50] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:51:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:51:53] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:51:53] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:52:05] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:52:05] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:52:56] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:54:54] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:54:54] local.INFO: Passou o login, token: 24|O1N77fhpD13ySV91WVz306fOJRTb8DyYMKqT2Upv58fef448  
+[2025-06-25 15:54:55] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:54:55] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:55:48] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:55:48] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:56:11] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 15:56:12] local.INFO: Passou o login, token: 25|D1AkvdxdvHoVKalt7JIjn8A0Defjn8TOl6y0Le5cf4177db3  
+[2025-06-25 15:56:12] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:56:12] local.INFO: Chamou o apiSuccess  
+[2025-06-25 15:56:52] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 15:56:52] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:05:48] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 16:05:48] local.INFO: Passou o login, token: 26|UAYhdDviUkQTDC53fVcmnV0zUh4UwbbhEGFxvakra3a03a72  
+[2025-06-25 16:05:50] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:05:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:06:26] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 16:06:28] local.INFO: Passou o login, token: 27|WtOTbUoJviU0ztHamGmY2bDfCz6XCSGhDKBnKRrIc2e297c9  
+[2025-06-25 16:06:31] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:06:31] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:07:11] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:07:12] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:07:14] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:07:14] local.INFO: findByID . 1 type: string  
+[2025-06-25 16:07:19] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:07:19] local.INFO: findByID . 1 type: string  
+[2025-06-25 16:07:20] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:13:01] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 16:13:01] local.INFO: Passou o login, token: 28|M21sVoTVF4UI52DPLUkb557aH5BMCjvlsLLCDxozd4af9104  
+[2025-06-25 16:13:02] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:13:02] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:13:06] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:13:06] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:13:12] local.INFO: Memória usada no RegisterIssuerRepository 35651584  
+[2025-06-25 16:13:14] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:13:14] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:13:15] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:13:15] local.INFO: findByID . 2 type: string  
+[2025-06-25 16:13:19] local.INFO: Memória usada no RegisterIssuerRepository 37748736  
+[2025-06-25 16:13:19] local.INFO: Memória usada no RegisterIssuerRepository 29360128  
+[2025-06-25 16:13:19] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:14:19] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:14:19] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:14:20] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:14:20] local.INFO: findByID . 2 type: string  
+[2025-06-25 16:14:20] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-06-25 16:14:20] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:14:38] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:14:38] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:14:43] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:14:43] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:14:48] local.INFO: Memória usada no RegisterIssuerRepository 35651584  
+[2025-06-25 16:14:49] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:14:49] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:14:50] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:14:50] local.INFO: findByID . 2 type: string  
+[2025-06-25 16:14:50] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-06-25 16:14:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:14:56] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:14:56] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:14:58] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:14:58] local.INFO: findByID . 2 type: string  
+[2025-06-25 16:14:59] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:14:59] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:06] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:11] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:27] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:31] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:15:32] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-25 16:15:32] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:33] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:34] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-25 16:15:34] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:35] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-25 16:15:35] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:40] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-25 16:15:40] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:50] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-25 16:15:50] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:51] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-25 16:15:51] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:52] local.INFO: Memória usada no RegisterIssuerRepository 20971520  
+[2025-06-25 16:15:52] local.INFO: -- Vai começar a busca --  
+[2025-06-25 16:15:52] local.INFO: array (
+  'filter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '1',
+  'issuer_id' => 1,
+)  
+[2025-06-25 16:15:52] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:54] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:15:54] local.INFO: -- Vai começar a busca --  
+[2025-06-25 16:15:54] local.INFO: array (
+  'filter' => 'Padrão (cód.barras ou cód.produto)',
+  'search' => '2',
+  'issuer_id' => 1,
+)  
+[2025-06-25 16:15:54] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:58] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:15:58] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:58] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-25 16:15:58] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:15:58] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-25 16:15:58] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:16:01] local.INFO: Memória usada ConfigController::class, __construct: 23068672  
+[2025-06-25 16:16:01] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:16:01] local.INFO: Memória usada ConfigController::class, __construct: 20971520  
+[2025-06-25 16:16:01] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:28:57] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-06-25 16:28:58] local.INFO: Passou o login, token: 29|uSlXoUQWeCF2HKqiOkAWx6PaNiLz1VUAIfqJ41ggd5cb0970  
+[2025-06-25 16:29:00] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:29:00] local.INFO: Chamou o apiSuccess  
+[2025-06-25 16:29:06] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 16:29:06] local.INFO: Chamou o apiSuccess  
+[2025-06-25 19:37:02] local.INFO: Memória usada no RegisterIssuerRepository 23068672  
+[2025-06-25 19:37:02] local.INFO: Chamou o apiSuccess  

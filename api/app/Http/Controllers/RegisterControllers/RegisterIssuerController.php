@@ -17,7 +17,7 @@ class RegisterIssuerController extends Controller
 
     public function getAll(string $ownerID)
     {
-        return $this->registerIssuerService->getAll($ownerID);
+        return apiSuccess('Todas as empresas', $this->registerIssuerService->getAll($ownerID));
     }
 
     public function create(RegisterIssuerRequest $request)
