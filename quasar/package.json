@@ -17,6 +17,7 @@
     "axios": "^1.2.1",
     "dayjs": "^1.11.13",
     "mitt": "^3.0.1",
+    "camelcase-keys": "^9.1.3",
     "qrcode-pix": "^5.0.0",
     "quasar": "^2.16.0",
     "tailwindcss": "^3",

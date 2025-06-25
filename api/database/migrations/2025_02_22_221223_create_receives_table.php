@@ -32,7 +32,6 @@ return new class extends Migration
             $table->unsignedBigInteger('installment_cod');
             $table->string('type_interest', 10);
             $table->decimal('interest_value', 16,2);
-            $table->decimal('total_amount');
             $table->string('origem', 120);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

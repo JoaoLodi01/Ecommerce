@@ -40,7 +40,7 @@
                     <q-input
                         class="w-[150px]"
                         type="date"
-                        v-model="form.due_date"
+                        v-model="form.dueDate"
                         label="1º Vencimento"
                         color="grey-7"
                     />
@@ -48,7 +48,7 @@
                     <q-input
                         class="w-[100px]"
                         type="number"
-                        v-model="form.installment_number"
+                        v-model="form.installmentAmount"
                         label="Nº Parcelas"
                         color="grey-7"
                     />
@@ -56,9 +56,8 @@
                     <q-input
                         class="w-[150px]"
                         type="text"
-                        v-model="form.installment_value"
+                        v-model="form.installmentValue"
                         label="Valor Parcela"
-                        v-bind:mask="'##,##'"
                         color="grey-7"
                     />
 
@@ -73,7 +72,7 @@
                 <div class="flex flex-wrap gap-4">
                     <q-select
                         class="w-[80px]"
-                        v-model="form.type_interest"
+                        v-model="form.typeInterest"
                         label="Tipo"
                         emit-value
                         map-options
@@ -87,7 +86,7 @@
                     <q-input
                         class="w-[100px]"
                         type="number"
-                        v-model="form.interest_value"
+                        v-model="form.interestValue"
                         label="Juros"
                         color="grey-7"
                     />
@@ -111,7 +110,7 @@
                     <q-input
                         class="w-[130px]"
                         type="number"
-                        v-model="form.value_entry"
+                        v-model="form.valueEntry"
                         label="Juros a pagar"
                         color="grey-7"
                         v-bind:mask="'##,##'"
@@ -128,16 +127,17 @@
 
             <InstallmentsTable 
                 :pdv="false" 
-                :amount="Number(form.installment_number)"
-                :original-value="form.installment_value"
-                :due-date="form.due_date"
+                :amount="Number(form.installmentAmount)"
+                :original-value="form.installmentValue"
+                :due-date="form.dueDate"
                 @exists-installments="exists($event)"
-                @updated:inspecInstallment="createInstallments($event)"
+                @installments-generated="generatedInstallments($event)"
                 @request:generateInstallmentes=""
             />
 
             <div>
                 <q-btn
+                    @click="submitForm()"
                     type="submit"
                     label="Registrar"
                     class="bg-blue-600 text-white">
@@ -155,7 +155,7 @@
 <script setup lang=ts>
     import { api } from "src/boot/axios"
     import {LocalStorage, useQuasar} from "quasar";
-    import { ref, computed, watch, defineProps, defineEmits } from 'vue';
+    import { ref, computed, watch, defineProps, defineEmits, reactive } from 'vue';
     import dayjs from "dayjs";
     import 'dayjs/locale/pt-br';
     import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
@@ -173,35 +173,33 @@
 
     const today = dayjs();
     const $q = useQuasar();
-    
-    //const user = ref<number>(LocalStorage.getItem("user_name"));
 
-    const form = ref<IReceiveBody>({
-        issuer_id: LocalStorage.getItem("issuer_id"),
+    const form = reactive<IReceiveBody>({
+        issuerID: LocalStorage.getItem("issuer_id"),
         description: 'Registro Manual Receber',
         document: 1,
-        customer_id: 1,
-        user_id: LocalStorage.getItem("user_id"),
-        especie_id: 0,
+        customerID: 1,
+        userID: LocalStorage.getItem("user_id"),
+        especieID: 0,
         especie: '',
-        due_date: today.add(30, 'days').format("YYYY-MM-DD"),
-        installment_number: 1,
-        installment_value: 0,
-        type_interest: '%',
-        interest_value: 0,
+        dueDate: today.add(30, 'days').format("YYYY-MM-DD"),
+        installmentAmount: 1,
+        installmentNumber: 1,
+        installmentValue: 0,
+        installmentOriginal: 0,
+        typeInterest: '%',
+        interestValue: 0,
         addition: 0,
         discount: 0,
-        value_entry: 0,
-        value_paid: 0,
-        value_original: 0,
+        valueEntry: 0,
         origem: 'Receber (Manual)',
 
     });
     
     const totalAmoutCalc = computed(() => 
     {
-        const number = parseCurrency(form.value.installment_number);
-        const value = parseCurrency(form.value.installment_value);
+        const number = parseCurrency(form.installmentAmount);
+        const value = parseCurrency(form.installmentValue);
         const total = number * value;
 
         return total.toFixed(2);
@@ -221,6 +219,16 @@
         };
 
     };
+
+    const generatedInstallments = (event) => {
+        form.installmentAmount = event.installmentAmount;
+        form.installmentNumber = event.numberInstallment;
+        form.installmentValue = event.valuePaid;
+        form.installmentOriginal = event.valueOriginal;
+        form.dueDate = event.dueDate
+
+        console.log(event)
+    } 
 
     const parseCurrency = (value: number): number =>
     {
@@ -245,26 +253,39 @@
     const getCustumer = (event) =>
     {
         console.log(event);
-        form.value.customer_id = event.id;
-    };
-
-    const createInstallments = (event) => 
-    {
-      
+        form.customerID = event.id;
     };
 
     const getSpecie = (event) => 
     {
         console.log("Chamou o getSpecie");
         console.log(event);
-        form.value.especie_id = event.payment_cod;
-        form.value.especie = event.name;
+        form.especieID = event.payment_cod;
+        form.especie = event.name;
     };
 
     const submitForm = async () =>
     {
         try {
-            const response = await api.post(`/ecommerce/receive/create`, form.value);
+            if (!form.customerID){
+                $q.notify({
+                    color: 'red',
+                    message: 'Cliente não selecionado.',
+                    position: 'top',
+                    timeout: 2000
+                });
+            }
+
+            if (!form.dueDate){
+                $q.notify({
+                    color: 'red',
+                    message: 'Data de vencimento inválida.',
+                    position: 'top',
+                    timeout: 2000
+                });
+            }
+
+            const response = await api.post(`/ecommerce/receive/create`, form);
 
             if(response.data.success){
                 close();

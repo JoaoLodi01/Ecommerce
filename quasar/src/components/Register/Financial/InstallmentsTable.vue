@@ -29,20 +29,20 @@
             </thead>
             <tbody>
                 <tr v-for="(installment, id) in installmentsData" :key="id" class="text-center border-t border-gray-300">
-                    <td>{{ installment.number_installment }}</td>
-                    <td>{{ installment.installment_amount }}</td>
-                    <td>
+                    <td>{{ installment.numberInstallment }}</td>
+                    <td>{{ installment.installmentAmount }}</td>
+                    <td class="w-[150px]">
                         <q-input
                             type="date"
-                            v-model="installment.due_date"
+                            v-model="installment.dueDate"
                             dense
                             outlined
                             color="primary"
-                            class="w-[150px] flex justify-center"
+                            
                         />
                     </td>
-                    <td>R$ {{ installment.value_paid }}</td>
-                    <td>R$ {{ installment.value_original }}</td>
+                    <td>R$ {{ installment.valuePaid }}</td>
+                    <td>R$ {{ installment.valueOriginal }}</td>
                 </tr>
             </tbody>
         </table>
@@ -51,21 +51,20 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, defineProps, defineEmits } from 'vue';
+    import { ref, defineProps, defineEmits, reactive } from 'vue';
     import dayjs from 'dayjs';
 
     type TinstallmentsData = {
-        id: number;
-        number_installment: number;
-        installment_amount: number;
-        due_date: string;
-        value_paid: number;
-        value_original: number;
+        numberInstallment: number;
+        installmentAmount: number;
+        dueDate: string;
+        valuePaid: number;
+        valueOriginal: number;
 
     };
 
     const emits = defineEmits<{
-        (e: 'updated:inspecInstallment', value: TinstallmentsData),
+        (e: 'installmentsGenerated', value: TinstallmentsData[]),
         (e: 'existsInstallments', value: boolean)
 
     }>();
@@ -74,42 +73,46 @@
         pdv?: boolean,
         amount: number,
         originalValue: number,
-        dueDate: string
+        dueDate: string,
     }>();
 
-    let installmentsData = ref<TinstallmentsData[]>([]);
+    let installmentsData = reactive<TinstallmentsData[]>([]);
 
     const generateInstallments = async () =>
     {
         let receiveAmount = props.amount;
         let originalValue = props.originalValue;
         let dueDate = props.dueDate
+
         console.log('generateInstallments, amount: ', props.amount);
         console.log(originalValue)
 
-        if (installmentsData.value.length > 1) {
+        if (installmentsData.length > 1) {
             emits('existsInstallments', true);
             return;
         }
 
         for(let i = 1; i < receiveAmount + 1; i++)
         {
-            installmentsData.value.push({
-                id: i,
-                number_installment: i,
-                installment_amount: receiveAmount,
-                value_original: props.originalValue,
-                value_paid: Number(String(originalValue).replace(',','.')) / receiveAmount,
-                due_date: dayjs(dueDate).add(i - 1, 'month').format('YYYY-MM-DD')
+            installmentsData.push({
+                numberInstallment: i,
+                installmentAmount: receiveAmount,
+                valueOriginal: props.originalValue,
+                valuePaid: Number(String(originalValue).replace(',','.')) / receiveAmount,
+                dueDate: dayjs(dueDate).add(i - 1, 'month').format('YYYY-MM-DD')
 
             }); 
         };
+
+       if (installmentsData.length === receiveAmount) emits('installmentsGenerated', installmentsData);
+
+        console.log(installmentsData);
 
     };
 
     const deleteInstallments = () => 
     {
-        installmentsData.value = [];
+        installmentsData = [];
     };
 
     defineExpose({

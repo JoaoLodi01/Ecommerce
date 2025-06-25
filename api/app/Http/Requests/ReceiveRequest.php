@@ -21,19 +21,23 @@ class ReceiveRequest extends FormRequest
     {
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
-            'issuer_id' => [$required],
+            'issuerID' => [$required],
             'description' => [$required, 'string', 'max:255'],
             'document' => ['sometimes'],
-            'customer_id' => [$required],
-            'especie_id' => [$required],
-            'due_date' => [$required],
-            'installment_number' => [$required, 'integer'],
-            'installment_value' => [$required, 'numeric'],
-            'type_interest' => [$required],
-            'interest_value' => [$required, 'numeric'],
-            'total_amount' => [$required, 'numeric'],
+            'customerID' => [$required],
+            'userID' => [$required],
+            'especieID' => [$required],
+            'dueDate' => [$required],
+            'installmentAmount' => [$required],
+            'installmentNumber' => [$required, 'integer'],
+            'installmentValue' => [$required, 'numeric'],
+            'installmentOriginal' => [$required],
+            'typeInterest' => [$required],
+            'interestValue' => [$required, 'numeric'],
+            'addition' => [$required],
+            'discount' => [$required],
+            'valueEntry' => [$required],
             'origem' => ['nullable'],
-            'user_id' => [$required],
         ];
     }
 
