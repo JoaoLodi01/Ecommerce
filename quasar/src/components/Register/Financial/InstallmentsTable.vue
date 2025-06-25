@@ -106,7 +106,7 @@
 
        if (installmentsData.length === receiveAmount) emits('installmentsGenerated', installmentsData);
 
-        console.log(installmentsData);
+    console.log(installmentsData);
 
     };
 
