@@ -328,7 +328,6 @@
                 issuer_id: customerData.value.issuer_id // Mantem padrão
 
             };
-
             return;  
         };
     };
