@@ -202,7 +202,7 @@
     {
         showLoading('Salvando as');
         console.log(typeof issuerID.value)
-        const res = await api.put(`/config/config-pdv/update-config/${issuerID.value}`, {
+        const res = await api.put(`/config/pdv/update-config/${issuerID.value}`, {
             searchOptionProduct: configs.value.searchOptionProduct,
             searchOptionCustomers: configs.value.searchOptionCustomer,
             nmFinaly: configs.value.nmFinaly,

@@ -3,16 +3,17 @@
 namespace App\Repositories\Eloquent\Config;
 
 use App\Models\HotelModels\ConfigHotel;
+use App\Repositories\Contracts\ConfigContract\ConfigHotelContract;
 
-class ConfigHotelRepository
+class ConfigHotelRepository implements ConfigHotelContract
 {
-    public function getConfigs()
+    public function getConfigs(int $id)
     {
         return ConfigHotel::all();
         
     }
 
-    public function update(array $data)
+    public function update(array $data, int $id)
     {
         ConfigHotel::where('active', 1)->update([
             'address_by_cep' => $data['address_by_cep'],
@@ -21,8 +22,6 @@ class ConfigHotelRepository
         
         ]);
 
-        return $this->getConfigs();
+        return $this->getConfigs($id);
     }
-
-
 }

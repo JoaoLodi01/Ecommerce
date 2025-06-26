@@ -18,10 +18,10 @@ return new class extends Migration
             $table->unique(['issuer_id', 'config_customer_cod']);
             
             $table->unsignedBigInteger('config_customer_cod');
-            $table->boolean('allow_addres_null', 1)->default(0);
-            $table->boolean('allow_cnpj_null', 1)->default(0);
-            $table->boolean('allow_cpf_null', 1)->default(0);
-            $table->string('default_register', 1)->default('');
+            $table->boolean('validate_cnpj', 1)->default(0);
+            $table->boolean('validate_cpf', 1)->default(0);
+            $table->boolean('validate_addres', 1)->default(0);
+            $table->string('last_filter', 8)->default('');
             $table->timestamps();
         });
     }

@@ -43,7 +43,9 @@
                         label="CPF"
                         color="grey-7"
                         class="ml-2"
-                        :rules="[ val => !!val || 'O nome fantasia do cliente é obrigatório']"
+                        :rules="[
+                            val => !val || validateCPF(val) || 'CPF inválido'
+                        ]"
                         
                     />  
 
@@ -182,12 +184,22 @@
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
-    import { ref, defineEmits, defineProps } from 'vue';
+    import { ref, defineEmits, defineProps, onMounted, reactive } from 'vue';
     import getCNPJData from 'src/services/getData/getCNPJData';
     import getCEPData from 'src/services/getData/getCEPData';
+    import camelcaseKeys from 'camelcase-keys';
+
+    interface IConfig
+    {
+        validateAddres: boolean,
+        validateCnpj: boolean,
+        validateCpf: boolean
+        
+    };
 
     const props = defineProps<{
         widthScreen: number
+
     }>();
 
     const emits = defineEmits<{
@@ -195,12 +207,11 @@
 
     }>();
 
-    let $q = useQuasar();
-    let timer: any;
+    const $q = useQuasar();
 
     let type = ref<string>('');
 
-    let customerData = ref<IRegisterCustomer>({
+    const customerData = ref<IRegisterCustomer>({
         company_name: '',
         trade_name: '',
         cpf: null,
@@ -222,18 +233,12 @@
 
     ]);
 
-    const showLoading = () =>
-    {
-        $q.loading.show({
-            message: 'Criando cliente ...'
+    const config = reactive<IConfig>({
+        validateAddres: false,
+        validateCnpj: false,
+        validateCpf: false
 
-        });
-
-        timer = setTimeout(() => {
-            $q.loading.hide()
-            timer = void 0
-        }, 3000)
-    };
+    });
 
     const submitForm = async () =>
     {
@@ -248,9 +253,8 @@
 
     const getDataCNPJ = async () => 
     {
-        showLoading();
         const formatedCNPJ = customerData.value.cnpj.replace(/\D/g, '');
-        if(formatedCNPJ.length === 14)
+        if(formatedCNPJ.length === 14 && config.validateCnpj)
         {
             const res = await getCNPJData(formatedCNPJ);
             
@@ -329,6 +333,44 @@
         };
     };
 
+    const validateCPF = (cpf: string): boolean =>
+    {
+        cpf = cpf.replace(/\D/g, '');
+        if(cpf.length !== 11)
+        {
+            return false;
+        };
+
+        const getFirstDigit = (incorretCPF: string) => 
+        {
+            let sum: number = 0;
+
+            for(let i = 0; i < incorretCPF.length; i++)
+            {
+                let atualItem = incorretCPF.charAt(i);
+                let constNumbers = (incorretCPF.length + 1 - i);
+
+                sum += Number(atualItem) * constNumbers;
+            };
+            const rest = sum % 11;
+
+            return rest < 2 ? "0" : (11 - rest).toString();
+        };
+
+        const firstDigit = getFirstDigit(cpf.substring(0, 9));
+        const secondDigit = getFirstDigit(cpf.substring(0, 9) + firstDigit); 
+
+        let correctCPF = cpf.substring(0, 9) + firstDigit + secondDigit;
+
+        if(cpf !== correctCPF)
+        {
+            return false;
+        } else {
+            return true;
+
+        };
+    };
+
     const onReset = () => 
     {
         customerData.value = {
@@ -343,9 +385,28 @@
             is_driver: false,
             is_supplier: false,
             phone: '',
-            issuer_id: 0
+            issuer_id: customerData.value.issuer_id
+
         };
     };
+
+    const returnValue = (value: boolean | number ) => { return value === 1 ? true : false };
+    const getConfig = async () =>
+    {
+        const res = await api.get(`/config/all-configs/${customerData.value.issuer_id}`);
+        const data: IConfig = camelcaseKeys(res.data.data.customers[0], { deep: true });
+        config.validateAddres = returnValue(data.validateAddres);
+        config.validateCnpj = returnValue(data.validateCnpj);
+        config.validateCpf = returnValue(data.validateCpf);
+        console.log(config);
+        
+    };
+
+    onMounted(() => {
+        getConfig();
+
+    });
+
 </script>
 
 <style lang="scss">

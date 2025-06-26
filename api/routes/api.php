@@ -35,6 +35,7 @@ use App\Http\Controllers\RegisterControllers\{
 };
 
 use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
+use App\Models\ConfigCustomers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -136,11 +137,15 @@ Route::prefix('v1')->group( function (){
             });
         });
             
-        Route::prefix('config')->group( function () {
+        Route::prefix('config')->group(function () {
             Route::get('/all-configs/{issuer_id}', [ConfigController::class, 'getConfigs']);
 
-            Route::prefix('config-pdv')->group( function() {
+            Route::prefix('pdv')->group(function() {
                 Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updatePDV']);
+            });
+
+            Route::prefix('customer')->group(function() {
+                Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateCustomer']);
             });
         });
 

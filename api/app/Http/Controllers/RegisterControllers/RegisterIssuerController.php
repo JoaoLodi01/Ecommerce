@@ -34,8 +34,6 @@ class RegisterIssuerController extends Controller
     public function completeRegister(Request $request, int $id)
     {
         $data = $request->all();
-        Log::info($id);
-        Log::info($data);
         return $this->registerIssuerService->update($data, $id);
     }
 }

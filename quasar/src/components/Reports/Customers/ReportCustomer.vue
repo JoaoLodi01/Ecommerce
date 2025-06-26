@@ -1,15 +1,11 @@
 <template>
     <div>
-        <q-btn @click="reportCustomer('all')" class="mr-5 bg-blue-500 hover:bg-blue-400 text-white" :class="{
-            'mb-5': props.widthScreen <= 1080
-        }">    
-            <span v-if="props.widthScreen <= 1080">Listagem dos clientes ativos</span>
-            <span v-else>Listagem completa de todos os clientes</span>
+        <q-btn @click="reportCustomer('all')" class="mr-5 bg-blue-500 hover:bg-blue-400 text-white">    
+            <span>Listagem completa de todos os clientes</span>
         </q-btn>
 
         <q-btn @click="reportCustomer('all-disabled')" class="bg-blue-500 hover:bg-blue-400 text-white">
-            <span v-if="props.widthScreen <= 1080">Listagem dos clientes inativos</span>
-            <span v-else>Listagem completa de todos os clientes inativos</span>
+            <span>Listagem completa de todos os clientes inativos</span>
         </q-btn>
     </div>
 
@@ -27,7 +23,6 @@
     import ReportLoanding from 'src/components/Loanding/ReportLoanding.vue';
 
     const props = defineProps<{
-        widthScreen: number,
         issuerID: number
 
     }>();

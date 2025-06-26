@@ -14,6 +14,7 @@ use App\Models\Registers\{
 };
 
 use App\Models\Customer;
+use App\Models\ConfigCustomers;
 
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
 use App\Services\NFCeValidation\FindTributs;
@@ -84,6 +85,21 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             ]);
             
             Log::info('--- Fim da criação do configPDV padrão ---');
+
+            Log::info('--- Criação das configCustomer padrão ---');
+            $maxCod = ConfigCustomers::where('issuer_id')->max('config_customer_cod');
+        
+            ConfigCustomers::create([
+                'issuer_id' => $issuer->id,
+                'config_customer_cod' => $maxCod ? $maxCod + 1 : 1,
+                'validate_cnpj' => false,
+                'validate_cpf' => false,
+                'validate_addres' => false,
+                'last_filter' => 'all',
+
+            ]);
+
+            Log::info('--- Fim da criação do configCustomer padrão ---');
 
             FirstSteps::create([
                 'issuer_id' => $issuer->id

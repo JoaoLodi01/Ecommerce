@@ -3,17 +3,18 @@
 namespace App\Repositories\Eloquent\Config;
 
 use App\Models\EcommerceModels\ConfigPDV;
+use App\Repositories\Contracts\ConfigContract\ConfigPDVContract;
 use Illuminate\Support\Facades\Log;
 
-class ConfigPDVRepository
+class ConfigPDVRepository implements ConfigPDVContract
 {
-    public function getConfigs(int $issuer_id)
+    public function getConfigs(int $id)
     {
-        return ConfigPDV::where('issuer_id', $issuer_id)->get();
+        return ConfigPDV::where('issuer_id', $id)->get();
         
     }
 
-    public function update(array $data)
+    public function update(array $data, int $id)
     {
         Log::info('data no repository');
         Log::info($data);
