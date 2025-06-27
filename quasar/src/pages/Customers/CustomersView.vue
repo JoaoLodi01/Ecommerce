@@ -240,14 +240,14 @@
     let _loanding = ref<boolean>(true);
     let showCustomers = ref<boolean>(false);
     let showReportCustomer = ref<boolean>(false);
-    let showReportCustomerMini = ref<boolean>(false);
     let showRegisterCustomers = ref<boolean>(false);
     let showConfig = ref<boolean>(false);
     let showUpdateCustomers = ref<boolean>(false);
     let customerID = ref<number>(0);
     let customerName = ref<string>('');
     let widthScreen = ref<number>(0);
-    const buttonColor = ref<string>('');
+    
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
     const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
@@ -382,8 +382,6 @@
         getCustomers();
         widthScreen.value = screen.width;
 
-        buttonColor.value = LocalStorage.getItem("buttonColor");
-        console.log('Cor atual: ', buttonColor.value);
     });
 
 </script>

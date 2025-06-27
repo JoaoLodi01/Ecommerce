@@ -83,8 +83,8 @@
     import { api } from 'src/boot/axios';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import { ref, onMounted } from 'vue';
-    import camelcaseKeys from 'camelcase-keys';        
-
+    import camelcaseKeys from 'camelcase-keys';
+    
     const $q = useQuasar();
     let showPage = ref<boolean>(false);
 
@@ -122,6 +122,7 @@
         {
             LocalStorage.set("buttonColor", colorOptions.value.buttonColor);
             LocalStorage.set("painelColor", colorOptions.value.painelColor);
+
             $q.notify({
                 color: 'green',
                 message: 'Cores alterados com sucesso!',

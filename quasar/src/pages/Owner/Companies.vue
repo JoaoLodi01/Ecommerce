@@ -126,10 +126,10 @@
         LocalStorage.set("issuer_id", issuer_id);
         LocalStorage.set("issuer_name", name);
 
-        getColors(LocalStorage.getItem("issuer_id"));
-
         const response = await api.get(`/first-steps/${issuer_id}`);
         const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
+
+        getColors(LocalStorage.getItem("issuer_id"));
         
         if(!completed)
         {

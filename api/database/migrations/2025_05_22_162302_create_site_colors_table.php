@@ -16,8 +16,10 @@ return new class extends Migration
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->unsignedBigInteger('color_cod');
+            
             $table->string('button_color', 40)->default('default')->nullable();
             $table->string('painel_color', 40)->default('default')->nullable();
+            
             $table->timestamps();
         });
     }

@@ -64,6 +64,8 @@
     onMounted(() => {
         LocalStorage.removeItem("pdvID")
         emitter.on('global-error', showGlobalError);
+
+        
         checkLogin();
 
         setInterval(checkLogin, 30 * 1000);

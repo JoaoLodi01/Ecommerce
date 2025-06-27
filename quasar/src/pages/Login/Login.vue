@@ -147,15 +147,18 @@
             
         } catch (error) {
             console.error('Erro no login: ', error);
+
         } finally {
             loandingLogin.value = false;
+
         };
 
-    }
+
+    };
 
     onMounted(() => {
         showContent.value = true;
-
+        
     });
 
 </script>

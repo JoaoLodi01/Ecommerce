@@ -235,6 +235,7 @@
     let widthScreen = ref<number>(0);
     let productName = ref<string>('');
     let productID = ref<number>(0);
+
     const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
     watch(searchFilter, async(newOption) =>{
@@ -250,7 +251,6 @@
             products.value = [...allProducts.value];
 
         };
-
     });
 
     const showPage = (event: boolean) =>

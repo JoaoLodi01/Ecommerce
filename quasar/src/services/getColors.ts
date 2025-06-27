@@ -11,6 +11,6 @@ async function getColors(issuerID: number)
     LocalStorage.set("buttonColor", data.buttonColor);
     LocalStorage.set("painelColor", data.painelColor);
 
-}
+};
 
 export default getColors;
