@@ -21,14 +21,14 @@ async function generatePIX(
         value: totalOperation,
     });
 
-    let payload = qrCodePix.payload()
+    let payload = qrCodePix.payload();
     const base64 = await qrCodePix.base64();
     
     return {
         base64,
         payload,
         
-    }
-}
+    };
+};
 
 export default generatePIX

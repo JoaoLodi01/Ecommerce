@@ -32,7 +32,7 @@
                 <q-btn
                     v-if="showCustomers"
                     @click="openRegister()"
-                    class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
+                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
 
                 >
                     <span>Novo cliente</span>
@@ -247,6 +247,7 @@
     let customerID = ref<number>(0);
     let customerName = ref<string>('');
     let widthScreen = ref<number>(0);
+    const buttonColor = ref<string>('');
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
     const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
@@ -381,6 +382,8 @@
         getCustomers();
         widthScreen.value = screen.width;
 
+        buttonColor.value = LocalStorage.getItem("buttonColor");
+        console.log('Cor atual: ', buttonColor.value);
     });
 
 </script>

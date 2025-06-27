@@ -155,6 +155,7 @@
 
     onMounted(() => {
         showContent.value = true;
+
     });
 
 </script>

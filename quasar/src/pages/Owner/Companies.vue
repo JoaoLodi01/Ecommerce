@@ -88,6 +88,7 @@
     import { api } from 'src/boot/axios';   
     import { useRouter } from 'vue-router';
     import camelcaseKeys from 'camelcase-keys';
+    import getColors from 'src/services/getColors';
 
     type TCompanies = {
         id: number,
@@ -121,16 +122,18 @@
         console.log('issuer_id', issuer_id);
         const first_name = name.split(" ")[0];
     
-        LocalStorage.setItem("issuer_id", issuer_id);
-        LocalStorage.setItem("first_name", first_name);
-        LocalStorage.setItem("issuer_name", name);
+        LocalStorage.set("first_name", first_name);
+        LocalStorage.set("issuer_id", issuer_id);
+        LocalStorage.set("issuer_name", name);
+
+        getColors(LocalStorage.getItem("issuer_id"));
 
         const response = await api.get(`/first-steps/${issuer_id}`);
         const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
         
         if(!completed)
         {
-            LocalStorage.setItem("_completed", false);
+            LocalStorage.set("_completed", false);
             router.push({ 
                 name: `FirstIssuerData`, 
                 params: { name: LocalStorage.getItem("first_name") }
@@ -163,15 +166,19 @@
 
     onMounted(() => {
         getCompanies();
+
         showContent.value = true;
+
         const uuse_id = LocalStorage.getItem("uuse_id");
         
         if(!uuse_id)
         {
             router.push('/register-owner');
+
         };
 
         witdhScreen.value = screen.width;
+
     });
 </script> 
 

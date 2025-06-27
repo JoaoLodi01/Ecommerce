@@ -137,7 +137,7 @@ Route::prefix('v1')->group( function (){
             });
         });
             
-        Route::prefix('config')->group(function () {
+        Route::prefix('configs')->group(function () {
             Route::get('/all-configs/{issuer_id}', [ConfigController::class, 'getConfigs']);
 
             Route::prefix('pdv')->group(function() {
@@ -146,6 +146,10 @@ Route::prefix('v1')->group( function (){
 
             Route::prefix('customer')->group(function() {
                 Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateCustomer']);
+            });
+
+            Route::prefix('color')->group(function() {
+                Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateColor']);
             });
         });
 

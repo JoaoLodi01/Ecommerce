@@ -3,7 +3,7 @@ import ClipboardJS from "clipboard";
 function clipBoard() {
     return new Promise((resolve, reject) => {    
         const clipboard = new ClipboardJS('.btn')
-        clipboard.on('success', function(e){
+        clipboard.on('success', function(){
             clipboard.destroy();
             resolve(true);
         });
@@ -13,7 +13,8 @@ function clipBoard() {
             clipboard.destroy();
             reject(false);
         });
-    });
-}
 
-export default clipBoard
+    });
+};
+
+export default clipBoard;
