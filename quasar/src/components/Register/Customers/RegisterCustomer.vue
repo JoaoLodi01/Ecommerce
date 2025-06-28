@@ -390,6 +390,7 @@
     };
 
     const returnValue = (value: boolean | number ) => { return value === 1 ? true : false };
+    
     const getConfig = async () =>
     {
         const res = await api.get(`/config/all-configs/${customerData.value.issuer_id}`);

@@ -235,6 +235,7 @@
     let widthScreen = ref<number>(0);
     let productName = ref<string>('');
     let productID = ref<number>(0);
+
     const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
     watch(searchFilter, async(newOption) =>{
@@ -250,7 +251,6 @@
             products.value = [...allProducts.value];
 
         };
-
     });
 
     const showPage = (event: boolean) =>
@@ -269,7 +269,7 @@
 
     const deleteOrActive = async (action: string, id: number) =>
     {
-        const res = action === 'disable' ? await api.put(`customers/${id}/${action}`) : await api.put(`customers/${id}/${action}`);
+        const res = action === 'disable' ? await api.put(`/ecommerce/products/${id}/${action}`) : await api.put(`/ecommerce/products/${id}/${action}`);
         if(res.data.success)
         {
             $q.notify({

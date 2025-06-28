@@ -32,7 +32,7 @@
                 <q-btn
                     v-if="showCustomers"
                     @click="openRegister()"
-                    class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
+                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
 
                 >
                     <span>Novo cliente</span>
@@ -240,13 +240,14 @@
     let _loanding = ref<boolean>(true);
     let showCustomers = ref<boolean>(false);
     let showReportCustomer = ref<boolean>(false);
-    let showReportCustomerMini = ref<boolean>(false);
     let showRegisterCustomers = ref<boolean>(false);
     let showConfig = ref<boolean>(false);
     let showUpdateCustomers = ref<boolean>(false);
     let customerID = ref<number>(0);
     let customerName = ref<string>('');
     let widthScreen = ref<number>(0);
+    
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
     const searchFilter = ref<'all' | 'active' | 'disabled' >('all');

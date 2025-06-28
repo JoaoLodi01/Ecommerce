@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
     import { api } from "src/boot/axios"
-    import { LocalStorage } from "quasar";
+    import { LocalStorage, useQuasar } from "quasar";
     import { ref, onMounted, defineProps, defineEmits } from "vue";
 
     type TConfig = {
@@ -43,15 +43,7 @@
         name: string
     }
     
-    interface IFilterProduct
-    {
-        product_cod: number,
-        product: string,
-        amount: number,
-        sale_price: number,
-    }
-
-    const emits = defineEmits<{
+     const emits = defineEmits<{
         (e: 'update:selectProducts', value: object)
 
     }>();
@@ -61,9 +53,23 @@
         
     }>(); 
 
-    let products = ref<IFilterProduct[]>([]);
-    let filtredProducts = ref<IFilterProduct[]>([]);
-    let productsData = ref<IFilterProduct[]>([]);
+    const $q = useQuasar();
+
+    let filtredProducts = ref<IProducts[]>([]);
+
+    const productsData = ref<IProducts>({
+        id: 0,
+        product_cod: 0,
+        active: 0,
+        barcode: 0,
+        barcode_internal: 0,
+        product: '',
+        cfop: 0,
+        csosncst: 0,
+        amount: 0,
+        sale_price: 0
+
+    });
     
     let search = ref<TSearch>({
         name: ''
@@ -79,7 +85,7 @@
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
     const getConfig = async () => {
-        const res = await api.get(`/config/all-configs/${issuerID.value}`);
+        const res = await api.get(`/configs/all-configs/${issuerID.value}`);
 
         const config = res.data.data.pdv[0]
 
@@ -108,27 +114,56 @@
         };
     };
     
-    const setProduct = (product: IFilterProduct) => 
+    const setProduct = (product: IProducts) => 
     {
         if(product.amount <= 0 && configs.value.saleNegativeorReset)
         {
-            alert('Venda com estoque negativo/zerado bloqueada!')
+            $q.notify({
+                color: 'red',
+                message: 'Venda com estoque negativo/zerado bloqueada!',
+                position: 'top',
+                timeout: 2000
+
+            });
+            
             search.value.name = ''
             
         } else {
-            productsData.value.push({
-                ...product,
-                amount: 1
-            });
+            if(product.active)
+            {
+            console.log(product.active)
+                const emitProduct = {...productsData.value = { 
+                    id: product.id,
+                    product_cod: product.product_cod, 
+                    product: product.product, 
+                    active: product.active,
+                    barcode: 0,
+                    barcode_internal: 0,
+                    cfop: product.cfop,
+                    csosncst: product.csosncst,
+                    amount: 1,
+                    sale_price: product.sale_price
+                    
+                }};
+                
+                console.log('emitProduct: ', emitProduct)
+                emits('update:selectProducts', emitProduct);
+                
+                filtredProducts.value = [];
+                search.value.name = '';
 
-            console.log('productsData.value: ', productsData.value, ' productsData.value.length: ', productsData.value.length);
-            
-            emits('update:selectProducts', productsData.value);
-            
-            //productsData.value = [];
-            filtredProducts.value = [];
-            search.value.name = '';
+            } else {
+                $q.notify({
+                    color: 'red',
+                    message: 'Venda com estoque negativo/zerado bloqueada!',
+                    position: 'top',
+                    timeout: 2000
 
+                });
+
+                search.value.name = ''
+                
+            };
         };  
     };
 

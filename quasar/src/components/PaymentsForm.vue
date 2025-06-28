@@ -7,7 +7,7 @@
             :total_amount="totalPaymentPIX"
             :issuer_id="issuerID"
             @close="handlePIX"
-            @discount=""
+            @discount="discountTotalByPIX($event)"
             class="relative left-[20rem] top-5 z-50 w-[20rem]"
             
         />
@@ -193,7 +193,7 @@
     const emits = defineEmits<{
         (e: 'close', value: boolean),
         (e: 'resetTotal', value: number),
-        (e: 'update:selectProducts', value: boolean),
+        (e: 'update:selectProducts', value: true),
         (e: 'resetPDVID', value: number)
         
     }>();
@@ -228,9 +228,8 @@
 
     };
 
-    const confirmPayMent = () =>
-    {   
-        
+    const confirmPayMent = async () =>
+    {           
         paymentsValues.value.map((pay, i) => {
             const species = paymentsForms.value[i];
 
@@ -242,7 +241,7 @@
 
             if(species.pix_key !== null && species.payments_form_type === 'PIX')
             {
-                console.log('Abriu não sei por que');
+                console.log('Tem PIX');
                 totalPaymentPIX.value = formatNumber(pay);
                 showQRCode.value = true;
                 
@@ -261,17 +260,35 @@
             console.log('Total pago: ', total);
             console.log(`Teve pix ou receber? ${showInstallments.value} | ${showQRCode.value}`);
 
+            const res = await api.put('/ecommerce/pdv/finalize-sale', {
+                issuer_id: issuerID.value,
+                user_id: user_id.value,
+                type_operation: props.typeOperation,
+                change: 0,
+                payments_values: paymentsValues.value.map(v => parseFloat(v.replace(',', '.'))),
+                pdv_id: props.pdvID,
+                installments: null
+
+            });
+
+            console.log('Resultado da venda:', res.data);
+            if(res.data.success)
+            {
+                $q.notify({
+                    color: 'green',
+                    message: res.data.data.message,
+                    timeout: 2000,
+                    position: 'top'
+
+                });
+
+                finallySale();
+            }
+            
         } else {
             console.log('Total a ser pago: ', props.totalOperation - total);
         };
     }; // Vai conferir os valores pagos e gerenciar o que precisa ser feito, PIX ou receber...
-
-    const getPayments = async () => 
-    {
-        const res = await api.get(`/species/all/${issuerID.value}`);
-        paymentsForms.value = res.data.all
-        
-    }; // Puxa as espécies de pagamento;
 
     const handlePIX = () =>
     {
@@ -282,16 +299,11 @@
 
     const discountTotalByPIX = (event: number) =>
     {
-        
+        let totalOperation = props.totalOperation;
+        totalOperation -= event;
 
     };
     
-    const cancelOperation = () =>
-    {
-        
-
-    };
-
     const calculateValueInformed = computed(() =>
     {
         let total = paymentsValues.value.reduce((sum, value) => 
@@ -307,10 +319,33 @@
 
     }); 
 
+    const finallySale = () =>
+    {
+        emits("close", true);
+        emits("resetPDVID", 0);
+        emits('resetTotal', 0);
+        emits('update:selectProducts', true);
+    };
+
+    const cancelOperation = () =>
+    {
+        emits("close", true);
+        emits("resetPDVID", null);
+        emits('resetTotal', 0);
+    
+    };
+
+    const getPayments = async () =>
+    {
+        const res = await api.get(`/species/all/${issuerID.value}`);
+        paymentsForms.value = res.data.all // Chama as formas de pagamento;
+
+    };
+
     onMounted(() => {
         console.log('Total a ser pago: ', props.totalOperation);
         getPayments();
-
+        
     })
 
     /*
@@ -391,7 +426,7 @@
                 if(response_nfce.data.success)
                 {
                     this.cancelOperation()
-                    this.$emit('update:selectProducts', []);
+                    emits('update:selectProducts', []);
                     LocalStorage.removeItem("pdvID");
 
                 } else {
@@ -424,7 +459,7 @@
                     if(response_nm.data.success)
                     {
                         this.cancelOperation()
-                        this.$emit('update:selectProducts', []);
+                        emits('update:selectProducts', []);
                         LocalStorage.removeItem("pdvID")
                         console.log(response_nm.data);    
                     
@@ -501,14 +536,14 @@
         },
 
         cancelOperation(){            
-            this.$emit("close")
-            this.$emit("resetPDVID", null)
-            this.$emit('resetTotal', 0);
+            emits("close")
+            emits("resetPDVID", null)
+            emits('resetTotal', 0);
    
         },
 
         closeOperation(){
-            this.$emit("close")
+            emits("close")
             
         },
     },

@@ -14,6 +14,7 @@
     const $q = useQuasar();
     const router = useRouter();
     const errorDialog = ref(null);
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
 
     const showGlobalError = (msg: string) => 
     {
@@ -42,19 +43,18 @@
                 LocalStorage.remove("expire");
                 router.push('/');
                 
-            } else {
-                console.log('Ta deboa, consulta as: ', now.format('HH:mm:ss'));
-                console.log('expireDate: ', expireDate.format('HH:mm:ss'));
             };
         };
-    }
+    };
 
-    onMounted(() => {
+   onMounted(() => {
         LocalStorage.removeItem("pdvID")
         emitter.on('global-error', showGlobalError);
-    
+
         checkLogin();
+
         setInterval(checkLogin, 30 * 1000);
+
     });
 
     onBeforeUnmount(() => {

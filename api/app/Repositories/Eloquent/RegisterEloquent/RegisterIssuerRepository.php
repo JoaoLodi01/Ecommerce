@@ -15,7 +15,7 @@ use App\Models\Registers\{
 
 use App\Models\Customer;
 use App\Models\ConfigCustomers;
-
+use App\Models\SiteColors;
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
 use App\Services\NFCeValidation\FindTributs;
 use Illuminate\Support\Facades\Log;
@@ -100,6 +100,15 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             ]);
 
             Log::info('--- Fim da criação do configCustomer padrão ---');
+
+            Log::info('--- Criação das cores padrão ---');
+            $maxCod = SiteColors::where('issuer_id')->max('color_cod');
+        
+            SiteColors::create([
+                'color_cod' => $maxCod ? $maxCod + 1 : 1
+            ]);
+
+            Log::info('--- Fim da criação das cores padrão ---');
 
             FirstSteps::create([
                 'issuer_id' => $issuer->id
