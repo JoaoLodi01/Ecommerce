@@ -80,13 +80,13 @@
     
     let registredCustomer = ref<boolean>(false);
     let filter = ref<string>('');
-    let message = ref<string>('');    
 
     let issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
     const getConfig = async () => {
-        const res = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
-        const configs = res.data.data.pdv[0];
+        const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
+        
+        const configs = res.data;
         
         if (configs) {
             filter.value = configs.filter_search_customer;

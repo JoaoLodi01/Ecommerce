@@ -269,7 +269,7 @@
 
     const deleteOrActive = async (action: string, id: number) =>
     {
-        const res = action === 'disable' ? await api.put(`customers/${id}/${action}`) : await api.put(`customers/${id}/${action}`);
+        const res = action === 'disable' ? await api.put(`/ecommerce/products/${id}/${action}`) : await api.put(`/ecommerce/products/${id}/${action}`);
         if(res.data.success)
         {
             $q.notify({

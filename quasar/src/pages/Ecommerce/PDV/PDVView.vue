@@ -30,7 +30,7 @@
                 }"
             >
                 <PaymentsForm
-                    v-if="showPaymentsForm"
+                    v-if="showPaymentsForm && typeOperation && pdvID >= 1"
                     :witdhScreen="witdhScreen"
                     :typeOperation=typeOperation
                     :totalOperation=totalOperation
@@ -39,7 +39,7 @@
                     @resetTotal="totalOperation = $event"
                     @resetPDVID="pdvID = $event"
                     @close="cancelOperation"
-                    @update:selectProducts="resetSale($event)"
+                    @update:selectProducts="resetSale()"
 
                 />
 
@@ -57,7 +57,6 @@
                         'opacity-0 -z-50': !errorsOfSale.showErrosModal
                     }"
                 />
-
 
             </div>
             
@@ -131,51 +130,51 @@
                                 class="border border-black"
                             >    
 
-                                <td class="px-6" scope="row">{{ product[0].product_cod }}</td>
-                                <td class="px-6 py-3">{{ product[0].product}}</td>
+                                <td class="px-6" scope="row">{{ product.product_cod }}</td>
+                                <td class="px-6 py-3">{{ product.product}}</td>
 
                                 <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
                                     <input 
-                                        v-model="product[0].cfop"
-                                        :placeholder=String(product[0].cfop)
+                                        v-model="product.cfop"
+                                        :placeholder=String(product.cfop)
                                         type="text"
                                         class="w-12 text-center border-b-4 border-b-gray-500"
                                         maxlength="4"
                                         minlength="4"
-                                        @input="changeCFOP(product[0].id, Number(product[0].cfop))"
+                                        @input="changeCFOP(product.id, Number(product.cfop))"
 
                                     />
                                 </td>
 
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                     <input 
-                                        v-model="product[0].csosncst"
-                                        :placeholder=String(product[0].csosncst)
+                                        v-model="product.csosncst"
+                                        :placeholder=String(product.csosncst)
                                         type="number"
                                         :maxlength="maxlength(csosncst.toLowerCase())"
                                         :minlength="maxlength(csosncst.toLowerCase())"
                                         class="w-10 text-center border-b-4 border-b-gray-500"
                                         id="csosnInput"
-                                        @input="changeCSOSN(product[0].id, Number(product[0].csosncst))"
+                                        @input="changeCSOSN(product.id, Number(product.csosncst))"
 
                                     />
                                 </td>
 
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                     <input 
-                                        v-model="product[0].amount"
-                                        :placeholder="String(product[0].amount)"
+                                        v-model="product.amount"
+                                        :placeholder="String(product.amount)"
                                         type="text"
                                         class="w-10 text-center border-b-4 border-b-gray-500 "
-                                        @input="changeAmount(product[0].id, Number(product[0].amount))"
+                                        @input="changeAmount(product.id, Number(product.amount))"
                                         
                                     />
                                 </td>
-                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product[0].sale_price }}</td>
-                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product[0].sale_price * Number(product[0].amount)).toFixed(2) }}</td>
+                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * Number(product.amount)).toFixed(2) }}</td>
                                 <td class="text-center">
                                     <div class="m-auto">
-                                        <button @click="productOptions(product[0].id, i, 'delete')">
+                                        <button @click="productOptions(product.id, i, 'delete')">
                                             <svg 
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none" 
@@ -189,7 +188,7 @@
                                             </svg>
                                         </button>
 
-                                        <button @click="productOptions(product[0].id, i, 'options')">
+                                        <button @click="productOptions(product.id, i, 'options')">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 16 16" fill="currentColor"
@@ -200,7 +199,7 @@
                                             </svg>
                                         </button>
 
-                                        <button @click="productOptions(product[0].id, i, 'view')">
+                                        <button @click="productOptions(product.id, i, 'view')">
                                             <svg 
                                                 v-if="witdhScreen < 1080"
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -423,31 +422,37 @@
                 @close="closeConfig($event)"
             />
 
-            <ProductsSelectionView
+            <SupervisorPasswordDeleteItem
+                v-if="showSupervisorPassword"
+                
+            />
+
+            <!--<ProductsSelectionView
                 v-if="show"
                 :witdhScreen="witdhScreen"
                 :hotelCodCRT="crt"
                 @close="showGridEmit()"
                 @update:selectProducts="updateProductsSeletion($event)"
-            />
+            />-->
         </div>
     </div> <!-- SHOW PAGE -->
 </template>
 
 <script setup lang="ts">
     import PaymentsForm from 'src/components/PaymentsForm.vue';
-    import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
+    //import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing/CashClosing.vue'
     import ConfigPDV from 'src/components/Config/ConfigPDV.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
     import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
-    
+    import SupervisorPasswordDeleteItem from 'src/components/SupervisorPassword/supervisorPasswordDeleteItem.vue';
     import { api } from "src/boot/axios"
     import { ref, computed, watch, defineProps, onMounted } from 'vue'   
     import { useRoute, useRouter } from 'vue-router';
     import { useQuasar, LocalStorage } from 'quasar';
+    import camelcaseKeys from 'camelcase-keys';
 
     const props = defineProps<{
         idPDV?: number;
@@ -460,7 +465,7 @@
 
     let showPage = ref<boolean>(false);
     
-    let productsSeletion = ref<IProducts[][]>([]);
+    let productsSeletion = ref<IProducts[]>([]);
 
     let errorsOfSale = ref<TErrorsOfSale>({
         showErrosModal: false,
@@ -491,7 +496,7 @@
     let totalOperation = ref<number>(0);
     let witdhScreen = ref<number>(0);
     let textSize = ref<number>(4);
-    let pdvID = ref<number>( 0);
+    let pdvID = ref<number>(0);
     let show = ref<boolean>(false);
     let showGrid = ref<boolean>(true);
     let showPaymentsForm = ref<boolean>(false);
@@ -513,29 +518,16 @@
             
     let configs = ref<Tconfig>({
         nmFinaly: false,
-        saleNegativeorReset: false
+        saleNegativeorReset: false,
+        supervisorPasswordCancelSale: false,
+        supervisorPasswordDeleteItem: false
     });
 
+    let showSupervisorPassword = ref<boolean>(false);
+
+    let subTotal = ref<number>(0);
+
     const issuer_id = ref<number>(LocalStorage.getItem("issuer_id"));
-
-    const showLoading = () => {
-        $q.loading.show({
-            message: 'Carregando pagamento e validando a venda ...'
-        });
-
-        timer = setTimeout(() => {
-            $q.loading.hide()
-            timer = void 0
-        }, 3000);
-    };
-
-    const hideLoanding = () => {
-        if(timer !== void 0) {
-            clearTimeout(timer)
-            $q.loading.hide();
-
-        };
-    };
     
     watch(
         () => route.fullPath,
@@ -546,23 +538,19 @@
     );
         
     const calculateTotal = computed(() => {
-        let subtotal: number = 0;
+        subTotal.value = 0;
 
-        productsSeletion.value.forEach((products: IProducts[]) => {
-            for(let i = 0; i < products.length; i++)
-            {
-                const p = products[i];
-                subtotal += p.sale_price * p.amount;
-            };
+        productsSeletion.value.map((p: IProducts) => {
+            subTotal.value += p.sale_price * p.amount;
         });
 
         const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
         const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
         const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
-        
+
         return {
-            total: subtotal + (addition + freight) - discount,
-            subtotal: subtotal,
+            total: subTotal.value + (addition + freight) - discount,
+            subtotal: subTotal.value,
             addition: addition,
             discount: discount,
             freight: freight
@@ -601,7 +589,7 @@
 
             } else {
                 alert('Venda guardarda para enviar posteriormente!');
-                productsSeletion// Salva apenas a venda = []
+                // Salva apenas a venda = []
                 router.push({ name: "PDV" });
 
             };
@@ -610,7 +598,7 @@
     
     const finalizeSale = async (type: string) => 
     {
-        showLoading()
+        console.log('total: ', totalOperation.value)
         try {
             if(sellerData.value.id)
             {
@@ -666,8 +654,9 @@
                     } else {
                         console.log('Não é uma nova venda!');
                         console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"));
-                        LocalStorage.getItem("pdvID");
                         showPaymentsForm.value = true;
+                        pdvID.value = LocalStorage.getItem("pdvID");
+
                     };
                 };
                 
@@ -678,9 +667,6 @@
         } catch (error) {
             console.error('Erro finalizeSale', error);
             
-        } finally {
-            hideLoanding();
-
         };
     };
 
@@ -775,74 +761,34 @@
     };
 
     const changeAmount = (id: number, newAmount: number) =>
-    {
-        // const rawProducts = productsSeletion.value
-        
-        // let productFound = null;
-        
-        // for (let i = 0; i < rawProducts.length; i++) {
-        //const productArray = rawProducts[i];
-        //     productFound = productArray.find((p: IProducts) => p.id === id)
-            
-
-        //     if(productFound) break
-
-        // }
-
-        // if(productFound)
-        // {
-        //     productFound.amount = newAmount
-
-        // }
-        
-    };
+    {};
 
     const changeCFOP = (id: number, newCFOP: number) => 
-    {
-        console.log('Chamou o changeCFOP');
-    
-        for(let i = 0; i < productsSeletion.value.length; i++)
-        {
-            for(let k = 0; k < productsSeletion.value[i].length; k++)
-            {
-                if(productsSeletion[i][k].id === id)
-                {
-                    productsSeletion[i][k].cfop = newCFOP;
-                    return;
-                    
-                };
-            };  
-        };
-
-        console.warn('Produto com id', id, 'não encontrado');
-    };
+    { };
 
     const changeCSOSN = (id: number, newCSOSN: number) =>
-    {
-        // const rawProducts = productsSeletion.value
-
-        // let productFound = null;
-        
-        // for (let i = 0; i < rawProducts.length; i++) {
-        //     const productArray = rawProducts[i];
-        //     productFound = productArray.find(p => p.id === id)
-        //     if(productFound) break
-
-        // }
-
-        // if(productFound)
-        // {
-        //     productFound.csosn = newCSOSN
-
-        // }
-    };
+    {};
 
     const updateProductsSeletion = (selectedProducts) =>
     {
-        console.log('Chamou esse daqui: updateProductsSeletion: ', selectedProducts);
-        productsSeletion.value = [...productsSeletion.value, selectedProducts];
-        console.log('productsSeletion.value: ', productsSeletion.value);
-        
+        console.log('Produto adicionado: ', selectedProducts,);
+        //productsSeletion.value = [...productsSeletion.value, selectedProducts]; // <- Qualquer coisa apagar o que está abaixo
+
+        const existingProduct = productsSeletion.value.find(p => 
+            p.product_cod === selectedProducts.product_cod || p.id === selectedProducts.id
+        );
+
+        if(existingProduct)
+        {
+            existingProduct.amount += selectedProducts.amount;
+
+        } else {
+            productsSeletion.value = [...productsSeletion.value, {...selectedProducts}];
+
+        };
+
+        console.log(productsSeletion.value);
+
     };
 
     const updateCustomerSelection = (client: Icustomer) => 
@@ -864,8 +810,8 @@
         switch (action) {
             case 'delete':
                 console.log('product_id', product_id, ' i: ', i);
-                console.log('p: ', productsSeletion.value.map(p => { return p }));
-
+                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_cod !== product_id)]
+                
                 break;
                 
             case 'view':
@@ -887,26 +833,28 @@
         showCashClosing.value = event;
     };
 
-    const resetSale = (confirmed: boolean) =>
+    const resetSale = () =>
     {
-        if(confirmed)
-        {
-            emitProducts.value = {
-                subtotal: 0,
-                addition: 0,
-                discount: 0,
-                freight: 0,
-                
-            };
-
-            productsSeletion.value = [];
-            emitProducts.value.addition = 0;
-            emitProducts.value.discount = 0;
-            emitProducts.value.freight = 0;
-            customerData.value.id = null;
-            customerData.value.name = null;
+        emitProducts.value = {
+            subtotal: 0,
+            addition: 0,
+            discount: 0,
+            freight: 0,
             
         };
+
+        typeOperation.value = '';
+        totalOperation.value = 0;
+        productsSeletion.value = [];
+        emitProducts.value.addition = 0;
+        emitProducts.value.discount = 0;
+        emitProducts.value.freight = 0;
+        customerData.value.id = 1;
+        customerData.value.name = 'Consumidor Padrão';
+        LocalStorage.remove("pdvID");
+
+        console.log('productsSeletion: ', productsSeletion.value);
+
     };
 
     const maxlength = (csosncst: string) =>
@@ -958,15 +906,23 @@
 
     const getConfig = async () => 
     {
-        const res = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
-        configs.value.nmFinaly = res.data.data.pdv[0].nm_finaly;
-            
+        const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
+        const configsRes: Tconfig = camelcaseKeys(res.data.data.pdv[0], { deep: true });
+
+        configs.value.nmFinaly = configsRes.nmFinaly;
+        configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
+        configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
+
     };
 
     onMounted(() => {
         getCRT();
         getUser()
         getConfig();
+        
+        console.log('pdvID: ', pdvID.value);
+        console.log('total: ', totalOperation.value);
+
         witdhScreen.value = screen.width;
         isOpenedPDV.value = history.state?.isOpenedPDV ?? false;
 

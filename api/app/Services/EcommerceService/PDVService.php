@@ -4,11 +4,13 @@ namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PDVRepository;
 use Illuminate\Support\Facades\Log;
+use App\Traits\LogPayMentRepository;
 
 class PDVService
 {
     public function __construct(
-        protected PDVRepository $pdvRepository
+        protected PDVRepository $pdvRepository,
+        protected LogPayMentRepository $logPayMentRepository
 
     ){
         Log::info('Memória usada PDVService::class, __construct, linha 13: ' . memory_get_usage(true));
@@ -78,7 +80,7 @@ class PDVService
             
         }
 
-        Log::info('PDVService.php, class:finalizeSale, $total: ' . $total);
+        $this->logPayMentRepository->logDebug('Dados', $filltred);
         $pdv = $this->findSavePDVByID($pdvID, $issuerID);
 
         if($total < $pdv->net_value)

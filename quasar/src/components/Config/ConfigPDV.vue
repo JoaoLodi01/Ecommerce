@@ -51,12 +51,6 @@
                         
                     />
 
-                    <q-checkbox 
-                        v-model="configs.groupLikeItens"
-                        :label="'Agrupar itens iguais'"
-                        color="grey"
-                        
-                    />
                 </div>    
             </div>            
 
@@ -155,7 +149,6 @@
         saleNegativeorReset: false,
         supervisorPasswordDeleteItem: false,
         supervisorPasswordCancelSale: false,
-        groupLikeItens: false,
         permitEditFields: null,
         nmFinaly: true
     
@@ -181,7 +174,7 @@
     {
         showLoading('Carregando as');
 
-        const res = await api.get(`/config/all-configs/${issuerID.value}`);
+        const res = await api.get(`/configs/all-configs/${issuerID.value}`);
 
         const data = res.data.data.pdv[0];
 
@@ -193,7 +186,6 @@
             supervisorPasswordDeleteItem: data.supervisor_password_delete_item === 1 ? true : false,
             supervisorPasswordCancelSale: data.supervisor_password_cancel_sale === 1 ? true : false,
             permitEditFields: editFields.value[0],
-            groupLikeItens: false
             
         };
     };
@@ -202,7 +194,7 @@
     {
         showLoading('Salvando as');
         console.log(typeof issuerID.value)
-        const res = await api.put(`/config/pdv/update-config/${issuerID.value}`, {
+        const res = await api.put(`/configs/pdv/update-config/${issuerID.value}`, {
             searchOptionProduct: configs.value.searchOptionProduct,
             searchOptionCustomers: configs.value.searchOptionCustomer,
             nmFinaly: configs.value.nmFinaly,
