@@ -43,33 +43,17 @@
                 LocalStorage.remove("expire");
                 router.push('/');
                 
-            } else {
-                console.log('Ta deboa, consulta as: ', now.format('HH:mm:ss'));
-                console.log('expireDate: ', expireDate.format('HH:mm:ss'));
             };
         };
     };
 
-    const changeColors = () => 
-    {
-        console.log('changeColors');
-        if(!buttonColor.value)
-        {
-            console.warn('Ainda não precisa conferir');
-        } else {
-            console.warn('Agora vai precisa conferir');
-        };
-    };
-
-    onMounted(() => {
+   onMounted(() => {
         LocalStorage.removeItem("pdvID")
         emitter.on('global-error', showGlobalError);
 
-        
         checkLogin();
 
         setInterval(checkLogin, 30 * 1000);
-        setInterval(changeColors, 10 * 1000);
 
     });
 

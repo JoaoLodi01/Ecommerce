@@ -12,10 +12,9 @@ class FirstStepsService
 
     public function getAll(int $id)
     {
-        return response()->json([
-            'success' => true,
-            'first_steps' => $this->firstStepsRepository->getAll($id)
-        ], 200);
+        $data = $this->firstStepsRepository->getAll($id);
+        return $data;
+        
     }
 
     public function ignoreFirstSteps(int $id)

@@ -145,5 +145,12 @@ return [
             'level' => 'info',
             'days' => 1
         ],
+        
+        'pdv' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/pdv/pdv.log'),
+            'level' => 'debug',
+            'days' => 1
+        ],
     ],
 ];

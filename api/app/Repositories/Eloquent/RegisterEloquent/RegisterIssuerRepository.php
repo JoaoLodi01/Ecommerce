@@ -105,6 +105,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             $maxCod = SiteColors::where('issuer_id')->max('color_cod');
         
             SiteColors::create([
+                'issuer_id' => $issuer->id,
                 'color_cod' => $maxCod ? $maxCod + 1 : 1
             ]);
 

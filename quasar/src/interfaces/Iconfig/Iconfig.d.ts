@@ -5,7 +5,6 @@ interface IConfig
     saleNegativeorReset: boolean,
     supervisorPasswordDeleteItem: boolean,
     supervisorPasswordCancelSale: boolean,
-    groupLikeItens: boolean,
     permitEditFields: unknown,
     nmFinaly: boolean
 }

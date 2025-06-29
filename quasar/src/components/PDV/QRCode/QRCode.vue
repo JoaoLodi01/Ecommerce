@@ -104,7 +104,7 @@
     const finaly = () => 
     {
         emits('close', true);
-        emits('discount', props.total_amount)
+        emits('discount', props.total_amount);
     }
     
     onMounted(() => {

@@ -30,8 +30,9 @@ class PDVController extends Controller
     {
         Log::info('Memória usada PDVController::class, saveSale: ' . memory_get_usage(true));
         $data = $request->validated();
+        Log::channel('pdv')->debug($data['products']);
         
-        return $this->pdvService->saveSale($data, $data['products']);
+        return $this->pdvService->saveSale($request->validated(), $data['products']);
         
     }
     
