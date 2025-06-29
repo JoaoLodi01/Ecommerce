@@ -127,8 +127,9 @@
         LocalStorage.set("issuer_name", name);
 
         const response = await api.get(`/first-steps/${issuer_id}`);
-        console.log(response)
-        const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
+        const data = camelcaseKeys(response.data.data, { deep: true });
+        
+        const completed = data.completeIssuer === 1 ? true : false;
 
         getColors(LocalStorage.getItem("issuer_id"));
         

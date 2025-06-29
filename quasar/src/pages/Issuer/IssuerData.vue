@@ -4,6 +4,7 @@
             @submit="completeIssuer()"
             
         >
+            <router-link v-if="!_completed" class="ml-5" to="/companies">Voltar</router-link>
             <h1 
                 v-if="!_completed" 
                 class="ml-5 text-2xl"

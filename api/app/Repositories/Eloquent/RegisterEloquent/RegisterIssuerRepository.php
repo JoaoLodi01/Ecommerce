@@ -111,9 +111,16 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
             Log::info('--- Fim da criação das cores padrão ---');
 
-            FirstSteps::create([
-                'issuer_id' => $issuer->id
+            Log::info('--- Criação das primeros passos padrão ---');
+            
+            $first = FirstSteps::create([
+                'issuer_id' => $issuer->id  
             ]);
+
+            Log::info('$first');
+            Log::info($first);
+
+            Log::info('--- fim da criação dos primeros passos ---');
 
             return array(
                 'success' => true,
