@@ -447,7 +447,7 @@
     import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
     import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
-    import SupervisorPasswordDeleteItem from 'src/components/SupervisorPassword/supervisorPasswordDeleteItem.vue';
+    import SupervisorPasswordDeleteItem from 'src/components/SupervisorPassword/SupervisorPasswordDeleteItem.vue';
     import { api } from "src/boot/axios"
     import { ref, computed, watch, defineProps, onMounted } from 'vue'   
     import { useRoute, useRouter } from 'vue-router';
@@ -461,7 +461,6 @@
     const $q = useQuasar();
     const route = useRoute();
     const router = useRouter();
-    let timer: any;
 
     let showPage = ref<boolean>(false);
     

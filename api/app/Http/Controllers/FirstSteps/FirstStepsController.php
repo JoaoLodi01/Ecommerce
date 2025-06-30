@@ -12,7 +12,8 @@ class FirstStepsController extends Controller
 
     public function getAll(int $id)
     {
-        return $this->firstStepsService->getAll($id);
+        $firstSteps = $this->firstStepsService->getAll($id);
+        return apiSuccess('Primeiros passos', $firstSteps);
     }
 
     public function ignoreFirstSteps(int $id)

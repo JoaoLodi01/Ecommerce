@@ -271,16 +271,8 @@ class PDVRepository
                         'finished' => 1
                     ]);
                 }
-
                 //ord()
-                return array(
-                    'success' => true,
-                    'message' => 'O pagamento foi efetuado com sucesso!',
-                    'pdv' => $pdv
-                
-                );
-            }
-        
+            }       
         }
     }
 

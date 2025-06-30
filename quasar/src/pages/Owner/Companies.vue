@@ -68,13 +68,14 @@
                         <q-btn 
                             label="Entrar" 
                             @click="joinCompanie(companie.companyName, companie.id)"
-                            class="mt-8 bg-[#BF3658] text-white"
+                            class="mt-8 text-white"
+                            color="primary"
 
                         />
                         
                         <p class="mt-5">
-                            {{ companie.cnpj ? 'CNPJ' : 'CPF' }} : {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
-                        </p>
+                            {{  companie.cnpj ? 'CNPJ' : 'CPF' }} : {{ companie.cnpj?.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') ?? companie.cpf?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                        </p>    
                     </q-card-section>
                 </q-card>
             </div>
@@ -127,7 +128,9 @@
         LocalStorage.set("issuer_name", name);
 
         const response = await api.get(`/first-steps/${issuer_id}`);
-        const completed = response.data.first_steps.complete_issuer === 1 ? true : false;
+        const data = camelcaseKeys(response.data.data, { deep: true });
+        
+        const completed = data.completeIssuer === 1 ? true : false;
 
         getColors(LocalStorage.getItem("issuer_id"));
         

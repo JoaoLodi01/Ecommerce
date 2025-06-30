@@ -105,14 +105,22 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             $maxCod = SiteColors::where('issuer_id')->max('color_cod');
         
             SiteColors::create([
+                'issuer_id' => $issuer->id,
                 'color_cod' => $maxCod ? $maxCod + 1 : 1
             ]);
 
             Log::info('--- Fim da criação das cores padrão ---');
 
-            FirstSteps::create([
-                'issuer_id' => $issuer->id
+            Log::info('--- Criação das primeros passos padrão ---');
+            
+            $first = FirstSteps::create([
+                'issuer_id' => $issuer->id  
             ]);
+
+            Log::info('$first');
+            Log::info($first);
+
+            Log::info('--- fim da criação dos primeros passos ---');
 
             return array(
                 'success' => true,
