@@ -56,6 +56,10 @@
                         mask="###.###.###-##"
                         color="grey-7"
                         label="Chave PIX ( CPF )" 
+                        :rules="[
+                            val => !val || validateCPF(val) || 'CPF inválido'
+                        ]"
+                        
                     />
 
                 </div>
@@ -96,6 +100,7 @@
     import { LocalStorage } from 'quasar';
     import { api } from 'src/boot/axios';
     import { ref } from 'vue';
+    import validateCPF from 'src/utils/validateCPF';
 
     const paymentsFormType = ref([
         'DINHEIRO',

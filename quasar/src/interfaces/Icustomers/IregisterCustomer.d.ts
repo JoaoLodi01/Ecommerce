@@ -1,5 +1,6 @@
 interface IRegisterCustomer
 {
+    customer_type?: string,
     company_name: string,
     trade_name: string,
     cpf: string,

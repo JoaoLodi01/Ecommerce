@@ -20,6 +20,7 @@ return new class extends Migration
             
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
+            $table->string('customer_type', 16)->nullable();
             $table->string('company_name', 120)->nullable();
             $table->string('trade_name', 120)->nullable();
             $table->string('cnpj', 14)->nullable();

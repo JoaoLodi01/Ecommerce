@@ -143,6 +143,13 @@
 
                 router.push('/companies')
 
+            } else {
+                $q.notify({
+                    color: 'red',
+                    message: 'Erro no login',
+                    position: 'top',
+                    timeout: 2000
+                })
             };
             
         } catch (error) {

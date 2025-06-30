@@ -60,6 +60,9 @@
                     color="[#BF3658]"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
+                    :rules="[
+                        val => !val || validateCPF(val) || 'CPF inválido'
+                    ]"
 
                 />
 
@@ -91,9 +94,10 @@
 </template>
 
 <script>
-    import { LocalStorage, useQuasar } from 'quasar'
-    import { api } from 'src/boot/axios'
-    import axios from 'axios'
+    import { LocalStorage, useQuasar } from 'quasar';
+    import { api } from 'src/boot/axios';
+    import axios from 'axios';
+    import validateCPF from 'src/utils/validateCPF';
     
     export default {
         data()

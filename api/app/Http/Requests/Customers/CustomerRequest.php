@@ -2,11 +2,17 @@
 
 namespace App\Http\Requests\Customers;
 
+use App\Services\Config\ConfigService;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class CustomerRequest extends FormRequest
 {
+    public function __construct(
+        protected ConfigService $configService
+    ){ }
+
 
     protected function prepareForValidation()
     {
@@ -32,8 +38,50 @@ class CustomerRequest extends FormRequest
             'issuer_id' => ['required'],
             'company_name' => ['nullable', 'required_without:trade_name', 'string', 'max:120'],
             'trade_name' => ['nullable', 'required_without:company_name', 'string', 'max:120'],
-            'cpf' => ['nullable', 'required_without:cnpj'],
-            'cnpj' => ['nullable', 'required_without:cpf'],
+            'customer_type' => ['required'],
+
+            'cpf' => [
+                function($attribute, $value, $fail)
+                {
+                    $issuerID = $this->get('issuer_id');
+                    if(!$issuerID) 
+                    {
+                        return $fail('ID do emitente ausente');
+                    }
+
+                    $config = $this->configService->getConfigs($issuerID)['customers'];
+                    
+                    if(!$config->validate_cpf)
+                    {
+                        return 'nullable';
+                    } else {
+                        return 'required';
+                    }
+                }
+            ],
+
+            'cnpj' => [
+                function($attribute, $value, $fail)
+                {
+                    $issuerID = $this->get('issuer_id');
+                    if($issuerID) 
+                    {
+                        return $fail('ID do emitente ausente');
+                    }
+                    /*
+                    $issuerID = $this->get['issuer_od'];
+                    $config = $this->configService->getConfigs($issuerID)['customers'];
+                    
+                    if(!$config->validate_cnpj)
+                    {
+                        return 'nullable';
+                    } else {
+                        return 'required';
+                    }*/
+                }
+            ],
+
+
             'cep' => ['required'],
             'address' => ['required'],
             'number' => ['required'],
