@@ -27,14 +27,14 @@ class AuthController extends Controller
         
         $owner = $this->registerOwnerService->findByEmail($data['email']);
 
-        Log::info('owner ' . $owner);
+        Log::channel('auth')->info('owner ' . $owner);
         if($owner && Hash::check($data['password'], $owner->password))
         {
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
             $user = $this->userService->findById($owner->id);
 
-            Log::info("Passou o login, token: $token");
+            Log::channel('auth')->info("Passou o login, token: $token");
             
             return response()->json([
                 'success' => true,
