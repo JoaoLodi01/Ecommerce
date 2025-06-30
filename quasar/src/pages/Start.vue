@@ -95,7 +95,8 @@
             async completed()
             {
                 const response = await api.get(`/first-steps/${LocalStorage.getItem("issuer_id")}`)
-                const data = response.data.first_steps
+                const data = response.data.data
+                
                 this.ignore = data.ignore_first_steps === 1 ? true : false
                 this.completeIssuer = data.complete_issuer === 1 ? true : false;
                 this.completeConfigPDV = data.complete_pdv === 1 ? true : false;

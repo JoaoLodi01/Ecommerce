@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('issuer_id');
             $table->unsignedBigInteger('color_cod');
             
-            $table->string('button_color', 40)->default('default')->nullable();
-            $table->string('painel_color', 40)->default('default')->nullable();
+            $table->string('button_color', 40)->default('#000000')->nullable();
+            $table->string('painel_color', 40)->default('#000000')->nullable();
             
             $table->timestamps();
         });
