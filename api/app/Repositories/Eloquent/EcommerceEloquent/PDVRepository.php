@@ -272,6 +272,8 @@ class PDVRepository
                     ]);
                 }
                 //ord()
+
+                return 'Pagamento bem sucedido!';
             }       
         }
     }

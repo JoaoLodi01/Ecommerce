@@ -28,11 +28,11 @@ class PDVController extends Controller
 
     public function saveSale(PDVSaveSaleRequest $request)
     {
-        Log::info('Memória usada PDVController::class, saveSale: ' . memory_get_usage(true));
         $data = $request->validated();
+        Log::info('Memória usada PDVController::class, saveSale: ' . memory_get_usage(true));
         Log::channel('pdv')->debug($data['products']);
         
-        return $this->pdvService->saveSale($request->validated(), $data['products']);
+        return apiSuccess('Venda salva', $this->pdvService->saveSale($request->validated(), $data['products']));
         
     }
     

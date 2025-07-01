@@ -46,8 +46,7 @@ class AuthController extends Controller
                 
             ], 200);
 
-        } else if (empty($owner))
-        {
+        } else if (empty($owner)) {
             return response()->json([
                 'success' => false,
                 'message' => 'O usuário não existe',

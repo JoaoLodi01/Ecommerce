@@ -1,0 +1,9 @@
+return [
+            'issuer_id' => ['required'],
+            'user_id' => ['required'],
+            'type_operation' => ['required', 'string'],
+            'change' => ['required'],
+            'payments_values' => ['required'],
+            'pdv_id' => ['required'],
+            'installments' => ['sometimes'],
+        ];
