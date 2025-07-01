@@ -55,19 +55,21 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'owner_id' => $owner->id,
             ]);
 
+            Log::info('--- Criação das espécies padrão ---');
+            $this->registerPayMentsForms($issuer->id);
+            Log::info('--- Fim da criação das espécies padrão ---');
+            
+            Log::info('--- Criação do cliente padrão ---');
+
             $maxCustomerCod = Customer::where('issuer_id', $issuer->id)->max('customer_cod');
 
             $codCustomer = $maxCustomerCod ? $maxCustomerCod + 1 : 1;
             
-            Log::info('--- Criação das espécies padrão ---');
-                $this->registerPayMentsForms($issuer->id);
-            Log::info('--- Fim da criação das espécies padrão ---');
-
-            Log::info('--- Criação do cliente padrão ---');
             $customer = Customer::create([
                 'customer_cod' => $codCustomer,
                 'issuer_id' => $issuer->id,
                 'company_name' => 'Consumidor Padrão',
+                'customer_type' => 'Física',
                 'cpf' => ' ',
                 'cnpj' => ' '
                 

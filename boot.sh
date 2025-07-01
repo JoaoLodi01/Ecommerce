@@ -16,6 +16,7 @@ main() {
 
     cd "$api_path" || { echo "Erro ao acessar $api_path"; exit 1; }
 <<<<<<< HEAD
+<<<<<<< HEAD
     start bash -c "php artisan serve --host=192.168.1.101"
 =======
  
@@ -24,5 +25,9 @@ main() {
     
     
     }
+=======
+    start bash -c "php artisan serve --host=192.168.1.101"    
+}
+>>>>>>> Kochem-pdv
 
 main

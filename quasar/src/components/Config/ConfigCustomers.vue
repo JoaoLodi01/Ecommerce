@@ -2,10 +2,10 @@
     <div
         class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
     >
-        <div class="bg-white p-10">
+        <div class="bg-white p-8 rounded-md">
             <div class="">
-                <h1>Configurações</h1>
-                <div class="">
+                <h1>Configurações </h1>
+                <div class="mb-2">
                     <q-checkbox 
                         v-model="options.validateAddres" 
                         label="Permitir endereço nulo" 
@@ -103,14 +103,17 @@
         const res = await api.get(`/configs/all-configs/${issuerId.value}`);
         const data = camelcaseKeys(res.data.data.customers[0], { deep: true });
         console.log('Data: ', data);
+
         options.value = {
-            validateAddres: returnValue(data.validateCNPJ),
-            validateCNPJ: returnValue(data.validateCNPJ),
-            validateCPF: returnValue(data.validateCPF),
+            validateAddres: returnValue(data.validateAddres),
+            validateCNPJ: returnValue(data.validateCnpj),
+            validateCPF: returnValue(data.validateCpf),
             
         };
 
         lastFilter.value = data.lastFilter;
+
+        console.log(options.value)
     };
 
     onMounted(() => {

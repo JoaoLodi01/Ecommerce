@@ -52,6 +52,9 @@
                     v-model="form.cpf"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
+                    :rules="[
+                        val => !val || validateCPF(val) || 'CPF inválido'
+                    ]"
 
                 />        
                         
@@ -159,7 +162,8 @@
     import { useQuasar } from 'quasar'
     import { api } from 'src/boot/axios'
     import { onBeforeUnmount } from 'vue'
-    
+    import validateCPF from 'src/utils/validateCPF';
+
     export default {
         setup()
         {

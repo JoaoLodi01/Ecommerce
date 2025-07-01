@@ -30,7 +30,7 @@
                 }"
             >
                 <PaymentsForm
-                    v-if="showPaymentsForm && typeOperation && pdvID >= 1"
+                    v-if="showPaymentsForm && typeOperation && pdvID"
                     :witdhScreen="witdhScreen"
                     :typeOperation=typeOperation
                     :totalOperation=totalOperation
@@ -381,33 +381,24 @@
                             
                             >
                                 <q-btn 
-                                    class="ml-5 border-none" 
-                                    outline 
+                                    class="mr-1 p-1 bg-[#BF3658] rounded-md ml-14 border-none"
+                                    :class="{
+                                        'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
+                                    }" 
+
                                     size="1rem"
+                                    @click="finalizeSale('nm')"
+                                    v-if="configs.nmFinaly"
                                 >
-                                    <button
-                                        v-if="configs.nmFinaly"
-                                        :class="{
-                                            'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
-                                        }" 
-                                        @click="finalizeSale('nm')"
-                                        class="mr-1 ml-2 p-1 bg-[#BF3658] rounded-md"
-                                    >
-                                        Finalizar
-                                    </button>
+                                    Finalizar
                                 </q-btn>
-                                <q-btn 
-                                    class="ml-5" 
-                                    outline 
+                                <q-btn  
+                                    class="mr-4 p-1 bg-[#BF3658] rounded-md"
                                     size="1rem"
+                                    @click="finalizeSale('nfce')" 
+                                    
                                 >
-                                    <button 
-                                        @click="finalizeSale('nfce')" 
-                                        class="mr-1 ml-2 p-1 bg-[#BF3658] rounded-md"
-                                    >
-                                        Finalizar e emitir NFC-e
-                                    </button>
-            
+                                    Finalizar e emitir NFC-e
                                 </q-btn>
                                 
                             </div>
@@ -634,18 +625,18 @@
                                 
                             });
 
-                            const data = res.data;
-                            console.log(data);
+                            const data = res.data.data;
+                            console.log(res.data.data);
 
                             if(data.success)
                             {
-                                LocalStorage.setItem("pdvID", res.data.pdvID);
+                                LocalStorage.setItem("pdvID", data.pdvID);
                                 typeOperation.value = type;
                                 showPaymentsForm.value = true;
-                                pdvID = LocalStorage.getItem("pdvID");
-                                console.log('typeOperation linha 682: ', typeOperation.value);
-                                console.log('showPaymentsForm linha 683: ', showPaymentsForm.value);
-                                console.log('pdvID linha 684: ', pdvID);
+                                pdvID.value = LocalStorage.getItem("pdvID");
+                                console.log('typeOperation linha 638: ', typeOperation.value);
+                                console.log('showPaymentsForm linha 639: ', showPaymentsForm.value);
+                                console.log('pdvID linha 640: ', LocalStorage.getItem("pdvID"));
 
                             };
                         };

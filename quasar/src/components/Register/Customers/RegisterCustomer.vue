@@ -14,7 +14,7 @@
             <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max mb-2">Dados cadastrais</h4>
                 <q-select 
-                    v-model="type" 
+                    v-model="customerData.customer_type" 
                     :options="options" 
                     label="Tipo de cadastro *" 
                     filled 
@@ -23,7 +23,7 @@
                     
                 />
 
-                <div v-if="type === 'Física'">
+                <div v-if="customerData.customer_type === 'Física'">
                     <q-input 
                         v-model="customerData.trade_name" 
                         type="text" 
@@ -44,13 +44,16 @@
                         color="grey-7"
                         class="ml-2"
                         :rules="[
-                            val => !val || validateCPF(val) || 'CPF inválido'
+                            val => {
+                                if(!config.validateCpf) return true;
+                                return !val || validateCPF(val) || 'CPF inválido' 
+                            }
                         ]"
                         
                     />  
 
                 </div>
-                <div v-if="type === 'Júridica'">
+                <div v-if="customerData.customer_type === 'Júridica'">
                     <q-input 
                         v-model="customerData.company_name" 
                         type="text" 
@@ -187,6 +190,7 @@
     import { ref, defineEmits, defineProps, onMounted, reactive } from 'vue';
     import getCNPJData from 'src/services/getData/getCNPJData';
     import getCEPData from 'src/services/getData/getCEPData';
+    import validateCPF from 'src/utils/validateCPF';
     import camelcaseKeys from 'camelcase-keys';
 
     interface IConfig
@@ -209,9 +213,8 @@
 
     const $q = useQuasar();
 
-    let type = ref<string>('');
-
     const customerData = ref<IRegisterCustomer>({
+        customer_type: '',
         company_name: '',
         trade_name: '',
         cpf: null,
@@ -233,7 +236,7 @@
 
     ]);
 
-    const config = reactive<IConfig>({
+    const config = ref<IConfig>({
         validateAddres: false,
         validateCnpj: false,
         validateCpf: false
@@ -254,7 +257,7 @@
     const getDataCNPJ = async () => 
     {
         const formatedCNPJ = customerData.value.cnpj.replace(/\D/g, '');
-        if(formatedCNPJ.length === 14 && config.validateCnpj)
+        if(formatedCNPJ.length === 14)
         {
             const res = await getCNPJData(formatedCNPJ);
             
@@ -274,6 +277,7 @@
 
             customerData.value = {
                 company_name: res.alias,
+                customer_type: customerData.value.customer_type,
                 trade_name: customerData.value.trade_name, // Mantem padrão
                 cpf: customerData.value.cpf, // Mantem padrão
                 cnpj: customerData.value.cnpj,
@@ -315,6 +319,7 @@
 
             customerData.value = {
                 company_name: customerData.value.company_name, // Mantem padrão
+                customer_type: customerData.value.customer_type, // Mantem padrão
                 trade_name: customerData.value.trade_name, // Mantem padrão
                 cpf: customerData.value.cpf, // Mantem padrão
                 cnpj: customerData.value.cnpj, // Mantem padrão
@@ -329,44 +334,6 @@
 
             };
             return;  
-        };
-    };
-
-    const validateCPF = (cpf: string): boolean =>
-    {
-        cpf = cpf.replace(/\D/g, '');
-        if(cpf.length !== 11)
-        {
-            return false;
-        };
-
-        const getFirstDigit = (incorretCPF: string) => 
-        {
-            let sum: number = 0;
-
-            for(let i = 0; i < incorretCPF.length; i++)
-            {
-                let atualItem = incorretCPF.charAt(i);
-                let constNumbers = (incorretCPF.length + 1 - i);
-
-                sum += Number(atualItem) * constNumbers;
-            };
-            const rest = sum % 11;
-
-            return rest < 2 ? "0" : (11 - rest).toString();
-        };
-
-        const firstDigit = getFirstDigit(cpf.substring(0, 9));
-        const secondDigit = getFirstDigit(cpf.substring(0, 9) + firstDigit); 
-
-        let correctCPF = cpf.substring(0, 9) + firstDigit + secondDigit;
-
-        if(cpf !== correctCPF)
-        {
-            return false;
-        } else {
-            return true;
-
         };
     };
 
@@ -395,9 +362,11 @@
     {
         const res = await api.get(`/configs/all-configs/${customerData.value.issuer_id}`);
         const data: IConfig = camelcaseKeys(res.data.data.customers[0], { deep: true });
-        config.validateAddres = returnValue(data.validateAddres);
-        config.validateCnpj = returnValue(data.validateCnpj);
-        config.validateCpf = returnValue(data.validateCpf);
+
+        config.value.validateAddres = returnValue(data.validateAddres);
+        config.value.validateCnpj = returnValue(data.validateCnpj);
+        config.value.validateCpf = returnValue(data.validateCpf);
+
         console.log(config);
         
     };

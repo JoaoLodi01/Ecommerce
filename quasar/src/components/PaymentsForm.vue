@@ -276,7 +276,7 @@
             {
                 $q.notify({
                     color: 'green',
-                    message: res.data.data.message,
+                    message: res.data.data,
                     timeout: 2000,
                     position: 'top'
 
