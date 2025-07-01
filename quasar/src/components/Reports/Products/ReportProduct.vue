@@ -1,8 +1,8 @@
 <template>
     <q-btn 
-        @click="reportCustomer('Listagem_Completa_Ativos')" 
-        class="bg-blue-500 hover:bg-blue-400 transition text-white font-semibold rounded-lg mr-5"
-        
+        @click="reportProducts('all')" 
+        class="hover:bg-blue-400 transition text-white font-semibold rounded-lg mr-5"
+        :style="`background-color: ${buttonColor}; color: ${textColor}`"
         :class="{ 
             'mb-5': widthScreen <= 1089 
         }"
@@ -12,8 +12,9 @@
     </q-btn>
 
     <q-btn 
-        @click="reportCustomer('Listagem_Completa_Inativos')" 
-        class="bg-blue-500 hover:bg-blue-400 transition text-white font-semibold rounded-lg mr-5"
+        @click="reportProducts('all-disabled')" 
+        class="hover:bg-blue-400 transition text-white font-semibold rounded-lg mr-5"
+        :style="`background-color: ${buttonColor}; color: ${textColor}`"
         :class="{ 
             'mb-5': widthScreen <= 1089 
         }"
@@ -23,98 +24,88 @@
     </q-btn>
 
     <q-btn 
-        @click="reportCustomer('Listagem_Completa')" 
-        class="bg-blue-500 hover:bg-blue-400 transition text-white font-semibold rounded-lg mr-5"
+        @click="reportProducts('Listagem_Completa')" 
+        class="hover:bg-blue-400 transition text-white font-semibold rounded-lg mr-5"
+        :style="`background-color: ${buttonColor}; color: ${textColor}`"
     >
         <span v-if="widthScreen <= 1080">Listagem completa de todos os produtos</span>
         <span v-else>Listagem completa de todos os produtos</span>
     </q-btn>
+
+    <ReportLoanding
+        v-if="generate"
+        :generate="generate"
+        :report="'products'"        
+    />
+
 </template>
 
-<script>
+<script setup lang="ts">
     import { api } from 'src/boot/axios';
-    import { useQuasar } from 'quasar';
-    import { onBeforeUnmount } from "vue";
+    import { useQuasar, LocalStorage } from 'quasar';
+    import { ref, defineProps, onMounted } from 'vue';
+    import ReportLoanding from 'src/components/Loanding/ReportLoanding.vue';
 
-    export default {
-        setup () {
-            const $q = useQuasar()
-            let timer
+    const $q = useQuasar();
 
-            onBeforeUnmount(() => {
-                if (timer !== void 0) {
-                    clearTimeout(timer)
-                    $q.loading.hide()
-                }
-            })
+    let generate = ref<boolean>(false);
+    const buttonColor = ref<string>('');
+    const textColor = ref<string>('');
 
-            return {
-                showLoading () {
-                    $q.loading.show({
-                        message: 'Gerando relatório...'
-                    })
+    const props = defineProps<{
+        issuerID: number,
+        widthScreen: number,
+    }>();
+            
+    const reportProducts = async (type: string) =>
+    {
+        generate.value = true;
+        try {
+            const apiURL = `/report/products/${type}/${props.issuerID}`
+            const res = await api.get(apiURL, {
+                responseType: 'blob'
 
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 2000)
-                }
-            }
-        },
+            });
 
-        methods: {
-            downloadFile(response, type)
-            {
-                const blob = new Blob([response.data], { type: response.headers['content-type'] });
-                const url = window.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-
-                link.href = url;
-                link.setAttribute('download', `${type}.xlsx`);
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-
-            },
-
-            async reportProduct(type) {
-                this.showLoading()
-                try {
-                    switch (type) {
-                        case 'Listagem_Completa_Ativos':
-                            let responseAll = await api.get('/report/all', {
-                                responseType: 'blob',
-                            });
-                            
-                            this.downloadFile(responseAll, type)
-
-                            break;
-
-                        case 'Listagem_Completa_Inativos':
-                            const responseAllDisabled = await api.get('/customers/report/all-disabled', {
-                                responseType: 'blob',
-                            });
-                            
-                            this.downloadFile(responseAllDisabled, type)
+            const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
+            const link = document.createElement('a');
     
-                            break;
-                    
-                    
-                        default:
-                            break;
-                    }
-                    
-                } catch (error) {
-                    console.error('Erro', error)
-                }
-            }
-        },
-        props: {
-            widthScreen: {
-                type: Number,
-                required: true
-            }
+            link.href = url;
+            link.setAttribute('download', `Listagem_de_Produtos.xlsx`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
 
-        }
+            if(res.status === 200)
+            {
+                generate.value = false;
+                $q.notify({
+                    color: 'green',
+                    message: 'Relatório gerado com sucesso!',
+                    timeout: 2000,
+                    position: 'top'
+                    
+                });
+            };
+            
+        } catch (error) {
+            console.error('Erro: ', error);
+            $q.notify({
+                color: 'red',
+                message: 'Erro ao gerar relatório!',
+                timeout: 2000,
+                position: 'top'
+
+            });
+
+        } finally {
+            generate.value = false;
+            
+        };  
+
+        onMounted(() => {
+            buttonColor.value = LocalStorage.getItem("buttonColor");
+            textColor.value = LocalStorage.getItem("textColor") ?? '#ffffff';
+        });
     }
 </script>

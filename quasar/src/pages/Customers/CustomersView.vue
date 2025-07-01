@@ -55,9 +55,9 @@
 
         >
             <q-btn 
-                color="primary" 
                 title="Opções"
                 class="ml-2"
+                :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
                 @click="openConfig()"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -69,7 +69,7 @@
             <div class="flex ml-5">
                 <q-btn
                     @click="showReportCustomer = !showReportCustomer"
-                    color="primary"
+                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
                     title="Relatórios"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ">
@@ -90,7 +90,6 @@
                 <div class="ml-4">
                     <ReportCustomer
                         v-if="showReportCustomer"
-                        :widthScreen="widthScreen"
                         :issuerID="issuerID"
                     />
                 </div>
@@ -156,7 +155,7 @@
             </div>
             
             <!-- Ações -->
-            <div class="flex space-x-2" v-if="customer.customer_cod !== 1" >
+            <div class="slashed-zero flex space-x-2 mt-5" v-if="customer.customer_cod !== 1">
                 <q-btn
                     @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name, customer.active)"
                     class="px-4 py-2 rounded-lg transition"
@@ -185,8 +184,8 @@
                     v-else
                     class="px-4 py-2 rounded-lg transition"
                     :class="{
-                        'text-gray-400 bg-slate-500': !customer.active
-                    }"
+                        'text-gray-400 bg-slate-500': !customer.active 
+                    }" 
                     
                 >   
                     Ativar
@@ -212,7 +211,7 @@
         />
 
         <Transition name="slide-up">
-            <ConfigCustomers
+            <ConfigCustomergs
                 v-if="showConfig"
                 @close="closeReload($event)"                
             />

@@ -1,15 +1,25 @@
 <template>
     <div>
-        <q-btn @click="reportCustomer('all')" class="mr-5 bg-blue-500 hover:bg-blue-400 text-white">    
+        <q-btn 
+            @click="reportCustomer('all')" 
+            class="mr-5 hover:bg-blue-400 text-white"
+            :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+        >    
             <span>Listagem completa de todos os clientes</span>
         </q-btn>
 
-        <q-btn @click="reportCustomer('all-disabled')" class="bg-blue-500 hover:bg-blue-400 text-white">
+        <q-btn 
+            @click="reportCustomer('all-disabled')" 
+            class="hover:bg-blue-400 text-white"
+            :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+
+        >
             <span>Listagem completa de todos os clientes inativos</span>
         </q-btn>
     </div>
 
     <ReportLoanding
+        v-if="generate"
         :generate="generate"
         :report="'customer'"        
     />
@@ -18,8 +28,8 @@
 
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
-    import { useQuasar } from 'quasar';
-    import { ref, defineProps } from 'vue';
+    import { LocalStorage, useQuasar } from 'quasar';
+    import { ref, defineProps, onMounted } from 'vue';
     import ReportLoanding from 'src/components/Loanding/ReportLoanding.vue';
 
     const props = defineProps<{
@@ -28,7 +38,10 @@
     }>();
 
     const $q = useQuasar();
+    
     let generate = ref<boolean>(false);
+    const buttonColor = ref<string>('');
+    const textColor = ref<string>('');
 
     const reportCustomer = async (type: string) =>
     {
@@ -75,4 +88,9 @@
             
         };  
     };
+
+    onMounted(() => {
+        buttonColor.value = LocalStorage.getItem("buttonColor");
+        textColor.value = LocalStorage.getItem("textColor") ?? '#ffffff';
+    });
 </script>
