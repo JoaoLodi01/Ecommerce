@@ -193,7 +193,7 @@
     import validateCPF from 'src/utils/validateCPF';
     import camelcaseKeys from 'camelcase-keys';
 
-    interface IConfig
+    interface IConfigCustomer
     {
         validateAddres: boolean,
         validateCnpj: boolean,
@@ -236,7 +236,7 @@
 
     ]);
 
-    const config = ref<IConfig>({
+    const config = ref<IConfigCustomer>({
         validateAddres: false,
         validateCnpj: false,
         validateCpf: false
@@ -361,7 +361,7 @@
     const getConfig = async () =>
     {
         const res = await api.get(`/configs/all-configs/${customerData.value.issuer_id}`);
-        const data: IConfig = camelcaseKeys(res.data.data.customers[0], { deep: true });
+        const data: IConfigCustomer = camelcaseKeys(res.data.data.customers[0], { deep: true });
 
         config.value.validateAddres = returnValue(data.validateAddres);
         config.value.validateCnpj = returnValue(data.validateCnpj);

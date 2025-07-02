@@ -49,8 +49,8 @@
     const $q = useQuasar();
 
     let generate = ref<boolean>(false);
-    const buttonColor = ref<string>('');
-    const textColor = ref<string>('');
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
     const props = defineProps<{
         issuerID: number,

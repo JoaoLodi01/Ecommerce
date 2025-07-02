@@ -14,3 +14,13 @@
 [2025-07-01 02:28:13] local.INFO: Estava logado  
 [2025-07-01 02:28:14] local.INFO: -- checkLogin --  
 [2025-07-01 02:28:14] local.INFO: Estava logado  
+[2025-07-01 02:29:52] local.INFO: -- checkLogin --  
+[2025-07-01 02:29:52] local.INFO: Estava logado  
+[2025-07-01 02:29:53] local.INFO: -- checkLogin --  
+[2025-07-01 02:29:53] local.INFO: Estava logado  
+[2025-07-01 22:25:54] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"Sq55KazkrO","active":1,"created_at":"2025-05-21T00:38:43.000000Z","updated_at":"2025-05-21T00:38:43.000000Z"}  
+[2025-07-01 22:25:55] local.INFO: Passou o login, token: 40|CnhtK1JgYNhQ4LvVrDLtQfWnmGnuFuCazvfwjC0Fa7e5d91f  
+[2025-07-01 23:12:33] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"Sq55KazkrO","active":1,"created_at":"2025-05-21T00:38:43.000000Z","updated_at":"2025-05-21T00:38:43.000000Z"}  
+[2025-07-01 23:12:33] local.INFO: Passou o login, token: 41|uPDtiWvT1X86mLDTSk9rEXMUpSSNABrHHBWnnp7W3dd02bff  
+[2025-07-01 23:17:25] local.INFO: -- checkLogin --  
+[2025-07-01 23:17:25] local.INFO: Estava logado  

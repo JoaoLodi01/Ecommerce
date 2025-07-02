@@ -14,8 +14,7 @@
     const $q = useQuasar();
     const router = useRouter();
     const errorDialog = ref(null);
-    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
-
+    
     const showGlobalError = (msg: string) => 
     {
         errorDialog.value?.showError(msg);

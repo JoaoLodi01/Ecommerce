@@ -8,17 +8,20 @@
                 <div class="mb-2">
                     <q-checkbox 
                         v-model="options.validateAddres" 
-                        label="Permitir endereço nulo" 
+                        label="Permitir endereço nulo"
+
                     />
 
                     <q-checkbox 
                         v-model="options.validateCNPJ" 
                         label="Permitir CNPJ nulo" 
+
                     />
                     
                     <q-checkbox 
                         v-model="options.validateCPF" 
                         label="Permitir CPF nulo" 
+
                     />
 
                     <q-option-group
@@ -31,21 +34,20 @@
                             {label: 'Ativos', value: 'active'},
                             {label: 'Inativos', value: 'disabled'},
                         ]"
+
                     />
-
                 </div>
-
             </div>
 
             <div class="">
                 <q-btn 
-                    color="primary" 
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     label="OK"
                     @click="saveConfig()"
                 />
 
                 <q-btn 
-                    color="primary" 
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     label="Voltar"
                     @click="emits('close', true)" 
                     class="ml-5"
@@ -61,18 +63,18 @@
     import { LocalStorage, useQuasar } from 'quasar';
     import camelcaseKeys from 'camelcase-keys';
     
-    const emits = defineEmits<{
-        (e: 'close', value: boolean);
-    }>();
-    
     type TOptions = {
         validateCNPJ: boolean,
         validateCPF: boolean,
         validateAddres: boolean
     };
     
+    const emits = defineEmits<{
+        (e: 'close', value: boolean);
+    }>();
+    
     const $q = useQuasar();
-    const issuerId = ref<number>(LocalStorage.getItem("issuer_id"));
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
     const options = ref<TOptions>({
         validateAddres: false,
@@ -83,11 +85,27 @@
 
     const lastFilter = ref<'all' | 'active' | 'disabled' >('all');
 
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor") ?? '#ffffff');
+
     const returnValue = (value: boolean | number ) => { return value === 1 ? true : false };
+
+    const closeNotify = (text: string, success: boolean) =>
+    {
+        $q.notify({
+            position: 'top',
+            message: text,
+            color: success ? 'green' : 'red',
+            timeout: 2000
+        });
+
+        if(success) return emits('close', true);
+        return emits('close', false);
+    };
     
     const saveConfig = async () =>
     {
-        const res = await api.put(`/configs/customer/update-config/${issuerId.value}`, {
+        const res = await api.put(`/configs/customer/update-config/${issuerID.value}`, {
             validateCNPJ: options.value.validateCNPJ,
             validateCPF: options.value.validateCPF,
             validateAddres: options.value.validateAddres,
@@ -95,12 +113,12 @@
 
         });
 
-        console.log(res)
+        closeNotify(res.data.message, res.data.success);
     };
 
     const getConfigs = async () =>
     {
-        const res = await api.get(`/configs/all-configs/${issuerId.value}`);
+        const res = await api.get(`/configs/all-configs/${issuerID.value}`);
         const data = camelcaseKeys(res.data.data.customers[0], { deep: true });
         console.log('Data: ', data);
 

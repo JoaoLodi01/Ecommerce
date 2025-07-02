@@ -3,7 +3,7 @@
         <q-btn 
             @click="reportCustomer('all')" 
             class="mr-5 hover:bg-blue-400 text-white"
-            :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+            :style="`background-color: ${buttonColor}; color: ${textColor}`"
         >    
             <span>Listagem completa de todos os clientes</span>
         </q-btn>
@@ -11,7 +11,7 @@
         <q-btn 
             @click="reportCustomer('all-disabled')" 
             class="hover:bg-blue-400 text-white"
-            :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+            :style="`background-color: ${buttonColor}; color: ${textColor}`"
 
         >
             <span>Listagem completa de todos os clientes inativos</span>
@@ -40,8 +40,8 @@
     const $q = useQuasar();
     
     let generate = ref<boolean>(false);
-    const buttonColor = ref<string>('');
-    const textColor = ref<string>('');
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor") ?? '#ffffff');
 
     const reportCustomer = async (type: string) =>
     {
@@ -89,8 +89,4 @@
         };  
     };
 
-    onMounted(() => {
-        buttonColor.value = LocalStorage.getItem("buttonColor");
-        textColor.value = LocalStorage.getItem("textColor") ?? '#ffffff';
-    });
 </script>

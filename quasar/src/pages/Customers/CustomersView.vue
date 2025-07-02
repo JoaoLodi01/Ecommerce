@@ -17,7 +17,7 @@
     >
         <div
             class="flex justify-between "
-            
+
         >
             <h1 v-if="!showRegisterCustomers && !showUpdateCustomers" class="text-3xl font-semibold m-5">Clientes</h1>
             <h1 v-if="showRegisterCustomers" class="text-3xl font-semibold m-5">Novo cliente</h1>
@@ -52,7 +52,7 @@
         
         <div 
             class="mt-2 ml-2 flex"
-
+            v-if="!showRegisterCustomers"
         >
             <q-btn 
                 title="Opções"
@@ -211,9 +211,10 @@
         />
 
         <Transition name="slide-up">
-            <ConfigCustomergs
+            <ConfigCustomers
                 v-if="showConfig"
-                @close="closeReload($event)"                
+                @close="closeReload($event)"
+
             />
 
         </Transition>
@@ -225,11 +226,17 @@
     import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
     import { ref, onMounted, watch } from 'vue';
-    import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
+    import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';    
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
     import UpdateCustomer from 'src/components/Register/Customers/UpdateCustomer.vue';
     import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
+    import camelcaseKeys from 'camelcase-keys';
+
+    type TConfigCustomer = {
+        lastFilter: string
+        
+    };
     
     const $q = useQuasar();
     
@@ -263,7 +270,6 @@
         } else {
             customers.value = [...allCustomers.value];
         };
-        
     });
     
     const showPage = (event: boolean) =>
@@ -272,9 +278,9 @@
         _loanding.value = !event;
     };
 
-
     const getCustomers = async () =>
     {
+        console.log('chamou getCustomers')
         const res = await api.get(`/customers/all/${issuerID.value}`);
         allCustomers.value = res.data.data;
         customers.value = [...allCustomers.value];
@@ -316,8 +322,7 @@
     const closeRegister = () => 
     {
         showCustomers.value = true;
-        showReportCustomer.value = true;
-        
+        showReportCustomer.value = false;
         showRegisterCustomers.value = false;
         showUpdateCustomers.value = false;
 
@@ -343,7 +348,7 @@
                 
             });
             
-            return
+            return;
         };
 
         if(!active)
@@ -368,17 +373,29 @@
 
     const closeReload = async (event: boolean) => 
     {   
-        console.log('Chamnou: closeReload')
+        console.log('Chamnou: closeReload: event', event, ' !event', !event)
+        await getCustomers();
+        showCustomers.value = event;    
+        await getConfig();
         showRegisterCustomers.value = !event;
         showUpdateCustomers.value = !event;
         showReportCustomer.value = !event;
-        showCustomers.value = event;
-        await getCustomers();
+        showConfig.value = !event;
+
+    };
+
+    const getConfig = async () =>
+    {
+        const res = await api.get(`/configs/all-configs/${issuerID.value}`);
+        const data: TConfigCustomer = camelcaseKeys(res.data.data.customers[0], { deep: true });
+
+        searchFilter.value = data.lastFilter as 'all' | 'active' | 'disabled';
 
     };
 
     onMounted(() => {
         getCustomers();
+        getConfig();
         widthScreen.value = screen.width;
 
     });
