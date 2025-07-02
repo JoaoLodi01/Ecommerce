@@ -374,9 +374,9 @@
     const closeReload = async (event: boolean) => 
     {   
         console.log('Chamnou: closeReload: event', event, ' !event', !event)
+        await getConfig();
         await getCustomers();
         showCustomers.value = event;    
-        await getConfig();
         showRegisterCustomers.value = !event;
         showUpdateCustomers.value = !event;
         showReportCustomer.value = !event;
@@ -384,13 +384,26 @@
 
     };
 
-    const getConfig = async () =>
+    const getConfig = async (): Promise<TConfigCustomer> =>
     {
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
         const data: TConfigCustomer = camelcaseKeys(res.data.data.customers[0], { deep: true });
+        
+        if(typeof data === 'undefined')
+        {
+            $q.notify({
+                color: 'red',
+                message: 'Erro ao carregar as configurações, contate o adminstrador!',
+                timeout: 2000,
+                position: 'top'
 
-        searchFilter.value = data.lastFilter as 'all' | 'active' | 'disabled';
+            });
+            return;
 
+        } else {
+            searchFilter.value = data.lastFilter as 'all' | 'active' | 'disabled';
+            return;
+        };
     };
 
     onMounted(() => {
