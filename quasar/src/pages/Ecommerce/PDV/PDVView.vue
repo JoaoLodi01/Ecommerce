@@ -897,7 +897,8 @@
     const getConfig = async () => 
     {
         const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
-        const configsRes: Tconfig = camelcaseKeys(res.data.data.pdv[0], { deep: true });
+        const configsRes: Tconfig = camelcaseKeys(res.data.data.pdv, { deep: true });
+        console.log(configsRes)
 
         configs.value.nmFinaly = configsRes.nmFinaly;
         configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;

@@ -387,7 +387,7 @@
     const getConfig = async (): Promise<TConfigCustomer> =>
     {
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
-        const data: TConfigCustomer = camelcaseKeys(res.data.data.customers[0], { deep: true });
+        const data: TConfigCustomer = camelcaseKeys(res.data.data.customers, { deep: true });
         
         if(typeof data === 'undefined')
         {

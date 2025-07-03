@@ -30,21 +30,14 @@ class CustomerRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
 
-    public function defineRules()
-    {
-        $cpfRules = [];
-        $cnpjRules = [];
-
-        
-
-    }
-
     public function rules(): array
     {
         //'email' => ['required', 'string', 'email', Rule::unique('users')->ignore($user->id)]
-
+        $cpfRules = [];
+        $cnpjRules = [];
         
 
+    
         return [
             'issuer_id' => ['required'],
             'company_name' => ['nullable', 'required_without:trade_name', 'string', 'max:120'],

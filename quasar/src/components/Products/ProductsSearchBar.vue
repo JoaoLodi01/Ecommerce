@@ -33,6 +33,7 @@
     import { api } from "src/boot/axios"
     import { LocalStorage, useQuasar } from "quasar";
     import { ref, onMounted, defineProps, defineEmits } from "vue";
+import camelcaseKeys from "camelcase-keys";
 
     type TConfig = {
         saleNegativeorReset: boolean,
@@ -87,11 +88,11 @@
     const getConfig = async () => {
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
 
-        const config = res.data.data.pdv[0]
+        const config = camelcaseKeys(res.data.data.pdv, { deep: true });
 
         configs.value = {
-            filter: config.filter_search,
-            saleNegativeorReset: config.sale_negative_or_reset >= 1 ? true : false,
+            filter: config.filterSearch,
+            saleNegativeorReset: config.saleNegativeOrReset >= 1 ? true : false,
 
         };
     };

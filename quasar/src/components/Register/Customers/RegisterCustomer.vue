@@ -361,7 +361,7 @@
     const getConfig = async () =>
     {
         const res = await api.get(`/configs/all-configs/${customerData.value.issuer_id}`);
-        const data: IConfigCustomer = camelcaseKeys(res.data.data.customers[0], { deep: true });
+        const data: IConfigCustomer = camelcaseKeys(res.data.data.customers, { deep: true });
 
         config.value.validateAddres = returnValue(data.validateAddres);
         config.value.validateCnpj = returnValue(data.validateCnpj);

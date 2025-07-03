@@ -15,7 +15,8 @@ class CashRegisterController extends Controller
     ) {}
 
     public function getAll(int $issuer_id){
-        return $this->cashRegisterService->getAll($issuer_id);
+        $cash = $this->cashRegisterService->getAll($issuer_id);
+        return apiSuccess('Dados do caixa', $cash);
     }
 
     public function store(CashRegisterRequest $request){

@@ -28,9 +28,4 @@ class CashRegister extends Model
         'canceled',
         
     ];
-
-    protected $hidden = [
-        'created_at',
-        'updated_at',
-    ];
 }
