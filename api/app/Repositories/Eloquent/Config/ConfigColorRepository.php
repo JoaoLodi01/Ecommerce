@@ -9,7 +9,7 @@ class ConfigColorRepository implements ConfigColorContract
 {
     public function getConfigs(int $id)
     {
-        return SiteColors::where('issuer_id', $id)->get();
+        return SiteColors::where('issuer_id', $id)->first();
         
     }
 

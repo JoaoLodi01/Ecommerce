@@ -12,7 +12,7 @@ class ConfigCustomersRepository implements ConfigCustomersContract
         $configCustomers = ConfigCustomers::where('issuer_id', $id)->first();
         $configCode = ConfigCustomers::where('issuer_id', $id)->max('config_customer_cod');
 
-        if($configCustomers)
+        if(!$configCustomers)
         {
             ConfigCustomers::create([
                 'issuer_id' => $id,

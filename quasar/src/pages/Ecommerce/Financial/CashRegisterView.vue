@@ -26,29 +26,40 @@
                     @click="getRegister()"
                     label="Atualizar caixa"
                 />
+                
             </div>
         </div>
+        
+        <div class="filterDate inline-flex w-max">
+            <div class="flex mb-6 p-4 border border-gray-300 rounded-lg ">
+                <q-input
+                    class="mr-10 cursor-text"
+                    type="date"
+                    v-model="startDate"
+                    label="Data Inicial"
+                />
 
-        <div class="filterDate flex justify-start mb-6 p-4 border border-gray-300 rounded-lg w-max">
-            <q-input
-                class="mr-10 cursor-text"
-                type="date"
-                v-model="startDate"
-                label="Data Inicial"
-            />
+                <q-input
+                    class="cursor-pointer"
+                    type="date"
+                    v-model="endDate"
+                    label="Data Final"
+                />
 
-            <q-input
-                class="cursor-pointer"
-                type="date"
-                v-model="endDate"
-                label="Data Final"
-            />
+                <q-btn
+                    class="ml-5 h-max mb-auto mt-auto rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                    label="Filtrar"
+                    @click="dateSearch()"
+                />
+            </div>
 
-            <q-btn
-                class="bg-blue-600 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
-                label="Filtrar"
-                @click="dateSearch()"
-            />
+            <div class="flex">
+                <div class="">
+                    <span class="h-2 w-2 bg-red-600 mr-2"></span>
+                    <span class="h-2 w-2 bg-red-600"></span>
+                </div>
+            </div>
         </div>
 
         <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
@@ -179,21 +190,12 @@
 
         total.value = inputTotal.value - outputTotal.value
 
-        console.log(cashs.value);
+        console.log(data);
     };
 
     const dateSearch = () =>
     {
-        if(startDate || endDate){
-            filteredCashs = cashs.value.filter((register: ICashBody) => {
-                const registerDate = dayjs(register.created_at);
-                return registerDate.isBetween(startDate, endDate, null, '[]')
-
-            });
-
-            cashs.value = filteredCashs;
-
-        };
+        
     };
 
     const showRegister = () => 

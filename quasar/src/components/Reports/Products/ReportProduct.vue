@@ -51,9 +51,9 @@
     let generate = ref<boolean>(false);
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
     const textColor = ref<string>(LocalStorage.getItem("textColor"));
+    const issuerID = ref<number>(LocalStorage.getItem("issuerID"));
 
     const props = defineProps<{
-        issuerID: number,
         widthScreen: number,
     }>();
             
@@ -61,7 +61,7 @@
     {
         generate.value = true;
         try {
-            const apiURL = `/report/products/${type}/${props.issuerID}`
+            const apiURL = `/report/products/${type}/${issuerID.value}`
             const res = await api.get(apiURL, {
                 responseType: 'blob'
 

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->boolean('validate_cnpj', 1)->default(0);
             $table->boolean('validate_cpf', 1)->default(0);
             $table->boolean('validate_addres', 1)->default(0);
-            $table->string('last_filter', 8)->default('');
+            $table->string('last_filter', 8)->default('all');
             $table->timestamps();
         });
     }

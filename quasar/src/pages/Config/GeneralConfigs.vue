@@ -1,3 +1,4 @@
+
 <template>
     <div v-if="!showPage">
         <LoandingPage
@@ -99,7 +100,8 @@
     const getConfigs = async () => 
     {
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
-        const data: TColorOptions = camelcaseKeys(res.data.data.color[0], { deep: true });
+        const data: TColorOptions = camelcaseKeys(res.data.data.color, { deep: true });
+        console.log(data)
         
         if(res.data.success)
         {

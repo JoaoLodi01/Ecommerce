@@ -388,8 +388,8 @@
     {
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
         const data: TConfigCustomer = camelcaseKeys(res.data.data.customers, { deep: true });
-        
-        if(typeof data === 'undefined')
+        console.log(data)
+        if(typeof data === 'undefined' || data.lastFilter === '')
         {
             $q.notify({
                 color: 'red',

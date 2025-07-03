@@ -18,6 +18,7 @@ class CashRegisterService
             apiError('Cash não encontrado');
 
         }
+        
         return $cash;
     }
 

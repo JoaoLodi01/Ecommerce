@@ -32,7 +32,8 @@
                 <q-btn
                     v-if="showProducts"
                     @click="openRegister()"
-                    class="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition"
+                    class="font-semibold rounded-lg hover:bg-blue-400 transition"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 
                 >
                     <span v-if="widthScreen <= 1080" > Novo produto </span>
@@ -221,7 +222,10 @@
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
 
-    let $q = useQuasar();
+    const $q = useQuasar();
+    const buttonColor = LocalStorage.getItem("buttonColor");
+    const textColor = LocalStorage.getItem("textColor");
+    const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
     let allProducts = ref<IProducts[]>([]);
     let products = ref<IProducts[]>([]);
@@ -235,8 +239,6 @@
     let widthScreen = ref<number>(0);
     let productName = ref<string>('');
     let productID = ref<number>(0);
-
-    const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
     watch(searchFilter, async(newOption) =>{
         if(newOption === 'active')
@@ -360,4 +362,3 @@
 
     }
 </style>
-
