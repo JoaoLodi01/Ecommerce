@@ -8,7 +8,7 @@
 
     >
         <q-form
-            @submit="submitForm()"
+            @submit="onSubmit()"
 
         >
             <div class="border border-black p-5 bg-white rounded-md mb-5">
@@ -473,7 +473,7 @@
                 const response = await api.post('/ecommerce/products/create', form)
                 if(response.data.success)
                 {
-                    this.$emit("close", false)
+                    this.$emit("close", true)
 
                 } else {
                     console.log(response.data)

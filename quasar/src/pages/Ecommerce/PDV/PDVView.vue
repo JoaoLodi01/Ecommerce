@@ -99,6 +99,7 @@
                         <ProductsSearchBar
                             v-if="showProductsSearch"
                             :witdhScreen="witdhScreen"
+                            :locale="'pdv'"
                             @update:selectProducts="updateProductsSeletion($event)"
 
                         />
@@ -901,7 +902,7 @@
         console.log(configsRes)
 
         configs.value.nmFinaly = configsRes.nmFinaly;
-        configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
+    configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
         configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
 
     };

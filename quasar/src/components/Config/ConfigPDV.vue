@@ -128,7 +128,7 @@
         'Cód barras',
         'Cód barras interno',
         'Cód barras & Cód barras interno',
-        'Padrão (cód.barras ou cód.produto)'
+        'Padrão (nome do produto, cód.barras ou cód.produto)'
 
     ]);
 

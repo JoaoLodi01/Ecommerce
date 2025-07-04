@@ -68,15 +68,17 @@ class ProductsRepository
                     })->get();
                 break;
     
-            case 'Padrão (cód.barras ou cód.produto)':
+            case 'Padrão (nome do produto, cód.barras ou cód.produto)':
                 $products = Products::where('active', 1)
                     ->where(function($query) use ($search, $issuerID){
                         $query->where('product_cod', $search)
-                                ->where('issuer_id', $issuerID)
                                 ->orWhere('barcode', $search)
-                                ->orWhere('product', 'like', '%' . $search . '%');
+                                ->orWhere('product', 'like', '%' . $search . '%')
+                                ->where('issuer_id', $issuerID);
                     })->get();
 
+                Log::info('Padrão (nome do produto, cód.barras ou cód.produto)');
+                Log::debug($products);
                 break;
 
             default:
