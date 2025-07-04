@@ -8,3 +8,28 @@
 [2025-07-04 01:45:45] local.INFO: Estava logado  
 [2025-07-04 01:52:10] local.INFO: -- checkLogin --  
 [2025-07-04 01:52:10] local.INFO: Estava logado  
+[2025-07-04 10:32:06] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-07-04 10:32:08] local.INFO: Passou o login, token: 36|yA0zQMGoTlV0IjnFyzTO9JEeySIohlCv2UB71w9s15b81016  
+[2025-07-04 10:34:03] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-07-04 10:34:03] local.INFO: Passou o login, token: 37|94jtkEJzr2g59dl2bkmagCY9Lfn5dFcgjxPvpe2sbe93b3cb  
+[2025-07-04 10:45:02] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-07-04 10:45:02] local.INFO: Passou o login, token: 38|AdnDNFlm481TbMosRStuLl5ojWlBOXm7Zb7YYJPp395236f5  
+[2025-07-04 11:47:54] local.INFO: -- checkLogin --  
+[2025-07-04 11:47:54] local.INFO: Estava logado  
+[2025-07-04 11:49:12] local.INFO: -- checkLogin --  
+[2025-07-04 11:49:12] local.INFO: Estava logado  
+[2025-07-04 11:50:34] local.INFO: -- checkLogin --  
+[2025-07-04 11:50:34] local.INFO: Estava logado  
+[2025-07-04 11:52:01] local.INFO: -- checkLogin --  
+[2025-07-04 11:52:01] local.INFO: Estava logado  
+[2025-07-04 11:55:46] local.INFO: -- checkLogin --  
+[2025-07-04 11:55:46] local.INFO: Estava logado  
+[2025-07-04 11:57:39] local.INFO: -- checkLogin --  
+[2025-07-04 11:57:39] local.INFO: Estava logado  
+[2025-07-04 12:02:48] local.INFO: -- checkLogin --  
+[2025-07-04 12:02:48] local.INFO: Estava logado  
+[2025-07-04 19:56:06] local.INFO: owner   
+[2025-07-04 19:56:58] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-07-04 19:57:00] local.INFO: Passou o login, token: 1|K8nKOx1hq4AlsE3qvs1H3jkB8EbhIVHPpvfnEz6i9cc4bb97  
+[2025-07-04 19:57:03] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"ORlXJ9Fc6J","active":1,"created_at":"2025-05-26T10:45:58.000000Z","updated_at":"2025-05-26T10:45:58.000000Z"}  
+[2025-07-04 19:57:04] local.INFO: Passou o login, token: 2|fVsIW6kgmgJhXwXR2RA8SrlGJPA1yEMM9ygC1mJCe07f70bf  

@@ -1,6 +1,6 @@
 import { api } from "src/boot/axios";
-import camelcaseKeys from "camelcase-keys";
 import { LocalStorage } from "quasar";
+import camelcaseKeys from "camelcase-keys";
 
 async function getColors(issuerID: number)
 {

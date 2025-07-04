@@ -14,6 +14,8 @@ class CashRegister extends Model
         'description',
         'document',
         'pdv_cod',
+        'receive_cod',
+        'receive_document',
         'customer_cod',
         'name',
         'especie_cod',
