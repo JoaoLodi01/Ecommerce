@@ -14,8 +14,8 @@ class RegisterOwnerController extends Controller
 
     public function create(RegisterOwnerRequest $request)
     {
-        $data = $request->validated();
-        return $this->registerOwnerService->create($data);
+        return apiSuccess('Usuário cadastrado com sucesso!', $this->registerOwnerService->create($request->validated()));
+        
     }
 
     public function find(int $id)

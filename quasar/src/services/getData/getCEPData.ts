@@ -2,7 +2,9 @@ import axios from 'axios'
 
 const resData = <IDataCEP>{
     cep: '',
-    addres: ''
+    addres: '',
+    uf: '',
+    city: ''
 }
 
 let errorMessage = <string> '';
@@ -15,6 +17,8 @@ async function getCEPData(cep: string): Promise<IDataCEP|string>
     {
         resData.cep = cep;
         resData.addres = res.data.logradouro;
+        resData.uf = res.data.uf;
+        resData.city = res.data.localidade;
         return resData;;
     };
 

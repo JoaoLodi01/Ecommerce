@@ -21,21 +21,14 @@ class RegisterIssuerService
     public function create(array $data)
     {
         $issuer = $this->registerIssuerRepository->create($data);
-        if($issuer['success'])
+        
+        if(!$issuer)
         {
-            return response()->json([
-                'success' => true,
-                'issuer' => $issuer
-                
-            ], 201);
-            
-        } else {
-            return response()->json([
-                'success' => false,
-                'issuer' => $issuer
-            ], 400);
-            
-        }
+            throw new \App\Exceptions\IssuerExceptions\IssuerCreateException("Erro na criação do emitente");
+
+        };
+
+        return $issuer;
     }
 
     public function find(int $id)
@@ -48,19 +41,14 @@ class RegisterIssuerService
 
     public function update(array $data, int $id) 
     {
-        try {
-            $issuer = $this->registerIssuerRepository->update($data, $id);
-            return response()->json([
-                'success' => true,
-                'issuer' => $issuer
-            ], 200);
-            
-        } catch (\Throwable $th) {
-            return response()->json([
-                'success' => false,
-                'message' => $th->getMessage()
-                
-            ]);
+        $issuer = $this->registerIssuerRepository->update($data, $id);
+
+        if(!$issuer)
+        {
+            throw new \App\Exceptions\IssuerExceptions\IssuerCompleteRegisterException('Erro ao alterar cadastro do emitente');
+
         }
+
+        return $issuer;
     }
 }

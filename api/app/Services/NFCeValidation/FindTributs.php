@@ -2,8 +2,6 @@
 
 namespace App\Services\NFCeValidation;
 
-use App\Repositories\Eloquent\TributsEloquent\TributsRepository;
-
 class FindTributs
 { 
     public function getCFOPs(string $param)

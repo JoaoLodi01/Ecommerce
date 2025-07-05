@@ -1,6 +1,8 @@
 interface IDataCEP
 {
     cep: string,
-    addres: string
+    addres: string,
+    uf?: string,
+    city?: string
     
 }

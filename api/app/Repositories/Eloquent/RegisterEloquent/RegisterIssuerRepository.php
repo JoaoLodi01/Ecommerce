@@ -17,6 +17,7 @@ use App\Models\Customer;
 use App\Models\ConfigCustomers;
 use App\Models\SiteColors;
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
+use App\Services\GetIBGECod\GetIBGECodService;
 use App\Services\NFCeValidation\FindTributs;
 use Illuminate\Support\Facades\Log;
 use App\Services\TributsService\TributsServices;
@@ -25,7 +26,8 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 {
     public function __construct(
         protected TributsServices $tributsServices,
-        protected FindTributs $findTributs
+        protected FindTributs $findTributs,
+        protected GetIBGECodService $getIBGECodService
     ) {
         Log::info('Memória usada no RegisterIssuerRepository ' . memory_get_usage(true));
     }
@@ -47,8 +49,8 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             $issuer = Issuer::create([
                 'company_name' => $data['company_name'],
                 'trade_name' => $data['trade_name'],
-                'cnpj' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cnpj']),
-                'cpf' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cpf']),
+                'cnpj' => $data['cnpj'] ? preg_replace('/[^a-zA-Z0-9]/', '', $data['cnpj']) : null,
+                'cpf' => $data['cpf'] ? preg_replace('/[^a-zA-Z0-9]/', '', $data['cpf']) : null,
                 'date_of_foundation' => $data['date_of_foundation'],
                 'cod_cnae' => $data['cod_cnae'],
                 'cnae' => $data['main_activity'],
@@ -135,9 +137,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'success' => false,
                 'message' => 'Proprietário não cadastrado'
             );
-        }
-        
-        
+        }   
     }
 
     public function find(int $id)
@@ -149,12 +149,13 @@ class RegisterIssuerRepository implements RegisterIssuerContract
     {
         $issuer = Issuer::where('id', $id)->first();
         $firstSteps = FirstSteps::where('issuer_id', $issuer->id)->first();
-        Log::info('$firstSteps ' . $firstSteps);
+
+        $ibge = $this->getIBGECodService->getData($data['city']);
 
         $issuer->update([
             'cep' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cep']),
             'uf' => $data['uf'],
-            'cod_ibge' => $data['cod_ibge'], 
+            'cod_ibge' => $data['cod_ibge'] ?? $ibge, 
             'city' => $data['city'],
             'address' => $data['address'],
             'number' => $data['number'],
