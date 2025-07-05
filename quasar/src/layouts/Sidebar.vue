@@ -704,7 +704,7 @@
     .routerView{
         position: relative;
         left: -.01rem;
-        border: solid #000;
+        
         
     }
   }

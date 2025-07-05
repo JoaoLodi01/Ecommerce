@@ -17,6 +17,7 @@
     const props = defineProps<{
         generate: boolean,
         report: string
+        
     }>();
 
     onMounted(() => {

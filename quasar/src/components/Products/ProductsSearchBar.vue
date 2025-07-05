@@ -6,10 +6,11 @@
         class="outline-none rounded-md mt-1 mb-1 p-1.5"
         id="searchBar"
         :disabled="!configs.filter"
-    />
+
+    />        
     
     <ul 
-        v-if="filtredProducts.length > 0 && search.name !== ''" 
+        v-if="filtredProducts.length > 0 && search.name !== '' && props.locale === 'pdv'" 
         class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
     >
         <li
@@ -33,7 +34,7 @@
     import { api } from "src/boot/axios"
     import { LocalStorage, useQuasar } from "quasar";
     import { ref, onMounted, defineProps, defineEmits } from "vue";
-import camelcaseKeys from "camelcase-keys";
+    import camelcaseKeys from "camelcase-keys";
 
     type TConfig = {
         saleNegativeorReset: boolean,
@@ -45,12 +46,16 @@ import camelcaseKeys from "camelcase-keys";
     }
     
      const emits = defineEmits<{
-        (e: 'update:selectProducts', value: object)
+        (e: 'update:selectProducts', value: object),
+        (e: 'returnCod', value: number[]),
+        (e: 'getAll', value: void)
 
     }>();
 
     const props = defineProps<{
-        witdhScreen: number
+        witdhScreen: number,
+        locale?: string,
+        momentFilter?: string
         
     }>(); 
 
@@ -85,36 +90,29 @@ import camelcaseKeys from "camelcase-keys";
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
-    const getConfig = async () => {
-        const res = await api.get(`/configs/all-configs/${issuerID.value}`);
-
-        const config = camelcaseKeys(res.data.data.pdv, { deep: true });
-
-        configs.value = {
-            filter: config.filterSearch,
-            saleNegativeorReset: config.saleNegativeOrReset >= 1 ? true : false,
-
-        };
-    };
-
-    const getProducts = async () => 
+    const getProducts = async () =>
     {
-        if(search.value.name.length >= 4 || search.value.name.length >= 1)
+        const isPDV = props.locale === 'pdv';
+        const nameLength = search.value.name.length;
+
+        if(nameLength >= 4 || nameLength >= 1)
         {
             const res = await api.post(`/ecommerce/products/search`,{
-                filter: configs.value.filter,
+                filter: isPDV ? configs.value.filter : props.momentFilter,
                 search: search.value.name,
                 issuer_id: issuerID.value
 
             });
 
-            console.log('Res: ', res.data.data);
+            const data = res.data.data;
+            
+            return isPDV ? filtredProducts.value = data : emits('returnCod', data.map((p: IProducts) => { return p. product_cod; }));
 
-            filtredProducts.value = res.data.data
-
+        } else {
+            emits('getAll');
         };
     };
-    
+
     const setProduct = (product: IProducts) => 
     {
         if(product.amount <= 0 && configs.value.saleNegativeorReset)
@@ -166,6 +164,18 @@ import camelcaseKeys from "camelcase-keys";
                 
             };
         };  
+    };
+
+    const getConfig = async () => {
+        const res = await api.get(`/configs/all-configs/${issuerID.value}`);
+        
+        const config = camelcaseKeys(res.data.data.pdv, { deep: true });
+
+        configs.value = {
+            filter: config.filterSearch,
+            saleNegativeorReset: config.saleNegativeOrReset >= 1 ? true : false,
+
+        };
     };
 
     onMounted(() => {

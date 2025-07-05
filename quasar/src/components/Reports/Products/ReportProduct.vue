@@ -1,50 +1,71 @@
 <template>
-    <q-btn 
-        @click="reportProducts('all')" 
-        class="hover:bg-blue-400 transition text-white font-semibold rounded-lg mr-5"
-        :style="`background-color: ${buttonColor}; color: ${textColor}`"
-        :class="{ 
-            'mb-5': widthScreen <= 1089 
-        }"
-    >
-        <span v-if="widthScreen <= 1080">Listagem completa dos produtos</span>
-        <span v-else>Listagem completa dos produtos ativos</span>
-    </q-btn>
+    <div class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm ">        
+        <div class="bg-white p-12 rounded ">
+            <q-btn 
+                icon="close"
+                class="flex justify-end ml-auto mr-1 -mt-4"
+                color="red"
+                @click="emits('close', true)"
+                
+            />
+            
+            <h1 class="border-b w-max text-3xl text-center -mb-8">Geração de relatórios</h1>
 
-    <q-btn 
-        @click="reportProducts('all-disabled')" 
-        class="hover:bg-blue-400 transition text-white font-semibold rounded-lg mr-5"
-        :style="`background-color: ${buttonColor}; color: ${textColor}`"
-        :class="{ 
-            'mb-5': widthScreen <= 1089 
-        }"
-    >
-        <span v-if="widthScreen <= 1080">Listagem completa dos produtos inativos</span>
-        <span v-else>Listagem completa de todos os produtos inativos</span>
-    </q-btn>
+            <div class="p-5 mt-5">
+                <div class="flex mt-5">
+                    <q-btn 
+                        @click="reportProducts('all')" 
+                        class="transition text-white font-semibold rounded-lg m flex"
+                        :style="`background-color: ${buttonColor}; color: ${textColor}`"
+                        
+                    >
+                        <span>Listagem completa dos produtos</span>
+                    </q-btn>
+                </div>
 
-    <q-btn 
-        @click="reportProducts('Listagem_Completa')" 
-        class="hover:bg-blue-400 transition text-white font-semibold rounded-lg mr-5"
-        :style="`background-color: ${buttonColor}; color: ${textColor}`"
-    >
-        <span v-if="widthScreen <= 1080">Listagem completa de todos os produtos</span>
-        <span v-else>Listagem completa de todos os produtos</span>
-    </q-btn>
+                <div class="flex mt-5">
+                    <q-btn 
+                        @click="reportProducts('all-disabled')" 
+                        class="transition text-white font-semibold rounded-lg m flex"
+                        :style="`background-color: ${buttonColor}; color: ${textColor}`"
+                        
+                    >
+                        <span>Listagem completa dos produtos inativos</span>
+                        
+                    </q-btn>
+                </div>
+    
+                <div class="flex mt-5">
+                    <q-btn 
+                        @click="reportProducts('Listagem_Completa')" 
+                        class="transition text-white font-semibold rounded-lg m flex"
+                        :style="`background-color: ${buttonColor}; color: ${textColor}`"
+                    >
+                        <span>Listagem completa de todos os produtos</span>
+                        
+                    </q-btn>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <ReportLoanding
         v-if="generate"
         :generate="generate"
         :report="'products'"        
     />
-
 </template>
 
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { useQuasar, LocalStorage } from 'quasar';
-    import { ref, defineProps, onMounted } from 'vue';
+    import { ref, defineEmits, onMounted } from 'vue';
     import ReportLoanding from 'src/components/Loanding/ReportLoanding.vue';
+
+    const emits = defineEmits<{
+        (e: 'close', value: boolean);
+
+    }>();
 
     const $q = useQuasar();
 
@@ -53,10 +74,11 @@
     const textColor = ref<string>(LocalStorage.getItem("textColor"));
     const issuerID = ref<number>(LocalStorage.getItem("issuerID"));
 
-    const props = defineProps<{
-        widthScreen: number,
-    }>();
-            
+    const updateProgress = () =>
+    {
+
+    };
+
     const reportProducts = async (type: string) =>
     {
         generate.value = true;
