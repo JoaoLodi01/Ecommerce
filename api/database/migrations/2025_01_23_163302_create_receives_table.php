@@ -13,16 +13,26 @@ return new class extends Migration
     {
         Schema::create('receives', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('receive_cod');
+            $table->unsignedBigInteger('receive_cod')->index();
             $table->unique(['issuer_id', 'document']);
-            $table->string('document', 200);
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
+            
+            $table->string('document', 200);            
             $table->string('description', 200);
+
             $table->unsignedBigInteger('customer_cod');
             $table->foreign('customer_cod')->references('customer_cod')->on('customers')->onDelete('cascade');
+
             $table->unsignedBigInteger('especie_cod');
-            $table->foreign('especie_cod')->references('payment_cod')->on('payments_forms')->onDelete('cascade');;
+            $table->foreign('especie_cod')->references('payment_cod')->on('payments_forms')->onDelete('cascade');
+
+            $table->foreign('dav_cod')->references('dav_cod')->on('davs')->onDelete('cascade');
+            $table->unsignedBigInteger('dav_cod')->nullable();
+
+            $table->foreign('pdv_cod')->references('pdv_cod')->on('pdvs')->onDelete('cascade');
+            $table->unsignedBigInteger('pdv_cod')->nullable();
+
             $table->string('name', 120);
             $table->string('especie', 120);
             $table->date('due_date');     

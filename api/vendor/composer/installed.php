@@ -1,15 +1,24 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-Main',
-        'version' => 'dev-Main',
-        'reference' => 'f08db42d936a451f53d3ab4ff38430dd7e4b9a50',
+        'pretty_version' => 'dev-Kochem',
+        'version' => 'dev-Kochem',
+        'reference' => 'de05be1d5d595caabf65d6fe9b039fbeb37f3efa',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'box/spout' => array(
+            'pretty_version' => 'v3.3.0',
+            'version' => '3.3.0.0',
+            'reference' => '9bdb027d312b732515b884a341c0ad70372c6295',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../box/spout',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.12.3',
             'version' => '0.12.3.0',
@@ -413,9 +422,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-Main',
-            'version' => 'dev-Main',
-            'reference' => 'f08db42d936a451f53d3ab4ff38430dd7e4b9a50',
+            'pretty_version' => 'dev-Kochem',
+            'version' => 'dev-Kochem',
+            'reference' => 'de05be1d5d595caabf65d6fe9b039fbeb37f3efa',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

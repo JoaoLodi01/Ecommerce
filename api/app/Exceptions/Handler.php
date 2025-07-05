@@ -25,6 +25,18 @@ class Handler extends ExceptionHandler
             return apiError($e->getMessage(), [], false, 400);
             
         }
+        
+        if($e instanceof \App\Exceptions\IssuerExceptions\IssuerCreateException)
+        {
+            return apiError($e->getMessage(), [], false, 400);
+            
+        }
+        
+        if($e instanceof \App\Exceptions\IssuerExceptions\IssuerCompleteRegisterException)
+        {
+            return apiError($e->getMessage(), [], false, 400);
+            
+        }
 
         return parent::render($request, $e);
     }

@@ -63,7 +63,7 @@
                 <div class="flex">
                     <q-input 
                         v-model="issuer.cep"
-                        v-on:update:model-value="getCEPData()"
+                        v-on:update:model-value="getDataCEP()"
                         filled        
                         label="CEP *" 
                         class="mb-4"
@@ -185,20 +185,25 @@
                     label="Salvar" 
                     type="submit" 
                     class="ml-2 submit-btn"
-                    :class="`bg-[${color}] text-white`"
+                    color="primary"
                 />
                 
             </div>
         </q-form>
-        
     </div>    
+
+    <LoandingPage
+        v-if="showLoanding"
+        :text="_completed ? 'Alterando informações do emitente ...' : 'Completando cadastro, esse processo pode levar um tempinho ...'"
+    />
 </template>
 
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
     import { onMounted, ref } from 'vue';
-    import axios from 'axios';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
+    import getCEPData from 'src/services/getData/getCEPData';
 
     type Issuer = {
         company_name: string,
@@ -249,37 +254,26 @@
         cnae: '',
         ie: '',
         im: ''
-    })
+    });
 
-    const color: any = ref(null);
+    const color = ref<string>('');
 
-    const _completed: any = ref(null);
-
-    const showLoading = () => {
-        $q.loading.show({
-            message: _completed ? 'Atualizando dados' : 'Salvando dados ( pode levar alguns minutos )'
-        });
-    }
-
-    const hideLoading = () => {
-        $q.loading.hide();
-    }
+    const _completed = ref<boolean>(false);
+    let showLoanding = ref<boolean>(false);
 
     const getIssuer = async () => {
         const res = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
         issuer.value = res.data.issuer
 
-    }
+    };
 
-    const completeIssuer = async () => {
-        showLoading();
+    const completeIssuer = async () => 
+    {
         issuer.value.cod_crt = crtOptions.value.indexOf(issuer.value.crt) + 1;
+        showLoanding.value = true;
         try {
-            const res = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, issuer.value, {
-                headers: {
-                    Accept: "*/*"
-                }
-            });
+            
+            const res = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, issuer.value);
 
             console.log('Res: ', res.data);
             
@@ -287,26 +281,53 @@
             console.error('Error: ', error);
             
         } finally {
-            hideLoading();
+           showLoanding.value = false;
         };
-        
     };
     
-    const getCEPData = async () => {
-        if(issuer.value.cep)
+    const getDataCEP = async () => 
+    {
+        const fomratedCEP = issuer.value.cep.replace(/\D/g, '');
+        if(fomratedCEP.length === 8)
         {
-            const formatedCEP = issuer.value.cep.replace(/\D/, '');
-            if(formatedCEP.length === 8)
-            {  
-                const res = await axios.get(`${process.env.API_CEP}/${formatedCEP}/json`);
-                console.log('Res cep:', res.data);
+            const res = await getCEPData(fomratedCEP);
+            console.log('Res: ', res);
 
-                issuer.value.cod_ibg = res.data.ibge;
-                issuer.value.city = res.data.localidade;
-                issuer.value.address = res.data.logradouro;
-                issuer.value.uf = res.data.uf;
-                                
+            if(typeof res === 'string')
+            {
+                $q.notify({
+                    type: 'negative',
+                    message: res || res[0],
+                    timeout: 3500 ,
+                    position: 'top'
+
+                });                
+
+                return;
             };
+
+            issuer.value = {
+                company_name: issuer.value.company_name, // Mantem padrão
+                trade_name: issuer.value.trade_name, // Mantem padrão
+                cpf: issuer.value.cpf, // Mantem padrão
+                cnpj: issuer.value.cnpj, // Mantem padrão
+                cep: issuer.value.cep,
+                address: res.addres,
+                number: issuer.value.number, // Mantem padrão   
+                city: res.city,
+                cnae: issuer.value.cnae,
+                cod_cnae: issuer.value.cod_cnae,
+                cod_crt: issuer.value.cod_crt,
+                cod_ibg: issuer.value.cod_ibg,
+                crt: issuer.value.crt,
+                date_of_foundation: issuer.value.date_of_foundation,
+                ie: issuer.value.ie,
+                im: issuer.value.im,
+                uf: res.uf
+
+            };
+
+            return;  
         };
     };
 

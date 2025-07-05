@@ -10,6 +10,7 @@
     import { useRouter } from 'vue-router';
     import { LocalStorage, useQuasar } from 'quasar';
     import dayjs from 'dayjs';
+import getColors from './services/getColors';
 
     const $q = useQuasar();
     const router = useRouter();
@@ -53,6 +54,15 @@
         checkLogin();
 
         setInterval(checkLogin, 30 * 1000);
+
+        if(LocalStorage.getItem("issuer_id"))
+        {
+            const issuerID: number = LocalStorage.getItem("issuer_id");
+
+            setInterval(() => getColors(issuerID), 40 * 100)
+        } else {
+            return;
+        }
 
     });
 
