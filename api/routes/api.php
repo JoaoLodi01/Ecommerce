@@ -63,6 +63,13 @@ Route::prefix('v1')->group( function (){
         
             });
 
+            Route::prefix('last-document')->group(function(){
+                Route::get('/cash/{issuer_id}');
+                Route::get('/receive/{issuer_id}');
+                Route::get('/pay/{issuer_id}');
+                Route::get('/bank/{issuer_id}');
+            });
+
             Route::prefix('tributs')->group( function (){
                 Route::get('/all/{id}', [TributsController::class, 'getAllNCMs']);
                 Route::post('/search', [TributsController::class, 'searchNCM']);

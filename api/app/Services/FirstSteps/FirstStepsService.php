@@ -12,17 +12,13 @@ class FirstStepsService
 
     public function getAll(int $id)
     {
-        $data = $this->firstStepsRepository->getAll($id);
-        return $data;
+        return $this->firstStepsRepository->getAll($id);
         
     }
 
     public function ignoreFirstSteps(int $id)
     {
-        $ignore = $this->firstStepsRepository->ignoreFirstSteps($id);
-        return response()->json([
-            'success' => true,
-            'ignore' => $ignore
-        ], 200);
+        return $this->firstStepsRepository->ignoreFirstSteps($id);
+    
     }
 }

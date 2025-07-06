@@ -26,7 +26,6 @@
             emits('showPage', true);
 
         }, 2000);
-
     });
 </script>
 

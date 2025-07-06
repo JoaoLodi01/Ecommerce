@@ -55,7 +55,7 @@
           class="text-xl font-semibold ml-5 mt-0.5"
           v-if="sidebarActive"
         >
-          {{ issuerName.substring(0, 12) }}
+          {{ issuer_name.substring(0, 12) }}
         </h1>
         
       </div>
@@ -64,8 +64,9 @@
 
 
           <li>
-            <router-link :to="`/${issuerFirstName}/home`" class="hover:text-blue-300 flex items-center gap-4">
+            <router-link :to="`/${issuer_first_name}/home`" class="hover:text-blue-300 flex items-center gap-4">
               <svg 
+                v-if=""
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none" 
                 viewBox="0 0 24 24" 
@@ -75,18 +76,23 @@
                 :class="{
                   'ml-12': !sidebarActive
                 }"
-            >
+              >
+                
+                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+              </svg>
+
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" />
               </svg>
 
-              <span v-if="sidebarActive" class="ml-2">DashBoard</span>
+              <span v-if="sidebarActive" class="ml-2">Home</span>
             </router-link>
           </li>
 
 
 
           <li>
-            <router-link :to="`/${issuerFirstName}/customers`" class="hover:text-blue-300 flex items-center gap-4">
+            <router-link :to="`/${issuer_first_name}/customers`" class="hover:text-blue-300 flex items-center gap-4">
               <svg 
                 :class="{
                    'ml-12 mr-auto': !sidebarActive
@@ -104,7 +110,7 @@
             </router-link> 
           </li>
           <li>
-            <router-link :to="`/${issuerFirstName}/products`" class="hover:text-blue-300 flex items-center gap-4">
+            <router-link :to="`/${issuer_first_name}/products`" class="hover:text-blue-300 flex items-center gap-4">
               <svg
                 :class="{
                   'ml-12 mr-auto': !sidebarActive
@@ -155,19 +161,19 @@
             <div v-if="showFinancial" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/financial/to-pay`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/financial/to-pay`" class="hover:text-blue-400 flex items-center gap-2">
                   Pagar
                 </router-link>
               </p>
               
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/financial/receive`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/financial/receive`" class="hover:text-blue-400 flex items-center gap-2">
                   Receber
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/financial/cash-register`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/financial/cash-register`" class="hover:text-blue-400 flex items-center gap-2">
                   Caixa
                 </router-link>
               </p>
@@ -213,25 +219,25 @@
             <div v-if="showPDV" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   PDV
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/sale/list-pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/sale/list-pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Listagem PDV
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   DAV
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Devolução
                 </router-link>
               </p>
@@ -270,37 +276,37 @@
             </a>
             <div v-if="showRegisters" class="ml-8 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/species`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/species`" class="hover:text-blue-400 flex items-center gap-2">
                   Espécies
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Centro de custo
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Plano de contas
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Grupos
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Unidade de medida
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Natureza de operação
                 </router-link>
               </p>
@@ -336,20 +342,20 @@
             </a>
             <div v-if="showUsers" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/list-users`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/list-users`" class="hover:text-blue-400 flex items-center gap-2">
                   Listagem de usuários
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuerFirstName}/level-users`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuer_first_name}/level-users`" class="hover:text-blue-400 flex items-center gap-2">
                   Nível de acesso
                 </router-link>
               </p>
             </div>
           </li>
           <li disabled title="EM BREVE">
-            <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-300 flex items-center gap-4">
+            <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-300 flex items-center gap-4">
               <svg 
                 :class="{
                     'ml-12 mr-auto': !sidebarActive
@@ -361,7 +367,7 @@
             </router-link>
           </li>
           <li>
-            <router-link :to="`/${issuerFirstName}/configs`" class="hover:text-blue-300 flex items-center gap-4">
+            <router-link :to="`/${issuer_first_name}/configs`" class="hover:text-blue-300 flex items-center gap-4">
               <svg 
                 :class="{
                     'ml-12 mr-auto': !sidebarActive
@@ -429,7 +435,7 @@
           </li>
           <li class="fixed bottom-auto" disabled title="EM BREVE">
             <button >
-              <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-300 flex items-center gap-4">
+              <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-300 flex items-center gap-4">
                 <svg 
                     :class="{
                         'ml-12 mr-auto': !sidebarActive
@@ -449,15 +455,13 @@
                 }"
             >
                 <q-btn 
-                    flat
-                    class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
+                    class="ml-5 w-max border-none hover:text-blue-300 flex items-center mb-10" 
                     @click="backCompanies()"
                 >
                     <span class="ml-2 mb-auto">Trocar de empresa</span>
                 </q-btn>
 
                 <q-btn 
-                    flat
                     class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
                     @click="logout()"
                 >
@@ -521,177 +525,176 @@
   
 </template>
 
-<script setup lang="ts">
-    import { LocalStorage } from 'quasar';
-    import { api } from 'src/boot/axios';
-    import { ref, onMounted } from 'vue';
-    import { useRouter } from 'vue-router';
+<script>
+  import { LocalStorage } from 'quasar';
+  import { api } from 'src/boot/axios';
 
-    const router = useRouter();
-    const issuerFirstName = ref<string>(LocalStorage.getItem("first_name"));
-    const issuerName = ref<string>(LocalStorage.getItem("issuer_name"));
-    const ignore = ref<string>(LocalStorage.getItem("ignore"));
-
-    let sidebarActive = ref<boolean>(true);
-    let showFinancial = ref<boolean>(false);
-    let showPDV = ref<boolean>(false);
-    let showProfile = ref<boolean>(false);
-    let showRegisters = ref<boolean>(false);
-    let showUsers = ref<boolean>(false);
-    let showSales = ref<boolean>(false);
-    let downRowRegisters = ref<boolean>(false);
-    let downRowFinancial = ref<boolean>(false);
-    let downRowSales = ref<boolean>(false);
-    let downRowUsers = ref<boolean>(false);
-    let downRow3 = ref<boolean>(false);
-    let widthScreen = ref<number>(0);
-
-    const logout = async () =>
-    {
+  export default {
+    data() {
+      return {
+        sidebarActive: true,
+        showFinancial: false,
+        showPDV: false,
+        showProfile: false,
+        showRegisters: false,
+        showUsers: false,
+        showSales: false,
+        downRowRegisters: false,
+        downRowFinancial: false,
+        downRowSales: false,
+        downRowUsers: false,
+        downRow3: false,
+        widthScreen: 0,
+        issuer_first_name: LocalStorage.getItem("first_name"),
+        issuer_name: LocalStorage.getItem("issuer_name")
+      };
+    },
+    
+    methods: {
+      async logout()
+      {
         const ofCourse = confirm('Deseja realmente sair?')
         if(ofCourse)
         {
-            const res = await api.post('/auth/logout')
-            if(res.data.success)
-            {
-                LocalStorage.remove("auth_token")  
-                router.push(res.data.route)
+          const res = await api.post('/auth/logout')
+          if(res.data.success)
+          {
+            LocalStorage.remove("auth_token")  
+            this.$router.push(res.data.route)
 
-            };
-        };
-    };
+          }
+        }
+      },
 
-    const backCompanies = () =>
-    {
-        const ofCourse = confirm('Deseja trocar de empresa?');
+      backCompanies()
+      {
+        const ofCourse = confirm('Deseja trocar de empresa?')
         if(ofCourse)
         {
-            LocalStorage.remove("issuer_name");
-            LocalStorage.remove("issuer_id");
-            LocalStorage.remove("first_name");
-            router.push({ path: '/companies' });
-        };
-    };
-    
-    const toggleSidebar = () =>
-    {
-        sidebarActive.value = !sidebarActive.value;
-        
-        showFinancial.value = false;
-        downRowFinancial.value = false;
-
-        // Cadastros
-        showRegisters.value = false;
-        downRowRegisters.value = false;
-
-        // Vendas
-        showPDV.value = false;
-        downRowSales.value = false;
-
-        // Usuários
-        showUsers.value = false;
-        downRowUsers.value = false;
-    };
-
-    const toggleFinancial = () =>
-    {
-        !sidebarActive.value ? toggleSidebar() : null
-        showFinancial.value = !showFinancial.value;
-        downRowFinancial.value = showFinancial.value;
-
-        // Cadastros
-        showRegisters.value = false;
-        downRowRegisters.value = showRegisters.value;
-
-        // Vendas
-        showPDV.value = false;
-        downRowSales.value = showPDV.value;
-
-        // Usuários
-        showUsers.value = false;
-        downRowUsers.value = showUsers.value;
-    };
-
-    const togglePDVMenu = () =>
-    {
-        !sidebarActive.value ? toggleSidebar() : null
-        showPDV.value = !showPDV.value;
-        downRowSales.value = showPDV.value;
-
-        //Financeiro 
-        showFinancial.value = false;
-        downRowFinancial.value = showFinancial.value;
-
-        // Cadastros
-        showRegisters.value = false;
-        downRowRegisters.value = showRegisters.value;
-
-        // Usuários
-        showUsers.value = false;
-        downRowUsers.value = showUsers.value;
-    };
-
-    const toggleRegisters = () =>
-    {
-        !sidebarActive ? toggleSidebar() : null
-        showRegisters.value = !showRegisters.value;
-        downRowRegisters.value = showRegisters.value;
-
-        //Financeiro 
-        showFinancial.value = false;
-        downRowFinancial.value = showFinancial.value;
-
-        // Vendas
-        showPDV.value = false;
-        downRowSales.value = showPDV.value;
-
-        // Usuários
-        showUsers.value = false;
-        downRowUsers.value = showUsers.value;
-    };
-
-    const toggleUsers = () =>
-    {
-        !sidebarActive.value ? toggleSidebar() : null
-        showUsers.value = !showUsers.value;
-        downRowUsers.value = showUsers.value;
-
-        //Financeiro 
-        showFinancial.value = false;
-        downRowFinancial.value = showFinancial.value;
-
-        // Vendas
-        showPDV.value = false;
-        downRowSales.value = showPDV.value;
-        
-        // Cadastros
-        showRegisters.value = false;
-        downRowRegisters.value = showRegisters.value;
-    };
-
-    const showProfileFn = () =>
-    {
-        !sidebarActive.value ? toggleSidebar() : null;
-        showProfile.value = !showProfile;
-        showPDV.value = false;
-        showFinancial.value = false;
+          LocalStorage.remove("issuer_name")
+          LocalStorage.remove("issuer_id")
+          LocalStorage.remove("first_name")
+          this.$router.push({ path: '/companies' })
+        }
+      },
+      
+      toggleSidebar() {
+            this.sidebarActive = !this.sidebarActive;
             
-    };
+            this.showFinancial = false;
+            this.downRowFinancial = false;
 
-    onMounted(() => {
-        widthScreen.value = screen.width
-        widthScreen.value < 1366 ? sidebarActive.value = false : sidebarActive.value = true
+            // Cadastros
+            this.showRegisters = false;
+            this.downRowRegisters = false;
 
-        document.addEventListener('keydown', (event: KeyboardEvent) => {
-            const keyName = event.key;
-            if(event.altKey && keyName.toLowerCase() === 'g')
-            {
-                toggleSidebar();
+            // Vendas
+            this.showPDV = false;
+            this.downRowSales = false;
 
-            };
-        });
-    });
+            // Usuários
+            this.showUsers = false;
+            this.downRowUsers = false;
+      },
 
+      toggleFinancial() {
+            !this.sidebarActive ? this.toggleSidebar() : null
+            this.showFinancial = !this.showFinancial;
+            this.downRowFinancial = this.showFinancial;
+
+            // Cadastros
+            this.showRegisters = false;
+            this.downRowRegisters = this.showRegisters;
+
+            // Vendas
+            this.showPDV = false;
+            this.downRowSales = this.showPDV;
+
+            // Usuários
+            this.showUsers = false;
+            this.downRowUsers = this.showUsers;
+      },
+
+      togglePDVMenu() {
+            !this.sidebarActive ? this.toggleSidebar() : null
+            this.showPDV = !this.showPDV;
+            this.downRowSales = this.showPDV;
+
+            //Financeiro 
+            this.showFinancial = false;
+            this.downRowFinancial = this.showFinancial;
+
+            // Cadastros
+            this.showRegisters = false;
+            this.downRowRegisters = this.showRegisters;
+
+            // Usuários
+            this.showUsers = false;
+            this.downRowUsers = this.showUsers;
+      },
+
+      toggleRegisters(){
+            !this.sidebarActive ? this.toggleSidebar() : null
+            this.showRegisters = !this.showRegisters;
+            this.downRowRegisters = this.showRegisters;
+
+            //Financeiro 
+            this.showFinancial = false;
+            this.downRowFinancial = this.showFinancial;
+
+            // Vendas
+            this.showPDV = false;
+            this.downRowSales = this.showPDV;
+
+            // Usuários
+            this.showUsers = false;
+            this.downRowUsers = this.showUsers;
+      },
+
+      toggleUsers(){
+            !this.sidebarActive ? this.toggleSidebar() : null
+            this.showUsers = !this.showUsers;
+            this.downRowUsers = this.showUsers;
+
+            //Financeiro 
+            this.showFinancial = false;
+            this.downRowFinancial = this.showFinancial;
+
+            // Vendas
+            this.showPDV = false;
+            this.downRowSales = this.showPDV;
+            
+            // Cadastros
+            this.showRegisters = false;
+            this.downRowRegisters = this.showRegisters;
+      },
+
+      showProfileFn()
+      {
+        !this.sidebarActive ? this.toggleSidebar() : null
+        this.showProfile = !this.showProfile
+        this.showPDV = false
+        this.showFinancial = false
+          
+      },
+    },
+
+    mounted()
+    { 
+      this.widthScreen = screen.width
+      this.widthScreen < 1366 ? this.sidebarActive = false : this.sidebarActive= true
+      document.addEventListener('keydown', (event) => {
+          const keyName = event.key
+          if(event.altKey && keyName.toLowerCase() === 'g')
+          {
+            this.toggleSidebar()
+
+          } 
+      })
+      
+    }       
+
+};
 </script>
 
 <style>

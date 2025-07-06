@@ -924,7 +924,7 @@
                 
         };
 
-        document.addEventListener('keydown', (event: TEvent) => {
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
             const keyName = event.key
                 
             if(keyName === 'F2')

@@ -81,6 +81,11 @@
             </div>
         </Transition>
     </div>
+
+    <LoandingPage
+        v-if="showLoandig"
+        :text="`Carregando dados da empresa ${companieName}...`"
+    />
 </template>
 
 <script setup lang="ts">
@@ -90,6 +95,7 @@
     import { useRouter } from 'vue-router';
     import camelcaseKeys from 'camelcase-keys';
     import getColors from 'src/services/getColors';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
 
     type TCompanies = {
         id: number,
@@ -101,10 +107,14 @@
     const router = useRouter();
     const owner_name = ref<number>(LocalStorage.getItem("owner_name"));
     const owner_cpf = ref<number>(LocalStorage.getItem("owner_cpf"));
+
     let companies = ref<TCompanies[]>([ ]);
     let witdhScreen = ref<number>(0);
     let has = ref<boolean>(false);
     let showContent = ref<boolean>(false);
+    let showLoandig = ref<boolean>(false);
+    let companieName = ref<string>('');
+
         
     const getCompanies = async () =>
     {
@@ -120,9 +130,11 @@
 
     const joinCompanie = async (name: string, issuer_id: number) =>
     {
-        console.log('issuer_id', issuer_id);
+        showLoandig.value = true;
+        companieName.value = name;
+
         const first_name = name.split(" ")[0];
-    
+
         LocalStorage.set("first_name", first_name);
         LocalStorage.set("issuer_id", issuer_id);
         LocalStorage.set("issuer_name", name);
@@ -141,12 +153,15 @@
                 name: `FirstIssuerData`, 
                 params: { name: LocalStorage.getItem("first_name") }
             });
-            
+
+            showLoandig.value = false;
         } else {
             router.push({ 
                 name: 'Start', 
                 params: { name: LocalStorage.getItem("first_name") }
             });
+
+            showLoandig.value = false;
         };
     };
 
