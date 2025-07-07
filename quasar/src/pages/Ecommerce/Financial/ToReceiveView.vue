@@ -48,7 +48,8 @@
             />
 
             <q-btn
-                class="bg-blue-500 hover:bg-blue-400 transition text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                class="transition text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                 label="Filtrar"
                 @click="dateSearch()"
             />
@@ -80,13 +81,13 @@
                 </thead>
                 <tbody>
                     <tr v-for="(register, id) in receives" :key="id" class="border-t text-center">
-                        <td class="px-6 py-3 text-center">{{ register.receive_cod }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.receiveCod }}</td>
                         <td class="px-6 py-3 text-center">{{ register.document }}</td>
                         <td class="px-6 py-3 text-center">{{ register.description }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.installment_number }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.installment_value }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.installmentNumber }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.installmentValue }}</td>
                         <td class="px-6 py-3 text-center">{{ register.name }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.especieID }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie.toUpperCase() }}</td>
                         <td class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3">
@@ -122,23 +123,27 @@
     import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
+import camelcaseKeys from "camelcase-keys";
     dayjs.extend(isBetween);
 
     const today = dayjs();
     const $q = useQuasar();
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
-    let receives = ref<object[]>([]);
+    let receives = ref<IReceiveBody[]>([]);
     let startDate = ref<string>(today.startOf('month').format('YYYY-MM-DD'));
     let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
     let filteredCashs = ref<object[]>([]);
     let withScreen = ref<number>(0);
     let showReceiveClosing = ref<boolean>(false);
+    
 
     const getRegister = async () =>
     {
         const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
-         
+        receives.value = camelcaseKeys(res.data.data, { deep: true });
     };
     
     const dateSearch = () => {};

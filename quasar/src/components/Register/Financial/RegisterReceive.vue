@@ -40,7 +40,7 @@
                     <q-input
                         class="w-[150px]"
                         type="date"
-                        v-model="form.due_date"
+                        v-model="form.dueDate"
                         label="1º Vencimento"
                         color="grey-7"
                     />
@@ -48,18 +48,21 @@
                     <q-input
                         class="w-[100px]"
                         type="number"
-                        v-model="form.installment_number"
+                        v-model="form.installmentNumber"
                         label="Nº Parcelas"
                         color="grey-7"
+                        :disable="!form.especieID"
                     />
 
                     <q-input
                         class="w-[150px]"
                         type="text"
-                        v-model="form.installment_value"
+                        v-model="form.installmentValue"
                         label="Valor Parcela"
                         v-bind:mask="'##,##'"
                         color="grey-7"
+                        :disable="!form.especieID"
+                        
                     />
 
                     <CustomerSearchBar 
@@ -73,7 +76,7 @@
                 <div class="flex flex-wrap gap-4">
                     <q-select
                         class="w-[80px]"
-                        v-model="form.type_interest"
+                        v-model="form.typeInterest"
                         label="Tipo"
                         emit-value
                         map-options
@@ -87,7 +90,7 @@
                     <q-input
                         class="w-[100px]"
                         type="number"
-                        v-model="form.interest_value"
+                        v-model="form.interestValue"
                         label="Juros"
                         color="grey-7"
                     />
@@ -111,7 +114,7 @@
                     <q-input
                         class="w-[130px]"
                         type="number"
-                        v-model="form.value_entry"
+                        v-model="form.valueEntry"
                         label="Juros a pagar"
                         color="grey-7"
                         v-bind:mask="'##,##'"
@@ -128,9 +131,9 @@
 
             <InstallmentsTable 
                 :pdv="false" 
-                :amount="Number(form.installment_number)"
-                :original-value="form.installment_value"
-                :due-date="form.due_date"
+                :amount="Number(form.installmentNumber)"
+                :original-value="form.installmentValue"
+                :due-date="form.dueDate"
                 @exists-installments="exists($event)"
                 @updated:inspecInstallment="createInstallments($event)"
                 @request:generateInstallmentes=""
@@ -178,31 +181,31 @@
     //const user = ref<number>(LocalStorage.getItem("user_name"));
 
     const form = ref<IReceiveBody>({
-        issuer_id: LocalStorage.getItem("issuer_id"),
+        issuerID: LocalStorage.getItem("issuer_id"),
         description: 'Registro Manual Receber',
         document: 1,
-        customer_id: 1,
-        user_id: LocalStorage.getItem("user_id"),
-        especie_id: 0,
+        customerID: 1,
+        userID: LocalStorage.getItem("user_id"),
+        especieID: 0,
         especie: '',
-        due_date: today.add(30, 'days').format("YYYY-MM-DD"),
-        installment_number: 1,
-        installment_value: 0,
-        type_interest: '%',
-        interest_value: 0,
+        dueDate: today.add(30, 'days').format("YYYY-MM-DD"),
+        installmentNumber: 1,
+        installmentValue: 0,
+        typeInterest: '%',
+        interestValue: 0,
         addition: 0,
         discount: 0,
-        value_entry: 0,
-        value_paid: 0,
-        value_original: 0,
+        valueEntry: 0,
+        valuePaid: 0,
+        valueOriginal: 0,
         origem: 'Receber (Manual)',
 
     });
     
     const totalAmoutCalc = computed(() => 
     {
-        const number = parseCurrency(form.value.installment_number);
-        const value = parseCurrency(form.value.installment_value);
+        const number = parseCurrency(form.value.installmentNumber);
+        const value = parseCurrency(form.value.installmentValue);
         const total = number * value;
 
         return total.toFixed(2);
@@ -246,7 +249,7 @@
     const getCustumer = (event) =>
     {
         console.log(event);
-        form.value.customer_id = event.id;
+        form.value.customerID = event.id;
     };
 
     const createInstallments = (event) => 
@@ -258,7 +261,8 @@
     {
         console.log("Chamou o getSpecie");
         console.log(event);
-        form.value.especie_id = event.payment_cod;
+
+        form.value.especieID = event.payment_cod;
         form.value.especie = event.name;
     };
 

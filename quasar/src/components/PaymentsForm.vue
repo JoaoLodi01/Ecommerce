@@ -165,7 +165,6 @@
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
 
     const $q = useQuasar();
-    let timer: unknown;
     
     let showPayMentForms = ref<boolean>(false);
     let generatedInstallments = ref<boolean>(false);
@@ -255,11 +254,12 @@
 
         let total = totalNotFormated.replace(',', '.') || 0;
 
-        if(total >= props.totalOperation)
+        if(total)
         {
-            console.log('Total pago: ', total);
+            console.log('Total pago: ', paymentsValues.value);
             console.log(`Teve pix ou receber? ${showInstallments.value} | ${showQRCode.value}`);
 
+            
             const res = await api.put('/ecommerce/pdv/finalize-sale', {
                 issuer_id: issuerID.value,
                 user_id: user_id.value,
@@ -282,11 +282,11 @@
 
                 });
 
-                finallySale();
-            }
+                //finallySale();
+            };
             
         } else {
-            console.log('Total a ser pago: ', props.totalOperation - total);
+            //console.log('Total a ser pago: ', props.totalOperation - total);
         };
     }; // Vai conferir os valores pagos e gerenciar o que precisa ser feito, PIX ou receber...
 

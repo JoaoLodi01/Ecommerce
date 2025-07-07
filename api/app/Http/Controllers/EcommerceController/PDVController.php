@@ -12,12 +12,14 @@ use App\Http\Requests\PDV\{
 };
 
 use App\Services\EcommerceService\PDVService;
+use App\Traits\LogPayMentRepository;
 use Illuminate\Support\Facades\Log;
 
 class PDVController extends Controller
 {
     public function __construct(
-        protected PDVService $pdvService
+        protected PDVService $pdvService,
+        protected LogPayMentRepository $logPayMentRepository
     ){
         Log::info('Memória usada PDVController::class, __construct: ' . memory_get_usage(true));
     }
@@ -39,6 +41,7 @@ class PDVController extends Controller
     public function finalizeSale(PDVSaleRequest $request)
     {
         $data = $request->validated();
+        Log::debug($data);
         $pdv = $this->pdvService->finalizeSale(
             $data['payments_values'], 
             $data['type_operation'], 
@@ -46,8 +49,8 @@ class PDVController extends Controller
             $data['issuer_id'],
             $data['user_id']
         );
-
-        return apiSuccess('Sucesso!', $pdv);
+        
+        return apiSuccess('Sucesso!', []);
     }
 
     public function findSavePDV()

@@ -1,6 +1,6 @@
 interface ICashBody
 {
-     id: number,
+    id: number,
     pdv_cod: number,
     canceled: boolean,
     cash_register_cod: number,

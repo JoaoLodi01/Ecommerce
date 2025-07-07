@@ -334,9 +334,9 @@
 
     const closeReload = (event: boolean) =>
     {
-        showReportProducts.value = true;
-        showUpdateProduct.value = event;
-        showRegisterProduct.value = !event;
+        showRegisterProduct.value = event;
+        showReportProducts.value = false;
+        showUpdateProduct.value = false;
         getProducts();
     };        
 

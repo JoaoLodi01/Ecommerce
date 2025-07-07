@@ -16,15 +16,6 @@ class PDVService
         Log::info('Memória usada PDVService::class, __construct, linha 13: ' . memory_get_usage(true));
     }
 
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ], 400);
-    }
-
     public function getAll(int $issuer_id){
         return $this->pdvRepository->getAll($issuer_id);
     }
@@ -35,7 +26,7 @@ class PDVService
             return response()->json(true);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+            
         }
     }
 
@@ -69,6 +60,25 @@ class PDVService
         int $userID,
     )
     {
+        $payMentsID = array_filter($paymentsValues);
+        $total = array_sum($payMentsID);
+
+        $pdv = $this->findSavePDVByID($pdvID, $issuerID);
+
+        if($pdv)
+        {
+            if($total >= $pdv->net_value)
+            {
+
+            } else {
+                // Pagamento menor que o total
+            }
+
+        } else {
+            // PDV não encontrado
+
+        }
+        /*
         $total = 0; // Total pago
         $payMentsID = []; // ID das espécies de pagamento
 
@@ -100,6 +110,6 @@ class PDVService
             );
             
             return $finallyPDV;
-        }
+        }*/
     }
 }

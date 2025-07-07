@@ -443,7 +443,7 @@
                 this.showLoading()
                 const form = new FormData;
                 form.append("issuer_id", this.productDetails.issuer_id)
-                form.append("product", this.productDetails.product)
+                form.append("product", this.productDetails.product.toUpperCase())
                 form.append("image", this.productDetails.image)
                 form.append("barcode", this.productDetails.barcode)
                 form.append("barcode_internal", this.productDetails.barcode_internal)
