@@ -1,0 +1,54 @@
+[2025-07-07 11:51:12] local.DEBUG: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product_cod' => 1,
+    'product' => 'Produto teste',
+    'active' => 1,
+    'barcode' => 0,
+    'barcode_internal' => 0,
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'amount' => 1,
+    'sale_price' => '240.00',
+  ),
+)  
+[2025-07-07 11:51:12] local.DEBUG: array (
+  'id' => 1,
+  'product_cod' => 1,
+  'product' => 'Produto teste',
+  'active' => 1,
+  'barcode' => 0,
+  'barcode_internal' => 0,
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'amount' => 1,
+  'sale_price' => '240.00',
+)  
+[2025-07-07 12:33:39] local.DEBUG: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product_cod' => 1,
+    'product' => 'Produto teste',
+    'active' => 1,
+    'barcode' => 0,
+    'barcode_internal' => 0,
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'amount' => 1,
+    'sale_price' => '240.00',
+  ),
+)  
+[2025-07-07 12:33:39] local.DEBUG: array (
+  'id' => 1,
+  'product_cod' => 1,
+  'product' => 'Produto teste',
+  'active' => 1,
+  'barcode' => 0,
+  'barcode_internal' => 0,
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'amount' => 1,
+  'sale_price' => '240.00',
+)  

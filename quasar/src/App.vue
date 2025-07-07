@@ -10,7 +10,7 @@
     import { useRouter } from 'vue-router';
     import { LocalStorage, useQuasar } from 'quasar';
     import dayjs from 'dayjs';
-import getColors from './services/getColors';
+    import getColors from './services/getColors';
 
     const $q = useQuasar();
     const router = useRouter();
@@ -43,7 +43,7 @@ import getColors from './services/getColors';
                 LocalStorage.remove("expire");
                 router.push('/');
                 
-            };
+            } 
         };
     };
 
@@ -57,6 +57,7 @@ import getColors from './services/getColors';
 
         if(LocalStorage.getItem("issuer_id"))
         {
+            console.log(LocalStorage.getItem("issuer_id"));
             const issuerID: number = LocalStorage.getItem("issuer_id");
 
             setInterval(() => getColors(issuerID), 40 * 100)

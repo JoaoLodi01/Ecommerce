@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-Kochem',
-        'version' => 'dev-Kochem',
-        'reference' => 'de05be1d5d595caabf65d6fe9b039fbeb37f3efa',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '92f8baaa42916233eb49d981c691212297df4348',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -422,9 +422,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-Kochem',
-            'version' => 'dev-Kochem',
-            'reference' => 'de05be1d5d595caabf65d6fe9b039fbeb37f3efa',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '92f8baaa42916233eb49d981c691212297df4348',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

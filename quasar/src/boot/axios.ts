@@ -61,13 +61,14 @@ export default defineBoot(({ app, router }) => {
       {
         console.log('Vai pro login');
         const msg = 'Usuário não autenticado';
+        LocalStorage.remove("issuer_id");
+        LocalStorage.remove("auth_token");
         router.replace({ path: '/login' });
         
         emitter.emit('global-error', msg);
         return Promise.reject(error);
 
       } else {
-        
         console.warn(error.response.data.status === 401 ? 'Deveria ir pro login' : 'aaa');
         const msg =
           error.response?.data?.message ||

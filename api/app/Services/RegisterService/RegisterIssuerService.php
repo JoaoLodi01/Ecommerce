@@ -51,4 +51,10 @@ class RegisterIssuerService
 
         return $issuer;
     }
+
+    public function disableCompany(int $issuerID)
+    {
+        //$company = 
+    }
+    
 }

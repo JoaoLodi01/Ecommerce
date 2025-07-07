@@ -97,8 +97,25 @@
                             </p>
                         </div>
 
-                        <div v-show="showEditCompanie && companie.id === IDEditCompanie">
-                            <h1>empresa em edição: {{ IDEditCompanie }}</h1>
+                        <div class="flex justify-center" v-show="showEditCompanie && companie.id === IDEditCompanie">
+                            <span class="text-sm mb-2">{{ companie.companyName }}</span>
+                            <div class="mb-5">
+                                <q-btn 
+                                    color="red" 
+                                    label="Desabilitar empresa" 
+                                    @click="disableCompany(companie.id)"
+
+                                />
+                            </div>
+                            
+                            <div>
+                                <q-btn 
+                                    color="green" 
+                                    label="Transferir empresa" 
+                                    @click="transferCompany(companie.id)"
+    
+                                />
+                            </div>
                         </div>
                     </q-card-section>
                 </q-card>
@@ -109,6 +126,7 @@
     <LoandingPage
         v-if="showLoandig"
         :text="`Carregando dados da empresa ${companieName}...`"
+
     />
 </template>
 
@@ -213,18 +231,15 @@
         showEditCompanie.value = !showEditCompanie.value;
         IDEditCompanie.value = companieID;
         if(IDEditCompanie.value) return;
-        /*if(IDEditCompanie.value !== 0)
-        {
-            $q.notify({
-                color: 'red',
-                message: 'Registro em edição',
-                position: 'top',
-                timeout: 200
-            })
-            
-        }*/
-        
-        console.log(IDEditCompanie.value);
+    };
+
+    const disableCompany = (companieID: number) => 
+    {
+
+    };
+
+    const transferCompany = (companieID: number) => 
+    {
 
     };
 

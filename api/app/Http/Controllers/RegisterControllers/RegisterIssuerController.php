@@ -21,7 +21,7 @@ class RegisterIssuerController extends Controller
 
     public function create(RegisterIssuerRequest $request)
     {
-        return apiSuccess('Empresa cadastrada com successo', $this->registerIssuerService->create($request->validated()));
+        return apiSuccess('Empresa cadastrada com sucesso', $this->registerIssuerService->create($request->validated()));
     }
 
     public function find(int $id)
@@ -31,6 +31,12 @@ class RegisterIssuerController extends Controller
     
     public function completeRegister(Request $request, int $id)
     {        
-        return apiSuccess('Emitente alterado com successo!', $this->registerIssuerService->update($request->all(), $id));
+        return apiSuccess('Emitente alterado com sucesso!', $this->registerIssuerService->update($request->all(), $id));
+    }
+
+    public function disableCompany(int $issuerID)
+    {
+        return apiSuccess('Empresa desativado com sucesso', $this->registerIssuerService->disableCompany($issuerID));
+
     }
 }
