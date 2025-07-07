@@ -26,19 +26,18 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
-use App\Http\Controllers\Exceptions\ExceptionsController;
+
 use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\TributsController\TributsController;
+
 use App\Http\Controllers\RegisterControllers\{
     RegisterOwnerController,
     RegisterIssuerController
 };
 
 use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
-use App\Models\ConfigCustomers;
+
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
