@@ -39,11 +39,9 @@ class RegisterIssuerRepository implements RegisterIssuerContract
     }
 
     public function create(array $data)
-    {
-        Log::info($data);
-        Log::info($data['uuse_id']);
+    {        
         $owner = Owner::where('uuse_id', $data['uuse_id'])->first();
-        Log::info('$owner ' . $owner);
+        
         if($owner)
         {
             $issuer = Issuer::create([
@@ -72,8 +70,8 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'issuer_id' => $issuer->id,
                 'company_name' => 'Consumidor Padrão',
                 'customer_type' => 'Física',
-                'cpf' => ' ',
-                'cnpj' => ' '
+                'cpf' => null,
+                'cnpj' => null
                 
             ]);
             Log::info($customer);
@@ -120,9 +118,6 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             $first = FirstSteps::create([
                 'issuer_id' => $issuer->id  
             ]);
-
-            Log::info('$first');
-            Log::info($first);
 
             Log::info('--- fim da criação dos primeros passos ---');
 
@@ -203,29 +198,29 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         
     }
 
-    public function registerTributs(int $issuer_id, string $csosncst)
+    public function registerTributs(int $issuerID, string $csosncst)
     {
         Log::info('Vai criar os CFOPs');
         $cfops = $this->findTributs->getCFOPs('cfop');
         $csosncst = $this->findTributs->getCSOSNCST($csosncst);
 
-        $this->tributsServices->registerCFOP($cfops, $issuer_id);
+        $this->tributsServices->registerCFOP($cfops, $issuerID);
 
     }
 
-    public function registerPayMentsForms(int $issuer_id)
+    public function registerPayMentsForms(int $issuerID)
     {
         $payments = [
             [
                 'payment_cod' => 1,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'Dinheiro',
                 'tipo_lancamento' => 'Caixa',
                 'payments_form_type' => 'DINHEIRO'
             ],
             [
                 'payment_cod' => 2,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'PIX',
                 'tipo_lancamento' => 'Caixa',
                 'payments_form_type' => 'PIX'
@@ -233,21 +228,21 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             ],
             [
                 'payment_cod' => 3,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'Boleto',
                 'tipo_lancamento' => 'Receber',
                 'payments_form_type' => 'BOLETO'
             ],
             [
                 'payment_cod' => 4,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'Cartão de Crédito',
                 'tipo_lancamento' => 'Caixa',
                 'payments_form_type' => 'CARTAO DE CREDITO'
             ],
             [
                 'payment_cod' => 5,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'Cartão de Débito',
                 'tipo_lancamento' => 'Receber',
                 'payments_form_type' => 'CARTAO DE DEBITO'
