@@ -89,6 +89,7 @@
                                 @click="joinCompanie(companie.companyName, companie.id)"
                                 class="mt-2 text-white"
                                 color="primary"
+                                :disable="!companie.active"
 
                             />
                             
@@ -98,21 +99,30 @@
                         </div>
 
                         <div class="flex justify-center" v-show="showEditCompanie && companie.id === IDEditCompanie">
-                            <span class="text-sm mb-2">{{ companie.companyName }}</span>
-                            <div class="mb-5">
-                                <q-btn 
-                                    color="red" 
-                                    label="Desabilitar empresa" 
-                                    @click="disableCompany(companie.id)"
+                            <div v-if="companie.active">
+                                <div class="mb-5" >
+                                    <q-btn 
+                                        color="red" 
+                                        label="Desabilitar empresa" 
+                                        @click="showConfirmFn(companie.id, 'disable')"
 
-                                />
+                                    />
+                                </div>
+                                
+                                <div>
+                                    <q-btn 
+                                        color="green" 
+                                        label="Transferir empresa" 
+                                        @click="transferCompany(companie.id)"
+        
+                                    />
+                                </div>
                             </div>
-                            
-                            <div>
+                            <div v-else class="mt-5">
                                 <q-btn 
                                     color="green" 
-                                    label="Transferir empresa" 
-                                    @click="transferCompany(companie.id)"
+                                    label="Reativar empresa" 
+                                    @click="showConfirmFn(companie.id, 'reactive')"
     
                                 />
                             </div>
@@ -128,6 +138,13 @@
         :text="`Carregando dados da empresa ${companieName}...`"
 
     />
+
+    <ConfirmPage
+        v-if="showConfirm"
+        @confirm="handleOperation($event)"
+        :operation="typeOperation"
+    />
+    
 </template>
 
 <script setup lang="ts">
@@ -138,8 +155,10 @@
     import camelcaseKeys from 'camelcase-keys';
     import getColors from 'src/services/getColors';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
+    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue'
 
     type TCompanies = {
+        active: boolean,
         id: number,
         companyName: string,
         cnpj: string,
@@ -158,6 +177,8 @@
     let showEditCompanie = ref<boolean>(false);
     let IDEditCompanie = ref<number>(0);
     let showLoandig = ref<boolean>(false);
+    let showConfirm = ref<boolean>(false);
+    let typeOperation = ref<string>('');
     let companieName = ref<string>('');
 
     const getCompanies = async () =>
@@ -233,10 +254,36 @@
         if(IDEditCompanie.value) return;
     };
 
-    const disableCompany = (companieID: number) => 
+    const showConfirmFn = (companieID: number, operation: string) => 
     {
-
+        showConfirm.value = true;
+        typeOperation.value = operation;
+        LocalStorage.setItem("companieID", companieID);
+    
     };
+
+    const handleOperation = async (event: TEmit[]) =>
+    {
+        console.log(event[0]['operation']);
+        if(event[0]['operation'] === 'disable' || event[0]['operation'] === 'reactive')
+        {
+            const res = event[0]['value'] ? await api.put(`/issuer/${event[0]['operation']}-company/${LocalStorage.getItem("companieID")}`) : null;
+            console.log(res.data)
+
+            $q.notify({
+                color: event ? 'green' : 'red',
+                message: event ? res.data.message : 'Operação cancelada',
+                position: 'top',
+                timeout: 2000
+            });
+
+            showEditCompanie.value = false;
+            IDEditCompanie.value = 0;
+            showConfirm.value = false;            
+            getCompanies();
+        };  
+    };
+
 
     const transferCompany = (companieID: number) => 
     {

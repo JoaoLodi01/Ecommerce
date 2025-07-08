@@ -39,4 +39,10 @@ class RegisterIssuerController extends Controller
         return apiSuccess('Empresa desativado com sucesso', $this->registerIssuerService->disableCompany($issuerID));
 
     }
+
+    public function activeCompany(int $issuerID)
+    {
+        return apiSuccess('Empresa reativada com sucesso', $this->registerIssuerService->activeCompany($issuerID));
+
+    }
 }

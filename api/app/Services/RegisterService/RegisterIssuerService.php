@@ -54,7 +54,13 @@ class RegisterIssuerService
 
     public function disableCompany(int $issuerID)
     {
-        //$company = 
+        $company = $this->registerIssuerRepository->disableCompany($issuerID);
+        return $company;
     }
     
+    public function activeCompany(int $issuerID)
+    {
+        $company = $this->registerIssuerRepository->activeCompany($issuerID);
+        return $company;
+    }
 }

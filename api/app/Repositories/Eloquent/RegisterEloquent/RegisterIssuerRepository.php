@@ -115,7 +115,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
             Log::info('--- Criação das primeros passos padrão ---');
             
-            $first = FirstSteps::create([
+            FirstSteps::create([
                 'issuer_id' => $issuer->id  
             ]);
 
@@ -196,6 +196,40 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
         return $issuer;
         
+    }
+
+    public function disableCompany(int $issuerID)
+    {
+        $company = Issuer::where('id', $issuerID)->first();
+        if(!$company)
+        {
+            //throw new 
+
+        }
+
+        $company->update([
+            'active' => 0
+
+        ]);
+
+        return $company;
+    }
+    
+    public function activeCompany(int $issuerID)
+    {
+        $company = Issuer::where('id', $issuerID)->first();
+        if(!$company)
+        {
+            //throw new 
+
+        }
+
+        $company->update([
+            'active' => 1
+
+        ]);
+
+        return $company;
     }
 
     public function registerTributs(int $issuerID, string $csosncst)

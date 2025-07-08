@@ -202,6 +202,9 @@ Route::prefix('v1')->group( function (){
             Route::get('/{id}', [RegisterIssuerController::class, 'findByID']);
             Route::get('/companie/{id}', [RegisterIssuerController::class, 'find']);
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
+            Route::put('/disable-company/{id}', [RegisterIssuerController::class, 'disableCompany']);
+            Route::put('/reactive-company/{id}', [RegisterIssuerController::class, 'activeCompany']);
+
         });
         
         Route::prefix('first-steps')->group(function (){
