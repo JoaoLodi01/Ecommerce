@@ -161,7 +161,7 @@
                     Editar
                 </q-btn>
                 <q-btn
-                    @click="deleteOrActive('disable', product.id)"
+                    @click="showConfirmFn('products/disable', product.id)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!product.active
                     :class="{
@@ -178,7 +178,7 @@
                     :class="{
                         'text-gray-400 bg-slate-500': !product.active
                     }"
-                    @click="deleteOrActive('active', product.product_cod)"
+                    @click="showConfirmFn('active', product.product_cod)"
                 >
                     Ativar
                 </q-btn>
@@ -208,6 +208,12 @@
         v-if="showReportProducts"
         @close="showReportProducts = !showReportProducts"
     />
+
+    <ConfirmPage
+        v-if="showConfirm"
+        @confirm="handleOperation($event)"
+        :operation="typeOperation"
+    />
 </template>
 
 <script setup lang="ts">
@@ -219,6 +225,7 @@
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
+    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
 
     const $q = useQuasar();
     const buttonColor = LocalStorage.getItem("buttonColor");
@@ -244,6 +251,8 @@
     let showReportProductsMini = ref<boolean>(false);
     let widthScreen = ref<number>(0);
     let productName = ref<string>('');
+    let showConfirm = ref<boolean>(false);
+    let typeOperation = ref<string>('');
     let productID = ref<number>(0);
 
     watch(searchFilter, async(newOption) =>{
@@ -275,9 +284,25 @@
 
     };
 
-    const deleteOrActive = async (action: string, id: number) =>
+    const showConfirmFn = (operation: string, productID: number) => 
     {
-        const res = action === 'disable' ? await api.put(`/ecommerce/products/${id}/${action}`) : await api.put(`/ecommerce/products/${id}/${action}`);
+        showConfirm.value = true;
+        typeOperation.value = operation;
+        LocalStorage.setItem("productID", productID);
+    
+    };
+
+    const handleOperation = async (event: TEmit[]) =>
+    {
+        const operation = event[0]['operation'];
+        const value = event[0]['value'];
+        console.log(operation);
+        if(!value) $q.notify({ color: 'red', message: 'Operação cancelada!', position: 'top', timeout: 2000 });
+
+        showConfirm.value = false;
+        LocalStorage.remove("productID");
+        const res = await api.put(`/ecommerce/products//${operation}`);
+        /*
         if(res.data.success)
         {
             $q.notify({
@@ -294,7 +319,7 @@
                 product.active = action === 'active' ? 1 : 0;
                 
             };
-        };
+        };*/
     };
     
     const filterProducts = (productCods: number[]) =>

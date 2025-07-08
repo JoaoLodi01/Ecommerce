@@ -538,7 +538,6 @@
     let showProfile = ref<boolean>(false);
     let showRegisters = ref<boolean>(false);
     let showUsers = ref<boolean>(false);
-    let showSales = ref<boolean>(false);
     let downRowRegisters = ref<boolean>(false);
     let downRowFinancial = ref<boolean>(false);
     let downRowSales = ref<boolean>(false);
@@ -564,6 +563,7 @@
     const backCompanies = () =>
     {
         const ofCourse = confirm('Deseja trocar de empresa?');
+        
         if(ofCourse)
         {
             LocalStorage.remove("issuer_name");

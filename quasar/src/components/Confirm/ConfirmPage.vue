@@ -1,7 +1,7 @@
 <template>
     <div class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
         <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center gap-4">
-            <h1 class="text-2xl font-bold text-gray-700">Confirmação</h1>
+            <h1 class="text-2xl font-bold text-gray-700">Deseja realmente {{ text }}</h1>
 
             <div class="flex">
                 <div class="mr-4">
@@ -28,7 +28,27 @@
 
 
 <script setup lang="ts">
-    import { defineEmits, defineProps } from 'vue';
+    import { ref, defineEmits, defineProps, onMounted, reactive } from 'vue';
+
+    //Deseja realmente ... ? 
+    const options = reactive({
+        //Company options
+        'disable': 'desativar sua empresa?',
+        'active': 'reativar sua empresa?',
+        'transfer': 'transferir a sua empresa?',
+        'changeCompany': 'trocar de empresa?',
+
+        //Sale options
+        'cancelSale': 'cancelar sua venda?',
+        'saveSale': 'salvar sua venda?',
+
+
+        //Products
+        'products/disable': 'desativar esse produto?',
+
+    });
+
+    let text = ref<string>('');
 
     const props = defineProps<{
         operation: string
@@ -44,8 +64,12 @@
             operation: value ? props.operation : 'cancel', 
             value
         }];
-
+        
         emits('confirm', data);
-    }
+    };
+
+    onMounted(() => {
+        text.value = options[props.operation];
+    });
 
 </script>

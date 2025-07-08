@@ -58,7 +58,7 @@ Route::prefix('v1')->group( function (){
                 Route::get('/imagem/{id}', [ProductsController::class, 'findImage']);
                 Route::put('/{id}', [ProductsController::class, 'update']);
                 Route::put('/{id}/active', [ProductsController::class, 'active']);
-                Route::put('/{id}/disable', [ProductsController::class, 'delete']);
+                Route::put('/disable/{id}', [ProductsController::class, 'delete']);
         
             });
 
@@ -203,7 +203,7 @@ Route::prefix('v1')->group( function (){
             Route::get('/companie/{id}', [RegisterIssuerController::class, 'find']);
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
             Route::put('/disable-company/{id}', [RegisterIssuerController::class, 'disableCompany']);
-            Route::put('/reactive-company/{id}', [RegisterIssuerController::class, 'activeCompany']);
+            Route::put('/active-company/{id}', [RegisterIssuerController::class, 'activeCompany']);
 
         });
         
