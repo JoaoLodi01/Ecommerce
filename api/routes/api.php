@@ -26,18 +26,18 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
-use App\Http\Controllers\Exceptions\ExceptionsController;
+
 use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\TributsController\TributsController;
+
 use App\Http\Controllers\RegisterControllers\{
     RegisterOwnerController,
     RegisterIssuerController
 };
 
 use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
+
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
@@ -58,8 +58,15 @@ Route::prefix('v1')->group( function (){
                 Route::get('/imagem/{id}', [ProductsController::class, 'findImage']);
                 Route::put('/{id}', [ProductsController::class, 'update']);
                 Route::put('/{id}/active', [ProductsController::class, 'active']);
-                Route::put('/{id}/disable', [ProductsController::class, 'delete']);
+                Route::put('/disable/{id}', [ProductsController::class, 'delete']);
         
+            });
+
+            Route::prefix('last-document')->group(function(){
+                Route::get('/cash/{issuer_id}');
+                Route::get('/receive/{issuer_id}');
+                Route::get('/pay/{issuer_id}');
+                Route::get('/bank/{issuer_id}');
             });
 
             Route::prefix('tributs')->group( function (){
@@ -136,11 +143,19 @@ Route::prefix('v1')->group( function (){
             });
         });
             
-        Route::prefix('config')->group( function () {
+        Route::prefix('configs')->group(function () {
             Route::get('/all-configs/{issuer_id}', [ConfigController::class, 'getConfigs']);
 
-            Route::prefix('config-pdv')->group( function() {
+            Route::prefix('pdv')->group(function() {
                 Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updatePDV']);
+            });
+
+            Route::prefix('customer')->group(function() {
+                Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateCustomer']);
+            });
+
+            Route::prefix('color')->group(function() {
+                Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateColor']);
             });
         });
 
@@ -187,6 +202,9 @@ Route::prefix('v1')->group( function (){
             Route::get('/{id}', [RegisterIssuerController::class, 'findByID']);
             Route::get('/companie/{id}', [RegisterIssuerController::class, 'find']);
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
+            Route::put('/disable-company/{id}', [RegisterIssuerController::class, 'disableCompany']);
+            Route::put('/active-company/{id}', [RegisterIssuerController::class, 'activeCompany']);
+
         });
         
         Route::prefix('first-steps')->group(function (){

@@ -38,7 +38,6 @@ class CustomerRepository
                                   ->orWhere('company_name', 'like', '%' . $search . '%' )
                                   ->orWhere('trade_name', 'like', '%' . $search . '%' );
                         })
-
                         ->get();
                 break;
 
@@ -84,6 +83,8 @@ class CustomerRepository
                         ->where('customer_cod', $id)
                         ->first();
     }
+
+    
     /*return CustomerCredit::join('customers', 'customers.id', 'customer_credits.customer_id')
                     ->where('customer_id', $id)
                     ->first();*/

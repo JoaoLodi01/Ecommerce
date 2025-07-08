@@ -17,13 +17,13 @@
                 <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Registrar Emitente</h1>
                 <q-input 
                     v-model="form.company_name"
-                    @update:model-value="this.form.trade_name = this.form.company_name"   
+                    @update:model-value="form.trade_name = form.company_name"   
                     type="text" 
                     filled        
                     label="Razão Social" 
                     stack-label
                     class="mb-4"
-                    color="[#BF3658]"
+                    color="primary"
                     
                 />
 
@@ -34,7 +34,7 @@
                     label="Nome Fantasia" 
                     stack-label
                     class="mb-4"
-                    color="[#BF3658]"
+                    color="primary"
                     
                 />
 
@@ -44,7 +44,7 @@
                     label="CNPJ" 
                     stack-label
                     class="mb-4"
-                    color="[#BF3658]"
+                    color="primary"
                     v-bind:mask="'##.###.###/####-##'"
                     maxlength="18"
                     @update:model-value="getDataCNPJ()"
@@ -57,9 +57,12 @@
                     label="CPF" 
                     stack-label
                     class="mb-4"
-                    color="[#BF3658]"
+                    color="primary"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
+                    :rules="[
+                        val => !val || validateCPF(val) || 'CPF inválido'
+                    ]"
 
                 />
 
@@ -70,7 +73,7 @@
                     label="Data de fundação" 
                     stack-label
                     class="mb-4"
-                    color="[#BF3658]"
+                    color="primary"
 
                 /> 
                 
@@ -79,7 +82,7 @@
                         type="submit"
                         label="Criar Empresa"
                         class="m-2"
-                        color="[#BF3658]"   
+                        color="primary"   
                     />
                 </div>
             
@@ -90,106 +93,98 @@
     </div>
 </template>
 
-<script>
-    import { LocalStorage, useQuasar } from 'quasar'
-    import { api } from 'src/boot/axios'
-    import axios from 'axios'
+<script setup lang="ts">
+    import { LocalStorage, useQuasar } from 'quasar';
+    import { api } from 'src/boot/axios';
+    import axios from 'axios';
+    import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
+    import validateCPF from 'src/utils/validateCPF';
+
+    interface IIsuerData
+    {
+        company_name: string,
+        trade_name: string,
+        cnpj: string,
+        cpf: string,
+        date_of_foundation: string,
+        cod_crt: string,
+        cod_cnae: string,
+        main_activity: string
+    };
+
+    const $q = useQuasar();
+    const router = useRouter();
     
-    export default {
-        data()
+    const form = ref<IIsuerData>({
+        company_name: '',
+        trade_name: '',
+        cnpj: '',
+        cpf: '',
+        date_of_foundation: '',
+        cod_crt: '',
+        cod_cnae: '',
+        main_activity: ''
+
+    });
+    
+    const getDataCNPJ = async () =>
+    {
+        const cnpj = form.value.cnpj.replace(/\D/g, '')
+        if(
+            cnpj.length == 14 && 
+            form.value.company_name == '' && 
+            form.value.trade_name == ''
+        )
         {
-            return {
-                form: {
-                    company_name: '',
-                    trade_name: '',
-                    cnpj: '',
-                    cpf: '',
-                    date_of_foundation: null,
-                    cod_crt: '',
-                    cod_cnae: '',
-                    main_activity: ''
-                    
-                },
-                timer: null
-            }
-        },
+            const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
+            
+            form.value.company_name = data.data.alias
+            form.value.trade_name = data.data.alias
+            form.value.date_of_foundation = data.data.founded
+            form.value.cod_cnae = data.data.mainActivity.id
+            form.value.main_activity = data.data.mainActivity.text
+            
+        };
         
-        methods: {
-            showLoading () {
-                this.$q.loading.show({
-                    message: 'Cadastrando sua empresa ...'
-                })
+    };
 
-                this.timer = setTimeout(() => {
-                    this.$q.loading.hide()
-                    this.timer = void 0
+    const createIssuer = async () =>
+    {
+        const res = await api.post('/registers/issuer/create', {
+            company_name: form.value.company_name,
+            trade_name: form.value.trade_name,
+            cpf: form.value.cpf.replace(/\D/g, ''),
+            cnpj: form.value.cnpj.replace(/\D/g, ''),
+            date_of_foundation: form.value.date_of_foundation,
+            cod_crt: form.value.cod_crt,
+            cod_cnae: form.value.cod_cnae,
+            main_activity: form.value.main_activity,              
+            uuse_id: LocalStorage.getItem("uuse_id"),
+            
+        });
         
-                }, 1000)
-            },
+        if(res.data.success)
+        {
+            $q.notify({
+                color: 'green',
+                message: res.data.message,
+                timeout: 1200,
+                position: 'top'
+            
+            });
 
-            hideLoading() {
-                if (this.timer !== void 0) {
-                    clearTimeout(this.timer)
-                    this.timer = void 0
-                }
-
-                this.$q.loading.hide()
-            },
-
-            async getDataCNPJ()
-            {
-                const cnpj = this.form.cnpj.replace(/\D/g, '')
-                if(
-                    cnpj.length == 14 && 
-                    this.form.company_name == '' && 
-                    this.form.trade_name == ''
-                )
-                {
-                    const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
-                    
-                    this.form.company_name = data.data.alias
-                    this.form.trade_name = data.data.alias
-                    this.form.date_of_foundation = data.data.founded
-                    this.form.cod_cnae = data.data.mainActivity.id
-                    this.form.main_activity = data.data.mainActivity.text
-                    
-                };
-                
-            },
-
-            async createIssuer()
-            {
-                this.showLoading()
-                try {
-                    const response = await api.post('/registers/issuer/create', {
-                        company_name: this.form.company_name,
-                        trade_name: this.form.trade_name,
-                        cpf: this.form.cpf.replace(/\D/g, ''),
-                        cnpj: this.form.cnpj.replace(/\D/g, ''),
-                        date_of_foundation: this.form.date_of_foundation,
-                        cod_crt: this.form.cod_crt,
-                        cod_cnae: this.form.cod_cnae,
-                        main_activity: this.form.main_activity,              
-                        uuse_id: LocalStorage.getItem("uuse_id"),
-                        
-                    })
-                    
-                    if(response.data.success)
-                    {
-                        this.$router.push({ path: '/companies' })
-                        
-                    } else {
-                        alert(response.data)
-                    }
-                } catch (error) {
-                    console.error('createIssuer', error)
-
-                } finally {
-                    this.hideLoading()
-                }
-            }   
-
-        },
-    }
+            router.push({ path: '/companies' });
+            
+        } else {
+            $q.notify({
+                color: 'red',
+                message: res.data.message,
+                timeout: 1200,
+                position: 'top'
+            
+            });
+        };
+    };
 
 </script>

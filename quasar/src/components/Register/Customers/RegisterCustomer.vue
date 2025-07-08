@@ -1,9 +1,9 @@
 <template>
     <div
-        class="border border-black bg-white mt-2 p-6 shadow-md rounded"
+        class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
             'w-screen': props.widthScreen < 1366,
-            'ml-36 form-customer': props.widthScreen > 1366
+            'ml-32 form-customer': props.widthScreen > 1366
         }"
 
     >
@@ -14,7 +14,7 @@
             <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max mb-2">Dados cadastrais</h4>
                 <q-select 
-                    v-model="type" 
+                    v-model="customerData.customer_type" 
                     :options="options" 
                     label="Tipo de cadastro *" 
                     filled 
@@ -23,7 +23,7 @@
                     
                 />
 
-                <div v-if="type === 'Física'">
+                <div v-if="customerData.customer_type === 'Física'">
                     <q-input 
                         v-model="customerData.trade_name" 
                         type="text" 
@@ -43,12 +43,17 @@
                         label="CPF"
                         color="grey-7"
                         class="ml-2"
-                        :rules="[ val => !!val || 'O nome fantasia do cliente é obrigatório']"
+                        :rules="[
+                            val => {
+                                if(!config.validateCpf) return true;
+                                return !val || validateCPF(val) || 'CPF inválido' 
+                            }
+                        ]"
                         
                     />  
 
                 </div>
-                <div v-if="type === 'Júridica'">
+                <div v-if="customerData.customer_type === 'Júridica'">
                     <q-input 
                         v-model="customerData.company_name" 
                         type="text" 
@@ -182,12 +187,23 @@
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
-    import { ref, defineEmits, defineProps } from 'vue';
+    import { ref, defineEmits, defineProps, onMounted, reactive } from 'vue';
     import getCNPJData from 'src/services/getData/getCNPJData';
     import getCEPData from 'src/services/getData/getCEPData';
+    import validateCPF from 'src/utils/validateCPF';
+    import camelcaseKeys from 'camelcase-keys';
+
+    interface IConfigCustomer
+    {
+        validateAddres: boolean,
+        validateCnpj: boolean,
+        validateCpf: boolean
+        
+    };
 
     const props = defineProps<{
         widthScreen: number
+
     }>();
 
     const emits = defineEmits<{
@@ -195,12 +211,10 @@
 
     }>();
 
-    let $q = useQuasar();
-    let timer: any;
+    const $q = useQuasar();
 
-    let type = ref<string>('');
-
-    let customerData = ref<IRegisterCustomer>({
+    const customerData = ref<IRegisterCustomer>({
+        customer_type: '',
         company_name: '',
         trade_name: '',
         cpf: null,
@@ -222,18 +236,12 @@
 
     ]);
 
-    const showLoading = () =>
-    {
-        $q.loading.show({
-            message: 'Criando cliente ...'
+    const config = ref<IConfigCustomer>({
+        validateAddres: false,
+        validateCnpj: false,
+        validateCpf: false
 
-        });
-
-        timer = setTimeout(() => {
-            $q.loading.hide()
-            timer = void 0
-        }, 3000)
-    };
+    });
 
     const submitForm = async () =>
     {
@@ -248,7 +256,6 @@
 
     const getDataCNPJ = async () => 
     {
-        showLoading();
         const formatedCNPJ = customerData.value.cnpj.replace(/\D/g, '');
         if(formatedCNPJ.length === 14)
         {
@@ -270,6 +277,7 @@
 
             customerData.value = {
                 company_name: res.alias,
+                customer_type: customerData.value.customer_type,
                 trade_name: customerData.value.trade_name, // Mantem padrão
                 cpf: customerData.value.cpf, // Mantem padrão
                 cnpj: customerData.value.cnpj,
@@ -311,6 +319,7 @@
 
             customerData.value = {
                 company_name: customerData.value.company_name, // Mantem padrão
+                customer_type: customerData.value.customer_type, // Mantem padrão
                 trade_name: customerData.value.trade_name, // Mantem padrão
                 cpf: customerData.value.cpf, // Mantem padrão
                 cnpj: customerData.value.cnpj, // Mantem padrão
@@ -324,7 +333,6 @@
                 issuer_id: customerData.value.issuer_id // Mantem padrão
 
             };
-
             return;  
         };
     };
@@ -343,9 +351,31 @@
             is_driver: false,
             is_supplier: false,
             phone: '',
-            issuer_id: 0
+            issuer_id: customerData.value.issuer_id
+
         };
     };
+
+    const returnValue = (value: boolean | number ) => { return value === 1 ? true : false };
+    
+    const getConfig = async () =>
+    {
+        const res = await api.get(`/configs/all-configs/${customerData.value.issuer_id}`);
+        const data: IConfigCustomer = camelcaseKeys(res.data.data.customers, { deep: true });
+
+        config.value.validateAddres = returnValue(data.validateAddres);
+        config.value.validateCnpj = returnValue(data.validateCnpj);
+        config.value.validateCpf = returnValue(data.validateCpf);
+
+        console.log(config);
+        
+    };
+
+    onMounted(() => {
+        getConfig();
+
+    });
+
 </script>
 
 <style lang="scss">

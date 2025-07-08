@@ -12,8 +12,9 @@ class CashRegisterRepository
     public function getAll(int $issuer_id)
     { 
         Log::info('Memória usada CashRegisterRepository::class, getAll: ' . memory_get_usage(true));
-        return CashRegister::where('issuer_id', $issuer_id)->get();
-        
+        $cashRegister =  CashRegister::where('issuer_id', $issuer_id)->get();
+
+        return $cashRegister;
     }
 
     public function findByID(string $params)

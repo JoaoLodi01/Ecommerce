@@ -12,11 +12,11 @@ class FirstStepsController extends Controller
 
     public function getAll(int $id)
     {
-        return $this->firstStepsService->getAll($id);
+        return apiSuccess('Primeiros passos', $this->firstStepsService->getAll($id));
     }
 
     public function ignoreFirstSteps(int $id)
     {
-        return $this->firstStepsService->ignoreFirstSteps($id);
+        return apiSuccess('Primeros passos ignorados!',  $this->firstStepsService->ignoreFirstSteps($id));
     }
 }

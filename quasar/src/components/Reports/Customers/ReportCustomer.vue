@@ -1,58 +1,55 @@
 <template>
-    <div class="">
-        <q-btn @click="reportCustomer('all')" class="mr-5 bg-blue-500 hover:bg-blue-400 text-white" :class="{
-            'mb-5': props.widthScreen <= 1080
-        }">    
-            <span v-if="props.widthScreen <= 1080">Listagem dos clientes ativos</span>
-            <span v-else>Listagem completa de todos clientes</span>
+    <div>
+        <q-btn 
+            @click="reportCustomer('all')" 
+            class="mr-5 hover:bg-blue-400 text-white"
+            :style="`background-color: ${buttonColor}; color: ${textColor}`"
+        >    
+            <span>Listagem completa de todos os clientes</span>
         </q-btn>
 
-        <q-btn @click="reportCustomer('all-disabled')" class="bg-blue-500 hover:bg-blue-400 text-white">
-            <span v-if="props.widthScreen <= 1080">Listagem dos clientes inativos</span>
-            <span v-else>Listagem completa de todos os clientes inativos</span>
+        <q-btn 
+            @click="reportCustomer('all-disabled')" 
+            class="hover:bg-blue-400 text-white"
+            :style="`background-color: ${buttonColor}; color: ${textColor}`"
+
+        >
+            <span>Listagem completa de todos os clientes inativos</span>
         </q-btn>
     </div>
+
+    <ReportLoanding
+        v-if="generate"
+        :generate="generate"
+        :report="'customer'"        
+    />
+
 </template>
 
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
-    import { useQuasar } from 'quasar';
-    import { defineProps } from 'vue';
-
-    let timer;
+    import { LocalStorage, useQuasar } from 'quasar';
+    import { ref, defineProps, onMounted } from 'vue';
+    import ReportLoanding from 'src/components/Loanding/ReportLoanding.vue';
 
     const props = defineProps<{
-        widthScreen: number,
         issuerID: number
+
     }>();
 
     const $q = useQuasar();
-
-    const showLoading = () =>
-    {
-        $q.loading.show({
-            message: 'Gerando relatório...'
-        });
-
-        timer = setTimeout(() => {
-            $q.loading.hide()
-            timer = void 0
-        }, 2000);
-    };
-
-    const hideLoanding = () =>
-    {
-        $q.loading.hide()
-    };
+    
+    let generate = ref<boolean>(false);
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor") ?? '#ffffff');
 
     const reportCustomer = async (type: string) =>
     {
+        generate.value = true;
         try {
             const apiURL = `/report/customers/${type}/${props.issuerID}`;
             const res = await api.get(apiURL, { 
-                headers: {
-                    responseType: 'blob'
-                }
+                responseType: 'blob'
             });
 
             const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
@@ -63,13 +60,33 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+
+            if(res.status === 200)
+            {
+                generate.value = false;
+                $q.notify({
+                    color: 'green',
+                    message: 'Relatório gerado com sucesso!',
+                    timeout: 2000,
+                    position: 'top'
+                    
+                });
+            };
             
         } catch (error) {
-            hideLoanding();
+            console.error('Erro: ', error);
+            $q.notify({
+                color: 'red',
+                message: 'Erro ao gerar relatório!',
+                timeout: 2000,
+                position: 'top'
+
+            });
 
         } finally {
-            hideLoanding();
-
-        };
+            generate.value = false;
+            
+        };  
     };
+
 </script>

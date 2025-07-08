@@ -2,20 +2,22 @@
 
 namespace App\Http\Requests\Customers;
 
+use App\Services\Config\ConfigService;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Validation\Rule;
-
 class CustomerRequest extends FormRequest
 {
-
     protected function prepareForValidation()
     {
         $this->merge([
             'cutomer_cod' => $this->route('customer_cod')
         ]);
     }
+
+    public function __construct(
+        protected ConfigService $configService
+    ){}
 
     public function authorize(): bool
     {
@@ -27,15 +29,25 @@ class CustomerRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+
     public function rules(): array
     {
         //'email' => ['required', 'string', 'email', Rule::unique('users')->ignore($user->id)]
+        $cpfRules = [];
+        $cnpjRules = [];
+        
+
+    
         return [
             'issuer_id' => ['required'],
             'company_name' => ['nullable', 'required_without:trade_name', 'string', 'max:120'],
             'trade_name' => ['nullable', 'required_without:company_name', 'string', 'max:120'],
-            'cpf' => ['nullable', 'required_without:cnpj'],
-            'cnpj' => ['nullable', 'required_without:cpf'],
+            'customer_type' => ['required'],
+
+            'cpf' => [ ],
+
+            'cnpj' => [],
+
             'cep' => ['required'],
             'address' => ['required'],
             'number' => ['required'],
@@ -55,15 +67,13 @@ class CustomerRequest extends FormRequest
             'name.max' => 'O nome passou do limite do campo, :max',
 
             'cpf.required' => 'O CPF é obrigatório',
-            'cpf.unique' => 'CPF já cadastrado',
+            
             'cnpj.required' => 'O CNPJ é obrigatório',
-            'cnpj.unique' => 'CNPJ já cadastrado',
 
             'cep.required' => 'O CEP é obrigatório',
             'address.required' => 'O endereço é obrigatório',
             'number.required' => 'O número do endereço é obrigatório',
 
-            'phone.required' => 'O telefone é obrigatório',
             'phone.max' => 'O telefone passou do limite do campo, :max'
         ];
     }

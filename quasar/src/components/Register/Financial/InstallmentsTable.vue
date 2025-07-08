@@ -25,6 +25,7 @@
                     <th class="px-2 py-1">Data Vencimento</th>
                     <th class="px-2 py-1">Valor à pagar</th>
                     <th class="px-2 py-1">Valor Original</th>
+                    <!--th class="px-2 py-1">Ações</th!-->
                 </tr>
             </thead>
             <tbody>
@@ -43,6 +44,14 @@
                     </td>
                     <td>R$ {{ installment.valuePaid }}</td>
                     <td>R$ {{ installment.valueOriginal }}</td>
+                    <!--td>
+                        <q-btn
+                            size="sm"
+                            icon="check"
+                            color="green"
+                            @click="payOffIstallment(installment)"
+                        />
+                    </td!-->
                 </tr>
             </tbody>
         </table>
@@ -76,7 +85,7 @@
         dueDate: string,
     }>();
 
-    let installmentsData = reactive<TinstallmentsData[]>([]);
+    let installmentsData = ref<TinstallmentsData[]>([]);
 
     const generateInstallments = async () =>
     {
@@ -84,17 +93,14 @@
         let originalValue = props.originalValue;
         let dueDate = props.dueDate
 
-        console.log('generateInstallments, amount: ', props.amount);
-        console.log(originalValue)
-
-        if (installmentsData.length > 1) {
+        if (installmentsData.value.length > 1) {
             emits('existsInstallments', true);
             return;
         }
 
         for(let i = 1; i < receiveAmount + 1; i++)
         {
-            installmentsData.push({
+            installmentsData.value.push({
                 numberInstallment: i,
                 installmentAmount: receiveAmount,
                 valueOriginal: props.originalValue,
@@ -104,15 +110,20 @@
             }); 
         };
 
-       if (installmentsData.length === receiveAmount) emits('installmentsGenerated', installmentsData);
+       if (installmentsData.value.length === receiveAmount) emits('installmentsGenerated', installmentsData.value);
 
     console.log(installmentsData);
 
     };
 
+    const payOffIstallment = (installment) => {
+
+    };
+
     const deleteInstallments = () => 
     {
-        installmentsData = [];
+        installmentsData.value = [];
+        console.log(installmentsData)
     };
 
     defineExpose({

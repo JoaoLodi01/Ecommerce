@@ -4,23 +4,16 @@ namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PDVRepository;
 use Illuminate\Support\Facades\Log;
+use App\Traits\LogPayMentRepository;
 
 class PDVService
 {
     public function __construct(
-        protected PDVRepository $pdvRepository
+        protected PDVRepository $pdvRepository,
+        protected LogPayMentRepository $logPayMentRepository
 
     ){
         Log::info('Memória usada PDVService::class, __construct, linha 13: ' . memory_get_usage(true));
-    }
-
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ], 400);
     }
 
     public function getAll(int $issuer_id){
@@ -33,7 +26,7 @@ class PDVService
             return response()->json(true);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+            
         }
     }
 
@@ -67,6 +60,25 @@ class PDVService
         int $userID,
     )
     {
+        $payMentsID = array_filter($paymentsValues);
+        $total = array_sum($payMentsID);
+
+        $pdv = $this->findSavePDVByID($pdvID, $issuerID);
+
+        if($pdv)
+        {
+            if($total >= $pdv->net_value)
+            {
+
+            } else {
+                // Pagamento menor que o total
+            }
+
+        } else {
+            // PDV não encontrado
+
+        }
+        /*
         $total = 0; // Total pago
         $payMentsID = []; // ID das espécies de pagamento
 
@@ -78,7 +90,7 @@ class PDVService
             
         }
 
-        Log::info('PDVService.php, class:finalizeSale, $total: ' . $total);
+        $this->logPayMentRepository->logDebug('Dados', $filltred);
         $pdv = $this->findSavePDVByID($pdvID, $issuerID);
 
         if($total < $pdv->net_value)
@@ -98,6 +110,6 @@ class PDVService
             );
             
             return $finallyPDV;
-        }
+        }*/
     }
 }

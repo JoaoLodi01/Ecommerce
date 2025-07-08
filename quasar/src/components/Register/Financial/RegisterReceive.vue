@@ -21,6 +21,17 @@
 
             <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
                 <div class="flex flex-wrap gap-4">
+
+                    <SpeciesSearchBar
+                        @selectSpecie="getSpecie($event)"
+                        :module_="'receive'"
+                    />
+
+                    <CustomerSearchBar 
+                        @updated:selectCustomer="getCustumer($event)" 
+                        :pdv="false"
+                    />
+
                     <q-input
                         class="w-[100px]"
                         type="number"
@@ -36,6 +47,31 @@
                         label="Descrição"
                         color="grey-7"
                     />
+                    
+                </div>
+            </div>
+
+            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+                <div class="flex flex-wrap gap-4">
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.installmentAmount"
+                        label="Nº Parcelas"
+                        color="grey-7"
+                        :disable="!form.especieID"
+                    />
+
+                    <q-input
+                        class="w-[150px]"
+                        type="text"
+                        v-model="form.installmentValue"
+                        label="Valor Parcela"
+                        mask="R$ ###.###.###,##"
+                        color="grey-7"
+                        :disable="!form.especieID"
+                        
+                    />
 
                     <q-input
                         class="w-[150px]"
@@ -45,31 +81,6 @@
                         color="grey-7"
                     />
 
-                    <q-input
-                        class="w-[100px]"
-                        type="number"
-                        v-model="form.installmentAmount"
-                        label="Nº Parcelas"
-                        color="grey-7"
-                    />
-
-                    <q-input
-                        class="w-[150px]"
-                        type="text"
-                        v-model="form.installmentValue"
-                        label="Valor Parcela"
-                        color="grey-7"
-                    />
-
-                    <CustomerSearchBar 
-                        @updated:selectCustomer="getCustumer($event)" 
-                        :pdv="false"
-                    />
-                </div>
-            </div>
-
-            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
-                <div class="flex flex-wrap gap-4">
                     <q-select
                         class="w-[80px]"
                         v-model="form.typeInterest"
@@ -87,6 +98,7 @@
                         class="w-[100px]"
                         type="number"
                         v-model="form.interestValue"
+                        mask="R$ ###.###.###,##"
                         label="Juros"
                         color="grey-7"
                     />
@@ -95,6 +107,7 @@
                         class="w-[100px]"
                         type="number"
                         v-model="form.addition"
+                        mask="R$ ###.###.###,##"
                         label="Acréscimo"
                         color="grey-7"
                     />
@@ -103,6 +116,7 @@
                         class="w-[100px]"
                         type="number"
                         v-model="form.discount"
+                        mask="R$ ###.###.###,##"
                         label="Desconto"
                         color="grey-7"
                     />
@@ -113,13 +127,8 @@
                         v-model="form.valueEntry"
                         label="Juros a pagar"
                         color="grey-7"
-                        v-bind:mask="'##,##'"
+                        mask="R$ ###.###.###,##"
                         readonly
-                    />
-
-                    <SpeciesSearchBar
-                        @selectSpecie="getSpecie($event)"
-                        :module_="'receive'"
                     />
 
                 </div>
@@ -131,13 +140,12 @@
                 :original-value="form.installmentValue"
                 :due-date="form.dueDate"
                 @exists-installments="exists($event)"
-                @installments-generated="generatedInstallments($event)"
+                @updated:inspecInstallment="createInstallments($event)"
                 @request:generateInstallmentes=""
             />
 
             <div>
                 <q-btn
-                    @click="submitForm()"
                     type="submit"
                     label="Registrar"
                     class="bg-blue-600 text-white">
@@ -152,10 +160,10 @@
         </form>
     </div>
 </template>
-<script setup lang=ts>
+<script setup lang="ts">
     import { api } from "src/boot/axios"
     import {LocalStorage, useQuasar} from "quasar";
-    import { ref, computed, watch, defineProps, defineEmits, reactive } from 'vue';
+    import { ref, computed, watch, defineProps, defineEmits } from 'vue';
     import dayjs from "dayjs";
     import 'dayjs/locale/pt-br';
     import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
@@ -163,7 +171,8 @@
     import InstallmentsTable from "./InstallmentsTable.vue";
 
     const props = defineProps<{
-        widthScreen: number
+        widthScreen: number,
+        pdv?: boolean
 
     }>();
 
@@ -173,8 +182,10 @@
 
     const today = dayjs();
     const $q = useQuasar();
+    
+    //const user = ref<number>(LocalStorage.getItem("user_name"));
 
-    const form = reactive<IReceiveBody>({
+    const form = ref<IReceiveBody>({
         issuerID: LocalStorage.getItem("issuer_id"),
         description: 'Registro Manual Receber',
         document: 1,
@@ -186,20 +197,21 @@
         installmentAmount: 1,
         installmentNumber: 1,
         installmentValue: 0,
-        installmentOriginal: 0,
         typeInterest: '%',
         interestValue: 0,
         addition: 0,
         discount: 0,
         valueEntry: 0,
+        valuePaid: 0,
+        valueOriginal: 0,
         origem: 'Receber (Manual)',
 
     });
     
     const totalAmoutCalc = computed(() => 
     {
-        const number = parseCurrency(form.installmentAmount);
-        const value = parseCurrency(form.installmentValue);
+        const number = parseCurrency(form.value.installmentNumber);
+        const value = parseCurrency(form.value.installmentValue);
         const total = number * value;
 
         return total.toFixed(2);
@@ -219,16 +231,6 @@
         };
 
     };
-
-    const generatedInstallments = (event) => {
-        form.installmentAmount = event.installmentAmount;
-        form.installmentNumber = event.numberInstallment;
-        form.installmentValue = event.valuePaid;
-        form.installmentOriginal = event.valueOriginal;
-        form.dueDate = event.dueDate
-
-        console.log(event)
-    } 
 
     const parseCurrency = (value: number): number =>
     {
@@ -253,39 +255,27 @@
     const getCustumer = (event) =>
     {
         console.log(event);
-        form.customerID = event.id;
+        form.value.customerID = event.id;
+    };
+
+    const createInstallments = (event) => 
+    {
+      
     };
 
     const getSpecie = (event) => 
     {
         console.log("Chamou o getSpecie");
         console.log(event);
-        form.especieID = event.payment_cod;
-        form.especie = event.name;
+
+        form.value.especieID = event.payment_cod;
+        form.value.especie = event.name;
     };
 
     const submitForm = async () =>
     {
         try {
-            if (!form.customerID){
-                $q.notify({
-                    color: 'red',
-                    message: 'Cliente não selecionado.',
-                    position: 'top',
-                    timeout: 2000
-                });
-            }
-
-            if (!form.dueDate){
-                $q.notify({
-                    color: 'red',
-                    message: 'Data de vencimento inválida.',
-                    position: 'top',
-                    timeout: 2000
-                });
-            }
-
-            const response = await api.post(`/ecommerce/receive/create`, form);
+            const response = await api.post(`/ecommerce/receive/create`, form.value);
 
             if(response.data.success){
                 close();

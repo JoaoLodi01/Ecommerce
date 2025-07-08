@@ -6,7 +6,7 @@ setlocale(LC_TIME, 'ptb');
 use App\Models\EcommerceModels\{
     PDV,
     ItensPDV,
-    
+    Products,
 };
 
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
@@ -79,59 +79,60 @@ class PDVRepository
     {
         Log::info('-- Iniciou o saveProducts() line 90 -- ');     
         $errors = [];
-        foreach ($products as $product) {
-            for ($i=0; $i < count($product); $i++) { 
-                $maxItensPDV = ItensPDV::where('issuer_id', $product[$i]['issuer_id'])->max('iten_pdv_cod');
-                $itensPDV = array(
-                    'iten_pdv_cod' => $maxItensPDV ? $maxItensPDV + 1 : 1,
-                    'issuer_id' => $product[$i]['issuer_id'],
-                    'pdv_cod' => $pdvID,
-                    'product_cod' => $product[$i]['product_cod'],
-                    'product' => $product[$i]['product'],
-                    'cost_price' => $product[$i]['cost_price'],
-                    'sale_price' => $product[$i]['sale_price'],
-                    'cfop' => $product[$i]['cfop'],
-                    'csosncst' => $product[$i]['csosncst'],
-                    'ncm' => $product[$i]['ncm'],
-                    'cest' => $product[$i]['cest'],
-                    'unit' => $product[$i]['unit'],
-                    'amount' => $product[$i]['amount'],
-                    'addition' => 0,
-                    'discount' => 0,
-                    'user_id' => $user->id,
-                    'seller' => $user->name, 
-    
-                );
+        for ($i=0; $i < count($products); $i++) { 
+            Log::channel('pdv')->debug($products[$i]);
+            $product = Products::where('product_cod', $products[$i]['product_cod'])->first();
 
-                if($type === 'nfce')
+            $maxItensPDV = ItensPDV::where('issuer_id', $product->issuer_id)->max('iten_pdv_cod');
+            $itensPDV = array(
+                'iten_pdv_cod' => $maxItensPDV ? $maxItensPDV + 1 : 1,
+                'issuer_id' => $product->issuer_id,
+                'pdv_cod' => $pdvID,
+                'product_cod' => $products[$i]['product_cod'],
+                'product' => $products[$i]['product'],
+                'cost_price' => $product->cost_price,
+                'sale_price' => $products[$i]['sale_price'],
+                'cfop' => $products[$i]['cfop'],
+                'csosncst' => $products[$i]['csosncst'],
+                'ncm' => $product->ncm,
+                'cest' => $product->cest,
+                'unit' => $product->unit,
+                'amount' => $products[$i]['amount'],
+                'addition' => 0,
+                'discount' => 0,
+                'user_id' => $user->id,
+                'seller' => $user->name, 
+
+            );
+
+            if($type === 'nfce')
+            {
+                $nfceValidationRes = $this->nfceValidation->validation($itensPDV);
+                Log::info('$nfceValidationRes = $this->nfceValidation->validation($itensPDV);', ['nfceValidation' => $nfceValidationRes]);
+
+                if($nfceValidationRes['cfopValidate'] && $nfceValidationRes['csosnValidate'])
                 {
-                    $nfceValidationRes = $this->nfceValidation->validation($itensPDV);
-                    Log::info('$nfceValidationRes = $this->nfceValidation->validation($itensPDV);', ['nfceValidation' => $nfceValidationRes]);
+                    Log::info('CFOP e CSOSN/CST válidos');
+                    
+                } else if (!$nfceValidationRes['cfopValidate'])
+                {
+                    Log::info('CFOP inválido, item: ');
+                    array_push($errors, $nfceValidationRes['errors']);
 
-                    if($nfceValidationRes['cfopValidate'] && $nfceValidationRes['csosnValidate'])
-                    {
-                        Log::info('CFOP e CSOSN/CST válidos');
-                        
-                    } else if (!$nfceValidationRes['cfopValidate'])
-                    {
-                        Log::info('CFOP inválido, item: ');
-                        array_push($errors, $nfceValidationRes['errors']);
+                } else if (!$nfceValidationRes['csosnValidate'])
+                {
+                    Log::info('CSOSN / CST inválido');
+                    array_push($errors, $nfceValidationRes['errors']);
 
-                    } else if (!$nfceValidationRes['csosnValidate'])
-                    {
-                        Log::info('CSOSN / CST inválido');
-                        array_push($errors, $nfceValidationRes['errors']);
+                } else {
+                    Log::info('CFOP e CSOSN/CST inválidos');
+                    array_push($errors, $nfceValidationRes['errors']);
 
-                    } else {
-                        Log::info('CFOP e CSOSN/CST inválidos');
-                        array_push($errors, $nfceValidationRes['errors']);
-
-                    }
                 }
-            
-                ItensPDV::create($itensPDV);
-                
             }
+
+            ItensPDV::create($itensPDV);
+            
         }
         return array(
             'errors' => $errors
@@ -144,10 +145,9 @@ class PDVRepository
         Log::info($details);
 
         $customer = $this->customerRepository->findByID($details['customer_id']);
-        Log::info('customer => ' . $customer);
+        
         $customerName = $customer->company_name ? $customer->company_name : $customer->trade_name;
-        Log::info('customerName => ' . $customerName);
-
+        
         $user = $this->userRepository->findByID($details['user_id']); // "user"
 
         $currentDate = new Carbon();
@@ -176,9 +176,7 @@ class PDVRepository
         if($pdv && $pdv->id && $pdv->pdv_cod)
         {            
             $iPDV = $this->saveProducts($productsArray, $pdv->pdv_cod, $user, $details['is_nfce_nm']);
-            Log::info('$iPDV');
-            Log::info(count($iPDV['errors']));
-
+           
             if(count($iPDV['errors']) === 0)
             {
                 return array(
@@ -186,6 +184,7 @@ class PDVRepository
                     'pdvID' => $pdv->pdv_cod,
 
                 );
+
             } else {
                 return array(
                     'success' => false,
@@ -203,7 +202,6 @@ class PDVRepository
                 'pdv_cod' => $pdv->pdv_cod
             );
         }
-        
     }
 
     public function finalizeSale(
@@ -273,16 +271,10 @@ class PDVRepository
                         'finished' => 1
                     ]);
                 }
-
                 //ord()
-                return array(
-                    'success' => true,
-                    'message' => 'O pagamento foi efetuado com sucesso!',
-                    'pdv' => $pdv
-                
-                );
-            }
-        
+
+                return 'Pagamento bem sucedido!';
+            }       
         }
     }
 

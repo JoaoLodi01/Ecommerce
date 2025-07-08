@@ -14,6 +14,7 @@ class Receive extends Model
         'document',
         'description',
         'customer_cod',
+        'dav_cod',
         'name',
         'especie_cod',
         'especie',

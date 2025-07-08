@@ -12,15 +12,13 @@ class UserService
     {}
 
     public function getAll(int $issuer_id){
-        try {
-            return response()->json([
-                'success' => true,
-                'all' => $this->userRepository->getAll($issuer_id)
-            ]); 
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+        $all = $this->userRepository->getAll($issuer_id);
+
+        if(!$all)
+        {
+            apiError('Erro', $all);
         }
-        
+        return $all;
     }
 
     public function findById(int $id){
@@ -49,11 +47,8 @@ class UserService
     }
 
     public function update(array $data, int $id){
-        $this->userRepository->update($data, $id);
-        return response()->json([
-            'sucess' => true,
-            'message' => 'Usuário alterado com sucesso!'
-        ], 200);
+        $user = $this->userRepository->update($data, $id);
+        return $user;
     }
 
     public function delete(int $id){

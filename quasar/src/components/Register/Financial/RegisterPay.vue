@@ -168,7 +168,6 @@
                 description: "",
                 name: "",
                 user: LocalStorage.getItem("user_name"),
-                cpf: "",
                 especie: "",
                 due_date: "",
                 installment_number: "",

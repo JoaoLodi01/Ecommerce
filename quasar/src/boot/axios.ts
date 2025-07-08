@@ -57,23 +57,19 @@ export default defineBoot(({ app, router }) => {
       const requestUrl = error.config?.url || '';
       const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
       
-      if(error.response.data.message === 'Unauthenticated')
+      if(error.response.status == 401 && !isPublic)
       {
         console.log('Vai pro login');
         const msg = 'Usuário não autenticado';
+        LocalStorage.remove("issuer_id");
+        LocalStorage.remove("auth_token");
         router.replace({ path: '/login' });
         
         emitter.emit('global-error', msg);
         return Promise.reject(error);
 
       } else {
-        if(error.response.data.status === 401)
-        {
-            router.replace({ path: '/login' });
-            console.log('Error: ', error.response.data);
-
-        }
-        
+        console.warn(error.response.data.status === 401 ? 'Deveria ir pro login' : 'aaa');
         const msg =
           error.response?.data?.message ||
           error.response?.data?.errorMessage ||
