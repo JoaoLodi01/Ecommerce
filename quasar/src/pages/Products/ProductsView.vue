@@ -202,6 +202,7 @@
                         'text-gray-400 bg-slate-500': !product.active
                     }"
                     @click="showConfirmFn('active', product.product_cod)"
+                    
                 >
                     Ativar
                 </q-btn>
@@ -240,7 +241,7 @@
 
     <ImportFiles
         v-if="showImportFiles"
-        @close="showImportFiles = !$event"
+        @close="closeReload(!$event)"
     />
 </template>
 
@@ -314,24 +315,51 @@
 
     };
 
-    const showConfirmFn = (operation: string, productID: number) => 
+    const showConfirmFn = (operation: string, productID_: number) => 
     {
-        showConfirm.value = true;
+        console.log('showConfirmFn: ', operation)
+        operation !== 'active' ? showConfirm.value = true : handleOperation([{'operation': operation, 'value': true}]);
         typeOperation.value = operation;
-        LocalStorage.setItem("productID", productID);
+        LocalStorage.setItem("productID", productID_);
     
     };
 
     const handleOperation = async (event: TEmit[]) =>
     {
+        console.log('Operação confirmada');
+
         const operation = event[0]['operation'];
         const value = event[0]['value'];
-        console.log(operation);
-        if(!value) $q.notify({ color: 'red', message: 'Operação cancelada!', position: 'top', timeout: 2000 });
 
-        showConfirm.value = false;
-        LocalStorage.remove("productID");
-        const res = await api.put(`/ecommerce/products//${operation}`);
+        if(!value)
+        {
+            $q.notify({ color: 'red', message: 'Operação cancelada!', position: 'top', timeout: 2000 }); 
+
+            showConfirm.value = false;
+            LocalStorage.remove("productID");
+
+            return;
+        } else {
+            console.log('Vai: ', `/ecommerce/${operation}/${LocalStorage.getItem("issuer_id")}/${LocalStorage.getItem("productID")}`, ' o produto');
+            const res = await api.put(`/ecommerce/${operation}/${LocalStorage.getItem("issuer_id")}/${LocalStorage.getItem("productID")}`);
+            const data = res.data;
+
+            if(data.success)
+            {
+                $q.notify({
+                    color: 'green',
+                    message: data.message,
+                    position: 'top',
+                    timeout: 2000
+
+                });
+
+                showConfirm.value = false;
+                LocalStorage.remove("productID");
+                getProducts();
+            }
+        };
+
         /*
         if(res.data.success)
         {
@@ -389,21 +417,23 @@
 
     const closeReload = (event: boolean) =>
     {
-        showRegisterProduct.value = event;
+        showRegisterProduct.value = false;
         showReportProducts.value = false;
         showUpdateProduct.value = false;
+        showImportFiles.value = false;
+        
         getProducts();
+
     };        
 
     const downloadDefaultFile = async () =>
     {
-        const apiURL = `ecommerce/products/download-default-file`;
-        console.log(apiURL);
-
-        const res = await api.get(apiURL, {
+        const res = await api.get('ecommerce/products/download/default-file', {
             responseType: 'blob'
 
         });
+
+        console.log(res);
 
         const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
         const link = document.createElement('a');
@@ -413,6 +443,7 @@
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+
     };
 
     onMounted(() => {

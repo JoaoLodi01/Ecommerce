@@ -79,8 +79,8 @@ class ProductsService
         }
     }
 
-    public function active(int $id){
-        $product = $this->productsRepository->active($id);
+    public function active(int $id, int $productCod){
+        $product = $this->productsRepository->active($id, $productCod);
 
         if(!$product)
         {
@@ -90,8 +90,8 @@ class ProductsService
         return $product;
     }
 
-    public function delete(int $id){
-        $product = $this->productsRepository->delete($id);
+    public function delete(int $id, int $productCod){
+        $product = $this->productsRepository->delete($id, $productCod);
 
         if(!$product)
         {

@@ -164,29 +164,32 @@ class ProductsRepository
         ]);
     }
 
-    public function active(int $product_cod)
+    public function active(int $id, int $productCod)
     {
-        $product = Products::where('product_cod', $product_cod)->first();
-        $issuer_id = $product->issuer_id;
-        
-        $cacheKey = "{$this->cacheKeyPrefix}_{$issuer_id}";
-
-        Cache::forget($cacheKey);
-        return $product->update([
+        $product = Products::where('issuer_id', $id)->where('product_cod', $productCod)->first();
+        $product->update([
             'active' => 1
+
         ]);
+
+        return $product->product;
+
     }
 
-    public function delete(int $product_cod)
+    public function delete(int $id, int $productCod)
     {
-        return Products::where('product_cod', $product_cod)->update([
+        $product = Products::where('issuer_id', $id)->where('product_cod', $productCod)->first();
+        $product->update([
             'active' => 0
 
         ]);
+
+        return $product->product;
+
     }
     
-    public function findByID(int $product_cod){
-        return Products::where('product_cod', $product_cod)->first();
+    public function findByID(int $productCod){
+        return Products::where('product_cod', $productCod)->first();
     }
 
     public function decreaseQuantiy(int $product_cod, float|int $quantiy)

@@ -50,6 +50,7 @@ Route::prefix('v1')->group( function (){
     Route::middleware('auth:sanctum')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
             Route::prefix('products')->group( function(){
+                Route::get('/download/default-file', [ProductsController::class , 'downloadDefaultFile']);
                 Route::get('/all/{issuer_id}', [ProductsController::class, 'getAll']);
                 Route::get('/all-groups/{issuer_id}', [ProductsController::class, 'allGroup']);
                 Route::post('/search', [ProductsController::class, 'search']);
@@ -57,10 +58,9 @@ Route::prefix('v1')->group( function (){
                 Route::get('/{id}', [ProductsController::class, 'findByID']);
                 Route::get('/imagem/{id}', [ProductsController::class, 'findImage']);
                 Route::put('/{id}', [ProductsController::class, 'update']);
-                Route::put('/{id}/active', [ProductsController::class, 'active']);
-                Route::put('/disable/{id}', [ProductsController::class, 'delete']);
+                Route::put('/active/{id}/{productCod}', [ProductsController::class, 'active']);
+                Route::put('/disable/{id}/{productCod}', [ProductsController::class, 'delete']);
                 Route::post('/import-products/{id}', [ProductsController::class, 'importProducts']);
-                Route::get('/download-default-file', [ProductsController::class , 'downloadDefaultFile']);
                 
             });
 

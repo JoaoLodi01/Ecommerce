@@ -52,14 +52,17 @@ class ProductsController extends Controller
         return $this->productsService->update($data, $id);
     }
 
-    public function active(int $id)
+    public function active(int $id, int $productCod)
     {
-        return apiSuccess("Produto ativado com sucesso!", $this->productsService->active($id));
+        return apiSuccess("Produto ativado com sucesso!", $this->productsService->active($id, $productCod));
     }
 
-    public function delete(int $id)
+    public function delete(int $id, int $productCod)
     {
-        return apiSuccess("Produto ativado com sucesso!", $this->productsService->delete($id));
+        Log::debug('Dados delete');
+        Log::debug($id);
+        Log::debug($productCod);
+        return apiSuccess("Produto desativado com sucesso!", $this->productsService->delete($id, $productCod));
     }
 
     public function allGroup()

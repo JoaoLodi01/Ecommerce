@@ -82,9 +82,38 @@
                     timeout: 2000
 
                 });
+
+                if(data.success)
+                {
+                    $q.notify({
+                        color: 'green',
+                        message: 'Produtos importados com sucesso!',
+                        position: 'top',
+                        timeout: 2000
+
+                    });
+                    emits('close', true);
+
+                };
+
             } catch (error) {
-                console.error('Erro: ', error);
+                console.error(error);
+                $q.notify({
+                    color: 'green',
+                    message: error.response || 'Erro na importação!',
+                    position: 'top',
+                    timeout: 2000
+
+                });
             }            
+        } else {
+            $q.notify({
+                color: 'red',
+                message: 'Selecione o arquivo para importação!',
+                position: 'top',
+                timeout: 2000
+
+            });
         };
     };
 </script>
