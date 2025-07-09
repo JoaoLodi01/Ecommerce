@@ -53,12 +53,12 @@ class PDVService
     }
 
     public function finalizeSale(
-        array $paymentsValues, 
-        string $typeOperation, 
-        int $pdvID, 
-        int $issuerID,
-        int $userID,
-    )
+            array $paymentsValues, 
+            string $typeOperation, 
+            int $pdvID, 
+            int $issuerID,
+            int $userID,
+        )
     {
         $payMentsID = array_filter($paymentsValues);
         $total = array_sum($payMentsID);
@@ -69,47 +69,25 @@ class PDVService
         {
             if($total >= $pdv->net_value)
             {
+                $finallyPDV = $this->pdvRepository->finalizeSale(
+                    $typeOperation, 
+                    $pdvID, 
+                    $paymentsValues, 
+                    $payMentsID, 
+                    $total,
+                    $issuerID,
+                    $userID,
+                );
+                
+                return $finallyPDV;
 
             } else {
-                // Pagamento menor que o total
+                throw new \App\Exceptions\PDVExceptions\InsufficientPayment("Pagamento insuficiente");
             }
 
         } else {
             // PDV não encontrado
 
         }
-        /*
-        $total = 0; // Total pago
-        $payMentsID = []; // ID das espécies de pagamento
-
-        $filltred = array_filter($paymentsValues);
-
-        foreach ($filltred as $key => $value) {
-            $total += (float) $value;
-            $payMentsID[] = $key + 1;
-            
-        }
-
-        $this->logPayMentRepository->logDebug('Dados', $filltred);
-        $pdv = $this->findSavePDVByID($pdvID, $issuerID);
-
-        if($total < $pdv->net_value)
-        {
-            Log::info('Vai lançar o InsufficientPayment');
-            throw new \App\Exceptions\PDVExceptions\InsufficientPayment("Pagamento insuficiente");
-        
-        } else {
-            $finallyPDV = $this->pdvRepository->finalizeSale(
-                $typeOperation, 
-                $pdvID, 
-                $paymentsValues, 
-                $payMentsID, 
-                $total,
-                $issuerID,
-                $userID,
-            );
-            
-            return $finallyPDV;
-        }*/
     }
 }

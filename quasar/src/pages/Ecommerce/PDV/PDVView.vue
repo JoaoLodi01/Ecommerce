@@ -75,9 +75,27 @@
                             v-if="witdhScreen > 1366"
                             class="mr-16 mt-1"
                         >
-                            <button @click="showOptions" class="bg-[#BF3658] text-white p-1 mr-5 rounded-lg">Configurações</button>
-                            <button class="bg-[#BF3658] text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
-                            <button @click="closeCashClosing(true)" class="bg-[#BF3658] text-white p-1 mr-5 rounded-lg">Fechamento</button>
+                            <button 
+                                @click="showOptions" 
+                                class="p-1 mr-5 rounded-lg"
+                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                            >
+                                Configurações
+                            </button>
+                            <button 
+                                class="p-1 mr-5 rounded-lg"
+                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                            >
+                                <router-link to="/sale/list-pdv">Voltar para a listagem</router-link>
+                            </button>
+
+                            <button 
+                                @click="closeCashClosing(true)" 
+                                class="p-1 mr-5 rounded-lg"
+                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                            >
+                                Fechamento
+                            </button>
 
                         </div>
                     </div>
@@ -382,7 +400,8 @@
                             
                             >
                                 <q-btn 
-                                    class="mr-1 p-1 bg-[#BF3658] rounded-md ml-14 border-none"
+                                    class="mr-1 p-1 rounded-md ml-14 border-none"                                
+                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
                                     :class="{
                                         'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
                                     }" 
@@ -394,7 +413,8 @@
                                     Finalizar
                                 </q-btn>
                                 <q-btn  
-                                    class="mr-4 p-1 bg-[#BF3658] rounded-md"
+                                    class="mr-4 p-1 rounded-md"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
                                     size="1rem"
                                     @click="finalizeSale('nfce')" 
                                     
@@ -453,6 +473,8 @@
     const $q = useQuasar();
     const route = useRoute();
     const router = useRouter();
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
     let showPage = ref<boolean>(false);
     

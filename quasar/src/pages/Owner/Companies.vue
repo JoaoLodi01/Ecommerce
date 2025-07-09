@@ -113,7 +113,7 @@
                                     <q-btn 
                                         color="green" 
                                         label="Transferir empresa" 
-                                        @click="transferCompany(companie.id)"
+                                        @click="showConfirmFn(companie.id, 'transfer')"
         
                                     />
                                 </div>
@@ -122,7 +122,7 @@
                                 <q-btn 
                                     color="green" 
                                     label="Reativar empresa" 
-                                    @click="showConfirmFn(companie.id, 'reactive')"
+                                    @click="showConfirmFn(companie.id, 'active')"
     
                                 />
                             </div>
@@ -143,6 +143,7 @@
         v-if="showConfirm"
         @confirm="handleOperation($event)"
         :operation="typeOperation"
+
     />
     
 </template>
@@ -230,23 +231,6 @@
         };
     };
 
-    const logout = async () =>
-    {
-        const ofCourse = confirm('Deseja realmente sair?');
-        if(ofCourse)
-        {
-            const res = await api.post('/auth/logout');
-            if(res.data.success)
-            {
-                LocalStorage.remove("auth_token");
-                LocalStorage.getItem("expire");
-
-                router.push(res.data.route);
-
-            };
-        };
-    };
-
     const editCompanie = (companieID: number) =>
     {
         showEditCompanie.value = !showEditCompanie.value;
@@ -262,32 +246,55 @@
     
     };
 
-    const handleOperation = async (event: TEmit[]) =>
+    const handleOperation = async (event: TEmit[]): Promise<void> =>
     {
-        console.log(event[0]['operation']);
-        if(event[0]['operation'] === 'disable' || event[0]['operation'] === 'reactive')
+        const operation = event[0]['operation'];
+        const value = event[0]['value'];
+        if(!value) $q.notify({ color: 'red', message: 'Operação cancelada!', position: 'top', timeout: 2000 });
+
+        if(operation === 'disable' || operation === 'active')
         {
-            const res = event[0]['value'] ? await api.put(`/issuer/${event[0]['operation']}-company/${LocalStorage.getItem("companieID")}`) : null;
-            console.log(res.data)
+            const res = value ? await api.put(`/issuer/${operation}-company/${LocalStorage.getItem("companieID")}`) : null;
+            const data = res.data;
 
             $q.notify({
-                color: event ? 'green' : 'red',
-                message: event ? res.data.message : 'Operação cancelada',
+                color: data.success ? 'green' : 'red',
+                message: data.message,
                 position: 'top',
                 timeout: 2000
-            });
 
-            showEditCompanie.value = false;
-            IDEditCompanie.value = 0;
-            showConfirm.value = false;            
-            getCompanies();
-        };  
+            });
+        };
+
+        if(operation === 'transfer')
+        {
+            
+
+        };
+
+        IDEditCompanie.value = 0;
+        showConfirm.value = false;
+        showEditCompanie.value = false;
+        LocalStorage.remove("companieID");
+        getCompanies();
+
     };
 
-
-    const transferCompany = (companieID: number) => 
+    const logout = async () =>
     {
+        const ofCourse = confirm('Deseja realmente sair?');
+        if(ofCourse)
+        {
+            const res = await api.post('/auth/logout');
+            if(res.data.success)
+            {
+                LocalStorage.remove("auth_token");
+                LocalStorage.getItem("expire");
 
+                router.push(res.data.route);
+
+            };
+        };
     };
 
     onMounted(() => {
@@ -346,5 +353,4 @@
 
         }
     }
-    
 </style>

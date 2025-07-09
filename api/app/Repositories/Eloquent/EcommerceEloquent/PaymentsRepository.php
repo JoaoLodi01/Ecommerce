@@ -33,12 +33,11 @@ class PaymentsRepository
         Log::info($data);
         
         $result = [];
-        foreach ($data as $id) {
-            $result[] = PaymentForms::where('payment_cod', $id)->first();
+        foreach ($data as $id => $value) {
+            $result[] = PaymentForms::where('payment_cod', $id + 1)->first();
             
         }
-        Log::info('$result');
-        Log::info($result);
+
         return $result;
     }
 

@@ -1,0 +1,7 @@
+[2025-07-08 17:20:17] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-07-08 17:20:17] local.INFO: -- Iniciou o finalizeSale() line 222 --   
+[2025-07-08 17:20:17] local.INFO: Memória usada PDVRepository::class, finalizeSale: 25165824  
+[2025-07-08 17:20:17] local.INFO: PDV pelo issuer_ud {"pdv":{"App\\Models\\EcommerceModels\\PDV":{"id":5,"pdv_cod":5,"issuer_id":1,"description":"Venda Nota Manual N°","issue_date":"2025-07-08","n_nfce":null,"customer_id":1,"customer":"Consumidor Padrão","gross_value":"204.00","net_value":"204.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}}} 
+[2025-07-08 17:20:17] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-07-08 17:20:17] local.DEBUG: Formas de pagamento:  [{"App\\Models\\EcommerceModels\\PaymentForms":{"id":1,"payment_cod":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","payments_form_type":"DINHEIRO","pix_key":null,"bank_key":null,"other_key":null,"active":1}},{"App\\Models\\EcommerceModels\\PaymentForms":{"id":2,"payment_cod":2,"issuer_id":1,"especie":"PIX","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":null,"bank_key":null,"other_key":null,"active":1}}] 
+[2025-07-08 17:20:17] local.INFO: Tipo de venda NM/NFCE: nm  

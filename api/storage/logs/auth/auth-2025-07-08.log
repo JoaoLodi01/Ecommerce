@@ -1,0 +1,30 @@
+[2025-07-08 10:35:22] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"Eemg6h65za","active":1,"created_at":"2025-07-07T11:13:35.000000Z","updated_at":"2025-07-07T11:13:35.000000Z"}  
+[2025-07-08 10:35:25] local.INFO: Passou o login, token: 2|A1AbI1eaqrDk197EZufHeP9YjwdDcR0Af3Zhbf157b3fe145  
+[2025-07-08 11:06:06] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"Eemg6h65za","active":1,"created_at":"2025-07-07T11:13:35.000000Z","updated_at":"2025-07-07T11:13:35.000000Z"}  
+[2025-07-08 11:06:07] local.INFO: Passou o login, token: 3|jFAReUO7YoRZLI80RXSdoSqzX3eUJMu5Mo2Al8oT39d4d5ef  
+[2025-07-08 13:42:46] local.INFO: -- checkLogin --  
+[2025-07-08 13:42:46] local.INFO: Estava logado  
+[2025-07-08 16:23:24] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"kM1wHxo4kh","active":1,"created_at":"2025-07-05T19:02:25.000000Z","updated_at":"2025-07-05T19:02:25.000000Z"}  
+[2025-07-08 16:23:25] local.INFO: Passou o login, token: 4|1Yhx4wkgOIR0rSGeidQig56eVmKPChtRsSl0biHp011bdb9c  
+[2025-07-08 16:25:12] local.INFO: -- checkLogin --  
+[2025-07-08 16:25:12] local.INFO: Estava logado  
+[2025-07-08 16:25:43] local.INFO: -- checkLogin --  
+[2025-07-08 16:25:43] local.INFO: Estava logado  
+[2025-07-08 22:32:24] local.INFO: owner {"id":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","uuse_id":"08lBYYIwDe","active":1,"created_at":"2025-07-04T23:43:32.000000Z","updated_at":"2025-07-04T23:43:32.000000Z"}  
+[2025-07-08 22:32:25] local.INFO: Passou o login, token: 5|79SeRwcULdAlfDogPK4uUbBXmThsI2WsrQhWS00wb03843ff  
+[2025-07-08 22:32:41] local.INFO: -- checkLogin --  
+[2025-07-08 22:32:41] local.INFO: Estava logado  
+[2025-07-08 22:34:01] local.INFO: -- checkLogin --  
+[2025-07-08 22:34:01] local.INFO: Estava logado  
+[2025-07-08 22:36:12] local.INFO: -- checkLogin --  
+[2025-07-08 22:36:12] local.INFO: Estava logado  
+[2025-07-08 22:36:23] local.INFO: -- checkLogin --  
+[2025-07-08 22:36:23] local.INFO: Estava logado  
+[2025-07-08 22:37:48] local.INFO: -- checkLogin --  
+[2025-07-08 22:37:48] local.INFO: Estava logado  
+[2025-07-08 22:37:51] local.INFO: -- checkLogin --  
+[2025-07-08 22:37:51] local.INFO: Estava logado  
+[2025-07-08 22:38:12] local.INFO: -- checkLogin --  
+[2025-07-08 22:38:12] local.INFO: Estava logado  
+[2025-07-08 22:39:53] local.INFO: -- checkLogin --  
+[2025-07-08 22:39:53] local.INFO: Estava logado  

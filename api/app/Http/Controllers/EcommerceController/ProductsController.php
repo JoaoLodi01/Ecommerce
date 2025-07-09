@@ -4,6 +4,7 @@ namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Products\{
+    ImportProductsRequest,
     ProductsRequest,
     SearchProducts
 };
@@ -64,5 +65,11 @@ class ProductsController extends Controller
     public function allGroup()
     {
         return $this->productsService->allGroup();
+    }
+
+    public function importProducts(ImportProductsRequest $request, int $issuerID)
+    {        
+        return apiSuccess('Arquivo recebido com sucesso!', $this->productsService->importProducts($request->file('importFile'), $issuerID));
+
     }
 }
