@@ -142,4 +142,22 @@ class ProductsService
     {
         return $this->groupRepository->all();
     }
+
+    public function importProducts(object $file, int $issuerID)
+    {
+        $fileName = $file->getClientOriginalName();
+        $directory = storage_path('files');
+
+        if(!is_dir($directory))
+        {
+            mkdir($directory, 0755, true);
+        }
+
+        $file->move($directory, $fileName);
+    
+        sleep(2);
+        //$path = public_path('files/' . $file->getClientOriginalName());
+        //unlink($path);
+
+    }
 }

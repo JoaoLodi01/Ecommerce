@@ -143,6 +143,7 @@
         v-if="showConfirm"
         @confirm="handleOperation($event)"
         :operation="typeOperation"
+
     />
     
 </template>
@@ -352,5 +353,4 @@
 
         }
     }
-    
 </style>
