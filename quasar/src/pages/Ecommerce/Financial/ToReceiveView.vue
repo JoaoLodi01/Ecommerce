@@ -16,7 +16,7 @@
                 <q-btn
                     class="p-2 rounded-lg"
                     :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    @click="showRegister()"
+                    @click="manageClick(0, 'edit', false)"
                     label="Cadastrar"
                 />
 
@@ -92,15 +92,15 @@
                         <td class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3 text-center">
                             <q-btn
-                                @click="editRegister()"
+                                @click="manageClick(register.receiveCod, 'edit', false)"
                                 icon="edit"
                                 color="green"
                                 class="mr-1"
                                 size="sm"
                             />
-
+                            
                             <q-btn 
-                                @click="visibilityRegister()"
+                                @click="manageClick(register.receiveCod, 'view', true)"
                                 icon="visibility"
                                 color="blue"
                                 class="mr-1"
@@ -111,10 +111,10 @@
                                 <q-menu>
                                     <q-list style="min-width: 100px">
                                         <q-item clickable v-close-popup>
-                                            <q-item-section>Opção 1</q-item-section>
+                                            <q-item-section>Imprimir (A4)</q-item-section>
                                         </q-item>
                                         <q-item clickable v-close-popup>
-                                            <q-item-section>Opção 2</q-item-section>
+                                            <q-item-section>Térmica (80mm)</q-item-section>
                                         </q-item>
                                     </q-list>
                                 </q-menu>
@@ -128,10 +128,13 @@
             v-if="showReceiveClosing"
             class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
 
-            <div class="bg-white border border-black rounded-xl">
+            <div class="bg-white border border-gray-400 rounded-xl">
                 <RegisterReceive 
                     @close="closeRegister($event)"
                     :width-screen="withScreen"
+                    :receive-cod="selectedReceiveCod"
+                    :readonly="selectReadonly"
+                    :action="selectOperation"
                 />
             </div>
         </div>
@@ -141,9 +144,9 @@
 <script setup lang="ts">
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
-    import { ref, onMounted, watch } from "vue";
+    import { ref, onMounted, watch, defineProps } from "vue";
     import { LocalStorage } from "quasar";
-    import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
+    import RegisterReceive from "src/components/Register/Financial/Receive/RegisterReceive.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     import camelcaseKeys from "camelcase-keys";
@@ -155,13 +158,15 @@
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
     const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
+    let selectOperation = ref<string>('');
+    let selectReadonly = ref<boolean>(false);
+    let selectedReceiveCod = ref<number>(0);
     let receives = ref<IReceiveBody[]>([]);
     let startDate = ref<string>(today.startOf('month').format('YYYY-MM-DD'));
     let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
     let filteredCashs = ref<object[]>([]);
     let withScreen = ref<number>(0);
     let showReceiveClosing = ref<boolean>(false);
-    
 
     const getRegister = async () =>
     {
@@ -171,13 +176,11 @@
     
     const dateSearch = () => {};
 
-    const editRegister = () => {};
-
-    const visibilityRegister = () => {};
-
-    const showRegister = () =>
-    {
-        showReceiveClosing.value  = true;
+    const manageClick = (receiveCod: number, action: string, readonly: boolean) => {
+        selectedReceiveCod.value = receiveCod;
+        selectOperation.value = action;
+        selectReadonly.value = readonly;
+        showReceiveClosing.value = true;
     };
     
     const closeRegister = (event: boolean) =>

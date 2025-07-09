@@ -19,17 +19,19 @@
             }"
         >
 
-            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+            <div class="border border-gray-200 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto" v-if="!readonly">
                 <div class="flex flex-wrap gap-4">
 
                     <SpeciesSearchBar
                         @selectSpecie="getSpecie($event)"
                         :module_="'receive'"
+                        :disable="props.readonly"
                     />
 
                     <CustomerSearchBar 
                         @updated:selectCustomer="getCustumer($event)" 
                         :pdv="false"
+                        :disable="props.readonly"
                     />
 
                     <q-input
@@ -38,6 +40,7 @@
                         v-model="form.document"
                         label="Nº Doc"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -46,12 +49,13 @@
                         v-model="form.description"
                         label="Descrição"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
                     
                 </div>
             </div>
 
-            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+            <div class="border border-gray-200 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto" v-if="!readonly">
                 <div class="flex flex-wrap gap-4">
                     <q-input
                         class="w-[100px]"
@@ -60,6 +64,7 @@
                         label="Nº Parcelas"
                         color="grey-7"
                         :disable="!form.especieID"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -67,10 +72,9 @@
                         type="text"
                         v-model="form.installmentValue"
                         label="Valor Parcela"
-                        mask="R$ ###.###.###,##"
                         color="grey-7"
                         :disable="!form.especieID"
-                        
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -79,6 +83,7 @@
                         v-model="form.dueDate"
                         label="1º Vencimento"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
                     <q-select
@@ -87,6 +92,7 @@
                         label="Tipo"
                         emit-value
                         map-options
+                        :disable="props.readonly"
                         :options="[
                             { label: '%', value: '%' },
                             { label: 'R$', value: 'R$' }
@@ -101,6 +107,7 @@
                         mask="R$ ###.###.###,##"
                         label="Juros"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -110,6 +117,7 @@
                         mask="R$ ###.###.###,##"
                         label="Acréscimo"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -119,6 +127,7 @@
                         mask="R$ ###.###.###,##"
                         label="Desconto"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -139,6 +148,7 @@
                 :amount="Number(form.installmentAmount)"
                 :original-value="form.installmentValue"
                 :due-date="form.dueDate"
+                :readonly="readonly"
                 @exists-installments="exists($event)"
                 @updated:inspecInstallment="createInstallments($event)"
                 @request:generateInstallmentes=""
@@ -146,18 +156,27 @@
 
             <div>
                 <q-btn
+                    v-if="!readonly"
                     type="submit"
                     label="Registrar"
                     class="bg-blue-600 text-white">
                 </q-btn>
 
                 <q-btn
-                    @click="close()"
+                    @click="print()"
+                    label="Imprimir"
+                    class="bg-blue-600 text-white"
+                    v-if="action === 'view'">
+                </q-btn>
+
+                <q-btn
+                    @click="close(false)"
                     label="Voltar"
                     class="ml-5 bg-slate-600 text-white">
                 </q-btn>
             </div>
         </form>
+
     </div>
 </template>
 <script setup lang="ts">
@@ -168,13 +187,16 @@
     import 'dayjs/locale/pt-br';
     import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
     import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
-    import InstallmentsTable from "./InstallmentsTable.vue";
+    import InstallmentsTable from "../InstallmentsTable.vue";
 
     const props = defineProps<{
         widthScreen: number,
-        pdv?: boolean
-
+        pdv?: boolean,
+        receiveCod?: number,
+        readonly: boolean,
+        action: string
     }>();
+
 
     const emits = defineEmits<{
         (e: 'close', value: boolean)
@@ -247,10 +269,12 @@
     };
       
 
-    const close = () =>
+    const close = (readonly: boolean) =>
     {
         emits('close', false);
     };
+
+    const print = () => {};
 
     const getCustumer = (event) =>
     {
@@ -272,18 +296,14 @@
         form.value.especie = event.name;
     };
 
-    const submitForm = async () =>
-    {
+
+    const submitForm = async () => {
+        if (!props.receiveCod) return;
+        
         try {
-            const response = await api.post(`/ecommerce/receive/create`, form.value);
-
-            if(response.data.success){
-                close();
-            }
-
-            console.log('Dados enviados!', response.data)
+            
         } catch (error) {
-            alert("Ocorreu um erro ao cadastrar o registro")
+            
         }
     };
   

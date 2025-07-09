@@ -160,7 +160,7 @@
     import { api } from "src/boot/axios";
     import { ref, defineProps, defineEmits, onMounted, computed, warn } from 'vue';
     import { LocalStorage, useQuasar  } from "quasar";
-    import RegisterReceive from './Register/Financial/RegisterReceive.vue';
+    import RegisterReceive from './Register/Financial/RegistersReceive/RegisterReceive.vue';
     import QRCode from './PDV/QRCode/QRCode.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
 

@@ -19,7 +19,7 @@
                 @update:model-value="selectClient()"
                 class="w-96"
                 color="grey"
-                :disabled="!filter"
+                :disabled="disable"
 
             />
             
@@ -64,8 +64,8 @@
     }>();
 
     const props = defineProps<{
-        pdv: boolean
-
+        pdv: boolean,
+        disable: boolean
     }>();
     
     const customer = ref<any>(null);
@@ -144,7 +144,7 @@
     
     onMounted(() => {
         
-        document.addEventListener('keydown', (event: TEvent) => {
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
             const keyName = event.key;
             
             if(keyName === 'F4')

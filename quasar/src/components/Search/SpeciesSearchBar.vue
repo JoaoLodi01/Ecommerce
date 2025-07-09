@@ -11,6 +11,7 @@
         class="w-96"
         color="grey"
         @update:model-value="setSpecies"
+        :disable="disable"
 
       />
     </div>
@@ -89,6 +90,10 @@
       module_: {
         type: String,
         required: true
+      },
+      disable: {
+        type: Boolean,
+        default: false
       }
     },
   

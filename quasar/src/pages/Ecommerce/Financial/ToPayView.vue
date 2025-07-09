@@ -100,7 +100,7 @@
 
 <script>
     import { api } from "src/boot/axios";
-    import RegisterPay from "src/components/Register/Financial/RegisterPay.vue";
+    import RegisterPay from "src/components/Register/Financial/Pay/RegisterPay.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     dayjs.extend(isBetween);

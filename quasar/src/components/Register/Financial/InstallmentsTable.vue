@@ -1,11 +1,11 @@
 <template>
-    <div class="lg:col-span-2 flex justify-end gap-4">
+    <div class="lg:col-span-2 flex justify-end gap-4" v-if="!readonly">
         <q-btn
             label="Gerar Parcelas"
             color="primary"
             class="mb-2"
             @click="generateInstallments()"
-            :disable="originalValue <= 0 || amount <= 0"
+            :disable="originalValue <= 0"
         />
 
         <q-btn
@@ -25,7 +25,7 @@
                     <th class="px-2 py-1">Data Vencimento</th>
                     <th class="px-2 py-1">Valor à pagar</th>
                     <th class="px-2 py-1">Valor Original</th>
-                    <!--th class="px-2 py-1">Ações</th!-->
+                    <th class="px-2 py-1" v-if="readonly">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,14 +44,14 @@
                     </td>
                     <td>R$ {{ installment.valuePaid }}</td>
                     <td>R$ {{ installment.valueOriginal }}</td>
-                    <!--td>
+                    <td v-if="readonly">
                         <q-btn
                             size="sm"
                             icon="check"
                             color="green"
                             @click="payOffIstallment(installment)"
                         />
-                    </td!-->
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -83,6 +83,7 @@
         amount: number,
         originalValue: number,
         dueDate: string,
+        readonly: boolean,
     }>();
 
     let installmentsData = ref<TinstallmentsData[]>([]);
