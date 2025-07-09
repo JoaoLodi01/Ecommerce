@@ -2,10 +2,12 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
+use App\DTO\Products\ProductsDTO;
 use App\Models\EcommerceModels\Products;
 use App\Models\Registers\FirstSteps;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
+use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 class ProductsRepository 
 {
     protected $cacheKeyPrefix = 'products';
@@ -97,8 +99,7 @@ class ProductsRepository
         $issuer_id = $data['issuer_id'];
         $data['group_id'] ? $group = $this->groupRepository->findByID($data['group_id']) : null;
 
-        $maxCode = Products::where('issuer_id', $issuer_id)->max('product_cod');
-        $productCod = $maxCode ? $maxCode + 1 : 1;
+        $maxCod = Products::where('issuer_id', $issuer_id)->max('product_cod');
 
         $stpes = FirstSteps::where('issuer_id', $issuer_id)->first();
         $stpes->update([
@@ -107,7 +108,7 @@ class ProductsRepository
         $stpes->save();
         
         return Products::create([
-            'product_cod' => $productCod,
+            'product_cod' => $maxCod ? $maxCod + 1 : 1,
             'issuer_id' => $issuer_id,
             'product' => $data['product'],
             'image' => $data['image'],
@@ -203,5 +204,22 @@ class ProductsRepository
 
         Log::info('-- Fim decreaseQuantiy, linha 62 --');
     }
-       
+
+    public function importProducts(ProductsDTO $dto): void
+    {
+        Log::debug('Repositorio: importProducts');
+        $maxCod = Products::where('issuer_id', $dto->issuer_id)->max('product_cod');
+        Products::create([
+            'product_cod' => $maxCod ? $maxCod + 1 : 1,
+            'issuer_id' => $dto->issuer_id,
+            'product' => $dto->product,
+            'cost_price' => $dto->cost_price,
+            'sale_price' => $dto->sale_price,
+            'profit_percentage' => $dto->profit_percentage,
+            'cfop' => $dto->cfop,
+            'unit' => $dto->unit,
+            'csosncst' => $dto->csosncst
+
+        ]);
+    } 
 }

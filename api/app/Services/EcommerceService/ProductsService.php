@@ -6,7 +6,9 @@ use App\Exceptions\IssuerExceptions\IssuerNotFound;
 use App\Repositories\Eloquent\EcommerceEloquent\GroupRepository;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
 use App\Exceptions\ProductsExceptions\ProductNotFound;
+use App\Jobs\ProductsJobs\ImportProductsJob;
 use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class ProductsService
@@ -145,19 +147,24 @@ class ProductsService
 
     public function importProducts(object $file, int $issuerID)
     {
+        Log::debug('Caiu no import service');
         $fileName = $file->getClientOriginalName();
-        $directory = storage_path('files');
+        $date = new Carbon();
+        $directory = storage_path("files/{$issuerID}/products/" . $date->format('Y-m-d'));
 
         if(!is_dir($directory))
         {
             mkdir($directory, 0755, true);
+
         }
 
         $file->move($directory, $fileName);
-    
-        sleep(2);
+        
         //$path = public_path('files/' . $file->getClientOriginalName());
         //unlink($path);
-
+        $filePath = $directory . DIRECTORY_SEPARATOR . $fileName;
+        ImportProductsJob::dispatch($filePath, $issuerID);
+        
+        return $directory . DIRECTORY_SEPARATOR . $fileName;
     }
 }

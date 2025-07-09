@@ -39,7 +39,7 @@ class ProductsController extends Controller
     }
 
     public function findByID(string|int $id){
-        Log::info('findByID . ' . $id . ' type: ' . gettype($id));
+        Log::info('função findByID . ' . $id . ' type: ' . gettype($id));
         return $this->productsService->findByID($id);
     }
 
@@ -67,8 +67,21 @@ class ProductsController extends Controller
         return $this->productsService->allGroup();
     }
 
+    public function downloadDefaultFile()
+    {
+        Log::debug('Vai fazer o download ');
+        $filePath = storage_path('files/default_file/Padrão_Importação.xlsx');
+        $fileName = "Padrão_Importação.xlsx";
+        
+        return response()->download($filePath, $fileName, [
+            'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+
+        ]);
+    }
+
     public function importProducts(ImportProductsRequest $request, int $issuerID)
     {        
+        Log::debug('Caiu no import controller');
         return apiSuccess('Arquivo recebido com sucesso!', $this->productsService->importProducts($request->file('importFile'), $issuerID));
 
     }

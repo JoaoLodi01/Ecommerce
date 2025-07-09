@@ -60,7 +60,8 @@ Route::prefix('v1')->group( function (){
                 Route::put('/{id}/active', [ProductsController::class, 'active']);
                 Route::put('/disable/{id}', [ProductsController::class, 'delete']);
                 Route::post('/import-products/{id}', [ProductsController::class, 'importProducts']);
-
+                Route::get('/download-default-file', [ProductsController::class , 'downloadDefaultFile']);
+                
             });
 
             Route::prefix('last-document')->group(function(){

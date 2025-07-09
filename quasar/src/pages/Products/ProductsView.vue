@@ -82,7 +82,7 @@
                 :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
                 class="ml-5"
                 title="Baixa arquivo de importação"
-
+                @click="downloadDefaultFile"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
@@ -240,7 +240,7 @@
 
     <ImportFiles
         v-if="showImportFiles"
-
+        @close="showImportFiles = !$event"
     />
 </template>
 
@@ -394,6 +394,26 @@
         showUpdateProduct.value = false;
         getProducts();
     };        
+
+    const downloadDefaultFile = async () =>
+    {
+        const apiURL = `ecommerce/products/download-default-file`;
+        console.log(apiURL);
+
+        const res = await api.get(apiURL, {
+            responseType: 'blob'
+
+        });
+
+        const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
+        const link = document.createElement('a');
+
+        link.href = url;
+        link.setAttribute('download', `Padrão_Importação.xlsx`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     onMounted(() => {
         getProducts();

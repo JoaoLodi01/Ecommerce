@@ -4,7 +4,6 @@ namespace App\Services\GetIBGECod;
 
 use Illuminate\Support\Facades\Log;
 use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
-
 class GetIBGECodService
 {
     public function readerFile(string $path, string $city)
