@@ -222,23 +222,14 @@
     </div>
 
     <div v-if="!showProducts">
-        <RegisterProduct
+        <ProductManagement
             v-if="showProductManagement"
             @close="closeReload($event)"
             :widthScreen="widthScreen"
             :operation="operation"
             :product-cod="productCodSelected"
             
-        />
-
-        <UpdateProduct
-            v-if="showUpdateProduct"
-            :productID="productID"
-            :productName="productName"
-            :widthScreen="widthScreen"
-            @close="closeReload($event)"
-
-        />
+        />    
     </div>
 
     <ReportProduct
@@ -262,8 +253,7 @@
     import { LocalStorage, useQuasar } from 'quasar';
     import { ref, onMounted, watch, reactive } from 'vue';
     import { api } from 'src/boot/axios';
-    import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
-    import UpdateProduct from 'src/components/Register/Products/Move_toOneFile_UpdateProduct.vue';
+    import ProductManagement from 'src/components/Register/Products/ProductManagement.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
@@ -300,10 +290,7 @@
     let titleByOperation = ref<string>('Produtos');
     let productCodSelected = ref<number>(0);
     
-    let showUpdateProduct = ref<boolean>(false);
-    
     let showReportProducts = ref<boolean>(false);
-    let showReportProductsMini = ref<boolean>(false);
     let showImportFiles = ref<boolean>(false);
     let widthScreen = ref<number>(0);
     let productName = ref<string>('');
@@ -413,10 +400,9 @@
         productCodSelected.value = productCod;
         
         showProductManagement.value = true;
-        showUpdateProduct.value = false;
         showProducts.value = false;
         showReportProducts.value = false;
-        showReportProductsMini.value = false;
+        
         
     };
 
@@ -425,7 +411,6 @@
         titleByOperation.value = 'Produtos';
         showProducts.value = true;
         showProductManagement.value = false;
-        showUpdateProduct.value = false;
         showReportProducts.value = false;
         getProducts();
 
@@ -435,7 +420,6 @@
     {
         productName.value = name;
         productID.value = id;
-        showUpdateProduct.value = true;
         showProductManagement.value = false;
         showProducts.value = false;
         showReportProducts.value = false;
@@ -447,7 +431,6 @@
         titleByOperation.value = 'Produtos';
         showProductManagement.value = false;
         showReportProducts.value = false;
-        showUpdateProduct.value = false;
         showImportFiles.value = false;
         getProducts();
 
@@ -462,7 +445,12 @@
 
         console.log(res);
 
-        const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
+        const url = window.URL.createObjectURL(
+            new Blob([res.data], { 
+                type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
+            }
+        ));
+        
         const link = document.createElement('a');
 
         link.href = url;

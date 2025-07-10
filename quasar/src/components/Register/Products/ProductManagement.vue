@@ -59,6 +59,7 @@
                             :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                             @click="generateCode()"
                         />
+                        
                     </div>
                 </div>
             </div>            
