@@ -38,9 +38,8 @@ class ProductsController extends Controller
         return $this->productsService->create($data);
     }
 
-    public function findByID(string|int $id){
-        Log::info('função findByID . ' . $id . ' type: ' . gettype($id));
-        return $this->productsService->findByID($id);
+    public function findByID(int $id, int $productCod){
+        return apiSuccess('Produto encontrado', $this->productsService->findByID($id, $productCod));
     }
 
     public function update(ProductsRequest $request, int $id)
@@ -59,9 +58,6 @@ class ProductsController extends Controller
 
     public function delete(int $id, int $productCod)
     {
-        Log::debug('Dados delete');
-        Log::debug($id);
-        Log::debug($productCod);
         return apiSuccess("Produto desativado com sucesso!", $this->productsService->delete($id, $productCod));
     }
 
@@ -84,7 +80,6 @@ class ProductsController extends Controller
 
     public function importProducts(ImportProductsRequest $request, int $issuerID)
     {        
-        Log::debug('Caiu no import controller');
         return apiSuccess('Arquivo recebido com sucesso!', $this->productsService->importProducts($request->file('importFile'), $issuerID));
 
     }

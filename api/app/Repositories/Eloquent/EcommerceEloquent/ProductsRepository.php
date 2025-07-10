@@ -178,7 +178,14 @@ class ProductsRepository
 
     public function delete(int $id, int $productCod)
     {
-        $product = Products::where('issuer_id', $id)->where('product_cod', $productCod)->first();
+        Log::info($id);
+        Log::info($productCod);
+        $product = Products::where('issuer_id', $id)
+                            ->where('product_cod', $productCod)
+                            ->first();
+
+        
+        Log::debug($product);
         $product->update([
             'active' => 0
 
@@ -188,13 +195,14 @@ class ProductsRepository
 
     }
     
-    public function findByID(int $productCod){
-        return Products::where('product_cod', $productCod)->first();
+    public function findByID(int $issuerID, int $productCod){
+        return Products::where('issuer_id', $issuerID)->where('product_cod', $productCod)->first();
+        
     }
 
     public function decreaseQuantiy(int $product_cod, float|int $quantiy)
     {
-        Log::info('-- Inicio decreaseQuantiy, linha 50 --');
+        /*Log::info('-- Inicio decreaseQuantiy, linha 50 --');
         $product = $this->findByID($product_cod);
         if($product)
         {
@@ -205,20 +213,22 @@ class ProductsRepository
             
         }
 
-        Log::info('-- Fim decreaseQuantiy, linha 62 --');
+        Log::info('-- Fim decreaseQuantiy, linha 62 --');*/
     }
 
     public function importProducts(ProductsDTO $dto): void
     {
         Log::debug('Repositorio: importProducts');
+        Log::debug($dto->amount);
         $maxCod = Products::where('issuer_id', $dto->issuer_id)->max('product_cod');
         Products::create([
             'product_cod' => $maxCod ? $maxCod + 1 : 1,
             'issuer_id' => $dto->issuer_id,
             'product' => $dto->product,
             'cost_price' => $dto->cost_price,
-            'sale_price' => $dto->sale_price,
             'profit_percentage' => $dto->profit_percentage,
+            'sale_price' => $dto->sale_price,
+            'amount' => $dto->amount,
             'cfop' => $dto->cfop,
             'unit' => $dto->unit,
             'csosncst' => $dto->csosncst

@@ -19,9 +19,7 @@
             class="flex justify-between "
             
         >
-            <h1 v-if="!showRegisterProduct && !showUpdateProduct" class="text-3xl font-semibold m-5">Produtos</h1>
-            <h1 v-if="showRegisterProduct" class="text-3xl font-semibold m-5">Novo produto</h1>
-            <h1 v-if="showUpdateProduct" class="text-3xl font-semibold m-5">Edição do produto</h1>
+            <h1 class="text-3xl font-semibold m-5">{{ titleByOperation }}</h1>
             
             <div 
                 :class="{
@@ -31,7 +29,7 @@
             >
                 <q-btn
                     v-if="showProducts"
-                    @click="openRegister()"
+                    @click="productManagement('register', '', 0)"
                     class="font-semibold rounded-lg hover:bg-blue-400 transition"
                     :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 
@@ -56,6 +54,19 @@
             v-if="showProducts" class="mt-2 ml-2 flex"
 
         >
+            <q-btn 
+                :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                class="mr-5"
+                title="Baixa arquivo de importação"
+                
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>            
+                
+            </q-btn>
+
             <q-btn 
                 :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
                 title="Relatórios"
@@ -87,9 +98,8 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                 </svg>
-
             </q-btn>
-            
+
             <div class="ml-auto">
                 <q-option-group
                     v-model="searchFilter"
@@ -107,7 +117,7 @@
     </div>
 
     <div
-        class="ml-20 p-2 flex"
+        class="ml-20 p-1 mb-2 flex justify-between"
         v-if="showProducts"
     >
         <ProductsSearchBar
@@ -118,30 +128,31 @@
             @get-all="getProducts()"
             
         />
-
+    
         <q-select 
             v-model="searchBarFilter" 
             :options="searchOptionProducts" 
+            color="amber-8"
             label="Filtro de busca" 
-            class="p-1 ml-4"
-            filled 
+            class="p-1.5 ml-2 bg-white rounded-md"
         />
     </div>
   
     <div 
-        class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4" 
+        class="products-grid grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-5 gap-5" 
         :class="{
-            'ml-20 w-[120vh]': widthScreen > 1366,
+            'ml-20 w-[160vh]': widthScreen > 1366,
             'ml-2': widthScreen <= 1366
         }"    
     >
         <div
             v-if="showProducts"
             v-for="product in products" :key="product.id"
-            class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+            class="relative overflow-x-auto max-h-80 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
         >
             <div 
-                @click="editProduct(product.product, product.id)"
+                @click="productManagement('update', product.product, product.product_cod)"
+                
             >
                 <div class="text-sm text-gray-500 mb-2">
                     <span class="font-semibold">ID:</span> {{ product.product_cod }}
@@ -152,11 +163,11 @@
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">Cód barras:</span> {{ product.barcode }}
+                    <span class="font-semibold">Cód barras:</span> {{ product.barcode ?? 'Sem cód informado' }}
                 </div>
 
                 <div class="text-sm text-gray-500 mb-4">
-                    <span class="font-semibold">Cód barras interno:</span> {{ product.barcode_internal }}
+                    <span class="font-semibold">Cód barras interno:</span> {{ product.barcode_internal ?? 'Sem cód informado' }}
 
                 </div>
 
@@ -173,7 +184,7 @@
             <!-- Ações -->
             <div class="flex space-x-2">
                 <q-btn
-                    @click="editProduct(product.product, product.product_cod)"
+                    @click="productManagement('update', product.product, product.product_cod)"
                     class="px-4 py-2 mr-2 rounded-lg transition"
                     :disabled=!product.active
                     :class="{
@@ -201,7 +212,7 @@
                     :class="{
                         'text-gray-400 bg-slate-500': !product.active
                     }"
-                    @click="showConfirmFn('active', product.product_cod)"
+                    @click="showConfirmFn('products/active', product.product_cod)"
                     
                 >
                     Ativar
@@ -212,9 +223,11 @@
 
     <div v-if="!showProducts">
         <RegisterProduct
-            v-if="showRegisterProduct"
+            v-if="showProductManagement"
             @close="closeReload($event)"
             :widthScreen="widthScreen"
+            :operation="operation"
+            :product-cod="productCodSelected"
             
         />
 
@@ -247,10 +260,10 @@
 
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar';
-    import { ref, onMounted, watch } from 'vue';
+    import { ref, onMounted, watch, reactive } from 'vue';
     import { api } from 'src/boot/axios';
     import RegisterProduct from 'src/components/Register/Products/RegisterProduct.vue';
-    import UpdateProduct from 'src/components/Register/Products/UpdateProduct.vue';
+    import UpdateProduct from 'src/components/Register/Products/Move_toOneFile_UpdateProduct.vue';
     import ReportProduct from 'src/components/Reports/Products/ReportProduct.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
@@ -269,15 +282,27 @@
         'Padrão (nome do produto, cód.barras ou cód.produto)'
 
     ]);
+    
+    const titles = reactive({
+        'register': 'Novo produto',
+        'update': 'Editar produto'
+        
+    });
 
     let _loanding = ref<boolean>(true);
     let allProducts = ref<IProducts[]>([]);
     let products = ref<IProducts[]>([]);
     let searchBarFilter = ref<string>('Padrão (nome do produto, cód.barras ou cód.produto)');
     let showProducts = ref<boolean>(false);
-    let showReportProducts = ref<boolean>(false);
+
+    let showProductManagement = ref<boolean>(false);
+    let operation = ref<string>('');
+    let titleByOperation = ref<string>('Produtos');
+    let productCodSelected = ref<number>(0);
+    
     let showUpdateProduct = ref<boolean>(false);
-    let showRegisterProduct = ref<boolean>(false);
+    
+    let showReportProducts = ref<boolean>(false);
     let showReportProductsMini = ref<boolean>(false);
     let showImportFiles = ref<boolean>(false);
     let widthScreen = ref<number>(0);
@@ -309,6 +334,7 @@
 
     const getProducts = async () => 
     {
+        console.log('Chamou aqui');
         const res = await api.get(`/ecommerce/products/all/${LocalStorage.getItem("issuer_id")}`);
         allProducts.value = res.data.data;
         products.value = [...allProducts.value];
@@ -317,10 +343,10 @@
 
     const showConfirmFn = (operation: string, productID_: number) => 
     {
-        console.log('showConfirmFn: ', operation)
-        operation !== 'active' ? showConfirm.value = true : handleOperation([{'operation': operation, 'value': true}]);
+        console.log('showConfirmFn: ', operation);
         typeOperation.value = operation;
         LocalStorage.setItem("productID", productID_);
+        operation !== 'products/active' ? showConfirm.value = true : handleOperation([{'operation': operation, 'value': true}]);
     
     };
 
@@ -330,7 +356,7 @@
 
         const operation = event[0]['operation'];
         const value = event[0]['value'];
-
+    
         if(!value)
         {
             $q.notify({ color: 'red', message: 'Operação cancelada!', position: 'top', timeout: 2000 }); 
@@ -355,29 +381,22 @@
                 });
 
                 showConfirm.value = false;
-                LocalStorage.remove("productID");
-                getProducts();
+                const product = products.value.find(c => c.product_cod === LocalStorage.getItem("productID"));
+                if(product)
+                {
+                    product.active = operation === 'products/active' ? 1 : 0;
+                    LocalStorage.remove("productID");
+                } else {
+                    $q.notify({
+                        color: 'red',
+                        message: 'Erro desconhecido, contate um adminstrador!',
+                        position: 'top',
+                        timeout: 2000
+
+                    });
+                };
             }
         };
-
-        /*
-        if(res.data.success)
-        {
-            $q.notify({
-                color: `green`,
-                message: res.data.message,
-                timeout: 2000,
-                position: 'top'
-                
-            });
-
-            const product = products.value.find(c => c.product_cod === id);
-            if(product)
-            {
-                product.active = action === 'active' ? 1 : 0;
-                
-            };
-        };*/
     };
     
     const filterProducts = (productCods: number[]) =>
@@ -385,9 +404,15 @@
         products.value = allProducts.value.filter((p: IProducts) => productCods.includes(p.product_cod));
     };
 
-    const openRegister = () =>
+ 
+    const productManagement = (action: string, product: string, productCod: number) =>
     {
-        showRegisterProduct.value = true;
+        console.log(action)
+        operation.value = action;
+        titleByOperation.value = titles[action];
+        productCodSelected.value = productCod;
+        
+        showProductManagement.value = true;
         showUpdateProduct.value = false;
         showProducts.value = false;
         showReportProducts.value = false;
@@ -397,11 +422,13 @@
 
     const closeRegister = () => 
     {
+        titleByOperation.value = 'Produtos';
         showProducts.value = true;
-        showRegisterProduct.value = false;
+        showProductManagement.value = false;
         showUpdateProduct.value = false;
         showReportProducts.value = false;
         getProducts();
+
     };
 
     const editProduct = (name: string, id: number) =>
@@ -409,7 +436,7 @@
         productName.value = name;
         productID.value = id;
         showUpdateProduct.value = true;
-        showRegisterProduct.value = false;
+        showProductManagement.value = false;
         showProducts.value = false;
         showReportProducts.value = false;
 
@@ -417,11 +444,11 @@
 
     const closeReload = (event: boolean) =>
     {
-        showRegisterProduct.value = false;
+        titleByOperation.value = 'Produtos';
+        showProductManagement.value = false;
         showReportProducts.value = false;
         showUpdateProduct.value = false;
         showImportFiles.value = false;
-        
         getProducts();
 
     };        
@@ -455,7 +482,6 @@
 
 <style>
     .products-grid {
-        width: 100%;
         padding: 5px;
     }
 

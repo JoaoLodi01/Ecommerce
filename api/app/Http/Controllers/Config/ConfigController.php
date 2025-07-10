@@ -52,7 +52,7 @@ class ConfigController extends Controller
     public function updateColor(ConfigColor $request, int $issuer_id)
     {
         $config = $this->configService->updateColor($request->validated(), $issuer_id);
-        return apiSuccess('Cor alteradas com sucesso!', $config);
+        return apiSuccess('Cores alteradas com sucesso!', $config);
 
     }
 }

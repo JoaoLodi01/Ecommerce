@@ -75,6 +75,8 @@
 
                 const data = res.data;
 
+                console.log(data);
+
                 $q.notify({
                     color: 'green',
                     message: data.message,
@@ -97,12 +99,11 @@
                 };
 
             } catch (error) {
-                console.error(error);
                 $q.notify({
-                    color: 'green',
-                    message: error.response || 'Erro na importação!',
+                    color: 'red',
+                    message: error.response.data.message || 'Erro na importação!',
                     position: 'top',
-                    timeout: 2000
+                    timeout: 2200
 
                 });
             }            

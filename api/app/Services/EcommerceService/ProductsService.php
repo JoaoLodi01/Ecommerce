@@ -44,11 +44,10 @@ class ProductsService
         return $product;
     }
 
-    public function findByID(int $id){
-        return response()->json([
-            'success' => true,
-            'product' => $this->productsRepository->findByID($id)
-        ]);
+    public function findByID(int $id, int $productCod){
+        $product = $this->productsRepository->findByID($id, $productCod);
+        return $product;
+
     }
     
     public function create(array $data){
@@ -163,8 +162,13 @@ class ProductsService
         //$path = public_path('files/' . $file->getClientOriginalName());
         //unlink($path);
         $filePath = $directory . DIRECTORY_SEPARATOR . $fileName;
-        ImportProductsJob::dispatch($filePath, $issuerID);
+        $importJob = ImportProductsJob::dispatch($filePath, $issuerID);
         
+        if(!$importJob)
+        {
+            Log::warning('Erro no Job');
+            return;
+        };
         return $directory . DIRECTORY_SEPARATOR . $fileName;
     }
 }
