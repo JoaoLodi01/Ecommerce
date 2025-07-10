@@ -497,6 +497,12 @@ import camelcaseKeys from 'camelcase-keys';
 
     const getProductData = async () =>
     {
+        $q.notify({
+            color: 'green',
+            message: 'Carregando dados ...',
+            position: 'top',
+            timeout: 2000
+        });
         console.log('getProductData');
         const res = await api.get(`/ecommerce/products/${productDetails.value.issuerId}/${props.productCod}`);
         const data: IProducts = camelcaseKeys(res.data.data, { deep: true });
