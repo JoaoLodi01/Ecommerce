@@ -16,7 +16,10 @@
         />
     </div>
 
-    <div class="lg:col-span-2 overflow-y-auto border border-gray-400 rounded-md shadow-sm" style="height: 230px;">
+    <div
+        class="lg:col-span-2 overflow-y-auto border border-gray-400 rounded-md shadow-sm"
+        :style="{ width: readonly ? '1000px' : '1000px', height: readonly ? '400px' : '250px'}"
+        >
         <table class="min-w-full border-collapse bg-white text-sm">
             <thead class="sticky top-0 z-10 bg-blue-600 text-white">
                 <tr>

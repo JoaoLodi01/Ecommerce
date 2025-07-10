@@ -6,8 +6,7 @@
             'ml-14': props.widthScreen > 1080
         }"
     >
-
-    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastrar recebimentos</h2>
+    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">{{ title }} recebimentos</h2>
 
         <form
             @submit.prevent="submitForm"
@@ -182,7 +181,7 @@
 <script setup lang="ts">
     import { api } from "src/boot/axios"
     import {LocalStorage, useQuasar} from "quasar";
-    import { ref, computed, watch, defineProps, defineEmits } from 'vue';
+    import { ref, computed, watch, defineProps, defineEmits, reactive, onMounted } from 'vue';
     import dayjs from "dayjs";
     import 'dayjs/locale/pt-br';
     import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
@@ -204,9 +203,14 @@
 
     const today = dayjs();
     const $q = useQuasar();
-    
-    //const user = ref<number>(LocalStorage.getItem("user_name"));
+    const titles = reactive({
+        'view': 'Visualizando ',
+        'register': 'Cadastrando ',
+        'update': 'Editando '
+    });
 
+    let title = ref<string>('');
+    
     const form = ref<IReceiveBody>({
         issuerID: LocalStorage.getItem("issuer_id"),
         description: 'Registro Manual Receber',
@@ -306,5 +310,9 @@
             
         }
     };
+
+    onMounted(() => {
+        title.value = titles[props.action];
+    });
   
 </script>

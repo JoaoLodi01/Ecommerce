@@ -16,7 +16,7 @@
                 <q-btn
                     class="p-2 rounded-lg"
                     :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    @click="manageClick(0, 'edit', false)"
+                    @click="manageClick(0, 'register', false)"
                     label="Cadastrar"
                 />
 
@@ -92,7 +92,7 @@
                         <td class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3 text-center">
                             <q-btn
-                                @click="manageClick(register.receiveCod, 'edit', false)"
+                                @click="manageClick(register.receiveCod, 'update', false)"
                                 icon="edit"
                                 color="green"
                                 class="mr-1"
