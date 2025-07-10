@@ -2,8 +2,8 @@
     <div
         class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
-            'w-screen': widthScreen < 1366,
-            'ml-36 form-customer': widthScreen > 1366
+            'w-screen': props.widthScreen < 1366,
+            'ml-36 form-customer': props.widthScreen > 1366
         }"
 
     >
@@ -43,7 +43,7 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
                         <q-input
-                            v-model="productDetails.barcode_internal"
+                            v-model="productDetails.barcodeInternal"
                             type="text"
                             label="Cód. Barras Interno"
                             color="grey-7"
@@ -52,12 +52,14 @@
                             class="m-2"
 
                         />
+
                         <q-btn 
-                            color="grey-7" 
                             label="Gerar Cód."
                             class="h-4 w-28 mt-6 mb-auto"
+                            :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                             @click="generateCode()"
                         />
+                        
                     </div>
                 </div>
             </div>            
@@ -72,13 +74,12 @@
                     class="m-2"
                     :rules="[
                         val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
-
                     ]"
 
                 />
 
                 <q-input
-                    v-model="productDetails.cost_price"
+                    v-model="productDetails.costPrice"
                     type="text"
                     label="Preço de custo"
                     color="grey-7"
@@ -91,7 +92,7 @@
                 />
 
                 <q-input
-                    v-model="productDetails.profit_percentage"
+                    v-model="productDetails.profitPercentage"
                     type="text"
                     label="Percentual de lucro"
                     color="grey-7"
@@ -122,7 +123,7 @@
             <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max">Dados de referência</h4>
                 <q-select
-                    v-model="productDetails.group_id"
+                    v-model="productDetails.groupId"
                     :options="allGroup"
                     label="Grupo"
                     filled
@@ -160,7 +161,7 @@
                 />
                 
                 <q-input
-                    v-model="productDetails.taxable_unit"
+                    v-model="productDetails.taxableUnit"
                     type="text"
                     label="taxable_unit"
                     color="grey-7"
@@ -208,7 +209,7 @@
                 <div class="border mb-2 rounded-md">
                     <h4 class="ml-2 border-b w-max">ICMS</h4>
                     <q-input 
-                        v-model="productDetails.icms_ecf" 
+                        v-model="productDetails.icmsEcf" 
                         type="text" 
                         label="ICMS %" 
                         color="grey-7"
@@ -223,7 +224,7 @@
                     />
 
                     <q-select 
-                        v-model="productDetails.cod_origem_icms" 
+                        v-model="productDetails.codOrigemIcms" 
                         :options="origensICMS" 
                         label="Origem ICMS" 
                         color="grey-7"
@@ -236,7 +237,7 @@
                 <div class="border mb-2 rounded-md">
                     <h4 class="ml-2 border-b w-max">IPI</h4>
                     <q-input 
-                        v-model="productDetails.aliquot_ipi" 
+                        v-model="productDetails.aliquotIpi" 
                         type="text" 
                         label="Aliq. IPI" 
                         color="grey-7"
@@ -259,7 +260,7 @@
                 <div class="border mb-2 rounded-md">
                     <h4 class="ml-2 border-b w-max">PIS</h4>
                     <q-input 
-                        v-model="productDetails.aliquot_pis" 
+                        v-model="productDetails.aliquotPis" 
                         type="text" 
                         label="Aliq. PIS" 
                         color="grey-7"
@@ -282,7 +283,7 @@
                 <div class="border mb-2 rounded-md">
                     <h4 class="ml-2 border-b w-max">COFINS</h4>
                     <q-input 
-                        v-model="productDetails.aliquot_cofins" 
+                        v-model="productDetails.aliquotCofins" 
                         type="text" 
                         label="Aliq. COFINS" 
                         color="grey-7"
@@ -305,254 +306,248 @@
                     <q-btn
                         type="submit"
                         class="mr-5"
+                        :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                     >
                         <button>Criar</button>
                     </q-btn>
 
-                    <q-btn
-                        @click="onReset()"
-                    >
-                        <button>Limpar</button>
-                    </q-btn>
                 </div>
             </div>            
         </q-form>
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar'
-    import { onBeforeUnmount, toRaw } from 'vue'
+    import { ref, onMounted, computed, defineProps, readonly } from 'vue'
     import { api } from 'src/boot/axios';
     import NCMSearch from 'src/components/Search/Tributs/NCMSearch.vue'
     import PISSearch from 'src/components/Search/Tributs/PISSearch.vue'
     import IPISearch from 'src/components/Search/Tributs/IPISearch.vue'
     import COFINSSearch from 'src/components/Search/Tributs/COFINSSearch.vue'
+import camelcaseKeys from 'camelcase-keys';
+
+    interface IProducts
+    {
+        issuerId: number,
+        product: string,
+        image: unknown | File,
+        barcode: string,
+        barcodeInternal: string,
+        groupId: string,
+        amount: string,
+        costPrice: number,
+        profitPercentage: number,
+        salePrice: number,
+        cfop: string,
+        csosncst: string,
+        ncm: string,
+        cest: string,
+        unit: string,
+        codOrigemIcms: string,
+        origemIcms: string,
+        icmsEcf: number,
+        taxableAmount: string,
+        taxableUnit: string,
+        taxBenefit: string,
+        codIpi: string,
+        aliquotIpi: number,
+        codPis: string,
+        aliquotPis: number,
+        codCofins: string,
+        aliquotCofins: number,
+    };
+
+    type TOrigensICMS = {
+        label: string,
+        cod: number
+    };
+
+    const emits = defineEmits<{
+        (e: 'close', value: boolean)
+    }>();
     
-    export default {
-        setup()
+    const props = defineProps<{
+        widthScreen: number,
+        operation: string,
+        productCod?: number
+
+    }>();
+
+    const $q = useQuasar();
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
+
+    const origensICMS = ref<TOrigensICMS[]>([
+        { label: '0 - NACIONAL', cod: 0 },
+        { label: '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA', cod: 1 },
+        { label: '2 - ESTRANGEIRA - ADQUIRIDA NO MERCADO INTERNO', cod: 2 },
+        { label: '3 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 40%', cod: 3 },
+        { label: '4 - NACIONAL - PROCESSO PRODUTIVO BÁSICO', cod: 4 },
+        { label: '5 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO <= 40%', cod: 5 },
+        { label: '6 - ESTRANGEIRA - IMPORTAÇÃO DIRETA SEM SIMILAR NACIONAL', cod: 6 },
+        { label: '7 - ESTRANGEIRA - INTERNA SEM SIMILAR NACIONAL', cod: 7 },
+        { label: '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%', cod: 8 }
+    ]);
+
+    const productDetails = ref<IProducts>({
+        issuerId: LocalStorage.getItem("issuer_id"),
+        product: '',
+        image: null,
+        barcode: '',
+        barcodeInternal: '',
+        groupId: '',
+        amount: '',
+        costPrice: 0,
+        profitPercentage: 0,
+        salePrice: 0,
+        cfop: '',
+        csosncst: '',
+        ncm: '',
+        cest: '',
+        unit: 'UN',
+        
+        codOrigemIcms: '',
+        origemIcms: '',
+        icmsEcf: 0,
+        taxableAmount: '',
+        taxableUnit: '',
+        taxBenefit: '',
+        codIpi: '',
+        aliquotIpi: 0,
+        codPis: '',
+        aliquotPis: 0,
+        codCofins: '',
+        aliquotCofins: 0,
+
+    });
+
+    const allGroup = ref<string[]>([]);
+                
+    const calculateSalePrice = computed(() => 
+    {
+        return productDetails.value.salePrice = productDetails.value.costPrice * Number((1 + productDetails.value.profitPercentage /
+        100).toFixed(2));
+
+    });
+
+    const getNCM = (ncm_event) =>
+    {
+        productDetails.value.ncm = ncm_event.ncm;
+    };
+
+    const onSubmit = async () =>
+    {
+        const response = await api.post('/ecommerce/products/create', productDetails.value);
+        if(response.data.success)
         {
-            const $q = useQuasar()
-            let timer
+            emits("close", true)
 
-            onBeforeUnmount(() => {
-                if(timer !== void 0)
-                {
-                    clearTimeout(timer)
-                    $q.loading.hide()
+        } else {
+            console.log(response.data)
 
-                }
-            })
-            return {
-                origensICMS: [
-                    { label: '0 - NACIONAL', cod: 0 },
-                    { label: '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA', cod: 1 },
-                    { label: '2 - ESTRANGEIRA - ADQUIRIDA NO MERCADO INTERNO', cod: 2 },
-                    { label: '3 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 40%', cod: 3 },
-                    { label: '4 - NACIONAL - PROCESSO PRODUTIVO BÁSICO', cod: 4 },
-                    { label: '5 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO <= 40%', cod: 5 },
-                    { label: '6 - ESTRANGEIRA - IMPORTAÇÃO DIRETA SEM SIMILAR NACIONAL', cod: 6 },
-                    { label: '7 - ESTRANGEIRA - INTERNA SEM SIMILAR NACIONAL', cod: 7 },
-                    { label: '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%', cod: 8 }
-                ],
+        };
+    };       
     
-            showLoading () {
-                    $q.loading.show({
-                        message: `Criando produto ...`
-                    })
+    const onSelectedCOFINS = (cod_cofins) =>
+    {
+        productDetails.value.codCofins = cod_cofins.cod;
+    };
 
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
+    const onSelectedPIS = (cod_pis) =>
+    {
+        productDetails.value.codPis = cod_pis.cod;
+    };
+    
+    const onSelectedIPI = (cod_ipi) =>
+    {
+        productDetails.value.codIpi = cod_ipi.cod;
+    };
 
-                    }, 2000)
-                }
-            }
-        },
+    const replaceICMS = () =>
+    {
+        productDetails.value.icmsEcf = productDetails.value.icmsEcf;
+    };
 
-        computed: {
-            calculateSalePrice()
-            {
-                return this.productDetails.sale_price = this.productDetails.cost_price * (1 + this.productDetails.profit_percentage /
-                100).toFixed(2)
+    const replaceCOFINS = () =>
+    {
+        productDetails.value.aliquotCofins = productDetails.value.aliquotCofins;
+    };
 
-            }
-        },
+    const replacePIS = () =>
+    {
+        productDetails.value.aliquotPis = productDetails.value.aliquotPis;
+    };
 
-        props: {
-            widthScreen: {
-                type: Number,
-                required: true
-            }
-        },
+    const replaceIPI = () =>
+    {
+        productDetails.value.aliquotIpi = productDetails.value.aliquotIpi;
+    };
 
-        data()
-        {
-            return {
-                productDetails: {
-                    issuer_id: LocalStorage.getItem("issuer_id"),
-                    product: '',
-                    image: null,
-                    barcode: '',
-                    barcode_internal: '',
-                    group_id: '',
-                    amount: '',
-                    cost_price: 0,
-                    profit_percentage: 0,
-                    sale_price: 0,
-                    cfop: '',
-                    csosncst: '',
-                    ncm: '',
-                    cest: '',
-                    unit: 'UN',
-                    
-                    cod_origem_icms: '',
-                    origem_icms: '',
-                    icms_ecf: '',
-                    taxable_amount: '',
-                    taxable_unit: '',
-                    tax_benefit: '',
-                    cod_ipi: '',
-                    aliquot_ipi: 0,
-                    cod_pis: '',
-                    aliquot_pis: 0,
-                    cod_cofins: '',
-                    aliquot_cofins: 0,
-
-                },
-
-                allGroup: [],
-
-            }
-        },
-
-        methods: {
-            handleFileUpload(event) {
-                const file = event.target.files[0];
-                this.productDetails.image = file;
-
-            },
-
-            getNCM(ncm_event)
-            {
-                this.productDetails.ncm = ncm_event.ncm
-            },
+    const generateCode = () =>
+    {
+        let randomCode = ''
+        for (let i = 0; i < 16; i++) {
+            let digit = Math.floor(Math.random() * 10)
+            randomCode += digit.toString()
             
-            async onSubmit()
-            {
-                this.showLoading()
-                const form = new FormData;
-                form.append("issuer_id", this.productDetails.issuer_id)
-                form.append("product", this.productDetails.product.toUpperCase())
-                form.append("image", this.productDetails.image)
-                form.append("barcode", this.productDetails.barcode)
-                form.append("barcode_internal", this.productDetails.barcode_internal)
-                form.append("group_id", this.productDetails.group_id)
-                form.append("amount", this.productDetails.amount)
-                form.append("cost_price", this.productDetails.cost_price)
-                form.append("profit_percentage", this.productDetails.profit_percentage)
-                form.append("sale_price", this.productDetails.sale_price)
-                form.append("unit", this.productDetails.unit)
-                form.append("cfop", this.productDetails.cfop)
-                form.append("csosncst", this.productDetails.csosncst)
-                form.append("ncm", this.productDetails.ncm)
-                form.append("cest", this.productDetails.cest)
-                form.append("cod_origem_icms", this.productDetails.cod_origem_icms.cod)
-                form.append("origem_icms", this.productDetails.cod_origem_icms.label)
-                form.append("icms_ecf", this.productDetails.icms_ecf)
-                form.append("cod_pis", this.productDetails.cod_pis)
-                form.append("aliquot_pis", this.productDetails.aliquot_pis)
-                form.append("cod_cofins", this.productDetails.cod_cofins)
-                form.append("aliquot_cofins", this.productDetails.aliquot_cofins)
-                form.append("cod_ipi", this.productDetails.cod_ipi)
-                form.append("aliquot_ipi", this.productDetails.aliquot_ipi)
-                form.append("taxable_unit", this.productDetails.taxable_unit)
-
-                console.log(this.productDetails)
-
-                const response = await api.post('/ecommerce/products/create', form)
-                if(response.data.success)
-                {
-                    this.$emit("close", true)
-
-                } else {
-                    console.log(response.data)
-
-                }
-            },
-
-            async getGroups()
-            {
-                const response = await api.get(`/ecommerce/products/all-groups/${this.productDetails.issuer_id}`)
-                this.allGroup.push(response.data.data)
-
-            },
-
-            onSelectedCOFINS(cod_cofins)
-            {
-                this.productDetails.cod_cofins = parseInt(cod_cofins.cod)
-            },
-
-            onSelectedPIS(cod_pis)
-            {
-                this.productDetails.cod_pis = parseInt(cod_pis.cod)
-            },
-            
-            onSelectedIPI(cod_ipi)
-            {
-                this.productDetails.cod_ipi = parseInt(cod_ipi.cod)
-            },
-
-            replaceICMS()
-            {
-                this.productDetails.icms_ecf = parseFloat(this.productDetails.icms_ecf.replace(',', '.'))
-            },
-
-            replaceCOFINS()
-            {
-                this.productDetails.aliquot_cofins = parseFloat(this.productDetails.aliquot_cofins.replace(',', '.'))
-            },
-
-            replacePIS()
-            {
-                this.productDetails.aliquot_pis = parseFloat(this.productDetails.aliquot_pis.replace(',', '.'))
-            },
-
-            replaceIPI()
-            {
-                this.productDetails.aliquot_ipi = parseFloat(this.productDetails.aliquot_ipi.replace(',', '.'))
-            },
-
-            generateCode()
-            {
-                let randomCode = ''
-                for (let i = 0; i < 16; i++) {
-                    let digit = Math.floor(Math.random() * 10)
-                    randomCode += digit.toString()
-                    
-                }
-                this.productDetails.barcode_internal = randomCode;
-
-            }
-
-        },
-
-        emits: [
-            'close'
-        ],
-
-        components: {
-            NCMSearch,
-            COFINSSearch,
-            PISSearch,
-            IPISearch
-        },
-
-        mounted(){
-            this.getGroups()
-
         }
-    }
+        productDetails.value.barcodeInternal = randomCode;
+
+    };
+
+    const getProductData = async () =>
+    {
+        $q.notify({
+            color: 'green',
+            message: 'Carregando dados ...',
+            position: 'top',
+            timeout: 2000
+        });
+        console.log('getProductData');
+        const res = await api.get(`/ecommerce/products/${productDetails.value.issuerId}/${props.productCod}`);
+        const data: IProducts = camelcaseKeys(res.data.data, { deep: true });
+
+        console.log(data);
+
+        productDetails.value = {
+            issuerId: data.issuerId,
+            product: data.product,
+            image: null,
+            barcode: data.barcode,
+            barcodeInternal: data.barcodeInternal,
+            groupId: data.groupId,
+            amount: data.amount,
+            costPrice: data.costPrice,
+            profitPercentage: data.profitPercentage,
+            salePrice: data.salePrice,
+            cfop: data.cfop,
+            csosncst: data.csosncst,
+            ncm: data.ncm,
+            cest: data.cest,
+            unit: data.unit,
+            
+            codOrigemIcms: data.codOrigemIcms,
+            origemIcms: data.origemIcms,
+            icmsEcf: data.icmsEcf,
+            taxableAmount: data.taxableAmount,
+            taxableUnit: data.taxableUnit,
+            taxBenefit: data.taxBenefit,
+            codIpi: data.codIpi,
+            aliquotIpi: data.aliquotIpi,
+            codPis: data.codPis,
+            aliquotPis: data.aliquotPis,
+            codCofins: data.codCofins,
+            aliquotCofins: data.aliquotCofins,
+        };
+
+        console.log(productDetails.value);
+    };
+
+    onMounted(async () => {
+        props.operation === 'update' ? await getProductData() : null;
+
+    })
 </script>
 
 <style lang="scss">

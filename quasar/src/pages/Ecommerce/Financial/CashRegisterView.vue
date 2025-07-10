@@ -71,10 +71,13 @@
             
         </div>
 
-        <div class="cash-register-grid relative overflow-y-auto border border-black rounded-lg shadow-lg">
+        <div class="cash-register-grid relative overflow-y-auto border rounded-lg shadow-lg">
             <table class="table-auto border-collapse border border-gray-300 bg-white ">
                 <thead class="font-semibold sticky top-0 z-10">
-                    <tr class="bg-blue-600 text-white">
+                    <tr 
+                        class="text-white"
+                        :style="`background-color: ${painelColor}; color: ${textColor}}`"
+                    >
                         <th scope="col" class="text-center px-6 py-3">Código</th>
                         <th scope="col" class="text-center px-6 py-3">Documento</th>
                         <th scope="col" class="px-6 py-3">Descrição</th>
@@ -164,6 +167,7 @@
     const $q = useQuasar()
     const today = dayjs();
     const buttonColor = LocalStorage.getItem("buttonColor");
+    const painelColor = LocalStorage.getItem("painelColor");
     const textColor = LocalStorage.getItem("textColor");
 
     let cashs = ref<ICashBody[]>([]);

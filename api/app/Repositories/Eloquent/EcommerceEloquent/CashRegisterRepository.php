@@ -26,6 +26,8 @@ class CashRegisterRepository
     public function create(array $cashRegisters)
     {
         Log::info('INICIOU REGISTRO NO CAIXA');
+
+        /*
         Log::info($cashRegisters);
         Log::info('Buscando emitente: '. $cashRegisters[0]['issuer_id']);
 
@@ -100,7 +102,7 @@ class CashRegisterRepository
             $this->updateCurrentCash($cashRegisters[0]['issuer_id']);
 
         }
-        
+        */   
     }
 
     public function updateCurrentCash(int $issuer_id)

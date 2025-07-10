@@ -6,7 +6,8 @@ use App\Repositories\Eloquent\Config\{
     ConfigHotelRepository,
     ConfigCustomersRepository,
     ConfigPDVRepository,
-    ConfigColorRepository
+    ConfigColorRepository,
+    ConfigProductsRepostiry
 };
 
 class ConfigService
@@ -17,7 +18,8 @@ class ConfigService
         protected ConfigHotelRepository $configHotelRepository,
         protected ConfigPDVRepository $configPDVRepository,
         protected ConfigCustomersRepository $configCustomersRepository,
-        protected ConfigColorRepository $configColorRepository
+        protected ConfigColorRepository $configColorRepository,
+        protected ConfigProductsRepostiry $configProductsRepostiry
 
     ) {}
 
@@ -27,7 +29,9 @@ class ConfigService
             'hotel' => $this->configHotelRepository->getConfigs($issuer_id),
             'pdv' => $this->configPDVRepository->getConfigs($issuer_id),
             'customers' => $this->configCustomersRepository->getConfigs($issuer_id),
-            'color' => $this->configColorRepository->getConfigs($issuer_id)
+            'color' => $this->configColorRepository->getConfigs($issuer_id),
+            'products' => $this->configProductsRepostiry->getConfigs($issuer_id)
+            
         ];
     }
 

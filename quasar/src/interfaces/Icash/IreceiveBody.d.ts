@@ -22,5 +22,7 @@ interface IReceiveBody
     valueEntry: number,
     valuePaid: number,
     valueOriginal: number,
+    installmentAmount?: number;
+    installmentOriginal?: number;
     
 };

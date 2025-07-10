@@ -6,7 +6,9 @@ use App\Exceptions\IssuerExceptions\IssuerNotFound;
 use App\Repositories\Eloquent\EcommerceEloquent\GroupRepository;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
 use App\Exceptions\ProductsExceptions\ProductNotFound;
+use App\Jobs\ProductsJobs\ImportProductsJob;
 use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class ProductsService
@@ -42,11 +44,10 @@ class ProductsService
         return $product;
     }
 
-    public function findByID(int $id){
-        return response()->json([
-            'success' => true,
-            'product' => $this->productsRepository->findByID($id)
-        ]);
+    public function findByID(int $id, int $productCod){
+        $product = $this->productsRepository->findByID($id, $productCod);
+        return $product;
+
     }
     
     public function create(array $data){
@@ -77,8 +78,8 @@ class ProductsService
         }
     }
 
-    public function active(int $id){
-        $product = $this->productsRepository->active($id);
+    public function active(int $id, int $productCod){
+        $product = $this->productsRepository->active($id, $productCod);
 
         if(!$product)
         {
@@ -88,8 +89,8 @@ class ProductsService
         return $product;
     }
 
-    public function delete(int $id){
-        $product = $this->productsRepository->delete($id);
+    public function delete(int $id, int $productCod){
+        $product = $this->productsRepository->delete($id, $productCod);
 
         if(!$product)
         {
@@ -141,5 +142,33 @@ class ProductsService
     public function allGroup()
     {
         return $this->groupRepository->all();
+    }
+
+    public function importProducts(object $file, int $issuerID)
+    {
+        Log::debug('Caiu no import service');
+        $fileName = $file->getClientOriginalName();
+        $date = new Carbon();
+        $directory = storage_path("files/{$issuerID}/products/" . $date->format('Y-m-d'));
+
+        if(!is_dir($directory))
+        {
+            mkdir($directory, 0755, true);
+
+        }
+
+        $file->move($directory, $fileName);
+        
+        //$path = public_path('files/' . $file->getClientOriginalName());
+        //unlink($path);
+        $filePath = $directory . DIRECTORY_SEPARATOR . $fileName;
+        $importJob = ImportProductsJob::dispatch($filePath, $issuerID);
+        
+        if(!$importJob)
+        {
+            Log::warning('Erro no Job');
+            return;
+        };
+        return $directory . DIRECTORY_SEPARATOR . $fileName;
     }
 }

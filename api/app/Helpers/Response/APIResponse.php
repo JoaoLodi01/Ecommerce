@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Log;
 
 function apiSuccess($message = 'Sucesso!', $data = [], $success = true, $status = 200)
 {
-    Log::info('Chamou o apiSuccess');
     return response()->json([
         'success' => $success,
         'message' => $message,

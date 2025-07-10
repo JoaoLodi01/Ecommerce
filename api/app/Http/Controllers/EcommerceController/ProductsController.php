@@ -4,6 +4,7 @@ namespace App\Http\Controllers\EcommerceController;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Products\{
+    ImportProductsRequest,
     ProductsRequest,
     SearchProducts
 };
@@ -37,9 +38,8 @@ class ProductsController extends Controller
         return $this->productsService->create($data);
     }
 
-    public function findByID(string|int $id){
-        Log::info('findByID . ' . $id . ' type: ' . gettype($id));
-        return $this->productsService->findByID($id);
+    public function findByID(int $id, int $productCod){
+        return apiSuccess('Produto encontrado', $this->productsService->findByID($id, $productCod));
     }
 
     public function update(ProductsRequest $request, int $id)
@@ -51,18 +51,36 @@ class ProductsController extends Controller
         return $this->productsService->update($data, $id);
     }
 
-    public function active(int $id)
+    public function active(int $id, int $productCod)
     {
-        return apiSuccess("Produto ativado com sucesso!", $this->productsService->active($id));
+        return apiSuccess("Produto ativado com sucesso!", $this->productsService->active($id, $productCod));
     }
 
-    public function delete(int $id)
+    public function delete(int $id, int $productCod)
     {
-        return apiSuccess("Produto ativado com sucesso!", $this->productsService->delete($id));
+        return apiSuccess("Produto desativado com sucesso!", $this->productsService->delete($id, $productCod));
     }
 
     public function allGroup()
     {
         return $this->productsService->allGroup();
+    }
+
+    public function downloadDefaultFile()
+    {
+        Log::debug('Vai fazer o download ');
+        $filePath = storage_path('files/default_file/Padrão_Importação.xlsx');
+        $fileName = "Padrão_Importação.xlsx";
+        
+        return response()->download($filePath, $fileName, [
+            'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+
+        ]);
+    }
+
+    public function importProducts(ImportProductsRequest $request, int $issuerID)
+    {        
+        return apiSuccess('Arquivo recebido com sucesso!', $this->productsService->importProducts($request->file('importFile'), $issuerID));
+
     }
 }
