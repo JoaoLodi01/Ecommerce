@@ -15,6 +15,7 @@ use App\Models\Registers\{
 
 use App\Models\Customer;
 use App\Models\ConfigCustomers;
+use App\Models\ConfigProducts;
 use App\Models\SiteColors;
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
 use App\Services\GetIBGECod\GetIBGECodService;
@@ -102,6 +103,15 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             ]);
 
             Log::info('--- Fim da criação do configCustomer padrão ---');
+
+            Log::info('--- Criação das configProducts padrão ---');
+                $maxCod = ConfigCustomers::where('issuer_id')->max('config_product_cod');
+                ConfigProducts::create([
+                    'issuer_id' => $issuer->id,
+                    'config_product_cod' => $maxCod ? $maxCod + 1 : 1,
+                ]);
+
+            Log::info('--- Fim da criação do configProducts padrão ---');
 
             Log::info('--- Criação das cores padrão ---');
             $maxCod = SiteColors::where('issuer_id')->max('color_cod');

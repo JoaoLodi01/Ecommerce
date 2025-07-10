@@ -16,7 +16,7 @@ class ConfigController extends Controller
         protected ConfigService $configService
     )
     {
-        Log::info('Memória usada ConfigController::class, __construct: ' . memory_get_usage(true));
+        //Log::info('Memória usada ConfigController::class, __construct: ' . memory_get_usage(true));
     }
 
     public function getConfigs(string $issuer_id)
@@ -52,7 +52,7 @@ class ConfigController extends Controller
     public function updateColor(ConfigColor $request, int $issuer_id)
     {
         $config = $this->configService->updateColor($request->validated(), $issuer_id);
-        return apiSuccess('Cor alteradas com sucesso!', $config);
+        return apiSuccess('Cores alteradas com sucesso!', $config);
 
     }
 }

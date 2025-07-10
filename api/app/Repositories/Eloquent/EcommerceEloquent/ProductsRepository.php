@@ -2,10 +2,12 @@
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
 
+use App\DTO\Products\ProductsDTO;
 use App\Models\EcommerceModels\Products;
 use App\Models\Registers\FirstSteps;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
+use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 class ProductsRepository 
 {
     protected $cacheKeyPrefix = 'products';
@@ -97,8 +99,7 @@ class ProductsRepository
         $issuer_id = $data['issuer_id'];
         $data['group_id'] ? $group = $this->groupRepository->findByID($data['group_id']) : null;
 
-        $maxCode = Products::where('issuer_id', $issuer_id)->max('product_cod');
-        $productCod = $maxCode ? $maxCode + 1 : 1;
+        $maxCod = Products::where('issuer_id', $issuer_id)->max('product_cod');
 
         $stpes = FirstSteps::where('issuer_id', $issuer_id)->first();
         $stpes->update([
@@ -107,7 +108,7 @@ class ProductsRepository
         $stpes->save();
         
         return Products::create([
-            'product_cod' => $productCod,
+            'product_cod' => $maxCod ? $maxCod + 1 : 1,
             'issuer_id' => $issuer_id,
             'product' => $data['product'],
             'image' => $data['image'],
@@ -163,34 +164,45 @@ class ProductsRepository
         ]);
     }
 
-    public function active(int $product_cod)
+    public function active(int $id, int $productCod)
     {
-        $product = Products::where('product_cod', $product_cod)->first();
-        $issuer_id = $product->issuer_id;
-        
-        $cacheKey = "{$this->cacheKeyPrefix}_{$issuer_id}";
-
-        Cache::forget($cacheKey);
-        return $product->update([
+        $product = Products::where('issuer_id', $id)->where('product_cod', $productCod)->first();
+        $product->update([
             'active' => 1
+
         ]);
+
+        return $product->product;
+
     }
 
-    public function delete(int $product_cod)
+    public function delete(int $id, int $productCod)
     {
-        return Products::where('product_cod', $product_cod)->update([
+        Log::info($id);
+        Log::info($productCod);
+        $product = Products::where('issuer_id', $id)
+                            ->where('product_cod', $productCod)
+                            ->first();
+
+        
+        Log::debug($product);
+        $product->update([
             'active' => 0
 
         ]);
+
+        return $product->product;
+
     }
     
-    public function findByID(int $product_cod){
-        return Products::where('product_cod', $product_cod)->first();
+    public function findByID(int $issuerID, int $productCod){
+        return Products::where('issuer_id', $issuerID)->where('product_cod', $productCod)->first();
+        
     }
 
     public function decreaseQuantiy(int $product_cod, float|int $quantiy)
     {
-        Log::info('-- Inicio decreaseQuantiy, linha 50 --');
+        /*Log::info('-- Inicio decreaseQuantiy, linha 50 --');
         $product = $this->findByID($product_cod);
         if($product)
         {
@@ -201,7 +213,26 @@ class ProductsRepository
             
         }
 
-        Log::info('-- Fim decreaseQuantiy, linha 62 --');
+        Log::info('-- Fim decreaseQuantiy, linha 62 --');*/
     }
-       
+
+    public function importProducts(ProductsDTO $dto): void
+    {
+        Log::debug('Repositorio: importProducts');
+        Log::debug($dto->amount);
+        $maxCod = Products::where('issuer_id', $dto->issuer_id)->max('product_cod');
+        Products::create([
+            'product_cod' => $maxCod ? $maxCod + 1 : 1,
+            'issuer_id' => $dto->issuer_id,
+            'product' => $dto->product,
+            'cost_price' => $dto->cost_price,
+            'profit_percentage' => $dto->profit_percentage,
+            'sale_price' => $dto->sale_price,
+            'amount' => $dto->amount,
+            'cfop' => $dto->cfop,
+            'unit' => $dto->unit,
+            'csosncst' => $dto->csosncst
+
+        ]);
+    } 
 }
