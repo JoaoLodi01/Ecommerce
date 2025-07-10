@@ -66,16 +66,8 @@ class ProductsService
     }
 
     public function update(array $data, int $id){
-        try {
-            $product = $this->productsRepository->update($data, $id);
-            return response()->json([
-                'success' => true,
-                'product' => $product
-            ], 200);
-
-        } catch (\Throwable $th) {
-            
-        }
+        $product = $this->productsRepository->update($data, $id);
+        return $product;
     }
 
     public function active(int $id, int $productCod){

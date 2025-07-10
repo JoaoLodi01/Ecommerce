@@ -37,7 +37,7 @@ class ProductsRequest extends FormRequest
             'icmsEcf' => ['required', 'min:1'],
             'taxableAmount' => ['sometimes'],
             'taxableUnit' => [$required, 'string'],
-            'taxBenefit' => ['sometimes', 'string'],
+            'taxBenefit' => ['nullable', 'numeric'],
             'codIpi' => [$required, 'string'],
             'aliquotIpi' => [$required],
             'codPis' => [$required, 'string'],

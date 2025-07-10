@@ -215,7 +215,6 @@
                         color="grey-7"
                         class="m-2"
                         v-bind:mask="'##,##'"
-                        @update:model-value="replaceICMS"
                         :rules="[
                             val => !isNaN(Number(String(val).replace(',', '.'))) || 'Esse campo precisa ser um número'
 
@@ -226,6 +225,7 @@
                     <q-select 
                         v-model="productDetails.codOrigemIcms" 
                         :options="origensICMS" 
+                        @update:model-value="replaceICMS"
                         label="Origem ICMS" 
                         color="grey-7"
                         class="m-2"
@@ -306,9 +306,9 @@
                         type="submit"
                         class="mr-5"
                         :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    >
-                        <button>Criar</button>
-                    </q-btn>
+                        :label="props.operation === 'update' ? 'Alterar dados' : 'Criar produto'"
+                        :disable="loanding"
+                    />
 
                 </div>
             </div>            
@@ -318,13 +318,18 @@
 
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar'
-    import { ref, onMounted, computed, defineProps, readonly } from 'vue'
+    import { ref, onMounted, computed, defineProps } from 'vue'
     import { api } from 'src/boot/axios';
     import NCMSearch from 'src/components/Search/Tributs/NCMSearch.vue'
     import PISSearch from 'src/components/Search/Tributs/PISSearch.vue'
     import IPISearch from 'src/components/Search/Tributs/IPISearch.vue'
     import COFINSSearch from 'src/components/Search/Tributs/COFINSSearch.vue'
     import camelcaseKeys from 'camelcase-keys';
+
+    type TOrigensICMS = {
+        label: string,
+        cod: number
+    };
 
     interface IProducts
     {
@@ -343,7 +348,7 @@
         ncm: string,
         cest: string,
         unit: string,
-        codOrigemIcms: string,
+        codOrigemIcms: number,
         origemIcms: string,
         icmsEcf: number,
         taxableAmount: string,
@@ -355,11 +360,6 @@
         aliquotPis: number,
         codCofins: string,
         aliquotCofins: number,
-    };
-
-    type TOrigensICMS = {
-        label: string,
-        cod: number
     };
 
     const emits = defineEmits<{
@@ -406,7 +406,7 @@
         cest: '',
         unit: 'UN',
         
-        codOrigemIcms: '',
+        codOrigemIcms: 0,
         origemIcms: '',
         icmsEcf: 0,
         taxableAmount: '',
@@ -421,6 +421,7 @@
 
     });
 
+    let loanding = ref<boolean>(false);
     const allGroup = ref<string[]>([]);
                 
     const calculateSalePrice = computed(() => 
@@ -437,24 +438,46 @@
 
     const onSubmit = async () =>
     {
+        loanding.value = true;
+        console.log('Dados de envio: ', productDetails.value);
+        
+        const isUpdate = props.operation === 'update' ? true : false;
+
+        $q.notify({
+            color: 'green',
+            message: isUpdate ? 'Alterando dados do produto!' : 'Cadastrando um novo produto!',
+            position: 'top',
+            timeout: 2000
+
+        });
+
         console.log(props.operation);
-        const apiURL = `/ecommerce/products/${props.operation === 'update' ? `update/${props.productCod}` : 'create'}`;
-        const apiMethod = props.operation === 'update' ? 'put' : 'post';
-        const res = props.operation === 'update' ? await api.put(apiURL, productDetails.value) : await api.post(apiURL, productDetails.value);
+        const apiURL = `/ecommerce/products/${isUpdate ? `update/${props.productCod}` : 'create'}`;
+        
+        const res = isUpdate ? await api.put(apiURL, productDetails.value) : await api.post(apiURL, productDetails.value);
         const data = res.data;
+        
         console.log('API_URL: ', apiURL);
         console.log('Data: ', data);
 
-        /*const response = await api.(, productDetails.value);
+        /*const response = await api.(, productDetails.value);*/
         
-        if(response.data.success)
+        if(data.success)
         {
-            emits("close", true)
+            $q.notify({
+                color: 'green',
+                message: isUpdate ? 'Produto alterando com sucesso!' : 'Produto cadastrado com sucesso!',
+                position: 'top',
+                timeout: 2000
+
+            });
+
+            emits('close', true);
 
         } else {
-            console.log(response.data)
+            loanding.value = false;
 
-        };*/
+        };
     };       
     
     const onSelectedCOFINS = (cod_cofins) =>
@@ -474,7 +497,13 @@
 
     const replaceICMS = () =>
     {
-        productDetails.value.icmsEcf = productDetails.value.icmsEcf;
+        console.log('Vai organizaro ICMS');
+        const data: number = productDetails.value.codOrigemIcms;
+        const labels: TOrigensICMS = {label: '', cod: data };
+
+        console.log('Labels: ', labels);
+        console.log(productDetails.value);
+
     };
 
     const replaceCOFINS = () =>
@@ -506,6 +535,7 @@
 
     const getProductData = async () =>
     {
+        loanding.value = true;
         $q.notify({
             color: 'green',
             message: 'Carregando dados ...',
@@ -518,38 +548,41 @@
 
         console.log(data);
 
-        productDetails.value = {
-            issuerId: data.issuerId,
-            product: data.product,
-            image: null,
-            barcode: data.barcode,
-            barcodeInternal: data.barcodeInternal,
-            groupId: data.groupId,
-            amount: data.amount,
-            costPrice: data.costPrice,
-            profitPercentage: data.profitPercentage,
-            salePrice: data.salePrice,
-            cfop: data.cfop,
-            csosncst: data.csosncst,
-            ncm: data.ncm,
-            cest: data.cest,
-            unit: data.unit,
-            
-            codOrigemIcms: data.codOrigemIcms,
-            origemIcms: data.origemIcms,
-            icmsEcf: data.icmsEcf,
-            taxableAmount: data.taxableAmount,
-            taxableUnit: data.taxableUnit,
-            taxBenefit: data.taxBenefit,
-            codIpi: data.codIpi,
-            aliquotIpi: data.aliquotIpi,
-            codPis: data.codPis,
-            aliquotPis: data.aliquotPis,
-            codCofins: data.codCofins,
-            aliquotCofins: data.aliquotCofins,
-        };
+        if(res.data.success)
+        {
+            productDetails.value = {
+                issuerId: data.issuerId,
+                product: data.product,
+                image: null,
+                barcode: data.barcode,
+                barcodeInternal: data.barcodeInternal,
+                groupId: data.groupId,
+                amount: data.amount,
+                costPrice: data.costPrice,
+                profitPercentage: data.profitPercentage,
+                salePrice: data.salePrice,
+                cfop: data.cfop,
+                csosncst: data.csosncst,
+                ncm: data.ncm,
+                cest: data.cest,
+                unit: data.unit,
+                
+                codOrigemIcms: data.codOrigemIcms,
+                origemIcms: data.origemIcms,
+                icmsEcf: data.icmsEcf,
+                taxableAmount: data.taxableAmount,
+                taxableUnit: data.taxableUnit,
+                taxBenefit: data.taxBenefit,
+                codIpi: data.codIpi,
+                aliquotIpi: data.aliquotIpi,
+                codPis: data.codPis,
+                aliquotPis: data.aliquotPis,
+                codCofins: data.codCofins,
+                aliquotCofins: data.aliquotCofins,
+            };
 
-        console.log(productDetails.value);
+            loanding.value = false;
+        };
     };
 
     onMounted(async () => {

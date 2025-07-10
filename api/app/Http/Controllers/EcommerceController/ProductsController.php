@@ -41,11 +41,8 @@ class ProductsController extends Controller
 
     public function update(ProductsRequest $request, int $id)
     {
-        $data = $request->validated();
-        Log::info('Data');
-        Log::info($data);
-        
-        return $this->productsService->update($data, $id);
+        Log::debug($request->validated());
+        return apiSuccess('Produto alterado com sucesso!', $this->productsService->update($request->validated(), $id));
     }
 
     public function active(int $id, int $productCod)
