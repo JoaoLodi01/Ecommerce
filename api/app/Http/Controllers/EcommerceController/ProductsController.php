@@ -32,10 +32,7 @@ class ProductsController extends Controller
 
     public function create(ProductsRequest $request)
     {
-        $data = $request->validated();
-        Log::info('Data');
-        Log::info($data);
-        return $this->productsService->create($data);
+        return $this->productsService->create($request->validated());
     }
 
     public function findByID(int $id, int $productCod){

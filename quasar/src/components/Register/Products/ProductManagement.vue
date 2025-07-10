@@ -217,7 +217,7 @@
                         v-bind:mask="'##,##'"
                         @update:model-value="replaceICMS"
                         :rules="[
-                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+                            val => !isNaN(Number(String(val).replace(',', '.'))) || 'Esse campo precisa ser um número'
 
                         ]"
                         
@@ -245,10 +245,9 @@
                         v-bind:mask="'##,##'"
                         @update:model-value="replaceIPI"
                         :rules="[
-                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+                            val => !isNaN(Number(String(val).replace(',', '.'))) || 'Esse campo precisa ser um número'
 
                         ]"
-
                     />
 
                     <IPISearch
@@ -268,7 +267,7 @@
                         v-bind:mask="'##,##'"
                         @update:model-value="replacePIS"
                         :rules="[
-                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+                            val => !isNaN(Number(String(val).replace(',', '.'))) || 'Esse campo precisa ser um número'
 
                         ]"
 
@@ -291,7 +290,7 @@
                         v-bind:mask="'##,##'"
                         @update:model-value="replaceCOFINS"
                         :rules="[
-                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+                            val => !isNaN(Number(String(val).replace(',', '.'))) || 'Esse campo precisa ser um número'
 
                         ]"
 
@@ -325,7 +324,7 @@
     import PISSearch from 'src/components/Search/Tributs/PISSearch.vue'
     import IPISearch from 'src/components/Search/Tributs/IPISearch.vue'
     import COFINSSearch from 'src/components/Search/Tributs/COFINSSearch.vue'
-import camelcaseKeys from 'camelcase-keys';
+    import camelcaseKeys from 'camelcase-keys';
 
     interface IProducts
     {
@@ -438,7 +437,16 @@ import camelcaseKeys from 'camelcase-keys';
 
     const onSubmit = async () =>
     {
-        const response = await api.post('/ecommerce/products/create', productDetails.value);
+        console.log(props.operation);
+        const apiURL = `/ecommerce/products/${props.operation === 'update' ? `update/${props.productCod}` : 'create'}`;
+        const apiMethod = props.operation === 'update' ? 'put' : 'post';
+        const res = props.operation === 'update' ? await api.put(apiURL, productDetails.value) : await api.post(apiURL, productDetails.value);
+        const data = res.data;
+        console.log('API_URL: ', apiURL);
+        console.log('Data: ', data);
+
+        /*const response = await api.(, productDetails.value);
+        
         if(response.data.success)
         {
             emits("close", true)
@@ -446,7 +454,7 @@ import camelcaseKeys from 'camelcase-keys';
         } else {
             console.log(response.data)
 
-        };
+        };*/
     };       
     
     const onSelectedCOFINS = (cod_cofins) =>
