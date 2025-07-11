@@ -57,7 +57,7 @@ Route::prefix('v1')->group( function (){
                 Route::post('/create', [ProductsController::class, 'create']);
                 Route::get('/{id}/{productCod}', [ProductsController::class, 'findByID']);
                 Route::get('/imagem/{id}', [ProductsController::class, 'findImage']);
-                Route::put('/{id}', [ProductsController::class, 'update']);
+                Route::put('/update/{id}', [ProductsController::class, 'update']);
                 Route::put('/active/{id}/{productCod}', [ProductsController::class, 'active']);
                 Route::put('/disable/{id}/{productCod}', [ProductsController::class, 'delete']);
                 Route::post('/import-products/{id}', [ProductsController::class, 'importProducts']);

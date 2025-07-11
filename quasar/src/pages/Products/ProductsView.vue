@@ -29,7 +29,7 @@
             >
                 <q-btn
                     v-if="showProducts"
-                    @click="productManagement('register', '', 0)"
+                    @click="productManagement('create', '', 0)"
                     class="font-semibold rounded-lg hover:bg-blue-400 transition"
                     :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 
@@ -402,7 +402,6 @@
         showProductManagement.value = true;
         showProducts.value = false;
         showReportProducts.value = false;
-        
         
     };
 
