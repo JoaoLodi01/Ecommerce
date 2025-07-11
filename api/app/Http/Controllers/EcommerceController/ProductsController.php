@@ -32,23 +32,21 @@ class ProductsController extends Controller
 
     public function create(ProductsRequest $request)
     {
-        $data = $request->validated();
-        Log::info('Data');
-        Log::info($data);
-        return $this->productsService->create($data);
+        return apiSuccess('Produto criado com sucesso', $this->productsService->create($request->validated()));
     }
 
     public function findByID(int $id, int $productCod){
         return apiSuccess('Produto encontrado', $this->productsService->findByID($id, $productCod));
     }
+    
+    public function findLastCode(int $id, string|int $barCode){
+        return apiSuccess('Produto encontrado', $this->productsService->findLastCode($id, $barCode));
+    }
 
     public function update(ProductsRequest $request, int $id)
     {
-        $data = $request->validated();
-        Log::info('Data');
-        Log::info($data);
-        
-        return $this->productsService->update($data, $id);
+        Log::debug($request->validated());
+        return apiSuccess('Produto alterado com sucesso!', $this->productsService->update($request->validated(), $id));
     }
 
     public function active(int $id, int $productCod)

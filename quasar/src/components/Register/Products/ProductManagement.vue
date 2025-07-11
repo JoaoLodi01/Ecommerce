@@ -59,6 +59,7 @@
                             :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                             @click="generateCode()"
                         />
+                        
                     </div>
                 </div>
             </div>            
@@ -214,17 +215,17 @@
                         color="grey-7"
                         class="m-2"
                         v-bind:mask="'##,##'"
-                        @update:model-value="replaceICMS"
                         :rules="[
-                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+                            val => !isNaN(Number(String(val).replace(',', '.'))) || 'Esse campo precisa ser um número'
 
                         ]"
                         
                     />
 
                     <q-select 
-                        v-model="productDetails.codOrigemIcms" 
+                        v-model="textField" 
                         :options="origensICMS" 
+                        @update:model-value="replaceICMS"
                         label="Origem ICMS" 
                         color="grey-7"
                         class="m-2"
@@ -244,10 +245,9 @@
                         v-bind:mask="'##,##'"
                         @update:model-value="replaceIPI"
                         :rules="[
-                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+                            val => !isNaN(Number(String(val).replace(',', '.'))) || 'Esse campo precisa ser um número'
 
                         ]"
-
                     />
 
                     <IPISearch
@@ -267,7 +267,7 @@
                         v-bind:mask="'##,##'"
                         @update:model-value="replacePIS"
                         :rules="[
-                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+                            val => !isNaN(Number(String(val).replace(',', '.'))) || 'Esse campo precisa ser um número'
 
                         ]"
 
@@ -290,7 +290,7 @@
                         v-bind:mask="'##,##'"
                         @update:model-value="replaceCOFINS"
                         :rules="[
-                            val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
+                            val => !isNaN(Number(String(val).replace(',', '.'))) || 'Esse campo precisa ser um número'
 
                         ]"
 
@@ -306,9 +306,9 @@
                         type="submit"
                         class="mr-5"
                         :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    >
-                        <button>Criar</button>
-                    </q-btn>
+                        :label="props.operation === 'update' ? 'Alterar dados' : 'Criar produto'"
+                        :disable="loanding"
+                    />
 
                 </div>
             </div>            
@@ -318,13 +318,18 @@
 
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar'
-    import { ref, onMounted, computed, defineProps, readonly } from 'vue'
+    import { ref, onMounted, computed, defineProps } from 'vue'
     import { api } from 'src/boot/axios';
     import NCMSearch from 'src/components/Search/Tributs/NCMSearch.vue'
     import PISSearch from 'src/components/Search/Tributs/PISSearch.vue'
     import IPISearch from 'src/components/Search/Tributs/IPISearch.vue'
     import COFINSSearch from 'src/components/Search/Tributs/COFINSSearch.vue'
-import camelcaseKeys from 'camelcase-keys';
+    import camelcaseKeys from 'camelcase-keys';
+
+    type TOrigensICMS = {
+        label: string,
+        cod: number
+    };
 
     interface IProducts
     {
@@ -343,10 +348,10 @@ import camelcaseKeys from 'camelcase-keys';
         ncm: string,
         cest: string,
         unit: string,
-        codOrigemIcms: string,
+        codOrigemIcms: unknown,
         origemIcms: string,
         icmsEcf: number,
-        taxableAmount: string,
+        taxableAmount: number,
         taxableUnit: string,
         taxBenefit: string,
         codIpi: string,
@@ -355,11 +360,7 @@ import camelcaseKeys from 'camelcase-keys';
         aliquotPis: number,
         codCofins: string,
         aliquotCofins: number,
-    };
 
-    type TOrigensICMS = {
-        label: string,
-        cod: number
     };
 
     const emits = defineEmits<{
@@ -388,6 +389,7 @@ import camelcaseKeys from 'camelcase-keys';
         { label: '7 - ESTRANGEIRA - INTERNA SEM SIMILAR NACIONAL', cod: 7 },
         { label: '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%', cod: 8 }
     ]);
+    const allGroup = ref<string[]>([]);
 
     const productDetails = ref<IProducts>({
         issuerId: LocalStorage.getItem("issuer_id"),
@@ -406,10 +408,10 @@ import camelcaseKeys from 'camelcase-keys';
         cest: '',
         unit: 'UN',
         
-        codOrigemIcms: '',
+        codOrigemIcms: 0,
         origemIcms: '',
         icmsEcf: 0,
-        taxableAmount: '',
+        taxableAmount: 0,
         taxableUnit: '',
         taxBenefit: '',
         codIpi: '',
@@ -421,7 +423,8 @@ import camelcaseKeys from 'camelcase-keys';
 
     });
 
-    const allGroup = ref<string[]>([]);
+    let loanding = ref<boolean>(false);
+    let textField = ref<unknown>(null);
                 
     const calculateSalePrice = computed(() => 
     {
@@ -437,15 +440,45 @@ import camelcaseKeys from 'camelcase-keys';
 
     const onSubmit = async () =>
     {
-        const response = await api.post('/ecommerce/products/create', productDetails.value);
-        if(response.data.success)
+        loanding.value = true;
+        console.log('Dados de envio: ', productDetails.value);
+        
+        const isUpdate = props.operation === 'update' ? true : false;
+
+        $q.notify({
+            color: 'green',
+            message: isUpdate ? 'Alterando dados do produto!' : 'Cadastrando um novo produto!',
+            position: 'top',
+            timeout: 2000
+
+        });
+
+        console.log(props.operation);
+        const apiURL = `/ecommerce/products/${isUpdate ? `update/${props.productCod}` : 'create'}`;
+        
+        const res = isUpdate ? await api.put(apiURL, productDetails.value) : await api.post(apiURL, productDetails.value);
+        const data = res.data;
+        
+        console.log('API_URL: ', apiURL);
+        console.log('Data: ', data);
+
+        /*const response = await api.(, productDetails.value);*/
+        
+        if(data.success)
         {
-            emits("close", true)
+            $q.notify({
+                color: 'green',
+                message: isUpdate ? 'Produto alterando com sucesso!' : 'Produto cadastrado com sucesso!',
+                position: 'top',
+                timeout: 2000
 
-        } else {
-            console.log(response.data)
+            });
 
-        };
+            emits('close', true);
+
+        } else { };
+
+        loanding.value = false;
     };       
     
     const onSelectedCOFINS = (cod_cofins) =>
@@ -465,7 +498,13 @@ import camelcaseKeys from 'camelcase-keys';
 
     const replaceICMS = () =>
     {
-        productDetails.value.icmsEcf = productDetails.value.icmsEcf;
+        console.log('Vai organizaro ICMS');
+        const data = textField.value as TOrigensICMS;
+
+        productDetails.value.codOrigemIcms = data.cod;
+        productDetails.value.origemIcms = data.label;
+        console.log(productDetails.value);
+
     };
 
     const replaceCOFINS = () =>
@@ -483,58 +522,88 @@ import camelcaseKeys from 'camelcase-keys';
         productDetails.value.aliquotIpi = productDetails.value.aliquotIpi;
     };
 
-    const generateCode = () =>
-    {
-        let randomCode = ''
-        for (let i = 0; i < 16; i++) {
-            let digit = Math.floor(Math.random() * 10)
-            randomCode += digit.toString()
-            
-        }
+    const generateCode = async () =>
+    {  
+        let randomCode: string = '';
+        let exists: boolean = true;
+        
+        do {
+            randomCode = '';
+            for (let i = 0; i < 16; i++) {            
+                const digit = Math.floor(Math.random() * 10);
+                randomCode += digit.toString();
+
+            };
+
+            try {
+                const res = await api.get(`/ecommerce/products/last-bar_cod/${productDetails.value.issuerId}/${randomCode}`);
+
+                const data = camelcaseKeys(res.data.data, { deep: true });
+
+                exists = !!data;
+                console.log(`Código ${randomCode} ${exists ? 'Já existe' : 'é úncio'}`);
+
+            } catch (error) {
+                alert('fodeu kj');
+                exists = true;
+            }
+
+        } while (exists);
+        
         productDetails.value.barcodeInternal = randomCode;
 
     };
 
     const getProductData = async () =>
     {
+        loanding.value = true;
+        $q.notify({
+            color: 'green',
+            message: 'Carregando dados ...',
+            position: 'top',
+            timeout: 2000
+        });
         console.log('getProductData');
         const res = await api.get(`/ecommerce/products/${productDetails.value.issuerId}/${props.productCod}`);
         const data: IProducts = camelcaseKeys(res.data.data, { deep: true });
 
         console.log(data);
 
-        productDetails.value = {
-            issuerId: data.issuerId,
-            product: data.product,
-            image: null,
-            barcode: data.barcode,
-            barcodeInternal: data.barcodeInternal,
-            groupId: data.groupId,
-            amount: data.amount,
-            costPrice: data.costPrice,
-            profitPercentage: data.profitPercentage,
-            salePrice: data.salePrice,
-            cfop: data.cfop,
-            csosncst: data.csosncst,
-            ncm: data.ncm,
-            cest: data.cest,
-            unit: data.unit,
-            
-            codOrigemIcms: data.codOrigemIcms,
-            origemIcms: data.origemIcms,
-            icmsEcf: data.icmsEcf,
-            taxableAmount: data.taxableAmount,
-            taxableUnit: data.taxableUnit,
-            taxBenefit: data.taxBenefit,
-            codIpi: data.codIpi,
-            aliquotIpi: data.aliquotIpi,
-            codPis: data.codPis,
-            aliquotPis: data.aliquotPis,
-            codCofins: data.codCofins,
-            aliquotCofins: data.aliquotCofins,
-        };
+        if(res.data.success)
+        {
+            productDetails.value = {
+                issuerId: data.issuerId,
+                product: data.product,
+                image: null,
+                barcode: data.barcode,
+                barcodeInternal: data.barcodeInternal,
+                groupId: data.groupId,
+                amount: data.amount,
+                costPrice: data.costPrice,
+                profitPercentage: data.profitPercentage,
+                salePrice: data.salePrice,
+                cfop: data.cfop,
+                csosncst: data.csosncst,
+                ncm: data.ncm,
+                cest: data.cest,
+                unit: data.unit,
+                
+                codOrigemIcms: data.codOrigemIcms,
+                origemIcms: data.origemIcms,
+                icmsEcf: data.icmsEcf,
+                taxableAmount: data.taxableAmount,
+                taxableUnit: data.taxableUnit,
+                taxBenefit: data.taxBenefit,
+                codIpi: data.codIpi,
+                aliquotIpi: data.aliquotIpi,
+                codPis: data.codPis,
+                aliquotPis: data.aliquotPis,
+                codCofins: data.codCofins,
+                aliquotCofins: data.aliquotCofins,
+            };
 
-        console.log(productDetails.value);
+            textField.value = `${data.codOrigemIcms} - ${data.origemIcms}`;
+        };
     };
 
     onMounted(async () => {

@@ -35,7 +35,7 @@ return new class extends Migration
 
             // tributs
             $table->string('csosncst', 3)->nullable();
-            $table->integer('cod_origem_icms', false)->nullable();
+            $table->string('cod_origem_icms', 2)->nullable();
             $table->string('origem_icms', 120)->nullable();
             $table->float('icms_ecf', 16,2)->nullable();
             

@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg">
+    <div class="container mx-auto mt-5 p-6 ml-16 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>
             <div class="flex space-x-4">
@@ -63,14 +63,17 @@
             <div><p>Total Em aberto: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
         </div>
 
-        <div class="relative overflow-x-auto overflow-y-auto">
-            <table class="min-w-full table-auto border-collapse border border-gray-200">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th class="px-6 py-3 text-center">Controle</th>
-                        <th class="px-6 py-3 text-center">Documento</th>
+        <div class="to-receive-register-grid relative overflow-y-auto border rounded-lg shadow-lg">
+            <table class="table-auto border-collapse border border-gray-300 bg-white ">
+                <thead class="font-semibold sticky top-0 z-10">
+                    <tr 
+                        class="text-white"
+                        :style="`background-color: ${painelColor}; color: ${textColor}}`"
+                    >
+                        <th scope="col" class="text-center px-6 py-3">Código</th>
+                        <th scope="col" class="text-center px-6 py-3">Documento</th>
                         <th class="px-6 py-3 text-center">Descrição</th>
-                        <th class="px-6 py-3 text-center">QTDE Parcela</th>
+                        <th class="px-6 py-3 text-center">Qtde Parcela</th>
                         <th class="px-6 py-3 text-center">Valor</th>
                         <th class="px-6 py-3 text-center">Cliente</th>
                         <th class="px-6 py-3 text-center">Cód. Espécie</th>
@@ -123,13 +126,14 @@
     import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
-import camelcaseKeys from "camelcase-keys";
+    import camelcaseKeys from "camelcase-keys";
     dayjs.extend(isBetween);
 
     const today = dayjs();
     const $q = useQuasar();
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const painelColor = LocalStorage.getItem("painelColor");
     const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
     let receives = ref<IReceiveBody[]>([]);
@@ -213,6 +217,12 @@ import camelcaseKeys from "camelcase-keys";
 
         th, td {
             padding: 0.5rem;
+        }
+
+        .to-receive-register-grid
+        {
+            height: 65vh;
+            max-height: 90vh;
         }
     }
 </style>
