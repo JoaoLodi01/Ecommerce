@@ -63,8 +63,8 @@
             setInterval(() => getColors(issuerID), 40 * 100)
         } else {
             return;
-        }
-
+            
+        };
     });
 
     onBeforeUnmount(() => {

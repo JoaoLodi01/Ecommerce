@@ -25,7 +25,10 @@ export default defineBoot(({ app, router }) => {
 
       if (!token && !isPublic)
       {
-        console.log('token:', token)
+        console.log('token:', token);
+        
+        LocalStorage.remove("issuer_id");
+        LocalStorage.remove("auth_token");
         router.replace({ path: '/login' });
         
         return Promise.reject(new Error("Usuário não autenticado"));
@@ -50,19 +53,21 @@ export default defineBoot(({ app, router }) => {
         '/forgot-password',
         '/reset-password',
         '/auth/check',
-        '/owner'
+
       ];
       
       // Corrigido: verifica se a URL da requisição é pública
       const requestUrl = error.config?.url || '';
       const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
-      
-      if(error.response.status == 401 && !isPublic)
+      console.log(error)
+      if(!isPublic)
       {
         console.log('Vai pro login');
         const msg = 'Usuário não autenticado';
+
         LocalStorage.remove("issuer_id");
         LocalStorage.remove("auth_token");
+
         router.replace({ path: '/login' });
         
         emitter.emit('global-error', msg);

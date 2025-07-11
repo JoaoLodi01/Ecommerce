@@ -9,8 +9,7 @@ use App\Models\EcommerceModels\{
 
 use App\Models\Registers\{
     Issuer,
-    FirstSteps,
-    Owner
+    FirstSteps
 };
 
 use App\Models\Customer;
@@ -22,6 +21,7 @@ use App\Services\GetIBGECod\GetIBGECodService;
 use App\Services\NFCeValidation\FindTributs;
 use Illuminate\Support\Facades\Log;
 use App\Services\TributsService\TributsServices;
+use App\Models\Registers\User;
 
 class RegisterIssuerRepository implements RegisterIssuerContract
 {
@@ -35,13 +35,14 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
     public function getAll(string $ownerID)
     {
-        $owner = Owner::where('uuse_id', $ownerID)->first();
+        Log::info("$ownerID");
+        $owner = User::where('uuse_id', $ownerID)->first();
         return Issuer::where('owner_id', $owner->id)->get();
     }
 
     public function create(array $data)
     {        
-        $owner = Owner::where('uuse_id', $data['uuse_id'])->first();
+        $owner = User::where('uuse_id', $data['uuse_id'])->first();
         
         if($owner)
         {

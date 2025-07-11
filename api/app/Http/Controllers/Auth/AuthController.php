@@ -5,48 +5,47 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Services\EcommerceService\UserService;
-use App\Services\RegisterService\RegisterOwnerService;
+use App\Services\RegisterService\RegisterUserService;
 
 use Illuminate\Support\Facades\{
     Auth,
     Log,
     Hash
 };
-
-use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     public function __construct(
-        protected RegisterOwnerService $registerOwnerService,
+        protected RegisterUserService $registerUserService,
         protected UserService $userService
+        
     ) {}
 
     public function authOwner(LoginRequest $request)
     {
         $data = $request->validated();
         
-        $owner = $this->registerOwnerService->findByEmail($data['email']);
+        $user = $this->registerUserService->findByEmail($data['email']);
 
-        Log::channel('auth')->info('owner ' . $owner);
-        if($owner && Hash::check($data['password'], $owner->password))
+        Log::channel('auth')->info('user ' . $user);
+        
+        if($user && Hash::check($data['password'], $user->password))
         {
-            Auth::login($owner);
-            $token = $owner->createToken('auth_token')->plainTextToken;
-            $user = $this->userService->findById($owner->id);
+            Auth::login($user);
+            
+            $token = $user->createToken('auth_token')->plainTextToken;
 
             Log::channel('auth')->info("Passou o login, token: $token");
             
             return response()->json([
                 'success' => true,
                 'message' => 'Login bem sucedido!',
-                'owner' => $owner,
-                'user' => $user->original['user'],
+                'user' => $user,
                 'token' => $token,
-                'uuse_id' => $owner->uuse_id
+                'uuse_id' => $user->uuse_id
                 
             ], 200);
 
-        } else if (empty($owner)) {
+        } else if (empty($user)) {
             return response()->json([
                 'success' => false,
                 'message' => 'O usuário não existe',
@@ -72,7 +71,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function checkLogin(Request $request)
+    /*public function checkLogin(Request $request)
     {       
         Log::channel('auth')->info("-- checkLogin --"); 
         $header = $request->header('Authorization');
@@ -87,5 +86,5 @@ class AuthController extends Controller
         };
         Log::channel('auth')->info("Estava logado"); 
         return apiSuccess('Usuário logado', $user, true, 200);
-    }
+    }*/ 
 }

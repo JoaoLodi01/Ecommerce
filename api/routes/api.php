@@ -31,7 +31,7 @@ use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\TributsController\TributsController;
 
 use App\Http\Controllers\RegisterControllers\{
-    RegisterOwnerController,
+    RegisterUserController,
     RegisterIssuerController
 };
 
@@ -218,7 +218,7 @@ Route::prefix('v1')->group( function (){
     });
 
     Route::prefix('registers')->group( function(){
-        Route::post('owner/create', [RegisterOwnerController::class, 'create']);
+        Route::post('owner/create', [RegisterUserController::class, 'create']);
         Route::post('issuer/create', [RegisterIssuerController::class, 'create']);
         Route::post('users/create', [UserController::class, 'create']);
     });

@@ -5,8 +5,6 @@ namespace App\Repositories\Eloquent;
 use App\Models\Registers\Issuer;
 use App\Models\Registers\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-
 class UserRepository
 {
     public function getAll(int $issuer_id)

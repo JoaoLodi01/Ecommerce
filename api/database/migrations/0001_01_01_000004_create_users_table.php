@@ -13,17 +13,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_cod');
-            $table->unique(['owner_id', 'user_cod']);            
-            $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
-            $table->unsignedBigInteger('owner_id')->nullable();
+            $table->unsignedBigInteger('user_cod')->index();
             $table->string('name', 120);
-            $table->string('login', 120)->nullable();
+            $table->string('surname', 120);
+            $table->string('cpf', 11)->unique();
+            $table->string('email', 120)->nullable();
             $table->string('password', 120);
-            $table->string('perfil_photo', 120)->nullable();
             $table->string('access', 20)->nullable();
+            $table->string('uuse_id')->unique()->nullable();
             $table->boolean('is_owner', 1)->default(0);
-            $table->boolean('active')->default(1);
+            $table->boolean('active', 1)->default(1);
             $table->rememberToken();
             $table->timestamps();
             

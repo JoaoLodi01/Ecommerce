@@ -223,6 +223,8 @@
             password: form.value.password
             
         });
+        const data = res.data;
+        console.log(res.data)
 
         if(res.data.success)
         {

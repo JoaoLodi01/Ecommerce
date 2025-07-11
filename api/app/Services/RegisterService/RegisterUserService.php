@@ -2,19 +2,25 @@
 
 namespace App\Services\RegisterService;
 
-use App\Repositories\Eloquent\RegisterEloquent\RegisterOwnerRepository;
+use App\Repositories\Eloquent\RegisterEloquent\RegisterUserRepository;
+use Exception;
 use Illuminate\Support\Facades\Log;
 
-class RegisterOwnerService
+class RegisterUserService
 {
     public function __construct(
-        protected RegisterOwnerRepository $registerOwnerRepository
+        protected RegisterUserRepository $registerUserRepository
     ){}
 
     public function create(array $data)
     {
-        $owner = $this->registerOwnerRepository->create($data);
+        $owner = $this->registerUserRepository->create($data);
         $this->savePassword($owner->email, $data['password'], $owner->uuse_id);
+
+        if(!$owner)
+        {
+            throw new Exception('Erro ao cadastrar o emitente');
+        }
 
         return $owner;
     }
@@ -23,13 +29,13 @@ class RegisterOwnerService
     {
         return response()->json([
             'success' => true,
-            'owner' => $this->registerOwnerRepository->find($id)
+            'owner' => $this->registerUserRepository->find($id)
         ], 200);
     }   
 
     public function findByEmail(string $email)
     {
-        return $this->registerOwnerRepository->findByEmail($email);
+        return $this->registerUserRepository->findByEmail($email);
     }   
 
     public function savePassword(string $email, string $password, string $uuse_id)
