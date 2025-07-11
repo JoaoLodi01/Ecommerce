@@ -9,6 +9,7 @@ use App\Exceptions\ProductsExceptions\ProductNotFound;
 use App\Jobs\ProductsJobs\ImportProductsJob;
 use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Support\Facades\Log;
 
 class ProductsService
@@ -50,19 +51,24 @@ class ProductsService
 
     }
     
-    public function create(array $data){
-        try {
-           /* Log::info("Vai chamar checkGTIN");
-            $this->checkGTIN($data);*/
-            $product = $this->productsRepository->create($data);
-            return response()->json([
-                'success' => true,
-                'product' => $product 
-            ], 201);
-
-        } catch (\Throwable $th) {
+    public function findLastCode(int $id, string|int $barCode)
+    {
+        $product = $this->productsRepository->findLastCode($id);
+        if($product->barcode_internal === $barCode)
+        {
+            throw new Exception('Código interno já cadastrado');
             
-        }
+        };
+
+        return $product;
+
+    }
+    
+    public function create(array $data){
+        /* Log::info("Vai chamar checkGTIN");
+        $this->checkGTIN($data);*/
+        $product = $this->productsRepository->create($data);
+        return $product;
     }
 
     public function update(array $data, int $id){

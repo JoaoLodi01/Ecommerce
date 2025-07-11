@@ -16,9 +16,9 @@ class ProductsRequest extends FormRequest
     {
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
+            'image' => ['nullable', 'max:512'],
             'issuerId' => ['required'],
             'product' => [$required, 'string', 'max:120'],
-            'image' => ['nullable', 'max:512'],
             'barcode' => [$required, 'string'],
             'barcodeInternal' => ['sometimes', 'string'],
             'groupId' => ['nullable', 'integer'],

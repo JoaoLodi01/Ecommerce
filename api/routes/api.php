@@ -51,6 +51,7 @@ Route::prefix('v1')->group( function (){
         Route::prefix('ecommerce')->group( function (){
             Route::prefix('products')->group( function(){
                 Route::get('/download/default-file', [ProductsController::class , 'downloadDefaultFile']);
+                Route::get('/last-bar_cod/{id}/{barCode}', [ProductsController::class, 'findLastCode']);
                 Route::get('/all/{issuer_id}', [ProductsController::class, 'getAll']);
                 Route::get('/all-groups/{issuer_id}', [ProductsController::class, 'allGroup']);
                 Route::post('/search', [ProductsController::class, 'search']);

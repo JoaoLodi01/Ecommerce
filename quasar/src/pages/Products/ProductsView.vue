@@ -274,7 +274,7 @@
     ]);
     
     const titles = reactive({
-        'register': 'Novo produto',
+        'create': 'Novo produto',
         'update': 'Editar produto'
         
     });

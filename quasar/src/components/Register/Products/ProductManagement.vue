@@ -223,7 +223,7 @@
                     />
 
                     <q-select 
-                        v-model="productDetails.codOrigemIcms" 
+                        v-model="textField" 
                         :options="origensICMS" 
                         @update:model-value="replaceICMS"
                         label="Origem ICMS" 
@@ -348,10 +348,10 @@
         ncm: string,
         cest: string,
         unit: string,
-        codOrigemIcms: number,
+        codOrigemIcms: unknown,
         origemIcms: string,
         icmsEcf: number,
-        taxableAmount: string,
+        taxableAmount: number,
         taxableUnit: string,
         taxBenefit: string,
         codIpi: string,
@@ -360,6 +360,7 @@
         aliquotPis: number,
         codCofins: string,
         aliquotCofins: number,
+
     };
 
     const emits = defineEmits<{
@@ -388,6 +389,7 @@
         { label: '7 - ESTRANGEIRA - INTERNA SEM SIMILAR NACIONAL', cod: 7 },
         { label: '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%', cod: 8 }
     ]);
+    const allGroup = ref<string[]>([]);
 
     const productDetails = ref<IProducts>({
         issuerId: LocalStorage.getItem("issuer_id"),
@@ -409,7 +411,7 @@
         codOrigemIcms: 0,
         origemIcms: '',
         icmsEcf: 0,
-        taxableAmount: '',
+        taxableAmount: 0,
         taxableUnit: '',
         taxBenefit: '',
         codIpi: '',
@@ -422,7 +424,7 @@
     });
 
     let loanding = ref<boolean>(false);
-    const allGroup = ref<string[]>([]);
+    let textField = ref<unknown>(null);
                 
     const calculateSalePrice = computed(() => 
     {
@@ -474,10 +476,9 @@
 
             emits('close', true);
 
-        } else {
-            loanding.value = false;
+        } else { };
 
-        };
+        loanding.value = false;
     };       
     
     const onSelectedCOFINS = (cod_cofins) =>
@@ -498,10 +499,10 @@
     const replaceICMS = () =>
     {
         console.log('Vai organizaro ICMS');
-        const data: number = productDetails.value.codOrigemIcms;
-        const labels: TOrigensICMS = {label: '', cod: data };
+        const data = textField.value as TOrigensICMS;
 
-        console.log('Labels: ', labels);
+        productDetails.value.codOrigemIcms = data.cod;
+        productDetails.value.origemIcms = data.label;
         console.log(productDetails.value);
 
     };
@@ -521,14 +522,34 @@
         productDetails.value.aliquotIpi = productDetails.value.aliquotIpi;
     };
 
-    const generateCode = () =>
-    {
-        let randomCode = ''
-        for (let i = 0; i < 16; i++) {
-            let digit = Math.floor(Math.random() * 10)
-            randomCode += digit.toString()
-            
-        }
+    const generateCode = async () =>
+    {  
+        let randomCode: string = '';
+        let exists: boolean = true;
+        
+        do {
+            randomCode = '';
+            for (let i = 0; i < 16; i++) {            
+                const digit = Math.floor(Math.random() * 10);
+                randomCode += digit.toString();
+
+            };
+
+            try {
+                const res = await api.get(`/ecommerce/products/last-bar_cod/${productDetails.value.issuerId}/${randomCode}`);
+
+                const data = camelcaseKeys(res.data.data, { deep: true });
+
+                exists = !!data;
+                console.log(`Código ${randomCode} ${exists ? 'Já existe' : 'é úncio'}`);
+
+            } catch (error) {
+                alert('fodeu kj');
+                exists = true;
+            }
+
+        } while (exists);
+        
         productDetails.value.barcodeInternal = randomCode;
 
     };
@@ -581,7 +602,7 @@
                 aliquotCofins: data.aliquotCofins,
             };
 
-            loanding.value = false;
+            textField.value = `${data.codOrigemIcms} - ${data.origemIcms}`;
         };
     };
 
