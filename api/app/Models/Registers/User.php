@@ -15,7 +15,7 @@ class User extends Authenticatable implements CanResetPassword
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        'user_cod',
+        'user_code',
         'name',
         'surname',
         'cpf',

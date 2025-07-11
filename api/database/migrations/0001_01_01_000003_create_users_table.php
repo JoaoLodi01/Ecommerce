@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_cod')->index();
+            $table->unsignedBigInteger('user_code')->index();
             $table->string('name', 120);
             $table->string('surname', 120);
             $table->string('cpf', 11)->unique();
@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
+
         });
 
         Schema::create('sessions', function (Blueprint $table) {
@@ -41,6 +42,7 @@ return new class extends Migration
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
+            
         });
     }
 

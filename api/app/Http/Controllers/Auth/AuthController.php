@@ -26,6 +26,7 @@ class AuthController extends Controller
         
         $user = $this->registerUserService->findByEmail($data['email']);
 
+        Log::channel('auth')->info('data ' . $data['email']);
         Log::channel('auth')->info('user ' . $user);
         
         if($user && Hash::check($data['password'], $user->password))

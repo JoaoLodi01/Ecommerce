@@ -20,7 +20,7 @@ class GetIBGECodService
             
                 if($city === $cellCityName)
                 {
-                    Log::channel('uf_code')->debug('Código: ' . $cellIBGE);
+                    //Log::channel('uf_code')->debug('Código: ' . $cellIBGE);
                     $reader->close();
                     return $cellIBGE;
                     

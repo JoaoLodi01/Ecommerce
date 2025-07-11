@@ -17,9 +17,9 @@ class RegisterUserRepository implements RegisterUserContract
     public function create(array $data)
     {
         // Se mantem Owner para 
-        $lastCod = User::max('user_cod');
+        $lastCod = User::max('user_code');
         $owner = User::create([
-            'user_cod' => $lastCod ? $lastCod + 1 : 1,
+            'user_code' => $lastCod ? $lastCod + 1 : 1,
             'name' => $data['name'],
             'surname' => $data['surname'],
             'cpf' => $data['cpf'],

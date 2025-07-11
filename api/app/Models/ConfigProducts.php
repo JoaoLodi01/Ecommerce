@@ -8,8 +8,8 @@ class ConfigProducts extends Model
     protected $table = 'config_products';
 
     protected $fillable = [
+        'config_product_code',
         'issuer_id',
-        'config_product_cod',
         'default_profit_percentage',
         'validate_gtin',
         'reserve_dav_quantity',

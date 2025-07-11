@@ -17,13 +17,14 @@ export default defineBoot(({ app, router }) => {
       const publicAPIRoutes = [
         '/forgot-password',
         '/reset-password',
-        '/auth/check',
-        '/owner'
+        '/auth/owner',
+        '/registers/owner/create'
+
       ];
 
       const isPublic = publicAPIRoutes.some(route => config.url.includes(route));
 
-      if (!token && !isPublic)
+      if (!token && !isPublic && LocalStorage.getItem("auth_token"))
       {
         console.log('token:', token);
         
@@ -52,18 +53,24 @@ export default defineBoot(({ app, router }) => {
       const publicAPIRoutes = [
         '/forgot-password',
         '/reset-password',
-        '/auth/check',
+        '/auth/owner',
+        '/registers/owner/create',
 
       ];
       
       // Corrigido: verifica se a URL da requisição é pública
       const requestUrl = error.config?.url || '';
       const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
-      console.log(error)
-      if(!isPublic)
+      console.error(error)
+      if(!isPublic && error.response.status === 401 )
       {
         console.log('Vai pro login');
-        const msg = 'Usuário não autenticado';
+        const msg =
+          error.response?.data?.message ||
+          error.response?.data?.errorMessage ||
+          error.message ||
+          'Erro inesperado na resposta da API';
+          emitter.emit('global-error', msg);
 
         LocalStorage.remove("issuer_id");
         LocalStorage.remove("auth_token");

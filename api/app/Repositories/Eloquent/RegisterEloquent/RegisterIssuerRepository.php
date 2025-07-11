@@ -37,7 +37,8 @@ class RegisterIssuerRepository implements RegisterIssuerContract
     {
         Log::info("$ownerID");
         $owner = User::where('uuse_id', $ownerID)->first();
-        return Issuer::where('owner_id', $owner->id)->get();
+        return Issuer::where('user_code', $owner->id)->get();
+        
     }
 
     public function create(array $data)
@@ -54,7 +55,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'date_of_foundation' => $data['date_of_foundation'],
                 'cod_cnae' => $data['cod_cnae'],
                 'cnae' => $data['main_activity'],
-                'owner_id' => $owner->id,
+                'user_code' => $owner->id,
             ]);
 
             Log::info('--- Criação das espécies padrão ---');
@@ -106,10 +107,10 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             Log::info('--- Fim da criação do configCustomer padrão ---');
 
             Log::info('--- Criação das configProducts padrão ---');
-                $maxCod = ConfigCustomers::where('issuer_id')->max('config_product_cod');
+                $maxCode = ConfigProducts::where('issuer_id')->max('config_product_code');
                 ConfigProducts::create([
                     'issuer_id' => $issuer->id,
-                    'config_product_cod' => $maxCod ? $maxCod + 1 : 1,
+                    'config_product_code' => $maxCode ? $maxCode + 1 : 1,
                 ]);
 
             Log::info('--- Fim da criação do configProducts padrão ---');
