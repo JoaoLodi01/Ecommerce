@@ -1,12 +1,6 @@
-[2025-07-11 15:03:50] local.INFO: data gabikochem55@gmail.com  
-[2025-07-11 15:03:51] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","access":null,"uuse_id":"1qbjqkSavi","is_owner":0,"active":1,"created_at":"2025-07-11T15:01:45.000000Z","updated_at":"2025-07-11T15:01:45.000000Z"}  
-[2025-07-11 15:03:51] local.INFO: Passou o login, token: 1|Wvtl7HLCpPpe9LcxIZXJj3xqsuc46kEMwUzPBnuicce34f01  
-[2025-07-11 15:07:31] local.INFO: data gabikochem55@gmail.com  
-[2025-07-11 15:07:31] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","access":null,"uuse_id":"1qbjqkSavi","is_owner":0,"active":1,"created_at":"2025-07-11T15:01:45.000000Z","updated_at":"2025-07-11T15:01:45.000000Z"}  
-[2025-07-11 15:07:32] local.INFO: Passou o login, token: 2|syCpvDEa9co4Lle0zNbdpkM4pALZDXtKzlEykVFXe8e12e6d  
-[2025-07-11 15:09:48] local.INFO: data gabikochem55@gmail.com  
-[2025-07-11 15:09:48] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","access":null,"uuse_id":"1qbjqkSavi","is_owner":0,"active":1,"created_at":"2025-07-11T15:01:45.000000Z","updated_at":"2025-07-11T15:01:45.000000Z"}  
-[2025-07-11 15:09:49] local.INFO: Passou o login, token: 3|Xn5wmheGAwjvNlyvzyQhHvR6TdxsNI33bqyK9lAOe499de1b  
-[2025-07-11 15:14:45] local.INFO: data gabikochem55@gmail.com  
-[2025-07-11 15:14:45] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","access":null,"uuse_id":"HemnePPZfs","is_owner":0,"active":1,"created_at":"2025-07-11T15:14:36.000000Z","updated_at":"2025-07-11T15:14:36.000000Z"}  
-[2025-07-11 15:14:46] local.INFO: Passou o login, token: 1|QUiRcrxwx5n0KZyKjUw3lJQQ1zs7mFfCCNzhNizy8dd07e25  
+[2025-07-11 15:38:00] local.INFO: data gabikochem55@gmail.com  
+[2025-07-11 15:38:00] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","access":null,"uuse_id":"pNInj8zxt8","is_owner":0,"active":1,"created_at":"2025-07-11T15:28:54.000000Z","updated_at":"2025-07-11T15:28:54.000000Z"}  
+[2025-07-11 15:38:01] local.INFO: Passou o login, token: 2|uHtvf5Ocp5HqSP52nTGiasZMkDgDKJWSASgkQtwi8f5f37b3  
+[2025-07-11 19:05:37] local.INFO: data gabikochem55@gmail.com  
+[2025-07-11 19:05:37] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","access":null,"uuse_id":"pNInj8zxt8","is_owner":0,"active":1,"created_at":"2025-07-11T15:28:54.000000Z","updated_at":"2025-07-11T15:28:54.000000Z"}  
+[2025-07-11 19:05:38] local.INFO: Passou o login, token: 3|0NubaIBghynUElNTjTm9U3V147LhuAMF4gQLZGyb33f63b6d  

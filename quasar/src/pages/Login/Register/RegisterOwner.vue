@@ -177,6 +177,12 @@
             </div>
         </div>
     </Transition>
+
+    <LoandingPage
+        v-if="showLoanding"
+        :text="'Criando usuário!'"
+    />
+    
 </template>
 
 <script setup lang="ts">
@@ -185,6 +191,7 @@
     import { onMounted, ref } from 'vue';
     import { useRouter } from 'vue-router';
     import validateCPF from 'src/utils/validateCPF';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
 
     interface IOwnerData
     {
@@ -212,9 +219,11 @@
     let showContent = ref<boolean>(false);
     let showPassword = ref<boolean>(false);
     let showPassword_ = ref<boolean>(false);
+    let showLoanding = ref<boolean>(false);
 
     const createAccount = async () =>
     {
+        showLoanding.value = true;
         const res = await api.post('/registers/owner/create', {
             name: form.value.name,
             surname: form.value.surname,
@@ -226,27 +235,33 @@
         const data = res.data;
         console.log(res.data)
 
-        if(res.data.success)
-        {
-            $q.notify({
-                color: 'green',
-                message: res.data.message,
-                timeout: 1200,
-                position: 'top'
+        try {
+            if(res.data.success)
+            {
+                $q.notify({
+                    color: 'green',
+                    message: res.data.message,
+                    timeout: 1200,
+                    position: 'top'
+                
+                });
+
+                router.push({path: '/login'});
+
+            } 
             
-            });
-
-            router.push({path: '/login'});
-
-        }  else {
-            console.log('Res: ', res.data);
+        } catch (error) {
             $q.notify({
                 color: 'red',
-                message: res.data.th ?? res.data,
+                message: error.response ?? error.response.message,
                 timeout: 1200,
                 position: 'top'
             
             });
+            
+        } finally {
+            showLoanding.value = false;
+
         };
     };
 

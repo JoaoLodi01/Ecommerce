@@ -42,9 +42,11 @@
         'cancelSale': 'cancelar sua venda?',
         'saveSale': 'salvar sua venda?',
 
-
         //Products
         'products/disable': 'desativar esse produto?',
+
+        // Auth
+        'logout': 'deslogar do sistema?',
 
     });
 

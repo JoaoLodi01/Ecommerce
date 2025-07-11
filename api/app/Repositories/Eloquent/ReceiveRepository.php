@@ -25,7 +25,7 @@ class ReceiveRepository
 
         $a = 0;
 
-        $user = User::where('user_cod', $receiveRegister['user_id'])->first();
+        $user = User::where('user_code', $receiveRegister['user_id'])->first();
         Log::info('Buscando usuário: ' . $user);
 
         $customer = Customer::where('issuer_id', $receiveRegister['issuer_id'])->first();

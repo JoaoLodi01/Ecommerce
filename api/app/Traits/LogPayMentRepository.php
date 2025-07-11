@@ -9,10 +9,12 @@ class LogPayMentRepository
     public function logInfo(string $messasge, array $context = [])
     {
         Log::channel('payment')->info($messasge, $context);
+
     }
     
-    public function logDebug(string $messasge, array $context = [])
+    public function logDebug(array $context = [])
     {
-        Log::channel('payment')->debug($messasge, $context);
+        //Log::channel('payment')->debug($context);
+        
     }
 }

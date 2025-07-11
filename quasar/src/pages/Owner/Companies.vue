@@ -18,7 +18,7 @@
 
                 <div 
                     class="cursor-pointer mt-auto mb-auto" 
-                    @click="logout()"
+                    @click="showConfirmFn(0, 'logout')"
                 >
                     <span class="mt-0.5 ml-2 hover:text-slate-300 hover:border-b">Sair</span>
                 </div>
@@ -264,12 +264,21 @@
                 timeout: 2000
 
             });
-        };
-
-        if(operation === 'transfer')
+        } else if(operation === 'transfer')
         {
-            
+        
+        } else if(operation === 'logout')
+        {
+            logout();
 
+        } else {
+            $q.notify({
+                color: 'yellow',
+                message: 'Operação não definida',
+                position: 'top',
+                timeout: 2000
+
+            });
         };
 
         IDEditCompanie.value = 0;
@@ -282,18 +291,23 @@
 
     const logout = async () =>
     {
-        const ofCourse = confirm('Deseja realmente sair?');
-        if(ofCourse)
+        const res = await api.post('/auth/logout');
+        if(res.data.success)
         {
-            const res = await api.post('/auth/logout');
-            if(res.data.success)
-            {
-                LocalStorage.remove("auth_token");
-                LocalStorage.getItem("expire");
+            LocalStorage.remove("auth_token");
+            LocalStorage.remove("issuer_id");
+            LocalStorage.getItem("expire");
 
-                router.push(res.data.route);
+            $q.notify({
+                color: 'green',
+                message: 'Volte sempre!',
+                position: 'top',
+                timeout: 1000
 
-            };
+            });
+
+            router.push(res.data.route);
+
         };
     };
 
