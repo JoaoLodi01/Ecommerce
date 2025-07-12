@@ -21,17 +21,17 @@ return new class extends Migration
             $table->string('document', 200);            
             $table->string('description', 200);
 
-            $table->unsignedBigInteger('customer_cod');
-            $table->foreign('customer_cod')->references('customer_cod')->on('customers')->onDelete('cascade');
+            $table->unsignedBigInteger('customer_code');
+            $table->foreign('customer_code')->references('customer_code')->on('customers')->onDelete('cascade');
 
             $table->unsignedBigInteger('especie_cod');
-            $table->foreign('especie_cod')->references('payment_cod')->on('payments_forms')->onDelete('cascade');
+            $table->foreign('especie_cod')->references('payment_code')->on('payments_forms')->onDelete('cascade');
 
-            $table->foreign('dav_cod')->references('dav_cod')->on('davs')->onDelete('cascade');
-            $table->unsignedBigInteger('dav_cod')->nullable();
+            $table->foreign('dav_code')->references('dav_code')->on('davs')->onDelete('cascade');
+            $table->unsignedBigInteger('dav_code')->nullable();
 
-            $table->foreign('pdv_cod')->references('pdv_cod')->on('pdvs')->onDelete('cascade');
-            $table->unsignedBigInteger('pdv_cod')->nullable();
+            $table->foreign('pdv_code')->references('pdv_code')->on('pdvs')->onDelete('cascade');
+            $table->unsignedBigInteger('pdv_code')->nullable();
 
             $table->string('name', 120);
             $table->string('especie', 120);

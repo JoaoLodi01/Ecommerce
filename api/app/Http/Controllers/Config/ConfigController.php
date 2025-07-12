@@ -49,10 +49,32 @@ class ConfigController extends Controller
         
     }
 
+    // Colors
     public function updateColor(ConfigColor $request, int $issuer_id)
     {
         $config = $this->configService->updateColor($request->validated(), $issuer_id);
         return apiSuccess('Cores alteradas com sucesso!', $config);
 
     }
+
+    public function exportColors(int $issuerID)
+    {
+        $file = $this->configService->exportColors($issuerID);
+        $fileName = 'Colors.json';
+        return response()->download($file, $fileName, [
+            'Content-Type' => 'application/json',
+
+        ]);
+    }
+    
+    public function importColors(int $issuerID)
+    {
+        $file = $this->configService->exportColors($issuerID);
+        $fileName = 'Colors.json';
+        return response()->download($file, $fileName, [
+            'Content-Type' => 'application/json',
+
+        ]);
+    }
+    //
 }

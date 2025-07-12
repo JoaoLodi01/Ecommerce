@@ -202,6 +202,7 @@
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
     import { onMounted, ref } from 'vue';
+    import { useRouter } from 'vue-router';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import getCEPData from 'src/services/getData/getCEPData';
 
@@ -258,6 +259,8 @@
 
     const color = ref<string>('');
 
+    const router = useRouter();
+
     const _completed = ref<boolean>(false);
     let showLoanding = ref<boolean>(false);
 
@@ -271,11 +274,26 @@
     {
         issuer.value.cod_crt = crtOptions.value.indexOf(issuer.value.crt) + 1;
         showLoanding.value = true;
+
         try {
             
             const res = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, issuer.value);
+            const data = res.data;
+            console.log('Data: ', data);
 
-            console.log('Res: ', res.data);
+            if(data.success)
+            {
+                $q.notify({
+                    color: 'green',
+                    message: !_completed ? 'Cadastrado completado com sucesso!' : data.message,
+                    position: 'top',
+                    timeout: 2000
+
+                });
+
+                router.push({ name: 'Start', params: { name: LocalStorage.getItem("first_name") }})
+
+            };
             
         } catch (error) {
             console.error('Error: ', error);

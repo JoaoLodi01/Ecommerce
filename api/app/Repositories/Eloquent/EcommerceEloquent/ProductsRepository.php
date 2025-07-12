@@ -73,7 +73,7 @@ class ProductsRepository
             case 'Padrão (nome do produto, cód.barras ou cód.produto)':
                 $products = Products::where('active', 1)
                     ->where(function($query) use ($search, $issuerID){
-                        $query->where('product_cod', $search)
+                        $query->where('product_code', $search)
                                 ->orWhere('barcode', $search)
                                 ->orWhere('product', 'like', '%' . $search . '%')
                                 ->where('issuer_id', $issuerID);
@@ -104,7 +104,7 @@ class ProductsRepository
         $issuer_id = $data['issuer_id'];
         $data['group_id'] ? $group = $this->groupRepository->findByID($data['group_id']) : null;
 
-        $maxCod = Products::where('issuer_id', $issuer_id)->max('product_cod');
+        $maxCod = Products::where('issuer_id', $issuer_id)->max('product_code');
 
         $stpes = FirstSteps::where('issuer_id', $issuer_id)->first();
         $stpes->update([
@@ -113,7 +113,7 @@ class ProductsRepository
         $stpes->save();
         
         return Products::create([
-            'product_cod' => $maxCod ? $maxCod + 1 : 1,
+            'product_code' => $maxCod ? $maxCod + 1 : 1,
             'issuer_id' => $issuer_id,
             'product' => $data['product'],
             'image' => $data['image'],
@@ -192,7 +192,7 @@ class ProductsRepository
 
     public function active(int $id, int $productCod)
     {
-        $product = Products::where('issuer_id', $id)->where('product_cod', $productCod)->first();
+        $product = Products::where('issuer_id', $id)->where('product_code', $productCod)->first();
         $product->update([
             'active' => 1
 
@@ -207,7 +207,7 @@ class ProductsRepository
         Log::info($id);
         Log::info($productCod);
         $product = Products::where('issuer_id', $id)
-                            ->where('product_cod', $productCod)
+                            ->where('product_code', $productCod)
                             ->first();
 
         
@@ -222,7 +222,7 @@ class ProductsRepository
     }
     
     public function findByID(int $issuerID, int $productCod){
-        return Products::where('issuer_id', $issuerID)->where('product_cod', $productCod)->first();
+        return Products::where('issuer_id', $issuerID)->where('product_code', $productCod)->first();
         
     }
     
@@ -232,13 +232,13 @@ class ProductsRepository
         return $lastBarCodeInternal;
     }
 
-    public function decreaseQuantiy(int $product_cod, float|int $quantiy)
+    public function decreaseQuantiy(int $productCode, float|int $quantiy, int $issuerID)
     {
         /*Log::info('-- Inicio decreaseQuantiy, linha 50 --');
-        $product = $this->findByID($product_cod);
+        $product = $this->findByID($productCode);
         if($product)
         {
-            Log::info('Produto encontrado ' . $product->product_cod . ' produto: ' . $product);
+            Log::info('Produto encontrado ' . $product->product_code . ' produto: ' . $product);
             $product->update([
                 'amount' => $product->amount - $quantiy
             ]);
@@ -252,9 +252,9 @@ class ProductsRepository
     {
         Log::debug('Repositorio: importProducts');
         Log::debug($dto->amount);
-        $maxCod = Products::where('issuer_id', $dto->issuer_id)->max('product_cod');
+        $maxCod = Products::where('issuer_id', $dto->issuer_id)->max('product_code');
         Products::create([
-            'product_cod' => $maxCod ? $maxCod + 1 : 1,
+            'product_code' => $maxCod ? $maxCod + 1 : 1,
             'issuer_id' => $dto->issuer_id,
             'product' => $dto->product,
             'cost_price' => $dto->cost_price,

@@ -12,14 +12,12 @@ use App\Http\Requests\PDV\{
 };
 
 use App\Services\EcommerceService\PDVService;
-use App\Traits\LogPayMentRepository;
 use Illuminate\Support\Facades\Log;
 
 class PDVController extends Controller
 {
     public function __construct(
-        protected PDVService $pdvService,
-        protected LogPayMentRepository $logPayMentRepository
+        protected PDVService $pdvService
     ){
         Log::info('Memória usada PDVController::class, __construct: ' . memory_get_usage(true));
     }

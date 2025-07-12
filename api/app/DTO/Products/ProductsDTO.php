@@ -1,7 +1,6 @@
 <?php
 
 namespace App\DTO\Products;
-
 readonly class ProductsDTO
 {
     public function __construct(

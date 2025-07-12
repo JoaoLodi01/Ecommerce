@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('ie', 14)->nullable();
             $table->string('im', 12)->nullable();
             $table->string('main_activity', 160)->nullable();
-            $table->integer('cod_cnae', false, 1)->nullable();
+            $table->string('cod_cnae', 40)->nullable();
             $table->string('cnae', 160)->nullable();
             $table->integer('cod_crt', false, 1)->nullable();
             $table->string('crt', 50)->nullable();

@@ -253,7 +253,7 @@
     getSpecie(event){
         console.log("Chamou o getSpecie");
         console.log(event);
-        this.form.especie_id = event.payment_cod;
+        this.form.especie_id = event.payment_code;
         this.form.especie = event.name;
     },
 

@@ -34,7 +34,7 @@ class PaymentsRepository
         
         $result = [];
         foreach ($data as $id => $value) {
-            $result[] = PaymentForms::where('payment_cod', $id + 1)->first();
+            $result[] = PaymentForms::where('payment_code', $id + 1)->first();
             
         }
 
@@ -66,9 +66,9 @@ class PaymentsRepository
     public function create(array $data){
         if (!empty($data)){
             Log::info("Criando espécie");
-            $paymentCod = PaymentForms::where('issuer_id', $data['issuer_id'])->max('payment_cod');
+            $paymentCod = PaymentForms::where('issuer_id', $data['issuer_id'])->max('payment_code');
             $payment = PaymentForms::create([
-                'payment_cod' => $paymentCod ? $paymentCod + 1 : 1,
+                'payment_code' => $paymentCod ? $paymentCod + 1 : 1,
                 'issuer_id' => $data['issuer_id'],
                 'especie' => $data['especie'],
                 'tipo_lancamento' => $data['tipo_lancamento'],

@@ -9,6 +9,7 @@ use App\Repositories\Eloquent\Config\{
     ConfigColorRepository,
     ConfigProductsRepostiry
 };
+use Exception;
 
 class ConfigService
 {
@@ -54,10 +55,25 @@ class ConfigService
         return $config;
     }
 
+    // Colors
     public function updateColor(array $data, int $issuer_id)
     {
         $config = $this->configColorRepository->update($data, $issuer_id);
         return $config;
 
     }
+
+    public function exportColors(int $issuerID)
+    {
+        $configs = $this->configColorRepository->exportColors($issuerID);
+
+        if(!$configs)
+        {
+            throw new Exception('Erro ao exportar cores');
+        }
+        
+        return $configs;
+
+    }
+    //
 }

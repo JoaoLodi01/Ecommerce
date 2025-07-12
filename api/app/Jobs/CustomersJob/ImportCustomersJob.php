@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Jobs\ProductsJobs;
+namespace App\Jobs\CustomersJob;
 
-use App\DTO\Products\ProductsDTO;
-use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
+use App\DTO\Customers\CustomersDTO;
+use App\Repositories\Eloquent\CustomerRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -13,11 +13,11 @@ use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
-class ImportProductsJob implements ShouldQueue
+class ImportCustomersJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public function __construct(
+     public function __construct(
             public string $filePath, 
             public int $issuerID
         )
@@ -27,7 +27,7 @@ class ImportProductsJob implements ShouldQueue
         
     }
 
-    public function handle(ProductsRepository $productsRepository)
+    public function handle(CustomerRepository $customerRepository)
     {
         try {
             Log::debug('Caiu no job');
@@ -41,14 +41,10 @@ class ImportProductsJob implements ShouldQueue
                 foreach ($sheet->getRowIterator() as $row) {
                     $cells = $row->getCells();
                     $expectedHeader = [
-                        'Nome produto', 
-                        'Preço de custo', 
-                        'Perce. De Lucro', 
-                        'Preço de venda', 
-                        'Qtde',
-                        'CFOP',
-                        'UN',
-                        'CSOSN/CST'
+                        'Razão social',
+                        'Nome fantasia',
+                        'CNPJ',
+                        'CPF'
                     ];
 
                     if ($firstRow) {
@@ -76,20 +72,16 @@ class ImportProductsJob implements ShouldQueue
                         continue;
                     }
 
-                    $dto = new ProductsDTO(
+                    $dto = new CustomersDTO(
                         issuer_id: $this->issuerID,
-                        product: $cells[0]->getValue(),
-                        cost_price: floatval(str_replace(',', '.', $cells[1]->getValue())),
-                        profit_percentage: floatval(str_replace(',', '.', $cells[2]->getValue())),
-                        sale_price: floatval(str_replace(',', '.', $cells[3]->getValue())),
-                        amount: floatval($cells[4]->getValue()),
-                        cfop: $cells[5]->getValue(),
-                        unit: $cells[6]->getValue(),
-                        csosncst: $cells[7]->getValue()
+                        company_name: $cells[0]->getValue(),
+                        trade_name: $cells[0]->getValue(),
+                        cnpj: $cells[0]->getValue(),
+                        cpf: $cells[0]->getValue()
 
                     );
 
-                    $productsRepository->importProducts($dto);
+                    $customerRepository->importCustomers($dto);
                 }
             }
             $reader->close();

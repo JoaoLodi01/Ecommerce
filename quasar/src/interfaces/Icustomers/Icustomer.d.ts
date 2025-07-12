@@ -1,6 +1,6 @@
 interface ICustomer
 {
-    customer_cod: number,
+    customer_code: number,
     company_name: string,
     trade_name: string,
     cpf: string,

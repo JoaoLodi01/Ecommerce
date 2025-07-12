@@ -5,7 +5,8 @@
                 v-model="file" 
                 :color="buttonColor"
                 label="Selecione um arquivo"
-                accept=".xlsx, .xls, .csv"
+                :accept="props.operation === 'importProducts' ? '.xlsx, .xls, .csv' : 'json'"
+
             >
                 
             </q-file>
@@ -13,7 +14,7 @@
             <div>
                 <q-avatar 
                     :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
-                    @click="importProducts" 
+                    @click="importFile" 
                     class="mr-4"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -32,9 +33,14 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, defineEmits } from 'vue';
+    import { ref, defineEmits, defineProps, reactive, onMounted } from 'vue';
     import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
+
+    const props = defineProps<{
+        operation: string
+
+    }>();
 
     const emits = defineEmits<{
         (e: 'close', value: true)
@@ -45,9 +51,15 @@
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
+    const routes = reactive({
+        'importColor': 'configs/color/import-color',
+        'importProducts': '/ecommerce/products/import-products'
+
+    });
+
     let file = ref<File | any>(null);
 
-    const importProducts = async () =>
+    const importFile = async () =>
     {
         if(file.value)
         {
@@ -62,8 +74,12 @@
             try {
                 const formData = new FormData();
                 formData.append('importFile', file.value);
+                const apiURL: string = `${routes[props.operation]}/${issuerID.value}`;
+                console.log('apiURL: ', apiURL);
+
                 const res = await api.post(
-                    `/ecommerce/products/import-products/${issuerID.value}`, 
+                    apiURL, 
+
                     formData,
                     {
                         headers: {
@@ -117,4 +133,9 @@
             });
         };
     };
+
+    onMounted(() => {
+        const apiURL: string = `${routes[props.operation]}/${issuerID.value}`;
+        console.log('apiURL: ', apiURL);
+    });
 </script>

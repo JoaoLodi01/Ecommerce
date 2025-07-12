@@ -271,14 +271,6 @@
         {
             logout();
 
-        } else {
-            $q.notify({
-                color: 'yellow',
-                message: 'Operação não definida',
-                position: 'top',
-                timeout: 2000
-
-            });
         };
 
         IDEditCompanie.value = 0;

@@ -451,7 +451,7 @@
                 <q-btn 
                     flat
                     class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
-                    @click="backCompanies()"
+                    @click="showConfirmFn('changeCompany')"
                 >
                     <span class="ml-2 mb-auto">Trocar de empresa</span>
                 </q-btn>
@@ -459,7 +459,7 @@
                 <q-btn 
                     flat
                     class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
-                    @click="logout()"
+                    @click="showConfirmFn('logout')"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
@@ -534,12 +534,10 @@
     import { ref, onMounted } from 'vue';
     import { useRouter } from 'vue-router';
     
-
     const $q = useQuasar();
     const router = useRouter();
     const issuerFirstName = ref<string>(LocalStorage.getItem("first_name"));
     const issuerName = ref<string>(LocalStorage.getItem("issuer_name"));
-    const ignore = ref<string>(LocalStorage.getItem("ignore"));
 
     let showConfirm = ref<boolean>(false);
     let typeOperation = ref<string>('');
@@ -598,7 +596,7 @@
         {
             LocalStorage.remove("auth_token");
             LocalStorage.remove("issuer_id");
-            LocalStorage.getItem("expire");
+            LocalStorage.remove("expire");
 
             $q.notify({
                 color: 'green',

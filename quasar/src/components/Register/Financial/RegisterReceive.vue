@@ -262,7 +262,7 @@
         console.log("Chamou o getSpecie");
         console.log(event);
 
-        form.value.especieID = event.payment_cod;
+        form.value.especieID = event.payment_code;
         form.value.especie = event.name;
     };
 

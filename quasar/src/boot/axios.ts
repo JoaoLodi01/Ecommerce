@@ -78,6 +78,7 @@ export default defineBoot(({ app, router }) => {
         router.replace({ path: '/login' });
         
         emitter.emit('global-error', msg);
+        console.log('LOGIN: ', LocalStorage.getItem("issuer_id"));
         return Promise.reject(error);
 
       } else {

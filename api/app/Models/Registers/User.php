@@ -24,6 +24,7 @@ class User extends Authenticatable implements CanResetPassword
         'access',
         'uuse_id',
         'is_owner',
+        'remember_token',
         'active'
         
     ];
@@ -34,7 +35,6 @@ class User extends Authenticatable implements CanResetPassword
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 

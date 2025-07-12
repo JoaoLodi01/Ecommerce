@@ -186,12 +186,13 @@
 </template>
 
 <script setup lang="ts">
-    import { useQuasar } from 'quasar';
+    import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
     import { onMounted, ref } from 'vue';
     import { useRouter } from 'vue-router';
     import validateCPF from 'src/utils/validateCPF';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
+    import dayjs from 'dayjs';
 
     interface IOwnerData
     {
@@ -205,6 +206,7 @@
 
     const $q = useQuasar();
     const router = useRouter();
+    const today = dayjs();
     
     const form = ref<IOwnerData>({
         name: '',
@@ -236,7 +238,7 @@
         console.log(res.data)
 
         try {
-            if(res.data.success)
+            if(data.success)
             {
                 $q.notify({
                     color: 'green',
@@ -246,11 +248,49 @@
                 
                 });
 
-                router.push({path: '/login'});
+                // 'Login'
+                const details = { email: data.data.email, password: form.value.password };
+                console.log('Data: ', data);
+                console.log('Detalhes para o login', details);
 
+                const login = await api.post("/auth/owner", details);;
+                if(login.data.success)
+                {
+                    console.log()
+                    LocalStorage.set("auth_token", login.data.token);
+                    LocalStorage.set("owner_name", login.data.user.name);
+                    LocalStorage.set("owner_cpf", login.data.user.cpf);
+
+                    LocalStorage.set("user_id", login.data.user.user_cod);
+                    LocalStorage.set("user_name", login.data.user.name);
+                    LocalStorage.set("uuse_id", login.data.uuse_id);
+
+                    const expire = today.add(8, 'hours');
+
+                    LocalStorage.set("expire", expire.toISOString());
+
+                    $q.notify({
+                        color: 'green',
+                        message: 'Login bem sucedido!',
+                        position: 'top',
+                        timeout: 2000
+                        
+                    });
+
+                    router.push('/companies')
+
+                } else {
+                    $q.notify({
+                        color: 'red',
+                        message: 'Erro no login',
+                        position: 'top',
+                        timeout: 2000
+                    })
+                };
             } 
             
         } catch (error) {
+            console.error('Erro na criação ou login: ', error)
             $q.notify({
                 color: 'red',
                 message: error.response ?? error.response.message,
@@ -258,6 +298,7 @@
                 position: 'top'
             
             });
+            showLoanding.value = false;
             
         } finally {
             showLoanding.value = false;

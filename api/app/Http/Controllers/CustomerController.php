@@ -6,6 +6,7 @@ use App\Services\CustomerService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Customers\{
     CustomerRequest,
+    ImportCustomerRequest,
     SearchCustomer
 };
 
@@ -53,5 +54,11 @@ class CustomerController extends Controller
     public function active(int $id)
     {
         return apiSuccess('Cliente ativado com sucesso!', $this->customerService->active($id));
+    }
+
+    public function importCustomers(ImportCustomerRequest $request, int $issuerID)
+    {
+        return apiSuccess('Arquivo recebido com sucesso!', $this->customerService->importCustomers($request->file('importFile'), $issuerID));
+
     }
 }

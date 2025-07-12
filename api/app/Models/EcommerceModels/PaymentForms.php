@@ -9,7 +9,7 @@ class PaymentForms extends Model
     protected $table = 'payments_forms';
 
     protected $fillable = [
-        'payment_cod',
+        'payment_code',
         'issuer_id',
         'especie',
         'tipo_lancamento',

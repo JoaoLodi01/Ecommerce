@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_cod')->index();
-            $table->unique(['issuer_id', 'product_cod']);
+            $table->unsignedBigInteger('product_code')->index();
+            $table->unique(['issuer_id', 'product_code']);
             $table->unique(['issuer_id', 'barcode']);
             $table->unique(['issuer_id', 'barcode_internal']);
             

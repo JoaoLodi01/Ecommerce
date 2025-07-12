@@ -158,7 +158,12 @@ Route::prefix('v1')->group( function (){
             });
 
             Route::prefix('color')->group(function() {
+                Route::get('/export/{issuer_id}', [ConfigController::class, 'exportColors']);
+                
+                Route::post('/import-color/{issuer_id}', [ConfigController::class, 'importColors']);
+
                 Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateColor']);
+
             });
         });
 
@@ -168,7 +173,7 @@ Route::prefix('v1')->group( function (){
             Route::post('/search', [CustomerController::class, 'search']);
             Route::post('/create', [CustomerController::class, 'create']);
             Route::get('/{id}', [CustomerController::class, 'findByID']);
-            Route::put('/{id}', [CustomerController::class, 'update']);
+            Route::put('/update/{id}', [CustomerController::class, 'update']);
             Route::put('/{id}/disable', [CustomerController::class, 'delete']); // desactive
             Route::put('/{id}/active', [CustomerController::class, 'active']);
 

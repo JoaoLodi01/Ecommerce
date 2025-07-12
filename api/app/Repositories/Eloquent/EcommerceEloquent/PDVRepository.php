@@ -44,7 +44,7 @@ class PDVRepository
     
     public function findByID(int $id, int $issuerID)
     {
-        $pdv = PDV::where('pdv_cod', $id)
+        $pdv = PDV::where('pdv_code', $id)
                     ->where(function($q) use ($issuerID){
                         $q->where('issuer_id', $issuerID);
                     })            
@@ -68,7 +68,7 @@ class PDVRepository
     {
         Log::channel('pdv')->info('Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0');
         $pdvs = PDV::with('getItens')
-                        ->where('pdv_cod', $id)
+                        ->where('pdv_code', $id)
                         ->where('issuer_id', $issuerID)
                         ->first();
 
@@ -83,14 +83,14 @@ class PDVRepository
         for ($i=0; $i < count($products); $i++) { 
             Log::channel('pdv')->debug($products[$i]);
 
-            $product = Products::where('product_cod', $products[$i]['product_cod'])->first();
+            $product = Products::where('product_code', $products[$i]['product_code'])->first();
 
-            $maxItensPDV = ItensPDV::where('issuer_id', $product->issuer_id)->max('iten_pdv_cod');
+            $maxItensPDV = ItensPDV::where('issuer_id', $product->issuer_id)->max('iten_pdv_code');
             $itensPDV = array(
-                'iten_pdv_cod' => $maxItensPDV ? $maxItensPDV + 1 : 1,
+                'iten_pdv_code' => $maxItensPDV ? $maxItensPDV + 1 : 1,
                 'issuer_id' => $product->issuer_id,
-                'pdv_cod' => $pdvID,
-                'product_cod' => $products[$i]['product_cod'],
+                'pdv_code' => $pdvID,
+                'product_code' => $products[$i]['product_code'],
                 'product' => $products[$i]['product'],
                 'cost_price' => $product->cost_price,
                 'sale_price' => $products[$i]['sale_price'],
@@ -155,14 +155,14 @@ class PDVRepository
         $user = $this->userRepository->findByID($details['user_id']); // "vendedor"
 
         $currentDate = new Carbon();
-        $maxPDV = PDV::where('issuer_id', $details['issuer_id'])->max('pdv_cod');
+        $maxPDV = PDV::where('issuer_id', $details['issuer_id'])->max('pdv_code');
 
         $pdvData = array(
-            'pdv_cod' => $maxPDV ? $maxPDV + 1 : 1,
+            'pdv_code' => $maxPDV ? $maxPDV + 1 : 1,
             'issuer_id' => $details['issuer_id'],
             'description' => $details['description'],
             'issue_date' => $currentDate->format('Y-m-d'),
-            'customer_id' => $customer->customer_cod,
+            'customer_id' => $customer->customer_code,
             'customer' => $customerName,
             'gross_value' => $details['sub_total'],
             'net_value' => $details['total'],
@@ -178,15 +178,15 @@ class PDVRepository
         
         $pdv = PDV::create($pdvData);  
 
-        if($pdv && $pdv->id && $pdv->pdv_cod)
+        if($pdv && $pdv->id && $pdv->pdv_code)
         {            
-            $iPDV = $this->saveProducts($productsArray, $pdv->pdv_cod, $user, $details['is_nfce_nm']);
+            $iPDV = $this->saveProducts($productsArray, $pdv->pdv_code, $user, $details['is_nfce_nm']);
            
             if(count($iPDV['errors']) === 0)
             {
                 return array(
                     'success' => true,
-                    'pdvID' => $pdv->pdv_cod,
+                    'pdvID' => $pdv->pdv_code,
 
                 );
 
@@ -194,7 +194,7 @@ class PDVRepository
                 return array(
                     'success' => false,
                     'message' => 'Erro no produto',
-                    'pdvID' => $pdv->pdv_cod,
+                    'pdvID' => $pdv->pdv_code,
                     'errors' => $iPDV['errors']
 
                 );
@@ -204,7 +204,7 @@ class PDVRepository
                 'success' => false,
                 'pdv' => $pdv,
                 'pdv_id' => $pdv->id,
-                'pdv_cod' => $pdv->pdv_cod
+                'pdv_code' => $pdv->pdv_code
             );
         }
     }
@@ -253,20 +253,20 @@ class PDVRepository
             Log::channel('pdv')->info('Tipo de venda: NFC-e/NM' . $pdv->is_nfce_nm);
 
             $pdv->update([
-                'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->pdv_cod" : "Venda Nota Manual N° $pdv->pdv_cod",
+                'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->pdv_code" : "Venda Nota Manual N° $pdv->pdv_code",
                 'is_nfce_nm' => $pdv->is_nfce_nm,
                 'status' => $pdv->is_nfce_nm === 'nfce' ? 'Autorizado uso da NF-e' : 'Venda Finalizada',
                 'finished' => 1
     
             ]);
 
-            Log::channel('pdv')->info('Buscar e alterar os produtos, pdv_cod = ' . $pdv->pdv_cod);
-            $products = ItensPDV::where('pdv_cod', $pdv->pdv_cod)->get();
+            Log::channel('pdv')->info('Buscar e alterar os produtos, pdv_code = ' . $pdv->pdv_code);
+            $products = ItensPDV::where('pdv_code', $pdv->pdv_code)->get();
     
             for ($i=0; $i < count($products); $i++) { 
-                Log::channel('pdv')->info('Alteração dentro do for = ' . $pdv->pdv_cod);
+                Log::channel('pdv')->info('Alteração dentro do for = ' . $pdv->pdv_code);
                 $product = $products[$i];
-                $this->productsRepository->decreaseQuantiy($product->product_cod, $product->amount);
+                $this->productsRepository->decreaseQuantiy($product->product_code, $product->amount);
                 $product->update([
                     'is_nfce_nm' => $pdv->is_nfce_nm,
                     'finished' => 1

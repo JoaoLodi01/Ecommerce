@@ -1,7 +1,7 @@
 interface IProducts 
 {
     id: number,
-    product_cod: number,
+    product_code: number,
     product: string,
     active: number,
     barcode: number,

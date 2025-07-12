@@ -158,13 +158,12 @@
             
         } catch (error) {
             console.error('Erro no login: ', error);
+            loandingLogin.value = false;
 
         } finally {
             loandingLogin.value = false;
 
         };
-
-
     };
 
     onMounted(() => {

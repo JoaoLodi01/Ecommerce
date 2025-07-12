@@ -31,7 +31,7 @@ class ReceiveRepository
         $customer = Customer::where('issuer_id', $receiveRegister['issuer_id'])->first();
         Log::info('Buscando cliente: '. $customer);
 
-        $specie = PaymentForms::where('issuer_id', $receiveRegister['issuer_id'])->where('payment_cod', $receiveRegister['especie_id'])->first();
+        $specie = PaymentForms::where('issuer_id', $receiveRegister['issuer_id'])->where('payment_code', $receiveRegister['especie_id'])->first();
         Log::info('Buscando espécie: '. $specie);
 
         $nameCustomer = $customer->company_name ? $customer->company_name : $customer->trade_name;
@@ -47,9 +47,9 @@ class ReceiveRepository
                 'issuer_id' => $receiveRegister['issuer_id'],
                 'document' => $receiveRegister['document'] ?? $document ? $document + 1 : 1,
                 'description' => $receiveRegister['description'],
-                'customer_cod' => $customer->customer_cod,
+                'customer_code' => $customer->customer_code,
                 'name' => $nameCustomer,
-                'especie_cod' => $specie->payment_cod,
+                'especie_cod' => $specie->payment_code,
                 'especie' =>  $specie->especie,
                 'due_date' => date('Y-m-d', strtotime(str_replace('/', '-', $receiveRegister['due_date']))),
                 'installment_number' => $receiveRegister['installment_number'],

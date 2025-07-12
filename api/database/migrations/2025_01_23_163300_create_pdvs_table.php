@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('pdvs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pdv_cod')->index();
-            $table->unique(['issuer_id', 'pdv_cod']);
+            $table->unsignedBigInteger('pdv_code')->index();
+            $table->unique(['issuer_id', 'pdv_code']);
 
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');

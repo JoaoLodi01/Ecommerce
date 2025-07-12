@@ -91,14 +91,20 @@
             
         </div>
     </div>
+
+    <LoandingPage
+        v-if="showLoanding"
+        :text="'Cadastrando empresa ...'"
+    />
 </template>
 
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
-    import axios from 'axios';
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
+    import axios from 'axios';
     import validateCPF from 'src/utils/validateCPF';
 
     interface IIsuerData
@@ -127,6 +133,8 @@
         main_activity: ''
 
     });
+
+    let showLoanding = ref<boolean>(false);
     
     const getDataCNPJ = async () =>
     {
@@ -151,6 +159,7 @@
 
     const createIssuer = async () =>
     {
+        showLoanding.value = true;
         const res = await api.post('/registers/issuer/create', {
             company_name: form.value.company_name,
             trade_name: form.value.trade_name,
@@ -163,28 +172,36 @@
             uuse_id: LocalStorage.getItem("uuse_id"),
             
         });
-        
-        if(res.data.success)
-        {
-            $q.notify({
-                color: 'green',
-                message: res.data.message,
-                timeout: 1200,
-                position: 'top'
-            
-            });
+        try {
+            if(res.data.success)
+            {
+                $q.notify({
+                    color: 'green',
+                    message: res.data.message,
+                    timeout: 1200,
+                    position: 'top'
+                
+                });
 
-            router.push({ path: '/companies' });
+                showLoanding.value = false;
+                router.push({ path: '/companies' });
+                
+            } else {
+                $q.notify({
+                    color: 'red',
+                    message: res.data.message,
+                    timeout: 1200,
+                    position: 'top'
+                
+                });
+            };
+
+        } catch (error) {
+            showLoanding.value = false;
             
-        } else {
-            $q.notify({
-                color: 'red',
-                message: res.data.message,
-                timeout: 1200,
-                position: 'top'
-            
-            });
-        };
+        } finally {
+            showLoanding.value = false;
+        }
     };
 
 </script>
