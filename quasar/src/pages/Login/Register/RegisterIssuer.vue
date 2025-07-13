@@ -1,11 +1,7 @@
 <template>
     <div class="p-10">
-        <router-link to="/companies" class="flex">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-            </svg>
-            <span class="mt-0.5 ml-2">Voltar</span>
-        </router-link>
+        <q-btn flat icon="arrow_back" label="Voltar" to="/companies" class="mb-6" />
+
     </div>
 
     <div class="flex justify-center">
@@ -17,13 +13,16 @@
                 <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Registrar Emitente</h1>
                 <q-input 
                     v-model="form.company_name"
-                    @update:model-value="form.trade_name = form.company_name"   
+                    @update:model-value="handleInput"
                     type="text" 
                     filled        
                     label="Razão Social" 
                     stack-label
                     class="mb-4"
                     color="primary"
+                    :rules="[
+                        val => !!val || 'Campo obrigatório'
+                    ]"
                     
                 />
 
@@ -74,6 +73,9 @@
                     stack-label
                     class="mb-4"
                     color="primary"
+                    :rules="[
+                        val => !!val || 'Campo obrigatório'
+                    ]"
 
                 /> 
                 
@@ -85,7 +87,6 @@
                         color="primary"   
                     />
                 </div>
-            
                 
             </q-form>
             
@@ -160,19 +161,20 @@
     const createIssuer = async () =>
     {
         showLoanding.value = true;
-        const res = await api.post('/registers/issuer/create', {
-            company_name: form.value.company_name,
-            trade_name: form.value.trade_name,
-            cpf: form.value.cpf.replace(/\D/g, ''),
-            cnpj: form.value.cnpj.replace(/\D/g, ''),
-            date_of_foundation: form.value.date_of_foundation,
-            cod_crt: form.value.cod_crt,
-            cod_cnae: form.value.cod_cnae,
-            main_activity: form.value.main_activity,              
-            uuse_id: LocalStorage.getItem("uuse_id"),
-            
-        });
         try {
+            const res = await api.post('/registers/issuer/create', {
+                company_name: form.value.company_name,
+                trade_name: form.value.trade_name,
+                cpf: form.value.cpf.replace(/\D/g, ''),
+                cnpj: form.value.cnpj.replace(/\D/g, ''),
+                date_of_foundation: form.value.date_of_foundation,
+                cod_crt: form.value.cod_crt,
+                cod_cnae: form.value.cod_cnae,
+                main_activity: form.value.main_activity,              
+                uuse_id: LocalStorage.getItem("uuse_id"),
+                
+            });
+
             if(res.data.success)
             {
                 $q.notify({
@@ -197,11 +199,19 @@
             };
 
         } catch (error) {
+            console.error('Caiu no catch: ', error);
             showLoanding.value = false;
             
         } finally {
             showLoanding.value = false;
         }
     };
+
+    const handleInput = (val: string) =>
+    {
+        form.value.company_name = val.toUpperCase();
+        form.value.trade_name = form.value.company_name;
+
+    }
 
 </script>

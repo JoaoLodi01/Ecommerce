@@ -905,15 +905,9 @@
 
     const getUser = async () => 
     { 
-        const res = await api.get('/auth/check', {
-            headers: {
-                'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
-            }
-        });
-        
         sellerData.value ={ 
-            id: res.data.data.id,
-            name: res.data.data.name
+            id: LocalStorage.getItem("user_id"),
+            name: LocalStorage.getItem("user_name")
         };
     };
 
@@ -924,7 +918,7 @@
         console.log(configsRes)
 
         configs.value.nmFinaly = configsRes.nmFinaly;
-    configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
+        configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
         configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
 
     };

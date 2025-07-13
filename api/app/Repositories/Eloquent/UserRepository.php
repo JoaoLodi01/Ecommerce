@@ -17,7 +17,7 @@ class UserRepository
 
     public function findByID(int $id)
     {
-        return User::where('owner_id', $id)->first();
+        return User::where('user_code', $id)->first();
         
     }
 

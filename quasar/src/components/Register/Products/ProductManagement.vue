@@ -307,13 +307,19 @@
                         class="mr-5"
                         :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                         :label="props.operation === 'update' ? 'Alterar dados' : 'Criar produto'"
-                        :disable="loanding"
+                        
                     />
 
                 </div>
             </div>            
         </q-form>
     </div>
+
+    <LoandingPage
+        v-if="loanding"
+        :text="`Carregando dados do produto: ${props.productCod} ...`"
+
+    />
 </template>
 
 <script setup lang="ts">
@@ -324,6 +330,7 @@
     import PISSearch from 'src/components/Search/Tributs/PISSearch.vue'
     import IPISearch from 'src/components/Search/Tributs/IPISearch.vue'
     import COFINSSearch from 'src/components/Search/Tributs/COFINSSearch.vue'
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import camelcaseKeys from 'camelcase-keys';
 
     type TOrigensICMS = {
@@ -557,12 +564,7 @@
     const getProductData = async () =>
     {
         loanding.value = true;
-        $q.notify({
-            color: 'green',
-            message: 'Carregando dados ...',
-            position: 'top',
-            timeout: 2000
-        });
+        
         console.log('getProductData');
         const res = await api.get(`/ecommerce/products/${productDetails.value.issuerId}/${props.productCod}`);
         const data: IProducts = camelcaseKeys(res.data.data, { deep: true });
@@ -602,12 +604,24 @@
                 aliquotCofins: data.aliquotCofins,
             };
 
-            textField.value = `${data.codOrigemIcms} - ${data.origemIcms}`;
+            textField.value = `${data.codOrigemIcms ?? origensICMS.value[0]['cod']} - ${data.origemIcms ?? origensICMS.value[0]['label']}`;
+            loanding.value = false;
         };
     };
 
     onMounted(async () => {
         props.operation === 'update' ? await getProductData() : null;
+
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
+            const keyName = event.key;
+            console.log('Tecla: ', keyName);
+
+            if(keyName === 'Escape')
+            {
+                emits('close', true);
+                
+            }
+        });
 
     })
 </script>

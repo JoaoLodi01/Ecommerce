@@ -555,6 +555,8 @@
     let downRow3 = ref<boolean>(false);
     let widthScreen = ref<number>(0);
 
+    let keyForOpenPDV = ref<boolean>(false);
+
     const showConfirmFn = (operation: string) => 
     {
         showConfirm.value = true;
@@ -735,6 +737,12 @@
                 toggleSidebar();
 
             };
+
+            if(event.altKey && keyName.toLocaleLowerCase() === 'p')
+            {
+                router.push({ path: `/${issuerFirstName.value}/sale/pdv` });
+
+            }
         });
     });
 
