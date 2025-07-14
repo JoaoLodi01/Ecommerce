@@ -1,32 +1,18 @@
 <template>
-    <div class="container mx-auto mt-5 p-6 ml-16 bg-white rounded-lg shadow-lg">
+    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-semibold">Pagar</h1>
+            <h2 class="text-2xl font-semibold">Pagar</h2>
             <div class="flex space-x-4">
-                <q-btn 
-                    class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
+                <button class="bg-blue-500 text-white p-2 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6 mr-2">
                         <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
                     </svg>
-                </q-btn>
-
-                <q-btn
-                    class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                </button>
+                <button 
+                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
                     @click="showRegister()"
-                    label="Cadastrar"
-                />
-
-                <q-btn
-                    class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    @click="getRegister()"
-                    label="Atualizar pagar"
-
-                />
+                    >Cadastrar
+                </button>
             </div>
         </div>
 
@@ -48,8 +34,7 @@
             />
 
             <q-btn
-                class="transition text-white ml-5 h-max mb-auto mt-auto rounded-lg"
-                :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                class="bg-blue-500 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
                 label="Filtrar"
                 @click="dateSearch()"
             />
@@ -64,12 +49,9 @@
         </div>
 
         <div class="overflow-x-auto">
-            <table class="table-auto border-collapse border border-gray-300 bg-white ">
-                <thead class="font-semibold sticky top-0 z-10">
-                    <tr 
-                        class="text-white"
-                        :style="`background-color: ${painelColor}; color: ${textColor}}`"
-                    >
+            <table class="min-w-full table-auto border-collapse border border-gray-200">
+                <thead>
+                    <tr class="bg-gray-200">
                         <th class="px-6 py-3 text-left">Controle</th>
                         <th class="px-6 py-3 text-left">Documento</th>
                         <th class="px-6 py-3 text-left">Descrição</th>
@@ -83,12 +65,12 @@
                 </thead>
                 <tbody>
                     <tr v-for="(register, id) in cashs" :key="id" class="border-t">
-                        <td class="px-6 py-3 text-center">{{ register.toPayCode }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.document }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.id }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.id }}</td>
                         <td class="px-6 py-3">{{ register.description }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.installmentValue }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.installment_value }}</td>
                         <td class="px-6 py-3 text-center">{{ register.name }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.especieID }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
                         <td class="px-6 py-3">{{ register.especie }}</td>
                         <td class="px-6 py-3">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3">
@@ -116,66 +98,77 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script>
     import { api } from "src/boot/axios";
-    import { useQuasar } from "quasar";
-    import { ref, onMounted } from "vue";
-    import { LocalStorage } from "quasar";
+    import RegisterPay from "src/components/Register/Financial/RegisterPay.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
-    import camelcaseKeys from "camelcase-keys";
     dayjs.extend(isBetween);
 
-    const $q = useQuasar();
-    const today = dayjs();
-    const cashs = ref<IPayBody[]>([]);
-    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
-    const buttonColor = LocalStorage.getItem("buttonColor");
-    const textColor = LocalStorage.getItem("textColor");
-    const painelColor = LocalStorage.getItem("painelColor");
-
-    let startDate = today.startOf('month').format('YYYY-MM-DD');
-    let endDate = today.endOf('month').format('YYYY-MM-DD');
-    let withScreen = ref<number>(0);
-    let showPayClosing = ref<boolean>(false);
-    
-    const getRegister = async() =>
-    {
-        try {
-            const response = await api.get(`ecommerce/pay/all/${issuerID.value}`);
-            cashs.value = response.data.data;
-
-        } catch (error) {
-            console.error("Erro ao buscar registros:", error)
-            
-        }
-    };
-
-    const dateSearch = () =>
-    {
+    export default {
+    data(){
+        const today = dayjs();
         
-    };  
+        return{
+            cash:{
+                description: "",
+                valor_entrada: "",
+                valor_saida: "",
+            },
+            startDate: today.startOf('month').format('YYYY-MM-DD'),
+            endDate: today.endOf('month').format('YYYY-MM-DD'),
+            filteredPays: [],
+            cashs: [],
+            withScreen: 0,
+            showPayClosing: false,
+            
+        };
+    },
 
-    const showRegister = () =>
-    {
-        showPayClosing.value = true;
-    };
+    methods: {
+        async getRegister(){
+            try {
+                const response = await api.get('/ecommerce/cash-register/all/receive')
+                this.cashs = response.data.data
+                console.log('response.data.data', response.data.data)
+            } catch (error) {
+                console.error("Erro ao buscar registros:", error)
+                
+            }
+        },
 
-    const closeRegister = (event) =>
-    { 
-        showPayClosing.value = event;
+        dateSearch(){
+            if(this.startDate || this.endDate){
+                this.filteredPays = this.cashs.filter(register => {
+                    const registerDate = dayjs(register.created_at);
+                    return registerDate.isBetween(this.startDate, this.endDate, null, '[]')
+                });
+                this.cashs = this.filteredPays;
+            }
+        },  
 
-    };
+        showRegister(){
+            this.showPayClosing = true
+        },
 
-    const editRegister = (register) =>
-    {
+        closeRegister(event){
+            this.showPayClosing = event
+        },
 
-    };
+        editRegister(){
 
-    onMounted(() => {
-        getRegister();
-        withScreen.value = screen.width;
-    });
+        },
+    },
+    components: {
+        RegisterPay
+    },
+
+    mounted(){
+        this.getRegister()
+        this.withScreen += screen.width
+
+    }
+};
 
 </script>
 

@@ -121,25 +121,25 @@
 <script setup lang="ts">
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
-    import { ref, onMounted, watch } from "vue";
+    import { ref, onMounted } from "vue";
     import { LocalStorage } from "quasar";
-    import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
+
     import camelcaseKeys from "camelcase-keys";
+    import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
     dayjs.extend(isBetween);
 
     const today = dayjs();
     const $q = useQuasar();
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
-    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const buttonColor = LocalStorage.getItem("buttonColor");
     const painelColor = LocalStorage.getItem("painelColor");
-    const textColor = ref<string>(LocalStorage.getItem("textColor"));
+    const textColor = LocalStorage.getItem("textColor");
 
     let receives = ref<IReceiveBody[]>([]);
     let startDate = ref<string>(today.startOf('month').format('YYYY-MM-DD'));
     let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
-    let filteredCashs = ref<object[]>([]);
     let withScreen = ref<number>(0);
     let showReceiveClosing = ref<boolean>(false);
     

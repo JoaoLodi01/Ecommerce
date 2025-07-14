@@ -4,12 +4,12 @@ namespace App\Models\EcommerceModels;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Receive extends Model
+class ToPay extends Model
 {
-    protected $table = 'receives';
+    protected $table = 'to_pays';
 
     protected $fillable = [
-        'receive_code',
+        'to_pay_code',
         'issuer_id',
         'document',
         'description',
@@ -29,10 +29,5 @@ class Receive extends Model
         'canceled',
         'user_id',
         'user',
-    ];
-
-    protected $hidden = [
-        'created_at',
-        'updated_at',
     ];
 }

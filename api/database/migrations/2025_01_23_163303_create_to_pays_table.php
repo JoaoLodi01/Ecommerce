@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('receives', function (Blueprint $table) {
+        Schema::create('to_pays', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('receive_code')->index();
+            $table->unsignedBigInteger('to_pay_code')->index();
             $table->unique(['issuer_id', 'document']);
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
@@ -58,6 +58,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('receives');
+        Schema::dropIfExists('to_pays');
     }
 };

@@ -117,7 +117,8 @@
     const login = async () => {
         const details = { email: email.value, password: password.value }
         loandingLogin.value = true;
-
+        showPassword.value = false;
+        
         try {
             const res = await api.post("/auth/owner", details);
             console.log(res.data);

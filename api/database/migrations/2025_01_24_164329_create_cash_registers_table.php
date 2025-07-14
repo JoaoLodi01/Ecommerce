@@ -25,9 +25,13 @@ return new class extends Migration
             $table->foreign('pdv_code')->references('pdv_code')->on('pdvs')->onDelete('cascade');
             $table->unsignedBigInteger('pdv_code')->nullable();
 
-            $table->foreign('receive_cod')->references('receive_cod')->on('receives')->onDelete('cascade');
-            $table->unsignedBigInteger('receive_cod')->nullable();
+            $table->foreign('receive_code')->references('receive_code')->on('receives')->onDelete('cascade');
+            $table->unsignedBigInteger('receive_code')->nullable();
             $table->unsignedBigInteger('receive_document')->nullable();
+
+            $table->foreign('to_pay_code')->references('to_pay_code')->on('to_pays')->onDelete('cascade');
+            $table->unsignedBigInteger('to_pay_code')->nullable();
+            $table->unsignedBigInteger('to_pay_document')->nullable();
 
             $table->unsignedBigInteger('customer_code');
             $table->foreign('customer_code')->references('customer_code')->on('customers')->onDelete('cascade');

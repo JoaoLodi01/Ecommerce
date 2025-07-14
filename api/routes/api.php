@@ -7,7 +7,8 @@ use App\Http\Controllers\EcommerceController\{
     UserController,
     PDVController,
     PaymentsController,
-    ReceiveController
+    ReceiveController,
+    ToPayController
 };
 
 use App\Http\Controllers\HotelController\{
@@ -99,11 +100,11 @@ Route::prefix('v1')->group( function (){
 
             // Pay routes
             Route::prefix('pay')->group( function(){
-                Route::get('/all/{issuer_id}', [ReceiveController::class, 'getAll']);
-                Route::post('/create', [ReceiveController::class, 'store']);
-                Route::get('/{id}', [ReceiveController::class, 'findByID']);
-                Route::put('/{id}', [ReceiveController::class, 'update']);
-                Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
+                Route::get('/all/{issuer_id}', [ToPayController::class, 'getAll']);
+                Route::post('/create', [ToPayController::class, 'store']);
+                Route::get('/{id}', [ToPayController::class, 'findByID']);
+                Route::put('/{id}', [ToPayController::class, 'update']);
+                Route::delete('/{id}/deactivate', [ToPayController::class, 'delete']);
 
             });
         
