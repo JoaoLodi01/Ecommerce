@@ -244,7 +244,7 @@
     />
 
     <ImportFiles
-        v-if="showImportFiles"
+        v-show="showImportFiles"
         @close="closeReload($event)"
         :operation="'importProducts'"
 
