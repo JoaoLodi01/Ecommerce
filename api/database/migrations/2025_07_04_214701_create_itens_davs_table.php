@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('itens_davs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('iten_dav_cod')->index();
+            $table->unsignedBigInteger('iten_dav_code')->index();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
 
-            $table->foreign('dav_cod')->references('dav_cod')->on('davs')->onDelete('cascade');
-            $table->unsignedBigInteger('dav_cod');
-            $table->foreign('product_cod')->references('product_cod')->on('products')->onDelete('cascade');
-            $table->unsignedBigInteger('product_cod');
+            $table->foreign('dav_code')->references('dav_code')->on('davs')->onDelete('cascade');
+            $table->unsignedBigInteger('dav_code');
+            $table->foreign('product_code')->references('product_code')->on('products')->onDelete('cascade');
+            $table->unsignedBigInteger('product_code');
             $table->string('product', 120);
             $table->decimal('cost_price', 16,2);
             $table->decimal('sale_price', 16,2);

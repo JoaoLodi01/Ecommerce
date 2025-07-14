@@ -46,11 +46,11 @@ return [
             'provider' => 'users',
         ],
 
-        'owner' => [
+        /*'owner' => [
             'driver' => 'sanctum',
             'provider' => 'owners',
 
-        ]
+        ]*/
 
     ],
 

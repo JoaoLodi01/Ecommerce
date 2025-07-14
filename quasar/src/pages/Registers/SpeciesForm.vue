@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(specie, id) in species" :key="id">
-                        <td scope="row" class="px-6 py-3 text-center">{{ specie.payment_cod }}</td>
+                        <td scope="row" class="px-6 py-3 text-center">{{ specie.payment_code }}</td>
                         <td scope="row" class="px-6 py-3 text-center">{{ specie.especie }}</td>
                         <td scope="row" class="px-6 py-3 text-center">{{ specie.tipo_lancamento }}</td>
                         <td scope="row" class="px-6 py-3 text-center">

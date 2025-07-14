@@ -79,7 +79,7 @@
       },
   
       setSpecies(specie){
-        this.speciesData.payment_cod = specie.payment_cod;
+        this.speciesData.payment_code = specie.payment_code;
         this.speciesData.especie = specie.especie;
         this.$emit('selectSpecie', this.speciesData)
       },

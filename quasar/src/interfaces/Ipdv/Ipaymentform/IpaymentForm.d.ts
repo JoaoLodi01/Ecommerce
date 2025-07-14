@@ -1,6 +1,6 @@
 interface IPaymentForm
 {
-    payment_cod: number,
+    payment_code: number,
     especie: string,
     bank_key: unknown,
     pix_key: unknown,

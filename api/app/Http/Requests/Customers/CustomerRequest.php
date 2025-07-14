@@ -5,13 +5,12 @@ namespace App\Http\Requests\Customers;
 use App\Services\Config\ConfigService;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 class CustomerRequest extends FormRequest
 {
     protected function prepareForValidation()
     {
         $this->merge([
-            'cutomer_cod' => $this->route('customer_cod')
+            'cutomer_cod' => $this->route('customer_code')
         ]);
     }
 
@@ -35,9 +34,7 @@ class CustomerRequest extends FormRequest
         //'email' => ['required', 'string', 'email', Rule::unique('users')->ignore($user->id)]
         $cpfRules = [];
         $cnpjRules = [];
-        
-
-    
+     
         return [
             'issuer_id' => ['required'],
             'company_name' => ['nullable', 'required_without:trade_name', 'string', 'max:120'],

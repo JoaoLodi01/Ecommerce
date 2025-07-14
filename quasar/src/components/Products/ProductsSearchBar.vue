@@ -15,12 +15,12 @@
     >
         <li
             v-for="product in filtredProducts"
-            :key="product.product_cod"
+            :key="product.product_code"
             @click="setProduct(product)"
             class="p-2 hover:bg-gray-200 cursor-pointer"
             
         >
-            <span>{{ product.product_cod }}</span> -
+            <span>{{ product.product_code }}</span> -
             <span>{{ product.product }}</span> -
             <span>Qtde: {{ product.amount }}</span> -
             <span>R$ {{ product.sale_price }} </span>
@@ -65,7 +65,7 @@
 
     const productsData = ref<IProducts>({
         id: 0,
-        product_cod: 0,
+        product_code: 0,
         active: 0,
         barcode: 0,
         barcode_internal: 0,
@@ -106,7 +106,7 @@
 
             const data = res.data.data;
             
-            return isPDV ? filtredProducts.value = data : emits('returnCod', data.map((p: IProducts) => { return p. product_cod; }));
+            return isPDV ? filtredProducts.value = data : emits('returnCod', data.map((p: IProducts) => { return p. product_code; }));
 
         } else {
             emits('getAll');
@@ -133,7 +133,7 @@
             console.log(product.active)
                 const emitProduct = {...productsData.value = { 
                     id: product.id,
-                    product_cod: product.product_cod, 
+                    product_code: product.product_code, 
                     product: product.product, 
                     active: product.active,
                     barcode: 0,

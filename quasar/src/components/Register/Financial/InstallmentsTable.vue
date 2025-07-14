@@ -50,10 +50,10 @@
                             color="primary"
                         />
                     </td>
-                    <td>R$ {{ installment.valuePaid }}</td>
-                    <td>R$ {{ installment.valueOriginal }}</td>
+                    <td>R$ {{ formatCurrency(installment.valuePaid) }}</td>
+                    <td>R$ {{ formatCurrency(installment.valueOriginal) }}</td>
                     <td v-if="installment.paid">{{ installment.paymentDate }}</td>
-                    <td>{{ installment.valuePaid ? 'Pago' : 'Pendente' }}</td>
+                    <td>{{ installment.paid ? 'Pago' : 'Pendente' }}</td>
                     <td v-if="readonly">
                         <q-btn
                             size="sm"
@@ -74,16 +74,12 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
-
-        <p>Total Pago: R$ {{  }}</p>
-        <p>Total Pendente: R$ {{  }}</p>
+        </table> 
     </div>
-
 </template>
 
 <script setup lang="ts">
-    import { ref, defineProps, defineEmits } from 'vue';
+    import { ref, defineProps, defineEmits, computed } from 'vue';
     import dayjs from 'dayjs';
 
     type TinstallmentsData = {
@@ -151,6 +147,13 @@
 
     const undoPayOff = (installment) => {
 
+    };
+
+    const formatCurrency = (value: number) => {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        }).format(value);
     };
 
     const deleteInstallments = () => 

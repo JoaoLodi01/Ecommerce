@@ -5,8 +5,6 @@ namespace App\Repositories\Eloquent;
 use App\Models\Registers\Issuer;
 use App\Models\Registers\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-
 class UserRepository
 {
     public function getAll(int $issuer_id)
@@ -19,7 +17,7 @@ class UserRepository
 
     public function findByID(int $id)
     {
-        return User::where('owner_id', $id)->first();
+        return User::where('user_code', $id)->first();
         
     }
 

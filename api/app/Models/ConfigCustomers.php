@@ -10,7 +10,7 @@ class ConfigCustomers extends Model
 
     protected $fillable = [ 
         'issuer_id',
-        'config_customer_cod',
+        'config_customer_code',
         'validate_cnpj',
         'validate_cpf',
         'validate_addres',

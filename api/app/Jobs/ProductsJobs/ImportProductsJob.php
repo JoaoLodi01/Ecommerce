@@ -2,7 +2,6 @@
 
 namespace App\Jobs\ProductsJobs;
 
-
 use App\DTO\Products\ProductsDTO;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -18,24 +17,29 @@ class ImportProductsJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public string $filePath;
-    public int $issuerID;
-
     public function __construct(
-            string $filePath, 
-            int $issuerID
-        )
-    {
-        $this->filePath = $filePath;
-        $this->issuerID = $issuerID;
-        
-    }
+        public string $filePath, 
+        public int $issuerID,
+        public string $extension
+    ){}
 
     public function handle(ProductsRepository $productsRepository)
     {
         try {
             Log::debug('Caiu no job');
-            $reader = ReaderEntityFactory::createXLSXReader();
+            $reader = null;
+            if($this->extension === 'xlsx')
+            {
+                $reader = ReaderEntityFactory::createXLSXReader();
+                Log::debug('Reader = XLSX');
+
+            } else if ($this->extension === 'csv')
+            {
+                $reader = ReaderEntityFactory::createCSVReader();
+                Log::debug('Reader = CSV');
+
+            }
+            
             $reader->open($this->filePath);
 
             $firstRow = true;

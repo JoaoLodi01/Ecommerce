@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('payments_forms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('payment_cod')->index();
-            $table->unique(['issuer_id', 'payment_cod']);
+            $table->unsignedBigInteger('payment_code')->index();
+            $table->unique(['issuer_id', 'payment_code']);
             $table->unique(['issuer_id', 'pix_key']);
             $table->unique(['issuer_id', 'bank_key']);
             $table->unique(['issuer_id', 'other_key']);

@@ -9,8 +9,7 @@ use App\Models\EcommerceModels\{
 
 use App\Models\Registers\{
     Issuer,
-    FirstSteps,
-    Owner
+    FirstSteps
 };
 
 use App\Models\Customer;
@@ -22,6 +21,7 @@ use App\Services\GetIBGECod\GetIBGECodService;
 use App\Services\NFCeValidation\FindTributs;
 use Illuminate\Support\Facades\Log;
 use App\Services\TributsService\TributsServices;
+use App\Models\Registers\User;
 
 class RegisterIssuerRepository implements RegisterIssuerContract
 {
@@ -35,13 +35,15 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
     public function getAll(string $ownerID)
     {
-        $owner = Owner::where('uuse_id', $ownerID)->first();
-        return Issuer::where('owner_id', $owner->id)->get();
+        Log::info("$ownerID");
+        $owner = User::where('uuse_id', $ownerID)->first();
+        return Issuer::where('user_code', $owner->id)->get();
+        
     }
 
     public function create(array $data)
     {        
-        $owner = Owner::where('uuse_id', $data['uuse_id'])->first();
+        $owner = User::where('uuse_id', $data['uuse_id'])->first();
         
         if($owner)
         {
@@ -53,7 +55,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'date_of_foundation' => $data['date_of_foundation'],
                 'cod_cnae' => $data['cod_cnae'],
                 'cnae' => $data['main_activity'],
-                'owner_id' => $owner->id,
+                'user_code' => $owner->id,
             ]);
 
             Log::info('--- Criação das espécies padrão ---');
@@ -62,12 +64,12 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             
             Log::info('--- Criação do cliente padrão ---');
 
-            $maxCustomerCod = Customer::where('issuer_id', $issuer->id)->max('customer_cod');
+            $maxCustomerCod = Customer::where('issuer_id', $issuer->id)->max('customer_code');
 
             $codCustomer = $maxCustomerCod ? $maxCustomerCod + 1 : 1;
             
             $customer = Customer::create([
-                'customer_cod' => $codCustomer,
+                'customer_code' => $codCustomer,
                 'issuer_id' => $issuer->id,
                 'company_name' => 'Consumidor Padrão',
                 'customer_type' => 'Física',
@@ -79,9 +81,9 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             Log::info('--- Fim da criação do cliente padrão ---');
 
             Log::info('--- Criação das configPDV padrão ---');
-            $configPDVCod = ConfigPDV::where('issuer_id', $issuer->id)->max('config_pdv_cod');
+            $configPDVCod = ConfigPDV::where('issuer_id', $issuer->id)->max('config_pdv_code');
             ConfigPDV::create([
-                'config_pdv_cod' => $configPDVCod ? $configPDVCod + 1 : 1,
+                'config_pdv_code' => $configPDVCod ? $configPDVCod + 1 : 1,
                 'issuer_id' => $issuer->id,
                 'filter_search' => 'Cód barras interno',
                 'filter_search_customer' => 'Padrão (cód.cliente ou nome)'
@@ -90,11 +92,11 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             Log::info('--- Fim da criação do configPDV padrão ---');
 
             Log::info('--- Criação das configCustomer padrão ---');
-            $maxCod = ConfigCustomers::where('issuer_id')->max('config_customer_cod');
+            $maxCod = ConfigCustomers::where('issuer_id')->max('config_customer_code');
         
             ConfigCustomers::create([
                 'issuer_id' => $issuer->id,
-                'config_customer_cod' => $maxCod ? $maxCod + 1 : 1,
+                'config_customer_code' => $maxCod ? $maxCod + 1 : 1,
                 'validate_cnpj' => false,
                 'validate_cpf' => false,
                 'validate_addres' => false,
@@ -105,20 +107,20 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             Log::info('--- Fim da criação do configCustomer padrão ---');
 
             Log::info('--- Criação das configProducts padrão ---');
-                $maxCod = ConfigCustomers::where('issuer_id')->max('config_product_cod');
+                $maxCode = ConfigProducts::where('issuer_id')->max('config_product_code');
                 ConfigProducts::create([
                     'issuer_id' => $issuer->id,
-                    'config_product_cod' => $maxCod ? $maxCod + 1 : 1,
+                    'config_product_code' => $maxCode ? $maxCode + 1 : 1,
                 ]);
 
             Log::info('--- Fim da criação do configProducts padrão ---');
 
             Log::info('--- Criação das cores padrão ---');
-            $maxCod = SiteColors::where('issuer_id')->max('color_cod');
+            $maxCod = SiteColors::where('issuer_id')->max('color_code');
         
             SiteColors::create([
                 'issuer_id' => $issuer->id,
-                'color_cod' => $maxCod ? $maxCod + 1 : 1
+                'color_code' => $maxCod ? $maxCod + 1 : 1
             ]);
 
             Log::info('--- Fim da criação das cores padrão ---');
@@ -189,7 +191,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         $firstSteps->save();
 
         $csosncst = '';
-        Log::info('Emitente é: ' . $issuer->crt, ' CRT: ' . $issuer->cod_crt);
+        
         if($issuer->cod_crt && $issuer->cod_crt > 0)
         {
             $crt = $issuer->cod_crt;
@@ -256,14 +258,14 @@ class RegisterIssuerRepository implements RegisterIssuerContract
     {
         $payments = [
             [
-                'payment_cod' => 1,
+                'payment_code' => 1,
                 'issuer_id' => $issuerID,
                 'especie' => 'Dinheiro',
                 'tipo_lancamento' => 'Caixa',
                 'payments_form_type' => 'DINHEIRO'
             ],
             [
-                'payment_cod' => 2,
+                'payment_code' => 2,
                 'issuer_id' => $issuerID,
                 'especie' => 'PIX',
                 'tipo_lancamento' => 'Caixa',
@@ -271,21 +273,21 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
             ],
             [
-                'payment_cod' => 3,
+                'payment_code' => 3,
                 'issuer_id' => $issuerID,
                 'especie' => 'Boleto',
                 'tipo_lancamento' => 'Receber',
                 'payments_form_type' => 'BOLETO'
             ],
             [
-                'payment_cod' => 4,
+                'payment_code' => 4,
                 'issuer_id' => $issuerID,
                 'especie' => 'Cartão de Crédito',
                 'tipo_lancamento' => 'Caixa',
                 'payments_form_type' => 'CARTAO DE CREDITO'
             ],
             [
-                'payment_cod' => 5,
+                'payment_code' => 5,
                 'issuer_id' => $issuerID,
                 'especie' => 'Cartão de Débito',
                 'tipo_lancamento' => 'Receber',

@@ -15,6 +15,7 @@
     const $q = useQuasar();
     const router = useRouter();
     const errorDialog = ref(null);
+    const intervalID = ref<ReturnType<typeof setInterval> | null>(null);
     
     const showGlobalError = (msg: string) => 
     {
@@ -55,19 +56,27 @@
 
         setInterval(checkLogin, 30 * 1000);
 
-        if(LocalStorage.getItem("issuer_id"))
+        if(LocalStorage.getItem("auth_token"))
         {
+            console.error('Ta chamando essa bosta por queeeeeeeeeeeee')
             console.log(LocalStorage.getItem("issuer_id"));
-            const issuerID: number = LocalStorage.getItem("issuer_id");
 
-            setInterval(() => getColors(issuerID), 40 * 100)
+            intervalID.value = setInterval(() => getColors(LocalStorage.getItem("issuer_id")), 40 * 100); 
+            
         } else {
+            clearInterval(intervalID.value);
             return;
-        }
-
+            
+        };
     });
 
     onBeforeUnmount(() => {
+        if(intervalID.value)
+        {
+            clearInterval(intervalID.value);
+            console.log('Vai parar de chamar o getColors');
+        }
+
         emitter.off('global-error', showGlobalError);
     });
 </script>

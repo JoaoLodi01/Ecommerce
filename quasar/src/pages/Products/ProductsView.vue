@@ -151,11 +151,11 @@
             class="relative overflow-x-auto max-h-80 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
         >
             <div 
-                @click="productManagement('update', product.product, product.product_cod)"
+                @click="productManagement('update', product.product, product.product_code)"
                 
             >
                 <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">ID:</span> {{ product.product_cod }}
+                    <span class="font-semibold">ID:</span> {{ product.product_code }}
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
@@ -184,7 +184,7 @@
             <!-- Ações -->
             <div class="flex space-x-2">
                 <q-btn
-                    @click="productManagement('update', product.product, product.product_cod)"
+                    @click="productManagement('update', product.product, product.product_code)"
                     class="px-4 py-2 mr-2 rounded-lg transition"
                     :disabled=!product.active
                     :class="{
@@ -212,7 +212,7 @@
                     :class="{
                         'text-gray-400 bg-slate-500': !product.active
                     }"
-                    @click="showConfirmFn('products/active', product.product_cod)"
+                    @click="showConfirmFn('products/active', product.product_code)"
                     
                 >
                     Ativar
@@ -244,8 +244,10 @@
     />
 
     <ImportFiles
-        v-if="showImportFiles"
-        @close="closeReload(!$event)"
+        v-show="showImportFiles"
+        @close="closeReload($event)"
+        :operation="'importProducts'"
+
     />
 </template>
 
@@ -368,7 +370,7 @@
                 });
 
                 showConfirm.value = false;
-                const product = products.value.find(c => c.product_cod === LocalStorage.getItem("productID"));
+                const product = products.value.find(c => c.product_code === LocalStorage.getItem("productID"));
                 if(product)
                 {
                     product.active = operation === 'products/active' ? 1 : 0;
@@ -388,7 +390,7 @@
     
     const filterProducts = (productCods: number[]) =>
     {
-        products.value = allProducts.value.filter((p: IProducts) => productCods.includes(p.product_cod));
+        products.value = allProducts.value.filter((p: IProducts) => productCods.includes(p.product_code));
     };
 
  

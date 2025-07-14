@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('config_products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('config_product_code')->index();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
-            $table->unsignedBigInteger('config_product_cod');
             $table->float('default_profit_percentage')->default(100.00);
             $table->boolean('validate_gtin')->default(false);
             $table->boolean('reserve_dav_quantity')->default(false);

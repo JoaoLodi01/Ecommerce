@@ -11,13 +11,13 @@ class ConfigPDVRepository implements ConfigPDVContract
     public function getConfigs(int $id)
     {
         $configPDV = ConfigPDV::where('issuer_id', $id)->first();
-        $configCode = ConfigPDV::where('issuer_id', $id)->max('config_pdv_cod');
+        $configCode = ConfigPDV::where('issuer_id', $id)->max('config_pdv_code');
 
         if(!$configPDV)
         {
             ConfigPDV::create([
                 'issuer_id' => $id,
-                'config_pdv_cod' => $configCode ? $configCode + 1 : 1
+                'config_pdv_code' => $configCode ? $configCode + 1 : 1
             ]);
 
             return ConfigPDV::where('issuer_id', $id)->first();

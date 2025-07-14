@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Contracts\RegisterContract;
 
-interface RegisterOwnerContract
+interface RegisterUserContract
 {
     public function create(array $data);
     public function find(int $id);

@@ -127,10 +127,10 @@
             class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
         >
             <div 
-                @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name, customer.active)"
+                @click="editCustomer(customer.customer_code, customer.company_name || customer.trade_name, customer.active)"
             >
                 <div class="text-sm text-gray-500 mb-2">
-                    <span class="font-semibold">ID:</span> {{ customer.customer_cod }}
+                    <span class="font-semibold">ID:</span> {{ customer.customer_code }}
                 </div>
 
                 <div class="text-sm text-gray-500 mb-2">
@@ -155,9 +155,9 @@
             </div>
             
             <!-- Ações -->
-            <div class="slashed-zero flex space-x-2 mt-5" v-if="customer.customer_cod !== 1">
+            <div class="slashed-zero flex space-x-2 mt-5" v-if="customer.customer_code !== 1">
                 <q-btn
-                    @click="editCustomer(customer.customer_cod, customer.company_name || customer.trade_name, customer.active)"
+                    @click="editCustomer(customer.customer_code, customer.company_name || customer.trade_name, customer.active)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
@@ -168,7 +168,7 @@
                     Editar
                 </q-btn>
                 <q-btn
-                    @click="deleteOrActive('disable', customer.customer_cod)"
+                    @click="deleteOrActive('disable', customer.customer_code)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
@@ -180,7 +180,7 @@
                     Desativar
                 </q-btn>
                 <q-btn
-                    @click="deleteOrActive('active', customer.customer_cod)"
+                    @click="deleteOrActive('active', customer.customer_code)"
                     v-else
                     class="px-4 py-2 rounded-lg transition"
                     :class="{
@@ -300,7 +300,7 @@
                 
             });
 
-            const customer = customers.value.find(c => c.customer_cod === id);
+            const customer = customers.value.find(c => c.customer_code === id);
             if(customer)
             {
                 customer.active = action === 'active' ? 1 : 0;

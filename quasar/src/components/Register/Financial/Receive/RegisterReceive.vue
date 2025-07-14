@@ -152,30 +152,46 @@
                 @updated:inspecInstallment="createInstallments($event)"
                 @request:generateInstallmentes=""
             />
-
-            <div>
-                <q-btn
-                    v-if="!readonly"
-                    type="submit"
-                    label="Registrar"
-                    class="bg-blue-600 text-white">
-                </q-btn>
-
-                <q-btn
-                    @click="print()"
-                    label="Imprimir"
-                    class="bg-blue-600 text-white"
-                    v-if="action === 'view'">
-                </q-btn>
-
-                <q-btn
-                    @click="close(false)"
-                    label="Voltar"
-                    class="ml-5 bg-slate-600 text-white">
-                </q-btn>
-            </div>
         </form>
 
+        <div v-if="readonly" class=" text-base font-medium flex justify-between items-center gap-4 p-3 rounded mt-2">
+            <span class="border rounded px-3 py-1 bg-green-200 text-green-900">
+                <q-icon name="check_circle" color="green-700" class="mr-2" />
+                Recebidas: R$ {{ totalRecebidas }}
+            </span>
+
+            <span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
+                <q-icon name="hourglass_empty" color="orange" />
+                Pendentes: R$ {{ totalPendentes }}
+            </span>
+
+            <span class="border rounded px-3 py-1 bg-red-300 text-red-900">
+                <q-icon name="warning" color="red" />
+                Atrasadas ( + juros ): R$ {{ totalAtrasadas }}
+            </span>
+        </div>
+
+        <div class="mt-4">
+            <q-btn
+                v-if="!readonly"
+                type="submit"
+                label="Registrar"
+                class="bg-blue-600 text-white">
+            </q-btn>
+
+            <q-btn
+                @click="print()"
+                label="Imprimir"
+                class="bg-blue-600 text-white"
+                v-if="action === 'view'">
+            </q-btn>
+
+            <q-btn
+                @click="close(false)"
+                label="Voltar"
+                class="ml-5 bg-slate-600 text-white">
+            </q-btn>
+        </div>
     </div>
 </template>
 <script setup lang="ts">
@@ -244,6 +260,18 @@
 
     });
 
+    const totalRecebidas = computed(() => {
+        
+    });
+
+    const totalPendentes = computed(() => {
+        
+    });
+
+    const totalAtrasadas = computed(() => {
+        
+    });
+
     const exists = (event: boolean) =>
     {
         if(event)
@@ -296,7 +324,7 @@
         console.log("Chamou o getSpecie");
         console.log(event);
 
-        form.value.especieID = event.payment_cod;
+        form.value.especieID = event.payment_code;
         form.value.especie = event.name;
     };
 

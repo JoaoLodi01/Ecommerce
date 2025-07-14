@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\DTO\Customers\CustomersDTO;
 use App\Models\Customer;
 use App\Models\Registers\FirstSteps;
 use App\Models\Registers\Issuer;
@@ -34,7 +35,7 @@ class CustomerRepository
                 $customer = Customer::where('active', 1)
                         ->where('issuer_id', $data['issuer_id'])
                         ->where(function ($query) use ($search){
-                            $query->where('customer_cod', $search)
+                            $query->where('customer_code', $search)
                                   ->orWhere('company_name', 'like', '%' . $search . '%' )
                                   ->orWhere('trade_name', 'like', '%' . $search . '%' );
                         })
@@ -45,7 +46,7 @@ class CustomerRepository
                 $customer = Customer::where('active', 1)
                             ->where('issuer_id', $data['issuer_id'])
                             ->where(function($query) use ($search){
-                                $query->where('customer_cod', $search)
+                                $query->where('customer_code', $search)
                                     ->orWhere('cpf', 'like' . '%' . $search . '%');
                             })
                             ->get();
@@ -54,7 +55,7 @@ class CustomerRepository
             case 'CNPJ ou Cód cliente':
                 $customer = Customer::where('active', 1)
                             ->where(function($query) use ($search){
-                            $query->where('customer_cod', $search)
+                            $query->where('customer_code', $search)
                                     ->orWhere('cnpj', 'like', '%' . $search . '%');
                             })
                             ->get();
@@ -63,7 +64,7 @@ class CustomerRepository
             case 'CNPJ, CPF ou Cód cliente':
                 $customer = Customer::where('active', 1)
                            ->where(function($query) use ($search){
-                             $query->where('customer_cod', $search)
+                             $query->where('customer_code', $search)
                                    ->orWhere('cnpj', 'like', '%' . $search . '%')
                                    ->orWhere('cpf', 'like', '%' . $search . '%');
                            })
@@ -80,7 +81,7 @@ class CustomerRepository
 
     public function findByID(int $id){
         return Customer::with('joinCredit')
-                        ->where('customer_cod', $id)
+                        ->where('customer_code', $id)
                         ->first();
     }
 
@@ -102,7 +103,7 @@ class CustomerRepository
 
     public function create(array $data){
         $issuer = Issuer::where('id', $data['issuer_id'])->first();
-        $maxCod = Customer::where('issuer_id', $issuer->id)->max('customer_cod');
+        $maxCod = Customer::where('issuer_id', $issuer->id)->max('customer_code');
 
         $customerCod = $maxCod ? $maxCod + 1 : 1;
 
@@ -116,7 +117,7 @@ class CustomerRepository
         $stpes->save();
 
         return Customer::create([
-            'customer_cod' => $customerCod,
+            'customer_code' => $customerCod,
             'issuer_id' => $issuer->id,
             'company_name' => $data['company_name'] ?? null,
             'trade_name' => $data['trade_name'] ?? null,
@@ -135,7 +136,7 @@ class CustomerRepository
 
     public function update(array $data, int $id)
     {
-        $customer = Customer::where('customer_cod', $id)->where('issuer_id', $data['issuer_id'])->first();
+        $customer = Customer::where('customer_code', $id)->where('issuer_id', $data['issuer_id'])->first();
         
         $customer->update([
             'company_name' => $data['company_name'] ?? null,
@@ -156,18 +157,30 @@ class CustomerRepository
     }
 
     public function delete(int $id){
-        return Customer::where('customer_cod', $id)
+        return Customer::where('customer_code', $id)
                         ->update([
                             'active' => 0,
                         ]);
     }
 
     public function active(int $id){
-        return Customer::where('customer_cod', $id)
+        return Customer::where('customer_code', $id)
                         ->update([
                             'active' => 1,
                         ]);
     }
 
-    
+    public function importCustomers(CustomersDTO $dto)
+    {
+        $maxCode = Customer::where('issuer_id', $dto->issuer_id)->max('customer_code');
+        Customer::create([
+            'customer_code' => $maxCode ? $maxCode + 1 : $maxCode,
+            'issuer_id' => $dto->issuer_id,
+            'company_name' => $dto->company_name,
+            'trade_name' => $dto->trade_name,
+            'cnpj' => $dto->cnpj,
+            'cpf' => $dto->cpf 
+
+        ]);
+    }
 }

@@ -27,7 +27,7 @@ class CashRegisterRequest extends FormRequest
             'issuer_id' => ['required'],
             'description' => [$required, 'string', 'max:255'],
             'document' => [$required, 'integer'],
-            'customer_cod' => [$required, 'integer'],
+            'customer_code' => [$required, 'integer'],
             'especie_cod' => [$required, 'integer'],
             'user_id' => ['required'],
             'origem' =>  ['required'],

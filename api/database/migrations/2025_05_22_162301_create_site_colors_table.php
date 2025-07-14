@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
-            $table->unsignedBigInteger('color_cod');
+            $table->unsignedBigInteger('color_code');
             
             $table->string('button_color', 40)->default('#000000')->nullable();
             $table->string('painel_color', 40)->default('#000000')->nullable();

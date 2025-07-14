@@ -4,13 +4,11 @@ namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PDVRepository;
 use Illuminate\Support\Facades\Log;
-use App\Traits\LogPayMentRepository;
 
 class PDVService
 {
     public function __construct(
-        protected PDVRepository $pdvRepository,
-        protected LogPayMentRepository $logPayMentRepository
+        protected PDVRepository $pdvRepository
 
     ){
         Log::info('Memória usada PDVService::class, __construct, linha 13: ' . memory_get_usage(true));

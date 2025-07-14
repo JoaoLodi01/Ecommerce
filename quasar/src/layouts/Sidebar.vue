@@ -451,7 +451,7 @@
                 <q-btn 
                     flat
                     class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
-                    @click="backCompanies()"
+                    @click="showConfirmFn('changeCompany')"
                 >
                     <span class="ml-2 mb-auto">Trocar de empresa</span>
                 </q-btn>
@@ -459,7 +459,7 @@
                 <q-btn 
                     flat
                     class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
-                    @click="logout()"
+                    @click="showConfirmFn('logout')"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
@@ -483,7 +483,7 @@
                     stroke-width="1.5" 
                     stroke="currentColor" 
                     class="size-6 cursor-pointer mb-8"
-                    @click="backCompanies()"
+                    @click="showConfirmFn('changeCompany')"
                 >
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
                 </svg>
@@ -496,7 +496,7 @@
                     stroke-width="1.5" 
                     stroke="currentColor" 
                     class="size-6 cursor-pointer"
-                    @click="logout()"
+                    @click="showConfirmFn('logout')"
                 >
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
                 </svg>
@@ -516,22 +516,32 @@
     </div>
 
     <!-- Botão da Sidebar fechada -->
-    
-  </div>
+    </div>
+
+    <ConfirmPage
+        v-if="showConfirm"
+        @confirm="handleOperation($event)"
+        :operation="typeOperation"
+
+    />
   
 </template>
 
 <script setup lang="ts">
-    import { LocalStorage } from 'quasar';
+    import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
+    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
     import { ref, onMounted } from 'vue';
     import { useRouter } from 'vue-router';
-
+    
+    const $q = useQuasar();
     const router = useRouter();
     const issuerFirstName = ref<string>(LocalStorage.getItem("first_name"));
     const issuerName = ref<string>(LocalStorage.getItem("issuer_name"));
-    const ignore = ref<string>(LocalStorage.getItem("ignore"));
 
+    let showConfirm = ref<boolean>(false);
+    let typeOperation = ref<string>('');
+    
     let sidebarActive = ref<boolean>(true);
     let showFinancial = ref<boolean>(false);
     let showPDV = ref<boolean>(false);
@@ -545,32 +555,70 @@
     let downRow3 = ref<boolean>(false);
     let widthScreen = ref<number>(0);
 
+    let keyForOpenPDV = ref<boolean>(false);
+
+    const showConfirmFn = (operation: string) => 
+    {
+        showConfirm.value = true;
+        typeOperation.value = operation;
+    
+    };
+
+     const handleOperation = async (event: TEmit[]): Promise<void> =>
+    {
+        const operation = event[0]['operation'];
+        const value = event[0]['value'];
+        if(!value) $q.notify({ color: 'red', message: 'Operação cancelada!', position: 'top', timeout: 2000 });
+
+        if(operation === 'changeCompany')
+        {
+            backCompanies();
+            
+        } else if(operation === 'logout')
+        {
+            logout();
+
+        } else {
+            $q.notify({
+                color: 'yellow',
+                message: 'Operação não definida',
+                position: 'top',
+                timeout: 2000
+
+            });
+        };
+
+        showConfirm.value = false;
+    };
+
     const logout = async () =>
     {
-        const ofCourse = confirm('Deseja realmente sair?')
-        if(ofCourse)
+        const res = await api.post('/auth/logout');
+        if(res.data.success)
         {
-            const res = await api.post('/auth/logout')
-            if(res.data.success)
-            {
-                LocalStorage.remove("auth_token")  
-                router.push(res.data.route)
+            LocalStorage.remove("auth_token");
+            LocalStorage.remove("issuer_id");
+            LocalStorage.remove("expire");
 
-            };
+            $q.notify({
+                color: 'green',
+                message: 'Volte sempre!',
+                position: 'top',
+                timeout: 1000
+
+            });
+
+            router.push(res.data.route);
+
         };
     };
 
     const backCompanies = () =>
     {
-        const ofCourse = confirm('Deseja trocar de empresa?');
-        
-        if(ofCourse)
-        {
-            LocalStorage.remove("issuer_name");
-            LocalStorage.remove("issuer_id");
-            LocalStorage.remove("first_name");
-            router.push({ path: '/companies' });
-        };
+        LocalStorage.remove("issuer_name");
+        LocalStorage.remove("issuer_id");
+        LocalStorage.remove("first_name");
+        router.push({ path: '/companies' });
     };
     
     const toggleSidebar = () =>
@@ -689,6 +737,12 @@
                 toggleSidebar();
 
             };
+
+            if(event.altKey && keyName.toLocaleLowerCase() === 'p')
+            {
+                router.push({ path: `/${issuerFirstName.value}/sale/pdv` });
+
+            }
         });
     });
 
@@ -712,8 +766,7 @@
     .routerView{
         position: relative;
         left: -.01rem;
-        
-        
+         
     }
   }
 </style>

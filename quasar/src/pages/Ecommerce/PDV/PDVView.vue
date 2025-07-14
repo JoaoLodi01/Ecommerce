@@ -149,7 +149,7 @@
                                 class="border border-black"
                             >    
 
-                                <td class="px-6" scope="row">{{ product.product_cod }}</td>
+                                <td class="px-6" scope="row">{{ product.product_code }}</td>
                                 <td class="px-6 py-3">{{ product.product}}</td>
 
                                 <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
@@ -788,7 +788,7 @@
         //productsSeletion.value = [...productsSeletion.value, selectedProducts]; // <- Qualquer coisa apagar o que está abaixo
 
         const existingProduct = productsSeletion.value.find(p => 
-            p.product_cod === selectedProducts.product_cod || p.id === selectedProducts.id
+            p.product_code === selectedProducts.product_code || p.id === selectedProducts.id
         );
 
         if(existingProduct)
@@ -823,7 +823,7 @@
         switch (action) {
             case 'delete':
                 console.log('product_id', product_id, ' i: ', i);
-                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_cod !== product_id)]
+                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_code !== product_id)]
                 
                 break;
                 
@@ -905,15 +905,9 @@
 
     const getUser = async () => 
     { 
-        const res = await api.get('/auth/check', {
-            headers: {
-                'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
-            }
-        });
-        
         sellerData.value ={ 
-            id: res.data.data.id,
-            name: res.data.data.name
+            id: LocalStorage.getItem("user_id"),
+            name: LocalStorage.getItem("user_name")
         };
     };
 
@@ -924,7 +918,7 @@
         console.log(configsRes)
 
         configs.value.nmFinaly = configsRes.nmFinaly;
-    configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
+        configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
         configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
 
     };

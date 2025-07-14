@@ -52,13 +52,15 @@
                 <div class="mt-4">
                     <span>Cor usada: {{ colorOptions.painelColor }}</span>
                     <br>
-                    <span>
+                    <span class="flex">
                         Exemplo: 
-                        <q-btn 
+                        
+                        <div
                             :style="`background-color: ${colorOptions.painelColor}; color: ${colorOptions.painelColor === '#ffffff' ? '#000' : '#ffffff'}`"
-                            label="Finalizar venda" 
+                            class="rounded-md ml-2 w-36 h-8 mt-auto mb-auto"
+                        >
                             
-                        /> 
+                        </div>
                     
                     </span>
 
@@ -74,20 +76,29 @@
                 />
 
             </div>
-
         </div>        
+        <q-btn 
+            color="primary"
+            label="Exportar cores"
+            @click="exportColors()" 
+        />
     </div>
+
+    <ImportFiles
+        v-if="showImportFiles"
+        :operation="'importColor'"
+    />
 </template>
 
 <script setup lang="ts">
     import { useQuasar, LocalStorage } from 'quasar';
     import { api } from 'src/boot/axios';
-    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import { ref, onMounted } from 'vue';
+    import ImportFiles from 'src/components/Files/ImportFiles.vue';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import camelcaseKeys from 'camelcase-keys';
     
     const $q = useQuasar();
-    let showPage = ref<boolean>(false);
 
     const colorOptions = ref<TColorOptions>({
         buttonColor: '',
@@ -96,6 +107,9 @@
     });
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+
+    let showPage = ref<boolean>(false);
+    let showImportFiles = ref<boolean>(false);
 
     const getConfigs = async () => 
     {
@@ -118,20 +132,56 @@
             painel_color: colorOptions.value.painelColor
 
         });
-
         
-        if(res.data.success)
-        {
-            LocalStorage.set("buttonColor", colorOptions.value.buttonColor);
-            LocalStorage.set("painelColor", colorOptions.value.painelColor);
+        $q.notify({
+            color: 'green',
+            message: 'Salvando configurações!',
+            timeout: 2000,
+            position: 'top'
 
+        });
+
+        try {
+            if(res.data.success)
+            {
+                LocalStorage.set("buttonColor", colorOptions.value.buttonColor);
+                LocalStorage.set("painelColor", colorOptions.value.painelColor);
+                
+                $q.notify({
+                    color: 'green',
+                    message: 'Cores alterados com sucesso!',
+                    timeout: 2000,
+                    position: 'top'
+
+                });
+            };
+        } catch (error) {
             $q.notify({
-                color: 'green',
-                message: 'Cores alterados com sucesso!',
+                color: 'red',
+                message: error.response,
                 timeout: 2000,
                 position: 'top'
-            })
-        }
+
+            });
+        };
+    };
+
+    const exportColors = async () =>
+    {
+        const res = await api.get(`/configs/color/export/${issuerID.value}`, {
+            responseType: 'blob'
+        });
+        
+        const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/json' }));
+
+        const link = document.createElement('a');
+
+        link.href = url;
+        link.setAttribute('download', `Cores.json`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
     };
 
     onMounted(() => {

@@ -200,7 +200,7 @@ export default {
                         issuer_id: LocalStorage.getItem("issuer_id"),
                         description: this.form.description,
                         document: this.form.document,
-                        customer_cod: this.form.customer_id,
+                        customer_code: this.form.customer_id,
                         especie_cod: this.form.especie_id,
                         input_value: this.parseCurrency(this.form.input_value),
                         output_value: this.parseCurrency(this.form.output_value),

@@ -1,10 +1,10 @@
 interface ICashBody
 {
     id: number,
-    pdv_cod: number,
+    pdv_code: number,
     canceled: boolean,
     cash_register_cod: number,
-    customer_cod: number,
+    customer_code: number,
     date_register: string,
     description: string,
     document: string | number

@@ -54,10 +54,10 @@
                 />
             </div>
 
-            <div class="flex">
-                <div class="">
-                    <span class="h-2 w-2 bg-red-600 mr-2"></span>
-                    <span class="h-2 w-2 bg-red-600"></span>
+            <div class="border border-black">
+                <div class="flex">
+                    <span class="h-4 w-4 bg-red-600 mr-2"></span>
+                    <span class="h-4 w-4 bg-red-600"></span>
                 </div>
             </div>
         </div>

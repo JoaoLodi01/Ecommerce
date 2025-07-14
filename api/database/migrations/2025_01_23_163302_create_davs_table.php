@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('davs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('dav_cod')->index(); // "ID"  
+            $table->unsignedBigInteger('dav_code')->index(); // "ID"  
 
             $table->unique(['issuer_id', 'dav_number']);
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');

@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
-            $table->unique(['issuer_id', 'config_customer_cod']);
+            $table->unique(['issuer_id', 'config_customer_code']);
             
-            $table->unsignedBigInteger('config_customer_cod');
+            $table->unsignedBigInteger('config_customer_code');
             $table->boolean('validate_cnpj', 1)->default(0);
             $table->boolean('validate_cpf', 1)->default(0);
             $table->boolean('validate_addres', 1)->default(0);

@@ -9,10 +9,10 @@ class ItensPDV extends Model
     protected $table = 'itens_pdvs';
 
     protected $fillable = [
-        'iten_pdv_cod',
+        'iten_pdv_code',
         'issuer_id',
-        'pdv_cod',
-        'product_cod',    
+        'pdv_code',
+        'product_code',    
         'product',
         'cost_price',
         'sale_price',

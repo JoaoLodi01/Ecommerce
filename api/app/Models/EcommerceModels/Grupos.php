@@ -9,7 +9,7 @@ class Grupos extends Model
     protected $table = 'groups';
 
     protected $fillable = [
-        'group_cod',
+        'group_code',
         'group'
     ];
 

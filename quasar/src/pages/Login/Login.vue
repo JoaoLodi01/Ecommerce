@@ -119,14 +119,16 @@
         loandingLogin.value = true;
 
         try {
-            const res = await api.post("/auth/owner", details)
-            
+            const res = await api.post("/auth/owner", details);
+            console.log(res.data);
+
             if(res.data.success)
             {
                 loandingLogin.value = false;
                 LocalStorage.set("auth_token", res.data.token);
-                LocalStorage.set("owner_name", res.data.owner.name);
-                LocalStorage.set("owner_cpf", res.data.owner.cpf);
+                LocalStorage.set("owner_name", res.data.user.name);
+                LocalStorage.set("owner_cpf", res.data.user.cpf);
+
                 LocalStorage.set("user_id", res.data.user.user_cod);
                 LocalStorage.set("user_name", res.data.user.name);
                 LocalStorage.set("uuse_id", res.data.uuse_id);
@@ -156,13 +158,12 @@
             
         } catch (error) {
             console.error('Erro no login: ', error);
+            loandingLogin.value = false;
 
         } finally {
             loandingLogin.value = false;
 
         };
-
-
     };
 
     onMounted(() => {

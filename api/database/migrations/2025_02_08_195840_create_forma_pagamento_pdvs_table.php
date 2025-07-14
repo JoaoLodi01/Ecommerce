@@ -16,11 +16,11 @@ return new class extends Migration
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
 
-            $table->unsignedBigInteger('pdv_cod');
-            $table->foreign('pdv_cod')->references('pdv_cod')->on('pdvs')->onDelete('cascade');
+            $table->unsignedBigInteger('pdv_code');
+            $table->foreign('pdv_code')->references('pdv_code')->on('pdvs')->onDelete('cascade');
 
-            $table->unsignedBigInteger('payment_cod');
-            $table->foreign('payment_cod')->references('payment_cod')->on('payments_forms')->onDelete('cascade');
+            $table->unsignedBigInteger('payment_code');
+            $table->foreign('payment_code')->references('payment_code')->on('payments_forms')->onDelete('cascade');
             $table->decimal('valor_pago', 16,2);
             $table->timestamps();
         });

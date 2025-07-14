@@ -10,7 +10,7 @@ class DAV extends Model
     
     protected $fillable = [
         'issuer_id',
-        'dav_cod',
+        'dav_code',
         'dav_number',
         'product',
         'cost_price',

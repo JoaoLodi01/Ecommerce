@@ -14,15 +14,18 @@ class User extends Authenticatable implements CanResetPassword
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    
     protected $fillable = [
-        'user_cod',
-        'owner_id',
+        'user_code',
         'name',
-        'login',
+        'surname',
+        'cpf',
+        'email',
         'password',
-        'is_owner',
         'access',
+        'uuse_id',
+        'is_owner',
+        'remember_token',
+        'active'
         
     ];
 
@@ -32,7 +35,6 @@ class User extends Authenticatable implements CanResetPassword
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 

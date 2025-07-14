@@ -146,6 +146,8 @@ class ProductsService
     {
         Log::debug('Caiu no import service');
         $fileName = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        
         $date = new Carbon();
         $directory = storage_path("files/{$issuerID}/products/" . $date->format('Y-m-d'));
 
@@ -160,7 +162,7 @@ class ProductsService
         //$path = public_path('files/' . $file->getClientOriginalName());
         //unlink($path);
         $filePath = $directory . DIRECTORY_SEPARATOR . $fileName;
-        $importJob = ImportProductsJob::dispatch($filePath, $issuerID);
+        $importJob = ImportProductsJob::dispatch($filePath, $issuerID, $extension);
         
         if(!$importJob)
         {

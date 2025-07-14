@@ -10,7 +10,7 @@ class SiteColors extends Model
 
     protected $fillable = [
         'issuer_id',
-        'color_cod',
+        'color_code',
         'button_color',
         'painel_color'
     ];
