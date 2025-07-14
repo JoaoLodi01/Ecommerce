@@ -132,20 +132,38 @@
             painel_color: colorOptions.value.painelColor
 
         });
-
         
-        if(res.data.success)
-        {
-            LocalStorage.set("buttonColor", colorOptions.value.buttonColor);
-            LocalStorage.set("painelColor", colorOptions.value.painelColor);
+        $q.notify({
+            color: 'green',
+            message: 'Salvando configurações!',
+            timeout: 2000,
+            position: 'top'
 
+        });
+
+        try {
+            if(res.data.success)
+            {
+                LocalStorage.set("buttonColor", colorOptions.value.buttonColor);
+                LocalStorage.set("painelColor", colorOptions.value.painelColor);
+                
+                $q.notify({
+                    color: 'green',
+                    message: 'Cores alterados com sucesso!',
+                    timeout: 2000,
+                    position: 'top'
+
+                });
+            };
+        } catch (error) {
             $q.notify({
-                color: 'green',
-                message: 'Cores alterados com sucesso!',
+                color: 'red',
+                message: error.response,
                 timeout: 2000,
                 position: 'top'
-            })
-        }
+
+            });
+        };
     };
 
     const exportColors = async () =>
