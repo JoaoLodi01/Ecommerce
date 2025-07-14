@@ -119,6 +119,9 @@
                                         <q-item clickable v-close-popup>
                                             <q-item-section>Térmica (80mm)</q-item-section>
                                         </q-item>
+                                        <q-item clickable v-close-popup>
+                                            <q-item-section>Desfazer quitação</q-item-section>
+                                        </q-item>
                                     </q-list>
                                 </q-menu>
                             </q-btn>

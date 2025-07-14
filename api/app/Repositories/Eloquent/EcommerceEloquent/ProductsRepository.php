@@ -91,6 +91,11 @@ class ProductsRepository
         return $products;
     }
 
+    public function formatField(string $field): float|int
+    {
+        return str_replace(',', '.', $field);
+    }
+
     public function create(array $data)
     {
         Log::info("data");
@@ -117,29 +122,29 @@ class ProductsRepository
             'amount' => $data['amount'],
             'group_id' => $group->id ?? null,
             'group' => $group->group ?? null,
-            'cost_price' => $data['costPrice'],
-            'sale_price' => $data['salePrice'],
-            'profit_percentage' => $data['profitPercentage'],
+            'cost_price' => $this->formatField($data['costPrice']),
+            'sale_price' => $this->formatField($data['salePrice']),
+            'profit_percentage' => $this->formatField($data['profitPercentage']),
             'unit' => $data['unit'],
             
 
             // Tributs
             'ncm' => $data['ncm'],
             'cest' => $data['cest'],
-            'cfop' => $data['cfop'],            
+            'cfop' => $data['cfop'],    
             'csosncst' => $data['csosncst'],
             'cod_origem_icms' => $data['codOrigemIcms'],
             'origem_icms' => $data['origemIcms'],
-            'icms_ecf' => $data['icmsEcf'],
-            'taxable_amount' => $data['taxableAmount'] ?? '1',
+            'icms_ecf' => $this->formatField($data['icmsEcf']),
+            'taxable_amount' => $data['taxableAmount'] ?? 1,
             'taxable_unit' => $data['taxableUnit'] ?? '1',
             'tax_benefit' => $data['taxBenefit'] ?? '1',
             'cod_ipi' => $data['codIpi'],
-            'aliquot_ipi' => $data['aliquotIpi'],
+            'aliquot_ipi' => $this->formatField($data['aliquotIpi']),
             'cod_pis' => $data['codPis'],
-            'aliquot_pis' => $data['aliquotPis'],
+            'aliquot_pis' => $this->formatField($data['aliquotPis']),
             'cod_cofins' => $data['codCofins'],
-            'aliquot_cofins' => $data['aliquotCofins'],
+            'aliquot_cofins' => $this->formatField($data['aliquotCofins']),
             'cod_use_type' => $data['codUseType'] ?? '1',
             'use_type' => $data['useType'] ?? '1',
 
@@ -147,20 +152,41 @@ class ProductsRepository
     }
 
     public function update(array $data, int $id){
-        $group = $this->groupRepository->findByID($data['groupID']);
+        $group = $data['groupId'] ? $this->groupRepository->findByID($data['groupId']) : null;
         return Products::where('id', $id)->update([
             'product' => $data['product'],
+            'image' => $data['image'],
+            'barcode' => $data['barcode'],
+            'barcode_internal' => $data['barcodeInternal'],
             'amount' => $data['amount'],
-            'group_id' => $group->id,
-            'group' => $group->group,
-            'cost_price' => $data['costPrice'],
-            'sale_price' => $data['salePrice'],
-            'profit_percentage' => $data['profitPercentage'],
-            'cfop' => $data['cfop'],
-            'csosncst' => $data['csosncst'],
+            'group_id' => $group->id ?? null,
+            'group' => $group->group ?? null,
+            'cost_price' => $this->formatField($data['costPrice']),
+            'sale_price' => $this->formatField($data['salePrice']),
+            'profit_percentage' => $this->formatField($data['profitPercentage']),
+            'unit' => $data['unit'],
+            
+            // Tributs
             'ncm' => $data['ncm'],
             'cest' => $data['cest'],
-            'unit' => $data['unit']
+            'cfop' => $data['cfop'],    
+            'csosncst' => $data['csosncst'],
+            'cod_origem_icms' => $data['codOrigemIcms'],
+            'origem_icms' => $data['origemIcms'],
+            'icms_ecf' => $this->formatField($data['icmsEcf']),
+            'taxable_amount' => $data['taxableAmount'] ?? 1,
+            'taxable_unit' => $data['taxableUnit'] ?? '1',
+            'tax_benefit' => 1 ?? $data['taxBenefit'],
+            'cod_ipi' => $data['codIpi'],
+            'aliquot_ipi' => $this->formatField($data['aliquotIpi']),
+            'cod_pis' => $data['codPis'],
+            'aliquot_pis' => $this->formatField($data['aliquotPis']),
+            'cod_cofins' => $data['codCofins'],
+            'aliquot_cofins' => $this->formatField($data['aliquotCofins']),
+            'cod_use_type' => $data['codUseType'] ?? '1',
+            'use_type' => $data['useType'] ?? '1',
+            'active' => 1
+
         ]);
     }
 
@@ -198,6 +224,12 @@ class ProductsRepository
     public function findByID(int $issuerID, int $productCod){
         return Products::where('issuer_id', $issuerID)->where('product_cod', $productCod)->first();
         
+    }
+    
+    public function findLastCode(int $id)
+    {
+        $lastBarCodeInternal = Products::where('issuer_id', $id)->first();
+        return $lastBarCodeInternal;
     }
 
     public function decreaseQuantiy(int $product_cod, float|int $quantiy)

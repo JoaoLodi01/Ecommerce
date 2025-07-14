@@ -274,7 +274,7 @@
     ]);
     
     const titles = reactive({
-        'register': 'Novo produto',
+        'create': 'Novo produto',
         'update': 'Editar produto'
         
     });
@@ -428,6 +428,7 @@
     const closeReload = (event: boolean) =>
     {
         titleByOperation.value = 'Produtos';
+        showProducts.value = event;
         showProductManagement.value = false;
         showReportProducts.value = false;
         showImportFiles.value = false;

@@ -28,11 +28,17 @@
                     <th class="px-2 py-1">Data Vencimento</th>
                     <th class="px-2 py-1">Valor à pagar</th>
                     <th class="px-2 py-1">Valor Original</th>
+                    <th class="px-2 py-1">Status</th>
+                    <th class="px-2 py-1"></th>
                     <th class="px-2 py-1" v-if="readonly">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(installment, id) in installmentsData" :key="id" class="text-center border-t border-gray-300">
+                <tr v-for="(installment, id) in installmentsData"
+                    :key="id"
+                    class="text-center border-t border-gray-300"
+                    :class="{ 'bg-green-100': installment.paid, 'bg-white': !installment.paid}"
+                    >
                     <td>{{ installment.numberInstallment }}</td>
                     <td>{{ installment.installmentAmount }}</td>
                     <td class="w-[150px]">
@@ -42,28 +48,42 @@
                             dense
                             outlined
                             color="primary"
-                            
                         />
                     </td>
                     <td>R$ {{ installment.valuePaid }}</td>
                     <td>R$ {{ installment.valueOriginal }}</td>
+                    <td v-if="installment.paid">{{ installment.paymentDate }}</td>
+                    <td>{{ installment.valuePaid ? 'Pago' : 'Pendente' }}</td>
                     <td v-if="readonly">
                         <q-btn
                             size="sm"
                             icon="check"
                             color="green"
                             @click="payOffIstallment(installment)"
-                        />
+                            v-if="!installment.paid">
+                            <q-tooltip>Quitar Parcela</q-tooltip>
+                        </q-btn>
+                        <q-btn
+                            size="sm"
+                            icon="undo"
+                            color="warning"
+                            @click="undoPayOff(installment)"
+                            v-if="installment.paid">
+                            <q-tooltip>Desfazer Quitação</q-tooltip>
+                        </q-btn>
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <p>Total Pago: R$ {{  }}</p>
+        <p>Total Pendente: R$ {{  }}</p>
     </div>
 
 </template>
 
 <script setup lang="ts">
-    import { ref, defineProps, defineEmits, reactive } from 'vue';
+    import { ref, defineProps, defineEmits } from 'vue';
     import dayjs from 'dayjs';
 
     type TinstallmentsData = {
@@ -72,7 +92,8 @@
         dueDate: string;
         valuePaid: number;
         valueOriginal: number;
-
+        paid: boolean;
+        paymentDate?: string;
     };
 
     const emits = defineEmits<{
@@ -86,7 +107,9 @@
         amount: number,
         originalValue: number,
         dueDate: string,
+
         readonly: boolean,
+        
     }>();
 
     let installmentsData = ref<TinstallmentsData[]>([]);
@@ -109,7 +132,9 @@
                 installmentAmount: receiveAmount,
                 valueOriginal: props.originalValue,
                 valuePaid: Number(String(originalValue).replace(',','.')) / receiveAmount,
-                dueDate: dayjs(dueDate).add(i - 1, 'month').format('YYYY-MM-DD')
+                dueDate: dayjs(dueDate).add(i - 1, 'month').format('YYYY-MM-DD'),
+                paid: false,
+
 
             }); 
         };
@@ -121,6 +146,10 @@
     };
 
     const payOffIstallment = (installment) => {
+
+    };
+
+    const undoPayOff = (installment) => {
 
     };
 
