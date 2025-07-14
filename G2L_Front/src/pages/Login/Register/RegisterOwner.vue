@@ -38,6 +38,7 @@
                             maxlength="90"
                             :rules="[
                                 val => !!val || 'Preencha seu sobre-nome!'
+
                             ]"
 
                         />
@@ -50,7 +51,11 @@
                             v-model="form.email"
                             maxlength="90"
                             :rules="[
-                                val => !!val || 'Preencha seu e-mail!'
+                                val => {
+                                    if(!val) return 'Preencha seu E-mail!';
+                                    return validateEmail(val) || 'E-mail inválido!';
+                                }
+                                        
                             ]"
 
                         />
@@ -222,6 +227,17 @@
     let showPassword = ref<boolean>(false);
     let showPassword_ = ref<boolean>(false);
     let showLoanding = ref<boolean>(false);
+
+    function validateEmail(email: string): boolean
+    {
+        if(email.split('').includes('@'))
+        {
+            return true;
+            
+        } else {
+            return false;
+        };
+    };
 
     const createAccount = async () =>
     {
