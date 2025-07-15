@@ -28,7 +28,7 @@
                     <th class="px-2 py-1">Data Vencimento</th>
                     <th class="px-2 py-1">Valor à pagar</th>
                     <th class="px-2 py-1">Valor Original</th>
-                    <th class="px-2 py-1" v-if="action === 'view' ">Status</th>
+                    <th class="px-2 py-1" v-if="action === 'view'">Status</th>
                     <th class="px-2 py-1" v-if="readonly">Ações</th>
                 </tr>
             </thead>
