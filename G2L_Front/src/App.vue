@@ -56,10 +56,9 @@
 
         setInterval(checkLogin, 30 * 1000);
 
-        if(LocalStorage.getItem("auth_token"))
+        if(LocalStorage.getItem("auth_token") && LocalStorage.getItem("call_color"))
         {
-            console.error('Ta chamando essa bosta por queeeeeeeeeeeee')
-            console.log(LocalStorage.getItem("issuer_id"));
+            console.warn('Vai chamar o get colors');
 
             intervalID.value = setInterval(() => getColors(LocalStorage.getItem("issuer_id")), 40 * 100); 
             

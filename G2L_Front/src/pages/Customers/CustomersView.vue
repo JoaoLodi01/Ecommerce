@@ -19,9 +19,7 @@
             class="flex justify-between "
 
         >
-            <h1 v-if="!showRegisterCustomers && !showUpdateCustomers" class="text-3xl font-semibold m-5">Clientes</h1>
-            <h1 v-if="showRegisterCustomers" class="text-3xl font-semibold m-5">Novo cliente</h1>
-            <h1 v-if="showUpdateCustomers" class="text-3xl font-semibold m-5">Edição de cliente</h1>
+            <h1 class="text-3xl font-semibold m-5">{{ titleByOperation }}</h1>
             
             <div 
                 :class="{
@@ -31,7 +29,7 @@
             >
                 <q-btn
                     v-if="showCustomers"
-                    @click="openRegister()"
+                    @click="customerManagement('create', 0, 0)"
                     :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
 
                 >
@@ -52,7 +50,7 @@
         
         <div 
             class="mt-2 ml-2 flex"
-            v-if="!showRegisterCustomers"
+            v-if="showCustomers"
         >
             <q-btn 
                 title="Opções"
@@ -127,7 +125,7 @@
             class="relative overflow-x-auto max-h-96 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
         >
             <div 
-                @click="editCustomer(customer.customer_code, customer.company_name || customer.trade_name, customer.active)"
+                @click="customerManagement('update', customer.active, customer.customer_code,)"
             >
                 <div class="text-sm text-gray-500 mb-2">
                     <span class="font-semibold">ID:</span> {{ customer.customer_code }}
@@ -157,7 +155,7 @@
             <!-- Ações -->
             <div class="slashed-zero flex space-x-2 mt-5" v-if="customer.customer_code !== 1">
                 <q-btn
-                    @click="editCustomer(customer.customer_code, customer.company_name || customer.trade_name, customer.active)"
+                    @click="customerManagement('update', customer.active, customer.customer_code)"
                     class="px-4 py-2 rounded-lg transition"
                     :disabled=!customer.active
                     :class="{
@@ -195,40 +193,32 @@
     </div>
 
     <div v-if="!showCustomers">
-        <RegisterCustomer
-            v-if="showRegisterCustomers"
+        <CustomerManagement
+            v-if="showCustomerManagement"
             @close="closeReload($event)"
             :widthScreen="widthScreen"
             
         />
+        
+    </div>
 
-        <UpdateCustomer
-            v-if="showUpdateCustomers"
-            :customerID="customerID"
-            :widthScreen="widthScreen"
+    <Transition name="slide-up">
+        <ConfigCustomers
+            v-show="showConfig"
             @close="closeReload($event)"
 
         />
 
-        <Transition name="slide-up">
-            <ConfigCustomers
-                v-if="showConfig"
-                @close="closeReload($event)"
-
-            />
-
-        </Transition>
-        
-    </div>
+    </Transition>
 </template>
   
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
-    import { ref, onMounted, watch } from 'vue';
+    import { ref, onMounted, watch, reactive } from 'vue';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';    
     import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
-    import UpdateCustomer from 'src/components/Register/Customers/UpdateCustomer.vue';
+    import CustomerManagement from 'src/components/Register/Customers/CustomerManagement.vue';
     import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import camelcaseKeys from 'camelcase-keys';
@@ -239,16 +229,26 @@
     };
     
     const $q = useQuasar();
+    const titles = reactive({
+        'create': 'Novo cliente',
+        'update': 'Editar cliente'
+        
+    });
     
     let allCustomers = ref<ICustomer[]>([]);
     let customers = ref<ICustomer[]>([]);
 
     let _loanding = ref<boolean>(true);
+
     let showCustomers = ref<boolean>(false);
+
+    let showCustomerManagement = ref<boolean>(false);
+    let operation = ref<string>('');
+    let titleByOperation = ref<string>('Produtos');
+    let customerCodSelected = ref<number>(0);
+
     let showReportCustomer = ref<boolean>(false);
-    let showRegisterCustomers = ref<boolean>(false);
     let showConfig = ref<boolean>(false);
-    let showUpdateCustomers = ref<boolean>(false);
     let customerID = ref<number>(0);
     let customerName = ref<string>('');
     let widthScreen = ref<number>(0);
@@ -309,25 +309,6 @@
         };
     };
 
-    const openRegister = () => 
-    {
-        showRegisterCustomers.value = true;
-        showUpdateCustomers.value = false;
-        showCustomers.value = false;
-        showReportCustomer.value = false;
-        showConfig.value = false;
-        
-    };     
-
-    const closeRegister = () => 
-    {
-        showCustomers.value = true;
-        showReportCustomer.value = false;
-        showRegisterCustomers.value = false;
-        showUpdateCustomers.value = false;
-
-    };           
-
     const openConfig = () => 
     {
         showCustomers.value = false;
@@ -335,24 +316,38 @@
 
     };
 
-    const editCustomer = (id: number, name: string, active_: number) =>
+    const closeRegister = () => 
     {
-        const active = active_ === 1 ? true : false;
-        if(id === 1) 
-        {
-            $q.notify({
-                color: 'red-4',
-                message: 'Impossível alterar cliente padrão!',
-                timeout: 2000,
-                position: 'top'
-                
-            });
-            
-            return;
-        };
+        showCustomers.value = true;
+        showReportCustomer.value = false;
 
-        if(!active)
+    };           
+
+    const customerManagement = (action: string, active: number, customerCod: number) =>
+    {
+        console.log(action);
+        if(active === 1)
         {
+            if(action === 'update' && customerCod === 1)
+            {
+                $q.notify({
+                    color: 'red-4',
+                    message: 'Impossível alterar cliente padrão!',
+                    timeout: 2000,
+                    position: 'top'
+                    
+                });
+                
+                return;
+
+            } else {
+                operation.value = action;
+                titleByOperation.value = titles[action];
+                customerCodSelected.value = customerCod;
+                
+                return;
+            };
+        } else {
             $q.notify({
                 color: 'red-4',
                 message: 'Impossível alterar cliente desativado!',
@@ -360,25 +355,14 @@
                 position: 'top'
                 
             });
-
-        } else {
-            showUpdateCustomers.value = true;
-            showCustomers.value = false;
-            showRegisterCustomers.value = false;
-            showReportCustomer.value = false;
-            customerID.value = id;
-            customerName.value = name;
         };
-    };
+    }
 
     const closeReload = async (event: boolean) => 
     {   
-        console.log('Chamnou: closeReload: event', event, ' !event', !event)
         await getConfig();
         await getCustomers();
-        showCustomers.value = event;    
-        showRegisterCustomers.value = !event;
-        showUpdateCustomers.value = !event;
+        showCustomers.value = event;
         showReportCustomer.value = !event;
         showConfig.value = !event;
 
@@ -398,6 +382,7 @@
                 position: 'top'
 
             });
+
             return;
 
         } else {

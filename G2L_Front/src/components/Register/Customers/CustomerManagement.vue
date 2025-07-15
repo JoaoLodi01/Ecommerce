@@ -3,13 +3,12 @@
         class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
             'w-screen': props.widthScreen < 1366,
-            'ml-32 form-customer': props.widthScreen > 1366
+            'ml-36 form-customer': props.widthScreen > 1366
         }"
 
     >
-    {{ config.validateCpf }}
         <q-form
-            @submit="submitForm()"
+            @submit="onSubmit()"
 
         >
             <div class="border border-black p-5 bg-white rounded-md mb-5">
@@ -190,6 +189,12 @@
             </div>
         </q-form>
     </div>
+
+    <LoandingPage
+        v-if="loanding"
+        :text="`Carregando dados do cliente: ${props.customerCOD} ...`"
+
+    />
 </template>
 
 <script setup lang="ts">
@@ -210,7 +215,8 @@
     };
 
     const props = defineProps<{
-        widthScreen: number
+        widthScreen: number,
+        customerCOD?: number
 
     }>();
 
@@ -251,13 +257,15 @@
 
     });
 
+    let loanding = ref<boolean>(false);
+
     watch(options.value, async(newValue) => 
     {
         customerData.value.cnpj = '';
 
     });
 
-    const submitForm = async () =>
+    const onSubmit = async () =>
     {
         const res = await api.post(`/customers/create`, customerData.value);
 

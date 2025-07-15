@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('receives', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('receive_code')->index();
-            $table->unique(['issuer_id', 'document']);
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             

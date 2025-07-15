@@ -266,9 +266,7 @@
 
                 // 'Login'
                 const details = { email: data.data.email, password: form.value.password };
-                console.log('Data: ', data);
-                console.log('Detalhes para o login', details);
-
+                
                 const login = await api.post("/auth/owner", details);;
                 if(login.data.success)
                 {

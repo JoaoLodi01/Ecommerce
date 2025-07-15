@@ -9,10 +9,16 @@ async function getColors(issuerID: number)
         const res = await api.get(`/configs/all-configs/${issuerID}`);
         const data: TColorOptions = camelcaseKeys(res.data.data.color, { deep: true });
 
-        LocalStorage.set("buttonColor", data.buttonColor);
-        LocalStorage.set("painelColor", data.painelColor);
-    } else {
-        return;
+        if(res.data.success)
+        {
+            LocalStorage.set("buttonColor", data.buttonColor);
+            LocalStorage.set("painelColor", data.painelColor);
+
+            
+        } else {
+            alert('Erro no getColors');
+            LocalStorage.set("call_color", false);
+        };
     };
 };
 

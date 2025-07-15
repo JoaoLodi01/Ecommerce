@@ -246,7 +246,7 @@
     
     };
 
-    const handleOperation = async (event: TEmit[]): Promise<void> =>
+    const handleOperation = async (event: TEmit[]|boolean): Promise<void> =>
     {
         const operation = event[0]['operation'];
         const value = event[0]['value'];
@@ -266,7 +266,7 @@
             });
         } else if(operation === 'transfer')
         {
-        
+            
         } else if(operation === 'logout')
         {
             logout();

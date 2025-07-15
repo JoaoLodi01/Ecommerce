@@ -29,7 +29,7 @@
             >
                 <q-btn
                     v-if="showProducts"
-                    @click="productManagement('create', '', 0)"
+                    @click="productManagement('create', 0, 0)"
                     class="font-semibold rounded-lg hover:bg-blue-400 transition"
                     :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 
@@ -51,7 +51,8 @@
         </div>
         
         <div 
-            v-if="showProducts" class="mt-2 ml-2 flex"
+            class="mt-2 ml-2 flex"
+            v-if="showProducts" 
 
         >
             <q-btn 
@@ -151,7 +152,7 @@
             class="relative overflow-x-auto max-h-80 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
         >
             <div 
-                @click="productManagement('update', product.product, product.product_code)"
+                @click="productManagement('update', product.active, product.product_code)"
                 
             >
                 <div class="text-sm text-gray-500 mb-2">
@@ -184,7 +185,7 @@
             <!-- Ações -->
             <div class="flex space-x-2">
                 <q-btn
-                    @click="productManagement('update', product.product, product.product_code)"
+                    @click="productManagement('update', product.active, product.product_code)"
                     class="px-4 py-2 mr-2 rounded-lg transition"
                     :disabled=!product.active
                     :class="{
@@ -285,6 +286,7 @@
     let allProducts = ref<IProducts[]>([]);
     let products = ref<IProducts[]>([]);
     let searchBarFilter = ref<string>('Padrão (nome do produto, cód.barras ou cód.produto)');
+
     let showProducts = ref<boolean>(false);
 
     let showProductManagement = ref<boolean>(false);
@@ -339,7 +341,7 @@
     
     };
 
-    const handleOperation = async (event: TEmit[]) =>
+    const handleOperation = async (event: TEmit[]|boolean) =>
     {
         console.log('Operação confirmada');
 
@@ -394,16 +396,29 @@
     };
 
  
-    const productManagement = (action: string, product: string, productCod: number) =>
+    const productManagement = (action: string, active: number, productCod: number) =>
     {
         console.log(action)
-        operation.value = action;
-        titleByOperation.value = titles[action];
-        productCodSelected.value = productCod;
-        
-        showProductManagement.value = true;
-        showProducts.value = false;
-        showReportProducts.value = false;
+        if(action === 'update' && active === 0)
+        {
+            $q.notify({
+                color: 'red-4',
+                message: 'Impossível alterar produto desativado!',
+                timeout: 2000,
+                position: 'top'
+                
+            });  
+            
+            return;
+        } else {
+            operation.value = action;
+            titleByOperation.value = titles[action];
+            productCodSelected.value = productCod;
+            
+            showProductManagement.value = true;
+            showProducts.value = false;
+            showReportProducts.value = false;
+        };        
         
     };
 
@@ -414,16 +429,6 @@
         showProductManagement.value = false;
         showReportProducts.value = false;
         getProducts();
-
-    };
-
-    const editProduct = (name: string, id: number) =>
-    {
-        productName.value = name;
-        productID.value = id;
-        showProductManagement.value = false;
-        showProducts.value = false;
-        showReportProducts.value = false;
 
     };
 

@@ -105,6 +105,8 @@
     
     const saveConfig = async () =>
     {
+        console.log(options.value);
+
         const res = await api.put(`/configs/customer/update-config/${issuerID.value}`, {
             validateCNPJ: options.value.validateCNPJ,
             validateCPF: options.value.validateCPF,
@@ -119,8 +121,8 @@
     const getConfigs = async () =>
     {
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
-        const data = camelcaseKeys(res.data.data.customers[0], { deep: true });
-        console.log('Data: ', data);
+        const data = camelcaseKeys(res.data.data.customers, { deep: true });
+        
 
         options.value = {
             validateAddres: returnValue(data.validateAddres),

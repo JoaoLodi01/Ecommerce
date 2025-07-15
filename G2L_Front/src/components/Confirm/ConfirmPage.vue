@@ -57,7 +57,7 @@
     }>();
 
     const emits = defineEmits<{
-        (e: 'confirm', value: TEmit[]): void
+        (e: 'confirm', value: TEmit[]|boolean): void
     }>();
 
     const submitEmit = (value: boolean) =>

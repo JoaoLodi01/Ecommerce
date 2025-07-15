@@ -45,7 +45,7 @@ class ConfigController extends Controller
         Log::info($request->all());
         $config = $this->configService->updateCustomer($request->validated(), $issuer_id);
         
-        return apiSuccess('Configurações do PDV alteradas com sucesso', $config);
+        return apiSuccess('Configurações dos clientes alteradas com sucesso', $config);
         
     }
 

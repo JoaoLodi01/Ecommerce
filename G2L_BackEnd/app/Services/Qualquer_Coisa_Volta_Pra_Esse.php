@@ -168,11 +168,11 @@ class PayMentMethodService implements PayMentMethodContract
                         Log::info('$form->tipo_lancamento');
                         Log::info($form);
 
-                        $maxCashRegister = CashRegister::where('issuer_id', $issuerID)->max('cash_register_cod');
+                        $maxCashRegister = CashRegister::where('issuer_id', $issuerID)->max('cash_register_code');
                         if($form->tipo_lancamento === 'Caixa')
                         {
                             $bodyCash = array(
-                                'cash_register_cod' => $maxCashRegister ? $maxCashRegister + 1 : 1,
+                                'cash_register_code' => $maxCashRegister ? $maxCashRegister + 1 : 1,
                                 'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->pdv_code" : "Venda Nota Manual N° $pdv->pdv_code",
                                 'document' => $maxDocument ? $maxDocument + 1 : 1,
@@ -196,7 +196,7 @@ class PayMentMethodService implements PayMentMethodContract
                         if($form->tipo_lancamento === 'Receber')
                         {
                             $bodyCash = array(
-                                'cash_register_cod' => $maxCashRegister ? $maxCashRegister + 1 : 1,
+                                'cash_register_code' => $maxCashRegister ? $maxCashRegister + 1 : 1,
                                 'issuer_id' => $issuerID,
                                 'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->pdv_code" : "Parcelamento Venda Nota Manual 
                                 N° $pdv->pdv_code",
@@ -262,7 +262,7 @@ class PayMentMethodService implements PayMentMethodContract
         Log::info('Memória usada PayMentMethodService::class, decreaseCash: ' . memory_get_usage(true));
         $currentDate = new Carbon();
         $cashRegisters = [];
-        $maxCashRegister = CashRegister::where('issuer_id', $issuerID)->max('cash_register_cod');
+        $maxCashRegister = CashRegister::where('issuer_id', $issuerID)->max('cash_register_code');
         Log::info('-- Máximo encontrado iniciado --');
         $maxDocument = CashRegister::where('issuer_id', $issuerID)
                                         ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
@@ -272,7 +272,7 @@ class PayMentMethodService implements PayMentMethodContract
         Log::info('-- Fim do máximo encontrado --');
 
         $cashRegisters[] = [
-            'cash_register_cod' => $maxCashRegister ? $maxCashRegister + 1 : 1,
+            'cash_register_code' => $maxCashRegister ? $maxCashRegister + 1 : 1,
             'issuer_id' => $issuerID,
             'description' => $description,
             'document' => $maxDocument ? $maxDocument + 1 : 1,

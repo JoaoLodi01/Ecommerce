@@ -3,7 +3,7 @@ interface ICashBody
     id: number,
     pdv_code: number,
     canceled: boolean,
-    cash_register_cod: number,
+    cash_register_code: number,
     customer_code: number,
     date_register: string,
     description: string,

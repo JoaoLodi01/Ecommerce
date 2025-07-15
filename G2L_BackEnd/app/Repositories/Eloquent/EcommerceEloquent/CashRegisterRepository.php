@@ -41,7 +41,7 @@ class CashRegisterRepository
         Log::info('Buscando espécie: '. $specie);
 
         $nameCustomer = $customer->company_name ? $customer->company_name : $customer->trade_name;
-        $cashRegisterCod = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])->max('cash_register_cod');
+        $cashRegisterCod = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])->max('cash_register_code');
         $document = CashRegister::where('issuer_id', $cashRegisters[0]['issuer_id'])
                                         ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
                                         ->value('max_doc');
@@ -55,7 +55,7 @@ class CashRegisterRepository
                 Log::info('Vai chamar o updateCurrentCash($cashRegisters[$i]), dados x: ' . $i);
                 Log::info($cashRegisters[$i]);
                 CashRegister::create([
-                    'cash_register_cod' => $cashRegisterCod ? $cashRegisterCod + 1 : 1,
+                    'cash_register_code' => $cashRegisterCod ? $cashRegisterCod + 1 : 1,
                     'issuer_id' => $cashRegisters[$i]['issuer_id'],
                     'description'  => $cashRegisters[$i]['description'],
                     'document' => $cashRegisters[$i]['document'] ?? $document ?  $document + 1 : 1,
@@ -81,7 +81,7 @@ class CashRegisterRepository
         {
             Log::info('Vai criar ' . count($cashRegisters) . ' registro: ');
             CashRegister::create([
-                    'cash_register_cod' => $cashRegisterCod ? $cashRegisterCod + 1 : 1,
+                    'cash_register_code' => $cashRegisterCod ? $cashRegisterCod + 1 : 1,
                     'issuer_id' => $cashRegisters[0]['issuer_id'],
                     'description'  => $cashRegisters[0]['description'],
                     'document' => $cashRegisters[0]['document'] ?? $document ?  $document + 1 : 1,
@@ -108,10 +108,10 @@ class CashRegisterRepository
     public function updateCurrentCash(int $issuer_id)
     {   
         Log::info('$issuer_id: ' . $issuer_id);
-        $lastCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->latest('cash_register_cod')->first();
+        $lastCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->latest('cash_register_code')->first();
         Log::info('$lastCashBox com issuer_id ' . $lastCashBox);
 
-        $actualCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->where('cash_register_cod', $lastCashBox->cash_register_cod - 1)->first();
+        $actualCashBox = CashRegister::where('canceled', 0)->where('issuer_id', $issuer_id)->where('cash_register_code', $lastCashBox->cash_register_code - 1)->first();
         Log::info('$actualCashBox com issuer_id ' . $actualCashBox);
         
         if(!$actualCashBox)

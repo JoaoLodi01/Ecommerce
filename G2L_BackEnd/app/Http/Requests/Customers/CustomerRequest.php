@@ -5,46 +5,34 @@ namespace App\Http\Requests\Customers;
 use App\Services\Config\ConfigService;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
 class CustomerRequest extends FormRequest
 {
-    protected function prepareForValidation()
-    {
-        $this->merge([
-            'cutomer_cod' => $this->route('customer_code')
-        ]);
-    }
-
-    public function __construct(
-        protected ConfigService $configService
-    ){}
-
     public function authorize(): bool
     {
         return Auth::check();
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
-
     public function rules(): array
     {
         //'email' => ['required', 'string', 'email', Rule::unique('users')->ignore($user->id)]
-        $cpfRules = [];
-        $cnpjRules = [];
-     
-        return [
+        /**
+         * @var ConfigService $configService
+         * 
+         */
+        $configService = app(ConfigService::class);
+        $issuerID = $this->input('issuer_id'); 
+        $configs = $configService->getConfigs($issuerID)['customers'];
+        
+        Log::debug($configs->validate_cpf ? 'required' : 'nullable');
+        Log::debug($configs->validate_cnpj ? 'required' : 'nullable');
+        
+        $rules = [
             'issuer_id' => ['required'],
             'company_name' => ['nullable', 'required_without:trade_name', 'string', 'max:120'],
             'trade_name' => ['nullable', 'required_without:company_name', 'string', 'max:120'],
             'customer_type' => ['required'],
-
-            'cpf' => [ ],
-
-            'cnpj' => [],
-
             'cep' => ['required'],
             'address' => ['required'],
             'number' => ['required'],
@@ -54,6 +42,11 @@ class CustomerRequest extends FormRequest
             'is_supplier' => ['required']
 
         ];
+
+        $rules['cpf'] = $configs->validate_cpf ? 'required' : 'nullable';
+        $rules['cnpj'] = $configs->validate_cnpj ? 'required' : 'nullable';
+
+        return $rules;
     }
 
     public function messages(): array

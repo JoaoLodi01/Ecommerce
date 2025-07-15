@@ -98,7 +98,7 @@
                         v-for="(register, id) in cashs"
                         :key="id"
                     >
-                        <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.cash_register_cod }}</td>
+                        <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.cash_register_code }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.document }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.description }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ register.input_value }}</td>
