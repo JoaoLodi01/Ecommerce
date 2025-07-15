@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Config;
 
 use App\Http\Controllers\Controller;
 use App\Services\Config\ConfigService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 use App\Http\Requests\HotelRequest\Config\ConfigHotelRequest;
@@ -21,9 +20,9 @@ class ConfigController extends Controller
 
     public function getConfigs(string|int $issuer_id)
     {
-        Log::info('ConfigController: $issuer_id ' . $issuer_id);
-        $id = (int) $issuer_id;
-        return $this->configService->getConfigs($id);
+        $configs = $this->configService->getConfigs($issuer_id);
+        return apiSuccess('Sucesso!', $configs);
+        
     }
 
     public function updateHotel(ConfigHotelRequest $request)

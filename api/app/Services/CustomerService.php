@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Exceptions\ExceptionCreateCustomer;
 use App\Repositories\Eloquent\CustomerRepository;
 use Illuminate\Support\Facades\Log;
 
@@ -20,8 +21,16 @@ class CustomerService
         ], 200);
     }
 
-    public function search(array $search){
-        return $this->customerRepository->search($search);
+    public function search(array $searchData){
+        $customer = $this->customerRepository->search($searchData);
+        
+        if($customer)
+        {
+            throw new \App\Exceptions\CustomerNotFound("Cliente não encontrado", 1);
+            
+        }
+
+        return $customer;
     }
 
     public function findByID(int $id){
@@ -34,11 +43,9 @@ class CustomerService
 
     public function create(array $data){
         $customer = $this->customerRepository->create($data);
-        return response()->json([
-            'success' => true,
-            'customer' => $customer
-            
-        ], 201);
+        
+        return $customer;
+
     }
 
     public function update(array $data, int $id){

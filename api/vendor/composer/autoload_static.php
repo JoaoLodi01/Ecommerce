@@ -40,6 +40,7 @@ class ComposerStaticInitf326e578901dedae1db98b1e7c9c1880
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'a1cfe24d14977df6878b9bf804af2d1c' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/Autoload.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        'c4dfe64cac12b12adea44994ed38b0fd' => __DIR__ . '/../..' . '/app/Helpers/Response/APIResponse.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -565,6 +566,19 @@ class ComposerStaticInitf326e578901dedae1db98b1e7c9c1880
     );
 
     public static $classMap = array (
+<<<<<<< HEAD
+=======
+        'App\\Actions\\ElaborateSummary' => __DIR__ . '/..' . '/laravel/pint/app/Actions/ElaborateSummary.php',
+        'App\\Actions\\FixCode' => __DIR__ . '/..' . '/laravel/pint/app/Actions/FixCode.php',
+        'App\\Commands\\DefaultCommand' => __DIR__ . '/..' . '/laravel/pint/app/Commands/DefaultCommand.php',
+        'App\\Contracts\\PathsRepository' => __DIR__ . '/..' . '/laravel/pint/app/Contracts/PathsRepository.php',
+        'App\\Exceptions\\ExceptionCreateCustomer' => __DIR__ . '/../..' . '/app/Exceptions/ExceptionCreateCustomer.php',
+        'App\\Exceptions\\HandleExceptions' => __DIR__ . '/..' . '/laravel/pint/app/Exceptions/HandleExceptions.php',
+        'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Exceptions\\InsufficientPayment' => __DIR__ . '/../..' . '/app/Exceptions/InsufficientPayment.php',
+        'App\\Factories\\ConfigurationFactory' => __DIR__ . '/..' . '/laravel/pint/app/Factories/ConfigurationFactory.php',
+        'App\\Factories\\ConfigurationResolverFactory' => __DIR__ . '/..' . '/laravel/pint/app/Factories/ConfigurationResolverFactory.php',
+>>>>>>> 82f015823520b577394f9c960f34305231534a6c
         'App\\Http\\Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Config\\ConfigController' => __DIR__ . '/../..' . '/app/Http/Controllers/Config/ConfigController.php',
@@ -577,6 +591,10 @@ class ComposerStaticInitf326e578901dedae1db98b1e7c9c1880
         'App\\Http\\Controllers\\EcommerceController\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/EcommerceController/ProductsController.php',
         'App\\Http\\Controllers\\EcommerceController\\ReceiveController' => __DIR__ . '/../..' . '/app/Http/Controllers/EcommerceController/ReceiveController.php',
         'App\\Http\\Controllers\\EcommerceController\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/EcommerceController/UserController.php',
+<<<<<<< HEAD
+=======
+        'App\\Http\\Controllers\\Exceptions\\ExceptionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Exceptions/ExceptionsController.php',
+>>>>>>> 82f015823520b577394f9c960f34305231534a6c
         'App\\Http\\Controllers\\FirstSteps\\FirstStepsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FirstSteps/FirstStepsController.php',
         'App\\Http\\Controllers\\HotelController\\HotelController' => __DIR__ . '/../..' . '/app/Http/Controllers/HotelController/HotelController.php',
         'App\\Http\\Controllers\\HotelController\\RoomController' => __DIR__ . '/../..' . '/app/Http/Controllers/HotelController/RoomController.php',
@@ -611,6 +629,10 @@ class ComposerStaticInitf326e578901dedae1db98b1e7c9c1880
         'App\\Http\\Requests\\Register\\RegisterOwnerRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Register/RegisterOwnerRequest.php',
         'App\\Http\\Requests\\Report\\PDVReport\\ReportCashClosingPeriodRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Report/PDVReport/ReportCashClosingPeriodRequest.php',
         'App\\Http\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserRequest.php',
+<<<<<<< HEAD
+=======
+        'App\\Kernel' => __DIR__ . '/..' . '/laravel/pint/app/Kernel.php',
+>>>>>>> 82f015823520b577394f9c960f34305231534a6c
         'App\\Models\\ConfigCustomers' => __DIR__ . '/../..' . '/app/Models/ConfigCustomers.php',
         'App\\Models\\ConfigProducts' => __DIR__ . '/../..' . '/app/Models/ConfigProducts.php',
         'App\\Models\\Customer' => __DIR__ . '/../..' . '/app/Models/Customer.php',
@@ -638,7 +660,19 @@ class ComposerStaticInitf326e578901dedae1db98b1e7c9c1880
         'App\\Models\\Registers\\Tributs\\NCM' => __DIR__ . '/../..' . '/app/Models/Registers/Tributs/NCM.php',
         'App\\Models\\Registers\\User' => __DIR__ . '/../..' . '/app/Models/Registers/User.php',
         'App\\Models\\SiteColors' => __DIR__ . '/../..' . '/app/Models/SiteColors.php',
+<<<<<<< HEAD
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
+=======
+        'App\\Output\\Concerns\\InteractsWithSymbols' => __DIR__ . '/..' . '/laravel/pint/app/Output/Concerns/InteractsWithSymbols.php',
+        'App\\Output\\ProgressOutput' => __DIR__ . '/..' . '/laravel/pint/app/Output/ProgressOutput.php',
+        'App\\Output\\SummaryOutput' => __DIR__ . '/..' . '/laravel/pint/app/Output/SummaryOutput.php',
+        'App\\Project' => __DIR__ . '/..' . '/laravel/pint/app/Project.php',
+        'App\\Providers\\ActionsServiceProvider' => __DIR__ . '/..' . '/laravel/pint/app/Providers/ActionsServiceProvider.php',
+        'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
+        'App\\Providers\\CommandsServiceProvider' => __DIR__ . '/..' . '/laravel/pint/app/Providers/CommandsServiceProvider.php',
+        'App\\Providers\\RepositoriesServiceProvider' => __DIR__ . '/..' . '/laravel/pint/app/Providers/RepositoriesServiceProvider.php',
+        'App\\Repositories\\ConfigurationJsonRepository' => __DIR__ . '/..' . '/laravel/pint/app/Repositories/ConfigurationJsonRepository.php',
+>>>>>>> 82f015823520b577394f9c960f34305231534a6c
         'App\\Repositories\\Contracts\\EcommerceContract\\Products' => __DIR__ . '/../..' . '/app/Repositories/Contracts/EcommerceContract/Products.php',
         'App\\Repositories\\Contracts\\FirstStepsContract\\FirstStepsContract' => __DIR__ . '/../..' . '/app/Repositories/Contracts/FirstStepsContract/FirstStepsContract.php',
         'App\\Repositories\\Contracts\\HotelContract\\HotelDetailContract' => __DIR__ . '/../..' . '/app/Repositories/Contracts/HotelContract/HotelDetailContract.php',
@@ -667,6 +701,10 @@ class ComposerStaticInitf326e578901dedae1db98b1e7c9c1880
         'App\\Repositories\\Eloquent\\Reports\\PDV\\ReportCashClosingPeriodRepository' => __DIR__ . '/../..' . '/app/Repositories/Eloquent/Reports/PDV/ReportCashClosingPeriodRepository.php',
         'App\\Repositories\\Eloquent\\TributsEloquent\\TributsRepository' => __DIR__ . '/../..' . '/app/Repositories/Eloquent/TributsEloquent/TributsRepository.php',
         'App\\Repositories\\Eloquent\\UserRepository' => __DIR__ . '/../..' . '/app/Repositories/Eloquent/UserRepository.php',
+<<<<<<< HEAD
+=======
+        'App\\Repositories\\GitPathsRepository' => __DIR__ . '/..' . '/laravel/pint/app/Repositories/GitPathsRepository.php',
+>>>>>>> 82f015823520b577394f9c960f34305231534a6c
         'App\\Services\\Config\\ConfigService' => __DIR__ . '/../..' . '/app/Services/Config/ConfigService.php',
         'App\\Services\\Contract\\PayMentMethodContract' => __DIR__ . '/../..' . '/app/Services/Contract/PayMentMethodContract.php',
         'App\\Services\\CustomerService' => __DIR__ . '/../..' . '/app/Services/CustomerService.php',
@@ -677,6 +715,10 @@ class ComposerStaticInitf326e578901dedae1db98b1e7c9c1880
         'App\\Services\\EcommerceService\\ProductsService' => __DIR__ . '/../..' . '/app/Services/EcommerceService/ProductsService.php',
         'App\\Services\\EcommerceService\\ReceiveService' => __DIR__ . '/../..' . '/app/Services/EcommerceService/ReceiveService.php',
         'App\\Services\\EcommerceService\\UserService' => __DIR__ . '/../..' . '/app/Services/EcommerceService/UserService.php',
+<<<<<<< HEAD
+=======
+        'App\\Services\\Exceptions\\ExceptionsService' => __DIR__ . '/../..' . '/app/Services/Exceptions/ExceptionsService.php',
+>>>>>>> 82f015823520b577394f9c960f34305231534a6c
         'App\\Services\\FirstSteps\\FirstStepsService' => __DIR__ . '/../..' . '/app/Services/FirstSteps/FirstStepsService.php',
         'App\\Services\\HotelServices\\HotelService' => __DIR__ . '/../..' . '/app/Services/HotelServices/HotelService.php',
         'App\\Services\\HotelServices\\ReservationService' => __DIR__ . '/../..' . '/app/Services/HotelServices/ReservationService.php',
@@ -689,6 +731,10 @@ class ComposerStaticInitf326e578901dedae1db98b1e7c9c1880
         'App\\Services\\ReportsService\\PDVReportService\\ReportCashClosingPeriodService' => __DIR__ . '/../..' . '/app/Services/ReportsService/PDVReportService/ReportCashClosingPeriodService.php',
         'App\\Services\\ReportsService\\ReportCustomerService' => __DIR__ . '/../..' . '/app/Services/ReportsService/ReportCustomerService.php',
         'App\\Services\\TributsService\\TributsServices' => __DIR__ . '/../..' . '/app/Services/TributsService/TributsServices.php',
+<<<<<<< HEAD
+=======
+        'App\\ValueObjects\\Issue' => __DIR__ . '/..' . '/laravel/pint/app/ValueObjects/Issue.php',
+>>>>>>> 82f015823520b577394f9c960f34305231534a6c
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',

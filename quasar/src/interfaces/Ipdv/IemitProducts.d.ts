@@ -1,6 +1,6 @@
 interface IEmitProducts 
 {
-    readonly userID: number,
+    subtotal: number,
     addition: number,
     discount: number,
     freight: number

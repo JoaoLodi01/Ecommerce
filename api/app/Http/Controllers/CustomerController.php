@@ -15,8 +15,7 @@ class CustomerController extends Controller
 {
     public function __construct(
         protected CustomerService $customerService
-    )
-    {}
+    ) {}
 
     public function getAll(int $issuer_id){
         return $this->customerService->getAll($issuer_id);
@@ -24,15 +23,14 @@ class CustomerController extends Controller
     }
 
     public function search(SearchCustomer $request){
-        $data = $request->validated();
-        return $this->customerService->search($data);
+        $customer = $this->customerService->search($request->validated());
+        return apiSuccess('Cliente encontrado', $customer);
+
     }
 
     public function create(CustomerRequest $request){
-        $data = $request->validated();
-        Log::info('Dados recebidos: ');
-        Log::info($data);
-        return $this->customerService->create($data);
+        $customer = $this->customerService->create($request->validated());
+        return apiSuccess('Cliente cadastrado com sucesso!', $customer);
         
     }
 
