@@ -2,13 +2,17 @@
     <div class="container flex">
       <q-select
         v-model="speciesData"
-        :options="[{ id: null, especie: 'Escolher...' }, ...filteredSpecies]"
+        :options="filteredSpecies"
         option-label="especie"
+        option-value="id"
         label="Espécie"
         :emit-value="false"
         map-options
         class="w-96"
         color="grey"
+        @update:model-value="setSpecies"
+        :disable="disable"
+
       />
     </div>
   </template>
@@ -21,32 +25,82 @@
     data() {
       return {
         filteredSpecies: [],
-        speciesData: { id: null, especie: 'Escolher...' },
+        allSpecies: [],
+        speciesData: { 
+          id: null,
+          especie: 'Escolher...'
+        },
       }
     },
   
     methods: {
-      async loadSpecies() {
+      async selectSpecies() {
+        console.log(this.speciesData.especie)
         try {
-          const response = await api.get(
-            `payments/all/${LocalStorage.getItem('issuer_id')}`
-          )
-          this.filteredSpecies = response.data
+            const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
+            this.allSpecies = response.data.all
+            if(response.data.success)
+            {
+                this.fillterSpecies()
+            }
         } catch (error) {
           console.error('Erro ao carregar espécies:', error)
         }
       },
-    },
-  
-    watch: {
-      speciesData(newVal) {
-        this.$emit('update:selectSpecie', newVal)
+
+      fillterSpecies()
+      {
+        switch (this.module_) {
+          case 'cash':
+            this.allSpecies.forEach((v, _) => {
+
+                if(v.tipo_lancamento === 'Caixa')
+                {
+                  this.filteredSpecies.push(v)
+                }
+            })
+
+            break;
+            
+          case 'receive':
+            this.allSpecies.forEach((v, _) => {
+
+              if(v.tipo_lancamento === 'Receber')
+              {
+                this.filteredSpecies.push(v)
+              }
+            })
+
+            break;
+            
+          default:
+            break;
+        }
       },
+  
+      setSpecies(specie){
+        this.speciesData.payment_code = specie.payment_code;
+        this.speciesData.especie = specie.especie;
+        this.$emit('selectSpecie', this.speciesData)
+      },
+
+    },
+
+    props: {
+      module_: {
+        type: String,
+        required: true
+      },
+      disable: {
+        type: Boolean,
+        default: false
+      }
     },
   
     mounted() {
-      this.loadSpecies()
+      this.selectSpecies()
     },
+
   }
   </script>
   

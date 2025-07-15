@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div
         class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
         id="pdv-view"
@@ -14,11 +15,32 @@
     >
         <div 
             class="payMentForm" 
+=======
+    <div v-if="!showPage">
+        <LoandingPage
+            @show-page="showPage = $event"
+            :text="'Carregando PDV ...'"
+                        
+        />
+
+    </div>
+    <div v-if="showPage"> <!-- SHOW PAGE -->
+        <div
+            class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
+            id="pdv-view"
+            v-if="showGrid"
+>>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
             :class="{
-                'absolute top-24 z-20': witdhScreen > 1080,
-                'absolute right-auto left-auto top-5 z-50': witdhScreen <= 1080
-            }"
+                'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
+                'relative left-10': witdhScreen <= 1080,
+                
+                'text-xl': textSize === 4,
+                'text-2xl': textSize === 8,
+                'text-3xl': textSize === 16,
+                
+            }"   
         >
+<<<<<<< HEAD
             <PaymentsForm
                 v-if="showPaymentsForm"
                 :witdhScreen="this.witdhScreen"
@@ -50,18 +72,58 @@
         <div class="h-4">
             <div 
                 class="m-3 border rounded-lg"
+=======
+            <div 
+                class="payMentForm" 
+>>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
                 :class="{
-                    'w-14': witdhScreen <= 1080,
-                    
+                    'absolute top-24 z-20': witdhScreen > 1080,
+                    'absolute right-auto left-auto top-5 z-50': witdhScreen <= 1080
                 }"
             >
+                <PaymentsForm
+                    v-if="showPaymentsForm && typeOperation && pdvID"
+                    :witdhScreen="witdhScreen"
+                    :typeOperation=typeOperation
+                    :totalOperation=totalOperation
+                    :pdvID=pdvID 
+                    :room-i-d="0"
+                    @resetTotal="totalOperation = $event"
+                    @resetPDVID="pdvID = $event"
+                    @close="cancelOperation"
+                    @update:selectProducts="resetSale()"
+
+                />
+
+                <CashClosing
+                    v-if="showCashClosing"
+                    @closeCashClosing="closeCashClosing($event)"
+                />
+
+                <ErrorsModal
+                    v-if="errorsOfSale.showErrosModal"
+                    @close="chooseErrors($event)"
+                    :errors="errorsOfSale.erros"
+                    :class="{
+                        'transition-transform translate-y-4': errorsOfSale.showErrosModal,
+                        'opacity-0 -z-50': !errorsOfSale.showErrosModal
+                    }"
+                />
+
+            </div>
+            
+            <div class="h-4">
                 <div 
-                    class="inline-flex p-3"
+                    class="m-3 border border-black rounded-lg"
+                    :class="{
+                        'w-14': witdhScreen <= 1080,
+                        
+                    }"
                 >
                     <div 
-                        v-if="witdhScreen > 1366"
-                        class="mr-16 mt-1"
+                        class="inline-flex p-3"
                     >
+<<<<<<< HEAD
                         <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configurações</button>
                         <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
                         <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
@@ -249,18 +311,38 @@
                                 type="text"
                                 class="w-16"
                             />
+=======
+                        <div 
+                            v-if="witdhScreen > 1366"
+                            class="mr-16 mt-1"
+                        >
+                            <button 
+                                @click="showOptions" 
+                                class="p-1 mr-5 rounded-lg"
+                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                            >
+                                Configurações
+                            </button>
+                            <button 
+                                class="p-1 mr-5 rounded-lg"
+                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                            >
+                                <router-link to="/sale/list-pdv">Voltar para a listagem</router-link>
+                            </button>
+>>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
 
-                            <br>
+                            <button 
+                                @click="closeCashClosing(true)" 
+                                class="p-1 mr-5 rounded-lg"
+                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                            >
+                                Fechamento
+                            </button>
 
-                            <span>Cliente</span>
-                            <CustomerSearchBar
-                                @update:selectCustomer="updateCustomerSelection($event)"
-                                :pdv="true"
-
-                            />
-                            <!-- COMPONENTE BUSCA DE CLIENTE -->                            
                         </div>
+                    </div>
 
+<<<<<<< HEAD
                         <div class="p-4">
                             <img 
                                 src="https://imgs.search.brave.com/MoYaYTNKcUf4WZ7AWmX_TQp1YL21SVA8qTSjj-_apNI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLnNk/ZS5nbG9iby5jb20v/bWVkaWEvb3JnYW5p/emF0aW9ucy8yMDE4/LzAzLzExL2ludGVy/bmFjaW9uYWwuc3Zn" 
@@ -355,672 +437,868 @@
                             class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-sm font-medium transition">
                             Finalizar e emitir NFC-e
                         </button>
+=======
+                </div>
+                <div class="flex m-3 border border-black rounded-lg">
+                    <div 
+                        class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
+                        @click="showProductsSelection()"
+                        
+                    >
+                        <div class="border border-red-500 w-6 mb-1"></div>
+                        <div class="border border-black w-5 mb-1"></div>
+                        <div class="border border-gray-500 w-4 mb-1"></div>        
+
+                    </div>
+                    
+                    <div class="mr-1">
+                        <ProductsSearchBar
+                            v-if="showProductsSearch"
+                            :witdhScreen="witdhScreen"
+                            :locale="'pdv'"
+                            @update:selectProducts="updateProductsSeletion($event)"
+
+                        />
+                        <!--Busca de produto-->
+                    </div>
+
+                </div>
+    
+                <div 
+                    class="products-grid m-5 shadow-lg relative overflow-y-auto"
+                >
+                    <table class="block text-left rounded-t-xl rtl:text-right ">
+                        <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
+                            <tr class="">
+                                <th scope="col" class="px-6 py-3">Cód.</th>
+                                <th scope="col" class="px-6 py-3 text-left">Produto</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
+                                <th scope="col" class="px-6 py-3">Ações</th>
+                            </tr>
+                        </thead>
+
+                        <tbody v-for="(product, i) in productsSeletion">
+                            <tr
+                                
+                                class="border border-black"
+                            >    
+
+                                <td class="px-6" scope="row">{{ product.product_code }}</td>
+                                <td class="px-6 py-3">{{ product.product}}</td>
+
+                                <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
+                                    <input 
+                                        v-model="product.cfop"
+                                        :placeholder=String(product.cfop)
+                                        type="text"
+                                        class="w-12 text-center border-b-4 border-b-gray-500"
+                                        maxlength="4"
+                                        minlength="4"
+                                        @input="changeCFOP(product.id, Number(product.cfop))"
+
+                                    />
+                                </td>
+
+                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
+                                    <input 
+                                        v-model="product.csosncst"
+                                        :placeholder=String(product.csosncst)
+                                        type="number"
+                                        :maxlength="maxlength(csosncst.toLowerCase())"
+                                        :minlength="maxlength(csosncst.toLowerCase())"
+                                        class="w-10 text-center border-b-4 border-b-gray-500"
+                                        id="csosnInput"
+                                        @input="changeCSOSN(product.id, Number(product.csosncst))"
+
+                                    />
+                                </td>
+
+                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
+                                    <input 
+                                        v-model="product.amount"
+                                        :placeholder="String(product.amount)"
+                                        type="text"
+                                        class="w-10 text-center border-b-4 border-b-gray-500 "
+                                        @input="changeAmount(product.id, Number(product.amount))"
+                                        
+                                    />
+                                </td>
+                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * Number(product.amount)).toFixed(2) }}</td>
+                                <td class="text-center">
+                                    <div class="m-auto">
+                                        <button @click="productOptions(product.id, i, 'delete')">
+                                            <svg 
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" 
+                                                viewBox="0 0 24 24" 
+                                                stroke-width="1.5" 
+                                                stroke="currentColor" 
+                                                class="size-4 text-red-500 mr-4">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" 
+                                            />
+                                                delete
+                                            </svg>
+                                        </button>
+
+                                        <button @click="productOptions(product.id, i, 'options')">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 16 16" fill="currentColor"
+                                                class="size-4 text-blue-600 mr-4">
+                                                <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm6 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"
+                                            />
+                                                options
+                                            </svg>
+                                        </button>
+
+                                        <button @click="productOptions(product.id, i, 'view')">
+                                            <svg 
+                                                v-if="witdhScreen < 1080"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24" 
+                                                stroke-width="1.5" 
+                                                stroke="currentColor" 
+                                                class="size-4">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                                view
+                                                
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                            
+                    </table>                
+                    
+                </div>
+            </div>
+
+            <div v-if="viewProduct.show" class="absolute top-40 left-9 w-64 p-2 mr-5 ml-autobg-white z-50 rounded-lg bg-slate-700 text-white">
+                <div class="flex justify-end">
+                    <div @click="viewProduct.show = !viewProduct.show">Voltar</div>
+
+                </div>
+                <div class="text-left">
+                    <p><span>Cód: {{ viewProduct.id }}</span></p>
+                    <p><span>Preço unitário: R${{ viewProduct.salePrice }}</span></p>
+                    <p>
+                        <input 
+                            v-model="viewProduct.amount"
+                            :placeholder=String(viewProduct.amount)
+                            type="text"
+                            class="w-10 text-center border-b-4 border-b-gray-500 text-black"
+                            @input="changeAmount(viewProduct.id, viewProduct.amount)"
+                            
+                        />
+                    
+                    </p>
+                    
+                </div>
+            </div>
+        <div>
+            </div>
+                <div 
+                    class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-black "
+                    :class="{
+                        'text-xl': textSize === 4,
+                        'text-2xl': textSize === 8,
+                        'text-3xl': textSize === 16,
+                        'm-auto': witdhScreen <= 1080
+                    }"   
+                >
+                    <div>
+                        <div>
+                            <div 
+                                class="m-2 p-2 rounded-lg border border-gray-700"
+                            >
+                                <label class="text-black">Vendedor</label>
+                                <q-input 
+                                    :placeholder="sellerData.name"
+                                    disable
+                                    type="text"
+                                    v-model="sellerData.name"
+
+                                />
+
+                                <br>
+
+                                <span>Cliente</span>
+                                <CustomerSearchBar
+                                    @update:selectCustomer="updateCustomerSelection($event)"
+                                    :pdv="true"
+
+                                />
+                                <!-- COMPONENTE BUSCA DE CLIENTE -->                            
+                            </div>
+                        <div
+                            class="m-2 p-2 rounded-lg border border-gray-700" 
+                            
+                        >
+                            <p 
+                                class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
+                            >
+                                Acréscimo R$: <input id="addition" v-model.number="emitProducts.addition" type="text" class="text-right"/>
+                            </p>
+                            
+                            <p 
+                                class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
+                            >
+                                Desconto R$: <input id="discount" v-model.number="emitProducts.discount" type="text" class="text-right" />
+                            </p>
+                                                    
+                            <p 
+                                class="flex justify-between border p-2 rounded-lg"
+                            >
+                                Frete R$:<input id="freight" v-model.number="emitProducts.freight" type="text" class="text-right focus:border-blue-400"/>
+                            
+                            </p>
+                        </div>
+                    <div
+                        class="m-2 p-2 rounded-lg border border-gray-700"
+                        id="total"
+
+                    >
+                        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Frete <span>R$ {{ calculateTotal.freight.toFixed(2) }}</span></p>
+                    
+                    </div>
+                    
+                    <div class="">
+                        <img 
+                            width="282px"
+                            height="412px"
+                            class="relative left-20 border"
+                            src="../../../../public/image/defaultLogo.png" 
+                            alt=""
+                        />
+                        
+                    </div>
+                    <!-- A imagem vai ter que ficar por aqui -->
+                        <div class="fixed bottom-4">
+                            <div class="flex m-2 p-2 mt-2 rounded-lg border border-gray-700">
+                                <button
+                                    v-if="productsSeletion.length <= 0"
+                                    disabled
+                                    title="Sem vendas no momento"
+                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                    </svg>
+                                </button>
+
+                                <button
+                                    v-else @click="cancelSale()"
+                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                    </svg>
+                                </button>
+
+                                <button
+                                    v-if="productsSeletion.length <= 0"
+                                    disabled
+                                    title="Sem vendas no momento"
+                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                                    </svg>
+                                </button>
+                                <button 
+                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    title="Salvar venda"
+                                    @click="saveSale()"
+                                    v-else
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                                    </svg>
+                                </button>
+
+                                <div class="mb-auto ml-auto text-xl w-auto">
+                                    <span class="mr-1 text-white p-1 bg-[#BF3658] rounded-md">Total: R$ {{ Math.max((calculateTotal.total), 0).toFixed(2) }}</span>
+                                
+                                </div>
+                            </div>
+
+                            <div 
+                                class="flex text-white rounded-lg border border-gray-700 w-[26.2rem]"
+                            
+                            >
+                                <q-btn 
+                                    class="mr-1 p-1 rounded-md ml-14 border-none"                                
+                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    :class="{
+                                        'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
+                                    }" 
+
+                                    size="1rem"
+                                    @click="finalizeSale('nm')"
+                                    v-if="configs.nmFinaly"
+                                >
+                                    Finalizar
+                                </q-btn>
+                                <q-btn  
+                                    class="mr-4 p-1 rounded-md"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    size="1rem"
+                                    @click="finalizeSale('nfce')" 
+                                    
+                                >
+                                    Finalizar e emitir NFC-e
+                                </q-btn>
+                                
+                            </div>
+                        </div>
+>>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
                     </div>
                 </div>
             </div>
         </div>
+        <div>
+            <ConfigPDV
+                v-if="showOptionsPDV"
+                @close="closeConfig($event)"
+            />
 
-        <!-- oder options -->
-        
-    </div>
-    <div>
-        <ConfigPDV
-            v-if="showOptionsPDV"
-            @close="closeConfig($event)"
-        />
+            <SupervisorPasswordDeleteItem
+                v-if="showSupervisorPassword"
+                
+            />
 
-        <ProductsSelectionView
-            v-if="show"
-            :witdhScreen="this.witdhScreen"
-            :CRT="this.CRT"
-            @close="showGridEmit()"
-            @update:selectProducts="updateProductsSeletion($event)"
-        />
-    </div>
+            <!--<ProductsSelectionView
+                v-if="show"
+                :witdhScreen="witdhScreen"
+                :hotelCodCRT="crt"
+                @close="showGridEmit()"
+                @update:selectProducts="updateProductsSeletion($event)"
+            />-->
+        </div>
+    </div> <!-- SHOW PAGE -->
 </template>
 
-<script>
+<script setup lang="ts">
     import PaymentsForm from 'src/components/PaymentsForm.vue';
-    import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
+    //import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
     import CashClosing from 'src/components/PDV/CashClosing/CashClosing.vue'
     import ConfigPDV from 'src/components/Config/ConfigPDV.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
     import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
-    
-    import { api } from "boot/axios"
-    import { onBeforeUnmount, toRaw } from 'vue'   
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
+    import SupervisorPasswordDeleteItem from 'src/components/SupervisorPassword/SupervisorPasswordDeleteItem.vue';
+    import { api } from "src/boot/axios"
+    import { ref, computed, watch, defineProps, onMounted } from 'vue'   
+    import { useRoute, useRouter } from 'vue-router';
     import { useQuasar, LocalStorage } from 'quasar';
+    import camelcaseKeys from 'camelcase-keys';
+
+    const props = defineProps<{
+        idPDV?: number;
+    }>();
+
+    const $q = useQuasar();
+    const route = useRoute();
+    const router = useRouter();
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
+
+    let showPage = ref<boolean>(false);
     
-    export default{
-        setup(){
-            const $q = useQuasar()
-            let timer
-            onBeforeUnmount(() => {
-                if(timer !== void 0) {
-                    clearTimeout(timer)
-                    $q.loading.hide()
+    let productsSeletion = ref<IProducts[]>([]);
 
-                }
-            })
+    let errorsOfSale = ref<TErrorsOfSale>({
+        showErrosModal: false,
+        erros: []
 
-            return { 
-                showLoading () {
-                    $q.loading.show({
-                        message: 'Carregando pagamento e validando a venda ...'
-                    })
-
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 3000)
-                }
-            }
-        },  
-
-        data(){
-            return {
-                productsSeletion: [],
-                clients: [],
-
-                errorsOfSale: {
-                    showErrosModal: false,
-                    erros: []
-
-                },
+    });
             
-                emitProducts: {
-                    addition: 0,
-                    discount: 0,
-                    freight: 0,
-                    userID: 0,
-                    
-                },
-
-                CRT: 0,
-
-                sellerData: {
-                    id: 0,
-                    name: ''
-                },
-
-                clientsData: {
-                    id: 0,
-                    name: ''
-                },
-
-                totalOperation: 0,
-                witdhScreen: 0,
-                textSize: 4,
-                pdvID: 0,
-                show: false,
-                showGrid: true,
-                isLoanding: true,
-                showPaymentsForm: false,
-                showProductsSearch: true,
-                showCashClosing: false,
-                
-                showOptionsPDV: false,
-                
-                viewProduct: {
-                    show: false,
-                    id: '',
-                    name: '',
-                    amount: 0,
-                    salePrice: 0,
-                    total: 0
-                    
-                },
-
-                isOpenedPDV: false,
-                success: null,
-                typeOperation: '',
-                csosncst: '',
-            
-                configs: {
-                    nmFinaly: false,
-                    saleNegativeorReset: false
-                },
-
-                issuer_id: LocalStorage.getItem("issuer_id")
-            }
-        },
-
-        watch: {
-            '$route'(to, from) {
-                if(to.fullPath === '/sale/pdv'){
-                    this.productsSeletion = []
-
-                } 
-            }
-        },  
-
-        computed: {
-            calculateTotal(){
-                const rawproductsSeletion = toRaw(this.productsSeletion)
-                
-                let subtotal = 0
-                
-                rawproductsSeletion.forEach(products => {
-                    for (let i = 0; i < products.length; i++) {
-                        const p = products[i];
-                        subtotal += p.sale_price * p.amount
-                        
-                    }
-                });
-
-                const addition = typeof this.emitProducts.addition === 'number' ? this.emitProducts.addition : 0
-                const discount = typeof this.emitProducts.discount === 'number' ? this.emitProducts.discount : 0
-                const freight = typeof this.emitProducts.freight === 'number' ? this.emitProducts.freight : 0
-                
-                return {
-                    subtotal: subtotal,
-                    addition: addition,
-                    discount: discount,
-                    freight: freight
-                    
-                }
-            },
-        },
+    let emitProducts = ref<IEmitProducts>({
+        subtotal: 0,
+        addition: 0,
+        discount: 0,
+        freight: 0
         
-        methods: {
-            async saveSale()
-            {
-                const saveSale = confirm('Deseja salvar a venda?')
-                if (saveSale) {
-                    try {
-                        if (this.totalOperation > 1000){
-                            if(!this.isOpenedPDV)
-                            {
-                                const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                    issuer_id: this.issuer_id,
-                                    products: this.productsSeletion, // Produtos da 
-                                    user_id: this.sellerData.id,
-                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                    sub_total: this.calculateTotal.subtotal,
-                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                    addition: this.calculateTotal.addition,
-                                    discount: this.calculateTotal.discount,
-                                    description: 'Venda guardada',
-                                    is_nfce_nm: null,
-                                    status: 'Em Aberto'
-                                    
-                                })
+    });
 
-                                if(response.data.success === true)
-                                {
-                                    alert('Venda guardarda para enviar posteriormente!')
-                                    this.productsSeletion = []
+    let crt = ref<number>(0);
 
-                                } else {
-                                    console.log(response.data)
-                                }
+    const sellerData = ref<Iseller>({
+        id: 0,
+        name: ''
+    });
 
-                            } else {
+    const customerData = ref<Icustomer>({
+        id: 1,
+        name: 'Consumidor Padrão'
+    });
 
-                                alert('Venda guardarda para enviar posteriormente!')
-                                this.productsSeletion = []
-                                this.$router.push({ name: "PDV" })
-                            }
-                        } else {
-                            alert('Não calculou o total')
-                        }
-                        
-                    } catch (error) {
-                        console.error('Erro saveSale() = error.response', error)
-                        
-                    }
-                }
-            },
-            
-            async finalizeSale(type)
-            {
-                this.showLoading()
-                try {
-                    if(this.sellerData.id)
-                    {
-                        this.totalOperation += this.calculateTotal.subtotal + this.calculateTotal.freight + this.calculateTotal.addition - this.calculateTotal.discount
-                        
-                    } else {
-                        console.log('Não deu, this.clientsData.id: ', this.clientsData.id, ' this.sellerData.id:', this.sellerData.id)
-                    }
-
-                    if(this.idPDV)
-                    {
-                        console.log('Venda importada')
-                        if(type === 'nm')
-                        {
-                            this.typeOperation = type
-                            this.showPaymentsForm = !this.showPaymentsForm
-                            this.pdvID = Number(this.idPDV)
-
-                        }   
-
-                        if(type === 'nfce')
-                        {
-                            this.typeOperation = type
-                            this.showPaymentsForm = !this.showPaymentsForm
-                            this.pdvID = Number(this.idPDV)
-                        }
-                    
-                    } else {
-                        const pdvID = LocalStorage.getItem("pdvID")
-                        if(!pdvID)
-                        {
-                            console.log('Finalizar venda')
-                            console.log('Total', this.totalOperation)
-                            if(type === 'nm')   
-                            { 
-                                const response = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
-                                    issuer_id: this.issuer_id,
-                                    products: this.productsSeletion, // Produtos da 
-                                    user_id: this.sellerData.id,
-                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                    sub_total: this.calculateTotal.subtotal,
-                                    addition: this.calculateTotal.addition,
-                                    discount: this.calculateTotal.discount,
-                                    description: 'Venda Nota Manual N°',
-                                    is_nfce_nm: type,
-                                    status: 'Finalizada'
-                                    
-                                })
-
-                                const data = response.data
-                                console.log(data)
-
-                                if(data.success)
-                                {
-                                    LocalStorage.setItem("pdvID", response.data.pdvID)
-                                    this.typeOperation = type
-                                    this.showPaymentsForm = true
-                                    this.pdvID = LocalStorage.getItem("pdvID")
-                                    console.log('this.typeOperation linha 682: ', this.typeOperation)
-                                    console.log('this.showPaymentsForm linha 683: ', this.showPaymentsForm)
-                                    console.log('this.pdvID linha 684: ', this.pdvID)
-
-                                }
-                            
-                                if(!data.success)
-                                {
-                                    console.log(response.data) 
-                                    alert(response.data)
-                                }
-                            } 
-                        
-                            if(type === 'nfce')
-                            {  
-                                const response = await api.post('/ecommerce/pdv/save-sale', {
-                                    issuer_id: this.issuer_id,
-                                    products: this.productsSeletion, // Produtos da 
-                                    user_id: this.sellerData.id,
-                                    customer_id: this.clientsData.id >= 1 ? this.clientsData.id : 1,
-                                    total: this.calculateTotal.subtotal - this.calculateTotal.discount + this.calculateTotal.addition,
-                                    sub_total: this.calculateTotal.subtotal,
-                                    addition: this.calculateTotal.addition,
-                                    discount: this.calculateTotal.discount,
-                                    description: 'Venda NFC-e N°',
-                                    is_nfce_nm: type,
-                                    status: 'Finalizada'
-                                    
-                                })
-
-                                console.log('response.dat PDVView, line 718: ', response)
-                                const data = response.data
-
-                                if(data.success)
-                                {
-                                    LocalStorage.setItem("pdvID", response.data.pdvID)
-                                    this.typeOperation = type
-                                    this.showPaymentsForm = true
-                                    this.pdvID = LocalStorage.getItem("pdvID")
-
-                                } else {
-                                    this.errorsOfSale.erros = data.errors
-                                    this.errorsOfSale.showErrosModal = true
-
-                                }
-
-                            }
-                               
-                        } else {
-                            console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"))
-                            this.showPaymentsForm = true
-                            this.pdvID = LocalStorage.getItem("pdvID")
-                        }
-                    }
-                    
-                } catch (error) {
-                    console.error('Erro finalizeSale', error)
-                    alert(error.response.data.errors)
-                    this.errorMessages.push(error.response.data.errors)
-                    
-                }
-            },
-
-            async getCRT()
-            {
-                try {
-                    const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
-
-                    if(response.data.success === true)
-                    {
-                        this.CRT += response.data.issuer.cod_crt
-                        if(Number(this.CRT) && this.CRT > 0)
-                        {
-                            if(this.CRT == 1 || this.CRT >= 4)
-                            {
-                                this.csosncst = 'CSOSN'
-
-                            } else {
-                                this.csosncst = 'CST'
-                            }
-                        }
-                    }
-
-                    if(response.data.success === false){
-                        console.log(response.data)
-
-                    }
-                } catch (error) {
-                    if(error.response.data.message === 'Hotel não encontrado')
-                    {
-                        alert(error.response.data.message)
-                        alert('Por favor faça o cadastro do hotel!')
-                        this.$router.push('/hotel/create')
-                        
-                    }
-                }
-            },
-
-            chooseErrors(choose)
-            {
-                console.log('chooseErrors: ', choose)
-                if(choose === 'after')
-                {
-                    console.log('Depois')
-                    this.productsSeletion = []
-                    this.errorsOfSale.showErrosModal = false
-                } 
-
-                if(choose === 'now')
-                {
-                    console.log('agora')
-                    this.productsSeletion = []
-                    this.$router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
-                }
-
-            },
-
-            async importSale()
-            {
-                try {
-                    const response = await api.get(`/ecommerce/pdv/get-saved-sale/${this.idPDV}`)
-                    
-                    this.updateProductsSeletion(response.data.pdvs.get_itens)
-
-                } catch (error) {
-                    console.error('Erro importSale', error)
-                    
-                }
-            },
-
-            showOptions(){
-                this.showOptionsPDV = true
-                this.showPaymentsForm = false
-                this.showGrid = false
-                this.show = false
-                
-            },
-
-            showProductsSelection(){
-                this.showPaymentsForm = false
-                this.showGrid = !this.showGrid
-                this.show = !this.show
-                
-            },
-            
-            showGridEmit(){
-                this.showGrid = !this.showGrid
-                this.show = !this.show
-                
-            },  
-
-            closeConfig(event)
-            {
-                this.showOptionsPDV = event
-                this.showGrid = !event
-
-            },
-
-            changeAmount(id, newAmount)
-            {
-                const rawProducts = toRaw(this.productsSeletion)   
-                
-                let productFound = null;
-                
-                for (let i = 0; i < rawProducts.length; i++) {
-                    const productArray = rawProducts[i];
-                    productFound = productArray.find(p => p.id === id)
-                    
-
-                    if(productFound) break
-
-                }
-
-                if(productFound)
-                {
-                    productFound.amount = newAmount
-
-                }
-                
-            },
-
-            changeCFOP(id, newCFOP)
-            {
-                const rawProducts = toRaw(this.productsSeletion)
-
-                let productFound = null;
-                
-                for (let i = 0; i < rawProducts.length; i++) {
-                    const productArray = rawProducts[i];
-                    productFound = productArray.find(p => p.id === id)
-                    if(productFound) break
-
-                }
-
-                if(productFound)
-                {
-                    productFound.cfop = newCFOP
-
-                }
-            },
-
-            changeCSOSN(id, newCSOSN)
-            {
-                const rawProducts = toRaw(this.productsSeletion)
-
-                let productFound = null;
-                
-                for (let i = 0; i < rawProducts.length; i++) {
-                    const productArray = rawProducts[i];
-                    productFound = productArray.find(p => p.id === id)
-                    if(productFound) break
-
-                }
-
-                if(productFound)
-                {
-                    productFound.csosn = newCSOSN
-
-                }
-            },
-
-            updateProductsSeletion(selectedProducts)
-            {
-                this.productsSeletion = [...this.productsSeletion, selectedProducts]
-                
-            },
-
-            updateCustomerSelection(client)
-            {  
-                this.clientsData = {
-                    id: client.id,
-                    name: client.name
-                }
-            },
-
-            cancelOperation()
-            {
-                this.showPaymentsForm = false
-
-            },
-
-            productOptions(product, i, action)
-            {
-                let rawProducts = toRaw(this.productsSeletion)
-
-                switch (action) {
-                    case 'delete':
-                        /*for (let i = 0; i < rawProducts.length; i++) 
-                        {
-                            const products = rawProducts[i];
-                            const index = products.findIndex(p => p.id === product.id)                            
-
-                            if(index !== -1)
-                            {
-                                products.splice(index, 1)
-                                
-                                while (products.length <= 0 ) {
-                                    this.productsSeletion = []
-                                    break
-                                }
-                                break
-                            }
-                        }*/
-                        console.log('product.id', product.id, ' i: ', i)
-                        break;
-                        
-                    case 'view':
-                        this.viewProduct ={
-                            id: product.id,
-                            name: product.product,
-                            amount: product.amount,
-                            salePrice: product.sale_price,
-                            total: product.amount * product.sale_price
-                        }
-                        this.viewProduct.show = !this.viewProduct.show
-                        
-                        break;
-
-                    case 'options':
-                        
-                        break;
-                
-                    default:
-                        break;
-                }
-            },
-
-            closeCashClosing(event)
-            {
-                this.showCashClosing = event
-            },
-
-            resetSale(confirmed)
-            {
-                if(confirmed)
-                {
-                    this.emitProducts = [],
-                    this.productsSeletion = [],
-                    this.emitProducts.addition = 0
-                    this.emitProducts.discount = 0
-                    this.emitProducts.freight = 0
-                    this.clientsData.id = null
-                    this.clientsData.name = null
-                    
-                }
-            },
-
-            maxlength(csosncst)
-            {
-                if(csosncst == 'csosn')
-                {
-                    return 3
-                } else if (csosncst == 'cst'){
-                    return 2
-                }
-            },
-
-            cancelSale()
-            {
-                const option = confirm('Deseja realmente cancelar a venda? ')
-                if (option === true) {
-                    this.emitProducts = [];
-                    this.productsSeletion = [];
-                    this.emitProducts.addition = 0;
-                    this.emitProducts.discount = 0;
-                    this.emitProducts.freight = 0;
-
-                    if(this.idPDV)
-                    {
-                        this.$router.push({ name: 'PDV' });
-                    }
-                }
-            }
-        },
-        
-        components: {
-            ProductsSelectionView,
-            PaymentsForm,
-            CashClosing,
-            ConfigPDV,
-            ProductsSearchBar,
-            CustomerSearchBar,
-            ErrorsModal
-
-        },
-
-        props: [
-            'idPDV',
+    let totalOperation = ref<number>(0);
+    let witdhScreen = ref<number>(0);
+    let textSize = ref<number>(4);
+    let pdvID = ref<number>(0);
+    let show = ref<boolean>(false);
+    let showGrid = ref<boolean>(true);
+    let showPaymentsForm = ref<boolean>(false);
+    let showProductsSearch = ref<boolean>(true);
+    let showCashClosing = ref<boolean>(false);
     
-        ],
+    let showOptionsPDV = ref<boolean>(false);
+    
+    let viewProduct = ref<TViewProduct>({
+        show: false,
+        id: 0,
+        amount: 0,
+        salePrice: 0
+    });
 
-        mounted(){
-            this.getCRT()
-            this.witdhScreen += screen.width
-            this.isOpenedPDV = history.state?.isOpenedPDV
+    let isOpenedPDV = ref<boolean>(false);
+    let typeOperation = ref<string>('');
+    let csosncst = ref<string>('');
             
-            const getUser = async () => { 
-                const response = await api.get('/auth/me', {
-                    headers: {
-                        'Authorization': `Bearer ${LocalStorage.getItem("auth_token")}`
-                    }
+    let configs = ref<Tconfig>({
+        nmFinaly: false,
+        saleNegativeorReset: false,
+        supervisorPasswordCancelSale: false,
+        supervisorPasswordDeleteItem: false
+    });
+
+    let showSupervisorPassword = ref<boolean>(false);
+
+    let subTotal = ref<number>(0);
+
+    const issuer_id = ref<number>(LocalStorage.getItem("issuer_id"));
+    
+    watch(
+        () => route.fullPath,
+        (to, from) => {
+            if(to === '/sale/pdv') productsSeletion.value = [];
+            return;
+        }
+    );
+        
+    const calculateTotal = computed(() => {
+        subTotal.value = 0;
+
+        productsSeletion.value.map((p: IProducts) => {
+            subTotal.value += p.sale_price * p.amount;
+        });
+
+        const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
+        const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
+        const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
+
+        return {
+            total: subTotal.value + (addition + freight) - discount,
+            subtotal: subTotal.value,
+            addition: addition,
+            discount: discount,
+            freight: freight
+        };
+    });
+
+    const saveSale = async() => {
+        const saveSale = confirm('Deseja salvar a venda?');
+        if (saveSale) 
+        {
+            if(isOpenedPDV.value)
+            {
+                const response = await api.post('/ecommerce/pdv/save-sale', { 
+                    issuer_id:  issuer_id,
+                    products: productsSeletion, 
+                    user_id: sellerData.value.id,
+                    customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
+                    sub_total: calculateTotal.value.subtotal,
+                    total: calculateTotal.value.total,
+                    addition: calculateTotal.value.addition,
+                    discount: calculateTotal.value.discount,
+                    description: 'Venda guardada',
+                    is_nfce_nm: '',
+                    status: 'Em Aberto'
+                    
                 })
 
-                this.sellerData = {
-                    id: response.data.user.id,
-                    name: response.data.user.name,
+                if(response.data.success === true)
+                {
+                    alert('Venda guardarda para enviar posteriormente!');
+                    productsSeletion.value = [];// Salva apenas a venda = [];
+
+                } else {
+                    console.log(response.data);
                 }
 
-            }
-            getUser()
+            } else {
+                alert('Venda guardarda para enviar posteriormente!');
+                // Salva apenas a venda = []
+                router.push({ name: "PDV" });
 
-            const getConfig = async () => {
-                const config = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
-                this.configs.nmFinaly = config.data.configPDV[0].nm_finaly
-                
-            }
-            getConfig()
-
-            if(this.idPDV)
+            };
+        };
+    };
+    
+    const finalizeSale = async (type: string) => 
+    {
+        console.log('total: ', totalOperation.value)
+        try {
+            if(sellerData.value.id)
             {
-                this.importSale()            
+                totalOperation.value += calculateTotal.value.subtotal + calculateTotal.value.freight + calculateTotal.value.addition - calculateTotal.value.discount
+                if(props.idPDV)
+                {
+                    console.log('Venda importada');
+                    console.log('type: ', type);
+                    typeOperation.value = type;
+                    showPaymentsForm.value = !showPaymentsForm.value;
+                    pdvID.value = Number(props.idPDV);
                 
-            }
+                } else {
+                    let importedPDV = LocalStorage.getItem("pdvID");
 
+                    if(!importedPDV)
+                    {
+                        console.log('Nova venda!');
+                        console.log('Total da venda R$', totalOperation.value);
+                        if(type)   
+                        { 
+                            const res = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
+                                issuer_id: issuer_id.value,
+                                products: productsSeletion.value, // Produtos da 
+                                user_id: sellerData.value.id,
+                                customer_id: customerData.value.id != 1 ? customerData.value.id : 1,
+                                sub_total: calculateTotal.value.subtotal,
+                                total: calculateTotal.value.total,
+                                addition: calculateTotal.value.addition,
+                                discount: calculateTotal.value.discount,
+                                description: type === 'nm' ? 'Venda Nota Manual N°' : 'Venda NFC-e N°',
+                                is_nfce_nm: type,
+                                status: 'Finalizada'
+                                
+                            });
+
+                            const data = res.data.data;
+                            console.log(res.data.data);
+
+                            if(data.success)
+                            {
+                                LocalStorage.setItem("pdvID", data.pdvID);
+                                typeOperation.value = type;
+                                showPaymentsForm.value = true;
+                                pdvID.value = LocalStorage.getItem("pdvID");
+                                console.log('typeOperation linha 638: ', typeOperation.value);
+                                console.log('showPaymentsForm linha 639: ', showPaymentsForm.value);
+                                console.log('pdvID linha 640: ', LocalStorage.getItem("pdvID"));
+
+                            };
+                        };
+                        
+                    } else {
+                        console.log('Não é uma nova venda!');
+                        console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"));
+                        showPaymentsForm.value = true;
+                        pdvID.value = LocalStorage.getItem("pdvID");
+
+                    };
+                };
+                
+            } else {
+                console.log('Não deu, customerData.id: ', customerData.value.id, ' sellerData.id:', sellerData.value.id);
+
+            };           
+        } catch (error) {
+            console.error('Erro finalizeSale', error);
+            
+        };
+    };
+
+    const getCRT = async() => 
+    {
+        try {
+            const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`);
+
+            if(response.data.success === true)
+            {
+                crt.value += response.data.issuer.cod_crt;
+                if(crt.value === 1 || crt.value >= 4)
+                {
+                    csosncst.value = 'CSOSN';
+                } else {
+                    csosncst.value = 'CST';
+                };
+            };
+
+            if(response.data.success === false){
+                console.log(response.data)
+
+            }
+        } catch (error) {
+            if(error.response.data.message === 'Hotel não encontrado')
+            {
+                router.push('/hotel/create');
+                
+            };
+        };
+    };
+
+    const chooseErrors = (choose: string) => 
+    {
+        console.log('chooseErrors: ', choose);
+        if(choose === 'after')
+        {
+            productsSeletion.value = []
+            errorsOfSale.value.showErrosModal = false
+        } 
+
+        if(choose === 'now')
+        {
+            productsSeletion.value = []
+            router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
         }
-      }
+
+    };
+
+    const importSale = async () =>
+    {
+        try {
+            const response = await api.get(`/ecommerce/pdv/get-saved-sale/${props.idPDV}`)
+            console.log('importSale', response.data)
+            updateProductsSeletion(response.data.pdvs.get_itens)
+
+        } catch (error) {
+            console.error('Erro importSale', error)
+            
+        }
+    };
+
+    const showOptions = () => 
+    {
+        showOptionsPDV.value = true
+        showPaymentsForm.value = false
+        showGrid.value = false
+        show.value = false
+        
+    };
+
+    const showProductsSelection = () => 
+    {
+        showPaymentsForm.value = false
+        showGrid.value = !showGrid.value
+        show.value = !show.value
+        
+    };
+    
+    const showGridEmit = () => 
+    {
+        showGrid.value = !showGrid.value
+        show.value = !show.value
+        
+    };  
+
+    const closeConfig = (event: boolean) =>
+    {
+        showOptionsPDV.value = event
+        showGrid.value = !event
+
+    };
+
+    const changeAmount = (id: number, newAmount: number) =>
+    {};
+
+    const changeCFOP = (id: number, newCFOP: number) => 
+    { };
+
+    const changeCSOSN = (id: number, newCSOSN: number) =>
+    {};
+
+    const updateProductsSeletion = (selectedProducts) =>
+    {
+        console.log('Produto adicionado: ', selectedProducts,);
+        //productsSeletion.value = [...productsSeletion.value, selectedProducts]; // <- Qualquer coisa apagar o que está abaixo
+
+        const existingProduct = productsSeletion.value.find(p => 
+            p.product_code === selectedProducts.product_code || p.id === selectedProducts.id
+        );
+
+        if(existingProduct)
+        {
+            existingProduct.amount += selectedProducts.amount;
+
+        } else {
+            productsSeletion.value = [...productsSeletion.value, {...selectedProducts}];
+
+        };
+
+        console.log(productsSeletion.value);
+
+    };
+
+    const updateCustomerSelection = (client: Icustomer) => 
+    {  
+        customerData.value = {
+            id: client.id,
+            name: client.name
+        };
+    };
+
+    const cancelOperation = () => 
+    {
+        showPaymentsForm.value = false;
+
+    };
+
+    const productOptions = (product_id: number, i: number, action: string) => 
+    {
+        switch (action) {
+            case 'delete':
+                console.log('product_id', product_id, ' i: ', i);
+                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_code !== product_id)]
+                
+                break;
+                
+            case 'view':
+                
+                
+                break;
+
+            case 'options':
+                
+                break;
+        
+            default:
+                break;
+        }
+    };
+
+    const closeCashClosing = (event: boolean) =>
+    {
+        showCashClosing.value = event;
+    };
+
+    const resetSale = () =>
+    {
+        emitProducts.value = {
+            subtotal: 0,
+            addition: 0,
+            discount: 0,
+            freight: 0,
+            
+        };
+
+        typeOperation.value = '';
+        totalOperation.value = 0;
+        productsSeletion.value = [];
+        emitProducts.value.addition = 0;
+        emitProducts.value.discount = 0;
+        emitProducts.value.freight = 0;
+        customerData.value.id = 1;
+        customerData.value.name = 'Consumidor Padrão';
+        LocalStorage.remove("pdvID");
+
+        console.log('productsSeletion: ', productsSeletion.value);
+
+    };
+
+    const maxlength = (csosncst: string) =>
+    {
+        if(csosncst == 'csosn')
+        {
+            return 3;
+        } else if (csosncst == 'cst'){
+            return 2;
+        };
+    };
+
+    const cancelSale = () =>
+    {
+        const option = confirm('Deseja realmente cancelar a venda? ')
+        if (option === true) {
+            emitProducts.value = {
+                subtotal: 0,
+                addition: 0,
+                discount: 0,
+                freight: 0
+            };
+            
+            productsSeletion.value = [];
+            emitProducts.value.addition = 0;
+            emitProducts.value.discount = 0;
+            emitProducts.value.freight = 0;
+
+            if(props.idPDV)
+            {
+                router.push({ name: 'PDV' });
+            };
+        }
+    }
+
+    const getUser = async () => 
+    { 
+        sellerData.value ={ 
+            id: LocalStorage.getItem("user_id"),
+            name: LocalStorage.getItem("user_name")
+        };
+    };
+
+    const getConfig = async () => 
+    {
+        const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
+        const configsRes: Tconfig = camelcaseKeys(res.data.data.pdv, { deep: true });
+        console.log(configsRes)
+
+        configs.value.nmFinaly = configsRes.nmFinaly;
+        configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
+        configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
+
+    };
+
+    onMounted(() => {
+        getCRT();
+        getUser()
+        getConfig();
+        
+        console.log('pdvID: ', pdvID.value);
+        console.log('total: ', totalOperation.value);
+
+        witdhScreen.value = screen.width;
+        isOpenedPDV.value = history.state?.isOpenedPDV ?? false;
+
+        if(props.idPDV)
+        {
+            importSale();
+                
+        };
+
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
+            const keyName = event.key
+                
+            if(keyName === 'F2')
+            {
+                showOptions()
+
+            } else if (keyName === 'F8')
+            {
+                finalizeSale('nm')
+
+            } else if (keyName === 'F9')
+            {
+                finalizeSale('nfce')
+            
+            } 
+        });
+
+    });
+      
 </script>
 
 <style>
@@ -1070,7 +1348,7 @@
     }
 
     #pdv-view{
-        height: auto;
+        height: 97.3vh;
         
     }
 

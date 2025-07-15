@@ -22,7 +22,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { LocalStorage } from 'quasar';
-    const issuer_name = LocalStorage.getItem("first_name")
+    import { ref } from 'vue';
+
+    const issuer_name = ref<string>(LocalStorage.getItem("first_name"));
+    
 </script>

@@ -1,7 +1,5 @@
 <?php
 
-use Laravel\Sanctum\Sanctum;
-
 return [
 
     /*
@@ -17,7 +15,7 @@ return [
 
     'stateful' => explode(',', env(
         'SANCTUM_STATEFUL_DOMAINS', 
-        'localhost:9000,192.168.1.104:9000'
+        'localhost:9000,192.168.98.18:9000,192.168.1.101:9000'
 
     )),
 
@@ -79,6 +77,6 @@ return [
         'authenticate_session' => Laravel\Sanctum\Http\Middleware\AuthenticateSession::class,
         'encrypt_cookies' => Illuminate\Cookie\Middleware\EncryptCookies::class,
         'validate_csrf_token' => Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
-    ],
 
+    ],
 ];

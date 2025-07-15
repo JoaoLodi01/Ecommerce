@@ -9,13 +9,13 @@ class PDV extends Model
     protected $table = 'pdvs';
 
     protected $fillable = [
-        'pdv_cod',
+        'pdv_code',
         'issuer_id',
         'description',
         'issue_date',
         'n_nfce',
-        'cliente_id',
-        'client',
+        'customer_id',
+        'customer',
         'gross_value',
         'net_value',
         'discount',
@@ -35,6 +35,6 @@ class PDV extends Model
 
     public function getItens()
     {
-        return $this->hasMany(ItensPDV::class, 'pdv_id');
+        return $this->hasMany(ItensPDV::class, 'pdv_code');
     }
 }

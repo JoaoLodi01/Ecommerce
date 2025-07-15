@@ -14,17 +14,8 @@ class PDVService
         Log::info('Memória usada PDVService::class, __construct, linha 13: ' . memory_get_usage(true));
     }
 
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ], 400);
-    }
-
-    public function getAll(){
-        return $this->pdvRepository->getAll();
+    public function getAll(int $issuer_id){
+        return $this->pdvRepository->getAll($issuer_id);
     }
 
     public function update(array $data, int $id){
@@ -33,33 +24,21 @@ class PDVService
             return response()->json(true);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+            
         }
     }
 
     public function findSavePDV()
     {
-        try {
-            return response()->json([
-                'success' => true,
-                'pdvs' => $this->pdvRepository->findSavePDV()
-                
-            ], 200);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        return $this->pdvRepository->findSavePDV() ?: false;
+        
     }
-    public function findSavePDVByID(int $id)
+    
+    public function findSavePDVByID(int $id, int $issuerID)
     {
-        try {
-            return response()->json([
-                'success' => true,
-                'pdvs' => $this->pdvRepository->findSavePDVByID($id)
-                
-            ], 200);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        $pdv = $this->pdvRepository->findSavePDVByID($id, $issuerID);
+        return $pdv;
+        
     }
 
     public function saveSale(array $details, array $productsArray)
@@ -68,69 +47,45 @@ class PDVService
         Log::info('Save sale');
         Log::info($saveSale);
 
-        return $saveSale['success'] ? $saveSale : $saveSale;
+        return $saveSale;
     }
 
     public function finalizeSale(
-        array $paymentsValues, 
-        string $typeOperation, 
-        int $pdvID, 
-        int $issuerID
-    )
+            array $paymentsValues, 
+            string $typeOperation, 
+            int $pdvID, 
+            int $issuerID,
+            int $userID,
+        )
     {
-        try {
-            $total = 0; // Total pago
-            $payMentsID = []; // ID das espécies de pagamento
+        $payMentsID = array_filter($paymentsValues);
+        $total = array_sum($payMentsID);
 
-            $filltred = array_filter($paymentsValues);
+        $pdv = $this->findSavePDVByID($pdvID, $issuerID);
 
-            foreach ($filltred as $key => $value) {
-                $total += (float) $value;
-                $payMentsID[] = $key + 1;
+        if($pdv)
+        {
+            if($total >= $pdv->net_value)
+            {
+                $finallyPDV = $this->pdvRepository->finalizeSale(
+                    $typeOperation, 
+                    $pdvID, 
+                    $paymentsValues, 
+                    $payMentsID, 
+                    $total,
+                    $issuerID,
+                    $userID,
+                );
                 
-            }
-
-            Log::info('PDVService.php, class:finalizeSale, $total: ' . $total);
-            $pdv = $this->pdvRepository->finalizeSale(
-                $typeOperation, 
-                $pdvID, 
-                $paymentsValues, 
-                $payMentsID, 
-                $total,
-                $issuerID
-            );
-
-            if ($pdv['success']) {
-                return response()->json([
-                    'success' => $pdv['success'],
-                    'pdv' => $pdv['pdv'],
-                    'message' => 'Venda finalizada'
-                ], 200);
+                return $finallyPDV;
 
             } else {
-                return response()->json([
-                    'success' => $pdv['success'],
-                    'line' => 113,
-                    'file' => 'PDVService | erro manual',
-                    'message' => $pdv['errorMessage'] ?? $pdv['message']
-                ], 400);
-                
+                throw new \App\Exceptions\PDVExceptions\InsufficientPayment("Pagamento insuficiente");
             }
 
-            return response()->json([
-                'success' => $pdv['success'],
-                'pdv' => $pdv['pdv'],
-                'message' => $pdv['errorMessage'] ?? $pdv['message']
-            ], 400);
-            
-        } catch (\Throwable $th) {
-            return response()->json([
-                'success' => false,
-                'th' => $th->getMessage(),
-                'line' => $th->getLine(),
-                'file' => $th->getFile(),
-            ]);
-            
+        } else {
+            // PDV não encontrado
+
         }
     }
 }

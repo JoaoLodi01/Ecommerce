@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
-            $table->unsignedBigInteger('pdvs_id');
-            $table->foreign('pdvs_id')->references('id')->on('pdvs')->onDelete('cascade');
-            $table->unsignedBigInteger('especie_id');
-            $table->foreign('especie_id')->references('id')->on('payments_forms')->onDelete('cascade');
+
+            $table->unsignedBigInteger('pdv_code');
+            $table->foreign('pdv_code')->references('pdv_code')->on('pdvs')->onDelete('cascade');
+
+            $table->unsignedBigInteger('payment_code');
+            $table->foreign('payment_code')->references('payment_code')->on('payments_forms')->onDelete('cascade');
             $table->decimal('valor_pago', 16,2);
             $table->timestamps();
         });

@@ -5,21 +5,22 @@
         placeholder="Buscar..." 
         class="outline-none rounded-md mt-1 mb-1 p-1.5"
         id="searchBar"
-        :disabled="!configs.fillter"
-    />
+        :disabled="!configs.filter"
+
+    />        
     
     <ul 
-        v-if="filteredProducts.length > 0 && search.name !== ''" 
+        v-if="filtredProducts.length > 0 && search.name !== '' && props.locale === 'pdv'" 
         class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
     >
         <li
-            v-for="product in filteredProducts"
-            :key="product.product_cod"
+            v-for="product in filtredProducts"
+            :key="product.product_code"
             @click="setProduct(product)"
             class="p-2 hover:bg-gray-200 cursor-pointer"
             
         >
-            <span>{{ product.product_cod }}</span> -
+            <span>{{ product.product_code }}</span> -
             <span>{{ product.product }}</span> -
             <span>Qtde: {{ product.amount }}</span> -
             <span>R$ {{ product.sale_price }} </span>
@@ -29,105 +30,159 @@
     
 </template>
 
-<script>
-    import { api } from "boot/axios"
-    import { LocalStorage } from "quasar";
-    import { toRaw } from "vue";
+<script setup lang="ts">
+    import { api } from "src/boot/axios"
+    import { LocalStorage, useQuasar } from "quasar";
+    import { ref, onMounted, defineProps, defineEmits } from "vue";
+    import camelcaseKeys from "camelcase-keys";
 
-    export default {
-        mounted()
-        {
-            const getConfig = async () => {
-                const response = await api.get(`/config/all-configs/${LocalStorage.getItem("issuer_id")}`);
-                this.configs = {
-                    fillter: response.data.configPDV[0].filter_search,
-                    saleNegativeorReset: response.data.configPDV[0].sale_negative_or_reset >= 1 ? true : false,
-                }
-
-            }
-            getConfig()
-            
-        },
-
-        data()
-        {
-            return {
-                products: [],
-                filteredProducts: [],
-                productsData: [],
-                
-                search: {
-                    name: ''
-                },
-
-                configs: {
-                    saleNegativeorReset: false,
-                    fillter: ''
-                },
-
-                issuer_id: LocalStorage.getItem("issuer_id")
-            }
-        },
-
-        methods: {
-            async getProducts(){
-                try {
-
-                    if(this.search.name.length >= 4 || this.search.name.length >= 1)
-                    {
-                        const response = await api.post(`/ecommerce/products/search`,{
-                            fillter: this.configs.fillter,
-                            search: this.search.name,
-                            issuer_id: this.issuer_id
-                        });
-
-                        this.products = toRaw(response.data);
-                        this.filterProducts();
-
-                    }
-                    
-                } catch (error) {
-                    console.error('erro getProducts', error)
-                }
-            },
-
-            filterProducts(){
-                this.filteredProducts = this.products.filter(product => 
-                    product.product.toLowerCase()
-                    
-                );
-                
-            },
-
-            setProduct(product){
-                if(product.amount <= 0 && this.configs.saleNegativeorReset)
-                {
-                    alert('Venda com estoque negativo/zerado bloqueada!')
-                    this.search.name = ''
-                    
-                } else {
-                    this.productsData.push({
-                        ...product, 
-                        amount: 1
-                    })
-
-                    this.$emit('update:selectProducts', this.productsData);
-                    
-                    this.productsData = []
-                    this.filteredProducts = []
-                    this.search.name = ''
-
-                }
-                
-            },
-        },
-        props: {
-            witdhScreen: {
-                tpye: Number,
-                required: true
-            }
-        }
+    type TConfig = {
+        saleNegativeorReset: boolean,
+        filter: string
     }
+
+    type TSearch = {
+        name: string
+    }
+    
+     const emits = defineEmits<{
+        (e: 'update:selectProducts', value: object),
+        (e: 'returnCod', value: number[]),
+        (e: 'getAll', value: void)
+
+    }>();
+
+    const props = defineProps<{
+        witdhScreen: number,
+        locale?: string,
+        momentFilter?: string
+        
+    }>(); 
+
+    const $q = useQuasar();
+
+    let filtredProducts = ref<IProducts[]>([]);
+
+    const productsData = ref<IProducts>({
+        id: 0,
+        product_code: 0,
+        active: 0,
+        barcode: 0,
+        barcode_internal: 0,
+        product: '',
+        cfop: 0,
+        csosncst: 0,
+        amount: 0,
+        sale_price: 0
+
+    });
+    
+    let search = ref<TSearch>({
+        name: ''
+
+    });
+
+    let configs = ref<TConfig>({
+        saleNegativeorReset: false,
+        filter: ''
+
+    });
+
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+
+    const getProducts = async () =>
+    {
+        const isPDV = props.locale === 'pdv';
+        const nameLength = search.value.name.length;
+
+        if(nameLength >= 4 || nameLength >= 1)
+        {
+            const res = await api.post(`/ecommerce/products/search`,{
+                filter: isPDV ? configs.value.filter : props.momentFilter,
+                search: search.value.name,
+                issuer_id: issuerID.value
+
+            });
+
+            const data = res.data.data;
+            
+            return isPDV ? filtredProducts.value = data : emits('returnCod', data.map((p: IProducts) => { return p. product_code; }));
+
+        } else {
+            emits('getAll');
+        };
+    };
+
+    const setProduct = (product: IProducts) => 
+    {
+        if(product.amount <= 0 && configs.value.saleNegativeorReset)
+        {
+            $q.notify({
+                color: 'red',
+                message: 'Venda com estoque negativo/zerado bloqueada!',
+                position: 'top',
+                timeout: 2000
+
+            });
+            
+            search.value.name = ''
+            
+        } else {
+            if(product.active)
+            {
+            console.log(product.active)
+                const emitProduct = {...productsData.value = { 
+                    id: product.id,
+                    product_code: product.product_code, 
+                    product: product.product, 
+                    active: product.active,
+                    barcode: 0,
+                    barcode_internal: 0,
+                    cfop: product.cfop,
+                    csosncst: product.csosncst,
+                    amount: 1,
+                    sale_price: product.sale_price
+                    
+                }};
+                
+                console.log('emitProduct: ', emitProduct)
+                emits('update:selectProducts', emitProduct);
+                
+                filtredProducts.value = [];
+                search.value.name = '';
+
+            } else {
+                $q.notify({
+                    color: 'red',
+                    message: 'Venda com estoque negativo/zerado bloqueada!',
+                    position: 'top',
+                    timeout: 2000
+
+                });
+
+                search.value.name = ''
+                
+            };
+        };  
+    };
+
+    const getConfig = async () => {
+        const res = await api.get(`/configs/all-configs/${issuerID.value}`);
+        
+        const config = camelcaseKeys(res.data.data.pdv, { deep: true });
+
+        configs.value = {
+            filter: config.filterSearch,
+            saleNegativeorReset: config.saleNegativeOrReset >= 1 ? true : false,
+
+        };
+    };
+
+    onMounted(() => {
+        getConfig();
+
+    });
+               
 </script>
 
 <style>

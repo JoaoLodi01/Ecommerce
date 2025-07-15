@@ -1,139 +1,170 @@
 <template>
-    <div 
-        class="ml-14 mr-14 border border-black mt-5 p-6 bg-white shadow-md rounded"
+    <div
+        class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
-            'relative top-10 left-12': widthScreen <= 1080,
-            'relative top-20 left-0': widthScreen > 1080
+            'w-screen': props.widthScreen < 1366,
+            'ml-32 form-customer': props.widthScreen > 1366
         }"
+
     >
-        <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
-        
-        {{ type }}
         <q-form
             @submit="submitForm()"
-            @reset="onReset"
-            class="p-1 "
-            :class="{ 
-                'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
-            }"
-        >
-            <q-select 
-                v-model="type" 
-                :options="options" 
-                label="Tipo de cadastro" 
-                filled 
-            />
 
-            <div>
-                
-                <div v-if="type = 'Física'">
+        >
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max mb-2">Dados cadastrais</h4>
+                <q-select 
+                    v-model="customerData.customer_type" 
+                    :options="options" 
+                    label="Tipo de cadastro *" 
+                    filled 
+                    color="grey-7"
+                    :rules="[ val => !!val || 'Selecione o tipo de cadastro do cliente' ]"
+                    
+                />
+
+                <div v-if="customerData.customer_type === 'Física'">
                     <q-input 
-                        v-model="form.trade_name" 
+                        v-model="customerData.trade_name" 
                         type="text" 
                         label="Nome" 
                         maxlength="120" 
                         color="grey-7"
+                        class="ml-2"
+                        :rules="[ val => !!val || 'O nome fantasia do cliente é obrigatório']"
 
                     />
 
                     <q-input 
-                            v-model="form.cpf" 
-                            v-bind:mask="'###.###.###-##'"
-                            maxlength="14"
-                            type="text" 
-                            label="CPF"
-                            color="grey-7"
-                            
-                        />  
+                        v-model="customerData.cpf" 
+                        v-bind:mask="'###.###.###-##'"
+                        maxlength="14"
+                        type="text" 
+                        label="CPF"
+                        color="grey-7"
+                        class="ml-2"
+                        :rules="[
+                            val => {
+                                if(!config.validateCpf) return true;
+                                return !val || validateCPF(val) || 'CPF inválido' 
+                            }
+                        ]"
+                        
+                    />  
 
                 </div>
-                <div v-else>
+                <div v-if="customerData.customer_type === 'Júridica'">
                     <q-input 
-                        v-model="form.company_name" 
+                        v-model="customerData.company_name" 
                         type="text" 
                         label="Razão social" 
                         maxlength="120" 
                         color="grey-7"
+                        class="ml-2"
+
+                    />
+                    
+                    <q-input 
+                        v-model="customerData.trade_name" 
+                        type="text" 
+                        label="Nome fantasia" 
+                        maxlength="120" 
+                        color="grey-7"
+                        class="ml-2 mt-2 mb-2"
 
                     />
 
                     <q-input 
-                        v-model="form.cnpj" 
+                        v-model="customerData.cnpj" 
                         v-bind:mask="'##.###.###/####-##'"
-                        @vue:updated="getDataApis()"
+                        @update:model-value="getDataCNPJ()"
                         maxlength="18"
                         type="text" 
                         label="CNPJ"                 
                         color="grey-7"
+                        class="ml-2"
 
                     />
 
                 </div>
             </div>
-            <q-input 
-                v-model="form.cep"
-                v-bind:mask="'#####-###'"
-                type="text" 
-                label="CEP"
-                maxlength="9"
-                color="grey-7"
 
-            />
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
+                <q-input 
+                    v-model="customerData.cep"
+                    @update:model-value="getDataCEP()"
+                    v-bind:mask="'#####-###'"
+                    type="text" 
+                    label="CEP"
+                    maxlength="9"
+                    color="grey-7"
+                    class="ml-2"
+                    :rules="[ val => !!val || 'O CEP é obrigatório' ]"
 
-            <q-input 
-                v-model="form.address" 
-                type="text" 
-                label="Endereço" 
-                maxlength="120"
-                color="grey-7"
+                />
 
-            />
+                <q-input 
+                    v-model="customerData.address" 
+                    type="text" 
+                    label="Endereço" 
+                    maxlength="120"
+                    color="grey-7"
+                    class="ml-2"
 
-            <q-input 
-                v-model="form.number" 
-                type="text" 
-                label="Número" 
-                maxlength="30"
-                color="grey-7"
+                />
 
-            />
+                <q-input 
+                    v-model="customerData.number" 
+                    type="text" 
+                    label="Número" 
+                    maxlength="30"
+                    color="grey-7"
+                    class="ml-2"
+
+                />
+            </div>
             
-            <q-input 
-                v-model="form.email" 
-                type="email" 
-                label="E-mail"
-                maxlength="120" 
-                color="grey-7"
+            <div class="border border-black p-5 bg-white rounded-md mb-5">
+                <h4 class="ml-1.5 border-b w-max mb-2">Outros dados</h4>
+                <q-input 
+                    v-model="customerData.phone" 
+                    type="tel"
+                    label="Número de telefone" 
+                    maxlength="16"
+                    color="grey-7"
+                    class="ml-2"
 
-            />
-            
-            <q-input 
-                v-model="form.phone" 
-                type="tel"
-                label="Número de telefone" 
-                maxlength="16"
-                color="grey-7"
-
-            />
-
-            <div class="mt-2">
-                <q-checkbox 
-                    left-label 
-                    v-model="form.is_customer" 
-                    label="Cliente" 
                 />
 
-                <q-checkbox 
-                    left-label 
-                    v-model="form.is_supplier" 
-                    label="Fornecedor" 
-                />
+                <div class="mt-2">
+                    <q-checkbox 
+                        left-label 
+                        v-model="customerData.is_customer" 
+                        label="Cliente" 
+                        class="ml-2"
+                        color="grey-7"
 
-                <q-checkbox 
-                    left-label 
-                    v-model="form.is_driver" 
-                    label="Motorista" 
-                />
+                    />
+
+                    <q-checkbox 
+                        left-label 
+                        v-model="customerData.is_supplier" 
+                        label="Fornecedor" 
+                        class="ml-2"
+                        color="grey-7"
+
+                    />
+
+                    <q-checkbox 
+                        left-label 
+                        v-model="customerData.is_driver" 
+                        label="Motorista" 
+                        class="ml-2"
+                        color="grey-7"
+                        
+                    />
+                </div>
             </div>
 
             <div
@@ -153,130 +184,218 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
-    import { onBeforeUnmount } from 'vue';
-    import axios from 'axios'
+    import { ref, defineEmits, defineProps, onMounted, reactive } from 'vue';
+    import getCNPJData from 'src/services/getData/getCNPJData';
+    import getCEPData from 'src/services/getData/getCEPData';
+    import validateCPF from 'src/utils/validateCPF';
+    import camelcaseKeys from 'camelcase-keys';
 
-    export default {
-        setup()
-        {
-            let $q = useQuasar();
-            let timer
-
-            onBeforeUnmount(() => { 
-                if(timer !== void 0)
-                {
-                    clearTimeout(timer)
-                    $q.loading.hide()
-                }
-            })
-
-            return {
-                options: [
-                    'Física',
-                    'Júridica'
-                ],
-
-                showLoading()
-                {
-                    $q.loading.show({
-                        message: 'Criando cliente ...'
-
-                    })
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 3000)
-                }
-            }
-        
-        },
-
-        data() {
-            return {
-                type: '',
-                form: {
-                    name: '',
-                    cpf: '',
-                    cnpj: '',
-                    cep: '',
-                    address: '',
-                    number: '',
-                    email: '',
-                    is_customer: false,
-                    is_driver: false,
-                    is_supplier: false,
-                    phone: '',
-                    issuer_id: LocalStorage.getItem("issuer_id")
-                },
-            };
-        },
-
-        methods: {
-            async submitForm() {
-                try {
-                    this.form.cpf = this.form.cpf.replace(/\D/g, '')
-                    this.form.cnpj = this.form.cnpj.replace(/\D/g, '')
-                    this.form.cep = this.form.cep.replace(/\D/g, '') 
-
-                    console.log('forms', this.form)
-
-                    const response = await api.post(`/customers/create`, this.form);
-                    console.log(response.data)
-                    if(response.data.success)
-                    {
-                        alert(`Cliente: ${this.form.name}, cadastrado com sucesso!`)
-                        this.$emit("close", false)
-                    }
-                    
-                } catch (error) {
-                    alert("Ocorreu um erro ao cadastrar o cliente.");
-                    console.error('Erro', error)
-                }
-            },
-
-            async getDataApis()
-            {
-                const cnpj = this.form.cnpj.replace(/\D/g, '')
-                if(cnpj.length === 14)
-                {
-                    console.log('aaa')
-                    const data = await axios.get(`${process.env.API_CNPJA}/${cnpj}`);
-                    console.log(data)
-                }
-
-            },
-
-            onReset()
-            {
-                this.form = {
-                    name: '',
-                    cpf: '',
-                    cnpj: '',
-                    cep: '',
-                    address: '',
-                    number: '',
-                    email: '',
-                    password: '',
-                    password_: '',
-                    phone: '',
-                }
-            }
-        },
-
-        props: {
-            widthScreen: {
-                type: Number,
-                required: true
-            }
-        },
-
-        emits: [
-            'close'
-        ],
-
+    interface IConfigCustomer
+    {
+        validateAddres: boolean,
+        validateCnpj: boolean,
+        validateCpf: boolean
         
     };
+
+    const props = defineProps<{
+        widthScreen: number
+
+    }>();
+
+    const emits = defineEmits<{
+        (e: 'close', value: boolean)
+
+    }>();
+
+    const $q = useQuasar();
+
+    const customerData = ref<IRegisterCustomer>({
+        customer_type: '',
+        company_name: '',
+        trade_name: '',
+        cpf: null,
+        cnpj: null,
+        cep: '',
+        address: '',
+        number: 0,
+        is_customer: false,
+        is_driver: false,
+        is_supplier: false,
+        phone: '',
+        issuer_id: LocalStorage.getItem("issuer_id")
+        
+    });
+    
+    const options = ref<string[]>([
+        'Física',
+        'Júridica'
+
+    ]);
+
+    const config = ref<IConfigCustomer>({
+        validateAddres: false,
+        validateCnpj: false,
+        validateCpf: false
+
+    });
+
+    const submitForm = async () =>
+    {
+        const res = await api.post(`/customers/create`, customerData.value);
+
+        if(res.data.success)
+        {
+            alert(`Cliente: ${customerData.value.company_name ?? customerData.value.trade_name}, cadastrado com sucesso!`);
+            emits('close', true);
+        };
+    };
+
+    const getDataCNPJ = async () => 
+    {
+        const formatedCNPJ = customerData.value.cnpj.replace(/\D/g, '');
+        if(formatedCNPJ.length === 14)
+        {
+            const res = await getCNPJData(formatedCNPJ);
+            
+            if(typeof res === 'string' || Array.isArray(res))
+            {
+                $q.notify({
+                    type: 'negative',
+                    message: res || res[0],
+                    timeout: 3500 ,
+                    position: 'top'
+
+                });
+
+                return;   
+
+            };
+
+            customerData.value = {
+                company_name: res.alias,
+                customer_type: customerData.value.customer_type,
+                trade_name: customerData.value.trade_name, // Mantem padrão
+                cpf: customerData.value.cpf, // Mantem padrão
+                cnpj: customerData.value.cnpj,
+                cep: res.cep,
+                address: res.address,
+                number: res.number, 
+                is_customer: customerData.value.is_customer, // Mantem padrão
+                is_driver: customerData.value.is_driver, // Mantem padrão
+                is_supplier: customerData.value.is_supplier, // Mantem padrão
+                phone: customerData.value.phone, // Mantem padrão
+                issuer_id: customerData.value.issuer_id // Mantem padrão
+                
+            };  
+
+            return;
+        } 
+    };
+
+    const getDataCEP = async () => 
+    {
+        const fomratedCEP = customerData.value.cep.replace(/\D/g, '');
+        if(fomratedCEP.length === 8)
+        {
+            const res = await getCEPData(fomratedCEP);
+            console.log('Res: ', res);
+
+            if(typeof res === 'string')
+            {
+                $q.notify({
+                    type: 'negative',
+                    message: res || res[0],
+                    timeout: 3500 ,
+                    position: 'top'
+
+                });                
+
+                return;
+            };
+
+            customerData.value = {
+                company_name: customerData.value.company_name, // Mantem padrão
+                customer_type: customerData.value.customer_type, // Mantem padrão
+                trade_name: customerData.value.trade_name, // Mantem padrão
+                cpf: customerData.value.cpf, // Mantem padrão
+                cnpj: customerData.value.cnpj, // Mantem padrão
+                cep: customerData.value.cep,
+                address: res.addres,
+                number: customerData.value.number, // Mantem padrão
+                is_customer: customerData.value.is_customer, // Mantem padrão
+                is_driver: customerData.value.is_driver, // Mantem padrão
+                is_supplier: customerData.value.is_supplier, // Mantem padrão
+                phone: customerData.value.phone, // Mantem padrão
+                issuer_id: customerData.value.issuer_id // Mantem padrão
+
+            };
+            return;  
+        };
+    };
+
+    const onReset = () => 
+    {
+        customerData.value = {
+            company_name: '',
+            trade_name: '',
+            cpf: '',
+            cnpj: '',
+            cep: '',
+            address: '',
+            number: 0,
+            is_customer: false,
+            is_driver: false,
+            is_supplier: false,
+            phone: '',
+            issuer_id: customerData.value.issuer_id
+
+        };
+    };
+
+    const returnValue = (value: boolean | number ) => { return value === 1 ? true : false };
+    
+    const getConfig = async () =>
+    {
+        const res = await api.get(`/configs/all-configs/${customerData.value.issuer_id}`);
+        const data: IConfigCustomer = camelcaseKeys(res.data.data.customers, { deep: true });
+
+        config.value.validateAddres = returnValue(data.validateAddres);
+        config.value.validateCnpj = returnValue(data.validateCnpj);
+        config.value.validateCpf = returnValue(data.validateCpf);
+
+        console.log(config);
+        
+    };
+
+    onMounted(() => {
+        getConfig();
+
+    });
+
 </script>
+
+<style lang="scss">
+    .form-customer {
+        width: 150vh;
+    }
+    
+    .slide-up-enter-from {
+        opacity: 0;
+        transform: translateY(-50px);
+
+    }
+
+    .slide-up-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+        
+    }
+
+    .slide-up-enter-active {
+        transition: all 0.5s ease-out;
+    }
+</style>

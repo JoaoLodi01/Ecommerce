@@ -17,59 +17,51 @@ class ReceiveRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    protected function prepareForValidation(): void
     {
-        $required = $this->isMethod('POST') ? 'required' : 'sometimes';
-        return [
-            'description' => [$required, 'string', 'max:255'],
-            'customer_id' => [$required],
-            'name' => [$required, 'string', 'max:255'],
-            'especie_id' => [$required],
-            'especie' => [$required, 'string', 'max:255'],
-            'date_register' => [$required],
-            'due_date' => [$required],
-            'installment_number' => [$required, 'integer'],
-            'installment_value' => [$required, 'numeric'],
-            'type_interest' => [$required],
-            'interest_value' => [$required, 'numeric'],
-            'total_amount' => [$required, 'numeric'],
-            'origem' => ['nullable'],
-            'user_id' => [$required, 'integer'],
-            'user' => [$required, 'string', 'max:255']
-
-        ];
+        $this->merge([
+            'issuer_id' => $this->input('issuerID'),
+            'customer_id' => $this->input('customerID'),
+            'user_id' => $this->input('userID'),
+            'especie_id' => $this->input('especieID'),
+            'due_date' => $this->input('dueDate'),
+            'installment_amount' => $this->input('installmentAmount'),
+            'installment_number' => $this->input('installmentNumber'),
+            'installment_value' => $this->input('installmentValue'),
+            'installment_original' => $this->input('installmentOriginal'),
+            'interest_value' => $this->input('interestValue'),
+            'type_interest' => $this->input('typeInterest'),
+            'value_entry' => $this->input('valueEntry'),
+            'value_paid' => $this->input('valuePaid'),
+            'discount' => $this->input('discount'),
+            'addition' => $this->input('addition'),
+            'origem' => $this->input('origem'),
+            'description' => $this->input('description'),
+            'document' => $this->input('document'),
+        ]);
     }
 
-    public function messages(): array
+    public function rules(): array
     {
         return [
-            'description.required' => 'A descrição é obrigatória.',
-            'description.string' => 'A descrição deve estar em um formato válido.',
-            'description.max' => 'A descrição não pode ter mais de :max caracteres.',
-            'customer_id.required' => 'O ID do cliente é obrigatório.',
-            'name.required' => 'O nome do cliente é obrigatório.',
-            'name.string' => 'O nome do cliente deve estar em um formato válido.',
-            'name.max' => 'O nome do cliente não pode ter mais de :max caracteres.',
-            'especie_id.required' => 'O ID da espécie é obrigatório.',
-            'especie.required' => 'A espécie é obrigatória.',
-            'especie.string' => 'A espécie deve estar em um formato válido.',
-            'especie.max' => 'A espécie não pode ter mais de :max caracteres.',
-            'date_register.required' => 'A data de registro é obrigatória.',
-            'due_date.required' => 'A data de vencimento é obrigatória.',
-            'installment_number.required' => 'O número de parcelas é obrigatório.',
-            'installment_number.integer' => 'O número de parcelas deve ser um número inteiro.',
-            'installment_value.required' => 'O valor da parcela é obrigatório.',
-            'installment_value.numeric' => 'O valor da parcela deve ser um número válido.',
-            'type_interest.required' => 'O tipo de juros é obrigatório.',
-            'interest_value.required' => 'O valor dos juros é obrigatório.',
-            'interest_value.numeric' => 'O valor dos juros deve ser um número válido.',
-            'total_amount.required' => 'O valor total é obrigatório.',
-            'total_amount.numeric' => 'O valor total deve ser um número válido.',
-            'user_id.required' => 'O ID do usuário é obrigatório.',
-            'user_id.integer' => 'O ID do usuário deve ser um número inteiro.',
-            'user.required' => 'O nome do usuário é obrigatório.',
-            'user.string' => 'O nome do usuário deve estar em um formato válido.',
-            'user.max' => 'O nome do usuário não pode ter mais de :max caracteres.',
+            'issuer_id' => ['required', 'integer'],
+            'customer_id' => ['required', 'integer'],
+            'user_id' => ['required', 'integer'],
+            'especie_id' => ['required', 'integer'],
+            'due_date' => ['required', 'date'],
+            'installment_amount' => ['required', 'integer'],
+            'installment_number' => ['required', 'integer'],
+            'installment_value' => ['required', 'numeric'],
+            'installment_original' => ['required', 'numeric'],
+            'interest_value' => ['required', 'numeric'],
+            'type_interest' => ['required', 'string'],
+            'value_entry' => ['required', 'numeric'],
+            'value_paid' => ['required', 'numeric'],
+            'discount' => ['required', 'numeric'],
+            'addition' => ['required', 'numeric'],
+            'origem' => ['nullable', 'string'],
+            'description' => ['required', 'string'],
+            'document' => ['required', 'string'],
         ];
     }
 }

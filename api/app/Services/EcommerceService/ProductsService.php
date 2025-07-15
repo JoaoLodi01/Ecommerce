@@ -2,84 +2,100 @@
 
 namespace App\Services\EcommerceService;
 
+use App\Exceptions\IssuerExceptions\IssuerNotFound;
 use App\Repositories\Eloquent\EcommerceEloquent\GroupRepository;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
+use App\Exceptions\ProductsExceptions\ProductNotFound;
+use App\Jobs\ProductsJobs\ImportProductsJob;
+use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
+use Carbon\Carbon;
+use Exception;
 use Illuminate\Support\Facades\Log;
 
 class ProductsService
 {
     public function __construct(
         protected ProductsRepository $productsRepository,
-        protected GroupRepository $groupRepository
-    )
-    {}
+        protected GroupRepository $groupRepository,
+        protected RegisterIssuerRepository $registerIssuerRepository
+    ) {}
     
     public function getAll(int $issuer_id){
-        $all = $this->productsRepository->getAll($issuer_id);
-        try {
-            return response()->json([
-                'success' => true,
-                'all' => $all
-            ], 200);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+        $issuer = $this->registerIssuerRepository->find($issuer_id);
+
+        if(!$issuer)
+        {
+            throw new IssuerNotFound("Emitente não encontrado faça login novamente");
+
         }
+
+        return $this->productsRepository->getAll($issuer_id);;
     }
 
-    public function search(array $data){
-        try {
-            return $this->productsRepository->search($data);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+    public function search(array $data)
+    {
+        $product = $this->productsRepository->search($data);    
+
+        if(!$product)
+        {
+            throw new ProductNotFound("Produto não encontrado");
+
         }
+    
+        return $product;
     }
 
-    public function findByID(int $id){
-        return response()->json([
-            'success' => true,
-            'product' => $this->productsRepository->findByID($id)
-        ]);
+    public function findByID(int $id, int $productCod){
+        $product = $this->productsRepository->findByID($id, $productCod);
+        return $product;
+
     }
     
-    public function findImage(int $id){
-        $this->productsRepository->findImage($id);
+    public function findLastCode(int $id, string|int $barCode)
+    {
+        $product = $this->productsRepository->findLastCode($id);
+        if($product->barcode_internal === $barCode)
+        {
+            throw new Exception('Código interno já cadastrado');
+            
+        };
+
+        return $product;
+
     }
-
+    
     public function create(array $data){
-        try {
-           /* Log::info("Vai chamar checkGTIN");
-            $this->checkGTIN($data);*/
-            $product = $this->productsRepository->create($data);
-            return response()->json([
-                'success' => true,
-                'product' => $product 
-            ], 201);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        /* Log::info("Vai chamar checkGTIN");
+        $this->checkGTIN($data);*/
+        $product = $this->productsRepository->create($data);
+        return $product;
     }
 
     public function update(array $data, int $id){
-        try {
-            $product = $this->productsRepository->update($data, $id);
-            return response()->json([
-                'success' => true,
-                'product' => $product
-            ], 200);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        $product = $this->productsRepository->update($data, $id);
+        return $product;
     }
 
-    public function delete(int $id){
-        $this->productsRepository->delete($id);
-        return response()->json([
-            'success' => true,
-            'message' => 'Produto desativado com sucesso!'
-        ], 200);
-            
+    public function active(int $id, int $productCod){
+        $product = $this->productsRepository->active($id, $productCod);
+
+        if(!$product)
+        {
+            throw new ProductNotFound("Produto não encontrado");
+        }
+
+        return $product;
+    }
+
+    public function delete(int $id, int $productCod){
+        $product = $this->productsRepository->delete($id, $productCod);
+
+        if(!$product)
+        {
+            throw new ProductNotFound("Produto não encontrado");
+        }
+
+        return $product;
     }
 
     public function checkGTIN(array $gtin){
@@ -118,7 +134,6 @@ class ProductsService
             ], 201);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
         }
     }
 
@@ -127,12 +142,33 @@ class ProductsService
         return $this->groupRepository->all();
     }
 
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ]);
+    public function importProducts(object $file, int $issuerID)
+    {
+        Log::debug('Caiu no import service');
+        $fileName = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        
+        $date = new Carbon();
+        $directory = storage_path("files/{$issuerID}/products/" . $date->format('Y-m-d'));
+
+        if(!is_dir($directory))
+        {
+            mkdir($directory, 0755, true);
+
+        }
+
+        $file->move($directory, $fileName);
+        
+        //$path = public_path('files/' . $file->getClientOriginalName());
+        //unlink($path);
+        $filePath = $directory . DIRECTORY_SEPARATOR . $fileName;
+        $importJob = ImportProductsJob::dispatch($filePath, $issuerID, $extension);
+        
+        if(!$importJob)
+        {
+            Log::warning('Erro no Job');
+            return;
+        };
+        return $directory . DIRECTORY_SEPARATOR . $fileName;
     }
 }

@@ -26,49 +26,53 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
+
 use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\TributsController\TributsController;
+
 use App\Http\Controllers\RegisterControllers\{
-    RegisterOwnerController,
+    RegisterUserController,
     RegisterIssuerController
 };
 
 use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
+
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
         Route::post('/owner', [AuthController::class, 'authOwner']);
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
-
-        Route::get('/me', function (Request $request) {
-            return response()->json([
-                'success' => $request->header('Authorization') ? true : false,
-                'user' => $request->user(),
-                'token_received' => $request->header('Authorization'),
-    
-            ]);
-        })->middleware('auth:sanctum');
+        Route::get('/check', [AuthController::class, 'checkLogin'])->middleware('auth:sanctum');;
     }); 
     
     Route::middleware('auth:sanctum')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
             Route::prefix('products')->group( function(){
+                Route::get('/download/default-file', [ProductsController::class , 'downloadDefaultFile']);
+                Route::get('/last-bar_cod/{id}/{barCode}', [ProductsController::class, 'findLastCode']);
                 Route::get('/all/{issuer_id}', [ProductsController::class, 'getAll']);
                 Route::get('/all-groups/{issuer_id}', [ProductsController::class, 'allGroup']);
                 Route::post('/search', [ProductsController::class, 'search']);
                 Route::post('/create', [ProductsController::class, 'create']);
-                Route::get('/{id}', [ProductsController::class, 'findByID']);
+                Route::get('/{id}/{productCod}', [ProductsController::class, 'findByID']);
                 Route::get('/imagem/{id}', [ProductsController::class, 'findImage']);
-                Route::put('/{id}', [ProductsController::class, 'update']);
-                Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
-        
+                Route::put('/update/{id}', [ProductsController::class, 'update']);
+                Route::put('/active/{id}/{productCod}', [ProductsController::class, 'active']);
+                Route::put('/disable/{id}/{productCod}', [ProductsController::class, 'delete']);
+                Route::post('/import-products/{id}', [ProductsController::class, 'importProducts']);
+                
+            });
+
+            Route::prefix('last-document')->group(function(){
+                Route::get('/cash/{issuer_id}');
+                Route::get('/receive/{issuer_id}');
+                Route::get('/pay/{issuer_id}');
+                Route::get('/bank/{issuer_id}');
             });
 
             Route::prefix('tributs')->group( function (){
-                
                 Route::get('/all/{id}', [TributsController::class, 'getAllNCMs']);
                 Route::post('/search', [TributsController::class, 'searchNCM']);
 
@@ -87,8 +91,8 @@ Route::prefix('v1')->group( function (){
             // Receive routes
             Route::prefix('receive')->group( function(){
                 Route::get('/all/{issuer_id}', [ReceiveController::class, 'getAll']);
-                Route::post('/create', [ReceiveController::class, 'store']);
-                Route::get('/{id}', [ReceiveController::class, 'findByID']);
+                Route::post('/create', [ReceiveController::class, 'create']);
+                Route::get('/{id}/{receiveCod}', [ReceiveController::class, 'findByID']);
                 Route::put('/{id}', [ReceiveController::class, 'update']);
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
             });
@@ -100,28 +104,30 @@ Route::prefix('v1')->group( function (){
                 Route::get('/{id}', [ReceiveController::class, 'findByID']);
                 Route::put('/{id}', [ReceiveController::class, 'update']);
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
+
             });
         
             // PDVs routes
             Route::prefix('pdv')->group( function(){
-                Route::post('/save-sale', [PDVController::class, 'saveSale']);
-                //Route::put('/finalize-sale/{id}', [PDVController::class, 'finalizeSale']); <- Qualquer coisa retornar para essa rota
-                Route::put('/finalize-sale/{id}', [PDVController::class, 'finalizeSale']);
-
                 Route::get('/all/{issuer_id}', [PDVController::class, 'getAll']);
+                Route::post('/save-sale', [PDVController::class, 'saveSale']);
+                Route::put('/finalize-sale', [PDVController::class, 'finalizeSale']);
+
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
-                Route::get('/get-saved-sale/{id}', [PDVController::class, 'findSavePDVByID']);
+                Route::post('/get-saved-sale', [PDVController::class, 'findSavePDVByID']);
 
                 Route::get('/get-all-errors', [ErrorsPDVController::class, 'all']);
 
             });
         });
-        Route::prefix('payments')->group( function(){
+
+        Route::prefix('species')->group( function(){
             Route::get('/all/{issuer_id}', [PaymentsController::class, 'getAll']);
-            Route::post('/create', [PaymentsController::class, 'store']);
+            Route::post('/create', [PaymentsController::class, 'create']);
             Route::get('/{id}', [PaymentsController::class, 'findByID']);
             Route::put('/{id}', [PaymentsController::class, 'update']);
             Route::put('/{id}/deactivate', [PaymentsController::class, 'delete']);
+            Route::get('/find-key/{issuer_id}', [PaymentsController::class, 'findKey']);
     
         });
 
@@ -140,11 +146,24 @@ Route::prefix('v1')->group( function (){
             });
         });
             
-        Route::prefix('config')->group( function () {
+        Route::prefix('configs')->group(function () {
             Route::get('/all-configs/{issuer_id}', [ConfigController::class, 'getConfigs']);
 
-            Route::prefix('config-pdv')->group( function() {
+            Route::prefix('pdv')->group(function() {
                 Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updatePDV']);
+            });
+
+            Route::prefix('customer')->group(function() {
+                Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateCustomer']);
+            });
+
+            Route::prefix('color')->group(function() {
+                Route::get('/export/{issuer_id}', [ConfigController::class, 'exportColors']);
+                
+                Route::post('/import-color/{issuer_id}', [ConfigController::class, 'importColors']);
+
+                Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateColor']);
+
             });
         });
 
@@ -154,8 +173,8 @@ Route::prefix('v1')->group( function (){
             Route::post('/search', [CustomerController::class, 'search']);
             Route::post('/create', [CustomerController::class, 'create']);
             Route::get('/{id}', [CustomerController::class, 'findByID']);
-            Route::put('/{id}', [CustomerController::class, 'update']);
-            Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
+            Route::put('/update/{id}', [CustomerController::class, 'update']);
+            Route::put('/{id}/disable', [CustomerController::class, 'delete']); // desactive
             Route::put('/{id}/active', [CustomerController::class, 'active']);
 
         });
@@ -188,16 +207,23 @@ Route::prefix('v1')->group( function (){
 
         Route::prefix('issuer')->group(function(){
             Route::get('/all/companies/{id}', [RegisterIssuerController::class, 'getAll']);
+            Route::get('/{id}', [RegisterIssuerController::class, 'findByID']);
             Route::get('/companie/{id}', [RegisterIssuerController::class, 'find']);
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
-        });
+            Route::put('/disable-company/{id}', [RegisterIssuerController::class, 'disableCompany']);
+            Route::put('/active-company/{id}', [RegisterIssuerController::class, 'activeCompany']);
 
-        Route::get('/first-steps/{id}', [FirstStepsController::class, 'getAll']);
-    
+        });
+        
+        Route::prefix('first-steps')->group(function (){
+            Route::get('/{id}', [FirstStepsController::class, 'getAll']);
+            Route::put('/{id}', [FirstStepsController::class, 'ignoreFirstSteps']);
+
+        });
     });
 
     Route::prefix('registers')->group( function(){
-        Route::post('owner/create', [RegisterOwnerController::class, 'create']);
+        Route::post('owner/create', [RegisterUserController::class, 'create']);
         Route::post('issuer/create', [RegisterIssuerController::class, 'create']);
         Route::post('users/create', [UserController::class, 'create']);
     });

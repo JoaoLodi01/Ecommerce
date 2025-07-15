@@ -2,19 +2,22 @@
 
 namespace App\Providers;
 
+use App\Exceptions\Handler;
 use App\Repositories\Contracts\RegisterContract\{
     RegisterIssuerContract,
-    RegisterOwnerContract
+    RegisterUserContract
 };
 
 use App\Repositories\Eloquent\RegisterEloquent\{
     RegisterIssuerRepository,
-    RegisterOwnerRepository
-
+    RegisterUserRepository
 };
-
+use App\Services\Contract\PayMentMethodContract;
+use App\Services\PayMentMethodService;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -22,9 +25,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(RegisterOwnerContract::class, RegisterOwnerRepository::class);
+        $this->app->bind(RegisterUserContract::class, RegisterUserRepository::class);
         $this->app->bind(RegisterIssuerContract::class, RegisterIssuerRepository::class);
+        $this->app->bind(PayMentMethodContract::class, PayMentMethodService::class);
     
+        $this->app->singleton(ExceptionHandler::class, Handler::class);
+        
     }
 
     /**

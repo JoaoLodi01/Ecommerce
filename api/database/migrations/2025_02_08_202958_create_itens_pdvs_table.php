@@ -13,20 +13,23 @@ return new class extends Migration
     {
         Schema::create('itens_pdvs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('iten_pdv_cod');
-            $table->unique(['issuer_id', 'iten_pdv_cod']);
+            $table->unsignedBigInteger('iten_pdv_code');
+            $table->unique(['issuer_id', 'iten_pdv_code']);
 
             $table->unsignedBigInteger('issuer_id');
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
-            $table->unsignedBigInteger('pdv_id');
-            $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+
+            $table->unsignedBigInteger('pdv_code');
+            $table->foreign('pdv_code')->references('pdv_code')->on('pdvs')->onDelete('cascade');
+
+            $table->unsignedBigInteger('product_code');
+            $table->foreign('product_code')->references('product_code')->on('products')->onDelete('cascade');
+
             $table->string('product', 120);
             $table->decimal('cost_price', 16,2);
             $table->decimal('sale_price', 16,2);
             $table->string('cfop', 4);
-            $table->string('csosn', 3);
+            $table->string('csosncst', 3);
             $table->string('ncm', 8);
             $table->string('cest', 7);
             $table->string('unit', 4);        

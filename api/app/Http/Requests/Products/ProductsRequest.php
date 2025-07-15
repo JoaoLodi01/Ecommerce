@@ -16,34 +16,45 @@ class ProductsRequest extends FormRequest
     {
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
-            'issuer_id' => ['required'],
+            'image' => ['nullable', 'max:512'],
+            'issuerId' => ['required'],
             'product' => [$required, 'string', 'max:120'],
-            'image' => [$required, 'max:512'],
             'barcode' => [$required, 'string'],
-            'barcode_internal' => ['sometimes', 'string'],
-            'group_id' => ['nullable', 'integer'],
+            'barcodeInternal' => ['sometimes', 'string'],
+            'groupId' => ['nullable', 'integer'],
             'amount' => [$required, 'numeric', 'min:1'],
-            'cost_price' => [$required, 'numeric'],
-            'sale_price' => [$required, 'numeric'],
-            'profit_percentage' => [$required, 'numeric'],
+            'costPrice' => [$required, 'numeric'],
+            'profitPercentage' => [$required, 'numeric'],
+            'salePrice' => [$required, 'numeric'],
             'cfop' => [$required, 'numeric'],
             'csosncst' => [$required, 'numeric'],
             'ncm' => [$required, 'numeric'],
-            'cest' => [$required, 'numeric'],
+            'cest' => ['sometimes', 'numeric'],
             'unit' => [$required, 'string'],
 
-            'origem_icms' => [$required, 'string'],
-            'icms_ecf' => ['required'],
-            'taxable_amount' => ['sometimes'],
-            'taxable_unit' => [$required, 'string'],
-            'tax_benefit' => ['sometimes', 'string'],
-            'cod_ipi' => [$required, 'string'],
-            'aliquot_ipi' => [''],
-            'cod_pis' => [$required, 'string'],
-            'aliquot_pis' => [],
-            'cod_cofins' => [$required, 'string'],
-            'aliquot_cofins' => [''],
+            'codOrigemIcms' => [$required],
+            'origemIcms' => [$required],
+            'icmsEcf' => ['required', 'min:1'],
+            'taxableAmount' => ['sometimes'],
+            'taxableUnit' => [$required, 'string'],
+            'taxBenefit' => ['nullable', 'numeric'],
+            'codIpi' => [$required, 'string'],
+            'aliquotIpi' => [$required],
+            'codPis' => [$required, 'string'],
+            'aliquotPis' => [$required],
+            'codCofins' => [$required, 'string'],
+            'aliquotCofins' => [$required],
 
         ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'issuerId.required' => 'O emitente é obrigatório',
+            'product.required' => 'O nome do produto é obrigatório',
+            'barcode.required' => 'O cód de barras é obrigatório',
+        ];
+
     }
 }

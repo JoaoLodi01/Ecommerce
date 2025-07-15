@@ -40,18 +40,34 @@
                                     <q-btn 
                                         class="bg-blue-500 text-white"
                                         @click=""
-                                        label="Alguma outra funcão"
+                                        label="Envio de e-mail - XML"
 
                                     /> 
-                                </q-item-label>                            
+                                </q-item-label>
+                            </q-item-section>
+                        </q-item>
+
+                        <q-item v-ripple clickable v-close-popup>
+                            <q-item-section>
+                                <q-item-label>
+                                    <q-btn 
+                                        class="bg-blue-500 text-white"
+                                        @click=""
+                                        label="Outra função"
+
+                                    /> 
+                                </q-item-label>
                             </q-item-section>
                         </q-item>
                     </q-list>
                 </q-btn-dropdown>
             </div>
-        </div>
 
+        </div>
             <div class="items-center mb-6 mt-5">            
+                <div class="">
+                    <span>Aqui</span>
+                </div>
                 <table class="overflow-x-auto min-w-full table-auto border-collapse border border-gray-200">
                     <thead class="bg-gray-100">
                         <tr>
@@ -87,84 +103,60 @@
     
 </template>
 
-<script>
+<script setup lang="ts">
+    import { LocalStorage } from "quasar";
     import { api } from "src/boot/axios";
     import ReportErros from "src/components/PDV/Errors/ReportErros.vue";
+    import { ref } from 'vue';
+    import { useRouter } from "vue-router";
     
-    export default {
-        data()
-        {
-            return {
-                showReportPDV: false,
-                showListPDV: true,
-
-                searchFill: {
-                    all: true,
-                    finaly: false,
-                    noFinaly: false
-                },
-                countErros: 0,
-                savedPDVs: [],
-                itensPDVs: [],                
-
-            }
-        },
+    type SearchFill = {
+        all: boolean,
+        finaly_: boolean,
+        noFinaly: boolean
         
-        methods: {
-            async getPDVsSaved()
-            {   
-                try {
-                    const response = await api.get('/ecommerce/pdv/all')
-                    this.savedPDVs = response.data.data
-                    console.log(response.data.data)
-                    /*for (let i = 0; i < response.data.pdvs.length; i++) {
-                        this.itensPDVs = response.data.pdvs[i]['get_itens']
-                        
-                    }*/
+    };
 
-                } catch (error) {
-                    console.error('Erro getPDVs', error)
-                    
-                }
-            },
-            
-            openPDV(pdv)
-            {
-                this.$router.push({
-                    name: 'PDVID', 
-                    params: { idPDV: pdv.id, },
-                    state: { isOpenedPDV: true }
-                })
-                
+    type PDV = {
+        id: number
+    };  
 
-            },
+    const router = useRouter();
 
-            openReportErros()
-            {
-                this.showReportPDV = true
-                this.showListPDV = false
-            },
-            closeReportErros(event)
-            {
-                this.showReportPDV = event
-                this.showListPDV = !event
-            }
-        },
+    const showReportPDV = ref(false);
+    const showListPDV = ref(true);
+    const searchFill = ref<SearchFill | null>({
+        all: true,
+        finaly_: false,
+        noFinaly: false
+    });
 
-        mounted()
-        {
-            this.getPDVsSaved()   
-            const countErrorsFun = async () => {
-                const response = await api.get('/ecommerce/pdv/get-all-errors')
-                this.countErros = response.data.all.count
-                console.log(response.data)
-            }
-            countErrorsFun()
+    const countErros = ref(0);
+    const savedPDVs = ref([]);
+    const itensPDVs = ref([]);
 
-        },
+    const getPDVsSaved = async () => {
+        const res = await api.get(`/ecommerce/pdv/all/${LocalStorage.getItem("issuer_id")}`);
+        savedPDVs.value = res.data.data
 
-        components: {
-            ReportErros
-        }
+    }
+
+    const openPDV = (pdv: PDV) => {
+        router.push({
+            name: 'PDVID',
+            params: { idPDV: pdv.id },
+            state: { isOpenedPDV: true }
+        })
+    }
+
+    const openReportErros = () => {
+        showReportPDV.value = true
+        showListPDV.value = false
+
+    }
+
+    const closeReportErros = (event: any) => {
+        showReportPDV.value = event 
+        showListPDV.value = event 
     }
 </script>

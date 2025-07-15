@@ -17,13 +17,13 @@ class Owner extends Authenticatable implements CanResetPassword
     protected $table = 'owners';
 
     protected $fillable = [
+        'uuse_id',
         'name',
         'surname',
         'cpf',
         'email',
         'password',
         'active',
-        'uuse_id',
         
     ];
 

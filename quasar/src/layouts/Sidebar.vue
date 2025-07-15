@@ -1,32 +1,44 @@
 <template>
-  <div class="relative bg-gray-200 h-screen">
+  <div class="relative h-screen">
     <!-- Sidebar com transição -->
     <div
         :class="{
             'transform translate-x-0 w-64': sidebarActive, 
             'transform -translate-x-10 w-36': !sidebarActive,
+            'transform -translate-x-full w-38 ml-0': !sidebarActive && widthScreen < 1600,
 
         }"
-        class="transition-transform duration-300 bg-gray-800 text-white text-base h-screen fixed top-0 left-0 z-40"
+        
+        class="transition-transform duration-300 bg-[#2C363F] text-white text-base h-screen fixed top-0 left-0 z-40"
         title="Sidebar"
       >
       
       <!-- Botão Sidebar-->
       <button 
-        @click="toggleSidebar"
-        class="absolute top-4 right-4 p-2 delay-75 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50 mt-6">
-        <span 
-          v-if="!sidebarActive"
-        />
+        @click="toggleSidebar()"
+        class="absolute top-6 right-4 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50 mt-6"
+        v-if="sidebarActive"
+      >
+        <div class="border border-white w-6 mb-1"></div>
+        <div class="border border-white w-6 mt-1"></div>
+        <div class="border border-white w-6 mt-1"></div>
 
-        <span 
-          v-else    
+      </button>
+      <button 
+        @click="toggleSidebar()"
+        :class="{
+          'closeSideBar': widthScreen > 1080,
+          'relative top-2 left-40 bg-gray-800 p-3 rounded-md': widthScreen <= 1600
+        }" 
+        v-if="!sidebarActive" 
+      >
+        <div
+        
         >
-        <!-- Botão quando a SideBar está aberta-->
-          <div class="border border-white w-6 mb-1"></div>
-          <div class="border border-white w-6 mt-1"></div>
-          <div class="border border-white w-6 mt-1"></div>
-        </span>
+            <div class="border border-white w-6 mb-1"></div>
+            <div class="border border-white w-6 mt-1"></div>
+            <div class="border border-white w-6 mt-1"></div>
+        </div>
       </button>
 
       <!-- Links Sidebar-->
@@ -36,21 +48,23 @@
           width="" 
           alt="Logo"
           :class="{
-            'ml-12 mt-5': !sidebarActive
+            'ml-14 mt-5': !sidebarActive
           }"
         />
         <h1 
           class="text-xl font-semibold ml-5 mt-0.5"
           v-if="sidebarActive"
         >
-          {{ issuer_name }}
+          {{ issuerName.substring(0, 12) }}
         </h1>
         
       </div>
-      <div class="sidebar-links p-5">
+      <div class="sidebar-links p-5 ml-1.5">
         <ul class="space-y-4">
+
+
           <li>
-            <router-link :to="`/${issuer_first_name}/home`" class="hover:text-blue-300 flex items-center gap-4">
+            <router-link :to="`/${issuerFirstName}/home`" class="hover:text-blue-300 flex items-center gap-4">
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none" 
@@ -61,15 +75,18 @@
                 :class="{
                   'ml-12': !sidebarActive
                 }"
-              >
-                
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" />
               </svg>
-              <span v-if="sidebarActive" class="ml-2">Home</span>
+
+              <span v-if="sidebarActive" class="ml-2">DashBoard</span>
             </router-link>
           </li>
+
+
+
           <li>
-            <router-link :to="`/${issuer_first_name}/customers`" class="hover:text-blue-300 flex items-center gap-4">
+            <router-link :to="`/${issuerFirstName}/customers`" class="hover:text-blue-300 flex items-center gap-4">
               <svg 
                 :class="{
                    'ml-12 mr-auto': !sidebarActive
@@ -87,7 +104,7 @@
             </router-link> 
           </li>
           <li>
-            <router-link :to="`/${issuer_first_name}/products`" class="hover:text-blue-300 flex items-center gap-4">
+            <router-link :to="`/${issuerFirstName}/products`" class="hover:text-blue-300 flex items-center gap-4">
               <svg
                 :class="{
                   'ml-12 mr-auto': !sidebarActive
@@ -138,19 +155,19 @@
             <div v-if="showFinancial" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/financial/to-pay`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/financial/to-pay`" class="hover:text-blue-400 flex items-center gap-2">
                   Pagar
                 </router-link>
               </p>
               
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/financial/receive`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/financial/receive`" class="hover:text-blue-400 flex items-center gap-2">
                   Receber
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/financial/cash-register`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/financial/cash-register`" class="hover:text-blue-400 flex items-center gap-2">
                   Caixa
                 </router-link>
               </p>
@@ -196,25 +213,25 @@
             <div v-if="showPDV" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   PDV
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/list-pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/sale/list-pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Listagem PDV
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   DAV
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Devolução
                 </router-link>
               </p>
@@ -253,37 +270,37 @@
             </a>
             <div v-if="showRegisters" class="ml-8 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/species`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/species`" class="hover:text-blue-400 flex items-center gap-2">
                   Espécies
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Centro de custo
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Plano de contas
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Grupos
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Unidade de medida
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-400 flex items-center gap-2">
                   Natureza de operação
                 </router-link>
               </p>
@@ -319,20 +336,20 @@
             </a>
             <div v-if="showUsers" class="ml-12 bg-gray-700 p-4 rounded-lg m-2 space-y-2">
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/list-users`" class="hover:text-blue-400 flex items-center gap-2">
                   Listagem de usuários
                 </router-link>
               </p>
 
               <p class="flex items-center gap-2">
-                <router-link :to="`/${issuer_first_name}/`" class="hover:text-blue-400 flex items-center gap-2">
+                <router-link :to="`/${issuerFirstName}/level-users`" class="hover:text-blue-400 flex items-center gap-2">
                   Nível de acesso
                 </router-link>
               </p>
             </div>
           </li>
           <li disabled title="EM BREVE">
-            <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-300 flex items-center gap-4">
+            <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-300 flex items-center gap-4">
               <svg 
                 :class="{
                     'ml-12 mr-auto': !sidebarActive
@@ -343,8 +360,8 @@
               <span class="ml-2" v-if="sidebarActive">Hotel</span>
             </router-link>
           </li>
-          <li disabled title="EM BREVE">
-            <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-300 flex items-center gap-4">
+          <li>
+            <router-link :to="`/${issuerFirstName}/configs`" class="hover:text-blue-300 flex items-center gap-4">
               <svg 
                 :class="{
                     'ml-12 mr-auto': !sidebarActive
@@ -361,8 +378,8 @@
             <a class="hover:text-blue-300 flex items-center gap-4">
               <svg 
                 :class="{
-                    'ml-12': !sidebarActive,
-                    '-mr-2': downRow3 && !sidebarActive
+                  'ml-12': !sidebarActive,
+                  '-mr-2': downRow3 && !sidebarActive
                 }"
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -393,7 +410,6 @@
                     <path fill-rule="evenodd" d="M8 14a.75.75 0 0 0 .75-.75V4.56l1.22 1.22a.75.75 0 1 0 1.06-1.06l-2.5-2.5a.75.75 0 0 0-1.06 0l-2.5 2.5a.75.75 0 0 0 1.06 1.06l1.22-1.22v8.69c0 .414.336.75.75.75Z" clip-rule="evenodd" />
                   </svg> <!-- Flecha pra cima -->
                 
-                
               </span>
             </a>
             
@@ -413,7 +429,7 @@
           </li>
           <li class="fixed bottom-auto" disabled title="EM BREVE">
             <button >
-              <router-link :to="`/${issuer_first_name}/sale/pdv`" class="hover:text-blue-300 flex items-center gap-4">
+              <router-link :to="`/${issuerFirstName}/sale/pdv`" class="hover:text-blue-300 flex items-center gap-4">
                 <svg 
                     :class="{
                         'ml-12 mr-auto': !sidebarActive
@@ -433,15 +449,17 @@
                 }"
             >
                 <q-btn 
+                    flat
                     class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
-                    @click="backCompanies()"
+                    @click="showConfirmFn('changeCompany')"
                 >
                     <span class="ml-2 mb-auto">Trocar de empresa</span>
                 </q-btn>
 
                 <q-btn 
+                    flat
                     class="ml-5 w-max hover:text-blue-300 flex items-center mb-10" 
-                    @click="logout()"
+                    @click="showConfirmFn('logout')"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
@@ -465,7 +483,7 @@
                     stroke-width="1.5" 
                     stroke="currentColor" 
                     class="size-6 cursor-pointer mb-8"
-                    @click="backCompanies()"
+                    @click="showConfirmFn('changeCompany')"
                 >
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
                 </svg>
@@ -478,7 +496,7 @@
                     stroke-width="1.5" 
                     stroke="currentColor" 
                     class="size-6 cursor-pointer"
-                    @click="logout()"
+                    @click="showConfirmFn('logout')"
                 >
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
                 </svg>
@@ -488,126 +506,246 @@
     </div>
 
     <div class="flex transition" id="q-app" :class="{
-        'top-10 left-0': widthScreen <= 1080,
+        'top-10 left-0': widthScreen <= 1600,
         'ml-52': widthScreen > 1080,
-        'mr-44': widthScreen > 1080 && widthScreen < 1600,
+        'routerView': widthScreen <= 1600,
         'transform -translate-x-24': !sidebarActive && widthScreen > 1080,
         
     }">   
-        <router-view/>
+        <router-view/> <!-- Views -->
     </div>
 
     <!-- Botão da Sidebar fechada -->
-    <button  
-      @click="toggleSidebar"
-      class="transition opacity-0 toggle-btn absolute top-2 left-4 p-3 bg-gray-800 text-white border-none cursor-pointer z-50 rounded-lg"
-      :class="{
-        'opacity-100 delay-300': !sidebarActive,
-        'transform transition translate-x-36': sidebarActive,
-      }"
-    >
-      <span>
-        <div class="border border-white w-6 mb-1"></div>
-        <div class="border border-white w-6 mt-1"></div>
-        <div class="border border-white w-6 mt-1"></div>
-      </span>
-    </button>
-  </div>
+    </div>
+
+    <ConfirmPage
+        v-if="showConfirm"
+        @confirm="handleOperation($event)"
+        :operation="typeOperation"
+
+    />
   
 </template>
 
-<script>
-  import { LocalStorage } from 'quasar';
-
-  export default {
-    data() {
-      return {
-        sidebarActive: true,
-        showFinancial: false,
-        showPDV: false,
-        showProfile: false,
-        showRegisters: false,
-        showUsers: false,
-        showSales: false,
-        downRowRegisters: false,
-        downRowFinancial: false,
-        downRowSales: false,
-        downRowUsers: false,
-        downRow3: false,
-        widthScreen: 0,
-        issuer_first_name: LocalStorage.getItem("first_name"),
-        issuer_name: LocalStorage.getItem("issuer_name")
-      };
-    },
+<script setup lang="ts">
+    import { LocalStorage, useQuasar } from 'quasar';
+    import { api } from 'src/boot/axios';
+    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
+    import { ref, onMounted } from 'vue';
+    import { useRouter } from 'vue-router';
     
-    methods: {
-      async logout()
-      {
-        const ofCourse = confirm('Deseja realmente sair?')
-        if(ofCourse)
+    const $q = useQuasar();
+    const router = useRouter();
+    const issuerFirstName = ref<string>(LocalStorage.getItem("first_name"));
+    const issuerName = ref<string>(LocalStorage.getItem("issuer_name"));
+
+    let showConfirm = ref<boolean>(false);
+    let typeOperation = ref<string>('');
+    
+    let sidebarActive = ref<boolean>(true);
+    let showFinancial = ref<boolean>(false);
+    let showPDV = ref<boolean>(false);
+    let showProfile = ref<boolean>(false);
+    let showRegisters = ref<boolean>(false);
+    let showUsers = ref<boolean>(false);
+    let downRowRegisters = ref<boolean>(false);
+    let downRowFinancial = ref<boolean>(false);
+    let downRowSales = ref<boolean>(false);
+    let downRowUsers = ref<boolean>(false);
+    let downRow3 = ref<boolean>(false);
+    let widthScreen = ref<number>(0);
+
+    let keyForOpenPDV = ref<boolean>(false);
+
+    const showConfirmFn = (operation: string) => 
+    {
+        showConfirm.value = true;
+        typeOperation.value = operation;
+    
+    };
+
+     const handleOperation = async (event: TEmit[]): Promise<void> =>
+    {
+        const operation = event[0]['operation'];
+        const value = event[0]['value'];
+        if(!value) $q.notify({ color: 'red', message: 'Operação cancelada!', position: 'top', timeout: 2000 });
+
+        if(operation === 'changeCompany')
         {
-          LocalStorage.remove("auth_token")  
-          this.$router.push('/login')
-        }        
-      },
-
-      backCompanies()
-      {
-        const ofCourse = confirm('Deseja trocar de empresa?')
-        if(ofCourse)
+            backCompanies();
+            
+        } else if(operation === 'logout')
         {
-          LocalStorage.remove("issuer_name")
-          LocalStorage.remove("first_name")
-          this.$router.push({ path: '/companies' })
-        }
-      },
-      
-      toggleSidebar() {
-        this.sidebarActive = !this.sidebarActive;
-        this.$emit('toggleSidebar', this.sidebarActive)
-      },
+            logout();
 
-      toggleFinancial() {
-        !this.sidebarActive ? this.toggleSidebar() : null
-        this.showFinancial = !this.showFinancial;
-        this.downRowFinancial = this.showFinancial;
-      },
+        } else {
+            $q.notify({
+                color: 'yellow',
+                message: 'Operação não definida',
+                position: 'top',
+                timeout: 2000
 
-      togglePDVMenu() {
-        !this.sidebarActive ? this.toggleSidebar() : null
-        this.showPDV = !this.showPDV;
-        this.downRowSales = this.showPDV;
-      },
+            });
+        };
 
-      toggleRegisters(){
-        !this.sidebarActive ? this.toggleSidebar() : null
-        this.showRegisters = !this.showRegisters;
-        this.downRowRegisters = this.showRegisters;
-      },
+        showConfirm.value = false;
+    };
 
-      toggleUsers(){
-        !this.sidebarActive ? this.toggleSidebar() : null
-        this.showUsers = !this.showUsers;
-        this.downRowUsers = this.showUsers;
-      },
+    const logout = async () =>
+    {
+        const res = await api.post('/auth/logout');
+        if(res.data.success)
+        {
+            LocalStorage.remove("auth_token");
+            LocalStorage.remove("issuer_id");
+            LocalStorage.remove("expire");
 
-      showProfileFn()
-      {
-        !this.sidebarActive ? this.toggleSidebar() : null
-        this.showProfile = !this.showProfile
-        this.showPDV = false
-        this.showFinancial = false
-          
-      },
-    },
+            $q.notify({
+                color: 'green',
+                message: 'Volte sempre!',
+                position: 'top',
+                timeout: 1000
 
-    mounted()
-    { 
-      this.widthScreen += screen.width
-      
-    }       
+            });
 
-};
+            router.push(res.data.route);
+
+        };
+    };
+
+    const backCompanies = () =>
+    {
+        LocalStorage.remove("issuer_name");
+        LocalStorage.remove("issuer_id");
+        LocalStorage.remove("first_name");
+        router.push({ path: '/companies' });
+    };
+    
+    const toggleSidebar = () =>
+    {
+        sidebarActive.value = !sidebarActive.value;
+        
+        showFinancial.value = false;
+        downRowFinancial.value = false;
+
+        // Cadastros
+        showRegisters.value = false;
+        downRowRegisters.value = false;
+
+        // Vendas
+        showPDV.value = false;
+        downRowSales.value = false;
+
+        // Usuários
+        showUsers.value = false;
+        downRowUsers.value = false;
+    };
+
+    const toggleFinancial = () =>
+    {
+        !sidebarActive.value ? toggleSidebar() : null
+        showFinancial.value = !showFinancial.value;
+        downRowFinancial.value = showFinancial.value;
+
+        // Cadastros
+        showRegisters.value = false;
+        downRowRegisters.value = showRegisters.value;
+
+        // Vendas
+        showPDV.value = false;
+        downRowSales.value = showPDV.value;
+
+        // Usuários
+        showUsers.value = false;
+        downRowUsers.value = showUsers.value;
+    };
+
+    const togglePDVMenu = () =>
+    {
+        !sidebarActive.value ? toggleSidebar() : null
+        showPDV.value = !showPDV.value;
+        downRowSales.value = showPDV.value;
+
+        //Financeiro 
+        showFinancial.value = false;
+        downRowFinancial.value = showFinancial.value;
+
+        // Cadastros
+        showRegisters.value = false;
+        downRowRegisters.value = showRegisters.value;
+
+        // Usuários
+        showUsers.value = false;
+        downRowUsers.value = showUsers.value;
+    };
+
+    const toggleRegisters = () =>
+    {
+        !sidebarActive ? toggleSidebar() : null
+        showRegisters.value = !showRegisters.value;
+        downRowRegisters.value = showRegisters.value;
+
+        //Financeiro 
+        showFinancial.value = false;
+        downRowFinancial.value = showFinancial.value;
+
+        // Vendas
+        showPDV.value = false;
+        downRowSales.value = showPDV.value;
+
+        // Usuários
+        showUsers.value = false;
+        downRowUsers.value = showUsers.value;
+    };
+
+    const toggleUsers = () =>
+    {
+        !sidebarActive.value ? toggleSidebar() : null
+        showUsers.value = !showUsers.value;
+        downRowUsers.value = showUsers.value;
+
+        //Financeiro 
+        showFinancial.value = false;
+        downRowFinancial.value = showFinancial.value;
+
+        // Vendas
+        showPDV.value = false;
+        downRowSales.value = showPDV.value;
+        
+        // Cadastros
+        showRegisters.value = false;
+        downRowRegisters.value = showRegisters.value;
+    };
+
+    const showProfileFn = () =>
+    {
+        !sidebarActive.value ? toggleSidebar() : null;
+        showProfile.value = !showProfile;
+        showPDV.value = false;
+        showFinancial.value = false;
+            
+    };
+
+    onMounted(() => {
+        widthScreen.value = screen.width
+        widthScreen.value < 1366 ? sidebarActive.value = false : sidebarActive.value = true
+
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
+            const keyName = event.key;
+            if(event.altKey && keyName.toLowerCase() === 'g')
+            {
+                toggleSidebar();
+
+            };
+
+            if(event.altKey && keyName.toLocaleLowerCase() === 'p')
+            {
+                router.push({ path: `/${issuerFirstName.value}/sale/pdv` });
+
+            }
+        });
+    });
+
 </script>
 
 <style>
@@ -615,4 +753,20 @@
     outline: none;
   }
 
+  .closeSideBar {
+    position: relative;
+    left: 4.7rem;
+    top: 2rem;
+
+  }
+
+  @media (max-width: 1080px)
+  {
+      
+    .routerView{
+        position: relative;
+        left: -.01rem;
+         
+    }
+  }
 </style>

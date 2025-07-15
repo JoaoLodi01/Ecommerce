@@ -9,7 +9,7 @@ class Products extends Model
     protected $table = 'Products';
     
     protected $fillable = [
-        'product_cod',
+        'product_code',
         'issuer_id',
         'product',
         'image',
@@ -25,12 +25,14 @@ class Products extends Model
         'cest',
         'cfop',
         'unit',
-        'active',
         'csosncst',
+        'active',
+        'cod_origem_icms',
         'origem_icms',
         'icms_ecf',
         'taxable_amount',
         'taxable_unit',
+        'tax_benefit',
         'cod_ipi',
         'aliquot_ipi',
         'cod_pis',

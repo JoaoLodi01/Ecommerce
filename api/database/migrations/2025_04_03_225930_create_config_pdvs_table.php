@@ -15,13 +15,17 @@ return new class extends Migration
             $table->id();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
-            $table->integer('n_nfce', false)->default(1);
-            $table->string('filter_search', 40)->default('');
-            $table->string('filter_search_customer', 40)->default('');
+            $table->unsignedBigInteger('config_pdv_code');
+            $table->unique(['issuer_id', 'config_pdv_code']);
+
+            $table->unsignedBigInteger('n_nfce')->default(1);
+            $table->string('filter_search', 60)->default('');
+            $table->string('filter_search_customer', 60)->default('');
             $table->boolean('nm_finaly', 1)->default(1);
             $table->boolean('sale_negative_or_reset', 1)->default(0);
             $table->boolean('supervisor_password_cancel_sale', 1)->default(0);
             $table->boolean('supervisor_password_delete_item', 1)->default(0);
+            $table->boolean('validate_gtin', 1)->default(0);
             $table->boolean('active', 1)->default(1);
             $table->timestamps();
         });

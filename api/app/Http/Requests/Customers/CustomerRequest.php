@@ -2,11 +2,22 @@
 
 namespace App\Http\Requests\Customers;
 
+use App\Services\Config\ConfigService;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-
 class CustomerRequest extends FormRequest
 {
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'cutomer_cod' => $this->route('customer_code')
+        ]);
+    }
+
+    public function __construct(
+        protected ConfigService $configService
+    ){}
+
     public function authorize(): bool
     {
         return Auth::check();
@@ -17,23 +28,30 @@ class CustomerRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+
     public function rules(): array
     {
-        $required = $this->isMethod('POST') ? 'required' : 'sometimes';
+        //'email' => ['required', 'string', 'email', Rule::unique('users')->ignore($user->id)]
+        $cpfRules = [];
+        $cnpjRules = [];
+     
         return [
             'issuer_id' => ['required'],
-            'company_name' => [$required, 'string', 'max:120'],
-            'trade_name' => [$required, 'string', 'max:120'],
-            'cpf' => ['nullable', 'required_without:cnpj', 'unique:customers,cpf'],
-            'cnpj' => ['nullable', 'required_without:cpf', 'unique:customers,cnpj'],
-            'cep' => [$required],
-            'address' => [$required],
-            'number' => [$required],
-            'email' => [$required, 'email', 'max:120'],
-            'phone' => [$required, 'max:120'],
-            'is_customer' => [$required],
-            'is_driver' => [$required],
-            'is_supplier' => [$required]
+            'company_name' => ['nullable', 'required_without:trade_name', 'string', 'max:120'],
+            'trade_name' => ['nullable', 'required_without:company_name', 'string', 'max:120'],
+            'customer_type' => ['required'],
+
+            'cpf' => [ ],
+
+            'cnpj' => [],
+
+            'cep' => ['required'],
+            'address' => ['required'],
+            'number' => ['required'],
+            'phone' => ['sometimes', 'max:120'],
+            'is_customer' => ['required'],
+            'is_driver' => ['required'],
+            'is_supplier' => ['required']
 
         ];
     }
@@ -46,17 +64,13 @@ class CustomerRequest extends FormRequest
             'name.max' => 'O nome passou do limite do campo, :max',
 
             'cpf.required' => 'O CPF é obrigatório',
+            
             'cnpj.required' => 'O CNPJ é obrigatório',
 
             'cep.required' => 'O CEP é obrigatório',
             'address.required' => 'O endereço é obrigatório',
             'number.required' => 'O número do endereço é obrigatório',
 
-            'email.required' => 'O e-mail é obrigatório',
-            'email.email' => 'O e-mail deve estar em um formato válido',
-            'email.max' => 'O e-mail passou do limite do campo, :max',
-
-            'phone.required' => 'O telefone é obrigatório',
             'phone.max' => 'O telefone passou do limite do campo, :max'
         ];
     }

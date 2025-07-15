@@ -12,4 +12,11 @@ class FirstStepsRepository implements FirstStepsContract
         return FirstSteps::where('issuer_id', $id)->first();
 
     }
+
+    public function ignoreFirstSteps(int $id)
+    {
+        return FirstSteps::where('issuer_id', $id)->update([
+            'ignore_first_steps' => 1
+        ]);
+    }
 }

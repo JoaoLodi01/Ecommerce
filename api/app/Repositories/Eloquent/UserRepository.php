@@ -2,21 +2,22 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Models\Registers\Issuer;
 use App\Models\Registers\User;
 use Illuminate\Support\Facades\Hash;
-
 class UserRepository
 {
-    public function getAll(){
-        return User::where('active', 1)
-                    ->get();
-        
-        
+    public function getAll(int $issuer_id)
+    {
+        $issuer = Issuer::where('id', $issuer_id)->first();
+        $users = User::where('owner_id', $issuer->owner_id)->get();
+
+        return $users;
     }
 
     public function findByID(int $id)
     {
-        return User::where('id', $id)->first();
+        return User::where('user_code', $id)->first();
         
     }
 
@@ -25,7 +26,8 @@ class UserRepository
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'access' => $data['access']
+            'access' => $data['access'],
+            'is_owner' => 0,
 
         ]);
     }

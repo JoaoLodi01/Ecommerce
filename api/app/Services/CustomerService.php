@@ -2,80 +2,130 @@
 
 namespace App\Services;
 
+use App\Exceptions\ExceptionCreateCustomer;
 use App\Repositories\Eloquent\CustomerRepository;
 use Illuminate\Support\Facades\Log;
+use App\Exceptions\CustomersExceptions\CustomerNotFound;
+use App\Jobs\CustomersJob\ImportCustomersJob;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class CustomerService
 {
-    
+    protected $cacheKeyPrefix;
+    protected $chaceTime;
+
     public function __construct(
         protected CustomerRepository $customerRepository
     )
     {}
 
     public function getAll(int $issuer_id){
-        return response()->json([
-            'success' => true,
-            'all' => $this->customerRepository->getAll($issuer_id)
-        ], 200);
+        return $this->customerRepository->getAll($issuer_id);
+
     }
 
-    public function search(array $search){
-        return $this->customerRepository->search($search);
+    public function search(array $searchData){
+        $customer = $this->customerRepository->search($searchData);
+        
+        if(!$customer)
+        {
+            throw new CustomerNotFound("Cliente não encontrado");
+            
+        }
+
+        return $customer;
     }
 
     public function findByID(int $id){
-        return response()->json([
-            'success' => true,
-            'customer' => $this->customerRepository->findByID($id)
-        ], 200);
+        $customer = $this->customerRepository->findByID($id);
+        
+        if(!$customer)
+        {
+            throw new CustomerNotFound("Cliente não encontrado");
+
+        }
+
+        return $customer;
         
     }
 
     public function create(array $data){
         $customer = $this->customerRepository->create($data);
-        return response()->json([
-            'success' => true,
-            'customer' => $customer
-            
-        ], 201);
+        
+        if(!$customer)
+        {
+            throw new \App\Exceptions\CustomersExceptions\CustomerCreateException("Erro na criação do cliente");
+        }
+
+        return $customer;
+
     }
 
     public function update(array $data, int $id){
-        try {
-            $customer = $this->customerRepository->update($data, $id);
-            return response()->json([
-                'success' => true,
-                'customer' => $customer
-                
-            ], 201);
+        $customer = $this->customerRepository->update($data, $id);
 
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+        if(!$customer)
+        {
+            throw new CustomerNotFound("Cliente não encontrado");
+
         }
+
+        return $customer;
+
     }
 
-    public function delete($id){
-        $this->customerRepository->delete($id);
-        return response()->json([
-            'success' => true,
-        ], 200);
+    public function delete($id)
+    {
+        $customer = $this->customerRepository->delete($id);
+
+        if(!$customer)
+        {
+            throw new CustomerNotFound("Cliente não encontrado");
+
+        }
+
+        return $customer;
     }
 
     public function active($id)
     {
-        $this->customerRepository->active($id);
-        return response()->json([
-            'success' => true
-        ], 200);
+        $customer = $this->customerRepository->active($id);
+
+        if(!$customer)
+        {
+            throw new CustomerNotFound("Cliente não encontrado");
+
+        }
+
+        return $customer;
     }
 
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ]);
+    public function importCustomers(object $file, int $issuerID)
+    {
+        Log::debug('Caiu no import service');
+        $fileName = $file->getClientOriginalName();
+        $date = new Carbon();
+        $directory = storage_path("files/{$issuerID}/customers/" . $date->format('Y-m-d'));
+
+        if(!is_dir($directory))
+        {
+            mkdir($directory, 0755, true);
+
+        }
+
+        $file->move($directory, $fileName);
+        
+        //$path = public_path('files/' . $file->getClientOriginalName());
+        //unlink($path);
+        $filePath = $directory . DIRECTORY_SEPARATOR . $fileName;
+        $importJob = ImportCustomersJob::dispatch($filePath, $issuerID);
+        
+        if(!$importJob)
+        {
+            Log::warning('Erro no Job');
+            return;
+        };
+        return $directory . DIRECTORY_SEPARATOR . $fileName;
     }
 }

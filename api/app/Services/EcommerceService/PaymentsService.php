@@ -8,12 +8,14 @@ class PaymentsService
 {
     public function __construct(
         protected PaymentsRepository $paymentsRepository
-    )
-    {}
+    ) {}
 
     public function getAll(int $issuer_id){
         try {
-            return $this->paymentsRepository->getAll($issuer_id);
+            return response()->json([
+                'success' => true,
+                'all' => $this->paymentsRepository->getAll($issuer_id)
+            ]);
         } catch (\Throwable $th) {
             return $this->returnResponse($th);
         }
@@ -31,10 +33,39 @@ class PaymentsService
         }
     }
 
-    public function store(array $data){
+    public function findKey(int $issuer_id)
+    {
+        $key = $this->paymentsRepository->findKey($issuer_id);
+        if($key['success'])
+        {
+            return response()->json([
+                'success' => $key['success'],
+                'key' => $key['key']
+                
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Graxa',
+                'key' => $key
+                
+            ]);
+        }
+    }
+
+    public function create(array $data){
         try {
-            $this->paymentsRepository->store($data);
-            return response()->json(true);
+            $paymentForm = $this->paymentsRepository->create($data);
+            if($paymentForm['status'] === 201 && $paymentForm['success'])
+            {
+                return response()->json([
+                    'success' => $paymentForm['success'],
+                    'payMentForm' => $paymentForm
+
+                ], $paymentForm['status']);
+
+            }
 
         } catch (\Throwable $th) {
             return $this->returnResponse($th);

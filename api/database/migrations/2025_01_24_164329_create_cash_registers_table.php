@@ -15,18 +15,28 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('cash_register_cod');
             $table->unique(['issuer_id', 'cash_register_cod']);
-
+            $table->unique(['issuer_id', 'document']);
+            
+            $table->string('document', 200);
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('description', 200);
-            $table->string('document', 200);
-            $table->foreign('pdv_id')->references('id')->on('pdvs')->onDelete('cascade');
-            $table->unsignedBigInteger('pdv_id')->nullable();
-            $table->unsignedBigInteger('customer_id');
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+
+            $table->foreign('pdv_code')->references('pdv_code')->on('pdvs')->onDelete('cascade');
+            $table->unsignedBigInteger('pdv_code')->nullable();
+
+            $table->foreign('receive_cod')->references('receive_cod')->on('receives')->onDelete('cascade');
+            $table->unsignedBigInteger('receive_cod')->nullable();
+            $table->unsignedBigInteger('receive_document')->nullable();
+
+            $table->unsignedBigInteger('customer_code');
+            $table->foreign('customer_code')->references('customer_code')->on('customers')->onDelete('cascade');
+
+            $table->unsignedBigInteger('especie_cod');
+            $table->foreign('especie_cod')->references('payment_code')->on('payments_forms')->onDelete('cascade');;
+
             $table->string('name', 120);
-            $table->unsignedBigInteger('especie_id');
-            $table->foreign('especie_id')->references('id')->on('payments_forms')->onDelete('cascade');;
+            
             $table->string('especie', 120);
             $table->date('date_register');
             $table->decimal('input_value', 16,2)->nullable();

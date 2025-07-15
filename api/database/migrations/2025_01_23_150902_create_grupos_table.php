@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('group_cod');
-            $table->unique(['issuer_id', 'group_cod']);
+            $table->unsignedBigInteger('group_code');
+            $table->unique(['issuer_id', 'group_code']);
             	
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');

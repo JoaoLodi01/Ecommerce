@@ -17,14 +17,13 @@ class UserController extends Controller
     )
     {}
 
-    public function getAll(){
-        return $this->userService->getAll();
+    public function getAll(int $issuer_id){
+        return apiSuccess('Todos os usuários', $this->userService->getAll($issuer_id));
     }
 
     public function create(UserRequest $request){
-        $data = $request->validated();
-        Log::info($data);
-        return $this->userService->create($data);
+        return apiSuccess('Usuário criado com sucesso!', $this->userService->create($request->validated()));
+
     }
 
     public function findByID(int $id){
@@ -32,8 +31,8 @@ class UserController extends Controller
     }
 
     public function update(UserRequest $request, int $id){
-        $data = $request->validated();
-        return $this->userService->update($data, $id);
+        return apiSuccess('Usuário alterado com sucesso!', $this->userService->update($request->validated(), $id));
+        
     }
 
     public function delete(int $id){

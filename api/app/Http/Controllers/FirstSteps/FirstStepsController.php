@@ -4,8 +4,6 @@ namespace App\Http\Controllers\FirstSteps;
 
 use App\Http\Controllers\Controller;
 use App\Services\FirstSteps\FirstStepsService;
-use Illuminate\Http\Request;
-
 class FirstStepsController extends Controller
 {
     public function __construct(
@@ -14,6 +12,11 @@ class FirstStepsController extends Controller
 
     public function getAll(int $id)
     {
-        return $this->firstStepsService->getAll($id);
+        return apiSuccess('Primeiros passos', $this->firstStepsService->getAll($id));
+    }
+
+    public function ignoreFirstSteps(int $id)
+    {
+        return apiSuccess('Primeros passos ignorados!',  $this->firstStepsService->ignoreFirstSteps($id));
     }
 }

@@ -24,16 +24,15 @@ class CashRegisterRequest extends FormRequest
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
 
         return [
-            'issuer_id' => [$required, 'integer'],
+            'issuer_id' => ['required'],
             'description' => [$required, 'string', 'max:255'],
             'document' => [$required, 'integer'],
-            'pdv_id' => [$required, 'integer'],
-            'customer_id' => [$required, 'integer'],
-            'especie_id' => [$required, 'integer'],
-            'date_register' => [$required, 'date'],
+            'customer_code' => [$required, 'integer'],
+            'especie_cod' => [$required, 'integer'],
+            'user_id' => ['required'],
+            'origem' =>  ['required'],
             'input_value' => [$required, 'numeric'],
             'output_value' => [$required, 'numeric'],
-            'user_id' => [$required, 'integer'],
         ];
     }
 
@@ -41,7 +40,6 @@ class CashRegisterRequest extends FormRequest
     {
         return [
             'issuer_id.required' => 'O ID do emissor é obrigatório.',
-            'issuer_id.integer' => 'O ID do emissor deve ser um número inteiro.',
             
             'description.required' => 'A descrição é obrigatória.',
             'description.string' => 'A descrição deve estar em um formato válido.',
@@ -62,10 +60,7 @@ class CashRegisterRequest extends FormRequest
             'especie.required' => 'A espécie é obrigatória.',
             'especie.string' => 'A espécie deve estar em um formato válido.',
             'especie.max' => 'A espécie não pode ter mais de :max caracteres.',
-            
-            'date_register.required' => 'A data de registro é obrigatória.',
-            'date_register.date' => 'A data de registro deve estar em um formato válido.',
-            
+
             'input_value.required' => 'O valor de entrada é obrigatório.',
             'input_value.numeric' => 'O valor de entrada deve ser um número válido.',
             

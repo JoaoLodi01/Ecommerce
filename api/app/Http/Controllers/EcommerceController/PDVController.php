@@ -22,42 +22,52 @@ class PDVController extends Controller
         Log::info('Memória usada PDVController::class, __construct: ' . memory_get_usage(true));
     }
 
-    public function getAll(){
-        return $this->pdvService->getAll();
+    public function getAll(int $issuer_id){
+        return $this->pdvService->getAll($issuer_id);
     }
 
     public function saveSale(PDVSaveSaleRequest $request)
     {
-        Log::info('Memória usada PDVController::class, saveSale: ' . memory_get_usage(true));
         $data = $request->validated();
+        Log::info('Memória usada PDVController::class, saveSale: ' . memory_get_usage(true));
+        Log::channel('pdv')->debug($data['products']);
         
-        return $this->pdvService->saveSale($data, $data['products']);
+        return apiSuccess('Venda salva', $this->pdvService->saveSale($request->validated(), $data['products']));
         
     }
     
     public function finalizeSale(PDVSaleRequest $request)
     {
         $data = $request->validated();
-        Log::info('Dados no PDVController::finalizeSale');
-        Log::info($data);
-        return $this->pdvService->finalizeSale(
+        Log::debug($data);
+        $pdv = $this->pdvService->finalizeSale(
             $data['payments_values'], 
             $data['type_operation'], 
             $data['pdv_id'], 
-            $data['issuer_id']
+            $data['issuer_id'],
+            $data['user_id']
         );
-        // Se der errado, voltar para $request->input()
+        
+        return apiSuccess('Sucesso!', []);
     }
 
     public function findSavePDV()
     {
-        return $this->pdvService->findSavePDV();
+        $pdv = $this->pdvService->findSavePDV();
+        
+        if(!$pdv)
+        {
+            return apiError('PDV não encontrado');
+
+        };
+        
+        return apiSuccess($pdv);
         
     }
     
-    public function findSavePDVByID(int $id)
+    public function findSavePDVByID(Request $request)
     {
-        return $this->pdvService->findSavePDVByID($id);
+        return $this->pdvService->findSavePDVByID($request->input('pdv_id'), $request->input('issuer_id'));
         
     }
 }

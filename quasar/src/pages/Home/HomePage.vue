@@ -1,7 +1,6 @@
 <template>
     <div class="text-xl">
-        <header class="bg-slate-600 text-white flex shadow-2xl">
-
+        <header class="bg-[#242D34] text-white flex shadow-2xl p-4">
             <h1 class="text-3xl font-bold mr-10 ml-4 flex items-center">Bem vindo!</h1>
 
             <div class="flex items-center p-5 space-x-10">
@@ -12,7 +11,7 @@
                 </div>
 
                 <div class="flex space-x-10">
-                    <router-link class="cursor-pointer hover:text-gray-300" to="/login">Entrar</router-link>
+                    <span @click="login" class="cursor-pointer hover:text-gray-300">Entrar</span>
 
                     <router-link class="cursor-pointer hover:text-gray-300" to="/register-owner">Criar conta</router-link>
                 </div>
@@ -20,3 +19,30 @@
         </header>
     </div>
 </template>
+
+<script setup lang="ts">
+    import { LocalStorage } from 'quasar';
+    import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
+
+    const token = ref<string>(LocalStorage.getItem("auth_token"));
+    const expireStr = ref(LocalStorage.getItem("expire"));
+    const router = useRouter();
+
+    const login = async () =>
+    {
+        if(token.value && expireStr.value)
+        {
+            router.replace({
+                name: 'Companies'
+            });
+        } else {
+            router.replace({
+                name: 'Login'
+            });
+
+        };
+            
+    };
+    
+</script>

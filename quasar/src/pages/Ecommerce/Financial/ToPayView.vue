@@ -50,8 +50,8 @@
 
         <div class="overflow-x-auto">
             <table class="min-w-full table-auto border-collapse border border-gray-200">
-                <thead class="bg-gray-100">
-                    <tr>
+                <thead>
+                    <tr class="bg-gray-200">
                         <th class="px-6 py-3 text-left">Controle</th>
                         <th class="px-6 py-3 text-left">Documento</th>
                         <th class="px-6 py-3 text-left">Descrição</th>
@@ -100,7 +100,7 @@
 
 <script>
     import { api } from "src/boot/axios";
-    import RegisterPay from "src/components/Register/Financial/RegisterPay.vue";
+    import RegisterPay from "src/components/Register/Financial/Pay/RegisterPay.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     dayjs.extend(isBetween);

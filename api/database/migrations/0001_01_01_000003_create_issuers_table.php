@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('cnpj', 14)->nullable()->unique();
             $table->string('cpf', 11)->nullable()->unique();
             $table->string('uf', 2)->nullable();
+            $table->integer('cod_ibge', false, 2)->nullable();
+            $table->string('city', 100)->nullable();
             $table->string('address', 100)->nullable();
             $table->string('number', 10)->nullable();
             $table->string('cep', 11)->nullable();
@@ -25,13 +27,13 @@ return new class extends Migration
             $table->string('ie', 14)->nullable();
             $table->string('im', 12)->nullable();
             $table->string('main_activity', 160)->nullable();
-            $table->integer('cod_cnae', false, 1)->nullable();
+            $table->string('cod_cnae', 40)->nullable();
             $table->string('cnae', 160)->nullable();
             $table->integer('cod_crt', false, 1)->nullable();
             $table->string('crt', 50)->nullable();
             $table->date('date_of_foundation')->nullable();
-            $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
-            $table->unsignedBigInteger('owner_id');
+            $table->foreign('user_code')->references('user_code')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_code');
             $table->boolean('active', 1)->default(1);
             $table->timestamps();
         });

@@ -7,6 +7,11 @@ module.exports = {
     
   ],
   presets: [],
+  safelist: [
+    /^bg-\[\#.+\]$/,     // permite qualquer classe como bg-[#E75A7C]
+    /^text-\[\#.+\]$/,   // permite qualquer classe como text-[#E75A7C]
+  ],
+
   darkMode: "media", // or 'class'
   theme: {
     extend: {},
@@ -24,7 +29,7 @@ module.exports = {
     aria: {
       busy: 'busy="true"',
       checked: 'checked="true"',
-      disabled: 'disabled="true"',
+      di2bled: 'disabled="true"',
       expanded: 'expanded="true"',
       hidden: 'hidden="true"',
       pressed: 'pressed="true"',
@@ -1076,6 +1081,7 @@ module.exports = {
       40: "40",
       50: "50",
     },
+    
   },
   plugins: [],
 };

@@ -13,10 +13,12 @@ class CashRegister extends Model
         'issuer_id',
         'description',
         'document',
-        'pdv_id',
-        'customer_id',
+        'pdv_code',
+        'receive_cod',
+        'receive_document',
+        'customer_code',
         'name',
-        'especie_id',
+        'especie_cod',
         'especie',
         'date_register',
         'input_value',
@@ -27,10 +29,5 @@ class CashRegister extends Model
         'seller',
         'canceled',
         
-    ];
-
-    protected $hidden = [
-        'created_at',
-        'updated_at',
     ];
 }

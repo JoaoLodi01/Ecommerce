@@ -4,6 +4,7 @@
             @submit="completeIssuer()"
             
         >
+            <router-link v-if="!_completed" class="ml-5" to="/companies">Voltar</router-link>
             <h1 
                 v-if="!_completed" 
                 class="ml-5 text-2xl"
@@ -17,8 +18,8 @@
                     <q-input 
                         class="w-max"
                         label="CNPJ/CPF"
-                        v-if="form.cnpj"
-                        v-model="form.cnpj" 
+                        v-if="issuer.cnpj"
+                        v-model="issuer.cnpj" 
                         type="text" 
                         disable
                         
@@ -28,7 +29,7 @@
                         class="w-max"
                         label="CNPJ/CPF"
                         v-else
-                        v-model="form.cpf" 
+                        v-model="issuer.cpf" 
                         type="text" 
                         disable
                         
@@ -37,19 +38,19 @@
                     <q-input  
                         class="w-max text-base ml-5"
                         label="Razão social:"
-                        v-model="form.company_name"
+                        v-model="issuer.company_name"
                     />
 
                     <q-input  
                         class="w-max text-base ml-5"
                         label="Nome fantasia:"
-                        v-model="form.trade_name"
+                        v-model="issuer.trade_name"
                     />
 
                     <q-input 
                         class="w-max ml-5"
                         label="Fundação"
-                        v-model="form.date_of_foundation" 
+                        v-model="issuer.date_of_foundation" 
                         type="date" 
                                
                     />
@@ -61,11 +62,10 @@
                 <h3 class="border-b mb-5">Endereço</h3>
                 <div class="flex">
                     <q-input 
-                        v-model="cep"
-                        
-                        v-on:update:model-value="getCEPData()"
+                        v-model="issuer.cep"
+                        v-on:update:model-value="getDataCEP()"
                         filled        
-                        label="CEP" 
+                        label="CEP *" 
                         class="mb-4"
                         color="grey"
                         v-bind:mask="'#####-###'"
@@ -73,9 +73,20 @@
                         :rules="[ val => !!val || 'Preencha o CEP' ]"
     
                     />   
+
+                    <q-input 
+                        filled        
+                        label="Cidade *" 
+                        v-model="issuer.city"
+                        :rules="[ val => !!val || 'Preencha a sua cidade' ]"
+                        class="mb-4 ml-2 mr-2"
+                        color="grey"
+                        maxlength="10"
+    
+                    />
                     
                     <q-input 
-                        v-model="form.uf"
+                        v-model="issuer.uf"
                         filled        
                         type="text"
                         label="UF *" 
@@ -83,13 +94,14 @@
                         color="grey"
                         maxlength="2"
                         aria-required="true"
-                        
+                        :rules="[ val => !!val || 'Preencha a UF' ]"
+
                     />   
     
                     <q-input 
                         filled        
-                        label="Endereço" 
-                        v-model="form.address"                        
+                        label="Endereço *" 
+                        v-model="issuer.address"                        
                         class="mb-4 ml-2 mr-2"
                         color="grey"
                         maxlength="100"
@@ -99,24 +111,34 @@
                         
                     <q-input 
                         filled        
-                        label="Número" 
-                        v-model="form.number"
+                        label="Número *" 
+                        v-model="issuer.number"
                         :rules="[ val => !!val || 'Preencha o número' ]"
                         class="mb-4"
                         color="grey"
                         maxlength="10"
     
-                    />
+                    /> 
 
                 </div>
             </div>
                 
             <div class="bg-white p-5 rounded-lg mb-5">
                 <h3 class="border-b mb-5">Dados fiscáis</h3>
+                <q-select
+                    :options="crtOptions"
+                    v-model="issuer.crt"
+                    label="CRT ( Cód. Regime tributário ) *"
+                    class="mb-4"
+                    color="grey" 
+                    filled 
+                    :rules="[ val => !!val || 'Preencha o seu CRT' ]"
+                />
+
                 <q-input 
                     filled        
-                    label="Cód. CNAE" 
-                    v-model="form.cod_cnae"
+                    label="Cód. CNAE *" 
+                    v-model="issuer.cod_cnae"
                     :rules="[ val => !!val || 'Preencha o Cód. CNAE' ]"
                     class="mb-4"
                     color="grey"
@@ -126,8 +148,8 @@
 
                 <q-input 
                     filled        
-                    label="CNAE" 
-                    v-model="form.cnae"
+                    label="CNAE *" 
+                    v-model="issuer.cnae"
                     :rules="[ val => !!val || 'Preencha o CNAE' ]"
                     class="mb-4"
                     color="grey"
@@ -137,192 +159,199 @@
                 
                 <q-input 
                     filled        
-                    label="IE" 
-                    v-model="form.ie"
-                    :rules="[ val => !!val || 'Preencha a IE' ]"
+                    label="IE *" 
+                    v-model="issuer.ie"
                     class="mb-4"
                     color="grey"
                     maxlength="14"
+                    :rules="[ val => !!val || 'Preencha a IE']"
 
                 />  
 
                 <q-input 
                     filled        
                     label="IM" 
-                    v-model="form.im"
+                    v-model="issuer.im"
                     class="mb-4"
                     color="grey"
                     maxlength="12"
-                    :rules="[ val => !!val || 'Preencha a IM' ]"
+                    v-if="issuer.cnpj"
 
                 />  
-
-
-                <q-select
-                    :options="crtOptions"
-                    v-model="form.crt"
-                    label="CRT ( Cód. Regime tributário )"
-                    class="mb-4"
-                    color="grey" 
-                    filled 
-                    aria-required="true"
-                />
             </div>
             
             <div>
-                <q-btn label="Salvar" type="submit" color="grey"/>
+                <q-btn 
+                    label="Salvar" 
+                    type="submit" 
+                    class="ml-2 submit-btn"
+                    color="primary"
+                />
                 
             </div>
         </q-form>
-        
     </div>    
+
+    <LoandingPage
+        v-if="showLoanding"
+        :text="_completed ? 'Alterando informações do emitente ...' : 'Completando cadastro, esse processo pode levar um tempinho ...'"
+    />
 </template>
 
-<script>
+<script setup lang="ts">
     import { api } from 'src/boot/axios';
-    import { LocalStorage } from 'quasar';
-    import axios from 'axios';
+    import { LocalStorage, useQuasar } from 'quasar';
+    import { onMounted, ref } from 'vue';
+    import { useRouter } from 'vue-router';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
+    import getCEPData from 'src/services/getData/getCEPData';
 
-    export default {
-        setup()
-        {
-            return {
-                crtOptions: [
-                    'Simples Nacional',
-                    'Lucro real',
-                    'Lucro presumido',
-                    'Simples - excesso de receita',
-                    'MEI'
-          
-                ]   
-            }
-        },
-
-        data()
-        {
-            return {
-                _completed: LocalStorage.getItem("_completed"),
-                timer: null,
-                cep: '',
-                form: {
-                    company_name: '',
-                    trade_name: '',
-                    date_of_foundation: null,
-                    cnpj: '',
-                    cpf: '',
-                    uf: '',
-                    address: '',
-                    number: '',
-                    cod_crt: '',
-                    crt: '',
-                    cod_cnae: '',
-                    cnae: '',
-                    ie: '',
-                    im: ''
-                    
-                },
-            }
-        },
-
-        methods: {
-            showLoading (msg) {
-                this.$q.loading.show({
-                    message: 'Cadastrando sua empresa ...'
-
-                })
-
-            },
-
-            hideLoading() {
-                this.$q.loading.hide()
-            },
-
-            async getIssuer()
-            {
-                const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
-                this.form = {
-                    company_name: response.data.issuer.company_name,
-                    trade_name: response.data.issuer.trade_name,
-                    date_of_foundation: response.data.issuer.date_of_foundation,
-                    cnpj: response.data.issuer.cnpj ? response.data.issuer.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : null,
-                    cpf: response.data.issuer.cpf ? response.data.issuer.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : null,
-                    address: response.data.issuer.address,
-                    number: response.data.issuer.number,
-                    cod_crt: response.data.issuer.cod_crt,
-                    crt: response.data.issuer.crt,
-                    cod_cnae: response.data.issuer.cod_cnae,
-                    cnae: response.data.issuer.cnae,
-                    ie: response.data.issuer.ie,
-                    im: response.data.issuer.im,
-                    
-                }
-                cep: response.data.issuer.cep ? response.data.issuer.cep.replace(/(\d{5})(\d{3})/, '$1-$2') : null,
-                console.log(response)
-            },
-
-            async completeIssuer()
-            {
-                try {
-                    this.showLoading()
-                    const i = this.crtOptions.indexOf(this.form.crt) + 1
-                    this.form.cod_crt = i
-                    this.form.crt = this.crtOptions[i - 1]                
-        
-                    const response = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, {
-                        company_name: this.form.company_name,
-                        trade_name: this.form.trade_name,
-                        date_of_foundation: this.form.date_of_foundation,
-                        cep: this.cep.replace(/\D/g, ''),
-                        uf: this.form.uf,
-                        address: this.form.address,
-                        number: this.form.number,
-                        cod_cnae: this.form.cod_cnae,
-                        cnae: this.form.cnae,
-                        cod_crt: this.form.cod_crt,
-                        crt: this.form.crt,
-                        ie: this.form.ie,
-                        im: this.form.im,
-
-                    })
-
-                    console.log(response)
-                    if(response.data.success)
-                    {
-                        this.hideLoading();
-                        LocalStorage.setItem("_completed", true)
-                        this.$router.push(`/${this.form.company_name.split(" ")[0]}/home`)
-                    } 
-                } catch (error) {
-                    console.error('Erro ao completar o cadastro: ', error)
-                    
-                } finally {
-                    this.hideLoading();
-
-                }
-            },
-
-            async getCEPData()
-            {
-                console.log('Chamou ')
-                if(this.cep)
-                {
-                    const cep = this.cep.replace(/\D/, '')
-                    if(cep.length === 8)
-                    {
-                        const data = await axios.get(`${process.env.API_CEP}/${cep}/json`)
-                        this.form.uf = data.data.uf
-                        this.form.address = data.data.logradouro
-
-                    }
-                }
-            }
-        },
-
-        mounted()
-        {
-            this.company_name = this.$route.params.name
-            this.getIssuer()
-        }
+    type Issuer = {
+        company_name: string,
+        trade_name: string,
+        date_of_foundation: string,
+        cnpj: string,
+        cpf: string,
+        cep: string,
+        uf: string,
+        cod_ibg: string,
+        city: string,
+        address: string,
+        number: number,
+        cod_crt: number,
+        crt: string,
+        cod_cnae: number,
+        cnae: string,
+        ie: string,
+        im: string
     }
 
+    const crtOptions = ref([
+        'Simples Nacional',
+        'Lucro real',
+        'Lucro presumido',
+        'Simples - excesso de receita',
+        'MEI'
+
+    ])
+
+    const $q = useQuasar();
+    
+    const issuer = ref<Issuer | null>({
+        company_name: '',
+        trade_name: '',
+        date_of_foundation: '',
+        cnpj: '',
+        cpf: '',
+        cep: '',
+        uf: '',
+        cod_ibg: '',
+        city: '',
+        address: '',
+        number: 0,
+        cod_crt: 0,
+        crt: '',
+        cod_cnae: 0,
+        cnae: '',
+        ie: '',
+        im: ''
+    });
+
+    const color = ref<string>('');
+
+    const router = useRouter();
+
+    const _completed = ref<boolean>(false);
+    let showLoanding = ref<boolean>(false);
+
+    const getIssuer = async () => {
+        const res = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`)
+        issuer.value = res.data.issuer
+
+    };
+
+    const completeIssuer = async () => 
+    {
+        issuer.value.cod_crt = crtOptions.value.indexOf(issuer.value.crt) + 1;
+        showLoanding.value = true;
+
+        try {
+            
+            const res = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, issuer.value);
+            const data = res.data;
+            console.log('Data: ', data);
+
+            if(data.success)
+            {
+                $q.notify({
+                    color: 'green',
+                    message: !_completed ? 'Cadastrado completado com sucesso!' : data.message,
+                    position: 'top',
+                    timeout: 2000
+
+                });
+
+                router.push({ name: 'Start', params: { name: LocalStorage.getItem("first_name") }})
+
+            };
+            
+        } catch (error) {
+            console.error('Error: ', error);
+            
+        } finally {
+           showLoanding.value = false;
+        };
+    };
+    
+    const getDataCEP = async () => 
+    {
+        const fomratedCEP = issuer.value.cep.replace(/\D/g, '');
+        if(fomratedCEP.length === 8)
+        {
+            const res = await getCEPData(fomratedCEP);
+            console.log('Res: ', res);
+
+            if(typeof res === 'string')
+            {
+                $q.notify({
+                    type: 'negative',
+                    message: res || res[0],
+                    timeout: 3500 ,
+                    position: 'top'
+
+                });                
+
+                return;
+            };
+
+            issuer.value = {
+                company_name: issuer.value.company_name, // Mantem padrão
+                trade_name: issuer.value.trade_name, // Mantem padrão
+                cpf: issuer.value.cpf, // Mantem padrão
+                cnpj: issuer.value.cnpj, // Mantem padrão
+                cep: issuer.value.cep,
+                address: res.addres,
+                number: issuer.value.number, // Mantem padrão   
+                city: res.city,
+                cnae: issuer.value.cnae,
+                cod_cnae: issuer.value.cod_cnae,
+                cod_crt: issuer.value.cod_crt,
+                cod_ibg: issuer.value.cod_ibg,
+                crt: issuer.value.crt,
+                date_of_foundation: issuer.value.date_of_foundation,
+                ie: issuer.value.ie,
+                im: issuer.value.im,
+                uf: res.uf
+
+            };
+
+            return;  
+        };
+    };
+
+    onMounted(() => {
+        getIssuer();
+        color.value = '#E75A7C';
+        _completed.value = LocalStorage.getItem("_completed");
+    })
 </script>

@@ -14,6 +14,8 @@ class Issuer extends Model
         'cnpj',
         'cpf',
         'uf',
+        'cod_ibge',
+        'city',
         'address',
         'number',
         'cep',
@@ -25,7 +27,7 @@ class Issuer extends Model
         'cod_crt',
         'crt',
         'date_of_foundation',
-        'owner_id',
+        'user_code',
         'active',
         
     ];
