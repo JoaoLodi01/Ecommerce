@@ -1,22 +1,28 @@
 <template>
-    <div class="container mx-auto mt-10 p-6 ml-16 bg-white rounded-lg shadow-lg">
+    <div class="container mx-auto mt-5 p-6 ml-16 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>
             <div class="flex space-x-4">
-                <q-btn class="bg-blue-500 text-white p-2 rounded-lg">
+                <q-btn 
+                    class="p-2 rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
                     </svg>
                 </q-btn>
 
                 <q-btn
-                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
+                    class="p-2 rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                     @click="showRegister()"
                     label="Cadastrar"
                 />
 
                 <q-btn
-                    class="bg-blue-500 text-white p-1 mr-5 rounded-lg"
+                    class="p-2 rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                     @click="getRegister()"
                     label="Atualizar receber"
 
@@ -42,7 +48,8 @@
             />
 
             <q-btn
-                class="bg-blue-500 hover:bg-blue-400 transition text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                class="transition text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                 label="Filtrar"
                 @click="dateSearch()"
             />
@@ -56,14 +63,18 @@
             <div><p>Total Em aberto: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
         </div>
 
-        <div class="relative overflow-x-auto overflow-y-auto">
-            <table class="min-w-full table-auto border-collapse border border-gray-200">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th class="px-6 py-3 text-center">Controle</th>
-                        <th class="px-6 py-3 text-center">Documento</th>
+        <div class="to-receive-register-grid relative overflow-y-auto border rounded-lg shadow-lg">
+            <table class="table-auto border-collapse border border-gray-300 bg-white ">
+                <thead class="font-semibold sticky top-0 z-10">
+                    <tr 
+                        class="text-white"
+                        :style="`background-color: ${painelColor}; color: ${textColor}}`"
+                    >
+                        <th scope="col" class="text-center px-6 py-3">Código</th>
+                        <th scope="col" class="text-center px-6 py-3">Documento</th>
                         <th class="px-6 py-3 text-center">Descrição</th>
-                        <th class="px-6 py-3 text-center">Valor entrada</th>
+                        <th class="px-6 py-3 text-center">Qtde Parcela</th>
+                        <th class="px-6 py-3 text-center">Valor</th>
                         <th class="px-6 py-3 text-center">Cliente</th>
                         <th class="px-6 py-3 text-center">Cód. Espécie</th>
                         <th class="px-6 py-3 text-center">Espécie</th>
@@ -72,17 +83,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(register, id) in cashs" :key="id" class="border-t text-center">
-                        <td class="px-6 py-3 text-center">{{ register.id }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.id }}</td>
+                    <tr v-for="(register, id) in receives" :key="id" class="border-t text-center">
+                        <td class="px-6 py-3 text-center">{{ register.receiveCod }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.document }}</td>
                         <td class="px-6 py-3 text-center">{{ register.description }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.installment_value }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.installmentNumber }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.installmentValue }}</td>
                         <td class="px-6 py-3 text-center">{{ register.name }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.especie_id }}</td>
+                        <td class="px-6 py-3 text-center">{{ register.especieID }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie.toUpperCase() }}</td>
                         <td class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
                         <td class="px-6 py-3">
-                            <q-btn @click="editRegister(register)" class="">
+                            <q-btn @click="editRegister()" class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                 </svg>
@@ -106,102 +118,57 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
-    import { onBeforeUnmount } from "vue";
+    import { ref, onMounted, watch } from "vue";
+    import { LocalStorage } from "quasar";
     import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
+    import camelcaseKeys from "camelcase-keys";
     dayjs.extend(isBetween);
 
-    export default {
-        setup(){
-            const $q = useQuasar()
-            let timer
+    const today = dayjs();
+    const $q = useQuasar();
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const painelColor = LocalStorage.getItem("painelColor");
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
-            onBeforeUnmount(() => {
-                if(timer !== void 0){
-                    clearTimeout(timer)
-                    $q.loading.hide()
+    let receives = ref<IReceiveBody[]>([]);
+    let startDate = ref<string>(today.startOf('month').format('YYYY-MM-DD'));
+    let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
+    let filteredCashs = ref<object[]>([]);
+    let withScreen = ref<number>(0);
+    let showReceiveClosing = ref<boolean>(false);
+    
 
-                }
-
-            })
-            return {
-                showLoading () {
-                    $q.loading.show({
-                        message: 'Carregando registros do receber ...'
-                    })
-
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 1200)
-                }
-            }
-        },
-
-        data(){
-            const today = dayjs();
-
-            return{
-                cash:{
-                    description: "",
-                    valor_entrada: "",
-                    valor_saida: "",
-                },
-                startDate: today.startOf('month').format('YYYY-MM-DD'),
-                endDate: today.endOf('month').format('YYYY-MM-DD'),
-                filteredCashs: [],
-                cashs: [],
-                withScreen: 0,
-                showReceiveClosing: false,
-            };
-        },
-
-        methods: {
-            async getRegister(){
-                this.showLoading()
-                try {
-                    const response = await api.get('/ecommerce/cash-register/all/receive')
-                    this.cashs = response.data.data
-                    this.dateSearch()
-                    console.log('response.data.data', response.data.data)
-                } catch (error) {
-                    console.error("Erro ao buscar registros:", error)
-
-                }
-            },
-
-            dateSearch(){
-                if(this.startDate || this.endDate){
-                    this.filteredCashs = this.cashs.filter(register => {
-                        const registerDate = dayjs(register.created_at);
-                        return registerDate.isBetween(this.startDate, this.endDate, null, '[]')
-                    });
-                    this.cashs = this.filteredCashs;
-                }
-            },
-            
-            showRegister(){
-                this.showReceiveClosing = true
-            },
-            
-            closeRegister(event){
-                this.showReceiveClosing = event
-            },
-        },
-        components: {
-            RegisterReceive
-        },
-
-        mounted(){
-            this.getRegister()
-            this.withScreen += screen.width
-            
-        }
+    const getRegister = async () =>
+    {
+        const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
+        receives.value = camelcaseKeys(res.data.data, { deep: true });
     };
+    
+    const dateSearch = () => {};
+
+    const editRegister = () => {};
+
+    const showRegister = () =>
+    {
+        showReceiveClosing.value  = true;
+    };
+    
+    const closeRegister = (event: boolean) =>
+    {
+        showReceiveClosing.value = event;
+    };
+        
+    onMounted(() => {
+        getRegister();
+        withScreen.value = screen.width;
+        
+    });
 
 </script>
 
@@ -250,6 +217,12 @@
 
         th, td {
             padding: 0.5rem;
+        }
+
+        .to-receive-register-grid
+        {
+            height: 65vh;
+            max-height: 90vh;
         }
     }
 </style>

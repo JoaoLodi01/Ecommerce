@@ -11,10 +11,10 @@ class ConfigCustomers extends Model
     protected $fillable = [ 
         'issuer_id',
         'config_customer_cod',
-        'allow_addres_null',
-        'allow_cnpj_null',
-        'allow_cpf_null',
-        'default_register',
+        'validate_cnpj',
+        'validate_cpf',
+        'validate_addres',
+        'last_filter',
 
     ];
 }

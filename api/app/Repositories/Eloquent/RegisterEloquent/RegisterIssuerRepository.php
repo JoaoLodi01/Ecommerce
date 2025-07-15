@@ -14,8 +14,11 @@ use App\Models\Registers\{
 };
 
 use App\Models\Customer;
-
+use App\Models\ConfigCustomers;
+use App\Models\ConfigProducts;
+use App\Models\SiteColors;
 use App\Repositories\Contracts\RegisterContract\RegisterIssuerContract;
+use App\Services\GetIBGECod\GetIBGECodService;
 use App\Services\NFCeValidation\FindTributs;
 use Illuminate\Support\Facades\Log;
 use App\Services\TributsService\TributsServices;
@@ -24,7 +27,8 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 {
     public function __construct(
         protected TributsServices $tributsServices,
-        protected FindTributs $findTributs
+        protected FindTributs $findTributs,
+        protected GetIBGECodService $getIBGECodService
     ) {
         Log::info('Memória usada no RegisterIssuerRepository ' . memory_get_usage(true));
     }
@@ -36,39 +40,39 @@ class RegisterIssuerRepository implements RegisterIssuerContract
     }
 
     public function create(array $data)
-    {
-        Log::info($data);
-        Log::info($data['uuse_id']);
+    {        
         $owner = Owner::where('uuse_id', $data['uuse_id'])->first();
-        Log::info('$owner ' . $owner);
+        
         if($owner)
         {
             $issuer = Issuer::create([
                 'company_name' => $data['company_name'],
                 'trade_name' => $data['trade_name'],
-                'cnpj' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cnpj']),
-                'cpf' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cpf']),
+                'cnpj' => $data['cnpj'] ? preg_replace('/[^a-zA-Z0-9]/', '', $data['cnpj']) : null,
+                'cpf' => $data['cpf'] ? preg_replace('/[^a-zA-Z0-9]/', '', $data['cpf']) : null,
                 'date_of_foundation' => $data['date_of_foundation'],
                 'cod_cnae' => $data['cod_cnae'],
                 'cnae' => $data['main_activity'],
                 'owner_id' => $owner->id,
             ]);
 
+            Log::info('--- Criação das espécies padrão ---');
+            $this->registerPayMentsForms($issuer->id);
+            Log::info('--- Fim da criação das espécies padrão ---');
+            
+            Log::info('--- Criação do cliente padrão ---');
+
             $maxCustomerCod = Customer::where('issuer_id', $issuer->id)->max('customer_cod');
 
             $codCustomer = $maxCustomerCod ? $maxCustomerCod + 1 : 1;
             
-            Log::info('--- Criação das espécies padrão ---');
-                $this->registerPayMentsForms($issuer->id);
-            Log::info('--- Fim da criação das espécies padrão ---');
-
-            Log::info('--- Criação do cliente padrão ---');
             $customer = Customer::create([
                 'customer_cod' => $codCustomer,
                 'issuer_id' => $issuer->id,
                 'company_name' => 'Consumidor Padrão',
-                'cpf' => ' ',
-                'cnpj' => ' '
+                'customer_type' => 'Física',
+                'cpf' => null,
+                'cnpj' => null
                 
             ]);
             Log::info($customer);
@@ -85,9 +89,47 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             
             Log::info('--- Fim da criação do configPDV padrão ---');
 
-            FirstSteps::create([
-                'issuer_id' => $issuer->id
+            Log::info('--- Criação das configCustomer padrão ---');
+            $maxCod = ConfigCustomers::where('issuer_id')->max('config_customer_cod');
+        
+            ConfigCustomers::create([
+                'issuer_id' => $issuer->id,
+                'config_customer_cod' => $maxCod ? $maxCod + 1 : 1,
+                'validate_cnpj' => false,
+                'validate_cpf' => false,
+                'validate_addres' => false,
+                'last_filter' => 'all',
+
             ]);
+
+            Log::info('--- Fim da criação do configCustomer padrão ---');
+
+            Log::info('--- Criação das configProducts padrão ---');
+                $maxCod = ConfigCustomers::where('issuer_id')->max('config_product_cod');
+                ConfigProducts::create([
+                    'issuer_id' => $issuer->id,
+                    'config_product_cod' => $maxCod ? $maxCod + 1 : 1,
+                ]);
+
+            Log::info('--- Fim da criação do configProducts padrão ---');
+
+            Log::info('--- Criação das cores padrão ---');
+            $maxCod = SiteColors::where('issuer_id')->max('color_cod');
+        
+            SiteColors::create([
+                'issuer_id' => $issuer->id,
+                'color_cod' => $maxCod ? $maxCod + 1 : 1
+            ]);
+
+            Log::info('--- Fim da criação das cores padrão ---');
+
+            Log::info('--- Criação das primeros passos padrão ---');
+            
+            FirstSteps::create([
+                'issuer_id' => $issuer->id  
+            ]);
+
+            Log::info('--- fim da criação dos primeros passos ---');
 
             return array(
                 'success' => true,
@@ -100,9 +142,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'success' => false,
                 'message' => 'Proprietário não cadastrado'
             );
-        }
-        
-        
+        }   
     }
 
     public function find(int $id)
@@ -114,12 +154,13 @@ class RegisterIssuerRepository implements RegisterIssuerContract
     {
         $issuer = Issuer::where('id', $id)->first();
         $firstSteps = FirstSteps::where('issuer_id', $issuer->id)->first();
-        Log::info('$firstSteps ' . $firstSteps);
+
+        $ibge = $this->getIBGECodService->getData($data['city']);
 
         $issuer->update([
             'cep' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cep']),
             'uf' => $data['uf'],
-            'cod_ibge' => $data['cod_ibge'], 
+            'cod_ibge' => $data['cod_ibge'] ?? $ibge, 
             'city' => $data['city'],
             'address' => $data['address'],
             'number' => $data['number'],
@@ -167,29 +208,63 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         
     }
 
-    public function registerTributs(int $issuer_id, string $csosncst)
+    public function disableCompany(int $issuerID)
+    {
+        $company = Issuer::where('id', $issuerID)->first();
+        if(!$company)
+        {
+            //throw new 
+
+        }
+
+        $company->update([
+            'active' => 0
+
+        ]);
+
+        return $company;
+    }
+    
+    public function activeCompany(int $issuerID)
+    {
+        $company = Issuer::where('id', $issuerID)->first();
+        if(!$company)
+        {
+            //throw new 
+
+        }
+
+        $company->update([
+            'active' => 1
+
+        ]);
+
+        return $company;
+    }
+
+    public function registerTributs(int $issuerID, string $csosncst)
     {
         Log::info('Vai criar os CFOPs');
         $cfops = $this->findTributs->getCFOPs('cfop');
         $csosncst = $this->findTributs->getCSOSNCST($csosncst);
 
-        $this->tributsServices->registerCFOP($cfops, $issuer_id);
+        $this->tributsServices->registerCFOP($cfops, $issuerID);
 
     }
 
-    public function registerPayMentsForms(int $issuer_id)
+    public function registerPayMentsForms(int $issuerID)
     {
         $payments = [
             [
                 'payment_cod' => 1,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'Dinheiro',
                 'tipo_lancamento' => 'Caixa',
                 'payments_form_type' => 'DINHEIRO'
             ],
             [
                 'payment_cod' => 2,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'PIX',
                 'tipo_lancamento' => 'Caixa',
                 'payments_form_type' => 'PIX'
@@ -197,21 +272,21 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             ],
             [
                 'payment_cod' => 3,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'Boleto',
                 'tipo_lancamento' => 'Receber',
                 'payments_form_type' => 'BOLETO'
             ],
             [
                 'payment_cod' => 4,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'Cartão de Crédito',
                 'tipo_lancamento' => 'Caixa',
                 'payments_form_type' => 'CARTAO DE CREDITO'
             ],
             [
                 'payment_cod' => 5,
-                'issuer_id' => $issuer_id,
+                'issuer_id' => $issuerID,
                 'especie' => 'Cartão de Débito',
                 'tipo_lancamento' => 'Receber',
                 'payments_form_type' => 'CARTAO DE DEBITO'

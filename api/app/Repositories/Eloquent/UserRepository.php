@@ -9,22 +9,10 @@ use Illuminate\Support\Facades\Log;
 
 class UserRepository
 {
-    public function getAll(int $issuer_id){
-        Log::info("Iniciou getAll UserRepository");
-        Log::info("Buscando por emitente");
+    public function getAll(int $issuer_id)
+    {
         $issuer = Issuer::where('id', $issuer_id)->first();
-
-        if(!$issuer){
-            return [
-                'success' => false,
-                'message' => 'Emitente não encontrado',
-            ];
-        }
-        
-        Log::info('Cod. emitente: '. $issuer_id);
-        Log::info("Buscando usuários");
-        $users = User::where('issuer_id', $issuer_id)->get();
-        Log::info("Terminou");
+        $users = User::where('owner_id', $issuer->owner_id)->get();
 
         return $users;
     }

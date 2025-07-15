@@ -1,0 +1,5 @@
+[2025-07-10 18:25:18] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 32 --  
+[2025-07-10 18:25:18] local.INFO: -- Máximo encontrado iniciado --  
+[2025-07-10 18:25:18] local.INFO: 1  
+[2025-07-10 18:25:18] local.INFO: -- Fim do máximo encontrado --  
+[2025-07-10 18:25:18] local.INFO: {"id":4,"pdv_cod":4,"issuer_id":1,"description":"Venda Nota Manual N\u00b0","issue_date":"2025-07-10","n_nfce":null,"customer_id":1,"customer":"Consumidor Padr\u00e3o","gross_value":"240.00","net_value":"240.00","discount":"0.00","addition":"0.00","user_id":1,"user":"gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}  

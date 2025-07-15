@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\{
 };
 
 use Illuminate\Http\Request;
-
 class AuthController extends Controller
 {
     public function __construct(
@@ -28,14 +27,14 @@ class AuthController extends Controller
         
         $owner = $this->registerOwnerService->findByEmail($data['email']);
 
-        Log::info('owner ' . $owner);
+        Log::channel('auth')->info('owner ' . $owner);
         if($owner && Hash::check($data['password'], $owner->password))
         {
             Auth::login($owner);
             $token = $owner->createToken('auth_token')->plainTextToken;
             $user = $this->userService->findById($owner->id);
 
-            Log::info("Passou o login, token: $token");
+            Log::channel('auth')->info("Passou o login, token: $token");
             
             return response()->json([
                 'success' => true,
@@ -47,8 +46,7 @@ class AuthController extends Controller
                 
             ], 200);
 
-        } else if (empty($owner))
-        {
+        } else if (empty($owner)) {
             return response()->json([
                 'success' => false,
                 'message' => 'O usuário não existe',
@@ -72,23 +70,22 @@ class AuthController extends Controller
             'message' => 'Logout bem sucedido!',
             'route' => '/login'
         ]);
-        
     }
 
     public function checkLogin(Request $request)
-    {
-        Log::channel('auth')->info('Log login');
-        
+    {       
+        Log::channel('auth')->info("-- checkLogin --"); 
         $header = $request->header('Authorization');
         
-        if($header)
+        $user = $request->user();
+        
+        if(empty($header) && empty($user))
         {
-            Log::channel('auth')->error("Token ausente: {$header}");
-            apiError('Usuário não logadoooooo', $header, false, 400);
+            Log::channel('auth')->error("Erro no login");
+            return apiError('Usuário não logado (1)', $header, false, 401);
                 
         };
-
-        apiSuccess('Usuário logado', $header, true, 200);
-
+        Log::channel('auth')->info("Estava logado"); 
+        return apiSuccess('Usuário logado', $user, true, 200);
     }
 }

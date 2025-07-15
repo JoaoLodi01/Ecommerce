@@ -13,23 +13,10 @@ class RegisterOwnerService
 
     public function create(array $data)
     {
-        try {
-            $owner = $this->registerOwnerRepository->create($data);
-            $this->savePassword($owner->email, $data['password'], $owner->uuse_id);
+        $owner = $this->registerOwnerRepository->create($data);
+        $this->savePassword($owner->email, $data['password'], $owner->uuse_id);
 
-            return response()->json([
-                'success' => true,
-                'owner' => $owner
-            ], 201);
-
-        } catch (\Throwable $th) {
-            return response()->json([
-                'success' => false,
-                'message' => $th->getMessage(),
-                'code' => $th->getCode()
-            ], 500);
-        }
-        
+        return $owner;
     }
 
     public function find(int $id)

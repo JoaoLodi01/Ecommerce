@@ -22,8 +22,12 @@ return new class extends Migration
             $table->unsignedBigInteger('issuer_id');
             $table->string('description', 200);
 
-            $table->unsignedBigInteger('pdv_cod')->nullable();
             $table->foreign('pdv_cod')->references('pdv_cod')->on('pdvs')->onDelete('cascade');
+            $table->unsignedBigInteger('pdv_cod')->nullable();
+
+            $table->foreign('receive_cod')->references('receive_cod')->on('receives')->onDelete('cascade');
+            $table->unsignedBigInteger('receive_cod')->nullable();
+            $table->unsignedBigInteger('receive_document')->nullable();
 
             $table->unsignedBigInteger('customer_cod');
             $table->foreign('customer_cod')->references('customer_cod')->on('customers')->onDelete('cascade');

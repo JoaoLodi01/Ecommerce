@@ -142,7 +142,7 @@
 import { api } from "src/boot/axios";
 import { onBeforeUnmount } from 'vue';
 import { LocalStorage, useQuasar  } from "quasar";
-import Installments from "./PDV/Installments.vue";
+import Installments from "./PDV/Installments__deve_ser_propayment.vue";
 import QRCode from "./PDV/QRCode/QRCode.vue";
 
 export default {

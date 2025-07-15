@@ -1,15 +1,30 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
+<<<<<<< HEAD
         'pretty_version' => '1.0.0+no-version-set',
         'version' => '1.0.0.0',
         'reference' => null,
+=======
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '92f8baaa42916233eb49d981c691212297df4348',
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'box/spout' => array(
+            'pretty_version' => 'v3.3.0',
+            'version' => '3.3.0.0',
+            'reference' => '9bdb027d312b732515b884a341c0ad70372c6295',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../box/spout',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.12.3',
             'version' => '0.12.3.0',
@@ -380,9 +395,15 @@
             ),
         ),
         'inertiajs/inertia-laravel' => array(
+<<<<<<< HEAD
             'pretty_version' => 'v2.0.2',
             'version' => '2.0.2.0',
             'reference' => '248e815cf8d41307cbfb735efaa514c118e2f3b4',
+=======
+            'pretty_version' => 'v2.0.3',
+            'version' => '2.0.3.0',
+            'reference' => 'b732a5cc33423b2c2366fea38b17dc637d2a0b4f',
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
             'type' => 'library',
             'install_path' => __DIR__ . '/../inertiajs/inertia-laravel',
             'aliases' => array(),
@@ -413,9 +434,15 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
+<<<<<<< HEAD
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
             'reference' => null,
+=======
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '92f8baaa42916233eb49d981c691212297df4348',
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -608,9 +635,15 @@
             'dev_requirement' => true,
         ),
         'nesbot/carbon' => array(
+<<<<<<< HEAD
             'pretty_version' => '3.10.0',
             'version' => '3.10.0.0',
             'reference' => 'c1397390dd0a7e0f11660f0ae20f753d88c1f3d9',
+=======
+            'pretty_version' => '3.10.1',
+            'version' => '3.10.1.0',
+            'reference' => '1fd1935b2d90aef2f093c5e35f7ae1257c448d00',
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
             'type' => 'library',
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(),
@@ -680,9 +713,15 @@
             'dev_requirement' => true,
         ),
         'phpoffice/phpspreadsheet' => array(
+<<<<<<< HEAD
             'pretty_version' => '4.3.1',
             'version' => '4.3.1.0',
             'reference' => 'd0ac70d610fb62ccad38c2696569ae1ad42acc70',
+=======
+            'pretty_version' => '4.4.0',
+            'version' => '4.4.0.0',
+            'reference' => '747ccd1b443e85e0cfc0d52acf50e4d15ef959eb',
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpoffice/phpspreadsheet',
             'aliases' => array(),
@@ -743,9 +782,15 @@
             'dev_requirement' => true,
         ),
         'phpunit/phpunit' => array(
+<<<<<<< HEAD
             'pretty_version' => '11.5.23',
             'version' => '11.5.23.0',
             'reference' => '86ebcd8a3dbcd1857d88505109b2a2b376501cde',
+=======
+            'pretty_version' => '11.5.24',
+            'version' => '11.5.24.0',
+            'reference' => '6b07ab1047155cf38f82dd691787a277782271dd',
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
@@ -873,9 +918,9 @@
             ),
         ),
         'psy/psysh' => array(
-            'pretty_version' => 'v0.12.8',
-            'version' => '0.12.8.0',
-            'reference' => '85057ceedee50c49d4f6ecaff73ee96adb3b3625',
+            'pretty_version' => 'v0.12.9',
+            'version' => '0.12.9.0',
+            'reference' => '1b801844becfe648985372cb4b12ad6840245ace',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psy/psysh',
             'aliases' => array(),

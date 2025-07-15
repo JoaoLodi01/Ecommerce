@@ -7,7 +7,6 @@ use App\Http\Requests\Register\RegisterIssuerRequest;
 use App\Services\RegisterService\RegisterIssuerService;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class RegisterIssuerController extends Controller
 {
@@ -17,13 +16,12 @@ class RegisterIssuerController extends Controller
 
     public function getAll(string $ownerID)
     {
-        return $this->registerIssuerService->getAll($ownerID);
+        return apiSuccess('Todas as empresas', $this->registerIssuerService->getAll($ownerID));
     }
 
     public function create(RegisterIssuerRequest $request)
     {
-        $data = $request->validated();
-        return $this->registerIssuerService->create($data);
+        return apiSuccess('Empresa cadastrada com sucesso', $this->registerIssuerService->create($request->validated()));
     }
 
     public function find(int $id)
@@ -32,10 +30,19 @@ class RegisterIssuerController extends Controller
     }
     
     public function completeRegister(Request $request, int $id)
+    {        
+        return apiSuccess('Emitente alterado com sucesso!', $this->registerIssuerService->update($request->all(), $id));
+    }
+
+    public function disableCompany(int $issuerID)
     {
-        $data = $request->all();
-        Log::info($id);
-        Log::info($data);
-        return $this->registerIssuerService->update($data, $id);
+        return apiSuccess('Empresa desativado com sucesso', $this->registerIssuerService->disableCompany($issuerID));
+
+    }
+
+    public function activeCompany(int $issuerID)
+    {
+        return apiSuccess('Empresa reativada com sucesso', $this->registerIssuerService->activeCompany($issuerID));
+
     }
 }

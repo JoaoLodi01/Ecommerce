@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="flex space-x-10">
-                    <span class="cursor-pointer hover:text-gray-300" @click="login()">Entrar</span>
+                    <span @click="login" class="cursor-pointer hover:text-gray-300">Entrar</span>
 
                     <router-link class="cursor-pointer hover:text-gray-300" to="/register-owner">Criar conta</router-link>
                 </div>
@@ -20,22 +20,29 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { LocalStorage } from 'quasar';
-    import { api } from 'src/boot/axios';
     import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
 
-    const token = ref(LocalStorage.getItem("auth_token"));
+    const token = ref<string>(LocalStorage.getItem("auth_token"));
+    const expireStr = ref(LocalStorage.getItem("expire"));
+    const router = useRouter();
+
+    const login = async () =>
+    {
+        if(token.value && expireStr.value)
+        {
+            router.replace({
+                name: 'Companies'
+            });
+        } else {
+            router.replace({
+                name: 'Login'
+            });
+
+        };
+            
+    };
     
-    const login = async () => {
-        const res = await api.get('/auth/check', {
-            headers: {
-                'Authorization': `Bearer ${token.value}`
-
-            }
-        });
-
-        console.log('Res: ', res);
-
-        res.data.success !== true ? location = '/companies' : alert(res.data);    }
 </script>

@@ -17,15 +17,17 @@
 </template>
 
 <script setup>
-  import { ref, defineExpose } from 'vue';
+    import { ref, defineExpose } from 'vue';
 
-  const visible = ref(false);
-  const message = ref('');
+    const visible = ref(false);
+    const message = ref('');
 
-  function showError(msg) {
-    message.value = msg || 'Erro desconhecido';
-    visible.value = true;
-  }
+    function showError(msg) 
+    {
+        message.value = msg || 'Erro desconhecido';
+        visible.value = true;
+    };
 
-  defineExpose({ showError });
+    defineExpose({ showError });
+
 </script>

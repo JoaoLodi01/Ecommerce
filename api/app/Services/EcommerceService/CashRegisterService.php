@@ -12,14 +12,14 @@ class CashRegisterService
 
     public function getAll(int $issuer_id)
     {
-        try {
-            return response()->json([
-                'success' => true,
-                'all' => $this->cashRegisterRepository->getAll($issuer_id)
-            ], 200);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+        $cash = $this->cashRegisterRepository->getAll($issuer_id);
+        if(!$cash)
+        {
+            apiError('Cash não encontrado');
+
         }
+        
+        return $cash;
     }
 
     public function findByID(int $id){

@@ -4,23 +4,16 @@ namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PDVRepository;
 use Illuminate\Support\Facades\Log;
+use App\Traits\LogPayMentRepository;
 
 class PDVService
 {
     public function __construct(
-        protected PDVRepository $pdvRepository
+        protected PDVRepository $pdvRepository,
+        protected LogPayMentRepository $logPayMentRepository
 
     ){
         Log::info('Memória usada PDVService::class, __construct, linha 13: ' . memory_get_usage(true));
-    }
-
-    public function returnResponse($th){
-        return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
-        ], 400);
     }
 
     public function getAll(int $issuer_id){
@@ -33,7 +26,7 @@ class PDVService
             return response()->json(true);
 
         } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+            
         }
     }
 
@@ -60,45 +53,41 @@ class PDVService
     }
 
     public function finalizeSale(
-        array $paymentsValues, 
-        string $typeOperation, 
-        int $pdvID, 
-        int $issuerID,
-        int $userID,
-    )
+            array $paymentsValues, 
+            string $typeOperation, 
+            int $pdvID, 
+            int $issuerID,
+            int $userID,
+        )
     {
-        $total = 0; // Total pago
-        $payMentsID = []; // ID das espécies de pagamento
+        $payMentsID = array_filter($paymentsValues);
+        $total = array_sum($payMentsID);
 
-        $filltred = array_filter($paymentsValues);
-
-        foreach ($filltred as $key => $value) {
-            $total += (float) $value;
-            $payMentsID[] = $key + 1;
-            
-        }
-
-        Log::info('PDVService.php, class:finalizeSale, $total: ' . $total);
         $pdv = $this->findSavePDVByID($pdvID, $issuerID);
 
-        if($total < $pdv->net_value)
+        if($pdv)
         {
-            Log::info('Vai lançar o InsufficientPayment');
-            throw new \App\Exceptions\InsufficientPayment("Pagamento insuficiente");
+            if($total >= $pdv->net_value)
+            {
+                $finallyPDV = $this->pdvRepository->finalizeSale(
+                    $typeOperation, 
+                    $pdvID, 
+                    $paymentsValues, 
+                    $payMentsID, 
+                    $total,
+                    $issuerID,
+                    $userID,
+                );
+                
+                return $finallyPDV;
+
+            } else {
+                throw new \App\Exceptions\PDVExceptions\InsufficientPayment("Pagamento insuficiente");
+            }
 
         } else {
-            $finallyPDV = $this->pdvRepository->finalizeSale(
-                $typeOperation, 
-                $pdvID, 
-                $paymentsValues, 
-                $payMentsID, 
-                $total,
-                $issuerID,
-                $userID,
-            );
-            
-            return $finallyPDV;
-        }
+            // PDV não encontrado
 
+        }
     }
 }

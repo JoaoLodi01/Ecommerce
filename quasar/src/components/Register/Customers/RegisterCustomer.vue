@@ -1,22 +1,20 @@
 <template>
     <div
-        class="border border-black bg-white mt-2 p-6 shadow-md rounded"
+        class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
             'w-screen': props.widthScreen < 1366,
-            'ml-36 form-customer': props.widthScreen > 1366
+            'ml-32 form-customer': props.widthScreen > 1366
         }"
 
     >
-        <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastro de Cliente</h2>
         <q-form
             @submit="submitForm()"
-            @reset="onReset"
 
         >
             <div class="border border-black p-5 bg-white rounded-md mb-5">
                 <h4 class="ml-1.5 border-b w-max mb-2">Dados cadastrais</h4>
                 <q-select 
-                    v-model="type" 
+                    v-model="customerData.customer_type" 
                     :options="options" 
                     label="Tipo de cadastro *" 
                     filled 
@@ -25,7 +23,7 @@
                     
                 />
 
-                <div v-if="type === 'Física'">
+                <div v-if="customerData.customer_type === 'Física'">
                     <q-input 
                         v-model="customerData.trade_name" 
                         type="text" 
@@ -45,12 +43,17 @@
                         label="CPF"
                         color="grey-7"
                         class="ml-2"
-                        :rules="[ val => !!val || 'O nome fantasia do cliente é obrigatório']"
+                        :rules="[
+                            val => {
+                                if(!config.validateCpf) return true;
+                                return !val || validateCPF(val) || 'CPF inválido' 
+                            }
+                        ]"
                         
                     />  
 
                 </div>
-                <div v-else>
+                <div v-if="customerData.customer_type === 'Júridica'">
                     <q-input 
                         v-model="customerData.company_name" 
                         type="text" 
@@ -90,6 +93,7 @@
                 <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
                 <q-input 
                     v-model="customerData.cep"
+                    @update:model-value="getDataCEP()"
                     v-bind:mask="'#####-###'"
                     type="text" 
                     label="CEP"
@@ -122,17 +126,7 @@
             </div>
             
             <div class="border border-black p-5 bg-white rounded-md mb-5">
-                <h4 class="ml-1.5 border-b w-max mb-2">Endereço</h4>
-                <q-input 
-                    v-model="customerData.email" 
-                    type="email" 
-                    label="E-mail"
-                    maxlength="120" 
-                    color="grey-7"
-                    class="ml-2"
-
-                />
-                
+                <h4 class="ml-1.5 border-b w-max mb-2">Outros dados</h4>
                 <q-input 
                     v-model="customerData.phone" 
                     type="tel"
@@ -193,86 +187,154 @@
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
-    import { ref, onBeforeUnmount, defineEmits, defineProps } from 'vue';
-    import axios from 'axios'
+    import { ref, defineEmits, defineProps, onMounted, reactive } from 'vue';
+    import getCNPJData from 'src/services/getData/getCNPJData';
+    import getCEPData from 'src/services/getData/getCEPData';
+    import validateCPF from 'src/utils/validateCPF';
+    import camelcaseKeys from 'camelcase-keys';
 
-    let $q = useQuasar();
-    let timer: any;
+    interface IConfigCustomer
+    {
+        validateAddres: boolean,
+        validateCnpj: boolean,
+        validateCpf: boolean
+        
+    };
 
-    let customerData = ref<IRegisterCustomer>({
+    const props = defineProps<{
+        widthScreen: number
+
+    }>();
+
+    const emits = defineEmits<{
+        (e: 'close', value: boolean)
+
+    }>();
+
+    const $q = useQuasar();
+
+    const customerData = ref<IRegisterCustomer>({
+        customer_type: '',
         company_name: '',
         trade_name: '',
-        cpf: '',
-        cnpj: '',
+        cpf: null,
+        cnpj: null,
         cep: '',
         address: '',
-        number: '',
-        email: '',
+        number: 0,
         is_customer: false,
         is_driver: false,
         is_supplier: false,
         phone: '',
         issuer_id: LocalStorage.getItem("issuer_id")
-
+        
     });
-
-    let type = ref<string>('');
     
     const options = ref<string[]>([
         'Física',
         'Júridica'
+
     ]);
 
-    const showLoading = () =>
-    {
-        $q.loading.show({
-            message: 'Criando cliente ...'
+    const config = ref<IConfigCustomer>({
+        validateAddres: false,
+        validateCnpj: false,
+        validateCpf: false
 
-        });
-
-        timer = setTimeout(() => {
-            $q.loading.hide()
-            timer = void 0
-        }, 3000)
-    }
-
-    const hideLoanding = () =>
-    {
-        onBeforeUnmount(() => { 
-            if(timer !== void 0)
-            {
-                clearTimeout(timer); 
-                $q.loading.hide();
-            };
-        });
-    }
+    });
 
     const submitForm = async () =>
     {
-        const customer = customerData.value;
-        customer.cpf.replace(/\D/g, '');
-        customer.cnpj.replace(/\D/g, '');
-        customer.cep.replace(/\D/g, '');
-
         const res = await api.post(`/customers/create`, customerData.value);
 
         if(res.data.success)
         {
-            alert(`Cliente: ${customerData.value.company_name}, cadastrado com sucesso!`)
-            emits('close', false);
-        }
-
+            alert(`Cliente: ${customerData.value.company_name ?? customerData.value.trade_name}, cadastrado com sucesso!`);
+            emits('close', true);
+        };
     };
 
     const getDataCNPJ = async () => 
     {
-        const cnpj = customerData.value.cnpj.replace(/\D/g, '');
-        if(cnpj.length === 14)
+        const formatedCNPJ = customerData.value.cnpj.replace(/\D/g, '');
+        if(formatedCNPJ.length === 14)
         {
-            const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`);
-            customerData.value.company_name = data.data.alias;
-        };
+            const res = await getCNPJData(formatedCNPJ);
+            
+            if(typeof res === 'string' || Array.isArray(res))
+            {
+                $q.notify({
+                    type: 'negative',
+                    message: res || res[0],
+                    timeout: 3500 ,
+                    position: 'top'
 
+                });
+
+                return;   
+
+            };
+
+            customerData.value = {
+                company_name: res.alias,
+                customer_type: customerData.value.customer_type,
+                trade_name: customerData.value.trade_name, // Mantem padrão
+                cpf: customerData.value.cpf, // Mantem padrão
+                cnpj: customerData.value.cnpj,
+                cep: res.cep,
+                address: res.address,
+                number: res.number, 
+                is_customer: customerData.value.is_customer, // Mantem padrão
+                is_driver: customerData.value.is_driver, // Mantem padrão
+                is_supplier: customerData.value.is_supplier, // Mantem padrão
+                phone: customerData.value.phone, // Mantem padrão
+                issuer_id: customerData.value.issuer_id // Mantem padrão
+                
+            };  
+
+            return;
+        } 
+    };
+
+    const getDataCEP = async () => 
+    {
+        const fomratedCEP = customerData.value.cep.replace(/\D/g, '');
+        if(fomratedCEP.length === 8)
+        {
+            const res = await getCEPData(fomratedCEP);
+            console.log('Res: ', res);
+
+            if(typeof res === 'string')
+            {
+                $q.notify({
+                    type: 'negative',
+                    message: res || res[0],
+                    timeout: 3500 ,
+                    position: 'top'
+
+                });                
+
+                return;
+            };
+
+            customerData.value = {
+                company_name: customerData.value.company_name, // Mantem padrão
+                customer_type: customerData.value.customer_type, // Mantem padrão
+                trade_name: customerData.value.trade_name, // Mantem padrão
+                cpf: customerData.value.cpf, // Mantem padrão
+                cnpj: customerData.value.cnpj, // Mantem padrão
+                cep: customerData.value.cep,
+                address: res.addres,
+                number: customerData.value.number, // Mantem padrão
+                is_customer: customerData.value.is_customer, // Mantem padrão
+                is_driver: customerData.value.is_driver, // Mantem padrão
+                is_supplier: customerData.value.is_supplier, // Mantem padrão
+                phone: customerData.value.phone, // Mantem padrão
+                issuer_id: customerData.value.issuer_id // Mantem padrão
+
+            };
+            return;  
+        };
     };
 
     const onReset = () => 
@@ -284,25 +346,35 @@
             cnpj: '',
             cep: '',
             address: '',
-            number: '',
-            email: '',
+            number: 0,
             is_customer: false,
             is_driver: false,
             is_supplier: false,
             phone: '',
-            issuer_id: 0
+            issuer_id: customerData.value.issuer_id
+
         };
-    }
+    };
 
+    const returnValue = (value: boolean | number ) => { return value === 1 ? true : false };
+    
+    const getConfig = async () =>
+    {
+        const res = await api.get(`/configs/all-configs/${customerData.value.issuer_id}`);
+        const data: IConfigCustomer = camelcaseKeys(res.data.data.customers, { deep: true });
 
-    const props = defineProps<{
-        widthScreen: number
-    }>();
+        config.value.validateAddres = returnValue(data.validateAddres);
+        config.value.validateCnpj = returnValue(data.validateCnpj);
+        config.value.validateCpf = returnValue(data.validateCpf);
 
-    const emits = defineEmits<{
-        (e: 'close', value: boolean)
+        console.log(config);
+        
+    };
 
-    }>();
+    onMounted(() => {
+        getConfig();
+
+    });
 
 </script>
 
@@ -311,4 +383,19 @@
         width: 150vh;
     }
     
+    .slide-up-enter-from {
+        opacity: 0;
+        transform: translateY(-50px);
+
+    }
+
+    .slide-up-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+        
+    }
+
+    .slide-up-enter-active {
+        transition: all 0.5s ease-out;
+    }
 </style>

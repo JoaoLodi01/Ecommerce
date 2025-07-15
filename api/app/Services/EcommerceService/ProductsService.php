@@ -2,29 +2,34 @@
 
 namespace App\Services\EcommerceService;
 
-use App\Exceptions\ProductNotFound;
+use App\Exceptions\IssuerExceptions\IssuerNotFound;
 use App\Repositories\Eloquent\EcommerceEloquent\GroupRepository;
 use App\Repositories\Eloquent\EcommerceEloquent\ProductsRepository;
+use App\Exceptions\ProductsExceptions\ProductNotFound;
+use App\Jobs\ProductsJobs\ImportProductsJob;
+use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
+use Carbon\Carbon;
+use Exception;
 use Illuminate\Support\Facades\Log;
 
 class ProductsService
 {
     public function __construct(
         protected ProductsRepository $productsRepository,
-        protected GroupRepository $groupRepository
-    )
-    {}
+        protected GroupRepository $groupRepository,
+        protected RegisterIssuerRepository $registerIssuerRepository
+    ) {}
     
     public function getAll(int $issuer_id){
-        $all = $this->productsRepository->getAll($issuer_id);
-        try {
-            return response()->json([
-                'success' => true,
-                'all' => $all
-            ], 200);
-        } catch (\Throwable $th) {
-            
+        $issuer = $this->registerIssuerRepository->find($issuer_id);
+
+        if(!$issuer)
+        {
+            throw new IssuerNotFound("Emitente não encontrado faça login novamente");
+
         }
+
+        return $this->productsRepository->getAll($issuer_id);;
     }
 
     public function search(array $data)
@@ -33,50 +38,46 @@ class ProductsService
 
         if(!$product)
         {
-            throw new \App\Exceptions\ProductNotFound("Produto não encontrado");
+            throw new ProductNotFound("Produto não encontrado");
 
         }
     
         return $product;
     }
 
-    public function findByID(int $id){
-        return response()->json([
-            'success' => true,
-            'product' => $this->productsRepository->findByID($id)
-        ]);
+    public function findByID(int $id, int $productCod){
+        $product = $this->productsRepository->findByID($id, $productCod);
+        return $product;
+
+    }
+    
+    public function findLastCode(int $id, string|int $barCode)
+    {
+        $product = $this->productsRepository->findLastCode($id);
+        if($product->barcode_internal === $barCode)
+        {
+            throw new Exception('Código interno já cadastrado');
+            
+        };
+
+        return $product;
+
     }
     
     public function create(array $data){
-        try {
-           /* Log::info("Vai chamar checkGTIN");
-            $this->checkGTIN($data);*/
-            $product = $this->productsRepository->create($data);
-            return response()->json([
-                'success' => true,
-                'product' => $product 
-            ], 201);
-
-        } catch (\Throwable $th) {
-            
-        }
+        /* Log::info("Vai chamar checkGTIN");
+        $this->checkGTIN($data);*/
+        $product = $this->productsRepository->create($data);
+        return $product;
     }
 
     public function update(array $data, int $id){
-        try {
-            $product = $this->productsRepository->update($data, $id);
-            return response()->json([
-                'success' => true,
-                'product' => $product
-            ], 200);
-
-        } catch (\Throwable $th) {
-            
-        }
+        $product = $this->productsRepository->update($data, $id);
+        return $product;
     }
 
-    public function active(int $id){
-        $product = $this->productsRepository->active($id);
+    public function active(int $id, int $productCod){
+        $product = $this->productsRepository->active($id, $productCod);
 
         if(!$product)
         {
@@ -86,8 +87,8 @@ class ProductsService
         return $product;
     }
 
-    public function delete(int $id){
-        $product = $this->productsRepository->delete($id);
+    public function delete(int $id, int $productCod){
+        $product = $this->productsRepository->delete($id, $productCod);
 
         if(!$product)
         {
@@ -139,5 +140,33 @@ class ProductsService
     public function allGroup()
     {
         return $this->groupRepository->all();
+    }
+
+    public function importProducts(object $file, int $issuerID)
+    {
+        Log::debug('Caiu no import service');
+        $fileName = $file->getClientOriginalName();
+        $date = new Carbon();
+        $directory = storage_path("files/{$issuerID}/products/" . $date->format('Y-m-d'));
+
+        if(!is_dir($directory))
+        {
+            mkdir($directory, 0755, true);
+
+        }
+
+        $file->move($directory, $fileName);
+        
+        //$path = public_path('files/' . $file->getClientOriginalName());
+        //unlink($path);
+        $filePath = $directory . DIRECTORY_SEPARATOR . $fileName;
+        $importJob = ImportProductsJob::dispatch($filePath, $issuerID);
+        
+        if(!$importJob)
+        {
+            Log::warning('Erro no Job');
+            return;
+        };
+        return $directory . DIRECTORY_SEPARATOR . $fileName;
     }
 }

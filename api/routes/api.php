@@ -26,41 +26,50 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
-use App\Http\Controllers\Exceptions\ExceptionsController;
+
 use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\TributsController\TributsController;
+
 use App\Http\Controllers\RegisterControllers\{
     RegisterOwnerController,
     RegisterIssuerController
 };
 
 use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
+
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 Route::prefix('v1')->group( function (){
     Route::prefix('auth')->group( function (){
         Route::post('/owner', [AuthController::class, 'authOwner']);
         Route::post('/auth', [AuthController::class, 'auth']);
         Route::post('/logout', [AuthController::class, 'logout']);
-        Route::get('/check', [AuthController::class, 'checkLogin']);
-        
+        Route::get('/check', [AuthController::class, 'checkLogin'])->middleware('auth:sanctum');;
     }); 
     
     Route::middleware('auth:sanctum')->group(function (){        
         Route::prefix('ecommerce')->group( function (){
             Route::prefix('products')->group( function(){
+                Route::get('/download/default-file', [ProductsController::class , 'downloadDefaultFile']);
+                Route::get('/last-bar_cod/{id}/{barCode}', [ProductsController::class, 'findLastCode']);
                 Route::get('/all/{issuer_id}', [ProductsController::class, 'getAll']);
                 Route::get('/all-groups/{issuer_id}', [ProductsController::class, 'allGroup']);
                 Route::post('/search', [ProductsController::class, 'search']);
                 Route::post('/create', [ProductsController::class, 'create']);
-                Route::get('/{id}', [ProductsController::class, 'findByID']);
+                Route::get('/{id}/{productCod}', [ProductsController::class, 'findByID']);
                 Route::get('/imagem/{id}', [ProductsController::class, 'findImage']);
-                Route::put('/{id}', [ProductsController::class, 'update']);
-                Route::put('/{id}/active', [ProductsController::class, 'active']);
-                Route::put('/{id}/deactivate', [ProductsController::class, 'delete']);
-        
+                Route::put('/update/{id}', [ProductsController::class, 'update']);
+                Route::put('/active/{id}/{productCod}', [ProductsController::class, 'active']);
+                Route::put('/disable/{id}/{productCod}', [ProductsController::class, 'delete']);
+                Route::post('/import-products/{id}', [ProductsController::class, 'importProducts']);
+                
+            });
+
+            Route::prefix('last-document')->group(function(){
+                Route::get('/cash/{issuer_id}');
+                Route::get('/receive/{issuer_id}');
+                Route::get('/pay/{issuer_id}');
+                Route::get('/bank/{issuer_id}');
             });
 
             Route::prefix('tributs')->group( function (){
@@ -82,7 +91,7 @@ Route::prefix('v1')->group( function (){
             // Receive routes
             Route::prefix('receive')->group( function(){
                 Route::get('/all/{issuer_id}', [ReceiveController::class, 'getAll']);
-                Route::post('/create', [ReceiveController::class, 'store']);
+                Route::post('/create', [ReceiveController::class, 'create']);
                 Route::get('/{id}', [ReceiveController::class, 'findByID']);
                 Route::put('/{id}', [ReceiveController::class, 'update']);
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
@@ -137,11 +146,19 @@ Route::prefix('v1')->group( function (){
             });
         });
             
-        Route::prefix('config')->group( function () {
+        Route::prefix('configs')->group(function () {
             Route::get('/all-configs/{issuer_id}', [ConfigController::class, 'getConfigs']);
 
-            Route::prefix('config-pdv')->group( function() {
+            Route::prefix('pdv')->group(function() {
                 Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updatePDV']);
+            });
+
+            Route::prefix('customer')->group(function() {
+                Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateCustomer']);
+            });
+
+            Route::prefix('color')->group(function() {
+                Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateColor']);
             });
         });
 
@@ -152,7 +169,7 @@ Route::prefix('v1')->group( function (){
             Route::post('/create', [CustomerController::class, 'create']);
             Route::get('/{id}', [CustomerController::class, 'findByID']);
             Route::put('/{id}', [CustomerController::class, 'update']);
-            Route::delete('/{id}/deactivate', [CustomerController::class, 'delete']); // desactive
+            Route::put('/{id}/disable', [CustomerController::class, 'delete']); // desactive
             Route::put('/{id}/active', [CustomerController::class, 'active']);
 
         });
@@ -188,6 +205,9 @@ Route::prefix('v1')->group( function (){
             Route::get('/{id}', [RegisterIssuerController::class, 'findByID']);
             Route::get('/companie/{id}', [RegisterIssuerController::class, 'find']);
             Route::put('/complete-register/{id}', [RegisterIssuerController::class, 'completeRegister']);
+            Route::put('/disable-company/{id}', [RegisterIssuerController::class, 'disableCompany']);
+            Route::put('/active-company/{id}', [RegisterIssuerController::class, 'activeCompany']);
+
         });
         
         Route::prefix('first-steps')->group(function (){

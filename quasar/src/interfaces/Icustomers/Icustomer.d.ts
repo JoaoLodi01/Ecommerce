@@ -1,6 +1,6 @@
 interface ICustomer
 {
-    readonly customer_cod: number,
+    customer_cod: number,
     company_name: string,
     trade_name: string,
     cpf: string,

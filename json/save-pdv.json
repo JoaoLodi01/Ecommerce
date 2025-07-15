@@ -1,0 +1,12 @@
+{
+    "issuer_id": 1,
+    "description": "Venda Nota Manual N°",
+    
+    "user_id": 1,
+    "customer_id": 1,
+    "total": 100,
+    "sub_total": 100,
+    "addition": 100,
+    "discount": 100,
+    "is_nfce_nm": "nfce"
+}

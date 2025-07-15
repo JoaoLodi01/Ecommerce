@@ -1,25 +1,35 @@
 <template>
-    <QRCode
+    <div 
         v-if="showQRCode"
-        :total_amount="totalPaymentPIX"
-        :issuer_id="issuerID"
-        @close="handlePIX"
-        @discount=""
-        class="relative left-[20rem] top-5 z-50 w-[20rem]"
-        
-    />
+        class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
+    >
+        <QRCode
+            :total_amount="totalPaymentPIX"
+            :issuer_id="issuerID"
+            @close="handlePIX"
+            @discount="discountTotalByPIX($event)"
+            class="relative left-[20rem] top-5 z-50 w-[20rem]"
+            
+        />
+    </div>
 
-    <Installments
+    <div 
         v-if="showInstallments"
-        :total_amount="totalOperation"
-        @installments-generated="handleInstallments"
-        class="relative left-[20rem] top-16 z-50 bottom-44 w-[20rem]"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
+    >
+        <RegisterReceive
+            :total_amount="totalOperation"
+            :width-screen="witdhScreen"
+            :pdv="true"
+            class="border border-gray-500 rounded-md"    
+        />
 
-    />
+    </div>
     
     <q-card 
         class="absolute w-[100vh] left-[18rem] mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded"
-        v-if="!showQRCode && !showInstallments"
+        v-if="!showQRCode && !showInstallments && showPayMentForms"
+
     >
         <q-card-section>
             <div class="text-h6">Formas de Pagamento</div>
@@ -108,6 +118,7 @@
 
                 </div>
             </q-form>
+    
         </q-card-section>
     
         <q-separator />
@@ -137,18 +148,25 @@
         </q-card-section>
 
     </q-card>
+    <div v-if="!showInstallments && !showPayMentForms && !showQRCode">
+        <LoandingPage
+            @show-page="showPayMentForms = $event"
+            :text="'Carregando formas de pagamento ...'"
+        />
+    </div>
 </template>
 
 <script setup lang="ts">
     import { api } from "src/boot/axios";
     import { ref, defineProps, defineEmits, onMounted, computed, warn } from 'vue';
     import { LocalStorage, useQuasar  } from "quasar";
-    import Installments from "./PDV/Installments.vue";
-    import QRCode from "./PDV/QRCode/QRCode.vue";
+    import RegisterReceive from './Register/Financial/RegisterReceive.vue';
+    import QRCode from './PDV/QRCode/QRCode.vue';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
 
     const $q = useQuasar();
-    let timer: unknown;
     
+    let showPayMentForms = ref<boolean>(false);
     let generatedInstallments = ref<boolean>(false);
     let message = ref<string>('');
     let showInstallments = ref<boolean>(false);
@@ -174,7 +192,7 @@
     const emits = defineEmits<{
         (e: 'close', value: boolean),
         (e: 'resetTotal', value: number),
-        (e: 'update:selectProducts', value: boolean),
+        (e: 'update:selectProducts', value: true),
         (e: 'resetPDVID', value: number)
         
     }>();
@@ -200,23 +218,6 @@
         
     }
 
-    const showLoading = () =>
-    {
-        $q.loading.show({
-            message: 'Conferindo pagamento  ...'
-        });
-
-        timer = setTimeout(() => {
-            $q.loading.hide()
-            timer = void 0
-
-        }, 3000);
-    };
-
-    const hideLoading = () => {
-        $q.loading.hide();
-    }
-
     const handleInstallments = (installments) =>
     {
         installments = installments;
@@ -226,10 +227,8 @@
 
     };
 
-    const confirmPayMent = () =>
-    {
-        showLoading();
-        
+    const confirmPayMent = async () =>
+    {           
         paymentsValues.value.map((pay, i) => {
             const species = paymentsForms.value[i];
 
@@ -239,8 +238,9 @@
                 
             };
 
-            if(species.pix_key !== '' && species.payments_form_type === 'PIX')
+            if(species.pix_key !== null && species.payments_form_type === 'PIX')
             {
+                console.log('Tem PIX');
                 totalPaymentPIX.value = formatNumber(pay);
                 showQRCode.value = true;
                 
@@ -254,24 +254,41 @@
 
         let total = totalNotFormated.replace(',', '.') || 0;
 
-        if(total >= props.totalOperation)
+        if(total)
         {
-            hideLoading();
+            console.log('Total pago: ', paymentsValues.value);
+            console.log(`Teve pix ou receber? ${showInstallments.value} | ${showQRCode.value}`);
 
-            console.log('Total pago: ', total);
-
-        } else {
-            console.warn(`Caiu no else: ${total} - ${props.totalOperation}`);
             
+            const res = await api.put('/ecommerce/pdv/finalize-sale', {
+                issuer_id: issuerID.value,
+                user_id: user_id.value,
+                type_operation: props.typeOperation,
+                change: 0,
+                payments_values: paymentsValues.value.map(v => parseFloat(v.replace(',', '.'))),
+                pdv_id: props.pdvID,
+                installments: null
+
+            });
+
+            console.log('Resultado da venda:', res.data);
+            if(res.data.success)
+            {
+                $q.notify({
+                    color: 'green',
+                    message: res.data.data,
+                    timeout: 2000,
+                    position: 'top'
+
+                });
+
+                //finallySale();
+            };
+            
+        } else {
+            //console.log('Total a ser pago: ', props.totalOperation - total);
         };
     }; // Vai conferir os valores pagos e gerenciar o que precisa ser feito, PIX ou receber...
-
-    const getPayments = async () => 
-    {
-        const res = await api.get(`/species/all/${issuerID.value}`);
-        paymentsForms.value = res.data.all
-        
-    }; // Puxa as espécies de pagamento;
 
     const handlePIX = () =>
     {
@@ -282,16 +299,11 @@
 
     const discountTotalByPIX = (event: number) =>
     {
-        
+        let totalOperation = props.totalOperation;
+        totalOperation -= event;
 
     };
     
-    const cancelOperation = () =>
-    {
-        
-
-    };
-
     const calculateValueInformed = computed(() =>
     {
         let total = paymentsValues.value.reduce((sum, value) => 
@@ -307,10 +319,33 @@
 
     }); 
 
+    const finallySale = () =>
+    {
+        emits("close", true);
+        emits("resetPDVID", 0);
+        emits('resetTotal', 0);
+        emits('update:selectProducts', true);
+    };
+
+    const cancelOperation = () =>
+    {
+        emits("close", true);
+        emits("resetPDVID", null);
+        emits('resetTotal', 0);
+    
+    };
+
+    const getPayments = async () =>
+    {
+        const res = await api.get(`/species/all/${issuerID.value}`);
+        paymentsForms.value = res.data.all // Chama as formas de pagamento;
+
+    };
+
     onMounted(() => {
         console.log('Total a ser pago: ', props.totalOperation);
         getPayments();
-
+        
     })
 
     /*
@@ -391,7 +426,7 @@
                 if(response_nfce.data.success)
                 {
                     this.cancelOperation()
-                    this.$emit('update:selectProducts', []);
+                    emits('update:selectProducts', []);
                     LocalStorage.removeItem("pdvID");
 
                 } else {
@@ -424,7 +459,7 @@
                     if(response_nm.data.success)
                     {
                         this.cancelOperation()
-                        this.$emit('update:selectProducts', []);
+                        emits('update:selectProducts', []);
                         LocalStorage.removeItem("pdvID")
                         console.log(response_nm.data);    
                     
@@ -501,14 +536,14 @@
         },
 
         cancelOperation(){            
-            this.$emit("close")
-            this.$emit("resetPDVID", null)
-            this.$emit('resetTotal', 0);
+            emits("close")
+            emits("resetPDVID", null)
+            emits('resetTotal', 0);
    
         },
 
         closeOperation(){
-            this.$emit("close")
+            emits("close")
             
         },
     },

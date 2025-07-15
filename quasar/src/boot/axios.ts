@@ -52,26 +52,31 @@ export default defineBoot(({ app, router }) => {
         '/auth/check',
         '/owner'
       ];
-
+      
       // Corrigido: verifica se a URL da requisição é pública
       const requestUrl = error.config?.url || '';
       const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
-
-      if(error.response?.status === 401 && !isPublic)
+      
+      if(error.response.status == 401 && !isPublic)
       {
+        console.log('Vai pro login');
         const msg = 'Usuário não autenticado';
+        LocalStorage.remove("issuer_id");
+        LocalStorage.remove("auth_token");
         router.replace({ path: '/login' });
-
+        
         emitter.emit('global-error', msg);
         return Promise.reject(error);
+
       } else {
+        console.warn(error.response.data.status === 401 ? 'Deveria ir pro login' : 'aaa');
         const msg =
           error.response?.data?.message ||
           error.response?.data?.errorMessage ||
           error.message ||
           'Erro inesperado na resposta da API';
           emitter.emit('global-error', msg);
-          return Promise.reject(error);
+          return Promise.reject(error); 
 
       };
     }

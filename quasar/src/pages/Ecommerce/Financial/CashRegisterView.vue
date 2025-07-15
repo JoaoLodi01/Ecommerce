@@ -3,63 +3,81 @@
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-semibold">Caixa</h2>
             <div class="flex space-x-4">
-                <q-btn class="bg-blue-600 text-white p-2 rounded-lg">
+                <q-btn 
+                    class="p-2 rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                >
+
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
                     </svg>
                 </q-btn>
 
                 <q-btn
-                    class="bg-blue-600 text-white p-1 mr-5 rounded-lg"
+                    class="p-1 mr-5 rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                     @click="showRegister()"
                     label="Cadastrar"
                 />
 
                 <q-btn
-                    class="bg-blue-600 text-white p-1 mr-5 rounded-lg"
+                    class="p-1 mr-5 rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                     @click="getRegister()"
                     label="Atualizar caixa"
                 />
+                
+            </div>
+        </div>
+        
+        <div class="filterDate inline-flex w-max">
+            <div class="flex mb-6 p-4 border border-gray-300 rounded-lg ">
+                <q-input
+                    class="mr-10 cursor-text"
+                    type="date"
+                    v-model="startDate"
+                    label="Data Inicial"
+                />
+
+                <q-input
+                    class="cursor-pointer"
+                    type="date"
+                    v-model="endDate"
+                    label="Data Final"
+                />
+
+                <q-btn
+                    class="ml-5 h-max mb-auto mt-auto rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                    label="Filtrar"
+                    @click="dateSearch()"
+                />
+            </div>
+
+            <div class="flex">
+                <div class="">
+                    <span class="h-2 w-2 bg-red-600 mr-2"></span>
+                    <span class="h-2 w-2 bg-red-600"></span>
+                </div>
             </div>
         </div>
 
-        <div class="filterDate flex justify-start mb-6 p-4 border border-gray-300 rounded-lg w-max">
-            <q-input
-                class="mr-10 cursor-text"
-                type="date"
-                @keydown="dateSearch()"
-                v-model="startDate"
-                label="Data Inicial"
-            />
-
-            <q-input
-                class="cursor-pointer"
-                @keydown="dateSearch()"
-                type="date"
-                v-model="endDate"
-                label="Data Final"
-            />
-
-            <q-btn
-                class="bg-blue-600 text-white ml-5 h-max mb-auto mt-auto rounded-lg"
-                label="Filtrar"
-                @click="dateSearch()"
-            />
-        </div>
-
         <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
-            <div><p>Total de entrada: <span class="font-semibold">R${{ input_total }}</span></p></div>
+            <div><p>Total de entrada: <span class="font-semibold">R${{ inputTotal }}</span></p></div>
 
-            <div><p>Total de saída: <span class="font-semibold">R${{ output_total }}</span></p></div>
+            <div><p>Total de saída: <span class="font-semibold">R${{ outputTotal }}</span></p></div>
 
             <div><p>Saldo total: <span class="font-semibold">R${{ total }}</span></p></div>
             
         </div>
 
-        <div class="cash-register-grid relative overflow-y-auto border border-black rounded-lg shadow-lg">
+        <div class="cash-register-grid relative overflow-y-auto border rounded-lg shadow-lg">
             <table class="table-auto border-collapse border border-gray-300 bg-white ">
                 <thead class="font-semibold sticky top-0 z-10">
-                    <tr class="bg-blue-600 text-white">
+                    <tr 
+                        class="text-white"
+                        :style="`background-color: ${painelColor}; color: ${textColor}}`"
+                    >
                         <th scope="col" class="text-center px-6 py-3">Código</th>
                         <th scope="col" class="text-center px-6 py-3">Documento</th>
                         <th scope="col" class="px-6 py-3">Descrição</th>
@@ -101,7 +119,7 @@
                         </span>
                         </td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">
-                            <q-btn @click="transferRegister(register)" class="text-blue-600 hover:text-blue-100">
+                            <q-btn @click="transferRegister()" class="text-blue-600 hover:text-blue-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" class="w-6 h-6 mx-auto">
@@ -135,114 +153,75 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
-    import { onBeforeUnmount } from "vue";
+    import { ref, onMounted } from "vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     import RegisterCash from "src/components/Register/Financial/RegisterCash.vue";
     import { LocalStorage } from 'quasar';
+    
     dayjs.extend(isBetween);
 
-    export default {
-        setup(){
-            const $q = useQuasar()
-            let timer
+    const $q = useQuasar()
+    const today = dayjs();
+    const buttonColor = LocalStorage.getItem("buttonColor");
+    const painelColor = LocalStorage.getItem("painelColor");
+    const textColor = LocalStorage.getItem("textColor");
 
-            onBeforeUnmount(() => {
-                if(timer !== void 0){
-                    clearTimeout(timer)
-                    $q.loading.hide()
+    let cashs = ref<ICashBody[]>([]);
+    let withScreen = ref<number>(0);
+    let inputTotal = ref<number>(0);
+    let outputTotal = ref<number>(0);
+    let total = ref<number>(0);
+    let showCashClosing = ref<boolean>(false);
+    let startDate = today.startOf('month').format('YYYY-MM-DD');
+    let endDate = today.endOf('month').format('YYYY-MM-DD');
+    let filteredCashs = [];
 
-                }
+    const getRegister = async () =>
+    {
+        const res = await api.get(`/ecommerce/cash-register/all/${LocalStorage.getItem("issuer_id")}`)
+        const data = res.data.data; /* camelcaseKeys(, { deep: true });*/
+        cashs.value = data;
 
-            })
-            return { 
-                showLoading () {
-                    $q.loading.show({
-                        message: 'Carregando registros do caixa ...'
-                    })
+        cashs.value.map((cash: ICashBody) => {
+            inputTotal.value += Number(cash.input_value);
+            outputTotal.value += Number(cash.output_value);
 
-                    timer = setTimeout(() => {
-                        $q.loading.hide()
-                        timer = void 0
-                    }, 1200)
-                }
-            }
-        },
+        });
 
-        data(){
-            const today = dayjs();
+        total.value = inputTotal.value - outputTotal.value
 
-            return{
-                cashs: [],
-                withScreen: 0,
-                input_total: 0,
-                output_total: 0,
-                total: 0,
-                showCashClosing: false,
-                startDate: today.startOf('month').format('YYYY-MM-DD'),
-                endDate: today.endOf('month').format('YYYY-MM-DD'),
-                filteredCashs: []
-            };
-        },
-
-        methods: {
-            async getRegister(){
-                this.showLoading()
-                try {
-                    const response = await api.get(`/ecommerce/cash-register/all/${LocalStorage.getItem("issuer_id")}`)
-                    this.cashs = response.data.all
-                    console.log(response.data)
-
-                    this.input_total = 0;
-                    this.output_total = 0;
-
-                    this.cashs.forEach(element => {
-                        this.input_total += Number(element.input_value),
-                        this.output_total += Number(element.output_value)
-                    
-                    });
-                    this.total = this.input_total - this.output_total
-
-                } catch (error) {
-                    console.error("Erro ao buscar registros: ", error)
-                    console.error("token ", LocalStorage.getItem("auth_token"))
-                    
-                }
-            },
-
-            dateSearch(){
-                if(this.startDate || this.endDate){
-                    this.filteredCashs = this.cashs.filter(register => {
-                        const registerDate = dayjs(register.created_at);
-                        return registerDate.isBetween(this.startDate, this.endDate, null, '[]')
-                    });
-                    this.cashs = this.filteredCashs;
-                }
-            },
-
-            showRegister(){
-                this.showCashClosing = true
-            },
-
-            closeRegister(event){
-                this.getRegister()
-                this.showCashClosing = event
-            },
-        },
-
-        components: {
-            RegisterCash
-        },
-
-        mounted(){
-            this.getRegister()
-            this.withScreen += screen.width
-
-        }
+        console.log(data);
     };
+
+    const dateSearch = () =>
+    {
+        
+    };
+
+    const showRegister = () => 
+    {
+        showCashClosing.value = true;
+    };
+
+    const closeRegister = (event: boolean) => 
+    {
+        getRegister();
+        showCashClosing.value = event;
+    };
+
+    const transferRegister = () =>
+    {
+
+    }
+
+    onMounted(async () => {
+        await getRegister();
+        withScreen.value = screen.width;
+    });
 </script>
 
 <style scoped>

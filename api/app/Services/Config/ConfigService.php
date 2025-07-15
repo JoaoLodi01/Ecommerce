@@ -4,7 +4,10 @@ namespace App\Services\Config;
 
 use App\Repositories\Eloquent\Config\{
     ConfigHotelRepository,
-    ConfigPDVRepository
+    ConfigCustomersRepository,
+    ConfigPDVRepository,
+    ConfigColorRepository,
+    ConfigProductsRepostiry
 };
 
 class ConfigService
@@ -14,28 +17,47 @@ class ConfigService
     public function __construct(
         protected ConfigHotelRepository $configHotelRepository,
         protected ConfigPDVRepository $configPDVRepository,
+        protected ConfigCustomersRepository $configCustomersRepository,
+        protected ConfigColorRepository $configColorRepository,
+        protected ConfigProductsRepostiry $configProductsRepostiry
 
     ) {}
 
     public function getConfigs(int $issuer_id)
     {
         return [
-            'hotel' => $this->configHotelRepository->getConfigs(),
-            'pdv' => $this->configPDVRepository->getConfigs($issuer_id)
-
+            'hotel' => $this->configHotelRepository->getConfigs($issuer_id),
+            'pdv' => $this->configPDVRepository->getConfigs($issuer_id),
+            'customers' => $this->configCustomersRepository->getConfigs($issuer_id),
+            'color' => $this->configColorRepository->getConfigs($issuer_id),
+            'products' => $this->configProductsRepostiry->getConfigs($issuer_id)
+            
         ];
     }
 
-    public function updateHotel(array $data)
+    public function updateHotel(array $data, int $issuer_id)
     {
-        $config = $this->configHotelRepository->update($data);
+        $config = $this->configHotelRepository->update($data, $issuer_id);
         return $config;
 
     }
 
-    public function updatePDV(array $data)
+    public function updatePDV(array $data, int $id)
     {
-        $config = $this->configPDVRepository->update($data);
+        $config = $this->configPDVRepository->update($data, $id);
         return $config;
+    }
+    
+    public function updateCustomer(array $data, int $issuer_id)
+    {
+        $config = $this->configCustomersRepository->update($data, $issuer_id);
+        return $config;
+    }
+
+    public function updateColor(array $data, int $issuer_id)
+    {
+        $config = $this->configColorRepository->update($data, $issuer_id);
+        return $config;
+
     }
 }

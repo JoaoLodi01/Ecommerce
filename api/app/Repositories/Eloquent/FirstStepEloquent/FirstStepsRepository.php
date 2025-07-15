@@ -4,7 +4,6 @@ namespace App\Repositories\Eloquent\FirstStepEloquent;
 
 use App\Models\Registers\FirstSteps;
 use App\Repositories\Contracts\FirstStepsContract\FirstStepsContract;
-use Illuminate\Support\Facades\Log;
 
 class FirstStepsRepository implements FirstStepsContract
 {

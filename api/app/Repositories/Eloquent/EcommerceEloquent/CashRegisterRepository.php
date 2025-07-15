@@ -12,8 +12,9 @@ class CashRegisterRepository
     public function getAll(int $issuer_id)
     { 
         Log::info('Memória usada CashRegisterRepository::class, getAll: ' . memory_get_usage(true));
-        return CashRegister::where('issuer_id', $issuer_id)->get();
-        
+        $cashRegister =  CashRegister::where('issuer_id', $issuer_id)->get();
+
+        return $cashRegister;
     }
 
     public function findByID(string $params)
@@ -25,6 +26,8 @@ class CashRegisterRepository
     public function create(array $cashRegisters)
     {
         Log::info('INICIOU REGISTRO NO CAIXA');
+
+        /*
         Log::info($cashRegisters);
         Log::info('Buscando emitente: '. $cashRegisters[0]['issuer_id']);
 
@@ -95,10 +98,11 @@ class CashRegisterRepository
                     'seller' => $cashRegisters[0]['seller'] ?? $user->name,
                 ]);
                 
+            Log::info('Terminou de cadastrar' . count($cashRegisters));
             $this->updateCurrentCash($cashRegisters[0]['issuer_id']);
 
         }
-        
+        */   
     }
 
     public function updateCurrentCash(int $issuer_id)
