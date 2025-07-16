@@ -80,13 +80,17 @@ class CustomerRepository
     }
 
     public function findByID(int $id){
+        return Customer::where('customer_code', $id)->first();
+    }
+
+    /*public function findByID(int $id){
         return Customer::with('joinCredit')
                         ->where('customer_code', $id)
                         ->first();
     }
 
     
-    /*return CustomerCredit::join('customers', 'customers.id', 'customer_credits.customer_id')
+    return CustomerCredit::join('customers', 'customers.id', 'customer_credits.customer_id')
                     ->where('customer_id', $id)
                     ->first();*/
 

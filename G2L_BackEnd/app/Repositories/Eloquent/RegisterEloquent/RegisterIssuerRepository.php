@@ -300,4 +300,18 @@ class RegisterIssuerRepository implements RegisterIssuerContract
             PaymentForms::create($payment);
         }
     }
+
+    public function existsCNPJ(int $cnpj): bool
+    {
+        $exists = Issuer::where('cnpj', $cnpj)->first();
+        return $exists ? true : false;
+
+    }
+
+    public function existsCPF(int $cpf): bool
+    {
+        $exists = Issuer::where('cpf', $cpf)->first();
+        return $exists ? true : false;
+
+    }
 }

@@ -45,4 +45,16 @@ class RegisterIssuerController extends Controller
         return apiSuccess('Empresa reativada com sucesso', $this->registerIssuerService->activeCompany($issuerID));
 
     }
+
+    public function existsCNPJ(int $cnpj)
+    {
+        return apiSuccess('CNPJ não cadastrado', $this->registerIssuerService->existsCNPJ($cnpj));
+
+    }
+
+    public function existsCPF(int $cpf)
+    {
+        return apiSuccess('CPF não cadastrado', $this->registerIssuerService->existsCPF($cpf));
+
+    }
 }

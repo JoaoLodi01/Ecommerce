@@ -3,6 +3,7 @@
 namespace App\Services\RegisterService;
 
 use App\Repositories\Eloquent\RegisterEloquent\RegisterIssuerRepository;
+use Exception;
 
 class RegisterIssuerService
 {
@@ -62,5 +63,17 @@ class RegisterIssuerService
     {
         $company = $this->registerIssuerRepository->activeCompany($issuerID);
         return $company;
+    }
+
+    public function existsCNPJ(int $cnpj): bool
+    {
+        $exists = $this->registerIssuerRepository->existsCNPJ($cnpj);
+        return $exists;
+    }
+
+    public function existsCPF(int $cpf): bool
+    {
+        $exists = $this->registerIssuerRepository->existsCPF($cpf);
+        return $exists;
     }
 }

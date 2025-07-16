@@ -37,7 +37,7 @@ class CustomerController extends Controller
     }
 
     public function findByID(int $id){
-        return $this->customerService->findByID($id);
+        return apiSuccess('Cliente encontrado', $this->customerService->findByID($id));
     }
 
     public function update(CustomerRequest $request, int $id){
