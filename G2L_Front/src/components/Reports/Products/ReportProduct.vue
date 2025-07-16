@@ -1,17 +1,12 @@
 <template>
-    <div class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm ">        
+    <div 
+        class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm "
+
+    >
         <div class="bg-white p-12 rounded ">
-            <q-btn 
-                icon="close"
-                class="flex justify-end ml-auto mr-1 -mt-4"
-                color="red"
-                @click="emits('close', true)"
-                
-            />
-            
             <h1 class="border-b w-max text-3xl text-center -mb-8">Geração de relatórios</h1>
 
-            <div class="p-5 mt-5">
+            <!--div class="p-5 mt-5">
                 <div class="flex mt-5">
                     <q-btn 
                         @click="reportProducts('all')" 
@@ -45,7 +40,7 @@
                         
                     </q-btn>
                 </div>
-            </div>
+            </div-->
         </div>
     </div>
 
@@ -58,7 +53,7 @@
 
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
-    import { useQuasar, LocalStorage } from 'quasar';
+    import { useQuasar, LocalStorage, event } from 'quasar';
     import { ref, defineEmits, onMounted } from 'vue';
     import ReportLoanding from 'src/components/Loanding/ReportLoanding.vue';
 
@@ -125,9 +120,21 @@
             
         };  
 
-        onMounted(() => {
+        onMounted(() => {            
+            document.addEventListener('keydown', (event: KeyboardEvent) => {
+                const keyName = event.key;
+
+                console.log(event.key);
+
+                if(keyName === 'Escape')
+                {
+                    emits('close', true);
+                };
+            });
+            
             buttonColor.value = LocalStorage.getItem("buttonColor");
             textColor.value = LocalStorage.getItem("textColor") ?? '#ffffff';
+
         });
     }
 </script>

@@ -62,6 +62,7 @@ export default defineBoot(({ app, router }) => {
       const requestUrl = error.config?.url || '';
       const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
       console.error(error)
+      
       if(!isPublic && error.response.status === 401 )
       {
         console.log('Vai pro login');

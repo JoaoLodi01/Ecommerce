@@ -24,30 +24,35 @@ const routes = [
     name: 'Home',
     component: () => import('src/pages/Home/HomePage.vue')
   },
+  /*{
+    path: '/login',
+    name: 'Login',
+    component: () => import('src/pages/Auth/Login.vue')
+  } OLD LOGIN */,
   {
     path: '/login',
     name: 'Login',
-    component: () => import('src/pages/Login/Login.vue')
+    component: () => import('src/pages/Auth/AuthPage.vue')
   },
   {
     path: '/register-owner',
     name: 'RegisterOwner',
-    component: () => import('src/pages/Login/Register/RegisterOwner.vue')
+    component: () => import('src/pages/Auth/Register/RegisterOwner.vue')
   },
   {
     path: '/register-issuer',
     name: 'RegisterIssuer',
-    component: () => import('src/pages/Login/Register/RegisterIssuer.vue')
+    component: () => import('src/pages/Auth/Register/RegisterIssuer.vue')
   },
   {
     path: '/forgot-password',
     name: 'ForgotPassowrd',
-    component: () => import('src/pages/Login/Forgot/ForgotPassword.vue')
+    component: () => import('src/pages/Auth/Forgot/ForgotPassword.vue')
   },
   {
     path: '/reset-password/:token',
     name: 'FormResetPassword',
-    component: () => import('src/pages/Login/Forgot/FormResetPassword.vue')
+    component: () => import('src/pages/Auth/Forgot/FormResetPassword.vue')
   },
   {
     path: '/companies',

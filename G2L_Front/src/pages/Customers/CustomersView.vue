@@ -6,17 +6,16 @@
         />
 
     </div>
-    
     <div    
         v-if="!_loanding"
         :class="{
-            'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg w-[160vh]': widthScreen > 1366,
+            'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg max-w-[155vh] w-[145vh]': widthScreen > 1366,
             'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
             
         }"  
     >
         <div
-            class="flex justify-between "
+            class="flex justify-between"
 
         >
             <h1 class="text-3xl font-semibold m-5">{{ titleByOperation }}</h1>
@@ -56,7 +55,7 @@
                 title="Opções"
                 class="ml-2"
                 :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
-                @click="openConfig()"
+                @click="showConfig = true"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
@@ -197,6 +196,8 @@
             v-if="showCustomerManagement"
             @close="closeReload($event)"
             :widthScreen="widthScreen"
+            :customer-c-o-d="customerCodSelected"
+            :operation="operation"
             
         />
         
@@ -217,7 +218,6 @@
     import { api } from 'src/boot/axios';
     import { ref, onMounted, watch, reactive } from 'vue';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';    
-    import RegisterCustomer from 'src/components/Register/Customers/RegisterCustomer.vue';
     import CustomerManagement from 'src/components/Register/Customers/CustomerManagement.vue';
     import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
@@ -244,13 +244,11 @@
 
     let showCustomerManagement = ref<boolean>(false);
     let operation = ref<string>('');
-    let titleByOperation = ref<string>('Produtos');
+    let titleByOperation = ref<string>('Clientes');
     let customerCodSelected = ref<number>(0);
 
     let showReportCustomer = ref<boolean>(false);
     let showConfig = ref<boolean>(false);
-    let customerID = ref<number>(0);
-    let customerName = ref<string>('');
     let widthScreen = ref<number>(0);
     
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
@@ -309,54 +307,66 @@
         };
     };
 
-    const openConfig = () => 
-    {
-        showCustomers.value = false;
-        showConfig.value = true;
-
-    };
-
     const closeRegister = () => 
     {
         showCustomers.value = true;
         showReportCustomer.value = false;
+        titleByOperation.value = 'Clientes';
 
     };           
 
     const customerManagement = (action: string, active: number, customerCod: number) =>
     {
         console.log(action);
-        if(active === 1)
+        if(action === 'update')
         {
-            if(action === 'update' && customerCod === 1)
+            console.log('Foi update');
+            if(active !== 1)
+            {
+                $q.notify({
+                    color: 'red-4',
+                    message: 'Impossível alterar cliente desativado!',
+                    timeout: 2000,
+                    position: 'top'
+                
+                });
+                return;
+            };
+
+            if(customerCod === 1)
             {
                 $q.notify({
                     color: 'red-4',
                     message: 'Impossível alterar cliente padrão!',
                     timeout: 2000,
                     position: 'top'
-                    
+                
                 });
-                
-                return;
-
-            } else {
-                operation.value = action;
-                titleByOperation.value = titles[action];
-                customerCodSelected.value = customerCod;
-                
                 return;
             };
-        } else {
-            $q.notify({
-                color: 'red-4',
-                message: 'Impossível alterar cliente desativado!',
-                timeout: 2000,
-                position: 'top'
+
+            if(active === 1)
+            {
+                console.log('Vai abrir o update');
+                operation.value = action;
+                showCustomers.value = false;
+                showCustomerManagement.value = true;
+                titleByOperation.value = titles[action];
+                customerCodSelected.value = customerCod;   
+                return;
                 
-            });
-        };
-    }
+            };
+        } else {
+            console.log('Vai abrir o create');
+            operation.value = action;
+            showCustomers.value = false;
+            showCustomerManagement.value = true;
+            titleByOperation.value = titles[action];
+            customerCodSelected.value = customerCod;  
+            return;
+
+        };        
+    };
 
     const closeReload = async (event: boolean) => 
     {   

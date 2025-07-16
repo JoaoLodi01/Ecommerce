@@ -3,7 +3,7 @@
         class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
             'w-screen': props.widthScreen < 1366,
-            'ml-36 form-customer': props.widthScreen > 1366
+            'ml-20 form-customer': props.widthScreen > 1366
         }"
 
     >
@@ -12,7 +12,7 @@
 
         >
             <div class="border border-black p-5 bg-white rounded-md mb-5">
-                <h4 class="ml-1.5 border-b w-max mb-2">Dados cadastrais</h4>
+                <h4 class="ml-1.5 border-b w-max">Dados cadastrais</h4>
                 <q-select 
                     v-model="customerData.customer_type" 
                     :options="options" 
@@ -179,13 +179,14 @@
                     'ml-2 mt-5': widthScreen <= 1080
                 }"
             >
-                <q-btn type="submit" class="mr-5">
-                    <button>Criar</button>
-                </q-btn>
-                
-                <q-btn @click="onReset()">   
-                    <button>Limpar</button>
-                </q-btn>
+                <q-btn 
+                    type="submit" 
+                    class="mr-5"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                    :label="props.operation === 'update' ? 'Alterar dados do cliente' : 'Cadastrar cliente'"
+                 
+                />
+            
             </div>
         </q-form>
     </div>
@@ -201,10 +202,12 @@
     import { api } from 'src/boot/axios';
     import { LocalStorage, useQuasar } from 'quasar';
     import { ref, defineEmits, defineProps, onMounted, watch } from 'vue';
+    import LoandingPage from 'src/components/Loanding/LoandingPage.vue';    
     import getCNPJData from 'src/services/getData/getCNPJData';
     import getCEPData from 'src/services/getData/getCEPData';
     import validateCPF from 'src/utils/validateCPF';
     import camelcaseKeys from 'camelcase-keys';
+
 
     interface IConfigCustomer
     {
@@ -216,6 +219,7 @@
 
     const props = defineProps<{
         widthScreen: number,
+        operation: string,
         customerCOD?: number
 
     }>();
@@ -257,6 +261,9 @@
 
     });
 
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
+
     let loanding = ref<boolean>(false);
 
     watch(options.value, async(newValue) => 
@@ -267,13 +274,38 @@
 
     const onSubmit = async () =>
     {
-        const res = await api.post(`/customers/create`, customerData.value);
+        loanding.value = true;
+        const isUpdate = props.operation === 'update' ? true : false;
+        console.log(isUpdate)
 
-        if(res.data.success)
+        $q.notify({
+            color: 'green',
+            message: isUpdate ? 'Alterando dados do cliente!' : 'Cadastrando um novo cliente!',
+            position: 'top',
+            timeout: 2000
+
+        });
+
+        const apiURL = `/customers/${isUpdate ? `update/${props.customerCOD}` : 'create'}`
+        
+        const res = isUpdate ? await api.put(apiURL, customerData.value) : await api.post(apiURL, customerData.value);
+        const data = res.data;
+
+        if(data.success)
         {
-            alert(`Cliente: ${customerData.value.company_name ?? customerData.value.trade_name}, cadastrado com sucesso!`);
+            $q.notify({
+                color: 'green',
+                message: isUpdate ? 'Cliente alterando com sucesso!' : 'Cliente cadastrado com sucesso!',
+                position: 'top',
+                timeout: 2000
+
+            });
+
             emits('close', true);
+
         };
+
+        loanding.value = false;
     };
 
     const getDataCNPJ = async () => 
@@ -332,25 +364,6 @@
         };
     };
 
-    const onReset = () => 
-    {
-        customerData.value = {
-            company_name: '',
-            trade_name: '',
-            cpf: '',
-            cnpj: '',
-            cep: '',
-            address: '',
-            number: 0,
-            is_customer: false,
-            is_driver: false,
-            is_supplier: false,
-            phone: '',
-            issuer_id: customerData.value.issuer_id
-
-        };
-    };
-
     const returnValue = (value: boolean | number ) => { return value === 1 ? true : false };
     
     const getConfig = async () =>
@@ -361,12 +374,46 @@
         config.value.validateAddres = returnValue(data.validateAddres);
         config.value.validateCnpj = returnValue(data.validateCnpj);
         config.value.validateCpf = returnValue(data.validateCpf);
-
-        console.log(config);
-        
     };
 
-    onMounted(() => {
+    const getCustomerData = async () =>
+    {
+        $q.notify({
+            color: 'green',
+            message: 'Carregando dados ...',
+            position: 'top',
+            timeout: 2000
+
+        });
+
+        const res = await api.get(`/customers/${props.customerCOD}`);
+        const data: IRegisterCustomer = res.data.data;
+
+        if(res.data.success)
+        {
+            customerData.value = {
+                customer_type: data.cnpj !== '' ? 'Física' : 'Júridica',
+                company_name: data.company_name,
+                trade_name: data.trade_name,
+                cpf: data.cpf,
+                cnpj: data.cnpj,
+                address: data.address,
+                cep: data.cep,
+                number: data.number,
+                is_customer: returnValue(data.is_customer),
+                is_driver: returnValue(data.is_driver),
+                is_supplier: returnValue(data.is_supplier),
+                phone: data.phone,
+                issuer_id: data.issuer_id
+
+            };
+        };
+
+        loanding.value = false;
+    };
+
+    onMounted(async () => {
+        props.operation === 'update' ? await getCustomerData() : null;
         getConfig();
 
     });
@@ -375,7 +422,7 @@
 
 <style lang="scss">
     .form-customer {
-        width: 150vh;
+        width: 145vh;
     }
     
     .slide-up-enter-from {

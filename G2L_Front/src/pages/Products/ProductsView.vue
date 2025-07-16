@@ -10,8 +10,8 @@
     <div    
         v-if="!_loanding"
         :class="{
-            'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg w-[160vh]': widthScreen > 1366,
-            'mt-10 ml-4 mr-4 mb-5 p-2 bg-white rounded-lg shadow-lg w-[200vh]': widthScreen <= 1680
+            'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg max-w-[155vh] w-[145vh]': widthScreen > 1366,
+            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
             
         }"  
     >

@@ -13,7 +13,6 @@
                 <div class="flex space-x-10">
                     <span @click="login" class="cursor-pointer hover:text-gray-300">Entrar</span>
 
-                    <router-link class="cursor-pointer hover:text-gray-300" to="/register-owner">Criar conta</router-link>
                 </div>
             </div>
         </header>

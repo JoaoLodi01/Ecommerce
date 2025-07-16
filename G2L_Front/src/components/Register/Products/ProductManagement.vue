@@ -3,7 +3,8 @@
         class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
             'w-screen': props.widthScreen < 1366,
-            'ml-36 form-customer': props.widthScreen > 1366
+            'ml-20 form-product': props.widthScreen > 1366
+
         }"
 
     >
@@ -448,8 +449,6 @@
     const onSubmit = async () =>
     {
         loanding.value = true;
-        console.log('Dados de envio: ', productDetails.value);
-        
         const isUpdate = props.operation === 'update' ? true : false;
 
         $q.notify({
@@ -466,11 +465,6 @@
         const res = isUpdate ? await api.put(apiURL, productDetails.value) : await api.post(apiURL, productDetails.value);
         const data = res.data;
         
-        console.log('API_URL: ', apiURL);
-        console.log('Data: ', data);
-
-        /*const response = await api.(, productDetails.value);*/
-        
         if(data.success)
         {
             $q.notify({
@@ -483,7 +477,7 @@
 
             emits('close', true);
 
-        } else { };
+        };
 
         loanding.value = false;
     };       
@@ -627,8 +621,8 @@
 </script>
 
 <style lang="scss">
-    .form-customer {
-        width: 150vh;
+    .form-product {
+        width: 145vh;
     }
     
     .slide-up-enter-from {

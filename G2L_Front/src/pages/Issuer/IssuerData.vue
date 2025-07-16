@@ -63,7 +63,7 @@
                 <div class="flex">
                     <q-input 
                         v-model="issuer.cep"
-                        v-on:update:model-value="getDataCEP()"
+                        @update:model-value="getDataCEP"
                         filled        
                         label="CEP *" 
                         class="mb-4"
@@ -87,14 +87,14 @@
                     
                     <q-input 
                         v-model="issuer.uf"
-                        filled        
+                        @update:model-value="validateUF"
+                        filled
                         type="text"
                         label="UF *" 
                         class="mb-4 ml-2 mr-2"
                         color="grey"
                         maxlength="2"
-                        aria-required="true"
-                        :rules="[ val => !!val || 'Preencha a UF' ]"
+                        :rules="[ val => !!val || 'Preencha a UF', validateUF ]"
 
                     />   
     
@@ -308,8 +308,16 @@
         const fomratedCEP = issuer.value.cep.replace(/\D/g, '');
         if(fomratedCEP.length === 8)
         {
+            $q.notify({
+                color: 'green',
+                message: 'Carregando dados ...',
+                position: 'top',
+                timeout: 2000
+
+            });
+
             const res = await getCEPData(fomratedCEP);
-            console.log('Res: ', res);
+            console.log(res);
 
             if(typeof res === 'string')
             {
@@ -347,6 +355,21 @@
 
             return;  
         };
+    };
+
+    const validateUF = (val: string) =>
+    {
+        const issuerUF = val.toUpperCase();
+        const ufs = [
+            'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES',
+            'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR',
+            'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC',
+            'SP', 'SE', 'TO'
+        ];
+        
+        issuer.value.uf = issuerUF;  
+
+        return ufs.includes(issuerUF) || 'UF inválida';
     };
 
     onMounted(() => {

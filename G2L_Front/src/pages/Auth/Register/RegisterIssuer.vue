@@ -15,7 +15,7 @@
                     v-model="form.company_name"
                     @update:model-value="handleInput"
                     type="text" 
-                    filled        
+                    outlined
                     label="Razão Social" 
                     stack-label
                     class="mb-4"
@@ -29,7 +29,7 @@
                 <q-input 
                     v-model="form.trade_name"
                     type="text" 
-                    filled        
+                    outlined        
                     label="Nome Fantasia" 
                     stack-label
                     class="mb-4"
@@ -39,7 +39,7 @@
 
                 <q-input 
                     v-model="form.cnpj"
-                    filled        
+                    outlined        
                     label="CNPJ" 
                     stack-label
                     class="mb-4"
@@ -52,13 +52,14 @@
 
                 <q-input 
                     v-model="form.cpf"
-                    filled        
+                    outlined        
                     label="CPF" 
                     stack-label
                     class="mb-4"
                     color="primary"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
+                    @update:model-value="checkCPF"
                     :rules="[
                         val => !val || validateCPF(val) || 'CPF inválido'
                     ]"
@@ -67,7 +68,7 @@
 
                 <q-input 
                     v-model="form.date_of_foundation"
-                    filled        
+                    outlined        
                     type="date"
                     label="Data de fundação" 
                     stack-label
@@ -136,26 +137,75 @@
     });
 
     let showLoanding = ref<boolean>(false);
+
+    const checkCPF = async () =>
+    {
+        const cpf = form.value.cpf.replace(/\D/g, '')
+
+        if(cpf.length == 11) 
+        {
+            const res = await api.get(`/registers/issuer/last-cpf/${cpf}`);
+            const exists = res.data
+
+            if(!exists.data)
+            {
+                return;
+
+            } else {
+                $q.notify({
+                    color: 'red',
+                    message: 'CPF já cadastrado!',
+                    position: 'top',
+                    timeout: 1800
+                });
+
+                form.value.company_name = '';
+                form.value.trade_name = '';
+                form.value.cpf = '';
+
+            };
+
+        };
+    };
     
     const getDataCNPJ = async () =>
     {
         const cnpj = form.value.cnpj.replace(/\D/g, '')
+
         if(
             cnpj.length == 14 && 
             form.value.company_name == '' && 
             form.value.trade_name == ''
         )
         {
-            const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
-            
-            form.value.company_name = data.data.alias
-            form.value.trade_name = data.data.alias
-            form.value.date_of_foundation = data.data.founded
-            form.value.cod_cnae = data.data.mainActivity.id
-            form.value.main_activity = data.data.mainActivity.text
-            
+            const res = await api.get(`/registers/issuer/last-cnpj/${cnpj}`);
+            const exists = res.data
+
+            console.log(exists.data);
+
+            if(!exists.data)
+            {
+                const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
+                
+                form.value.company_name = data.data.alias
+                form.value.trade_name = data.data.alias
+                form.value.date_of_foundation = data.data.founded
+                form.value.cod_cnae = data.data.mainActivity.id
+                form.value.main_activity = data.data.mainActivity.text
+                
+            } else {
+                $q.notify({
+                    color: 'red',
+                    message: 'CNPJ já cadastrado!',
+                    position: 'top',
+                    timeout: 1800
+                });
+                
+                form.value.company_name = '';
+                form.value.trade_name = '';
+                form.value.cnpj = '';
+            };
         };
-        
     };
 
     const createIssuer = async () =>
