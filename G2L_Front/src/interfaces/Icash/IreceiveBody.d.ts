@@ -22,5 +22,6 @@ interface IReceiveBody
     valueOriginal: number,
     installmentAmount?: number;
     installmentOriginal?: number;
+    paid: boolean;
     
 };

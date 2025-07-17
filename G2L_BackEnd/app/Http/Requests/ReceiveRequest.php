@@ -18,22 +18,22 @@ class ReceiveRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    {
-        $required = $this->isMethod('POST') ? 'required' : 'sometimes';
+{
+    $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
-            'issuer_id' => [$required],
+            'issuerId' => [$required],
             'description' => [$required, 'string', 'max:255'],
             'document' => ['sometimes'],
-            'customer_id' => [$required],
-            'especie_id' => [$required],
-            'due_date' => [$required],
-            'installment_number' => [$required, 'integer'],
-            'installment_value' => [$required, 'numeric'],
-            'type_interest' => [$required],
-            'interest_value' => [$required, 'numeric'],
-            'total_amount' => [$required, 'numeric'],
+            'customerId' => [$required],
+            'especieId' => [$required],
+            'dueDate' => [$required],
+            'installmentNumber' => [$required, 'integer'],
+            'installmentValue' => [$required, 'numeric'],
+            'typeInterest' => [$required],
+            'interestValue' => [$required, 'numeric'],
+            'totalAmount' => [$required, 'numeric'],
             'origem' => ['nullable'],
-            'user_id' => [$required],
+            'userId' => [$required],
         ];
     }
 
