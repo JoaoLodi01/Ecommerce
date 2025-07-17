@@ -4,3 +4,12 @@
 [2025-07-16 16:03:55] local.INFO: data gabikochem55@gmail.com  
 [2025-07-16 16:03:55] local.INFO: user {"id":1,"user_code":1,"name":"Teste","surname":"Teste 2","cpf":"08805166901","email":"gabikochem55@gmail.com","password":"$2y$12$7Jt1a3Ov5pGvwisKYpbz6ugLICOwynWr8FE4a0Hqq7F6VVmOptqb2","access":null,"uuse_id":"19olqaAijw","is_owner":0,"active":1,"created_at":"2025-07-16T10:23:32.000000Z","updated_at":"2025-07-16T10:23:32.000000Z"}  
 [2025-07-16 16:03:56] local.INFO: Passou o login, token: 5|7CZfyGu6EKv83vXbkOof6IUF5qw24cvoNblhMhxgdb6ede37  
+[2025-07-16 18:37:42] local.INFO: data gabikochem55@gmail.com  
+[2025-07-16 18:37:42] local.INFO: user {"id":1,"user_code":1,"name":"Teste","surname":"Teste 2","cpf":"08805166901","email":"gabikochem55@gmail.com","password":"$2y$12$7Jt1a3Ov5pGvwisKYpbz6ugLICOwynWr8FE4a0Hqq7F6VVmOptqb2","access":null,"uuse_id":"19olqaAijw","is_owner":0,"active":1,"created_at":"2025-07-16T10:23:32.000000Z","updated_at":"2025-07-16T10:23:32.000000Z"}  
+[2025-07-16 18:37:42] local.INFO: Passou o login, token: 6|6tr2AjFnWYZLNbP7HsWStK0CshFYUeGNBN3SeEjX837753f3  
+[2025-07-16 21:33:26] local.INFO: data gabikochem55@gmail.com  
+[2025-07-16 21:33:26] local.INFO: user {"id":1,"user_code":1,"name":"Teste","surname":"Teste 2","cpf":"08805166901","email":"gabikochem55@gmail.com","password":"$2y$12$7Jt1a3Ov5pGvwisKYpbz6ugLICOwynWr8FE4a0Hqq7F6VVmOptqb2","access":null,"uuse_id":"19olqaAijw","is_owner":0,"active":1,"created_at":"2025-07-16T10:23:32.000000Z","updated_at":"2025-07-16T10:23:32.000000Z"}  
+[2025-07-16 21:33:26] local.INFO: Passou o login, token: 7|BBNIBX0DebZ2Z1iecWuq4jPs2QyCvvnl3FgmOUQL5d5745f9  
+[2025-07-16 21:33:44] local.INFO: data gabikochem55@gmail.com  
+[2025-07-16 21:33:44] local.INFO: user {"id":1,"user_code":1,"name":"Teste","surname":"Teste 2","cpf":"08805166901","email":"gabikochem55@gmail.com","password":"$2y$12$7Jt1a3Ov5pGvwisKYpbz6ugLICOwynWr8FE4a0Hqq7F6VVmOptqb2","access":null,"uuse_id":"19olqaAijw","is_owner":0,"active":1,"created_at":"2025-07-16T10:23:32.000000Z","updated_at":"2025-07-16T10:23:32.000000Z"}  
+[2025-07-16 21:33:45] local.INFO: Passou o login, token: 8|XUquVU2QGaTpxOlSersunCvjqa5tlDcq0F6PhVFCd3f7ecd4  

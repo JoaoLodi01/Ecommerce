@@ -146,12 +146,13 @@ class PDVRepository
         array $productsArray
         )
     {
-        Log::channel('pdv')->info('-- Iniciou o saveSale() line 172 -- ');
+        Log::channel('pdv')->info('-- Iniciou o saveSale() line 149 -- ');
+        Log::debug($details);
     
         $customer = $this->customerRepository->findByID($details['customer_id']);
         
         $customerName = $customer->company_name ? $customer->company_name : $customer->trade_name;
-        
+
         $user = $this->userRepository->findByID($details['user_id']); // "vendedor"
 
         $currentDate = new Carbon();
@@ -174,7 +175,6 @@ class PDVRepository
         );
 
         Log::channel('pdv')->info('pdvData: ');
-        Log::info($pdvData);
         
         $pdv = PDV::create($pdvData);  
 

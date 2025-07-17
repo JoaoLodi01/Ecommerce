@@ -9,8 +9,7 @@
     </div>
     <div v-if="showPage"> <!-- SHOW PAGE -->
         <div
-            class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
-            id="pdv-view"
+            class="mx-auto rounded-lg mt-3 bg-white max-h-[100vh] max-w-[200vh] border border-gray-400" 
             v-if="showGrid"
             :class="{
                 'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
@@ -113,7 +112,7 @@
 
                     </div>
                     
-                    <div class="mr-1">
+                    <div>
                         <ProductsSearchBar
                             v-if="showProductsSearch"
                             :witdhScreen="witdhScreen"
@@ -121,16 +120,17 @@
                             @update:selectProducts="updateProductsSeletion($event)"
 
                         />
-                        <!--Busca de produto-->
-                    </div>
 
+                    </div>
                 </div>
     
                 <div 
-                    class="products-grid m-5 shadow-lg relative overflow-y-auto"
+                    class="m-5 shadow-lg max-w-max  overflow-y-auto max-h-[70vh] h-[80vh] border border-red-500"
                 >
-                    <table class="block text-left rounded-t-xl rtl:text-right ">
-                        <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
+                    <table>
+                        <thead 
+                            class="uppercase shadow-lg sticky top-0 z-10 bg-white"
+                        >
                             <tr class="">
                                 <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
@@ -143,12 +143,13 @@
                             </tr>
                         </thead>
 
-                        <tbody v-for="(product, i) in productsSeletion">
+                        <tbody
+                            v-for="(product, i) in productsSeletion"
+                             
+                        >
                             <tr
-                                
                                 class="border border-black"
                             >    
-
                                 <td class="px-6" scope="row">{{ product.product_code }}</td>
                                 <td class="px-6 py-3">{{ product.product}}</td>
 
@@ -181,7 +182,7 @@
 
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                     <input 
-                                        v-model="product.amount"
+                                        v-model.number="product.amount"
                                         :placeholder="String(product.amount)"
                                         type="text"
                                         class="w-10 text-center border-b-4 border-b-gray-500 "
@@ -236,9 +237,7 @@
                                 </td>
                             </tr>
                         </tbody>
-                            
                     </table>                
-                    
                 </div>
             </div>
 
@@ -265,9 +264,11 @@
                 </div>
             </div>
         <div>
-            </div>
+            </div> <!--Deixa isso daqui como está.-->
+                <!-- Barra lateral direita -->
                 <div 
-                    class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-black "
+                    class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg max-h-[100vh] border"
+
                     :class="{
                         'text-xl': textSize === 4,
                         'text-2xl': textSize === 8,
@@ -276,7 +277,7 @@
                     }"   
                 >
                     <div>
-                        <div>
+                        <div >
                             <div 
                                 class="m-2 p-2 rounded-lg border border-gray-700"
                             >
@@ -334,19 +335,17 @@
                     
                     </div>
                     
-                    <div class="">
+                    <div class="flex border justify-center">
                         <img 
-                            width="282px"
-                            height="412px"
-                            class="relative left-20 border"
-                            src="../../../../public/image/defaultLogo.png" 
-                            alt=""
+                            width="250px"                            
+                            src="/public/image/defaultLogo.png" 
+
                         />
                         
                     </div>
                     <!-- A imagem vai ter que ficar por aqui -->
-                        <div class="fixed bottom-4">
-                            <div class="flex m-2 p-2 mt-2 rounded-lg border border-gray-700">
+                        <div class="m-2">
+                            <div class="flex m-2 p-2 rounded-lg border border-gray-700">
                                 <button
                                     v-if="productsSeletion.length <= 0"
                                     disabled
@@ -396,31 +395,32 @@
                             </div>
 
                             <div 
-                                class="flex text-white rounded-lg border border-gray-700 w-[26.2rem]"
+                                class="flex text-white rounded-lg border border-gray-700 w-[26.2rem] p-1"
                             
                             >
                                 <q-btn 
-                                    class="mr-1 p-1 rounded-md ml-14 border-none"                                
+                                    class="rounded-md border-none"                                
+                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    :class="{
+                                        'ml-4': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
+                                    }" 
+
+                                    @click="finalizeSale('nm')"
+                                    v-if="configs.nmFinaly"
+                                    label="Finalizar veda"
+
+                                />
+                                    
+                                <q-btn  
+                                    class="rounded-md border-none"                                
                                     :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
                                     :class="{
                                         'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
                                     }" 
-
-                                    size="1rem"
-                                    @click="finalizeSale('nm')"
-                                    v-if="configs.nmFinaly"
-                                >
-                                    Finalizar
-                                </q-btn>
-                                <q-btn  
-                                    class="mr-4 p-1 rounded-md"
-                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
-                                    size="1rem"
+                                    label="Finalizar e emitir NFC-e"
                                     @click="finalizeSale('nfce')" 
                                     
-                                >
-                                    Finalizar e emitir NFC-e
-                                </q-btn>
+                                />
                                 
                             </div>
                         </div>
@@ -631,6 +631,7 @@
                     {
                         console.log('Nova venda!');
                         console.log('Total da venda R$', totalOperation.value);
+                        console.log(sellerData.value);
                         if(type)   
                         { 
                             const res = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
@@ -759,13 +760,6 @@
         
     };
     
-    const showGridEmit = () => 
-    {
-        showGrid.value = !showGrid.value
-        show.value = !show.value
-        
-    };  
-
     const closeConfig = (event: boolean) =>
     {
         showOptionsPDV.value = event
@@ -793,7 +787,12 @@
 
         if(existingProduct)
         {
-            existingProduct.amount += selectedProducts.amount;
+            console.log('Quantidade atual: ', existingProduct.amount);
+            console.log('Quantidade a ser adicionada: ', selectedProducts.amount);
+            const actualAmout = existingProduct.amount += selectedProducts.amount;
+            console.log('Quantidade atual + a ser adicioanda: ', actualAmout);
+            existingProduct.amount = actualAmout;
+
 
         } else {
             productsSeletion.value = [...productsSeletion.value, {...selectedProducts}];
@@ -915,8 +914,7 @@
     {
         const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
         const configsRes: Tconfig = camelcaseKeys(res.data.data.pdv, { deep: true });
-        console.log(configsRes)
-
+        
         configs.value.nmFinaly = configsRes.nmFinaly;
         configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
         configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
@@ -928,9 +926,6 @@
         getUser()
         getConfig();
         
-        console.log('pdvID: ', pdvID.value);
-        console.log('total: ', totalOperation.value);
-
         witdhScreen.value = screen.width;
         isOpenedPDV.value = history.state?.isOpenedPDV ?? false;
 
@@ -1009,7 +1004,8 @@
     }
 
     #pdv-view{
-        height: 97.3vh;
+        max-height: 100vh;
+        height: 100vh;
         
     }
 
