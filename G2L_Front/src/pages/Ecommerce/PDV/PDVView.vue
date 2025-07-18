@@ -7,9 +7,12 @@
         />
 
     </div>
-    <div v-if="showPage"> <!-- SHOW PAGE -->
+    <div 
+        v-if="showPage"
+
+    > <!-- SHOW PAGE -->
         <div
-            class="mx-auto rounded-lg mt-3 bg-white max-h-[100vh] max-w-[200vh] border border-gray-400" 
+            class="mx-auto rounded-lg mt-3 bg-white max-w-[200vh] border border-black" 
             v-if="showGrid"
             :class="{
                 'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
@@ -59,7 +62,7 @@
 
             </div>
             
-            <div class="h-4">
+            <div class="max-h-auto">
                 <div 
                     class="m-3 border border-black rounded-lg"
                     :class="{
@@ -100,6 +103,7 @@
                     </div>
 
                 </div>
+
                 <div class="flex m-3 border border-black rounded-lg">
                     <div 
                         class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
@@ -125,7 +129,7 @@
                 </div>
     
                 <div 
-                    class="m-5 shadow-lg max-w-max  overflow-y-auto max-h-[70vh] h-[80vh] border border-red-500"
+                    class="m-5 shadow-lg overflow-y-auto border border-black h-[48rem]" 
                 >
                     <table>
                         <thead 
@@ -143,13 +147,12 @@
                             </tr>
                         </thead>
 
-                        <tbody
-                            v-for="(product, i) in productsSeletion"
-                             
-                        >
-                            <tr
+                        <tbody>
+                            <tr 
+                                v-for="(product, i) in productsSeletion" 
+                                :key="product.id" 
                                 class="border border-black"
-                            >    
+                            >   
                                 <td class="px-6" scope="row">{{ product.product_code }}</td>
                                 <td class="px-6 py-3">{{ product.product}}</td>
 
@@ -182,19 +185,19 @@
 
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
                                     <input 
-                                        v-model.number="product.amount"
-                                        :placeholder="String(product.amount)"
+                                        v-model="newAmount"
+                                        :placeholder="String(product.amount).replace('.', ',')"
                                         type="text"
                                         class="w-10 text-center border-b-4 border-b-gray-500 "
-                                        @input="changeAmount(product.id, Number(product.amount))"
-                                        
+                                        @input="changeAmount(product.product_code)"                                        
                                     />
                                 </td>
-                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * Number(product.amount)).toFixed(2) }}</td>
+                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ String(product.sale_price.toFixed(2)).replace('.', ',') }}</td>
+                                <!--td v-if="witdhScreen > 1080" class="text-center">R$ {{ String(Math.round(product.sale_price * Number(product.amount))).replace('.', ',') }}</td-->
+                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ String(Number(product.sale_price * product.amount).toFixed(2)).replace('.', ',') }}</td>
                                 <td class="text-center">
                                     <div class="m-auto">
-                                        <button @click="productOptions(product.id, i, 'delete')">
+                                        <button @click="productOptions(product.product, product.product_code, i, 'delete')">
                                             <svg 
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none" 
@@ -208,7 +211,10 @@
                                             </svg>
                                         </button>
 
-                                        <button @click="productOptions(product.id, i, 'options')">
+                                        <button 
+                                            @click="productOptions(product.product, product.product_code, i, 'options')"
+                                            
+                                        >
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 16 16" fill="currentColor"
@@ -219,7 +225,7 @@
                                             </svg>
                                         </button>
 
-                                        <button @click="productOptions(product.id, i, 'view')">
+                                        <button @click="productOptions(product.product, product.product_code, i, 'view')">
                                             <svg 
                                                 v-if="witdhScreen < 1080"
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -228,7 +234,8 @@
                                                 stroke-width="1.5" 
                                                 stroke="currentColor" 
                                                 class="size-4">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" 
+                                            />
                                                 view
                                                 
                                             </svg>
@@ -255,7 +262,7 @@
                             :placeholder=String(viewProduct.amount)
                             type="text"
                             class="w-10 text-center border-b-4 border-b-gray-500 text-black"
-                            @input="changeAmount(viewProduct.id, viewProduct.amount)"
+                            @input="changeAmount(viewProduct.id)"
                             
                         />
                     
@@ -335,10 +342,13 @@
                     
                     </div>
                     
-                    <div class="flex border justify-center">
+                    <div 
+                        class="flex border justify-center"
+                        @click="alterLogo"
+                    >
                         <img 
                             width="250px"                            
-                            src="/public/image/defaultLogo.png" 
+                            :src="`http://192.168.1.106:8000${configs.img}`"
 
                         />
                         
@@ -350,19 +360,21 @@
                                     v-if="productsSeletion.length <= 0"
                                     disabled
                                     title="Sem vendas no momento"
-                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    class="mr-1 ml-2 rounded-md"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
                                     
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
                                 </button>
 
                                 <button
                                     v-else @click="cancelSale()"
-                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    class="mr-1 ml-2 rounded-md"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
                                 </button>
@@ -371,31 +383,33 @@
                                     v-if="productsSeletion.length <= 0"
                                     disabled
                                     title="Sem vendas no momento"
-                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    class="mr-1 ml-2 rounded-md"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
                                     </svg>
                                 </button>
                                 <button 
-                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    class="mr-1 ml-2 rounded-md"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
                                     title="Salvar venda"
                                     @click="saveSale()"
                                     v-else
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
                                     </svg>
                                 </button>
 
                                 <div class="mb-auto ml-auto text-xl w-auto">
-                                    <span class="mr-1 text-white p-1 bg-[#BF3658] rounded-md">Total: R$ {{ Math.max((calculateTotal.total), 0).toFixed(2) }}</span>
+                                    <span class="mr-1 text-black p-1 rounded-md">Total: R$ {{ Math.max((calculateTotal.total), 0).toFixed(2) }}</span>
                                 
                                 </div>
                             </div>
 
                             <div 
-                                class="flex text-white rounded-lg border border-gray-700 w-[26.2rem] p-1"
+                                class="flex justify-between text-white rounded-lg border border-gray-700 w-[26.2rem] p-1"
                             
                             >
                                 <q-btn 
@@ -439,6 +453,21 @@
                 
             />
 
+            <OptionsProduct
+                v-if="isOption"
+                :productName="selectedProductName"
+                @apply="handleProductOptions($event)"
+                @close="isOption = !$event"
+
+            />
+
+            <ImportFiles 
+                v-if="importLogo"
+                :operation="'alterLogo'"
+                @close="importLogo = !$event"
+
+            />
+
             <!--<ProductsSelectionView
                 v-if="show"
                 :witdhScreen="witdhScreen"
@@ -453,6 +482,7 @@
 <script setup lang="ts">
     import PaymentsForm from 'src/components/PaymentsForm.vue';
     //import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
+    import ImportFiles from 'src/components/Files/ImportFiles.vue';
     import CashClosing from 'src/components/PDV/CashClosing/CashClosing.vue'
     import ConfigPDV from 'src/components/Config/ConfigPDV.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
@@ -460,8 +490,9 @@
     import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import SupervisorPasswordDeleteItem from 'src/components/SupervisorPassword/SupervisorPasswordDeleteItem.vue';
+    import OptionsProduct from 'src/components/Products/OptionsInSale/OptionsProduct.vue';
     import { api } from "src/boot/axios"
-    import { ref, computed, watch, defineProps, onMounted } from 'vue'   
+    import { ref, watch, computed, onMounted } from 'vue'   
     import { useRoute, useRouter } from 'vue-router';
     import { useQuasar, LocalStorage } from 'quasar';
     import camelcaseKeys from 'camelcase-keys';
@@ -473,9 +504,32 @@
     const $q = useQuasar();
     const route = useRoute();
     const router = useRouter();
-    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
-    const textColor = ref<string>(LocalStorage.getItem("textColor"));
+    const issuer_id = ref<number>(LocalStorage.getItem("issuer_id"));
+    const buttonColor = LocalStorage.getItem("buttonColor");
+    const textColor = LocalStorage.getItem("textColor");
+    const painelColor = LocalStorage.getItem("painelColor");
+    const baseURL = process.env.API_BASE_URL;
 
+    const sellerData = ref<Iseller>({
+        id: 0,
+        name: ''
+    });
+
+    const customerData = ref<Icustomer>({
+        id: 1,
+        name: 'Consumidor Padrão'
+    });
+
+    const configs = ref<Tconfig>({
+        nmFinaly: false,
+        saleNegativeorReset: false,
+        supervisorPasswordCancelSale: false,
+        supervisorPasswordDeleteItem: false,
+        img: '/public/image/defaultLogo.png'
+
+    });
+
+    let isOption = ref<boolean>(false); // mudar para false
     let showPage = ref<boolean>(false);
     
     let productsSeletion = ref<IProducts[]>([]);
@@ -495,17 +549,6 @@
     });
 
     let crt = ref<number>(0);
-
-    const sellerData = ref<Iseller>({
-        id: 0,
-        name: ''
-    });
-
-    const customerData = ref<Icustomer>({
-        id: 1,
-        name: 'Consumidor Padrão'
-    });
-
     let totalOperation = ref<number>(0);
     let witdhScreen = ref<number>(0);
     let textSize = ref<number>(4);
@@ -529,19 +572,16 @@
     let typeOperation = ref<string>('');
     let csosncst = ref<string>('');
             
-    let configs = ref<Tconfig>({
-        nmFinaly: false,
-        saleNegativeorReset: false,
-        supervisorPasswordCancelSale: false,
-        supervisorPasswordDeleteItem: false
-    });
+    let selectedProductName = ref<string>('');
+    let selectedProductCode = ref<number>(0);
 
     let showSupervisorPassword = ref<boolean>(false);
+    let importLogo = ref<boolean>(false);
 
     let subTotal = ref<number>(0);
 
-    const issuer_id = ref<number>(LocalStorage.getItem("issuer_id"));
-    
+    let newAmount = ref<string>('1');
+
     watch(
         () => route.fullPath,
         (to, from) => {
@@ -767,8 +807,14 @@
 
     };
 
-    const changeAmount = (id: number, newAmount: number) =>
-    {};
+    const changeAmount = (id: number) =>
+    {
+        console.log('Nova qtde: ', newAmount.value, ' type: ', typeof newAmount.value);
+        const product = productsSeletion.value.find(p => p.product_code === id);        
+        product.amount = Number(newAmount.value.replace(',', '.'));
+        console.log(product);   
+
+    };
 
     const changeCFOP = (id: number, newCFOP: number) => 
     { };
@@ -817,22 +863,73 @@
 
     };
 
-    const productOptions = (product_id: number, i: number, action: string) => 
+    /*
+    const calculateTotal = computed(() => {
+        subTotal.value = 0;
+
+        productsSeletion.value.map((p: IProducts) => {
+            subTotal.value += p.sale_price * p.amount;
+        });
+
+        const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
+        const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
+        const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
+
+        return {
+            total: subTotal.value + (addition + freight) - discount,
+            subtotal: subTotal.value,
+            addition: addition,
+            discount: discount,
+            freight: freight
+        };
+    });
+    */
+    const handleProductOptions = (data: TReturnValues) =>
+    {
+        if(selectedProductCode.value !== 0)
+        {
+            console.log('ID do produto: ', selectedProductCode.value);
+            if(data.typeAddition === 'R$')
+            {   
+                let product = productsSeletion.value.find(p => p.product_code === selectedProductCode.value);
+                console.log(product);
+
+                product.sale_price = Number(
+                    (Number(product.sale_price) + data.addition - data.discount).toFixed(2)
+                );
+
+                isOption.value = false;
+
+            };
+        } else {
+            $q.notify({
+                color: 'red',
+                message: 'Código do produto incorreto',
+                position: 'top',
+                timeout: 1000
+
+            });
+        };
+    };
+
+    const productOptions = (productName: string, productID: number, i: number, action: string) => 
     {
         switch (action) {
             case 'delete':
-                console.log('product_id', product_id, ' i: ', i);
-                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_code !== product_id)]
+                console.log('product_id', productID, ' i: ', i);
+                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_code !== productID)]; 
                 
                 break;
                 
             case 'view':
                 
-                
                 break;
 
             case 'options':
-                
+                isOption.value = true;
+                selectedProductName.value = productName;
+                selectedProductCode.value = productID;
+
                 break;
         
             default:
@@ -915,9 +1012,19 @@
         const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
         const configsRes: Tconfig = camelcaseKeys(res.data.data.pdv, { deep: true });
         
+        console.log(configsRes)
+
         configs.value.nmFinaly = configsRes.nmFinaly;
         configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
         configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
+        configs.value.img = configsRes.img
+        console.log(configs.value.img)
+
+    };
+
+    const alterLogo = async () =>
+    {
+        importLogo.value = true;
 
     };
 

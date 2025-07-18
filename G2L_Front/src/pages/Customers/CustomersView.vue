@@ -9,7 +9,7 @@
     <div    
         v-if="!_loanding"
         :class="{
-            'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg max-w-[155vh] w-[145vh]': widthScreen > 1366,
+            'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg max-w-[165vh] w-[160vh]': widthScreen > 1366,
             'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
             
         }"  
@@ -53,7 +53,7 @@
         >
             <q-btn 
                 title="Opções"
-                class="ml-2"
+                class="mr-5"
                 :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
                 @click="showConfig = true"
             >
@@ -63,34 +63,37 @@
                 </svg>
             </q-btn> <!-- QBTB of config -->
 
-            <div class="flex ml-5">
-                <q-btn
-                    @click="showReportCustomer = !showReportCustomer"
-                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
-                    title="Relatórios"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
-                    </svg>
+            <q-btn
+                @click="showReportCustomer = !showReportCustomer"
+                :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                title="Relatórios"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                </svg>
+            </q-btn>
+        
+            <q-btn 
+                :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                class="ml-5"
+                @click="showImportFiles = true"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                </svg>
 
-                    <!--Flechas-->
-                    <svg v-if="!showReportCustomer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                    </svg>
+            </q-btn>
 
-                    <svg v-if="showReportCustomer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                    </svg>
-
-                </q-btn>
-                
-                <div class="ml-4">
-                    <ReportCustomer
-                        v-if="showReportCustomer"
-                        :issuerID="issuerID"
-                    />
-                </div>
-            </div>
+            <q-btn 
+                :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                class="ml-5"
+                title="Baixa arquivo de importação"
+                @click="downloadDefaultFile"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                </svg>
+            </q-btn>
             
             <div 
                 class="ml-auto"
@@ -203,6 +206,13 @@
         
     </div>
 
+    <ImportFiles
+        v-show="showImportFiles"
+        @close="closeReload($event)"
+        :operation="'importCustomers'"
+
+    />
+
     <Transition name="slide-up">
         <ConfigCustomers
             v-show="showConfig"
@@ -219,8 +229,8 @@
     import { ref, onMounted, watch, reactive } from 'vue';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';    
     import CustomerManagement from 'src/components/Register/Customers/CustomerManagement.vue';
-    import ReportCustomer from 'src/components/Reports/Customers/ReportCustomer.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
+    import ImportFiles from 'src/components/Files/ImportFiles.vue';    
     import camelcaseKeys from 'camelcase-keys';
 
     type TConfigCustomer = {
@@ -247,6 +257,7 @@
     let titleByOperation = ref<string>('Clientes');
     let customerCodSelected = ref<number>(0);
 
+    let showImportFiles = ref<boolean>(false);
     let showReportCustomer = ref<boolean>(false);
     let showConfig = ref<boolean>(false);
     let widthScreen = ref<number>(0);
@@ -373,8 +384,9 @@
         await getConfig();
         await getCustomers();
         showCustomers.value = event;
-        showReportCustomer.value = !event;
-        showConfig.value = !event;
+        showReportCustomer.value = false;
+        showConfig.value = false;
+        showImportFiles.value = false;
 
     };
 
@@ -400,6 +412,32 @@
             return;
         };
     };
+
+    const downloadDefaultFile = async () =>
+    {
+        const res = await api.get('customers/download/default-file', {
+            responseType: 'blob'
+
+        });
+
+        console.log(res);
+
+        const url = window.URL.createObjectURL(
+            new Blob([res.data], { 
+                type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
+            }
+        ));
+        
+        const link = document.createElement('a');
+
+        link.href = url;
+        link.setAttribute('download', `Padrão_Importação.xlsx`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+    };
+
 
     onMounted(() => {
         getCustomers();

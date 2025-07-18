@@ -75,9 +75,9 @@ class ImportCustomersJob implements ShouldQueue
                     $dto = new CustomersDTO(
                         issuer_id: $this->issuerID,
                         company_name: $cells[0]->getValue(),
-                        trade_name: $cells[0]->getValue(),
-                        cnpj: $cells[0]->getValue(),
-                        cpf: $cells[0]->getValue()
+                        trade_name: $cells[1]->getValue(),
+                        cnpj: $cells[2]->getValue(),
+                        cpf: $cells[3]->getValue()
 
                     );
 

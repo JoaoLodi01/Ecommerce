@@ -152,7 +152,7 @@
                     cfop: product.cfop,
                     csosncst: product.csosncst,
                     amount: amout.value,
-                    sale_price: product.sale_price
+                    sale_price: Number(product.sale_price)
                     
                 }};
                 

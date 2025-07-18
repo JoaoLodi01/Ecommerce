@@ -21,7 +21,7 @@ class ConfigPDVRequest extends FormRequest
             'nmFinaly' => ['required'],
             'saleNegativeorReset' => ['required'],
             'supervisorPasswordCancelSale' => ['required'],
-            'supervisorPasswordDeleteItem' => ['required'],
+            'supervisorPasswordDeleteItem' => ['required']
             
         ];
     }

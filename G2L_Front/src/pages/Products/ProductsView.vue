@@ -10,7 +10,7 @@
     <div    
         v-if="!_loanding"
         :class="{
-            'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg max-w-[155vh] w-[145vh]': widthScreen > 1366,
+            'mt-10 p-6 ml-20 mb-5 bg-white rounded-lg shadow-lg max-w-[165vh] w-[160vh]': widthScreen > 1366,
             'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
             
         }"  
@@ -58,7 +58,7 @@
             <q-btn 
                 :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
                 class="mr-5"
-                title="Baixa arquivo de importação"
+                title="Opções"
                 
             >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -149,7 +149,7 @@
         <div
             v-if="showProducts"
             v-for="product in products" :key="product.id"
-            class="relative overflow-x-auto max-h-80 overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
+            class="relative overflow-x-auto overflow-y-auto bg-white p-6 shadow-lg rounded-lg border border-gray-200 transition-transform hover:-translate-y-3 cursor-pointer"
         >
             <div 
                 @click="productManagement('update', product.active, product.product_code)"

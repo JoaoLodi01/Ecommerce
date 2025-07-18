@@ -1,16 +1,15 @@
 <template>
     <div class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
         <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center gap-4">
+            <h1 class="text-2xl border-b">{{ title }}</h1>
             <q-file 
                 v-model="file" 
                 :color="buttonColor"
                 label="Selecione um arquivo"
-                :accept="props.operation === 'importProducts' ? '.xlsx, .xls, .csv' : 'json'"
+                :accept="acceptedFormat"
 
-            >
-                
-            </q-file>
-
+            />
+            
             <div>
                 <q-avatar 
                     :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
@@ -33,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, defineEmits, defineProps, reactive, onMounted } from 'vue';
+    import { ref, computed, reactive, onMounted } from 'vue';
     import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
 
@@ -50,14 +49,57 @@
     const $q = useQuasar();
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+    
+    const fileType = reactive({
+        'importProducts': 'xlsx',
+        'importCustomers': 'xlsx',
+        'importColor': 'json',
+        'alterLogo': ['jpeg', 'png', 'jpg']
+    });
+
+    const titles = reactive({
+        'importColor': 'Importar arquivo de cores',
+        'importProducts': 'Importar produtos',
+        'importCustomers': 'Importar clientes',
+        'alterLogo': 'Alterar logo',
+    });
 
     const routes = reactive({
         'importColor': 'configs/color/import-color',
-        'importProducts': '/ecommerce/products/import-products'
+        'importProducts': '/ecommerce/products/import-products',
+        'importCustomers': '/customers/import-customers',
+        'alterLogo': '/configs/pdv/alter-logo'
 
     });
 
+    const successMessages = reactive({
+        'importColor': 'Cores importadas com sucesso!',
+        'importProducts': 'Produtos importados com sucesso!',
+        'importCustomers': 'Clientes importados com sucesso!',
+        'alterLogo': 'Logo alterada com sucesso!'
+        
+    })
+
     let file = ref<File | any>(null);
+    let title = ref<string>('');
+
+    const acceptedFormat = computed(() => {
+        const type = fileType[props.operation];
+
+        if (type === 'xlsx') {
+            return '.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+        }
+
+        if (type === 'json') {
+            return '.json,application/json';
+        }
+
+        if (Array.isArray(type)) {
+            return type.map(ext => `.${ext}`).join(',');
+        }
+
+        return ''; // fallback
+    });
 
     const importFile = async () =>
     {
@@ -79,7 +121,6 @@
 
                 const res = await api.post(
                     apiURL, 
-
                     formData,
                     {
                         headers: {
@@ -93,19 +134,11 @@
 
                 console.log(data);
 
-                $q.notify({
-                    color: 'green',
-                    message: data.message,
-                    position: 'top',
-                    timeout: 2000
-
-                });
-
                 if(data.success)
                 {
                     $q.notify({
                         color: 'green',
-                        message: 'Produtos importados com sucesso!',
+                        message: successMessages[props.operation],
                         position: 'top',
                         timeout: 2000
 
@@ -136,6 +169,7 @@
 
     onMounted(() => {
         const apiURL: string = `${routes[props.operation]}/${issuerID.value}`;
+        title.value = titles[props.operation];
         console.log('apiURL: ', apiURL);
     });
 </script>

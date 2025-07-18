@@ -1,7 +1,7 @@
 <template>
     <Transition name="slide-up">
         <div v-if="showContent" class="max-w-[28rem] bg-white rounded-md h-[36rem]">
-            <div class="p-12 mt-12">
+            <div class="p-12">
                 <h1 class="text-2xl ml-auto mr-autow-max text-center"><b>Bem vindo!</b></h1>
                 <h3 class="text-xl ml-auto mr-autow-max text-center ">Faça aqui o seu registro!</h3>
 

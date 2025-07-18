@@ -48,6 +48,25 @@ class ConfigService
         $config = $this->configPDVRepository->update($data, $id);
         return $config;
     }
+
+    public function updatePDVLogo(object $file, int $id)
+    {
+        $fileName = $file->getClientOriginalName();
+        $directory = storage_path("files/{$id}/logo/");
+        $filePath = $directory . DIRECTORY_SEPARATOR . $fileName;
+        $file->move($directory, $fileName);
+        //$url = "/storage/{$path}";
+
+        $this->configPDVRepository->updatePDVLogo($filePath, $id);
+
+        return $filePath;
+    }
+    
+    public function getPDVLogo(int $id)
+    {
+        $config = $this->configPDVRepository->getPDVLogo($id);
+        return $config;
+    }
     
     public function updateCustomer(array $data, int $issuer_id)
     {

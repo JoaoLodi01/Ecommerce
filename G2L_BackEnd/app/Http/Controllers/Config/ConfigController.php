@@ -9,7 +9,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Config\ConfigColor;
 use App\Http\Requests\Customers\Config\ConfigCustomerRequest;
 use App\Http\Requests\HotelRequest\Config\ConfigHotelRequest;
+use App\Http\Requests\PDV\Config\AlterPDVLogoRequest;
 use App\Http\Requests\PDV\Config\ConfigPDVRequest;
+
+use function Psy\debug;
+
 class ConfigController extends Controller
 {
     public function __construct(
@@ -39,6 +43,21 @@ class ConfigController extends Controller
         return apiSuccess('Configurações do PDV alteradas com sucesso', $config);
         
     }
+    
+    public function updatePDVLogo(AlterPDVLogoRequest $request, int $issuer_id)
+    {
+        $config = $this->configService->updatePDVLogo($request->file('importFile'), $issuer_id);
+        return apiSuccess('Logo do PDV alteradas com sucesso', $config);
+        
+    }
+    
+    public function getPDVLogo(int $issuer_id)
+    {
+        $config = $this->configService->getPDVLogo($issuer_id);
+        return apiSuccess('Logo do seu PDV!', $config);
+        
+    }
+    
 
     public function updateCustomer(ConfigCustomerRequest $request, int $issuer_id)
     {
