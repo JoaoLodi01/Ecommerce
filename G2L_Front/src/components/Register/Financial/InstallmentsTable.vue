@@ -33,11 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(installment, id) in installmentsData"
-                    :key="id"
-                    class="text-center border-t border-gray-300"
-                    :class="{ 'bg-green-100': installment.paid, 'bg-white': !installment.paid}"
-                    >
+                <tr v-for="(installment, id) in installmentsData" :key="id" class="text-center border-t border-gray-300" :class="{ 'bg-green-100': installment.paid, 'bg-white': !installment.paid}">
                     <td>{{ installment.numberInstallment }}</td>
                     <td>{{ installment.installmentAmount }}</td>
                     <td class="w-[150px]">
@@ -47,6 +43,7 @@
                             dense
                             outlined
                             color="primary"
+                            :readonly="action === 'view'"
                         />
                     </td>
                     <td>{{ formatCurrency(installment.valuePaid) }}</td>
@@ -57,7 +54,7 @@
                             {{ installment.paid ? 'Quitada' : 'Em aberto' }}
                         </span>
                     </td>
-                    <td v-if="readonly">
+                    <td>
                         <q-btn
                             size="sm"
                             icon="check"
