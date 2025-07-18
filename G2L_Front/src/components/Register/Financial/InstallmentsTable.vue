@@ -82,8 +82,15 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, defineProps, defineEmits, computed } from 'vue';
+    import { api } from "src/boot/axios";
+    import { ref, defineProps, defineEmits, computed, onMounted } from 'vue';
     import dayjs from 'dayjs';
+    import { LocalStorage, useQuasar } from 'quasar';
+    import camelcaseKeys from 'camelcase-keys';
+
+    const $q = useQuasar();
+    const loading = ref(false);
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
     type TinstallmentsData = {
         numberInstallment: number;
@@ -112,6 +119,18 @@
     }>();
 
     let installmentsData = ref<TinstallmentsData[]>([]);
+
+    const getRegister = async () => {
+        loading.value = true;
+        try {
+            const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
+            installmentsData.value = camelcaseKeys(res.data.data, { deep: true });
+        } catch (error) {
+            $q.notify({ color: 'red', message: 'Erro ao carregar dados' });
+        } finally {
+            loading.value = false;
+        }
+    }
 
     const generateInstallments = async () =>
     {
@@ -169,6 +188,11 @@
     defineExpose({
         generateInstallments,
         deleteInstallments,
+    });
+
+    onMounted(() => {
+        getRegister();
+        
     });
 
 </script>

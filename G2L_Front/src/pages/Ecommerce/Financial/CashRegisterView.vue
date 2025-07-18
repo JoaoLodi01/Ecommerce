@@ -159,7 +159,7 @@
     import { ref, onMounted } from "vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
-    import RegisterCash from "src/components/Register/Financial/RegisterCash.vue";
+    import RegisterCash from "src/components/Register/Financial/Cash/RegisterCash.vue";
     import { LocalStorage } from 'quasar';
     
     dayjs.extend(isBetween);

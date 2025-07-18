@@ -18,7 +18,7 @@ class ReceiveRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-{
+    {
     $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
             'issuerId' => [$required],
@@ -34,36 +34,6 @@ class ReceiveRequest extends FormRequest
             'totalAmount' => [$required, 'numeric'],
             'origem' => ['nullable'],
             'userId' => [$required],
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'description.required' => 'A descrição é obrigatória.',
-            'description.string' => 'A descrição deve estar em um formato válido.',
-            'description.max' => 'A descrição não pode ter mais de :max caracteres.',
-            'customer_id.required' => 'O ID do cliente é obrigatório.',
-            'especie_id.required' => 'O ID da espécie é obrigatório.',
-            'especie.required' => 'A espécie é obrigatória.',
-            'especie.string' => 'A espécie deve estar em um formato válido.',
-            'especie.max' => 'A espécie não pode ter mais de :max caracteres.',
-            'date_register.required' => 'A data de registro é obrigatória.',
-            'due_date.required' => 'A data de vencimento é obrigatória.',
-            'installment_number.required' => 'O número de parcelas é obrigatório.',
-            'installment_number.integer' => 'O número de parcelas deve ser um número inteiro.',
-            'installment_value.required' => 'O valor da parcela é obrigatório.',
-            'installment_value.numeric' => 'O valor da parcela deve ser um número válido.',
-            'type_interest.required' => 'O tipo de juros é obrigatório.',
-            'interest_value.required' => 'O valor dos juros é obrigatório.',
-            'interest_value.numeric' => 'O valor dos juros deve ser um número válido.',
-            'total_amount.required' => 'O valor total é obrigatório.',
-            'total_amount.numeric' => 'O valor total deve ser um número válido.',
-            'user_id.required' => 'O ID do usuário é obrigatório.',
-            'user_id.integer' => 'O ID do usuário deve ser um número inteiro.',
-            'user.required' => 'O nome do usuário é obrigatório.',
-            'user.string' => 'O nome do usuário deve estar em um formato válido.',
-            'user.max' => 'O nome do usuário não pode ter mais de :max caracteres.',
         ];
     }
 }

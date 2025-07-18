@@ -1,4 +1,21 @@
 <template>
+<<<<<<< HEAD
+    <div
+        class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
+        id="pdv-view"
+        v-if="showGrid"
+        :class="{
+            'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
+            'relative left-10': witdhScreen <= 1080,
+            'text-xl': textSize === 4,
+            'text-2xl': textSize === 8,
+            'text-3xl': textSize === 16,
+            
+        }"   
+    >
+        <div 
+            class="payMentForm" 
+=======
     <div v-if="!showPage">
         <LoandingPage
             @show-page="showPage = $event"
@@ -12,6 +29,7 @@
             class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
             id="pdv-view"
             v-if="showGrid"
+>>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
             :class="{
                 'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
                 'relative left-10': witdhScreen <= 1080,
@@ -22,8 +40,42 @@
                 
             }"   
         >
+<<<<<<< HEAD
+            <PaymentsForm
+                v-if="showPaymentsForm"
+                :witdhScreen="this.witdhScreen"
+                :typeOperation=this.typeOperation
+                :totalOperation=this.totalOperation
+                :pdvID=this.pdvID
+                @resetTotal="totalOperation = $event"
+                @resetPDVID="pdvID = $event"
+                @close="cancelOperation"
+                @update:selectProducts="resetSale($event)"
+            />
+
+            <CashClosing
+                v-if="showCashClosing"
+                @closeCashClosing="closeCashClosing($event)"
+            />
+
+            <ErrorsModal
+                v-if="errorsOfSale.showErrosModal"
+                @close="chooseErrors($event)"
+                :errors="errorsOfSale.erros"
+                :class="{
+                    'transition-transform translate-y-4': errorsOfSale.showErrosModal,
+                    'opacity-0 -z-50': !errorsOfSale.showErrosModal
+                }"
+            />
+        </div>
+        
+        <div class="h-4">
+            <div 
+                class="m-3 border rounded-lg"
+=======
             <div 
                 class="payMentForm" 
+>>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
                 :class="{
                     'absolute top-24 z-20': witdhScreen > 1080,
                     'absolute right-auto left-auto top-5 z-50': witdhScreen <= 1080
@@ -71,6 +123,195 @@
                     <div 
                         class="inline-flex p-3"
                     >
+<<<<<<< HEAD
+                        <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configurações</button>
+                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
+                        <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex m-3 border border-black rounded-lg">
+                <div 
+                    class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
+                    @click="showProductsSelection()"
+                    
+                >
+                    <div class="border border-red-500 w-6 mb-1"></div>
+                    <div class="border border-black w-5 mb-1"></div>
+                    <div class="border border-gray-500 w-4 mb-1"></div>        
+
+                </div>
+                
+                <div class="mr-1">
+                    <ProductsSearchBar
+                        v-if="showProductsSearch"
+                        :witdhScreen="this.witdhScreen"
+                        @update:selectProducts="updateProductsSeletion($event)"
+
+                    />
+                    <!--Busca de produto-->
+                </div>
+
+            </div>
+  
+            <div class="products-grid m-5 shadow-lg relative overflow-y-auto">
+                
+                <table class="block text-left rounded-t-xl rtl:text-right ">
+                    <thead class="uppercase sticky top-0 bg-white z-10">
+                        <tr class="bg-white">
+                            <th scope="col" class="px-6 py-3">Cód.</th>
+                            <th scope="col" class="px-6 py-3 text-left">Produto</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
+                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
+                            <th scope="col" class="px-6 py-3">Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody v-for="products in productsSeletion">
+                        <tr v-for="(product, id) in products" :key="id"
+                            class="border">    
+
+                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.product_cod }}</td>
+                            <td class="px-6 py-3">{{ product.product }}</td>
+
+                            <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
+                                <input 
+                                    v-model="product.cfop"
+                                    :placeholder=product.cfop
+                                    type="text"
+                                    class="w-12 text-center border-b-4 border-b-gray-500"
+                                    maxlength="4"
+                                    minlength="4"
+                                    @input="changeCFOP(product.id, product.cfop)"
+                                />
+                            </td>
+
+                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
+                                <input 
+                                    v-model="product.csosncst"
+                                    :placeholder=product.csosncst
+                                    type="number"
+                                    :maxlength="maxlength(csosncst.toLowerCase())"
+                                    :minlength="maxlength(csosncst.toLowerCase())"
+                                    class="w-10 text-center border-b-4 border-b-gray-500"
+                                    id="csosnInput"
+                                    @input="changeCSOSN(product.id, product.csosn)"
+                                />
+                            </td>
+
+                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
+                                <input 
+                                    v-model="product.amount"
+                                    :placeholder=product.amount 
+                                    type="text"
+                                    class="w-10 text-center border-b-4 border-b-gray-500 "
+                                    @input="changeAmount(product.id, product.amount)"
+                                />
+                            </td>
+                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
+                            <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
+                            <td class="text-center">
+                                <div class="m-auto">
+                                    <button @click="productOptions(product, i, 'delete')">
+                                        <svg 
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" 
+                                            viewBox="0 0 24 24" 
+                                            stroke-width="1.5" 
+                                            stroke="currentColor" 
+                                            class="size-4 text-red-500 mr-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" 
+                                        />
+                                            delete
+                                        </svg>
+                                    </button>
+
+                                    <button @click="productOptions(product, 'options')">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 16 16" fill="currentColor"
+                                            class="size-4 text-blue-600 mr-4">
+                                            <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm6 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"
+                                        />
+                                            options
+                                        </svg>
+                                    </button>
+
+                                    <button @click="productOptions(product, 'view')">
+                                        <svg 
+                                            v-if="witdhScreen < 1080"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24" 
+                                            stroke-width="1.5" 
+                                            stroke="currentColor" 
+                                            class="size-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                            view
+                                            
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                        
+                </table>                
+                
+            </div>
+        </div>
+
+        <div v-if="viewProduct.show" class="absolute top-40 left-9 w-64 p-2 mr-5 ml-autobg-white z-50 rounded-lg bg-slate-700 text-white">
+            <div class="flex justify-end">
+                <div @click="viewProduct.show = !viewProduct.show">Voltar</div>
+
+            </div>
+            <div class="text-left">
+                <p><span>Cód: {{ viewProduct.id }}</span></p>
+                <p><span>Preço unitário: R${{ viewProduct.salePrice }}</span></p>
+                <p>
+                    <input 
+                        v-model="viewProduct.amount"
+                        :placeholder=viewProduct.amount
+                        type="text"
+                        class="w-10 text-center border-b-4 border-b-gray-500 text-black"
+                        @input="changeAmount(viewProduct.id, viewProduct.amount)"
+                        
+                    />
+                
+                </p>
+                
+            </div>
+        </div>
+    <div>
+        </div>
+            <div 
+                class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-gray-300 mt-2 mb-2 mr-2 "
+                :class="{
+                    'text-xl': textSize === 4,
+                    'text-2xl': textSize === 8,
+                    'text-3xl': textSize === 16,
+                    'm-auto': witdhScreen <= 1080
+                }">
+                
+                <div>
+                    <div>
+                        <div class="m-2 p-2">
+
+                            <label class="text-black" for="discount">Vendedor</label>
+                            <q-input 
+                                :placeholder="sellerData.name"
+                                disable
+                                id="discount"
+                                type="text"
+                                class="w-16"
+                            />
+=======
                         <div 
                             v-if="witdhScreen > 1366"
                             class="mr-16 mt-1"
@@ -88,6 +329,7 @@
                             >
                                 <router-link to="/sale/list-pdv">Voltar para a listagem</router-link>
                             </button>
+>>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
 
                             <button 
                                 @click="closeCashClosing(true)" 
@@ -100,6 +342,102 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
+                        <div class="p-4">
+                            <img 
+                                src="https://imgs.search.brave.com/MoYaYTNKcUf4WZ7AWmX_TQp1YL21SVA8qTSjj-_apNI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLnNk/ZS5nbG9iby5jb20v/bWVkaWEvb3JnYW5p/emF0aW9ucy8yMDE4/LzAzLzExL2ludGVy/bmFjaW9uYWwuc3Zn" 
+                                class="rounded-lg"
+                                height="236px"
+                                width="236px"
+                            />
+                        </div>
+
+                        <div class="m-4 p-4 bg-white"> 
+                            <div class="gap-4">
+                                <!-- Acréscimo -->
+                                <div class="flex items-center gap-4 mb-2">
+                                <label for="addition" class="text-gray-700 font-semibold w-32">Acréscimo R$</label>
+                                <input 
+                                    id="addition"
+                                    v-model.number="emitProducts.addition"
+                                    type="number"
+                                    class="w-32 px-3 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-right"
+                                />
+                                </div>
+
+                                <!-- Desconto -->
+                                <div class="flex items-center gap-4 mb-2">
+                                <label for="discount" class="text-gray-700 font-semibold w-32">Desconto R$</label>
+                                <input 
+                                    id="discount"
+                                    v-model.number="emitProducts.discount"
+                                    type="number"
+                                    class="w-32 px-3 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-right"
+                                />
+                                </div>
+
+                                <!-- Frete -->
+                                <div class="flex items-center gap-4">
+                                <label for="freight" class="text-gray-700 font-semibold w-32">Frete R$</label>
+                                <input 
+                                    id="freight"
+                                    v-model.number="emitProducts.freight"
+                                    type="number"
+                                    class="w-32 px-3 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-right"
+                                />
+                                </div>
+                            </div>
+                        </div>
+                    <div class="m-2 p-2 rounded-lg border border-gray-300" id="total">
+                        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Frete <span>R$ {{ calculateTotal.freight.toFixed(2) }}</span></p>
+                        <div class="mt-2">
+                            <span class="text-black rounded-md">
+                                Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2 p-2 ml-1 rounded-lg text-white">
+                        <!-- Cancelar venda -->
+                        <button
+                            :disabled="productsSeletion.length <= 0"
+                            @click="productsSeletion.length > 0 && cancelSale()"
+                            title="Cancelar venda"
+                            class="w-10 h-10 flex items-center justify-center bg-slate-600 rounded-md transition hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                            </svg>
+                        </button>
+
+                        <!-- Salvar venda -->
+                        <button
+                            :disabled="productsSeletion.length <= 0"
+                            @click="productsSeletion.length > 0 && saveSale()"
+                            title="Salvar venda"
+                            class="w-10 h-10 flex items-center justify-center bg-slate-600 rounded-md transition hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                            </svg>
+                        </button>
+
+                        <!-- Botão Finalizar -->
+                        <button
+                            v-if="configs.nmFinaly"
+                            @click="finalizeSale('nm')"
+                            class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-md text-sm font-medium transition">
+                            Finalizar
+                        </button>
+
+                        <!-- Botão Finalizar NFC-e -->
+                        <button
+                            @click="finalizeSale('nfce')"
+                            class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-sm font-medium transition">
+                            Finalizar e emitir NFC-e
+                        </button>
+=======
                 </div>
                 <div class="flex m-3 border border-black rounded-lg">
                     <div 
@@ -424,6 +762,7 @@
                                 
                             </div>
                         </div>
+>>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
                     </div>
                 </div>
             </div>

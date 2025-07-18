@@ -205,7 +205,6 @@
     import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
     import InstallmentsTable from "../Financial/InstallmentsTable.vue";
 
-
     const installments = ref<any[]>([]);
 
     const props = defineProps<{
