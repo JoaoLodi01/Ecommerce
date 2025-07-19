@@ -15,20 +15,20 @@ const routes = [
     component: () => import('src/pages/Tests/clip/Clip.vue')
   },
   {
-    path: '/teste/api',
+    path: '/teste/table/pdv',
     name: 'TestsAreaClip',
-    component: () => import('src/pages/Tests/api.vue')
+    component: () => import('src/pages/Tests/table/Qtable - pdv.vue')
+  },
+  {
+    path: '/teste/table/list-pdv',
+    name: 'TestsAreaClip',
+    component: () => import('src/pages/Tests/table/Qtable - list-pdv.vue')
   },
   {
     path: '/',
     name: 'Home',
     component: () => import('src/pages/Home/HomePage.vue')
   },
-  /*{
-    path: '/login',
-    name: 'Login',
-    component: () => import('src/pages/Auth/Login.vue')
-  } OLD LOGIN */,
   {
     path: '/login',
     name: 'Login',
@@ -66,6 +66,7 @@ const routes = [
   },
   {
     path: '/',
+    redirect: '/home',
     component: Sidebar,
     children: [
       {

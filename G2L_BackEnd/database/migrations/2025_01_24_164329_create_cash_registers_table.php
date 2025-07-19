@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('cash_registers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cash_register_code')->index();
-            $table->unique(['issuer_id', 'cash_register_code']);
-            
-            $table->string('document', 200);
+                        
+            $table->unsignedBigInteger('document');
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('description', 200);

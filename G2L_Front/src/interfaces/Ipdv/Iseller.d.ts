@@ -1,5 +1,5 @@
 interface Iseller 
 {
-    readonly id: number,
+    id: number,
     name: string
 };

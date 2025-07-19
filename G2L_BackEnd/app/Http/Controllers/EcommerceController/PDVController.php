@@ -48,7 +48,7 @@ class PDVController extends Controller
             $data['user_id']
         );
         
-        return apiSuccess('Sucesso!', []);
+        return apiSuccess('Venda finalizada com sucesso!', $pdv);
     }
 
     public function findSavePDV()

@@ -7,6 +7,46 @@
         />
 
     </div>
+
+    <div>
+        <ConfirmPage
+            v-if="showConfirm"
+            :operation="operation"
+            @confirm="handleOperation($event)"
+        />  
+
+        <PaymentsForm
+            v-if="showPaymentsForm && typeOperation && pdvID"
+            :witdhScreen="witdhScreen"
+            :typeOperation=typeOperation
+            :totalOperation=totalOperation
+            :pdvID=pdvID 
+            :room-i-d="0"
+            @resetTotal="totalOperation = $event"
+            @resetPDVID="pdvID = $event"
+            @close="cancelOperation"
+            @update:selectProducts="resetSale()"
+
+        />
+
+        <CashClosing
+            v-if="showCashClosing"
+            @closeCashClosing="closeCashClosing($event)"
+        />
+
+        <ErrorsModal
+            v-if="errorsOfSale.showErrosModal"
+            @close="chooseErrors($event)"
+            :errors="errorsOfSale.erros"
+            :class="{
+                'transition-transform translate-y-4': errorsOfSale.showErrosModal,
+                'opacity-0 -z-50': !errorsOfSale.showErrosModal
+            }"
+        />
+
+
+    </div>
+    
     <div 
         v-if="showPage"
 
@@ -23,45 +63,7 @@
                 'text-3xl': textSize === 16,
                 
             }"   
-        >
-            <div 
-                class="payMentForm" 
-                :class="{
-                    'absolute top-24 z-20': witdhScreen > 1080,
-                    'absolute right-auto left-auto top-5 z-50': witdhScreen <= 1080
-                }"
-            >
-                <PaymentsForm
-                    v-if="showPaymentsForm && typeOperation && pdvID"
-                    :witdhScreen="witdhScreen"
-                    :typeOperation=typeOperation
-                    :totalOperation=totalOperation
-                    :pdvID=pdvID 
-                    :room-i-d="0"
-                    @resetTotal="totalOperation = $event"
-                    @resetPDVID="pdvID = $event"
-                    @close="cancelOperation"
-                    @update:selectProducts="resetSale()"
-
-                />
-
-                <CashClosing
-                    v-if="showCashClosing"
-                    @closeCashClosing="closeCashClosing($event)"
-                />
-
-                <ErrorsModal
-                    v-if="errorsOfSale.showErrosModal"
-                    @close="chooseErrors($event)"
-                    :errors="errorsOfSale.erros"
-                    :class="{
-                        'transition-transform translate-y-4': errorsOfSale.showErrosModal,
-                        'opacity-0 -z-50': !errorsOfSale.showErrosModal
-                    }"
-                />
-
-            </div>
-            
+        >   
             <div class="max-h-auto">
                 <div 
                     class="m-3 border border-black rounded-lg"
@@ -121,7 +123,7 @@
                             v-if="showProductsSearch"
                             :witdhScreen="witdhScreen"
                             :locale="'pdv'"
-                            @update:selectProducts="updateProductsSeletion($event)"
+                            @update:selectProducts="updateProductsSeletion($event as IProducts)"
 
                         />
 
@@ -131,7 +133,7 @@
                 <div 
                     class="m-5 shadow-lg overflow-y-auto border border-black h-[48rem]" 
                 >
-                    <table>
+                     <table>
                         <thead 
                             class="uppercase shadow-lg sticky top-0 z-10 bg-white"
                         >
@@ -139,11 +141,12 @@
                                 <th scope="col" class="px-6 py-3">Cód.</th>
                                 <th scope="col" class="px-6 py-3 text-left">Produto</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CSOSN</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
                                 <th scope="col" class="px-6 py-3">Ações</th>
+                                
                             </tr>
                         </thead>
 
@@ -157,43 +160,48 @@
                                 <td class="px-6 py-3">{{ product.product}}</td>
 
                                 <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
-                                    <input 
+                                    <q-input 
                                         v-model="product.cfop"
                                         :placeholder=String(product.cfop)
                                         type="text"
-                                        class="w-12 text-center border-b-4 border-b-gray-500"
+                                        inputClass="text-center"
+                                        class="w-12 border-b-4 border-b-gray-500"
                                         maxlength="4"
                                         minlength="4"
-                                        @input="changeCFOP(product.id, Number(product.cfop))"
-
+                                        borderless
+                                        dense
                                     />
                                 </td>
 
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
-                                    <input 
+                                    <q-input 
                                         v-model="product.csosncst"
                                         :placeholder=String(product.csosncst)
-                                        type="number"
-                                        :maxlength="maxlength(csosncst.toLowerCase())"
-                                        :minlength="maxlength(csosncst.toLowerCase())"
-                                        class="w-10 text-center border-b-4 border-b-gray-500"
-                                        id="csosnInput"
-                                        @input="changeCSOSN(product.id, Number(product.csosncst))"
+                                        inputClass="text-center"
+                                        type="text"
+                                        borderless
+                                        dense
+                                        class="w-10 border-b-4 border-b-gray-500"
 
                                     />
                                 </td>
 
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
-                                    <input 
-                                        v-model="newAmount"
+                                    <q-input 
+                                        v-model="product.amount"
                                         :placeholder="String(product.amount).replace('.', ',')"
+                                        inputClass="text-center"
                                         type="text"
-                                        class="w-10 text-center border-b-4 border-b-gray-500 "
-                                        @input="changeAmount(product.product_code)"                                        
+                                        borderless
+                                        dense
+                                        class="w-10 border-b-4 border-b-gray-500"
+                                        @update:modelValue="changeAmount(product.product_code, product.amount)"
                                     />
                                 </td>
+
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ String(product.sale_price.toFixed(2)).replace('.', ',') }}</td>
                                 <!--td v-if="witdhScreen > 1080" class="text-center">R$ {{ String(Math.round(product.sale_price * Number(product.amount))).replace('.', ',') }}</td-->
+                                
                                 <td v-if="witdhScreen > 1080" class="text-center">R$ {{ String(Number(product.sale_price * product.amount).toFixed(2)).replace('.', ',') }}</td>
                                 <td class="text-center">
                                     <div class="m-auto">
@@ -262,12 +270,11 @@
                             :placeholder=String(viewProduct.amount)
                             type="text"
                             class="w-10 text-center border-b-4 border-b-gray-500 text-black"
-                            @input="changeAmount(viewProduct.id)"
+                            @input="changeAmount(viewProduct.id, 2)"
                             
                         />
                     
                     </p>
-                    
                 </div>
             </div>
         <div>
@@ -308,26 +315,54 @@
                                 <!-- COMPONENTE BUSCA DE CLIENTE -->                            
                             </div>
                         <div
-                            class="m-2 p-2 rounded-lg border border-gray-700" 
+                            class="m-2 p-1 rounded-lg border border-gray-700" 
                             
                         >
                             <p 
                                 class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
                             >
-                                Acréscimo R$: <input id="addition" v-model.number="emitProducts.addition" type="text" class="text-right"/>
+                                <span class="mt-auto mb-auto text-lg">Acréscimo R$</span>
+                                <q-input
+                                    v-model="emitProducts.addition"
+                                    inputClass="text-right"
+                                    type="text"
+                                    borderless
+                                    dense
+                                    maxlength="12"
+                                    :disable="productsSeletion.length <= 0"
+                                />
                             </p>
                             
                             <p 
                                 class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
                             >
-                                Desconto R$: <input id="discount" v-model.number="emitProducts.discount" type="text" class="text-right" />
+                                <span class="mt-auto mb-auto text-lg">Desconto R$</span>
+
+                                <q-input
+                                    v-model="emitProducts.discount"
+                                    inputClass="text-right"
+                                    type="text"
+                                    borderless
+                                    dense
+                                    maxlength="12"
+                                    :disable="productsSeletion.length <= 0"
+                                />
                             </p>
                                                     
                             <p 
                                 class="flex justify-between border p-2 rounded-lg"
                             >
-                                Frete R$:<input id="freight" v-model.number="emitProducts.freight" type="text" class="text-right focus:border-blue-400"/>
-                            
+                                <span class="mt-auto mb-auto text-lg">Frete R$</span>
+                                
+                                <q-input
+                                    v-model="emitProducts.freight"
+                                    inputClass="text-right"
+                                    type="text"
+                                    borderless
+                                    dense
+                                    maxlength="12"
+                                    :disable="productsSeletion.length <= 0"
+                                />                            
                             </p>
                         </div>
                     <div
@@ -335,21 +370,24 @@
                         id="total"
 
                     >
-                        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Frete <span>R$ {{ calculateTotal.freight.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Subtotal <span>R$  {{ String(calculateTotal.subtotal.toFixed(2)).replace('.', ',') }}</span></p>
+                        <p class="flex justify-between">Desconto <span>R$ {{ String(calculateTotal.discount.toFixed(2)).replace('.', ',') }}</span></p>
+                        <p class="flex justify-between">Acréscimo <span>R$ {{ String(calculateTotal.addition.toFixed(2)).replace('.', ',') }}</span></p>
+                        <p class="flex justify-between">Frete <span>R$ {{ String(calculateTotal.freight.toFixed(2)).replace('.', ',') }}</span></p>
                     
                     </div>
                     
                     <div 
-                        class="flex border justify-center"
-                        @click="alterLogo"
+                        class="flex border justify-center h-[250px]"
                     >
                         <img 
-                            width="250px"                            
+                            width="250px"                          
+                            class="cursor-pointer"
                             :src="`http://192.168.1.106:8000${configs.img}`"
-
+                            alt="Logo não encontrada"
+                            @click="alterLogo"
+                            title="Altere sua logo aqui!"
+                            
                         />
                         
                     </div>
@@ -370,7 +408,7 @@
                                 </button>
 
                                 <button
-                                    v-else @click="cancelSale()"
+                                    v-else @click="confirmOperation('cancelSale')"
                                     class="mr-1 ml-2 rounded-md"
                                     :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
                                 >
@@ -394,7 +432,7 @@
                                     class="mr-1 ml-2 rounded-md"
                                     :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
                                     title="Salvar venda"
-                                    @click="saveSale()"
+                                    @click="confirmOperation('saveSale')"
                                     v-else
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -403,7 +441,7 @@
                                 </button>
 
                                 <div class="mb-auto ml-auto text-xl w-auto">
-                                    <span class="mr-1 text-black p-1 rounded-md">Total: R$ {{ Math.max((calculateTotal.total), 0).toFixed(2) }}</span>
+                                    <span class="mr-1 text-black p-1 rounded-md">Total: R$ {{ String(Math.max((calculateTotal.total), 0).toFixed(2)).replace('.', ',') }}</span>
                                 
                                 </div>
                             </div>
@@ -435,7 +473,6 @@
                                     @click="finalizeSale('nfce')" 
                                     
                                 />
-                                
                             </div>
                         </div>
                     </div>
@@ -480,8 +517,8 @@
 </template>
 
 <script setup lang="ts">
-    import PaymentsForm from 'src/components/PaymentsForm.vue';
     //import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
+    import PaymentsForm from 'src/components/PaymentsForm.vue';
     import ImportFiles from 'src/components/Files/ImportFiles.vue';
     import CashClosing from 'src/components/PDV/CashClosing/CashClosing.vue'
     import ConfigPDV from 'src/components/Config/ConfigPDV.vue';
@@ -491,8 +528,9 @@
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import SupervisorPasswordDeleteItem from 'src/components/SupervisorPassword/SupervisorPasswordDeleteItem.vue';
     import OptionsProduct from 'src/components/Products/OptionsInSale/OptionsProduct.vue';
+    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
     import { api } from "src/boot/axios"
-    import { ref, watch, computed, onMounted } from 'vue'   
+    import { ref, watch, computed, onMounted, onUnmounted } from 'vue'   
     import { useRoute, useRouter } from 'vue-router';
     import { useQuasar, LocalStorage } from 'quasar';
     import camelcaseKeys from 'camelcase-keys';
@@ -507,8 +545,6 @@
     const issuer_id = ref<number>(LocalStorage.getItem("issuer_id"));
     const buttonColor = LocalStorage.getItem("buttonColor");
     const textColor = LocalStorage.getItem("textColor");
-    const painelColor = LocalStorage.getItem("painelColor");
-    const baseURL = process.env.API_BASE_URL;
 
     const sellerData = ref<Iseller>({
         id: 0,
@@ -577,10 +613,10 @@
 
     let showSupervisorPassword = ref<boolean>(false);
     let importLogo = ref<boolean>(false);
-
     let subTotal = ref<number>(0);
 
-    let newAmount = ref<string>('1');
+    let operation = ref<string>('');
+    let showConfirm = ref<boolean>(false);
 
     watch(
         () => route.fullPath,
@@ -588,8 +624,8 @@
             if(to === '/sale/pdv') productsSeletion.value = [];
             return;
         }
-    );
-        
+    );    
+
     const calculateTotal = computed(() => {
         subTotal.value = 0;
 
@@ -597,9 +633,15 @@
             subTotal.value += p.sale_price * p.amount;
         });
 
-        const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
-        const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
-        const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
+        /*
+            const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
+            const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
+            const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
+        */
+
+        const addition = Number(String(emitProducts.value.addition).replace(/\D/g, '.'));
+        const discount = Number(String(emitProducts.value.discount).replace(/\D/g, '.'));
+        const freight = Number(String(emitProducts.value.freight).replace(/\D/g, '.'));
 
         return {
             total: subTotal.value + (addition + freight) - discount,
@@ -609,45 +651,6 @@
             freight: freight
         };
     });
-
-    const saveSale = async() => {
-        const saveSale = confirm('Deseja salvar a venda?');
-        if (saveSale) 
-        {
-            if(isOpenedPDV.value)
-            {
-                const response = await api.post('/ecommerce/pdv/save-sale', { 
-                    issuer_id:  issuer_id,
-                    products: productsSeletion, 
-                    user_id: sellerData.value.id,
-                    customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
-                    sub_total: calculateTotal.value.subtotal,
-                    total: calculateTotal.value.total,
-                    addition: calculateTotal.value.addition,
-                    discount: calculateTotal.value.discount,
-                    description: 'Venda guardada',
-                    is_nfce_nm: '',
-                    status: 'Em Aberto'
-                    
-                })
-
-                if(response.data.success === true)
-                {
-                    alert('Venda guardarda para enviar posteriormente!');
-                    productsSeletion.value = [];// Salva apenas a venda = [];
-
-                } else {
-                    console.log(response.data);
-                }
-
-            } else {
-                alert('Venda guardarda para enviar posteriormente!');
-                // Salva apenas a venda = []
-                router.push({ name: "PDV" });
-
-            };
-        };
-    };
     
     const finalizeSale = async (type: string) => 
     {
@@ -683,7 +686,7 @@
                                 total: calculateTotal.value.total,
                                 addition: calculateTotal.value.addition,
                                 discount: calculateTotal.value.discount,
-                                description: type === 'nm' ? 'Venda Nota Manual N°' : 'Venda NFC-e N°',
+                                description: '',
                                 is_nfce_nm: type,
                                 status: 'Finalizada'
                                 
@@ -807,46 +810,30 @@
 
     };
 
-    const changeAmount = (id: number) =>
-    {
-        console.log('Nova qtde: ', newAmount.value, ' type: ', typeof newAmount.value);
-        const product = productsSeletion.value.find(p => p.product_code === id);        
-        product.amount = Number(newAmount.value.replace(',', '.'));
-        console.log(product);   
+    const changeAmount = (productCode: number, amount: number) =>
+    {   
+        const newAmount = String(amount).replace(',', '.');
+        const product = productsSeletion.value.find(p => p.product_code === productCode);
+        product.amount = Number(newAmount);
 
     };
 
-    const changeCFOP = (id: number, newCFOP: number) => 
-    { };
-
-    const changeCSOSN = (id: number, newCSOSN: number) =>
-    {};
-
-    const updateProductsSeletion = (selectedProducts) =>
+    const updateProductsSeletion = (selectedProducts: IProducts) =>
     {
-        console.log('Produto adicionado: ', selectedProducts,);
-        //productsSeletion.value = [...productsSeletion.value, selectedProducts]; // <- Qualquer coisa apagar o que está abaixo
-
-        const existingProduct = productsSeletion.value.find(p => 
-            p.product_code === selectedProducts.product_code || p.id === selectedProducts.id
+        const existingProduct = productsSeletion.value.find(
+            (p) => 
+                p.product_code === selectedProducts.product_code || 
+                p.id === selectedProducts.id
         );
 
         if(existingProduct)
         {
-            console.log('Quantidade atual: ', existingProduct.amount);
-            console.log('Quantidade a ser adicionada: ', selectedProducts.amount);
-            const actualAmout = existingProduct.amount += selectedProducts.amount;
-            console.log('Quantidade atual + a ser adicioanda: ', actualAmout);
-            existingProduct.amount = actualAmout;
-
+            existingProduct.amount += selectedProducts.amount;
 
         } else {
             productsSeletion.value = [...productsSeletion.value, {...selectedProducts}];
 
         };
-
-        console.log(productsSeletion.value);
-
     };
 
     const updateCustomerSelection = (client: Icustomer) => 
@@ -863,27 +850,6 @@
 
     };
 
-    /*
-    const calculateTotal = computed(() => {
-        subTotal.value = 0;
-
-        productsSeletion.value.map((p: IProducts) => {
-            subTotal.value += p.sale_price * p.amount;
-        });
-
-        const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
-        const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
-        const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
-
-        return {
-            total: subTotal.value + (addition + freight) - discount,
-            subtotal: subTotal.value,
-            addition: addition,
-            discount: discount,
-            freight: freight
-        };
-    });
-    */
     const handleProductOptions = (data: TReturnValues) =>
     {
         if(selectedProductCode.value !== 0)
@@ -976,10 +942,10 @@
         };
     };
 
-    const cancelSale = () =>
+    const handleOperation = async (event: TEmit[]|boolean): Promise<void> =>
     {
-        const option = confirm('Deseja realmente cancelar a venda? ')
-        if (option === true) {
+        if(operation.value === 'cancelSale')
+        {
             emitProducts.value = {
                 subtotal: 0,
                 addition: 0,
@@ -996,8 +962,51 @@
             {
                 router.push({ name: 'PDV' });
             };
-        }
-    }
+        } else {
+            console.log('isOpenedPDV.value ', isOpenedPDV.value);
+            if(!isOpenedPDV.value)
+            {
+                const res = await api.post('/ecommerce/pdv/save-sale', { 
+                    issuer_id:  issuer_id.value,
+                    products: productsSeletion.value, 
+                    user_id: sellerData.value.id,
+                    customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
+                    sub_total: calculateTotal.value.subtotal,
+                    total: calculateTotal.value.total,
+                    addition: calculateTotal.value.addition,
+                    discount: calculateTotal.value.discount,
+                    description: 'Venda guardada',
+                    is_nfce_nm: '',
+                    status: 'Em Aberto'
+                    
+                }, { headers : { 
+                    Accept: 'application/json'
+                }});
+                console.log(res.data);
+                if(res.data.success === true)
+                {
+                    $q.notify({
+                        color: 'green',
+                        message: 'Sua venda foi guardada para enviar posteriormente!',
+                        position: 'top'
+                    });
+                    productsSeletion.value = [];// Salva apenas a venda = [];
+
+                } else {
+                    console.log(res.data);
+                };
+
+            };
+        };
+
+        showConfirm.value = false;
+    };
+
+    const confirmOperation = (option: string) =>
+    {
+        operation.value = option;
+        showConfirm.value = true;
+    };
 
     const getUser = async () => 
     { 
@@ -1018,7 +1027,6 @@
         configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
         configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
         configs.value.img = configsRes.img
-        console.log(configs.value.img)
 
     };
 
@@ -1059,8 +1067,10 @@
             
             } 
         });
-
     });
+    onUnmounted(() => {
+        console.log('PDV foi desmontado corretamente')
+    })
       
 </script>
 
@@ -1070,7 +1080,9 @@
     }
 
     #csosnInput::-webkit-outer-spin-button,
-    #csosnInput::-webkit-inner-spin-button{
+    #csosnInput::-webkit-inner-spin-button,
+    #addition
+    {
         margin: 0;
         -webkit-appearance: none !important; 
 

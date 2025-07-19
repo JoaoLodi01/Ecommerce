@@ -1,158 +1,162 @@
 <template>
-    <div 
-        v-if="showQRCode"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
-    >
-        <QRCode
-            :total_amount="totalPaymentPIX"
-            :issuer_id="issuerID"
-            @close="handlePIX"
-            @discount="discountTotalByPIX($event)"
-            class="relative left-[20rem] top-5 z-50 w-[20rem]"
+    <div class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
+        <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center gap-4">
+            <div 
+                v-if="showQRCode"
+                class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
+            >
+                <QRCode
+                    :total_amount="totalPaymentPIX"
+                    :issuer_id="issuerID"
+                    @close="handlePIX"
+                    @discount="discountTotalByPIX($event)"
+                    class="relative left-[20rem] top-5 z-50 w-[20rem]"
+                    
+                />
+            </div>
+
+            <div 
+                v-if="showInstallments"
+                class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
+            >
+                <RegisterReceive
+                    :total_amount="totalOperation"
+                    :width-screen="witdhScreen"
+                    :pdv="true"
+                    class="border border-gray-500 rounded-md"    
+                />
+
+            </div>
             
-        />
-    </div>
+            <q-card 
+                class="w-[100vh] mr-14 border border-black mb-5 p-6 bg-white shadow-md rounded"
+                v-if="!showQRCode && !showInstallments && showPayMentForms"
 
-    <div 
-        v-if="showInstallments"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
-    >
-        <RegisterReceive
-            :total_amount="totalOperation"
-            :width-screen="witdhScreen"
-            :pdv="true"
-            class="border border-gray-500 rounded-md"    
-        />
-
-    </div>
-    
-    <q-card 
-        class="absolute w-[100vh] left-[18rem] mr-14 border border-black mt-5 mb-5 p-6 bg-white shadow-md rounded"
-        v-if="!showQRCode && !showInstallments && showPayMentForms"
-
-    >
-        <q-card-section>
-            <div class="text-h6">Formas de Pagamento</div>
-
-        </q-card-section>
-
-        <q-separator />
-    
-        <q-card-section>
-            <q-form @submit.prevent="confirmPayMent">
-                <q-list bordered separator class="bg-white text-black rounded-borders">
-                    <q-item v-for="(payment, i) in paymentsForms" :key="i">
-                        <q-item-section>
-                            <q-icon
-                                v-if="payment.tipo_lancamento === 'Receber'"
-                                name="mdi-credit-card-outline"
-                                color="primary"
-                                class="q-mr-sm"
-                            />
-                            <q-icon
-                                v-else-if="payment.tipo_lancamento === 'Caixa'"
-                                name="mdi-cash-register"
-                                color="green"
-                                class="q-mr-sm"
-                            />
-                            {{ payment.especie }}
-                        </q-item-section>
-        
-                        <q-item-section side>
-                            <q-input
-                                @input="calculateValueInformed"
-                                v-model="paymentsValues[i]"
-                                input-class="text-right"
-                                class="w-24"
-                                dense
-                                outlined
-                                placeholder="0,00"
-                                mask="##,##"
-                                fill-mask="0"
-                                reverse-fill-mask
-
-                            />
-                        </q-item-section>
-                </q-item>
-            </q-list>
-                <q-card-section class="bg-white text-black rounded-borders">
-                    <div class="row q-gutter-sm mb-2">
-                        <q-chip color="red-6" text-color="white">
-                            Valor faltante: R$
-                            {{
-                                Number(props.totalOperation.toFixed(2)) - calculateValueInformed
-                            }}
-                        </q-chip>
-
-                        <q-chip color="green-7" text-color="white">
-                            Valor pago: R$ {{ calculateValueInformed }}
-                        </q-chip>
-
-                        <q-chip color="blue-6" text-color="white">
-                            Troco: R$ {{  }}
-                        </q-chip>
-                    </div>
-
-                    <q-banner class="bg-gray-300 q-mb-sm rounded-xl">
-                        <div class="text-subtitle2 font-semibold">
-                            Total: R$ {{ totalOperation.toFixed(2) }}
-                        </div>
-                    </q-banner>
+            >
+                <q-card-section>
+                    <div class="text-h6">Formas de Pagamento</div>
 
                 </q-card-section>
-                <div class="q-mt-md relative left-32">
-                    <q-btn
-                        label="Cancelar"
-                        class="ml-52 mr-5"
-                        color="negative"
-                        @click="cancelOperation"
 
-                    />
+                <q-separator />
+            
+                <q-card-section>
+                    <q-form @submit.prevent="confirmPayMent">
+                        <q-list bordered separator class="bg-white text-black rounded-borders">
+                            <q-item v-for="(payment, i) in paymentsForms" :key="i">
+                                <q-item-section>
+                                    <q-icon
+                                        v-if="payment.tipo_lancamento === 'Receber'"
+                                        name="mdi-credit-card-outline"
+                                        color="primary"
+                                        class="q-mr-sm"
+                                    />
+                                    <q-icon
+                                        v-else-if="payment.tipo_lancamento === 'Caixa'"
+                                        name="mdi-cash-register"
+                                        color="green"
+                                        class="q-mr-sm"
+                                    />
+                                    {{ payment.especie }}
+                                </q-item-section>
+                
+                                <q-item-section side>
+                                    <q-input
+                                        @input="calculateValueInformed"
+                                        v-model="paymentsValues[i]"
+                                        input-class="text-right"
+                                        class="w-24"
+                                        dense
+                                        outlined
+                                        placeholder="0,00"
+                                        mask="##,##"
+                                        fill-mask="0"
+                                        reverse-fill-mask
 
-                    <q-btn
-                        :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
-                        color="primary"
-                        type="submit"
+                                    />
+                                </q-item-section>
+                        </q-item>
+                    </q-list>
+                        <q-card-section class="bg-white text-black rounded-borders">
+                            <div class="row q-gutter-sm mb-2">
+                                <q-chip color="red-6" text-color="white">
+                                    Valor faltante: R$
+                                    {{
+                                        String(Number(Number(props.totalOperation.toFixed(2)) - calculateValueInformed).toFixed(2)).replace('.', ',')
+                                    }}
+                                </q-chip>
 
-                    />
+                                <q-chip color="green-7" text-color="white">
+                                    Valor pago: R$ {{ String(calculateValueInformed).replace('.', ',') }}
+                                </q-chip>
 
-                </div>
-            </q-form>
-    
-        </q-card-section>
-    
-        <q-separator />
-    
-        <q-dialog v-model="bigger">
-            <q-card>
-            <q-card-section>
-                <div class="text-h6">
-                Pagamento maior que o valor
-                </div>
-                <div class="q-mt-sm">
-                Deseja gerar crédito de <strong>R$ {{ extraAmount }}</strong>?
-                </div>
-            </q-card-section>
-            <q-card-actions align="right">
-                <q-btn flat label="Não" @click="" />
-                <q-btn color="primary" label="Sim" @click="" />
-            </q-card-actions>
+                                <q-chip color="blue-6" text-color="white">
+                                    Troco: R$ {{  }}
+                                </q-chip>
+                            </div>
+
+                            <q-banner class="bg-gray-300 q-mb-sm rounded-xl">
+                                <div class="text-subtitle2 font-semibold">
+                                    Total da venda: R$ {{ String(totalOperation.toFixed(2)).replace('.', ',') }}
+                                </div>
+                            </q-banner>
+
+                        </q-card-section>
+                        <div class="q-mt-md relative left-32">
+                            <q-btn
+                                label="Cancelar"
+                                class="ml-52 mr-5"
+                                color="negative"
+                                @click="cancelOperation"
+
+                            />
+
+                            <q-btn
+                                :label="typeOperation === 'reservation' ? 'Concluir Reserva' : 'Finalizar Venda'"
+                                color="primary"
+                                type="submit"
+
+                            />
+
+                        </div>
+                    </q-form>
+            
+                </q-card-section>
+            
+                <q-separator />
+            
+                <q-dialog v-model="bigger">
+                    <q-card>
+                    <q-card-section>
+                        <div class="text-h6">
+                        Pagamento maior que o valor
+                        </div>
+                        <div class="q-mt-sm">
+                        Deseja gerar crédito de <strong>R$ {{ extraAmount }}</strong>?
+                        </div>
+                    </q-card-section>
+                    <q-card-actions align="right">
+                        <q-btn flat label="Não" @click="" />
+                        <q-btn color="primary" label="Sim" @click="" />
+                    </q-card-actions>
+                    </q-card>
+                </q-dialog>
+            
+                <q-card-section v-if="message">
+                    <q-banner dense class="bg-yellow-9 text-white rounded-xl">
+                        {{ message }}
+
+                    </q-banner>
+                </q-card-section>
+
             </q-card>
-        </q-dialog>
-    
-        <q-card-section v-if="message">
-            <q-banner dense class="bg-yellow-9 text-white rounded-xl">
-                {{ message }}
-
-            </q-banner>
-        </q-card-section>
-
-    </q-card>
-    <div v-if="!showInstallments && !showPayMentForms && !showQRCode">
-        <LoandingPage
-            @show-page="showPayMentForms = $event"
-            :text="'Carregando formas de pagamento ...'"
-        />
+            <div v-if="!showInstallments && !showPayMentForms && !showQRCode">
+                <LoandingPage
+                    @show-page="showPayMentForms = $event"
+                    :text="'Carregando formas de pagamento ...'"
+                />
+            </div>
+        </div>
     </div>
 </template>
 
@@ -229,64 +233,74 @@
 
     const confirmPayMent = async () =>
     {           
-        paymentsValues.value.map((pay, i) => {
-            const species = paymentsForms.value[i];
-
-            if(species.tipo_lancamento === 'Receber')
-            {
-                showInstallments.value = true;
-                
-            };
-
-            if(species.pix_key !== null && species.payments_form_type === 'PIX')
-            {
-                console.log('Tem PIX');
-                totalPaymentPIX.value = formatNumber(pay);
-                showQRCode.value = true;
-                
-            };
-        });
-
-        let totalNotFormated = paymentsValues.value.reduce((sum, acc) => { 
-            return sum + acc;
-
-        });
-
-        let total = totalNotFormated.replace(',', '.') || 0;
-
-        if(total)
+        if(paymentsValues.value.length > 0)
         {
-            console.log('Total pago: ', paymentsValues.value);
-            console.log(`Teve pix ou receber? ${showInstallments.value} | ${showQRCode.value}`);
+            paymentsValues.value.map((pay, i) => {
+                const species = paymentsForms.value[i];
 
-            
-            const res = await api.put('/ecommerce/pdv/finalize-sale', {
-                issuer_id: issuerID.value,
-                user_id: user_id.value,
-                type_operation: props.typeOperation,
-                change: 0,
-                payments_values: paymentsValues.value.map(v => parseFloat(v.replace(',', '.'))),
-                pdv_id: props.pdvID,
-                installments: null
+                if(species.tipo_lancamento === 'Receber')
+                {
+                    console.log('Tem Receber');
+                    showInstallments.value = true;
+                    
+                };
+
+                if(species.pix_key !== null && species.payments_form_type === 'PIX')
+                {
+                    console.log('Tem PIX');
+                    totalPaymentPIX.value = formatNumber(pay);
+                    showQRCode.value = true;
+                    
+                };
+            });
+
+            let totalNotFormated = paymentsValues.value.reduce((sum, acc) => { 
+                return sum + acc;
 
             });
 
-            console.log('Resultado da venda:', res.data);
-            if(res.data.success)
+            let total = totalNotFormated.replace(',', '.') || 0;
+
+            if(total)
             {
-                $q.notify({
-                    color: 'green',
-                    message: res.data.data,
-                    timeout: 2000,
-                    position: 'top'
+                console.log('Total pago: ', paymentsValues.value);
+                console.log(`Teve pix ou receber? ${showInstallments.value} | ${showQRCode.value}`);
+
+                
+                const res = await api.put('/ecommerce/pdv/finalize-sale', {
+                    issuer_id: issuerID.value,
+                    user_id: user_id.value,
+                    type_operation: props.typeOperation,
+                    change: 0,
+                    payments_values: paymentsValues.value.map(v => parseFloat(v.replace(',', '.'))),
+                    pdv_id: props.pdvID,
+                    installments: null
 
                 });
 
-                //finallySale();
+                console.log('Resultado da venda:', res.data);
+                if(res.data.success)
+                {
+                    $q.notify({
+                        color: 'green',
+                        message: res.data.message,
+                        timeout: 2000,
+                        position: 'top'
+
+                    });
+
+                    finallySale();
+                };
+                
+            } else {  
             };
-            
         } else {
-            //console.log('Total a ser pago: ', props.totalOperation - total);
+            $q.notify({
+                color: 'red',
+                message: 'Pagamento ausente!',
+                position: 'top',
+                timeout: 3000
+            });
         };
     }; // Vai conferir os valores pagos e gerenciar o que precisa ser feito, PIX ou receber...
 
@@ -325,6 +339,7 @@
         emits("resetPDVID", 0);
         emits('resetTotal', 0);
         emits('update:selectProducts', true);
+        
     };
 
     const cancelOperation = () =>

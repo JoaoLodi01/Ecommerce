@@ -51,21 +51,25 @@ class ConfigService
 
     public function updatePDVLogo(object $file, int $id)
     {
+        $destiny = "images/{$id}";
         $fileName = $file->getClientOriginalName();
-        $directory = storage_path("files/{$id}/logo/");
-        $filePath = $directory . DIRECTORY_SEPARATOR . $fileName;
-        $file->move($directory, $fileName);
-        //$url = "/storage/{$path}";
 
-        $this->configPDVRepository->updatePDVLogo($filePath, $id);
+        $path = $file->storeAs($destiny, $fileName, 'public');
 
-        return $filePath;
+        // Gera caminho web acessível
+        $url = "/storage/{$path}";
+
+        // Salva no banco
+        $this->configPDVRepository->updatePDVLogo($url, $id);
+
+        return $url;
     }
     
-    public function getPDVLogo(int $id)
+    public function downloadLogo(int $id)
     {
-        $config = $this->configPDVRepository->getPDVLogo($id);
-        return $config;
+        $url = $this->configPDVRepository->downloadLogo($id);
+
+        return $url;
     }
     
     public function updateCustomer(array $data, int $issuer_id)

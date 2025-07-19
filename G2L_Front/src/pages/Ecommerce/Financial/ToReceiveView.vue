@@ -1,5 +1,15 @@
 <template>
-    <div class="container mx-auto mt-5 p-6 ml-16 bg-white rounded-lg shadow-lg">
+    <div v-if="!showPage">
+        <LoandingPage
+            @show-page="showPage = $event"
+            :text="'Carregando registros do receber ...'"
+                        
+        />
+
+    </div>
+
+
+    <div v-if="showPage" class="w-[165vh] h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>
             <div class="flex space-x-4">
@@ -125,9 +135,10 @@
     import { LocalStorage } from "quasar";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
-
+    import LoandingPage from "src/components/Loanding/LoandingPage.vue";
     import camelcaseKeys from "camelcase-keys";
     import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
+
     dayjs.extend(isBetween);
 
     const today = dayjs();
@@ -142,7 +153,7 @@
     let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
     let withScreen = ref<number>(0);
     let showReceiveClosing = ref<boolean>(false);
-    
+    let showPage = ref<boolean>(false);
 
     const getRegister = async () =>
     {

@@ -12,7 +12,7 @@ interface PayMentMethodContract
         string $origem, // Origem
         object $pdv, // Corpo do PDV
         int $issuerID, // ID do emitente,
-        int $userID // Usuário que fez a venda
+        object $user // Usuário que fez a venda
                 
     );
 

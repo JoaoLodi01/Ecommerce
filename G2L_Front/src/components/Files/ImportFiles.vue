@@ -27,6 +27,19 @@
                     @click="emits('close', true)"
                 />
             </div>
+            <div v-if="props.operation === 'alterLogo'">
+                <span 
+                    class="flex"
+                >
+                    Escala de imagem recomendada: 512x512|1024x1024
+                </span>
+                <span 
+                    class="flex justify-end cursor-pointer text-blue-500" 
+                    @click="downloadLogo"
+                >
+                    Deseja fazer o download da sua logo?
+                </span>
+            </div>
         </div>
     </div>
 </template>
@@ -76,7 +89,7 @@
         'importColor': 'Cores importadas com sucesso!',
         'importProducts': 'Produtos importados com sucesso!',
         'importCustomers': 'Clientes importados com sucesso!',
-        'alterLogo': 'Logo alterada com sucesso!'
+        'alterLogo': 'Logo alterada com sucesso, recarregue a página!'
         
     })
 
@@ -159,11 +172,32 @@
         } else {
             $q.notify({
                 color: 'red',
-                message: 'Selecione o arquivo para importação!',
+                message: 'Selecione o arquivo!',
                 position: 'top',
                 timeout: 2000
 
             });
+        };
+    };
+
+    const downloadLogo = async () =>
+    {
+        try {
+            const res = await api.get(`configs/pdv/download-logo/${issuerID.value}`, {
+                responseType: 'blob'
+
+            });
+            const url = window.URL.createObjectURL(new Blob([res.data], { type: 'image/png' }));
+            const link = document.createElement('a');
+            
+            link.href = url;
+            link.setAttribute('download', `Logo.png`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+        } catch (error) {
+            
         };
     };
 

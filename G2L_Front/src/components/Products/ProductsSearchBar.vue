@@ -104,10 +104,7 @@
         const nameLength = search.value.name.length;
 
         if(nameLength >= 4 || nameLength >= 1)
-        {
-            console.log(search.value.name);
-            console.log(search.value.name.split('*')[1]);
-            
+        {   
             const res = await api.post(`/ecommerce/products/search`,{
                 filter: isPDV ? configs.value.filter : props.momentFilter,
                 search: isMultiple && search.value.name.split('*')[1].length >= 1 ? search.value.name.split('*')[1] : search.value.name,
@@ -141,7 +138,6 @@
         } else {
             if(product.active)
             {
-            console.log(product.active)
                 const emitProduct = {...productsData.value = { 
                     id: product.id,
                     product_code: product.product_code, 
@@ -156,7 +152,6 @@
                     
                 }};
                 
-                console.log('emitProduct: ', emitProduct)
                 emits('update:selectProducts', emitProduct);
                 
                 filtredProducts.value = [];

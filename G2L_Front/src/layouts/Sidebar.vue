@@ -732,17 +732,24 @@
 
         document.addEventListener('keydown', (event: KeyboardEvent) => {
             const keyName = event.key;
+
             if(event.altKey && keyName.toLowerCase() === 'g')
             {
                 toggleSidebar();
 
             };
 
-            if(event.altKey && keyName.toLocaleLowerCase() === 'p')
+            if(event.shiftKey && keyName.toLocaleLowerCase() === 'p')
             {
                 router.push({ path: `/${issuerFirstName.value}/sale/pdv` });
 
-            }
+            };
+
+            if(event.shiftKey && keyName.toLocaleLowerCase() === 'f')
+            {
+                router.push({ path: `/${issuerFirstName.value}/financial/cash-register` });
+
+            };
         });
     });
 

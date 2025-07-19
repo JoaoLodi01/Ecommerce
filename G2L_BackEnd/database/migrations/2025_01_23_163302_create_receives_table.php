@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             
-            $table->string('document', 200);            
+            $table->unsignedBigInteger('document');            
             $table->string('description', 200);
 
             $table->unsignedBigInteger('customer_code');

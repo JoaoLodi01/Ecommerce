@@ -23,12 +23,17 @@ class ConfigController extends Controller
         //Log::info('Memória usada ConfigController::class, __construct: ' . memory_get_usage(true));
     }
 
+    // Retorno de todas as configurações \\
+
     public function getConfigs(string $issuer_id)
     {
         $configs = $this->configService->getConfigs($issuer_id);
         return apiSuccess('Sucesso!', $configs);
         
     }
+    // ----------------------------------------------------------------------------------------- \\
+
+    // Configurações do Hotel \\
 
     public function updateHotel(ConfigHotelRequest $request, int $issuer_id)
     {
@@ -36,7 +41,9 @@ class ConfigController extends Controller
         return apiSuccess('Configurações do Hotel alteradas com sucesso', $config);
  
     }
+    // ----------------------------------------------------------------------------------------- \\
 
+    // Configurações do PDV \\
     public function updatePDV(ConfigPDVRequest $request, int $issuer_id)
     {
         $config = $this->configService->updatePDV($request->validated(), $issuer_id);
@@ -50,15 +57,19 @@ class ConfigController extends Controller
         return apiSuccess('Logo do PDV alteradas com sucesso', $config);
         
     }
-    
-    public function getPDVLogo(int $issuer_id)
-    {
-        $config = $this->configService->getPDVLogo($issuer_id);
-        return apiSuccess('Logo do seu PDV!', $config);
-        
-    }
-    
 
+    public function downloadLogo(int $issuer_id)
+    {
+        $logo = $this->configService->downloadLogo($issuer_id);
+        
+        return response()->download($logo, 'logo.png', [
+            'Content-Type' => 'application/png',
+
+        ]);
+    }
+    // ----------------------------------------------------------------------------------------- \\
+
+    // Configurações dos clientes \\
     public function updateCustomer(ConfigCustomerRequest $request, int $issuer_id)
     {
         Log::info($request->all());
@@ -67,8 +78,9 @@ class ConfigController extends Controller
         return apiSuccess('Configurações dos clientes alteradas com sucesso', $config);
         
     }
+    // ----------------------------------------------------------------------------------------- \\
 
-    // Colors
+    // Configurações das cores \\
     public function updateColor(ConfigColor $request, int $issuer_id)
     {
         $config = $this->configService->updateColor($request->validated(), $issuer_id);
@@ -95,5 +107,5 @@ class ConfigController extends Controller
 
         ]);
     }
-    //
+    // ----------------------------------------------------------------------------------------- \\
 }
