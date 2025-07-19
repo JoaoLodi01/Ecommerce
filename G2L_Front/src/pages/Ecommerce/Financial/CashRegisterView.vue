@@ -55,10 +55,16 @@
                 />
             </div>
 
-            <div class="border border-black">
-                <div class="flex">
-                    <span class="h-4 w-4 bg-red-600 mr-2"></span>
-                    <span class="h-4 w-4 bg-red-600"></span>
+            <div class="border border-black ml-4">
+                <div class="">
+                    <div class="bg-green-500 w-4 h-4">
+                    </div>
+                    <span class="ml-1">Entrada</span>
+
+                    <div class="bg-red-500 w-4 h-4">
+                    </div>
+                    <span class="ml-1">Saída</span>
+
                 </div>
             </div>
         </div>
