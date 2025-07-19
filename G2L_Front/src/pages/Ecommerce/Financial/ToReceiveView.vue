@@ -26,7 +26,7 @@
                 <q-btn
                     class="p-2 rounded-lg"
                     :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    @click="showRegister()"
+                    @click="manageClick(0, 'register', false)"
                     label="Cadastrar"
                 />
 
@@ -66,11 +66,11 @@
         </div>
 
         <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
-            <div><p>Total Quitadas: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
+            <div><p>Total Quitadas: <span class="font-semibold">R${{ totalQuitadas }}</span></p></div>
 
-            <div><p>Total Vencidas: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
+            <div><p>Total Vencidas: <span class="font-semibold">R${{ totalVencidas }}</span></p></div>
 
-            <div><p>Total Em aberto: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
+            <div><p>Total Em aberto: <span class="font-semibold">R${{ totalEmAberto }}</span></p></div>
         </div>
 
         <div class="to-receive-register-grid relative overflow-y-auto border rounded-lg shadow-lg">
@@ -78,7 +78,7 @@
                 <thead class="font-semibold sticky top-0 z-10">
                     <tr 
                         class="text-white"
-                        :style="`background-color: ${painelColor}; color: ${textColor}}`"
+                        :style="`background-color: ${painelColor}; color: ${textColor}`"
                     >
                         <th scope="col" class="text-center px-6 py-3">Código</th>
                         <th scope="col" class="text-center px-6 py-3">Documento</th>
@@ -93,7 +93,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(register, id) in receives" :key="id" class="border-t text-center">
+                    <tr v-for="(register, id) in receives" :key="register.receiveCod" class="border-t text-center">
                         <td class="px-6 py-3 text-center">{{ register.receiveCod }}</td>
                         <td class="px-6 py-3 text-center">{{ register.document }}</td>
                         <td class="px-6 py-3 text-center">{{ register.description }}</td>
@@ -103,11 +103,37 @@
                         <td class="px-6 py-3 text-center">{{ register.especieID }}</td>
                         <td class="px-6 py-3 text-center">{{ register.especie.toUpperCase() }}</td>
                         <td class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
-                        <td class="px-6 py-3">
-                            <q-btn @click="editRegister()" class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                                </svg>
+                        <td class="px-6 py-3 text-center">
+                            <q-btn
+                                @click="manageClick(register.receiveCod, 'update', false)"
+                                icon="edit"
+                                color="green"
+                                class="mr-1"
+                                size="sm"
+                            />
+                            
+                            <q-btn 
+                                @click="manageClick(register.receiveCod, 'view', true)"
+                                icon="visibility"
+                                color="blue"
+                                class="mr-1"
+                                size="sm"
+                            />
+
+                            <q-btn icon="more_vert" size="sm">
+                                <q-menu>
+                                    <q-list style="min-width: 100px">
+                                        <q-item clickable v-close-popup>
+                                            <q-item-section>Imprimir (A4)</q-item-section>
+                                        </q-item>
+                                        <q-item clickable v-close-popup>
+                                            <q-item-section>Térmica (80mm)</q-item-section>
+                                        </q-item>
+                                        <q-item clickable v-close-popup>
+                                            <q-item-section>Desfazer quitação</q-item-section>
+                                        </q-item>
+                                    </q-list>
+                                </q-menu>
                             </q-btn>
                         </td>
                     </tr>
@@ -118,10 +144,13 @@
             v-if="showReceiveClosing"
             class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
 
-            <div class="bg-white border border-black rounded-xl">
+            <div class="bg-white border border-gray-400 rounded-xl">
                 <RegisterReceive 
                     @close="closeRegister($event)"
                     :width-screen="withScreen"
+                    :receive-cod="selectedReceiveCod"
+                    :readonly="selectReadonly"
+                    :action="selectOperation"
                 />
             </div>
         </div>
@@ -131,23 +160,26 @@
 <script setup lang="ts">
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
-    import { ref, onMounted } from "vue";
+    import { ref, onMounted, computed } from "vue";
     import { LocalStorage } from "quasar";
+    import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
+    import LoandingPage from "src/components/Loanding/LoandingPage.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
-    import LoandingPage from "src/components/Loanding/LoandingPage.vue";
     import camelcaseKeys from "camelcase-keys";
-    import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
-
     dayjs.extend(isBetween);
 
     const today = dayjs();
     const $q = useQuasar();
+    const loading = ref(false);
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
-    const buttonColor = LocalStorage.getItem("buttonColor");
-    const painelColor = LocalStorage.getItem("painelColor");
-    const textColor = LocalStorage.getItem("textColor");
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const painelColor = ref<string>(LocalStorage.getItem("painelColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
+    let selectOperation = ref<string>('');
+    let selectReadonly = ref<boolean>(false);
+    let selectedReceiveCod = ref<number>(0);
     let receives = ref<IReceiveBody[]>([]);
     let startDate = ref<string>(today.startOf('month').format('YYYY-MM-DD'));
     let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
@@ -155,25 +187,52 @@
     let showReceiveClosing = ref<boolean>(false);
     let showPage = ref<boolean>(false);
 
-    const getRegister = async () =>
-    {
-        const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
-        receives.value = camelcaseKeys(res.data.data, { deep: true });
-    };
+    const getRegister = async () => {
+        loading.value = true;
+        try {
+            const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
+            receives.value = camelcaseKeys(res.data.data, { deep: true });
+        } catch (error) {
+            $q.notify({ color: 'red', message: 'Erro ao carregar dados' });
+        } finally {
+            loading.value = false;
+        }
+    }
     
     const dateSearch = () => {};
 
-    const editRegister = () => {};
-
-    const showRegister = () =>
-    {
-        showReceiveClosing.value  = true;
+    const manageClick = (receiveCod: number, action: string, readonly: boolean) => {
+        selectedReceiveCod.value = receiveCod;
+        selectOperation.value = action;
+        selectReadonly.value = readonly;
+        showReceiveClosing.value = true;
     };
     
     const closeRegister = (event: boolean) =>
     {
         showReceiveClosing.value = event;
+        if (!event) {
+            getRegister();
+        }
     };
+
+    const totalQuitadas = computed(() => 
+        receives.value.reduce((acc, r) => acc + (r.paid ? r.installmentValue : 0), 0)
+    );
+
+    const totalVencidas = computed(() => 
+        receives.value.reduce((acc, r) => {
+            const vencida = !r.paid && dayjs(r.dueDate).isBefore(dayjs());
+            return acc + (vencida ? r.installmentValue : 0);
+        }, 0)
+    );
+
+    const totalEmAberto = computed(() => 
+        receives.value.reduce((acc, r) => {
+            const emAberto = !r.paid && !dayjs(r.dueDate).isBefore(dayjs());
+            return acc + (emAberto ? r.installmentValue : 0);
+        }, 0)
+    );
         
     onMounted(() => {
         getRegister();

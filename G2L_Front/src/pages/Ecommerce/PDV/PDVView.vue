@@ -310,7 +310,7 @@
                                 <CustomerSearchBar
                                     @update:selectCustomer="updateCustomerSelection($event)"
                                     :pdv="true"
-
+                                    :disable="false"
                                 />
                                 <!-- COMPONENTE BUSCA DE CLIENTE -->                            
                             </div>
