@@ -1,0 +1,46 @@
+[2025-07-19 01:04:48] local.DEBUG: array (
+  0 => 
+  array (
+    'id' => 1,
+    'product_code' => 1,
+    'product' => 'Produto correto',
+    'active' => 1,
+    'barcode' => 0,
+    'barcode_internal' => 0,
+    'cfop' => '5102',
+    'csosncst' => '102',
+    'amount' => 2,
+    'sale_price' => 20,
+  ),
+)  
+[2025-07-19 01:04:48] local.INFO: -- Iniciou o saveSale() line 149 --   
+[2025-07-19 01:04:48] local.INFO: pdvData:   
+[2025-07-19 01:04:48] local.INFO: -- Iniciou o saveProducts() line 90 --   
+[2025-07-19 01:04:48] local.DEBUG: array (
+  'id' => 1,
+  'product_code' => 1,
+  'product' => 'Produto correto',
+  'active' => 1,
+  'barcode' => 0,
+  'barcode_internal' => 0,
+  'cfop' => '5102',
+  'csosncst' => '102',
+  'amount' => 2,
+  'sale_price' => 20,
+)  
+[2025-07-19 01:04:53] local.INFO: Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0  
+[2025-07-19 01:04:53] local.INFO: -- Iniciou o finalizeSale() line 222 --   
+[2025-07-19 01:04:53] local.INFO: Memória usada PDVRepository::class, finalizeSale: 25165824  
+[2025-07-19 01:04:53] local.INFO: PDV pelo issuer_ud {"pdv":{"App\\Models\\EcommerceModels\\PDV":{"id":13,"pdv_code":13,"issuer_id":1,"description":"Venda Nota Manual N°","issue_date":"2025-07-19","n_nfce":null,"customer_id":1,"customer":"Consumidor Padrão","gross_value":"40.00","net_value":"40.00","discount":"0.00","addition":"0.00","user_id":1,"user":"Gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}}} 
+[2025-07-19 01:04:53] local.INFO: Vai procurar a(s) formas de pagamento  
+[2025-07-19 01:04:53] local.DEBUG: Formas de pagamento:  [{"App\\Models\\EcommerceModels\\PaymentForms":{"id":1,"payment_code":1,"issuer_id":1,"especie":"Dinheiro","tipo_lancamento":"Caixa","payments_form_type":"DINHEIRO","pix_key":null,"bank_key":null,"other_key":null,"active":1}},{"App\\Models\\EcommerceModels\\PaymentForms":{"id":2,"payment_code":2,"issuer_id":1,"especie":"PIX","tipo_lancamento":"Caixa","payments_form_type":"PIX","pix_key":null,"bank_key":null,"other_key":null,"active":1}}] 
+[2025-07-19 01:04:53] local.INFO: Tipo de venda NM/NFCE: nm  
+[2025-07-19 01:04:53] local.INFO: Retorno do pagamento: 1  
+[2025-07-19 01:04:53] local.INFO: Pagamento bem sucessido, vai alterar o PDV: {"id":13,"pdv_code":13,"issuer_id":1,"description":"Venda Nota Manual N\u00b0","issue_date":"2025-07-19","n_nfce":null,"customer_id":1,"customer":"Consumidor Padr\u00e3o","gross_value":"40.00","net_value":"40.00","discount":"0.00","addition":"0.00","user_id":1,"user":"Gabriel","finished":0,"canceled":0,"is_nfce_nm":"nm","status":"Pendente","active":1}  
+[2025-07-19 01:04:53] local.INFO: $type nm  
+[2025-07-19 01:04:53] local.INFO: Tipo de venda: NFC-e/NMnm  
+[2025-07-19 01:04:53] local.INFO: Buscar e alterar os produtos, pdv_code = 13  
+[2025-07-19 01:04:53] local.INFO: Alteração dentro do for = 13  
+[2025-07-19 05:01:23] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-07-19 05:01:35] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-07-19 05:01:42] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  

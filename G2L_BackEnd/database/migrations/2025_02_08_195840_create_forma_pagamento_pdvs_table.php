@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('payments_forms_pdvs', function (Blueprint $table) {
+            $table->id();
+            $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+            $table->unsignedBigInteger('issuer_id');
+
+            $table->unsignedBigInteger('pdv_code');
+            $table->foreign('pdv_code')->references('pdv_code')->on('pdvs')->onDelete('cascade');
+
+            $table->unsignedBigInteger('payment_code');
+            $table->foreign('payment_code')->references('payment_code')->on('payments_forms')->onDelete('cascade');
+            $table->decimal('valor_pago', 16,2);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('payments_forms_pdvs');
+    }
+};
