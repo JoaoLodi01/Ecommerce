@@ -103,7 +103,6 @@
                         class="w-[100px]"
                         type="number"
                         v-model="form.interestValue"
-                        mask="R$ ###.###.###,##"
                         label="Juros"
                         color="grey-7"
                         :readonly="props.readonly"
@@ -113,7 +112,6 @@
                         class="w-[100px]"
                         type="number"
                         v-model="form.addition"
-                        mask="R$ ###.###.###,##"
                         label="Acréscimo"
                         color="grey-7"
                         :readonly="props.readonly"
@@ -123,7 +121,6 @@
                         class="w-[100px]"
                         type="number"
                         v-model="form.discount"
-                        mask="R$ ###.###.###,##"
                         label="Desconto"
                         color="grey-7"
                         :readonly="props.readonly"
@@ -135,7 +132,6 @@
                         v-model="form.valueEntry"
                         label="Juros a pagar"
                         color="grey-7"
-                        mask="R$ ###.###.###,##"
                         readonly
                     />
 
@@ -143,7 +139,9 @@
             </div>
 
             <InstallmentsTable 
-                :pdv="false" 
+                :pdv="false"
+                :installments="installments"
+                :number="form.installmentNumber"
                 :amount="Number(form.installmentAmount)"
                 :original-value="form.installmentValue"
                 :due-date="form.dueDate"
@@ -196,16 +194,20 @@
     </div>
 </template>
 <script setup lang="ts">
-    import { api } from "src/boot/axios"
-    import {LocalStorage, useQuasar} from "quasar";
-    import { ref, computed, watch, defineProps, defineEmits, reactive, onMounted } from 'vue';
     import dayjs from "dayjs";
     import 'dayjs/locale/pt-br';
-    import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
-    import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
+    import { api } from "src/boot/axios"
+    import {LocalStorage, useQuasar} from "quasar";
     import InstallmentsTable from "../Financial/InstallmentsTable.vue";
+    import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
+    import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+    import { ref, computed, watch, defineProps, defineEmits, reactive, onMounted } from 'vue';
 
     const installments = ref<any[]>([]);
+    const today = dayjs();
+    const $q = useQuasar();
+
+    let title = ref<string>('');
 
     const props = defineProps<{
         widthScreen: number,
@@ -215,24 +217,19 @@
         action: string
     }>();
 
-
     const emits = defineEmits<{
         (e: 'close', value: boolean)
     }>();
 
-    const today = dayjs();
-    const $q = useQuasar();
     const titles = reactive({
         'view': 'Visualizando ',
         'register': 'Cadastrando ',
         'update': 'Editando '
     });
-
-    let title = ref<string>('');
     
     const form = ref<IReceiveBody>({
-        issuerID: Number(LocalStorage.getItem("issuer_id")) || 0,
-        userID: Number(LocalStorage.getItem("user_id")) || 0,
+        issuerID: LocalStorage.getItem("issuer_id"),
+        userID: LocalStorage.getItem("user_id"),
         description: 'Registro Manual Receber',
         document: 1,
         customerID: 1,
@@ -248,7 +245,6 @@
         discount: 0,
         valueEntry: 0,
         valuePaid: 0,
-        valueOriginal: 0,
         origem: 'Receber (Manual)',
         paid: false,
 
@@ -265,16 +261,29 @@
     });
 
     const totalRecebidas = computed(() => {
-        
+        return installments.value
+            .filter(inst => inst.paid)
+            .reduce((sum, inst) => sum + parseCurrency(inst.valuePaid || 0), 0)
+            .toFixed(2);
     });
 
     const totalPendentes = computed(() => {
-        
+        return installments.value
+            .filter(inst => !inst.paid && !isLate(inst.dueDate))
+            .reduce((sum, inst) => sum + parseCurrency(inst.valuePaid || 0), 0)
+            .toFixed(2);
     });
 
     const totalAtrasadas = computed(() => {
-        
+        return installments.value
+            .filter(inst => !inst.paid && isLate(inst.dueDate))
+            .reduce((sum, inst) => sum + parseCurrency(inst.valuePaid || 0), 0)
+            .toFixed(2);
     });
+
+    const isLate = (dueDate: string): boolean => {
+        return dayjs(dueDate).isBefore(dayjs(), 'day');
+    };
 
     const exists = (event: boolean) =>
     {
@@ -338,7 +347,7 @@
 
             try {
                 const payload = {
-                    form,
+                    ...form.value,
                     installments: installments.value,
                 };
 
@@ -365,6 +374,8 @@
 
     onMounted(() => {
         title.value = titles[props.action];
+        console.log('issuer_id:', LocalStorage.getItem("issuer_id"));
+        console.log('user_id:', LocalStorage.getItem("user_id"));
     });
   
 </script>

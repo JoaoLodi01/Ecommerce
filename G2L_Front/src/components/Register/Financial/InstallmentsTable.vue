@@ -28,6 +28,7 @@
                     <th class="px-2 py-1">Data Vencimento</th>
                     <th class="px-2 py-1">Valor à pagar</th>
                     <th class="px-2 py-1">Valor Original</th>
+                    <th class="px-2 py-1" v-if="action === 'view'">Data Pagamento</th>
                     <th class="px-2 py-1" v-if="action === 'view'">Status</th>
                     <th class="px-2 py-1" v-if="readonly">Ações</th>
                 </tr>
@@ -48,13 +49,13 @@
                     </td>
                     <td>{{ formatCurrency(installment.valuePaid) }}</td>
                     <td>{{ formatCurrency(installment.valueOriginal) }}</td>
-                    <td v-if="installment.paid">{{ installment.paymentDate }}</td>
+                    <td v-if="action === 'view'">{{ installment.paymentDate }}</td>
                     <td v-if="action === 'view'">
                         <span :class="installment.paid ? 'text-green-600' : 'text-red-600'">
                             {{ installment.paid ? 'Quitada' : 'Em aberto' }}
                         </span>
                     </td>
-                    <td>
+                    <td v-if="action === 'view'">
                         <q-btn
                             size="sm"
                             icon="check"
@@ -80,14 +81,9 @@
 
 <script setup lang="ts">
     import { api } from "src/boot/axios";
-    import { ref, defineProps, defineEmits, computed, onMounted } from 'vue';
+    import { ref, defineProps, defineEmits, computed, onMounted, watch } from 'vue';
     import dayjs from 'dayjs';
-    import { LocalStorage, useQuasar } from 'quasar';
-    import camelcaseKeys from 'camelcase-keys';
 
-    const $q = useQuasar();
-    const loading = ref(false);
-    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
     type TinstallmentsData = {
         numberInstallment: number;
@@ -107,6 +103,7 @@
     }>();
 
     const props = defineProps<{
+        installments: TinstallmentsData[];
         pdv?: boolean,
         amount: number,
         originalValue: number,
@@ -115,19 +112,7 @@
         action: string,
     }>();
 
-    let installmentsData = ref<TinstallmentsData[]>([]);
-
-    const getRegister = async () => {
-        loading.value = true;
-        try {
-            const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
-            installmentsData.value = camelcaseKeys(res.data.data, { deep: true });
-        } catch (error) {
-            $q.notify({ color: 'red', message: 'Erro ao carregar dados' });
-        } finally {
-            loading.value = false;
-        }
-    }
+    let installmentsData = ref<TinstallmentsData[]>(props.installments || []);
 
     const generateInstallments = async () =>
     {
@@ -187,9 +172,11 @@
         deleteInstallments,
     });
 
-    onMounted(() => {
-        getRegister();
-        
-    });
+    watch(
+        () => props.installments,
+        (newVal) => {
+            installmentsData.value = [...newVal];
+        }
+    );
 
 </script>

@@ -27,11 +27,12 @@ class ReceiveRequest extends FormRequest
             'customerId' => [$required],
             'especieId' => [$required],
             'dueDate' => [$required],
+            'installmentAmount' => [$required, 'integer'],
             'installmentNumber' => [$required, 'integer'],
             'installmentValue' => [$required, 'numeric'],
+            'valuePaid' => [$required, 'numeric'],
             'typeInterest' => [$required],
             'interestValue' => [$required, 'numeric'],
-            'totalAmount' => [$required, 'numeric'],
             'origem' => ['nullable'],
             'userId' => [$required],
         ];
