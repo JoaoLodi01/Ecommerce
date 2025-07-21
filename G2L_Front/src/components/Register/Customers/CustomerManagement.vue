@@ -45,8 +45,8 @@
                         class="ml-2"
                         :rules="[
                             val => {
-                                if(!config.validateCpf) return true;
-                                if(config.validateCpf && !val) return false || 'CPF obrigatório';
+                                if(config.validateCpf) return true;
+                                if(!config.validateCpf && !val) return false || 'CPF obrigatório';
                                 return !val || validateCPF(val) || 'CPF inválido' 
                             }
                         ]"
@@ -86,8 +86,8 @@
                         class="ml-2"
                         :rules="[
                             val => {
-                                if(!config.validateCnpj) return true;
-                                if(config.validateCnpj && !val) return false || 'CNPJ obrigatório';
+                                if(config.validateCnpj) return true;
+                                if(!config.validateCnpj && !val) return false || 'CNPJ obrigatório';
                             }
                         ]"
 
@@ -122,6 +122,16 @@
                 />
 
                 <q-input 
+                    v-model="customerData.uf" 
+                    type="text" 
+                    label="UF" 
+                    maxlength="120"
+                    color="grey-7"
+                    class="ml-2"
+
+                />
+
+                <q-input 
                     v-model="customerData.number" 
                     type="text" 
                     label="Número" 
@@ -139,6 +149,26 @@
                     type="tel"
                     label="Número de telefone" 
                     maxlength="16"
+                    color="grey-7"
+                    class="ml-2"
+
+                />
+
+                <q-input 
+                    v-model="customerData.ie" 
+                    type="tel"
+                    label="IE" 
+                    maxlength="14"
+                    color="grey-7"
+                    class="ml-2"
+
+                />
+
+                <q-input 
+                    v-model="customerData.im" 
+                    type="tel"
+                    label="IM" 
+                    maxlength="12"
                     color="grey-7"
                     class="ml-2"
 
@@ -193,7 +223,7 @@
 
     <LoandingPage
         v-if="loanding"
-        :text="`Carregando dados do cliente: ${props.customerCOD} ...`"
+        :text="props.operation === 'create' ? 'Cadastrando novo cliente!' : `Carregando dados do cliente: ${props.customerCOD} ...`"
 
     />
 </template>
@@ -238,9 +268,12 @@
         cpf: null,
         cnpj: null,
         cep: '',
+        uf: '',
+        im: '',
+        ie: '',
         address: '',
-        number: 0,
-        is_customer: false,
+        number: '',
+        is_customer: true,
         is_driver: false,
         is_supplier: false,
         phone: '',
@@ -266,7 +299,7 @@
 
     let loanding = ref<boolean>(false);
 
-    watch(options.value, async(newValue) => 
+    watch(options.value, async() => 
     {
         customerData.value.cnpj = '';
 
@@ -287,6 +320,8 @@
         });
 
         const apiURL = `/customers/${isUpdate ? `update/${props.customerCOD}` : 'create'}`
+        
+        console.log(customerData.value);
         
         const res = isUpdate ? await api.put(apiURL, customerData.value) : await api.post(apiURL, customerData.value);
         const data = res.data;
@@ -344,7 +379,6 @@
         if(fomratedCEP.length === 8)
         {
             const res = await getCEPData(fomratedCEP);
-            console.log('Res: ', res);
 
             if(typeof res === 'string')
             {
@@ -360,6 +394,7 @@
             };
 
             customerData.value.address = res.addres;
+            customerData.value.uf = res.uf;
             return;  
         };
     };
@@ -399,6 +434,9 @@
                 cnpj: data.cnpj,
                 address: data.address,
                 cep: data.cep,
+                uf: data.uf,
+                ie: data.ie,
+                im: data.im,
                 number: data.number,
                 is_customer: returnValue(data.is_customer),
                 is_driver: returnValue(data.is_driver),

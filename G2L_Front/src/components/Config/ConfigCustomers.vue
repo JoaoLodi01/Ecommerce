@@ -3,46 +3,74 @@
         class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
     >
         <div class="bg-white p-8 rounded-md">
-            <div class="">
-                <h1>Configurações </h1>
+            <div>
+                
                 <div class="mb-2">
-                    <q-checkbox 
-                        v-model="options.validateAddres" 
-                        label="Permitir endereço nulo"
+                    <h1 class="text-xl ml-2 mb-4 border-b w-max">Configurações</h1>
 
-                    />
+                    <div class="mb-2">
+                        <h3 class="ml-2">Dados de cadastro</h3>
+                        <q-checkbox 
+                            v-model="options.validateAddres" 
+                            label="Permitir endereço nulo"
+                        />
 
-                    <q-checkbox 
-                        v-model="options.validateCNPJ" 
-                        label="Permitir CNPJ nulo" 
+                        <q-checkbox 
+                            v-model="options.validateCNPJ" 
+                            label="Permitir CNPJ nulo"     
+                        />
+                        
+                        <q-checkbox 
+                            v-model="options.validateCPF" 
+                            label="Permitir CPF nulo" 
 
-                    />
+                        />
+                        
+                        <q-checkbox 
+                            v-model="options.validateTradeName" 
+                            label="Permitir Nome fantasia nulo" 
+
+                        />
+                        
+                        <q-checkbox 
+                            v-model="options.validatePhone" 
+                            label="Permitir número de telefone nulo" 
+
+                        />
+                    </div>
+
+                    <q-separator color="grey" />
                     
-                    <q-checkbox 
-                        v-model="options.validateCPF" 
-                        label="Permitir CPF nulo" 
+                    <div>
+                        <h3 class="ml-2">Funcionalidades</h3>
+                        <q-checkbox 
+                            v-model="options.editByButton" 
+                            label="Edição do cliente apenas pelo botão" 
 
-                    />
+                        />
 
-                    <q-option-group
-                        v-model="lastFilter"
-                        type="radio"
-                        toggle
-                        class="flex"
-                        :options="[
-                            {label: 'Todos', value: 'all'},
-                            {label: 'Ativos', value: 'active'},
-                            {label: 'Inativos', value: 'disabled'},
-                        ]"
+                        <q-option-group
+                            v-model="lastFilter"
+                            type="radio"
+                            toggle
+                            class="flex mt-2"
+                            :options="[
+                                {label: 'Todos', value: 'all'},
+                                {label: 'Ativos', value: 'active'},
+                                {label: 'Inativos', value: 'disabled'},
+                            ]"
 
-                    />
+                        />
+
+                    </div>
+                    
                 </div>
             </div>
 
-            <div class="">
+            <div class="mt-4">
                 <q-btn 
                     :style="`background-color: ${buttonColor}; color: ${textColor}`"
-                    label="OK"
+                    label="Salvar configurações"
                     @click="saveConfig()"
                 />
 
@@ -66,7 +94,10 @@
     type TOptions = {
         validateCNPJ: boolean,
         validateCPF: boolean,
-        validateAddres: boolean
+        validateAddres: boolean,
+        validateTradeName: boolean,
+        validatePhone: boolean,
+        editByButton: boolean
     };
     
     const emits = defineEmits<{
@@ -79,7 +110,10 @@
     const options = ref<TOptions>({
         validateAddres: false,
         validateCNPJ: false,
-        validateCPF: false
+        validateCPF: false,
+        validateTradeName: false,
+        validatePhone: false,
+        editByButton: false,
 
     });
 
@@ -111,6 +145,7 @@
             validateCNPJ: options.value.validateCNPJ,
             validateCPF: options.value.validateCPF,
             validateAddres: options.value.validateAddres,
+            editByButton: options.value.editByButton,
             lastFilter: lastFilter.value
 
         });
@@ -123,11 +158,13 @@
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
         const data = camelcaseKeys(res.data.data.customers, { deep: true });
         
-
         options.value = {
-            validateAddres: returnValue(data.validateAddres),
-            validateCNPJ: returnValue(data.validateCnpj),
-            validateCPF: returnValue(data.validateCpf),
+            validateAddres: returnValue(data.validateAddres ?? false),
+            validateCNPJ: returnValue(data.validateCnpj ?? false),
+            validateCPF: returnValue(data.validateCpf ?? false),
+            validateTradeName: returnValue(data.validateTradeName ?? false),
+            validatePhone: returnValue(data.validatePhone ?? false),
+            editByButton: returnValue(data.editByButton ?? false),
             
         };
 

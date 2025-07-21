@@ -14,6 +14,8 @@ class ConfigCustomers extends Model
         'validate_cnpj',
         'validate_cpf',
         'validate_addres',
+        'validate_trade_name',
+        'edit_by_button',
         'last_filter',
 
     ];

@@ -43,8 +43,6 @@
                 'opacity-0 -z-50': !errorsOfSale.showErrosModal
             }"
         />
-
-
     </div>
     
     <div 
@@ -52,7 +50,7 @@
 
     > <!-- SHOW PAGE -->
         <div
-            class="mx-auto rounded-lg mt-3 bg-white max-w-[200vh] border border-black" 
+            class="mx-auto rounded-lg mt-3 bg-white w-max border border-black" 
             v-if="showGrid"
             :class="{
                 'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
@@ -82,13 +80,13 @@
                             <button 
                                 @click="showOptions" 
                                 class="p-1 mr-5 rounded-lg"
-                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                :style="`background-color: ${painelColor}; color: ${textColor}`"
                             >
                                 Configurações
                             </button>
                             <button 
                                 class="p-1 mr-5 rounded-lg"
-                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                :style="`background-color: ${painelColor}; color: ${textColor}`"
                             >
                                 <router-link to="/sale/list-pdv">Voltar para a listagem</router-link>
                             </button>
@@ -96,7 +94,7 @@
                             <button 
                                 @click="closeCashClosing(true)" 
                                 class="p-1 mr-5 rounded-lg"
-                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                :style="`background-color: ${painelColor}; color: ${textColor}`"
                             >
                                 Fechamento
                             </button>
@@ -131,21 +129,23 @@
                 </div>
     
                 <div 
-                    class="m-5 shadow-lg overflow-y-auto border border-black h-[48rem]" 
-                >
-                     <table>
+                    class="m-5 shadow-lg overflow-y-auto border border-black h-[48rem] max-w-[125vh]"  
+                >   
+                    <table>
                         <thead 
-                            class="uppercase shadow-lg sticky top-0 z-10 bg-white"
+                            class="uppercase shadow-lg sticky top-0 z-10 w-auto"
                         >
-                            <tr class="">
-                                <th scope="col" class="px-6 py-3">Cód.</th>
-                                <th scope="col" class="px-6 py-3 text-left">Produto</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CSOSN</th>
+                            <tr 
+                                :style="`background-color: ${painelColor}; color: ${textColor}`"
+                            >
+                                <th scope="col" class="pr-16 px-6 py-3">Cód.</th>
+                                <th scope="col" class="pr-16 px-6 py-3 text-left">Produto</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="pr-16 px-6 py-3 text-center">CFOP</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="pr-16 px-6 py-3 text-center">CSOSN</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
-                                <th scope="col" class="px-6 py-3">Ações</th>
+                                <th scope="col" class="px-2 py-4">Ações</th>
                                 
                             </tr>
                         </thead>
@@ -156,10 +156,10 @@
                                 :key="product.id" 
                                 class="border border-black"
                             >   
-                                <td class="px-6" scope="row">{{ product.product_code }}</td>
-                                <td class="px-6 py-3">{{ product.product}}</td>
+                                <td class="pr-16 px-6 py-3" scope="row">{{ product.product_code }}</td>
+                                <td class="pr-16 px-6 py-3">{{ product.product}}</td>
 
-                                <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
+                                <td v-if="witdhScreen > 1080" class="pr-16 px-6 py-3">
                                     <q-input 
                                         v-model="product.cfop"
                                         :placeholder=String(product.cfop)
@@ -173,7 +173,7 @@
                                     />
                                 </td>
 
-                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
+                                <td v-if="witdhScreen > 1080" class="pl-9 px-6 py-3">
                                     <q-input 
                                         v-model="product.csosncst"
                                         :placeholder=String(product.csosncst)
@@ -399,7 +399,7 @@
                                     disabled
                                     title="Sem vendas no momento"
                                     class="mr-1 ml-2 rounded-md"
-                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                     
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -410,7 +410,7 @@
                                 <button
                                     v-else @click="confirmOperation('cancelSale')"
                                     class="mr-1 ml-2 rounded-md"
-                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
@@ -422,7 +422,7 @@
                                     disabled
                                     title="Sem vendas no momento"
                                     class="mr-1 ml-2 rounded-md"
-                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
@@ -430,7 +430,7 @@
                                 </button>
                                 <button 
                                     class="mr-1 ml-2 rounded-md"
-                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                     title="Salvar venda"
                                     @click="confirmOperation('saveSale')"
                                     v-else
@@ -452,7 +452,7 @@
                             >
                                 <q-btn 
                                     class="rounded-md border-none"                                
-                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                     :class="{
                                         'ml-4': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
                                     }" 
@@ -465,7 +465,7 @@
                                     
                                 <q-btn  
                                     class="rounded-md border-none"                                
-                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                     :class="{
                                         'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
                                     }" 
@@ -543,6 +543,7 @@
     const route = useRoute();
     const router = useRouter();
     const issuer_id = ref<number>(LocalStorage.getItem("issuer_id"));
+    const painelColor = LocalStorage.getItem("painelColor");
     const buttonColor = LocalStorage.getItem("buttonColor");
     const textColor = LocalStorage.getItem("textColor");
 

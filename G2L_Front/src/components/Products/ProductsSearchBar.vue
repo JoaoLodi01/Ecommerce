@@ -5,7 +5,8 @@
         placeholder="Buscar..." 
         class="outline-none rounded-md mt-1 mb-1 p-1.5"
         :class="{
-            'max-w-max w-[100vh]': props.locale === 'pdv'
+            'w-[100vh]': props.locale === 'pdv',
+            'w-[150vh]': props.locale !== 'pdv'
         }"
         id="searchBar"
         :disabled="!configs.filter"

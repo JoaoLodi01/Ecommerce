@@ -1,5 +1,9 @@
+import ptBR from 'quasar/lang/pt-BR';
+
 export default {
-    message: {
-        errorCNPJ: 'O CNPJ deve ser um texto válido para a validação'
+    ...ptBR,
+    table: {
+        ...ptBR.table,
+        rowsPerPage: 'Registros por página: '
     }
 }

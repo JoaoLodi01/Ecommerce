@@ -20,7 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('config_customer_code');
             $table->boolean('validate_cnpj', 1)->default(0);
             $table->boolean('validate_cpf', 1)->default(0);
-            $table->boolean('validate_addres', 1)->default(0);
+            $table->boolean('validate_addres', 1)->default(0);  
+            $table->boolean('validate_trade_name', 1)->default(0);
+            $table->boolean('edit_by_button', 1)->default(0);
             $table->string('last_filter', 8)->default('all');
             $table->timestamps();
         });

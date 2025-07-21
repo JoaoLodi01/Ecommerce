@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('cpf', 11)->nullable();
             $table->string('cep', 8)->nullable();
             $table->string('uf', 2)->nullable();
+            $table->string('ie', 14)->nullable();
+            $table->string('im', 12)->nullable();
             $table->string('address', 120)->nullable();
             $table->string('number', 120)->nullable();
             $table->string('phone', 30)->nullable();

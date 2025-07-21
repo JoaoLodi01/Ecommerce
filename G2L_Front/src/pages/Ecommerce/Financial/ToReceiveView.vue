@@ -30,13 +30,6 @@
                     label="Cadastrar"
                 />
 
-                <q-btn
-                    class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    @click="getRegister()"
-                    label="Atualizar receber"
-
-                />
             </div>
         </div>
 

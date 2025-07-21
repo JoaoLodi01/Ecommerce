@@ -3,7 +3,7 @@
         <div v-if="showContent" class="max-w-[28rem] bg-white rounded-md h-[36rem]">
             <div class="p-12">
                 <h1 class="text-2xl ml-auto mr-autow-max text-center"><b>Bem vindo de volta!</b></h1>
-                <h3 class="text-xl ml-auto mr-autow-max text-center ">Login</h3>
+                <h1 class="text-xl ml-auto mr-autow-max text-center">Login</h1>
                 
                 <q-form
                     @submit.prevent="login"
@@ -85,7 +85,11 @@
         showPassword.value = false;
         
         try {
-            const res = await api.post("/auth/owner", details);
+            const res = await api.post("/auth/owner", details, {
+                headers: {
+                    Accept: 'application/json'
+                }
+            });
             console.log(res.data);
 
             if(res.data.success)

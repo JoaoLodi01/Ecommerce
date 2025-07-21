@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
-setlocale(LC_TIME, 'ptb');
+setlocale(LC_TIME, 'pb-BR');
 
 use App\Models\EcommerceModels\{
     PDV,
