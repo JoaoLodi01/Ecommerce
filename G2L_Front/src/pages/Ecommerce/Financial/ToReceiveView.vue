@@ -141,6 +141,8 @@
                     :receive-cod="selectedReceiveCod"
                     :readonly="selectReadonly"
                     :action="selectOperation"
+                    :receives="receives"
+                    :selected-register="selectedRegister"
                 />
             </div>
         </div>
@@ -169,6 +171,7 @@
     let selectOperation = ref<string>('');
     let selectReadonly = ref<boolean>(false);
     let selectedReceiveCod = ref<number>(0);
+    let selectedRegister = ref<IReceiveBody | null>(null);
     let receives = ref<IReceiveBody[]>([]);
     let startDate = ref<string>(today.startOf('month').format('YYYY-MM-DD'));
     let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
@@ -194,6 +197,7 @@
         selectOperation.value = action;
         selectReadonly.value = readonly;
         showReceiveClosing.value = true;
+        selectedRegister.value = receives.value.find(r => r.receiveCod === receiveCod) || null;
     };
     
     const closeRegister = (event: boolean) =>
@@ -225,6 +229,7 @@
     onMounted(() => {
         getRegister();
         withScreen.value = screen.width;
+        console.log(selectedRegister);
         
     });
 

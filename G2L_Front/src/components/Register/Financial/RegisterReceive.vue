@@ -201,7 +201,7 @@
     import InstallmentsTable from "../Financial/InstallmentsTable.vue";
     import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
     import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
-    import { ref, computed, watch, defineProps, defineEmits, reactive, onMounted } from 'vue';
+    import { ref, computed, defineProps, defineEmits, reactive, onMounted } from 'vue';
 
     const installments = ref<any[]>([]);
     const today = dayjs();
@@ -214,7 +214,9 @@
         pdv?: boolean,
         receiveCod: number,
         readonly: boolean,
-        action: string
+        action: string,
+        receives: Array<IReceiveBody>,
+        selectedRegister: IReceiveBody | null,
     }>();
 
     const emits = defineEmits<{
@@ -376,6 +378,13 @@
         title.value = titles[props.action];
         console.log('issuer_id:', LocalStorage.getItem("issuer_id"));
         console.log('user_id:', LocalStorage.getItem("user_id"));
+
+        if (props.action === 'view' || props.action === 'update') {
+            if (props.selectedRegister) {
+                //form.value = { ...props.selectedRegister };
+                //installments.value = props.selectedRegister;
+            }
+        }
     });
   
 </script>
