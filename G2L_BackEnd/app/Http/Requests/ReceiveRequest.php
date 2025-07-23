@@ -22,6 +22,7 @@ class ReceiveRequest extends FormRequest
     $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
             'issuerId' => [$required],
+            'userId' => [$required],
             'description' => [$required, 'string', 'max:255'],
             'document' => ['sometimes'],
             'customerId' => [$required],
@@ -30,11 +31,14 @@ class ReceiveRequest extends FormRequest
             'installmentAmount' => [$required, 'integer'],
             'installmentNumber' => [$required, 'integer'],
             'installmentValue' => [$required, 'numeric'],
-            'valuePaid' => [$required, 'numeric'],
             'typeInterest' => [$required],
             'interestValue' => [$required, 'numeric'],
+            'addition' => ['sometimes'],
+            'discount' => ['sometimes'],
+            'valueEntry' => ['sometimes'],
+            'valuePaid' => [$required, 'numeric'],
             'origem' => ['nullable'],
-            'userId' => [$required],
+            
         ];
     }
 }

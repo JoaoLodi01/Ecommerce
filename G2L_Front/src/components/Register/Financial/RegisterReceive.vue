@@ -198,16 +198,17 @@
     import 'dayjs/locale/pt-br';
     import { api } from "src/boot/axios"
     import {LocalStorage, useQuasar} from "quasar";
+    import { ref, computed, watch, reactive, onMounted } from 'vue';
     import InstallmentsTable from "../Financial/InstallmentsTable.vue";
     import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
     import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
-    import { ref, computed, watch, reactive, onMounted } from 'vue';
 
-    const installments = ref<any[]>([]);
+    //#region PRINCIPAIS
+    let title = ref<string>('');
+
     const today = dayjs();
     const $q = useQuasar();
-
-    let title = ref<string>('');
+    const installments = ref<any[]>([]);
 
     const props = defineProps<{
         widthScreen: number,
@@ -223,12 +224,18 @@
         (e: 'close', value: boolean)
     }>();
 
+    const close = (readonly: boolean) =>
+    {
+        emits('close', false);
+    };
+
     const titles = reactive({
         'view': 'Visualizando ',
         'register': 'Cadastrando ',
         'update': 'Editando '
     });
-    
+    //#endregion
+    //#region DADOS
     const form = ref<IReceiveBody>({
         issuerID: LocalStorage.getItem("issuer_id"),
         userID: LocalStorage.getItem("user_id"),
@@ -252,6 +259,84 @@
 
     });
     
+    const submitForm = async () => {
+        try {
+            const payload = {
+                issuerId: form.value.issuerID,
+                userId: form.value.userID,
+                customerId: form.value.customerID,
+                especieId: form.value.especieID,
+                description: form.value.description,
+                document: form.value.document,
+                dueDate: form.value.dueDate,
+                installmentAmount: form.value.installmentAmount,
+                installmentNumber: form.value.installmentNumber,
+                installmentValue: form.value.installmentValue,
+                typeInterest: form.value.typeInterest,
+                interestValue: form.value.interestValue,
+                addition: form.value.addition,
+                discount: form.value.discount,
+                valueEntry: form.value.valueEntry,
+                valuePaid: form.value.valuePaid,
+                origem: form.value.origem,
+                installments: installments.value,
+            };
+
+            const response = await api.post('ecommerce/receive/create', payload);
+
+            $q.notify({
+                color: 'green',position: 'top',
+                message: 'Recebimento registrado com sucesso!',
+            });
+
+            emits('close', true);
+
+        } catch (error) {
+            $q.notify({
+                position: 'top',
+                color: 'negative',
+                message: 'Erro ao registrar recebimento!',
+                
+            });
+            
+            console.error("Erros da API:", error.response?.data?.errors);
+        }
+    };
+    //#endregion
+    //#region EVENTOS
+    const exists = (event: boolean) =>
+    {
+        if(event)
+        {
+            $q.notify({
+                color: 'red',
+                message: 'Parcelas já existentes',
+                position: 'top',
+                timeout: 2000
+            });
+        };
+
+    };
+
+    const print = () => {};
+
+    const getCustumer = (event) =>
+    {
+        form.value.customerID = event.id;
+    };
+
+    const createInstallments = (event) => 
+    {
+      installments.value = event;
+    };
+
+    const getSpecie = (event) => 
+    {
+        form.value.especieID = event.payment_code;
+        form.value.especie = event.name;
+    };
+    //#endregion
+    //#region CALCULOS
     const totalAmoutCalc = computed(() => 
     {
         const number = parseCurrency(form.value.installmentNumber);
@@ -286,21 +371,7 @@
     const isLate = (dueDate: string): boolean => {
         return dayjs(dueDate).isBefore(dayjs(), 'day');
     };
-
-    const exists = (event: boolean) =>
-    {
-        if(event)
-        {
-            $q.notify({
-                color: 'red',
-                message: 'Parcelas já existentes',
-                position: 'top',
-                timeout: 2000
-            });
-        };
-
-    };
-
+    
     const parseCurrency = (value: number): number =>
     {
         if (!value) return 0;
@@ -314,69 +385,8 @@
             .replace(',', '.')
         ) || 0;
     };
-      
-
-    const close = (readonly: boolean) =>
-    {
-        emits('close', false);
-    };
-
-    const print = () => {};
-
-    const getCustumer = (event) =>
-    {
-        console.log(event);
-        form.value.customerID = event.id;
-    };
-
-    const createInstallments = (event) => 
-    {
-      installments.value = event;
-    };
-
-    const getSpecie = (event) => 
-    {
-        console.log("Chamou o getSpecie");
-        console.log(event);
-
-        form.value.especieID = event.payment_code;
-        form.value.especie = event.name;
-    };
-
-
-    const submitForm = async () => {
-        console.log('Payload:', form.value, installments.value);
-
-            try {
-                const payload = {
-                    ...form.value,
-                    installments: installments.value,
-                };
-
-                console.log(installments.value)
-                console.log(form.value)
-
-                const response = await api.post('ecommerce/receive/create', payload);
-
-                $q.notify({
-                    color: 'green',position: 'top',
-                    message: 'Recebimento registrado com sucesso!',
-                });
-
-                emits('close', true);
-
-            } catch (error) {
-                $q.notify({
-                    position: 'top',
-                    color: 'negative',
-                    message: 'Erro ao registrar recebimento!',
-                    
-                });
-                
-                console.error("Erros da API:", error.response?.data?.errors);
-            }
-        };
-
+    //#endregion
+    //#region Mounted
     onMounted(() => {
         title.value = titles[props.action];
         console.log('issuer_id:', LocalStorage.getItem("issuer_id"));
@@ -389,5 +399,5 @@
             }
         }
     });
-  
+    //#endregion
 </script>

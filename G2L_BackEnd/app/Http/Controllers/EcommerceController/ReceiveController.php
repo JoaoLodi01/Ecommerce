@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\EcommerceService\ReceiveService;
 use App\Http\Requests\ReceiveRequest;
+use Illuminate\Support\Facades\Log;
 
 class ReceiveController extends Controller
 {
@@ -20,6 +21,7 @@ class ReceiveController extends Controller
     public function create(ReceiveRequest $request){
         $data = $request->validated();
         return $this->receiveService->create($data);
+        Log::info('Caiu no controller');
     }
 
     public function findByID(int $id){
