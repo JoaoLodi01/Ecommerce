@@ -3,7 +3,7 @@
         class="border border-black bg-white p-6 shadow-md rounded"
         :class="{
             'w-screen': props.widthScreen < 1366,
-            'ml-20 form-customer': props.widthScreen > 1366
+            'ml-24 form-customer': props.widthScreen > 1366
         }"
 
     >
@@ -17,7 +17,7 @@
                     v-model="customerData.customer_type" 
                     :options="options" 
                     label="Tipo de cadastro *" 
-                    filled 
+                    class="ml-2"
                     color="grey-7"
                     :rules="[ val => !!val || 'Selecione o tipo de cadastro do cliente' ]"
                     
@@ -45,8 +45,8 @@
                         class="ml-2"
                         :rules="[
                             val => {
-                                if(!config.validateCpf) return true;
-                                if(config.validateCpf && !val) return false || 'CPF obrigatório';
+                                if(config.validateCpf) return true;
+                                if(!config.validateCpf && !val) return false || 'CPF obrigatório';
                                 return !val || validateCPF(val) || 'CPF inválido' 
                             }
                         ]"
@@ -86,8 +86,8 @@
                         class="ml-2"
                         :rules="[
                             val => {
-                                if(!config.validateCnpj) return true;
-                                if(config.validateCnpj && !val) return false || 'CNPJ obrigatório';
+                                if(config.validateCnpj) return true;
+                                if(!config.validateCnpj && !val) return false || 'CNPJ obrigatório';
                             }
                         ]"
 
@@ -122,6 +122,16 @@
                 />
 
                 <q-input 
+                    v-model="customerData.uf" 
+                    type="text" 
+                    label="UF" 
+                    maxlength="120"
+                    color="grey-7"
+                    class="ml-2"
+
+                />
+
+                <q-input 
                     v-model="customerData.number" 
                     type="text" 
                     label="Número" 
@@ -138,7 +148,35 @@
                     v-model="customerData.phone" 
                     type="tel"
                     label="Número de telefone" 
+                    mask="(##) #####-####"
                     maxlength="16"
+                    color="grey-7"
+                    class="ml-2"
+                    :rules="[
+                        val => {
+                            if(config.validatePhone) return true;
+                            if(!config.validatePhone && !val) return false || 'Telefone obrigatório';
+                            
+                        }
+                    ]"
+
+                />
+
+                <q-input 
+                    v-model="customerData.ie" 
+                    type="tel"
+                    label="IE" 
+                    maxlength="14"
+                    color="grey-7"
+                    class="ml-2"
+
+                />
+
+                <q-input 
+                    v-model="customerData.im" 
+                    type="tel"
+                    label="IM" 
+                    maxlength="12"
                     color="grey-7"
                     class="ml-2"
 
@@ -193,7 +231,7 @@
 
     <LoandingPage
         v-if="loanding"
-        :text="`Carregando dados do cliente: ${props.customerCOD} ...`"
+        :text="props.operation === 'create' ? 'Cadastrando novo cliente!' : `Carregando dados do cliente: ${props.customerCode} ...`"
 
     />
 </template>
@@ -211,16 +249,18 @@
 
     interface IConfigCustomer
     {
-        validateAddres: boolean,
         validateCnpj: boolean,
-        validateCpf: boolean
+        validateCpf: boolean,
+        validateAddres: boolean,
+        validateTradeName: boolean,
+        validatePhone: boolean
         
     };
 
     const props = defineProps<{
         widthScreen: number,
         operation: string,
-        customerCOD?: number
+        customerCode?: number
 
     }>();
 
@@ -238,9 +278,12 @@
         cpf: null,
         cnpj: null,
         cep: '',
+        uf: '',
+        im: '',
+        ie: '',
         address: '',
-        number: 0,
-        is_customer: false,
+        number: '',
+        is_customer: true,
         is_driver: false,
         is_supplier: false,
         phone: '',
@@ -257,7 +300,9 @@
     const config = ref<IConfigCustomer>({
         validateAddres: false,
         validateCnpj: false,
-        validateCpf: false
+        validateCpf: false,
+        validatePhone: false,
+        validateTradeName: false
 
     });
 
@@ -266,7 +311,7 @@
 
     let loanding = ref<boolean>(false);
 
-    watch(options.value, async(newValue) => 
+    watch(options.value, async() => 
     {
         customerData.value.cnpj = '';
 
@@ -276,7 +321,6 @@
     {
         loanding.value = true;
         const isUpdate = props.operation === 'update' ? true : false;
-        console.log(isUpdate)
 
         $q.notify({
             color: 'green',
@@ -286,26 +330,28 @@
 
         });
 
-        const apiURL = `/customers/${isUpdate ? `update/${props.customerCOD}` : 'create'}`
+        const apiURL = `/customers/${isUpdate ? `update/${props.customerCode}` : 'create'}`
         
-        const res = isUpdate ? await api.put(apiURL, customerData.value) : await api.post(apiURL, customerData.value);
-        const data = res.data;
+        try {
+            const res = isUpdate ? await api.put(apiURL, customerData.value) : await api.post(apiURL, customerData.value);
+            const data = res.data;
 
-        if(data.success)
-        {
-            $q.notify({
-                color: 'green',
-                message: isUpdate ? 'Cliente alterando com sucesso!' : 'Cliente cadastrado com sucesso!',
-                position: 'top',
-                timeout: 2000
+            if(data.success)
+            {
+                $q.notify({
+                    color: 'green',
+                    message: isUpdate ? 'Cliente alterando com sucesso!' : 'Cliente cadastrado com sucesso!',
+                    position: 'top',
+                    timeout: 2000
 
-            });
+                });
 
-            emits('close', true);
+                emits('close', true);
 
+            };
+        } catch (error) {
+            loanding.value = false;  
         };
-
-        loanding.value = false;
     };
 
     const getDataCNPJ = async () => 
@@ -344,7 +390,6 @@
         if(fomratedCEP.length === 8)
         {
             const res = await getCEPData(fomratedCEP);
-            console.log('Res: ', res);
 
             if(typeof res === 'string')
             {
@@ -360,6 +405,7 @@
             };
 
             customerData.value.address = res.addres;
+            customerData.value.uf = res.uf;
             return;  
         };
     };
@@ -374,6 +420,9 @@
         config.value.validateAddres = returnValue(data.validateAddres);
         config.value.validateCnpj = returnValue(data.validateCnpj);
         config.value.validateCpf = returnValue(data.validateCpf);
+        config.value.validateTradeName = returnValue(data.validateTradeName);
+        config.value.validatePhone = returnValue(data.validatePhone);
+
     };
 
     const getCustomerData = async () =>
@@ -386,7 +435,7 @@
 
         });
 
-        const res = await api.get(`/customers/${props.customerCOD}`);
+        const res = await api.get(`/customers/${props.customerCode}`);
         const data: IRegisterCustomer = res.data.data;
 
         if(res.data.success)
@@ -399,6 +448,9 @@
                 cnpj: data.cnpj,
                 address: data.address,
                 cep: data.cep,
+                uf: data.uf,
+                ie: data.ie,
+                im: data.im,
                 number: data.number,
                 is_customer: returnValue(data.is_customer),
                 is_driver: returnValue(data.is_driver),

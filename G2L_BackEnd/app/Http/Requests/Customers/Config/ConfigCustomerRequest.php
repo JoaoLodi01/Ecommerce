@@ -23,7 +23,10 @@ class ConfigCustomerRequest extends FormRequest
             'validateCNPJ' => ['sometimes'],
             'validateCPF' => ['sometimes'],
             'validateAddres' => ['sometimes'],
-            'lastFilter' => ['sometimes']
+            'validateTradeName' => ['sometimes'],
+            'validatePhone' => ['sometimes'],
+            'editByButton' => ['sometimes'],
+            'lastFilter' => ['sometimes'],
             
         ];
     }

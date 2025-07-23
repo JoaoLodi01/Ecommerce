@@ -19,6 +19,7 @@ return new class extends Migration
             
             $table->string('button_color', 40)->default('#000000')->nullable();
             $table->string('painel_color', 40)->default('#000000')->nullable();
+            $table->string('text_color', 40)->default('#ffffff')->nullable();
             
             $table->timestamps();
         });

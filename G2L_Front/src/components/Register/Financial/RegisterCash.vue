@@ -201,7 +201,7 @@ export default {
                         description: this.form.description,
                         document: this.form.document,
                         customer_code: this.form.customer_id,
-                        especie_cod: this.form.especie_id,
+                        especie_code: this.form.especie_id,
                         input_value: this.parseCurrency(this.form.input_value),
                         output_value: this.parseCurrency(this.form.output_value),
                         user_id: LocalStorage.getItem("user_id"),

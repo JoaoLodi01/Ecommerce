@@ -8,7 +8,7 @@ interface ICashBody
     date_register: string,
     description: string,
     document: string | number
-    especie_cod: number,
+    especie_code: number,
     especie: string,
     input_value: number,
     issuer_id: number,

@@ -34,6 +34,9 @@ class ConfigCustomersRepository implements ConfigCustomersContract
                         'validate_cnpj' => $data['validateCNPJ'] ?? null,
                         'validate_cpf' => $data['validateCPF'] ?? null,
                         'validate_addres' => $data['validateAddres'] ?? null,
+                        'validate_trade_name' => $data['validateTradeName'] ?? null,
+                        'validate_phone' => $data['validatePhone'] ?? null,
+                        'edit_by_button' => $data['editByButton'] ?? null,
                         'last_filter' => $data['lastFilter'] ?? null
                         
                     ]);

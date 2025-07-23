@@ -1,4 +1,4 @@
-import { defineBoot } from '#q-app/wrappers';
+import { boot } from 'quasar/wrappers';
 import { LocalStorage } from 'quasar';
 import axios from 'axios';
 import emitter from 'src/utils/eventBus';
@@ -9,7 +9,7 @@ const api = axios.create({
   baseURL: process.env.API_URL,
 });
 
-export default defineBoot(({ app, router }) => {
+export default boot(({ app, router }) => {
   api.interceptors.request.use(
     (config) => {
       const token = LocalStorage.getItem("auth_token");
@@ -83,7 +83,6 @@ export default defineBoot(({ app, router }) => {
         return Promise.reject(error);
 
       } else {
-        console.warn(error.response.data.status === 401 ? 'Deveria ir pro login' : 'aaa');
         const msg =
           error.response?.data?.message ||
           error.response?.data?.errorMessage ||

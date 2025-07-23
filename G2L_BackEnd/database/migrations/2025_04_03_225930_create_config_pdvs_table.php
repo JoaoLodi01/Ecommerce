@@ -26,7 +26,14 @@ return new class extends Migration
             $table->boolean('supervisor_password_cancel_sale', 1)->default(0);
             $table->boolean('supervisor_password_delete_item', 1)->default(0);
             $table->boolean('validate_gtin', 1)->default(0);
-            $table->string('img', 100)->nullable()->default(0);
+            $table->string('img', 100)->nullable()->default(0); // logo
+            
+            $table->foreign('chart_of_account_code')->references('chart_of_account_code')->on('chart_of_accounts')->onDelete('cascade');
+            $table->unsignedBigInteger('chart_of_account_code')->nullable();
+            
+            $table->foreign('cost_center_code')->references('cost_center_code')->on('cost_centers')->onDelete('cascade');
+            $table->unsignedBigInteger('cost_center_code')->nullable();
+
             $table->boolean('active', 1)->default(1);
             $table->timestamps();
         });

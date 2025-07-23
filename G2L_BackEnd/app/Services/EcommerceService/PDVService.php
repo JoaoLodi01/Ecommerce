@@ -77,4 +77,10 @@ class PDVService
 
         }
     }
+
+    public function cancelPDV(int $issuerID, int $pdvCode)
+    {
+        $canceledPDV = $this->pdvRepository->cancelPDV($issuerID, $pdvCode);
+        return $canceledPDV;
+    }
 }

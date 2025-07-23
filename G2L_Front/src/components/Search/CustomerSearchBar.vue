@@ -19,7 +19,7 @@
                 @update:model-value="selectClient()"
                 class="w-96"
                 color="grey"
-                :disabled="!filter"
+                :disabled="disable"
 
             />
             
@@ -44,7 +44,7 @@
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { LocalStorage } from 'quasar';
-    import { ref, onMounted, defineProps, defineEmits } from 'vue';
+    import { ref, onMounted } from 'vue';
     
     type TcustomersData = {
         id: number,
@@ -64,8 +64,8 @@
     }>();
 
     const props = defineProps<{
-        pdv: boolean
-
+        pdv: boolean,
+        disable: boolean
     }>();
     
     const customer = ref<any>(null);
@@ -144,7 +144,7 @@
     
     onMounted(() => {
         
-        document.addEventListener('keydown', (event: TEvent) => {
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
             const keyName = event.key;
             
             if(keyName === 'F4')

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
-setlocale(LC_TIME, 'ptb');
+setlocale(LC_TIME, 'pb-BR');
 
+use App\DTO\CashRegister\CashRegisteDTO;
 use App\Models\EcommerceModels\{
     PDV,
     ItensPDV,
@@ -147,7 +148,7 @@ class PDVRepository
         Log::channel('pdv')->info('-- Iniciou o saveSale() line 149 -- ');
         Log::debug($details);
     
-        $customer = $this->customerRepository->findByID($details['customer_id']);
+        $customer = $this->customerRepository->findByID($details['issuer_id'], $details['customer_id']);
         
         $customerName = $customer->company_name ? $customer->company_name : $customer->trade_name;
 
@@ -162,7 +163,7 @@ class PDVRepository
             'issuer_id' => $details['issuer_id'],
             'description' => $details['is_nfce_nm'] === 'nm' ? "Venda Nota Manual N° {$pdvCode}" : "Venda NFC-e N° {$pdvCode}",
             'issue_date' => $currentDate->format('Y-m-d'),
-            'customer_id' => $customer->customer_code,
+            'customer_code' => $customer->customer_code,
             'customer' => $customerName,
             'gross_value' => $details['sub_total'],
             'net_value' => $details['total'],
@@ -222,7 +223,7 @@ class PDVRepository
 
         $pdv = $this->findByID($id, $issuerID);
         
-        $customer = $this->customerRepository->findByID($pdv->customer_id);
+        $customer = $this->customerRepository->findByID($pdv->issuer_id, $pdv->customer_code);
         $user = $this->userRepository->findByID($userID);
         
         Log::channel('pdv')->info('Vai procurar a(s) formas de pagamento');
@@ -274,6 +275,19 @@ class PDVRepository
 
             return true;
         }
+    }
+
+    public function cancelPDV(int $issuerID, int $pdvCode)
+    {
+        $pdv = PDV::where('issuer_id', $issuerID)->where('pdv_code', $pdvCode)->first();
+        /*
+        $pdv->update([
+            'canceld' => 1
+
+        ]);
+        */
+
+    
     }
 
     public function incrementNFCe(int $id)

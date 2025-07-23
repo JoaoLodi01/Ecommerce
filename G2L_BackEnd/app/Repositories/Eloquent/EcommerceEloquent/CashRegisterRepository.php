@@ -18,10 +18,10 @@ class CashRegisterRepository
         return $cashRegister;
     }
 
-    public function findByID(string $params)
+    public function findByPDVCode(int $issuerID, int $pdvCode)
     {
         Log::info('Memória usada CashRegisterRepository::class, findByID: ' . memory_get_usage(true));
-        return CashRegister::where('id', $params)->first();
+        return CashRegister::where('issuer_id', $issuerID)->where('pdv_code', $pdvCode)->get();
     }
 
     public function create(CashRegisteDTO $dto)
@@ -43,7 +43,7 @@ class CashRegisterRepository
             'receive_document' => $dto->receive_document,
             'customer_code' => $dto->customer_code,
             'name' => $dto->name,
-            'especie_cod' => $dto->especie_cod,
+            'especie_code' => $dto->especie_code,
             'especie' => $dto->especie,
             'date_register' => $dto->date_register,
             'input_value' => $dto->input_value,

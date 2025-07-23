@@ -1,7 +1,3 @@
-// ❌ Remova isso
-// import { defineRouter } from '#q-app/wrappers'
-
-// ✅ Use isso:
 import { createRouter, createWebHistory, createMemoryHistory, createWebHashHistory } from 'vue-router'
 import routes from './routes'
 

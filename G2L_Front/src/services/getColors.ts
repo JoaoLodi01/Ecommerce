@@ -13,6 +13,7 @@ async function getColors(issuerID: number)
         {
             LocalStorage.set("buttonColor", data.buttonColor);
             LocalStorage.set("painelColor", data.painelColor);
+            LocalStorage.set("textColor", data.textColor);
 
             
         } else {

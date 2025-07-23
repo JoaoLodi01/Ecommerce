@@ -79,8 +79,10 @@ class CustomerRepository
         return $customer;
     }
 
-    public function findByID(int $id){
-        return Customer::where('customer_code', $id)->first();
+    public function findByID(int $issuerID, int $id)
+    {
+        Log::info("ID: {$id}, issuerID: {$issuerID}");
+        return Customer::where('issuer_id', $issuerID)->where('customer_code', $id)->first();
     }
 
     /*public function findByID(int $id){
@@ -94,7 +96,7 @@ class CustomerRepository
                     ->where('customer_id', $id)
                     ->first();*/
 
-    public function formatField(string|null $str): string|null
+    public function formatFieldCNPJOrCPF(string|null $str): string|null
     {
         if(empty($str))
         {
@@ -102,6 +104,17 @@ class CustomerRepository
         }
         
         $words = array('-', '.', '/');
+        return str_replace($words, "", $str);
+    }
+    
+    public function formatFieldPhone(string|null $str): string|null
+    {
+        if(empty($str))
+        {
+            return null;
+        }
+        
+        $words = array('(', ')', ' ', '-');
         return str_replace($words, "", $str);
     }
 
@@ -123,17 +136,21 @@ class CustomerRepository
         return Customer::create([
             'customer_code' => $customerCod,
             'issuer_id' => $issuer->id,
+            'customer_type' => $data['customer_type'],
             'company_name' => $data['company_name'] ?? null,
             'trade_name' => $data['trade_name'] ?? null,
-            'cpf' => null ?? $this->formatField($data['cpf']),
-            'cnpj' => null ?? $this->formatField($data['cnpj']),
-            'cep' => $this->formatField($data['cep']),
+            'cpf' => null ?? $this->formatFieldCNPJOrCPF($data['cpf']),
+            'cnpj' => null ?? $this->formatFieldCNPJOrCPF($data['cnpj']),
+            'cep' => $this->formatFieldCNPJOrCPF($data['cep']),
+            'uf' => $data['uf'],
+            'ie' => $data['ie'],
+            'im' => $data['im'],
             'address' => $data['address'],
             'number' => $data['number'],
             'is_customer' => $data['is_customer'] ?? null,
             'is_driver' => $data['is_driver'] ?? null,
             'is_supplier' => $data['is_supplier'] ?? null,
-            'phone' => $data['phone'],
+            'phone' => $this->formatFieldPhone($data['phone']),
 
         ]);
     }
@@ -142,18 +159,28 @@ class CustomerRepository
     {
         $customer = Customer::where('customer_code', $id)->where('issuer_id', $data['issuer_id'])->first();
         
+        $customerType = match($data['customer_type']) {
+            $data['cnpj'] => 'Júridica',
+            default => 'Física',
+
+        };
+
         $customer->update([
+            'customer_type' => $customerType,
             'company_name' => $data['company_name'] ?? null,
             'trade_name' => $data['trade_name'] ?? null,
-            'cpf' => null ?? $this->formatField($data['cpf']),
-            'cnpj' => null ?? $this->formatField($data['cnpj']),
-            'cep' => $this->formatField($data['cep']),
+            'cpf' => null ?? $this->formatFieldCNPJOrCPF($data['cpf']),
+            'cnpj' => null ?? $this->formatFieldCNPJOrCPF($data['cnpj']),
+            'cep' => $this->formatFieldCNPJOrCPF($data['cep']),
+            'uf' => $data['uf'],
+            'ie' => $data['ie'],
+            'im' => $data['im'],
             'address' => $data['address'],
             'number' => $data['number'],
             'is_customer' => $data['is_customer'] ?? null,
             'is_driver' => $data['is_driver'] ?? null,
             'is_supplier' => $data['is_supplier'] ?? null,
-            'phone' => $data['phone'],
+            'phone' => $this->formatFieldPhone($data['phone']),
 
         ]);  
         

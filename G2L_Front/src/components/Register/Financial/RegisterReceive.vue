@@ -6,8 +6,7 @@
             'ml-14': props.widthScreen > 1080
         }"
     >
-
-    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastrar recebimentos</h2>
+    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">{{ title }} recebimentos</h2>
 
         <form
             @submit.prevent="submitForm"
@@ -19,14 +18,28 @@
             }"
         >
 
-            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
+            <div class="border border-gray-200 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto" v-if="!readonly">
                 <div class="flex flex-wrap gap-4">
+
+                    <SpeciesSearchBar
+                        @selectSpecie="getSpecie($event)"
+                        :module_="'receive'"
+                        :disable="props.readonly"
+                    />
+
+                    <CustomerSearchBar 
+                        @updated:selectCustomer="getCustumer($event)" 
+                        :pdv="false"
+                        :disable="props.readonly"
+                    />
+
                     <q-input
                         class="w-[100px]"
                         type="number"
                         v-model="form.document"
                         label="Nº Doc"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -35,6 +48,32 @@
                         v-model="form.description"
                         label="Descrição"
                         color="grey-7"
+                        :readonly="props.readonly"
+                    />
+                    
+                </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto" v-if="!readonly">
+                <div class="flex flex-wrap gap-4">
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        v-model="form.installmentAmount"
+                        label="Nº Parcelas"
+                        color="grey-7"
+                        :disable="!form.especieID"
+                        :readonly="props.readonly"
+                    />
+
+                    <q-input
+                        class="w-[150px]"
+                        type="text"
+                        v-model="form.installmentValue"
+                        label="Valor Parcela"
+                        color="grey-7"
+                        :disable="!form.especieID"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -43,43 +82,16 @@
                         v-model="form.dueDate"
                         label="1º Vencimento"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
-                    <q-input
-                        class="w-[100px]"
-                        type="number"
-                        v-model="form.installmentNumber"
-                        label="Nº Parcelas"
-                        color="grey-7"
-                        :disable="!form.especieID"
-                    />
-
-                    <q-input
-                        class="w-[150px]"
-                        type="text"
-                        v-model="form.installmentValue"
-                        label="Valor Parcela"
-                        v-bind:mask="'##,##'"
-                        color="grey-7"
-                        :disable="!form.especieID"
-                        
-                    />
-
-                    <CustomerSearchBar 
-                        @updated:selectCustomer="getCustumer($event)" 
-                        :pdv="false"
-                    />
-                </div>
-            </div>
-
-            <div class="border border-gray-300 rounded-md p-3 h-auto max-h-[230px] w-auto overflow-auto">
-                <div class="flex flex-wrap gap-4">
                     <q-select
                         class="w-[80px]"
                         v-model="form.typeInterest"
                         label="Tipo"
                         emit-value
                         map-options
+                        :disable="props.readonly"
                         :options="[
                             { label: '%', value: '%' },
                             { label: 'R$', value: 'R$' }
@@ -93,6 +105,7 @@
                         v-model="form.interestValue"
                         label="Juros"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -101,6 +114,7 @@
                         v-model="form.addition"
                         label="Acréscimo"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -109,6 +123,7 @@
                         v-model="form.discount"
                         label="Desconto"
                         color="grey-7"
+                        :readonly="props.readonly"
                     />
 
                     <q-input
@@ -117,78 +132,111 @@
                         v-model="form.valueEntry"
                         label="Juros a pagar"
                         color="grey-7"
-                        v-bind:mask="'##,##'"
                         readonly
-                    />
-
-                    <SpeciesSearchBar
-                        @selectSpecie="getSpecie($event)"
-                        :module_="'receive'"
                     />
 
                 </div>
             </div>
 
             <InstallmentsTable 
-                :pdv="false" 
-                :amount="Number(form.installmentNumber)"
+                :pdv="false"
+                :installments="installments"
+                :number="form.installmentNumber"
+                :amount="Number(form.installmentAmount)"
                 :original-value="form.installmentValue"
                 :due-date="form.dueDate"
+                :readonly="readonly"
+                :action="action"
                 @exists-installments="exists($event)"
-                @updated:inspecInstallment="createInstallments($event)"
-                @request:generateInstallmentes=""
+                @installments-generated="createInstallments($event)"
             />
-
-            <div>
-                <q-btn
-                    type="submit"
-                    label="Registrar"
-                    class="bg-blue-600 text-white">
-                </q-btn>
-
-                <q-btn
-                    @click="close()"
-                    label="Voltar"
-                    class="ml-5 bg-slate-600 text-white">
-                </q-btn>
-            </div>
         </form>
+
+        <div v-if="readonly" class=" text-base font-medium flex justify-between items-center gap-4 p-3 rounded mt-2">
+            <span class="border rounded px-3 py-1 bg-green-200 text-green-900">
+                <q-icon name="check_circle" color="green-700" class="mr-2" />
+                Recebidas: R$ {{ totalRecebidas }}
+            </span>
+
+            <span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
+                <q-icon name="hourglass_empty" color="orange" />
+                Pendentes: R$ {{ totalPendentes }}
+            </span>
+
+            <span class="border rounded px-3 py-1 bg-red-300 text-red-900">
+                <q-icon name="warning" color="red" />
+                Atrasadas ( + juros ): R$ {{ totalAtrasadas }}
+            </span>
+        </div>
+
+        <div class="mt-4">
+            <q-btn
+                v-if="!readonly"
+                @click="submitForm"
+                type="submit"
+                label="Registrar"
+                class="bg-blue-600 text-white">
+            </q-btn>
+
+            <q-btn
+                @click="print()"
+                label="Imprimir"
+                class="bg-blue-600 text-white"
+                v-if="action === 'view'">
+            </q-btn>
+
+            <q-btn
+                @click="close(false)"
+                label="Voltar"
+                class="ml-5 bg-slate-600 text-white">
+            </q-btn>
+        </div>
     </div>
 </template>
 <script setup lang="ts">
-    import { api } from "src/boot/axios"
-    import {LocalStorage, useQuasar} from "quasar";
-    import { ref, computed, watch, defineProps, defineEmits } from 'vue';
     import dayjs from "dayjs";
     import 'dayjs/locale/pt-br';
-    import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+    import { api } from "src/boot/axios"
+    import {LocalStorage, useQuasar} from "quasar";
+    import InstallmentsTable from "../Financial/InstallmentsTable.vue";
     import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
-    import InstallmentsTable from "./InstallmentsTable.vue";
+    import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+    import { ref, computed, watch, reactive, onMounted } from 'vue';
+
+    const installments = ref<any[]>([]);
+    const today = dayjs();
+    const $q = useQuasar();
+
+    let title = ref<string>('');
 
     const props = defineProps<{
         widthScreen: number,
-        pdv?: boolean
-
+        pdv?: boolean,
+        receiveCod?: number,
+        readonly: boolean,
+        action: string
     }>();
 
     const emits = defineEmits<{
         (e: 'close', value: boolean)
     }>();
 
-    const today = dayjs();
-    const $q = useQuasar();
+    const titles = reactive({
+        'view': 'Visualizando ',
+        'register': 'Cadastrando ',
+        'update': 'Editando '
+    });
     
-    //const user = ref<number>(LocalStorage.getItem("user_name"));
-
     const form = ref<IReceiveBody>({
         issuerID: LocalStorage.getItem("issuer_id"),
+        userID: LocalStorage.getItem("user_id"),
         description: 'Registro Manual Receber',
         document: 1,
         customerID: 1,
-        userID: LocalStorage.getItem("user_id"),
         especieID: 0,
         especie: '',
         dueDate: today.add(30, 'days').format("YYYY-MM-DD"),
+        installmentAmount: 1,
         installmentNumber: 1,
         installmentValue: 0,
         typeInterest: '%',
@@ -197,8 +245,8 @@
         discount: 0,
         valueEntry: 0,
         valuePaid: 0,
-        valueOriginal: 0,
         origem: 'Receber (Manual)',
+        paid: false,
 
     });
     
@@ -211,6 +259,31 @@
         return total.toFixed(2);
 
     });
+
+    const totalRecebidas = computed(() => {
+        return installments.value
+            .filter(inst => inst.paid)
+            .reduce((sum, inst) => sum + parseCurrency(inst.valuePaid || 0), 0)
+            .toFixed(2);
+    });
+
+    const totalPendentes = computed(() => {
+        return installments.value
+            .filter(inst => !inst.paid && !isLate(inst.dueDate))
+            .reduce((sum, inst) => sum + parseCurrency(inst.valuePaid || 0), 0)
+            .toFixed(2);
+    });
+
+    const totalAtrasadas = computed(() => {
+        return installments.value
+            .filter(inst => !inst.paid && isLate(inst.dueDate))
+            .reduce((sum, inst) => sum + parseCurrency(inst.valuePaid || 0), 0)
+            .toFixed(2);
+    });
+
+    const isLate = (dueDate: string): boolean => {
+        return dayjs(dueDate).isBefore(dayjs(), 'day');
+    };
 
     const exists = (event: boolean) =>
     {
@@ -241,10 +314,12 @@
     };
       
 
-    const close = () =>
+    const close = (readonly: boolean) =>
     {
         emits('close', false);
     };
+
+    const print = () => {};
 
     const getCustumer = (event) =>
     {
@@ -254,7 +329,7 @@
 
     const createInstallments = (event) => 
     {
-      
+      installments.value = event;
     };
 
     const getSpecie = (event) => 
@@ -266,19 +341,44 @@
         form.value.especie = event.name;
     };
 
-    const submitForm = async () =>
-    {
-        try {
-            const response = await api.post(`/ecommerce/receive/create`, form.value);
 
-            if(response.data.success){
-                close();
+    const submitForm = async () => {
+        console.log('Payload:', form.value, installments.value);
+
+            try {
+                const payload = {
+                    ...form.value,
+                    installments: installments.value,
+                };
+
+                console.log(installments.value)
+                console.log(form.value)
+
+                const response = await api.post('ecommerce/receive/create', payload);
+
+                $q.notify({
+                    color: 'green',position: 'top',
+                    message: 'Recebimento registrado com sucesso!',
+                });
+
+                emits('close', true);
+
+            } catch (error) {
+                $q.notify({
+                    position: 'top',
+                    color: 'negative',
+                    message: 'Erro ao registrar recebimento!',
+                    
+                });
+                
+                console.error("Erros da API:", error.response?.data?.errors);
             }
+        };
 
-            console.log('Dados enviados!', response.data)
-        } catch (error) {
-            alert("Ocorreu um erro ao cadastrar o registro")
-        }
-    };
+    onMounted(() => {
+        title.value = titles[props.action];
+        console.log('issuer_id:', LocalStorage.getItem("issuer_id"));
+        console.log('user_id:', LocalStorage.getItem("user_id"));
+    });
   
 </script>

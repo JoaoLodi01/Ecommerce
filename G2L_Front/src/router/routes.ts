@@ -11,18 +11,23 @@ const routes = [
   },
   {
     path: '/teste/clip',
-    name: 'TestsAreaClip',
+    name: 'a',
     component: () => import('src/pages/Tests/clip/Clip.vue')
   },
   {
     path: '/teste/table/pdv',
-    name: 'TestsAreaClip',
+    name: 'b',
     component: () => import('src/pages/Tests/table/Qtable - pdv.vue')
   },
   {
     path: '/teste/table/list-pdv',
-    name: 'TestsAreaClip',
+    name: 'c',
     component: () => import('src/pages/Tests/table/Qtable - list-pdv.vue')
+  },
+  {
+    path: '/teste/table/list-customers',
+    name: 'd',
+    component: () => import('src/pages/Tests/table/QTable - list-customers.vue')
   },
   {
     path: '/',

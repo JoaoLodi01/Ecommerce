@@ -12,6 +12,7 @@ class SiteColors extends Model
         'issuer_id',
         'color_code',
         'button_color',
-        'painel_color'
+        'painel_color',
+        'text_color'
     ];
 }

@@ -14,7 +14,7 @@ readonly class CashRegisteDTO
         public int|null $receive_document,
         public int $customer_code,
         public string $name,
-        public int $especie_cod,
+        public int $especie_code,
         public string $especie,
         public string $date_register,
         public float|int $input_value,

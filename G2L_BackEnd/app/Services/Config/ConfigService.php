@@ -10,6 +10,7 @@ use App\Repositories\Eloquent\Config\{
     ConfigProductsRepostiry
 };
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class ConfigService
 {
@@ -51,6 +52,7 @@ class ConfigService
 
     public function updatePDVLogo(object $file, int $id)
     {
+        Log::debug('Vai armanzenar a logo');
         $destiny = "images/{$id}";
         $fileName = $file->getClientOriginalName();
 

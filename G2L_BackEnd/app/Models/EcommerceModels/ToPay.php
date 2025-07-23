@@ -13,10 +13,12 @@ class ToPay extends Model
         'issuer_id',
         'document',
         'description',
+        'chart_of_account_code',
+        'cost_center_code',
         'customer_code',
         'dav_code',
         'name',
-        'especie_cod',
+        'especie_code',
         'especie',
         'due_date',
         'installment_amount', // qtde parcelas

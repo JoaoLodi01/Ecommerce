@@ -8,13 +8,21 @@
 
     </div>
 
-    <div v-if="showPage" class="w-[165vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg">
+    <div 
+        v-if="showPage" 
+        class="h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg"
+        :class="{
+            'mt-10 p-6 ml-16 mb-5 bg-white rounded-lg shadow-lg w-[150vh]': widthScreen > 1366,
+            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
+            
+        }"  
+    >
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-semibold">Caixa</h2>
             <div class="flex space-x-4">
                 <q-btn 
                     class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
@@ -55,10 +63,16 @@
                 />
             </div>
 
-            <div class="border border-black">
-                <div class="flex">
-                    <span class="h-4 w-4 bg-red-600 mr-2"></span>
-                    <span class="h-4 w-4 bg-red-600"></span>
+            <div class="border border-black ml-4">
+                <div class="">
+                    <div class="bg-green-500 w-4 h-4">
+                    </div>
+                    <span class="ml-1">Entrada</span>
+
+                    <div class="bg-red-500 w-4 h-4">
+                    </div>
+                    <span class="ml-1">Saída</span>
+
                 </div>
             </div>
         </div>
@@ -77,7 +91,7 @@
                 <thead class="font-semibold sticky top-0 z-10">
                     <tr 
                         class="text-white"
-                        :style="`background-color: ${painelColor}; color: ${textColor}}`"
+                        :style="`background-color: ${painelColor}; color: ${textColor ?? '#fff'}}`"
                     >
                         <th scope="col" class="text-center px-6 py-3">Código</th>
                         <th scope="col" class="text-center px-6 py-3">Documento</th>
@@ -106,7 +120,7 @@
                         <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ String(register.output_value).replace('.', ',') }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ String(register.real_balance).replace('.', ',') }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.name }}</td>
-                        <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie_cod }}</td>
+                        <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie_code }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.origem.toUpperCase() }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">
@@ -141,7 +155,7 @@
                 >
                     <RegisterCash
                         @close="closeRegister($event)"
-                        :width-screen="withScreen"
+                        :width-screen="widthScreen"
                     />
                 </div>
             </div>
@@ -169,7 +183,7 @@
     const textColor = LocalStorage.getItem("textColor");
 
     let cashs = ref<ICashBody[]>([]);
-    let withScreen = ref<number>(0);
+    let widthScreen = ref<number>(0);
     let inputTotal = ref<number>(0);
     let outputTotal = ref<number>(0);
     let total = ref<number>(0);
@@ -218,7 +232,7 @@
 
     onMounted(async () => {
         await getRegister();
-        withScreen.value = screen.width;
+        widthScreen.value = screen.width;
 
     });
 </script>
