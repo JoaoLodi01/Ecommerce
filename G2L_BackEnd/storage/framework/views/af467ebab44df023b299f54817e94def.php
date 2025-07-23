@@ -46,4 +46,8 @@
         </div>
     </div>
 </header>
+<<<<<<<< HEAD:G2L_BackEnd/storage/framework/views/af467ebab44df023b299f54817e94def.php
 <?php /**PATH C:\Code\G2L_DevHouse\G2L_BackEnd\vendor\laravel\framework\src\Illuminate\Foundation\Providers/../resources/exceptions/renderer/components/navigation.blade.php ENDPATH**/ ?>
+========
+<?php /**PATH D:\Gabriel\Projetos\SGBR\1_G2L_DevHouse\G2L_BackEnd\vendor\laravel\framework\src\Illuminate\Foundation\Providers/../resources/exceptions/renderer/components/navigation.blade.php ENDPATH**/ ?>
+>>>>>>>> ba13e2da66d359d8421d02c29afc9888c83ee4c3:G2L_BackEnd/storage/framework/views/fc7eb4181e9a2a4ea26ba3a4f033d400.php

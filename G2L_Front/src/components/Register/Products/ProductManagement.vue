@@ -537,7 +537,7 @@
             };
 
             try {
-                const res = await api.get(`/ecommerce/products/last-bar_cod/${productDetails.value.issuerId}/${randomCode}`);
+                const res = await api.get(``);
 
                 const data = camelcaseKeys(res.data.data, { deep: true });
 

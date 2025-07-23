@@ -36,6 +36,7 @@ class PayMentMethodService implements PayMentMethodContract
 
         $currentDate = new Carbon();
         $cashRegisters = [];
+        
         for ($i=0; $i < count($paymentForms); $i++) { 
             $maxDocument = CashRegister::where('issuer_id', $issuerID)->max('document');
             
@@ -53,7 +54,7 @@ class PayMentMethodService implements PayMentMethodContract
                 'receive_document' => null,
                 'customer_code' => $customer->customer_code,
                 'name' => $customer->company_name ? $customer->company_name : $customer->trade_name,
-                'especie_cod' => $specie->payment_code,
+                'especie_code' => $specie->payment_code,
                 'especie' => $specie->especie,
                 'date_register' => $currentDate->format('Y-m-d'),
                 'input_value' => $paymentValues[$specie->payment_code - 1],
@@ -74,7 +75,7 @@ class PayMentMethodService implements PayMentMethodContract
             receive_document: $data['receive_document'],
             customer_code: $data['customer_code'],
             name: $data['name'],
-            especie_cod: $data['especie_cod'],
+            especie_code: $data['especie_code'],
             especie: $data['especie'],
             date_register: $data['date_register'],
             input_value: $data['input_value'],
@@ -116,7 +117,7 @@ class PayMentMethodService implements PayMentMethodContract
             'document' => $maxDocument ? $maxDocument + 1 : 1,
             'customer_code' => $customer->id,
             'name' => $customer->company_name,
-            'especie_cod' => 1,
+            'especie_code' => 1,
             'especie' => 'Dinheiro',
             'date_register' => $currentDate->format('Y-m-d'),
             'input_value' => 0,

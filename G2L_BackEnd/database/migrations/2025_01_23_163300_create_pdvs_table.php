@@ -18,11 +18,20 @@ return new class extends Migration
 
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
+
             $table->string('description', 120);
             $table->date('issue_date');
             $table->integer('n_nfce', false)->nullable();
-            $table->unsignedBigInteger('customer_id');
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+
+            $table->foreign('customer_code')->references('customer_code')->on('customers')->onDelete('cascade');
+            $table->unsignedBigInteger('customer_code');
+
+            $table->foreign('chart_of_account_code')->references('chart_of_account_code')->on('chart_of_accounts')->onDelete('cascade');
+            $table->unsignedBigInteger('chart_of_account_code')->nullable();
+            
+            $table->foreign('cost_center_code')->references('cost_center_code')->on('cost_centers')->onDelete('cascade');
+            $table->unsignedBigInteger('cost_center_code')->nullable();
+
             $table->string('customer', 120);
             $table->decimal('gross_value', 16,2);
             $table->decimal('net_value', 16,2);

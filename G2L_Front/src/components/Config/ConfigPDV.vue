@@ -1,6 +1,13 @@
 <template>
+    <LoandingPage
+        v-show="!showPage"
+        @show-page="showPage = $event"
+        :text="textLoanding"
+    />
+
     <div
         class="ml-14 bg-white p-5 mt-6 rounded-lg cointainer-config"
+        v-if="showPage"
     >
         <div class="flex justify-between">
             <h1 class="ml-4 border-b border-black text-base">Configurações</h1>
@@ -26,28 +33,28 @@
                     <q-checkbox 
                         v-model="configs.nmFinaly" 
                         :label="'Permitir venda sem emissão fiscal ( Nota Manual )'"
-                        color="grey"
+                        color="primary"
                         
                     />
 
                     <q-checkbox 
                         v-model="configs.saleNegativeorReset" 
                         :label="'Permitir venda com estoque negativo ou zerado'"
-                        color="grey"
+                        color="primary"
                         
                     />
 
                     <q-checkbox 
                         v-model="configs.supervisorPasswordDeleteItem" 
                         :label="'Exigir senha do supervisor para excluir item'"
-                        color="grey"
+                        color="primary"
 
                     />
 
                     <q-checkbox 
                         v-model="configs.supervisorPasswordCancelSale"
                         :label="'Exigir senha do supervisor para cancelar a venda'"
-                        color="grey"
+                        color="primary"
                         
                     />
 
@@ -64,8 +71,8 @@
                         :options="searchOptionProducts" 
                         :dense="true"
                         label="Busca de produtos" 
-                        filled
-                        color="grey"
+                        class="ml-2"
+                        color="primary"
                         
                     />
 
@@ -74,8 +81,8 @@
                         :options="searchOptionCustomers" 
                         :dense="true"
                         label="Busca de clientes" 
-                        filled 
-                        color="grey"
+                        class="ml-2"
+                        color="primary"
                         
                     />
                     
@@ -91,8 +98,8 @@
                     v-model="configs.permitEditFields" 
                     :options="editFields" 
                     label="Campos" 
-                    filled 
-                    color="grey"
+                    class="ml-2"
+                    color="primary"
                     
                 />
                 
@@ -101,8 +108,20 @@
         </div>
             
             <div class="ml-5">
-                <q-btn label="Salvar" type="submit" color="grey" :disable="configs.searchOptionProduct === null"/>
-                <q-btn label="Padrão" type="reset" color="black" flat class="q-ml-sm" />
+                <q-btn
+                    label="Salvar" 
+                    type="submit" 
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
+                    :disable="configs.searchOptionProduct === null"
+                />
+                <q-btn  
+                    label="Padrão" 
+                    type="reset" 
+                    color="black" 
+                    flat 
+                    class="q-ml-sm"
+                    
+                /> 
             </div>
         </q-form>
     </div>
@@ -111,7 +130,8 @@
 <script setup lang="ts">
     import { api } from 'src/boot/axios'
     import { LocalStorage, useQuasar } from 'quasar';
-    import { ref, onMounted, defineEmits } from 'vue';
+    import { ref, onMounted } from 'vue';
+    import LoandingPage from '../Loanding/LoandingPage.vue';
 
     const emits = defineEmits<{
         (e: 'close', value: boolean)
@@ -141,9 +161,8 @@
     ]);
 
     const $q = useQuasar();
-    let timer: unknown;
-
-    let configs = ref<IConfig>({
+    
+    const configs = ref<IConfig>({
         searchOptionProduct: null,
         searchOptionCustomer: null,
         saleNegativeorReset: false,
@@ -151,49 +170,42 @@
         supervisorPasswordCancelSale: false,
         permitEditFields: null,
         nmFinaly: true
-    
+        
     });
     
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
-
-    const showLoading = (messageValue: string) =>
-    {
-        $q.loading.show({
-            message: `${messageValue} configurações ...`
-
-        });
-
-        timer = setTimeout(() => {
-            $q.loading.hide();
-            timer = void 0;
-
-        }, 1000);
-    };
+    const buttonColor = LocalStorage.getItem("buttonColor");
+    const textColor = LocalStorage.getItem("textColor");
+    
+    let showPage = ref<boolean>(false);
+    let textLoanding = ref<string>('');
 
     const getConfig = async() =>
     {
-        showLoading('Carregando as');
-
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
 
-        const data = res.data.data.pdv[0];
-
-        configs.value = {
-            nmFinaly: data.nm_finaly === 1 ? true : false,
-            saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
-            searchOptionProduct: data.filter_search,
-            searchOptionCustomer: data.filter_search_customer,
-            supervisorPasswordDeleteItem: data.supervisor_password_delete_item === 1 ? true : false,
-            supervisorPasswordCancelSale: data.supervisor_password_cancel_sale === 1 ? true : false,
-            permitEditFields: editFields.value[0],
-            
+        const data = res.data.data.pdv;
+        
+        if(res.data.success)
+        {
+            configs.value = {
+                nmFinaly: data.nm_finaly === 1 ? true : false,
+                saleNegativeorReset: data.sale_negative_or_reset === 1 ? true : false,
+                searchOptionProduct: data.filter_search,
+                searchOptionCustomer: data.filter_search_customer,
+                supervisorPasswordDeleteItem: data.supervisor_password_delete_item === 1 ? true : false,
+                supervisorPasswordCancelSale: data.supervisor_password_cancel_sale === 1 ? true : false,
+                permitEditFields: editFields.value[0],
+                
+            };
+            showPage.value = true;
         };
     };
         
     const onSubmit = async () =>
     {
-        showLoading('Salvando as');
-        console.log(typeof issuerID.value)
+        showPage.value = false;
+        textLoanding.value = 'Salvando configurações do PDV ...';
         const res = await api.put(`/configs/pdv/update-config/${issuerID.value}`, {
             searchOptionProduct: configs.value.searchOptionProduct,
             searchOptionCustomers: configs.value.searchOptionCustomer,
@@ -209,7 +221,14 @@
         
         if(data.success)
         {
-            alert('Configurações gravadas com sucesso!');
+            $q.notify({
+                color: 'green',
+                message: 'Configurações alteradas com sucesso!',
+                position: 'top',
+                timeout: 2000
+                
+            });
+            showPage.value = true;
             onClose();
 
         };
@@ -217,7 +236,6 @@
 
     const onReset = () =>
     {
-        showLoading('Restaurando ...');
         getConfig();
 
     };
@@ -230,6 +248,7 @@
 
     onMounted(() =>
     {
+        textLoanding.value = 'Carregnado configucações do PDV ... '
         getConfig();
         document.addEventListener('keydown', (event: KeyboardEvent) => {
             const keyName = event.key;

@@ -183,4 +183,8 @@
 <?php $component = $__componentOriginal74daf2d0a9c625ad90327a6043d15980; ?>
 <?php unset($__componentOriginal74daf2d0a9c625ad90327a6043d15980); ?>
 <?php endif; ?>
+<<<<<<<< HEAD:G2L_BackEnd/storage/framework/views/f69be7aeabd5595c9e75e68cb39ec6cc.php
 <?php /**PATH C:\Code\G2L_DevHouse\G2L_BackEnd\vendor\laravel\framework\src\Illuminate\Foundation\Providers/../resources/exceptions/renderer/components/context.blade.php ENDPATH**/ ?>
+========
+<?php /**PATH D:\Gabriel\Projetos\SGBR\1_G2L_DevHouse\G2L_BackEnd\vendor\laravel\framework\src\Illuminate\Foundation\Providers/../resources/exceptions/renderer/components/context.blade.php ENDPATH**/ ?>
+>>>>>>>> ba13e2da66d359d8421d02c29afc9888c83ee4c3:G2L_BackEnd/storage/framework/views/a40c59fd2494cc4b678479d281f9dc7a.php

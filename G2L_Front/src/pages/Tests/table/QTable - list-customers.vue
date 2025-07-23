@@ -4,40 +4,59 @@
         grid
         :rows="customers"
         :columns="columns"
+        v-model:pagination="pagination"
         row-key="customer_code"
         hide-bottom
-
+        
     >
         <template v-slot:item="props">
-             <q-card class="q-ma-sm q-pa-md shadow-2 rounded-borders bg-white w-96 transition-transform hover:-translate-y-3 cursor-pointer">
-                <div class="text-lg">
-                    <span class="text-gray-500 text-base">Código</span>
-                    <br>
-                    <span class="font-semibold">{{ props.row.customer_code }}</span>
+            <q-card
+                class="q-ma-sm q-pa-md shadow-2 rounded-borders bg-white w-[22rem] h-[24rem] transition-transform hover:-translate-y-3 cursor-pointer"
+                :class="{
+                    'active-shadow': props.row.active,
+                    'disabled-shadow': !props.row.active,
+
+                }"
+            >
+                <div
+                >
+                    <div class="text-lg">
+                        <span class="text-gray-500 text-base">Código</span>
+                        <br>
+                        <span class="font-semibold text-lg">{{ props.row.customer_code }}</span>
+                        
+                    </div>
+                    <div class="text-lg">
+                        <span class="text-gray-500 text-base">Razão social</span>
+                        <br>
+                        <span>{{ props.row.company_name || 'Sem razão social informada' }}</span>
+
+                    </div>
                     
-                </div>
-                <div class="text-lg">
-                    <span class="text-gray-500 text-base">Nome</span>
-                    <br>
-                    <span class="font-semibold">{{ props.row.company_name }}</span>
+                    <div class="text-lg">
+                        <span class="text-gray-500 text-base">Nome fantasia</span>
+                        <br>
+                        <span>{{ props.row.trade_name || 'Sem nome fantasia informado'  }}</span>
 
-                </div>
-                <div class="text-lg">
-                    <span class="text-gray-500 text-base">CPF</span>
-                    <br>
-                    <span class="font-semibold">{{ showEmpetyData(props.row.cpf) }}</span>
+                    </div>
 
+                    <div class="text-lg">
+                        <span class="text-gray-500 text-base">CPF</span>
+                        <br>
+                        <span class="font-semibold">{{ props.row.cpf || 'Sem CPF informado' }}</span>
+
+                    </div>
+
+                    <div class="text-lg">
+                        <span class="text-gray-500 text-base">CNPJ</span>   
+                        <br>
+                        <span class="font-semibold">{{ props.row.cnpj || 'Sem CNPJ informado' }}</span>
+                    </div>
                 </div>
 
-                <div class="text-lg">
-                    <span class="text-gray-500 text-base">CNPJ</span>   
-                    <br>
-                    <span class="font-semibold">{{ showEmpetyData(props.row.cnpj) }}</span>
-                    {{ props.row.active }}
-                </div>
-
-               <div class="slashed-zero flex space-x-2 mt-5" v-if="props.row.customer_code !== 1">
+                <div class="slashed-zero flex space-x-2 mt-5" v-if="props.row.customer_code !== 1">
                     <q-btn
+                        
                         class="px-4 py-2 rounded-lg transition"
                         :disabled=!props.row.active
                         :class="{
@@ -47,7 +66,9 @@
                     >
                         Editar
                     </q-btn>
+
                     <q-btn
+                        
                         class="px-4 py-2 rounded-lg transition"
                         :disabled=!props.row.active
                         :class="{
@@ -59,27 +80,31 @@
                         Desativar
                     </q-btn>
                     <q-btn
+                        
                         v-else
                         class="px-4 py-2 rounded-lg transition"
                         :class="{
-                            'text-gray-400 bg-slate-500': !props.row.active 
+                        'text-white bg-green-500': !props.row.active 
                         }" 
-                        
                     >   
                         Ativar
                     </q-btn>
-                </div> <!-- For acaba aqui-->
+
+                    <q-btn 
+                        color="primary" 
+                        label="Visualizar"
+                        @click="viewCustomer(props.row.customer_code)"
+                    />
+                </div>
             </q-card>
         </template>
     </q-table>
     <q-separator color="grey" />
-    <q-table
-        flat bordered
-        grid
-        :rows="customers"
-        :columns="columns"
-        row-key="customer_code"
-        hide-bottom
+
+    <QTableViewCustomer
+        v-if="showViewCustomer"
+        :customer-code="customerCodSelected"
+        @close="showViewCustomer = !$event"
 
     />
 </template>
@@ -88,6 +113,7 @@
     import { api } from 'src/boot/axios';
     import { LocalStorage, QTableColumn } from 'quasar';
     import { ref, onMounted } from 'vue';
+    import QTableViewCustomer from './QTable-ViewCustomer.vue';
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
@@ -133,6 +159,13 @@
     let allCustomers = ref<ICustomer[]>([]);
     let customers = ref<ICustomer[]>([]);
 
+    let customerCodSelected = ref<number>(0);
+    let showViewCustomer = ref<boolean>(false);
+    
+    let pagination = ref({
+        rowsPerPage: 0
+    });
+
     function showEmpetyData(val: string): string 
     {
         return val === null || val === '' ?  'Sem dado inforamdo' : val;
@@ -148,7 +181,12 @@
     
     };
 
-    
+    const viewCustomer = (customerCode: number) =>
+    {
+        showViewCustomer.value = true;
+        customerCodSelected.value = customerCode;
+
+    };
 
     onMounted(() => {
         getCustomers();

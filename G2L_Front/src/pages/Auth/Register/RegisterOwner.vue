@@ -247,7 +247,8 @@
                 // 'Login'
                 const details = { email: data.data.email, password: form.value.password };
                 
-                const login = await api.post("/auth/owner", details);;
+                const login = await api.post("/auth/owner", details);
+              
                 if(login.data.success)
                 {
                     console.log()
@@ -255,9 +256,9 @@
                     LocalStorage.set("owner_name", login.data.user.name);
                     LocalStorage.set("owner_cpf", login.data.user.cpf);
 
-                    LocalStorage.set("user_id", res.data.user.user_code);
-                    LocalStorage.set("user_name", res.data.user.name);
-                    LocalStorage.set("uuse_id", res.data.uuse_id);
+                    LocalStorage.set("user_id", login.data.user.user_code);
+                    LocalStorage.set("user_name", login.data.user.name);
+                    LocalStorage.set("uuse_id", login.data.uuse_id);
                     
                     const expire = today.add(8, 'hours');
 

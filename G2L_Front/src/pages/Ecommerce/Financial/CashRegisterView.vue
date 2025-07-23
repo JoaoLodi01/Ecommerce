@@ -8,7 +8,15 @@
 
     </div>
 
-    <div v-if="showPage" class="w-[165vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg">
+    <div 
+        v-if="showPage" 
+        class="h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg"
+        :class="{
+            'mt-10 p-6 ml-16 mb-5 bg-white rounded-lg shadow-lg w-[150vh]': widthScreen > 1366,
+            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
+            
+        }"  
+    >
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-semibold">Caixa</h2>
             <div class="flex space-x-4">
@@ -112,7 +120,7 @@
                         <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ String(register.output_value).replace('.', ',') }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ String(register.real_balance).replace('.', ',') }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.name }}</td>
-                        <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie_cod }}</td>
+                        <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie_code }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.origem.toUpperCase() }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">
@@ -147,7 +155,7 @@
                 >
                     <RegisterCash
                         @close="closeRegister($event)"
-                        :width-screen="withScreen"
+                        :width-screen="widthScreen"
                     />
                 </div>
             </div>
@@ -175,7 +183,7 @@
     const textColor = LocalStorage.getItem("textColor");
 
     let cashs = ref<ICashBody[]>([]);
-    let withScreen = ref<number>(0);
+    let widthScreen = ref<number>(0);
     let inputTotal = ref<number>(0);
     let outputTotal = ref<number>(0);
     let total = ref<number>(0);
@@ -224,7 +232,7 @@
 
     onMounted(async () => {
         await getRegister();
-        withScreen.value = screen.width;
+        widthScreen.value = screen.width;
 
     });
 </script>

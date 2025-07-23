@@ -201,7 +201,7 @@
     import InstallmentsTable from "../Financial/InstallmentsTable.vue";
     import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
     import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
-    import { ref, computed, defineProps, defineEmits, reactive, onMounted } from 'vue';
+    import { ref, computed, watch, reactive, onMounted } from 'vue';
 
     const installments = ref<any[]>([]);
     const today = dayjs();

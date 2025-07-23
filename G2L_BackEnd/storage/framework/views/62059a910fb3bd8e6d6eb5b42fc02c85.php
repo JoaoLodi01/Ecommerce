@@ -57,4 +57,8 @@
     </script>
 </body>
 </html>
+<<<<<<<< HEAD:G2L_BackEnd/storage/framework/views/62059a910fb3bd8e6d6eb5b42fc02c85.php
 <?php /**PATH C:\Code\G2L_DevHouse\G2L_BackEnd\vendor\laravel\framework\src\Illuminate\Foundation\Providers/../resources/exceptions/renderer/components/layout.blade.php ENDPATH**/ ?>
+========
+<?php /**PATH D:\Gabriel\Projetos\SGBR\1_G2L_DevHouse\G2L_BackEnd\vendor\laravel\framework\src\Illuminate\Foundation\Providers/../resources/exceptions/renderer/components/layout.blade.php ENDPATH**/ ?>
+>>>>>>>> ba13e2da66d359d8421d02c29afc9888c83ee4c3:G2L_BackEnd/storage/framework/views/1349be78ba31726e9349ab54b650fcc8.php

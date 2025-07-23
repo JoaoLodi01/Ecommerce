@@ -111,8 +111,9 @@ Route::prefix('v1')->group( function (){
             // PDVs routes
             Route::prefix('pdv')->group( function(){
                 Route::get('/all/{issuer_id}', [PDVController::class, 'getAll']);
-                Route::post('/save-sale', [PDVController::class, 'saveSale']);
                 Route::put('/finalize-sale', [PDVController::class, 'finalizeSale']);
+                Route::post('/save-sale', [PDVController::class, 'saveSale']);
+                Route::put('/cancel-pdv/{issuer_id}/{pdv_code}', [PDVController::class, 'cancelPDV']);
 
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
                 Route::post('/get-saved-sale', [PDVController::class, 'findSavePDVByID']);
@@ -174,7 +175,7 @@ Route::prefix('v1')->group( function (){
             Route::get('/all/{issuer_id}', [CustomerController::class, 'getAll']);
             Route::post('/search', [CustomerController::class, 'search']);
             Route::post('/create', [CustomerController::class, 'create']);
-            Route::get('/{id}', [CustomerController::class, 'findByID']);
+            Route::get('view/{issuer_id}/{id}', [CustomerController::class, 'findByID']);
             Route::put('/update/{id}', [CustomerController::class, 'update']);
             Route::put('/{id}/disable', [CustomerController::class, 'delete']); // desactive
             Route::put('/{id}/active', [CustomerController::class, 'active']);

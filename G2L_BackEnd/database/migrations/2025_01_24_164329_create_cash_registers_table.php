@@ -34,8 +34,8 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_code');
             $table->foreign('customer_code')->references('customer_code')->on('customers')->onDelete('cascade');
 
-            $table->unsignedBigInteger('especie_cod');
-            $table->foreign('especie_cod')->references('payment_code')->on('payments_forms')->onDelete('cascade');;
+            $table->unsignedBigInteger('especie_code');
+            $table->foreign('especie_code')->references('payment_code')->on('payments_forms')->onDelete('cascade');;
 
             $table->string('name', 120);
             

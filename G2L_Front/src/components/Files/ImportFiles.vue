@@ -130,7 +130,6 @@
                 const formData = new FormData();
                 formData.append('importFile', file.value);
                 const apiURL: string = `${routes[props.operation]}/${issuerID.value}`;
-                console.log('apiURL: ', apiURL);
 
                 const res = await api.post(
                     apiURL, 
@@ -202,8 +201,6 @@
     };
 
     onMounted(() => {
-        const apiURL: string = `${routes[props.operation]}/${issuerID.value}`;
         title.value = titles[props.operation];
-        console.log('apiURL: ', apiURL);
     });
 </script>

@@ -9,7 +9,16 @@
     </div>
 
 
-    <div v-if="showPage" class="w-[165vh] h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg">
+    <div 
+        v-if="showPage" 
+        class="h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg"
+        :class="{
+            'mt-10 p-6 ml-16 mb-5 bg-white rounded-lg shadow-lg w-[150vh]': widthScreen > 1366,
+            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
+            
+        }"  
+    >
+
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Pagar</h1>
             <div class="flex space-x-4">
@@ -29,18 +38,10 @@
                     @click="showRegister()"
                     label="Cadastrar"
                 />
-
-                <q-btn
-                    class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    @click="getRegister()"
-                    label="Atualizar pagar"
-
-                />
             </div>
         </div>
 
-        <div class="filterDate flex justify-start mb-6 p-4 border border-gray-300 rounded-lg w-max">
+        <div class="flex justify-start mb-6 p-4 border border-gray-300 rounded-lg w-max">
             <q-input
                 class="mr-10 cursor-text"
                 type="date"
@@ -58,7 +59,7 @@
             />
 
             <q-btn
-                class="transition text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                class="text-white ml-5 h-max mb-auto mt-auto rounded-lg"
                 :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                 label="Filtrar"
                 @click="dateSearch()"
@@ -119,7 +120,7 @@
             <div class="bg-white border border-black rounded-xl">
                 <RegisterPay 
                     @close="closeRegister($event)"
-                    :width-screen="withScreen"
+                    :width-screen="widthScreen"
                 />
             </div>
         </div>
@@ -147,9 +148,9 @@
 
     let startDate = today.startOf('month').format('YYYY-MM-DD');
     let endDate = today.endOf('month').format('YYYY-MM-DD');
-    let withScreen = ref<number>(0);
     let showPage = ref<boolean>(false);
     let showPayClosing = ref<boolean>(false);
+    let widthScreen = ref<number>(0);   
     
     const getRegister = async() =>
     {
@@ -186,7 +187,7 @@
 
     onMounted(() => {
         getRegister();
-        withScreen.value = screen.width;
+        widthScreen.value = screen.width;
     });
 
 </script>

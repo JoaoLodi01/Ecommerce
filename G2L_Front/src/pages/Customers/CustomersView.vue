@@ -119,18 +119,19 @@
             }"    
         >
             <q-table
+                v-if="showCustomers"
                 flat bordered
                 grid
                 :rows="customers"
                 :columns="columns"
+                v-model:pagination="pagination"
                 row-key="customer_code"
-                v-if="showCustomers"
                 hide-bottom
-
+             
             >
                 <template v-slot:item="props">
                     <q-card
-                        class="q-ma-sm q-pa-md shadow-2 rounded-borders bg-white w-96 transition-transform hover:-translate-y-3 cursor-pointer"
+                        class="q-ma-sm q-pa-md shadow-2 rounded-borders bg-white w-[22rem] h-[24rem] transition-transform hover:-translate-y-3 cursor-pointer"
                         :class="{
                             'active-shadow': props.row.active,
                             'disabled-shadow': !props.row.active,
@@ -159,6 +160,7 @@
                                 <span>{{ props.row.trade_name || 'Sem nome fantasia informado'  }}</span>
 
                             </div>
+
                             <div class="text-lg">
                                 <span class="text-gray-500 text-base">CPF</span>
                                 <br>
@@ -177,36 +179,42 @@
                             <q-btn
                                 @click="customerManagement('update', props.row.active, props.row.customer_code)"
                                 class="px-4 py-2 rounded-lg transition"
+                                label="Editar"
                                 :disabled=!props.row.active
                                 :class="{
                                     'text-gray-400 bg-slate-500': !props.row.active,
-                                    'text-blue-500 bg-blue-100 hover:bg-blue-200': props.row.active,
+                                    'text-white bg-blue-500': props.row.active,
                                 }"    
-                            >
-                                Editar
-                            </q-btn>
+                            />
+
                             <q-btn
                                 @click="deleteOrActive('disable', props.row.customer_code)"
                                 class="px-4 py-2 rounded-lg transition"
                                 :disabled=!props.row.active
                                 :class="{
                                     'text-gray-400 bg-slate-500': !props.row.active,
-                                    'text-red-500 bg-red-100 hover:bg-red-200': props.row.active,
+                                    'text-white bg-red-500': props.row.active,
                                 }"    
+                                label="Desativar"
                                 v-if="props.row.active"
-                            >
-                                Desativar
-                            </q-btn>
+                            />
+                                
+                            
                             <q-btn
                                 @click="deleteOrActive('active', props.row.customer_code)"
                                 v-else
                                 class="px-4 py-2 rounded-lg transition"
+                                label="Ativar"
                                 :class="{
-                                    'text-gray-400 bg-slate-500': !props.row.active 
+                                    'text-white bg-green-500': !props.row.active 
                                 }" 
-                            >   
-                                Ativar
-                            </q-btn>
+                            />
+
+                            <q-btn 
+                                label="Visualizar"
+                                class="rounded-lg text-white bg-sky-500"
+                                @click="viewCustomer(props.row.customer_code)"
+                            />
                         </div>
                     </q-card>
                 </template>
@@ -218,17 +226,23 @@
                 v-if="showCustomerManagement"
                 @close="closeReload($event)"
                 :widthScreen="widthScreen"
-                :customer-c-o-d="customerCodSelected"
+                :customer-code="customerCodSelected"
                 :operation="operation"
                 
             />
-            
         </div>
 
         <ImportFiles
             v-show="showImportFiles"
             @close="closeReload($event)"
             :operation="'importCustomers'"
+
+        />
+
+        <ViewCustomer
+            v-if="showViewCustomer"
+            :customer-code="customerCodSelected"
+            @close="showViewCustomer = !$event"
 
         />
 
@@ -249,6 +263,7 @@
     import { ref, onMounted, watch, reactive } from 'vue';
     import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';    
     import CustomerManagement from 'src/components/Register/Customers/CustomerManagement.vue';
+    import ViewCustomer from 'src/components/Register/Customers/ViewCustomer.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import ImportFiles from 'src/components/Files/ImportFiles.vue';    
     import camelcaseKeys from 'camelcase-keys';
@@ -258,6 +273,10 @@
         editByButton: boolean,
         
     };
+
+    type TPagination = {
+        rowsPerPage: number
+    }
     
     const $q = useQuasar();
     const titles = reactive({
@@ -316,13 +335,18 @@
     let _loanding = ref<boolean>(true);
     let showCustomers = ref<boolean>(false);
     let showCustomerManagement = ref<boolean>(false);
-    let operation = ref<string>('');
-    let titleByOperation = ref<string>('Clientes');
-    let customerCodSelected = ref<number>(0);
+    let showViewCustomer = ref<boolean>(false);
     let showImportFiles = ref<boolean>(false);
     let showReportCustomer = ref<boolean>(false);
     let showConfig = ref<boolean>(false);
+    let operation = ref<string>('');
+    let titleByOperation = ref<string>('Clientes');
+    let customerCodSelected = ref<number>(0);
     let widthScreen = ref<number>(0);   
+    
+    let pagination = ref<TPagination>({
+        rowsPerPage: 0
+    });
 
     watch(searchFilter, async (newOption) =>
     {
@@ -358,6 +382,10 @@
     {
         const res = await api.get(`/customers/all/${issuerID.value}`);
         allCustomers.value = res.data.data;
+        pagination.value = {
+            rowsPerPage: allCustomers.value.length
+        };
+        
         customers.value = [...allCustomers.value];
         
     };
@@ -461,7 +489,6 @@
     {
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
         const data: TConfigCustomer = camelcaseKeys(res.data.data.customers, { deep: true });
-        console.log(data)
         
         if(typeof data === 'undefined' || data.lastFilter === '')
         {
@@ -507,6 +534,12 @@
 
     };
 
+    const viewCustomer = (customerCode: number) =>
+    {
+        showViewCustomer.value = true;
+        customerCodSelected.value = customerCode;
+
+    };
 
     onMounted(() => {
         getCustomers();
@@ -548,7 +581,7 @@
     
     .disabled-shadow{
         --tw-shadow-colored: 0 1px 1px 0 var(--tw-shadow-color);
-        --tw-shadow-color: #ccc;
+        --tw-shadow-color: red;
         --tw-shadow: var(--tw-shadow-colored);
         box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     }

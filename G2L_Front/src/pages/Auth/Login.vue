@@ -74,7 +74,6 @@
     const $q = useQuasar();
     const email = ref<string>('');
     const password = ref<string>('');
-    const showPassword = ref<boolean>(false);
     const showContent = ref<boolean>(false);
 
     let loandingLogin = ref<boolean>(false);
@@ -82,7 +81,6 @@
     const login = async () => {
         const details = { email: email.value, password: password.value }
         loandingLogin.value = true;
-        showPassword.value = false;
         
         try {
             const res = await api.post("/auth/owner", details, {

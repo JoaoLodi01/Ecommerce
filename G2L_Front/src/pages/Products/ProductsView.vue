@@ -331,7 +331,6 @@
 
     const showConfirmFn = (operation: string, productID_: number) => 
     {
-        console.log('showConfirmFn: ', operation);
         typeOperation.value = operation;
         LocalStorage.setItem("productID", productID_);
         operation !== 'products/active' ? showConfirm.value = true : handleOperation([{'operation': operation, 'value': true}]);
@@ -340,8 +339,6 @@
 
     const handleOperation = async (event: TEmit[]|boolean) =>
     {
-        console.log('Operação confirmada');
-
         const operation = event[0]['operation'];
         const value = event[0]['value'];
     
@@ -354,7 +351,6 @@
 
             return;
         } else {
-            console.log('Vai: ', `/ecommerce/${operation}/${LocalStorage.getItem("issuer_id")}/${LocalStorage.getItem("productID")}`, ' o produto');
             const res = await api.put(`/ecommerce/${operation}/${LocalStorage.getItem("issuer_id")}/${LocalStorage.getItem("productID")}`);
             const data = res.data;
 

@@ -24,20 +24,27 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_code');
             $table->foreign('customer_code')->references('customer_code')->on('customers')->onDelete('cascade');
 
-            $table->unsignedBigInteger('especie_cod');
-            $table->foreign('especie_cod')->references('payment_code')->on('payments_forms')->onDelete('cascade');
+            $table->unsignedBigInteger('especie_code');
+            $table->foreign('especie_code')->references('payment_code')->on('payments_forms')->onDelete('cascade');
 
             $table->foreign('dav_code')->references('dav_code')->on('davs')->onDelete('cascade');
             $table->unsignedBigInteger('dav_code')->nullable();
 
             $table->foreign('pdv_code')->references('pdv_code')->on('pdvs')->onDelete('cascade');
             $table->unsignedBigInteger('pdv_code')->nullable();
+            
+            $table->foreign('chart_of_account_code')->references('chart_of_account_code')->on('chart_of_accounts')->onDelete('cascade');
+            $table->unsignedBigInteger('chart_of_account_code')->nullable();
+            
+            $table->foreign('cost_center_code')->references('cost_center_code')->on('cost_centers')->onDelete('cascade');
+            $table->unsignedBigInteger('cost_center_code')->nullable();
 
             $table->string('name', 120);
             $table->string('especie', 120);
             $table->date('due_date');     
             $table->integer('installment_amount');
             $table->integer('installment_number');
+            $table->decimal('original_installment_value', 16,2);
             $table->decimal('installment_value', 16,2);
             $table->unsignedBigInteger('installment_cod');
             $table->string('type_interest', 10);
