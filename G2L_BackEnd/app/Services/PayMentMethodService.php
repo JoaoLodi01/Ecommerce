@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTO\CashRegister\CashRegisteDTO;
 use App\Models\EcommerceModels\CashRegister;
 use App\Repositories\Eloquent\EcommerceEloquent\CashRegisterRepository;
 use App\Repositories\Eloquent\ReceiveRepository;
@@ -27,7 +28,7 @@ class PayMentMethodService implements PayMentMethodContract
         string $origem, // Origem
         object $pdv, // Corpo do PDV
         int $issuerID, // ID do emitente,
-        int $userID // Usuário que fez a venda
+        object $user // Usuário que fez a venda
                 
     )
     {   // Método para ser adicioando ao caixa                
@@ -35,256 +36,62 @@ class PayMentMethodService implements PayMentMethodContract
 
         $currentDate = new Carbon();
         $cashRegisters = [];
-
-        Log::channel('payment')->info('-- Máximo encontrado iniciado --');
-        $maxDocument = CashRegister::where('issuer_id', $issuerID)
-                                        ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
-                                        ->value('max_doc');
-
-        $maxCashRegisterCod = CashRegister::where('issuer_id', $issuerID)->max('cash_register_code');
-        Log::channel('payment')->info($maxDocument);
-        Log::channel('payment')->info('-- Fim do máximo encontrado --');
-
-        Log::channel('payment')->info($pdv);
-
         for ($i=0; $i < count($paymentForms); $i++) { 
-            $specie = $paymentForms[$i];
+            $maxDocument = CashRegister::where('issuer_id', $issuerID)->max('document');
+            
+            Log::channel('payment')->info("maxDocument: {$maxDocument}");
 
+            $specie = $paymentForms[$i];
+            
             $cashRegisters[] = [
-                'cash_register_code' => $maxCashRegisterCod ? $maxCashRegisterCod + 1 : 1,
+                'cash_register_code' => 1,
                 'issuer_id' => $issuerID,
-                'description' => $description,
-                'document' => is_numeric($maxDocument) ? $maxDocument + 1 : $maxDocument,
+                'description' => $pdv->description,
+                'document' => 1,
                 'pdv_code' => $pdv->pdv_code,
-                'receive_cod' => null,
+                'receive_code' => null,
                 'receive_document' => null,
                 'customer_code' => $customer->customer_code,
                 'name' => $customer->company_name ? $customer->company_name : $customer->trade_name,
                 'especie_cod' => $specie->payment_code,
-                'especie' => $specie->specie,
+                'especie' => $specie->especie,
                 'date_register' => $currentDate->format('Y-m-d'),
                 'input_value' => $paymentValues[$specie->payment_code - 1],
                 'output_value' => 0,
                 'origem' => $origem,
-                'user_id' => $userID,
-                'seller' => 'Vendedor',   
+                'user_id' => $user->user_code,
+                'seller' => $user->name,   
             ];    
         }
 
-        for ($i=0; $i < count($cashRegisters); $i++) { 
-            Log::info($cashRegisters[$i]);
+        $cashRegisterDTOs = array_map(fn($data) => new CashRegisteDTO(
+            cash_register_code: $data['cash_register_code'],
+            issuer_id: $data['issuer_id'],
+            description: $data['description'],
+            document: $data['document'],
+            pdv_code: $data['pdv_code'],
+            receive_code: $data['receive_code'],
+            receive_document: $data['receive_document'],
+            customer_code: $data['customer_code'],
+            name: $data['name'],
+            especie_cod: $data['especie_cod'],
+            especie: $data['especie'],
+            date_register: $data['date_register'],
+            input_value: $data['input_value'],
+            output_value: $data['output_value'],
+            origem: $data['origem'],
+            user_id: $data['user_id'],
+            seller: $data['seller'],
+
+
+        ), $cashRegisters);
+
+        foreach ($cashRegisterDTOs as $dto) {
+            $this->cashRegisterRepository->create($dto);
+
         }
-
-        $registerInCash = $this->cashRegisterRepository->create($cashRegisters);
-        Log::info($registerInCash);
-
-        return [];
         
-        /*if(count($forms) >= 2) // Como já foi feito o find das formas de pagamento, utilize o $forms
-        {   
-            for ($i=1; $i < count($paymentValues); $i++) 
-            {
-                foreach ($forms as $form) 
-                {
-                    Log::info('ID linha 43 - : ' . $form);
-                    Log::info('paymentValues linha 51 - : ' . $paymentValues[$i]);
-                    Log::info('Vai conferir os tipos de lançamento');
-
-                    if($form->tipo_lancamento === 'Caixa')
-                    {
-                        $bodyCash = array(
-                            'issuer_id' => $issuerID,
-                            'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->pdv_code" : "Venda Nota Manual N° $pdv->pdv_code",
-                            'document' => $maxDocument ? $maxDocument + 1 : 1,
-                            'pdv_code' => $pdv->pdv_code,
-                            'customer_code' => $customer->id,
-                            'name' => $customer->company_name,
-                            'especie_cod' => $form->payment_code,
-                            'especie' => $form->especie,
-                            'date_register' => $currentDate,
-                            'input_value' => $paymentValues[$form->id - 1],
-                            'output_value' => 0,
-                            'real_balance' => $paymentValues[$form->id - 1],
-                            'user_id' => 1,
-                            'seller' => 'aa',
-                            'origem' => $origem
-                        
-                        );  
-                        array_push($cashRegisters, $bodyCash);
-                        
-                    }
-
-                    Log::info('-- Iniciou registro no Receber -- ');
-                    if($form->tipo_lancamento === 'Receber')
-                    {
-                        $bodyCash = array(
-                            'issuer_id' => $issuerID,
-                            'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->pdv_code" : "Parcelamento Venda Nota Manual 
-                            N° $pdv->pdv_code",
-                            'document' => $maxDocument ? $maxDocument + 1 : 1,
-                            'pdv_code' => $pdv->pdv_code,
-                            'customer_code' => $customer->customer_code,
-                            'name' => $customer->company_name,
-                            'especie_cod' => $form->payment_code,
-                            'especie' => $form->especie,
-                            'date_register' => $currentDate->format('Y-m-d'),
-                            'due_date' => $currentDate->addDays(30)->format('Y-m-d'),
-                            'installment_number' => 1,
-                            'installment_value' => $paymentValues[$form->id - 1],
-                            'output_value' => 0,
-                            'real_balance' => $paymentValues[$form->id - 1],
-                            'type_interest' => '%',
-                            'interest_value' => 10,
-                            'total_amount' => 10,
-                            'user_id' => 1,
-                            'user' => 'aa',
-                            'origem' => $origem
-                        
-                        );  
-                        Log::info('-- Terminou o registro -- ');
-                        Log::info('-- Vai chamar o receiveRepository -- ');
-                        $receive = $this->receiveRepository->create($bodyCash);
-                        return array(
-                            'success' => true
-                        );
-                        Log::info('-- Terminou de chamar o receiveRepository -- ');
-                    }
-                }                      
-            }    
-
-            Log::info('Terminou de montar o corpo dos registros: ');
-            Log::info('Dados de envio: ');
-            Log::info($cashRegisters);
-            Log::info('-- Vai chamar o cashRegisterRepository linha 104 -- ');
-            $this->cashRegisterRepository->create($cashRegisters);
-            if($origem == 'hotel')
-            {
-                Log::info('-- Vai chamar o reservationRepository linha 106 -- ');
-                $this->reservationService->create($customer);
-
-            }
-            
-            Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
-            Log::info('-- Fim do registro no caixa, PayMentMethodService.php, linha 109 --');
-            return array(
-                'line' => 124,
-                'success' => true
-    
-            ); 
-        }
-
-        if(count($forms) <= 1)
-        {
-            $maxDocument = CashRegister::where('issuer_id', $issuerID)
-                                        ->selectRaw('MAX(CAST(document AS UNSIGNED)) as max_doc')
-                                        ->value('max_doc');
-
-            Log::info('-- Máximo encontrado --');
-            Log::info($maxDocument);
-            Log::info('-- Fim do máximo encontrado --');
-
-            Log::info('Não possui mais de uma espécie informada: ' . count($forms) . ' Dados: ');
-            for ($i=0; $i < count($paymentValues); $i++)
-            {
-                Log::info('$paymentValues[$i] linha - 118: i = ' . $i);            
-                Log::info('Vai pegar as posições maiores que zero, vezes: ' . $i);
-                if($paymentValues[$i] > 0)
-                {
-                    Log::info('forms');
-                    Log::info($forms);
-                    foreach ($forms as $form) {
-                        Log::info('ID linha 120 - : ' . $form);
-                        Log::info('paymentValues linha 124 - : ' . $paymentValues[$i]);
-                        Log::info('Vai conferir os tipos de lançamento');
-                        Log::info('$form->tipo_lancamento');
-                        Log::info($form);
-
-                        $maxCashRegister = CashRegister::where('issuer_id', $issuerID)->max('cash_register_code');
-                        if($form->tipo_lancamento === 'Caixa')
-                        {
-                            $bodyCash = array(
-                                'cash_register_code' => $maxCashRegister ? $maxCashRegister + 1 : 1,
-                                'issuer_id' => $issuerID,
-                                'description' => $description ===  'nfce' ? "Venda NFC-e N° $pdv->pdv_code" : "Venda Nota Manual N° $pdv->pdv_code",
-                                'document' => $maxDocument ? $maxDocument + 1 : 1,
-                                'pdv_code' => $pdv->pdv_code,
-                                'customer_code' => $customer->customer_code,
-                                'name' => $customer->company_name,
-                                'especie_cod' => $form->payment_code,
-                                'especie' => $form->especie,
-                                'date_register' => $currentDate->format('Y-m-d'),
-                                'input_value' => $paymentValues[$form->id - 1],
-                                'output_value' => 0,
-                                'real_balance' => $paymentValues[$form->id - 1],
-                                'user_id' => 1,
-                                'seller' => 'aa',
-                                'origem' => $origem
-                            
-                            );  
-                            array_push($cashRegisters, $bodyCash);
-                        }
-
-                        if($form->tipo_lancamento === 'Receber')
-                        {
-                            $bodyCash = array(
-                                'cash_register_code' => $maxCashRegister ? $maxCashRegister + 1 : 1,
-                                'issuer_id' => $issuerID,
-                                'description' => $description ===  'nfce' ? "Parcelamento Venda NFC-e N° $pdv->pdv_code" : "Parcelamento Venda Nota Manual 
-                                N° $pdv->pdv_code",
-                                'document' => $maxDocument ? $maxDocument + 1 : 1,
-                                'pdv_code' => $pdv->pdv_code,
-                                'customer_code' => $customer->customer_code,
-                                'name' => $customer->company_name,
-                                'especie_cod' => $form->payment_code,
-                                'especie' => $form->especie,
-                                'date_register' => $currentDate->format('Y-m-d'),
-                                'due_date' => $currentDate->addDays(30)->format('Y-m-d'),
-                                'installment_number' => 1,
-                                'installment_value' => $paymentValues[$form->id - 1],
-                                'output_value' => 0,
-                                'real_balance' => $paymentValues[$form->id - 1],
-                                'type_interest' => '%',
-                                'interest_value' => 10,
-                                'total_amount' => 10,
-                                'user_id' => 1,
-                                'user' => 'aa',
-                                'origem' => $origem
-                            
-                            );  
-                            
-                            Log::info('-- Vai chamar o receiveRepository linha 170 -- ');
-                            $this->receiveRepository->create($bodyCash);
-                            return array(
-                                'success' => true
-                            );
-                            
-                            Log::info('-- Terminou de chamar o receiveRepository -- ');
-
-                        }
-                    }
-                }
-            }
-        }
-    
-        Log::info('Terminou de montar o corpo do caixa: ');
-        Log::info('Dados: ');
-        Log::info($cashRegisters);
-        Log::info('-- Vai chamar o cashRegisterRepository linha 183 -- ');
-        $this->cashRegisterRepository->create($cashRegisters);
-        Log::info('-- Vai chamar o reservationRepository linha 185 -- ');
-        if($origem == 'hotel')
-        {
-            Log::info('-- Vai chamar o reservationRepository linha 106 -- ');
-            $this->reservationService->create($customer);
-
-        }
-        Log::info('-- Terminou de chamar o cashRegisterRepository -- ');
-        Log::info('-- Fim do registro no caixa, PayMentMethodService.php, linha 188 --');
-        return array(
-            'line' => 215,
-            'success' => true
-
-        );  */
+        return true;
     }    
 
     public function decreaseCash(object $customer, float $value, string $description, string $origem, string|int $issuerID)
@@ -323,7 +130,7 @@ class PayMentMethodService implements PayMentMethodContract
         Log::info('Corpo: ');
         Log::info($cashRegisters);    
         Log::info('-- Vai chamar o cashRegisterRepository -- ');
-        $this->cashRegisterRepository->create($cashRegisters);
+        //$this->cashRegisterRepository->create($cashRegisters);
         Log::info('-- Fim decreaseCash --');
         return array(
             'line' => 266,

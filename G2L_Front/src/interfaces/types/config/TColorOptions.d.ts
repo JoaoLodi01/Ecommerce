@@ -1,4 +1,5 @@
 type TColorOptions = {
     buttonColor: string,
-    painelColor: string
+    painelColor: string,
+    textColor: string
 };

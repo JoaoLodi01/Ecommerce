@@ -18,16 +18,6 @@ class PDVService
         return $this->pdvRepository->getAll($issuer_id);
     }
 
-    public function update(array $data, int $id){
-        try {
-            $this->pdvRepository->update($data, $id);
-            return response()->json(true);
-
-        } catch (\Throwable $th) {
-            
-        }
-    }
-
     public function findSavePDV()
     {
         return $this->pdvRepository->findSavePDV() ?: false;
@@ -72,7 +62,6 @@ class PDVService
                     $pdvID, 
                     $paymentsValues, 
                     $payMentsID, 
-                    $total,
                     $issuerID,
                     $userID,
                 );

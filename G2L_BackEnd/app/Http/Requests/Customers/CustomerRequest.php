@@ -24,9 +24,11 @@ class CustomerRequest extends FormRequest
         $configService = app(ConfigService::class);
         $issuerID = $this->input('issuer_id'); 
         $configs = $configService->getConfigs($issuerID)['customers'];
+        $customerType = $this->input('customer_type');
         
-        Log::debug($configs->validate_cpf ? 'required' : 'nullable');
-        Log::debug($configs->validate_cnpj ? 'required' : 'nullable');
+        Log::debug("Tipo de pessoa: {$customerType}");
+        Log::debug($configs->validate_cpf ? 'nullable' : 'required');
+        Log::debug($configs->validate_cnpj ? 'nullable' : 'required');
         
         $rules = [
             'issuer_id' => ['required'],
@@ -34,6 +36,9 @@ class CustomerRequest extends FormRequest
             'trade_name' => ['nullable', 'required_without:company_name', 'string', 'max:120'],
             'customer_type' => ['required'],
             'cep' => ['required'],
+            'uf' => ['required'],
+            'ie' => ['sometimes'],
+            'im' => ['sometimes'],
             'address' => ['required'],
             'number' => ['required'],
             'phone' => ['sometimes', 'max:120'],
@@ -43,8 +48,8 @@ class CustomerRequest extends FormRequest
 
         ];
 
-        $rules['cpf'] = $configs->validate_cpf ? 'required' : 'nullable';
-        $rules['cnpj'] = $configs->validate_cnpj ? 'required' : 'nullable';
+        $rules['cpf'] = $customerType === 'Física' ? ($configs->validate_cpf ? 'nullable' : 'required') : 'nullable';
+        $rules['cnpj'] = $customerType === 'Jurídica' ? ($configs->validate_cnpj ? 'nullable' : 'required') : 'nullable';
 
         return $rules;
     }

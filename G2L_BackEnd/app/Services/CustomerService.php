@@ -126,6 +126,7 @@ class CustomerService
             Log::warning('Erro no Job');
             return;
         };
+        
         return $directory . DIRECTORY_SEPARATOR . $fileName;
     }
 }

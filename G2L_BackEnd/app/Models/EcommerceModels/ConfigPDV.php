@@ -17,7 +17,8 @@ class ConfigPDV extends Model
         'sale_negative_or_reset',
         'validate_gtin',
         'supervisor_password_cancel_sale',
-        'supervisor_password_delete_item'
+        'supervisor_password_delete_item',
+        'img'
         
     ];
 }

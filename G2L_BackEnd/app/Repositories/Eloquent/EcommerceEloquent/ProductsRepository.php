@@ -234,8 +234,8 @@ class ProductsRepository
 
     public function decreaseQuantiy(int $productCode, float|int $quantiy, int $issuerID)
     {
-        /*Log::info('-- Inicio decreaseQuantiy, linha 50 --');
-        $product = $this->findByID($productCode);
+        Log::info('-- Inicio decreaseQuantiy, linha 50 --');
+        $product = $this->findByID($issuerID, $productCode);
         if($product)
         {
             Log::info('Produto encontrado ' . $product->product_code . ' produto: ' . $product);
@@ -245,7 +245,7 @@ class ProductsRepository
             
         }
 
-        Log::info('-- Fim decreaseQuantiy, linha 62 --');*/
+        Log::info('-- Fim decreaseQuantiy, linha 62 --');
     }
 
     public function importProducts(ProductsDTO $dto): void

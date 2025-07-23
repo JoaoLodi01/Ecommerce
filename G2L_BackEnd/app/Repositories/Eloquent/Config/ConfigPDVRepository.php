@@ -45,4 +45,22 @@ class ConfigPDVRepository implements ConfigPDVContract
 
         return $this->getConfigs($data['issuer_id']);
     }
+
+    public function updatePDVLogo(string $filePath, int $id)
+    {
+        ConfigPDV::where('issuer_id', $id)
+                    ->update([
+                        'img' => $filePath
+                    ]);
+    }
+    
+    public function downloadLogo(int $id)
+    {
+        $path = ConfigPDV::where('issuer_id', $id)->first();
+        $imgPath = str_replace('storage/', '', $path->img); // remove prefixo "storage/"
+        $fullPath = storage_path("app/public/" . ltrim($imgPath, '/'));
+        
+        return $fullPath;
+        
+    }
 }

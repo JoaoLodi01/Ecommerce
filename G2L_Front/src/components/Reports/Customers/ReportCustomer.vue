@@ -54,7 +54,7 @@
 
             const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
             const link = document.createElement('a');
-    
+            
             link.href = url;
             link.setAttribute('download', `Listagem_de_Clientes.xlsx`);
             document.body.appendChild(link);

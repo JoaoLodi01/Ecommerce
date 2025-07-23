@@ -4,6 +4,10 @@
         @input="getProducts()"
         placeholder="Buscar..." 
         class="outline-none rounded-md mt-1 mb-1 p-1.5"
+        :class="{
+            'w-[100vh]': props.locale === 'pdv',
+            'w-[150vh]': props.locale !== 'pdv'
+        }"
         id="searchBar"
         :disabled="!configs.filter"
 
@@ -60,6 +64,7 @@
     }>(); 
 
     const $q = useQuasar();
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
     let filtredProducts = ref<IProducts[]>([]);
 
@@ -88,18 +93,22 @@
 
     });
 
-    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+    let amout = ref<number>(1);
 
     const getProducts = async () =>
     {
         const isPDV = props.locale === 'pdv';
+        const isMultiple = search.value.name.split('').includes('*');
+        const newAmount = Number(search.value.name.replace(',', '.').split('*')[0]);
+        
+        amout.value = isMultiple ? newAmount : 1;
         const nameLength = search.value.name.length;
 
         if(nameLength >= 4 || nameLength >= 1)
-        {
+        {   
             const res = await api.post(`/ecommerce/products/search`,{
                 filter: isPDV ? configs.value.filter : props.momentFilter,
-                search: search.value.name,
+                search: isMultiple && search.value.name.split('*')[1].length >= 1 ? search.value.name.split('*')[1] : search.value.name,
                 issuer_id: issuerID.value
 
             });
@@ -130,7 +139,6 @@
         } else {
             if(product.active)
             {
-            console.log(product.active)
                 const emitProduct = {...productsData.value = { 
                     id: product.id,
                     product_code: product.product_code, 
@@ -140,12 +148,11 @@
                     barcode_internal: 0,
                     cfop: product.cfop,
                     csosncst: product.csosncst,
-                    amount: 1,
-                    sale_price: product.sale_price
+                    amount: amout.value,
+                    sale_price: Number(product.sale_price)
                     
                 }};
                 
-                console.log('emitProduct: ', emitProduct)
                 emits('update:selectProducts', emitProduct);
                 
                 filtredProducts.value = [];

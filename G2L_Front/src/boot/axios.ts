@@ -83,7 +83,6 @@ export default boot(({ app, router }) => {
         return Promise.reject(error);
 
       } else {
-        console.warn(error.response.data.status === 401 ? 'Deveria ir pro login' : 'aaa');
         const msg =
           error.response?.data?.message ||
           error.response?.data?.errorMessage ||

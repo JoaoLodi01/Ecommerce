@@ -152,6 +152,8 @@ Route::prefix('v1')->group( function (){
 
             Route::prefix('pdv')->group(function() {
                 Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updatePDV']);
+                Route::post('/alter-logo/{issuer_id}', [ConfigController::class, 'updatePDVLogo']);
+                Route::get('/download-logo/{issuer_id}', [ConfigController::class, 'downloadLogo']);
             });
 
             Route::prefix('customer')->group(function() {
@@ -164,7 +166,6 @@ Route::prefix('v1')->group( function (){
                 Route::post('/import-color/{issuer_id}', [ConfigController::class, 'importColors']);
 
                 Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateColor']);
-
             });
         });
 
@@ -177,6 +178,8 @@ Route::prefix('v1')->group( function (){
             Route::put('/update/{id}', [CustomerController::class, 'update']);
             Route::put('/{id}/disable', [CustomerController::class, 'delete']); // desactive
             Route::put('/{id}/active', [CustomerController::class, 'active']);
+            Route::post('/import-customers/{id}', [CustomerController::class, 'importCustomers']);
+            Route::get('/download/default-file', [CustomerController::class , 'downloadDefaultFile']);
 
         });
 

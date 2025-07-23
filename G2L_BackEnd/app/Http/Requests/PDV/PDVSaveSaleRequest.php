@@ -17,9 +17,8 @@ class PDVSaveSaleRequest extends FormRequest
     {
         return [
             'issuer_id' => ['required'],
-            'description' => ['required', 'string' , 'max:120'],
             'products' => ['required', 'array'],
-            'user_id' => ['required'], // 'exists:users,id' add depois
+            'user_id' => ['required', 'numeric'], // 'exists:users,id' add depois
             'customer_id' => ['required'], // , 'exists:customer,id' 
             'total' => ['required', 'numeric'],
             'sub_total' => ['required', 'numeric'],
@@ -33,11 +32,8 @@ class PDVSaveSaleRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'description.required' => 'A descrição da venda é obrigatória',
-            'description.string' => 'A descrição da venda deve ser um texto válido',
-            'description.max' => 'A descrição da venda passou do seu limite de caracteres',
-
             'user_id.required' => 'O identificador do vendedor é obrigatório',
+            'user_id.numeric' => 'O identificador do vendedor deve ser um número!',
             'customer_id.required' => 'O identificador do cliente é obrigatório',
 
             'products.required' => 'Os produtos da venda são obrigatórios',

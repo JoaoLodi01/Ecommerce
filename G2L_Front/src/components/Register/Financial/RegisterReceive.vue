@@ -212,7 +212,7 @@
     const props = defineProps<{
         widthScreen: number,
         pdv?: boolean,
-        receiveCod: number,
+        receiveCod?: number,
         readonly: boolean,
         action: string,
         receives: Array<IReceiveBody>,
@@ -358,8 +358,8 @@
 
                 const response = await api.post('ecommerce/receive/create', payload);
 
-                    $q.notify({
-                    color: 'green',
+                $q.notify({
+                    color: 'green',position: 'top',
                     message: 'Recebimento registrado com sucesso!',
                 });
 
@@ -367,9 +367,12 @@
 
             } catch (error) {
                 $q.notify({
-                color: 'negative',
-                message: 'Erro ao registrar recebimento',
+                    position: 'top',
+                    color: 'negative',
+                    message: 'Erro ao registrar recebimento!',
+                    
                 });
+                
                 console.error("Erros da API:", error.response?.data?.errors);
             }
         };

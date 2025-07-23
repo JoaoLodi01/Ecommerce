@@ -1,21 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div
-        class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
-        id="pdv-view"
-        v-if="showGrid"
-        :class="{
-            'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
-            'relative left-10': witdhScreen <= 1080,
-            'text-xl': textSize === 4,
-            'text-2xl': textSize === 8,
-            'text-3xl': textSize === 16,
-            
-        }"   
-    >
-        <div 
-            class="payMentForm" 
-=======
     <div v-if="!showPage">
         <LoandingPage
             @show-page="showPage = $event"
@@ -24,12 +7,51 @@
         />
 
     </div>
-    <div v-if="showPage"> <!-- SHOW PAGE -->
+
+    <div>
+        <ConfirmPage
+            v-if="showConfirm"
+            :operation="operation"
+            @confirm="handleOperation($event)"
+        />  
+
+        <PaymentsForm
+            v-if="showPaymentsForm && typeOperation && pdvID"
+            :witdhScreen="witdhScreen"
+            :typeOperation=typeOperation
+            :totalOperation=totalOperation
+            :pdvID=pdvID 
+            :room-i-d="0"
+            @resetTotal="totalOperation = $event"
+            @resetPDVID="pdvID = $event"
+            @close="cancelOperation"
+            @update:selectProducts="resetSale()"
+
+        />
+
+        <CashClosing
+            v-if="showCashClosing"
+            @closeCashClosing="closeCashClosing($event)"
+        />
+
+        <ErrorsModal
+            v-if="errorsOfSale.showErrosModal"
+            @close="chooseErrors($event)"
+            :errors="errorsOfSale.erros"
+            :class="{
+                'transition-transform translate-y-4': errorsOfSale.showErrosModal,
+                'opacity-0 -z-50': !errorsOfSale.showErrosModal
+            }"
+        />
+    </div>
+    
+    <div 
+        v-if="showPage"
+
+    > <!-- SHOW PAGE -->
         <div
-            class="w-max mx-auto border border-black rounded-lg mt-3 bg-white" 
-            id="pdv-view"
+            class="mx-auto rounded-lg mt-3 bg-white w-max border border-black" 
             v-if="showGrid"
->>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
             :class="{
                 'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
                 'relative left-10': witdhScreen <= 1080,
@@ -39,80 +61,8 @@
                 'text-3xl': textSize === 16,
                 
             }"   
-        >
-<<<<<<< HEAD
-            <PaymentsForm
-                v-if="showPaymentsForm"
-                :witdhScreen="this.witdhScreen"
-                :typeOperation=this.typeOperation
-                :totalOperation=this.totalOperation
-                :pdvID=this.pdvID
-                @resetTotal="totalOperation = $event"
-                @resetPDVID="pdvID = $event"
-                @close="cancelOperation"
-                @update:selectProducts="resetSale($event)"
-            />
-
-            <CashClosing
-                v-if="showCashClosing"
-                @closeCashClosing="closeCashClosing($event)"
-            />
-
-            <ErrorsModal
-                v-if="errorsOfSale.showErrosModal"
-                @close="chooseErrors($event)"
-                :errors="errorsOfSale.erros"
-                :class="{
-                    'transition-transform translate-y-4': errorsOfSale.showErrosModal,
-                    'opacity-0 -z-50': !errorsOfSale.showErrosModal
-                }"
-            />
-        </div>
-        
-        <div class="h-4">
-            <div 
-                class="m-3 border rounded-lg"
-=======
-            <div 
-                class="payMentForm" 
->>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
-                :class="{
-                    'absolute top-24 z-20': witdhScreen > 1080,
-                    'absolute right-auto left-auto top-5 z-50': witdhScreen <= 1080
-                }"
-            >
-                <PaymentsForm
-                    v-if="showPaymentsForm && typeOperation && pdvID"
-                    :witdhScreen="witdhScreen"
-                    :typeOperation=typeOperation
-                    :totalOperation=totalOperation
-                    :pdvID=pdvID 
-                    :room-i-d="0"
-                    @resetTotal="totalOperation = $event"
-                    @resetPDVID="pdvID = $event"
-                    @close="cancelOperation"
-                    @update:selectProducts="resetSale()"
-
-                />
-
-                <CashClosing
-                    v-if="showCashClosing"
-                    @closeCashClosing="closeCashClosing($event)"
-                />
-
-                <ErrorsModal
-                    v-if="errorsOfSale.showErrosModal"
-                    @close="chooseErrors($event)"
-                    :errors="errorsOfSale.erros"
-                    :class="{
-                        'transition-transform translate-y-4': errorsOfSale.showErrosModal,
-                        'opacity-0 -z-50': !errorsOfSale.showErrosModal
-                    }"
-                />
-
-            </div>
-            
-            <div class="h-4">
+        >   
+            <div class="max-h-auto">
                 <div 
                     class="m-3 border border-black rounded-lg"
                     :class="{
@@ -123,195 +73,6 @@
                     <div 
                         class="inline-flex p-3"
                     >
-<<<<<<< HEAD
-                        <button @click="showOptions" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Configurações</button>
-                        <button class="bg-slate-600 text-white p-1 mr-5 rounded-lg"><router-link to="/sale/list-pdv">Voltar para a listagem</router-link></button>
-                        <button @click="closeCashClosing(true)" class="bg-slate-600 text-white p-1 mr-5 rounded-lg">Fechamento</button>
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="flex m-3 border border-black rounded-lg">
-                <div 
-                    class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
-                    @click="showProductsSelection()"
-                    
-                >
-                    <div class="border border-red-500 w-6 mb-1"></div>
-                    <div class="border border-black w-5 mb-1"></div>
-                    <div class="border border-gray-500 w-4 mb-1"></div>        
-
-                </div>
-                
-                <div class="mr-1">
-                    <ProductsSearchBar
-                        v-if="showProductsSearch"
-                        :witdhScreen="this.witdhScreen"
-                        @update:selectProducts="updateProductsSeletion($event)"
-
-                    />
-                    <!--Busca de produto-->
-                </div>
-
-            </div>
-  
-            <div class="products-grid m-5 shadow-lg relative overflow-y-auto">
-                
-                <table class="block text-left rounded-t-xl rtl:text-right ">
-                    <thead class="uppercase sticky top-0 bg-white z-10">
-                        <tr class="bg-white">
-                            <th scope="col" class="px-6 py-3">Cód.</th>
-                            <th scope="col" class="px-6 py-3 text-left">Produto</th>
-                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
-                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
-                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
-                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
-                            <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
-                            <th scope="col" class="px-6 py-3">Ações</th>
-                        </tr>
-                    </thead>
-
-                    <tbody v-for="products in productsSeletion">
-                        <tr v-for="(product, id) in products" :key="id"
-                            class="border">    
-
-                            <td class="px-6" scope="row">{{ idPDV ? product.product_id : product.product_cod }}</td>
-                            <td class="px-6 py-3">{{ product.product }}</td>
-
-                            <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
-                                <input 
-                                    v-model="product.cfop"
-                                    :placeholder=product.cfop
-                                    type="text"
-                                    class="w-12 text-center border-b-4 border-b-gray-500"
-                                    maxlength="4"
-                                    minlength="4"
-                                    @input="changeCFOP(product.id, product.cfop)"
-                                />
-                            </td>
-
-                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
-                                <input 
-                                    v-model="product.csosncst"
-                                    :placeholder=product.csosncst
-                                    type="number"
-                                    :maxlength="maxlength(csosncst.toLowerCase())"
-                                    :minlength="maxlength(csosncst.toLowerCase())"
-                                    class="w-10 text-center border-b-4 border-b-gray-500"
-                                    id="csosnInput"
-                                    @input="changeCSOSN(product.id, product.csosn)"
-                                />
-                            </td>
-
-                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
-                                <input 
-                                    v-model="product.amount"
-                                    :placeholder=product.amount 
-                                    type="text"
-                                    class="w-10 text-center border-b-4 border-b-gray-500 "
-                                    @input="changeAmount(product.id, product.amount)"
-                                />
-                            </td>
-                            <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                            <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * product.amount).toFixed(2) }}</td>
-                            <td class="text-center">
-                                <div class="m-auto">
-                                    <button @click="productOptions(product, i, 'delete')">
-                                        <svg 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" 
-                                            viewBox="0 0 24 24" 
-                                            stroke-width="1.5" 
-                                            stroke="currentColor" 
-                                            class="size-4 text-red-500 mr-4">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" 
-                                        />
-                                            delete
-                                        </svg>
-                                    </button>
-
-                                    <button @click="productOptions(product, 'options')">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 16 16" fill="currentColor"
-                                            class="size-4 text-blue-600 mr-4">
-                                            <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm6 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"
-                                        />
-                                            options
-                                        </svg>
-                                    </button>
-
-                                    <button @click="productOptions(product, 'view')">
-                                        <svg 
-                                            v-if="witdhScreen < 1080"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24" 
-                                            stroke-width="1.5" 
-                                            stroke="currentColor" 
-                                            class="size-4">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                                            view
-                                            
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                        
-                </table>                
-                
-            </div>
-        </div>
-
-        <div v-if="viewProduct.show" class="absolute top-40 left-9 w-64 p-2 mr-5 ml-autobg-white z-50 rounded-lg bg-slate-700 text-white">
-            <div class="flex justify-end">
-                <div @click="viewProduct.show = !viewProduct.show">Voltar</div>
-
-            </div>
-            <div class="text-left">
-                <p><span>Cód: {{ viewProduct.id }}</span></p>
-                <p><span>Preço unitário: R${{ viewProduct.salePrice }}</span></p>
-                <p>
-                    <input 
-                        v-model="viewProduct.amount"
-                        :placeholder=viewProduct.amount
-                        type="text"
-                        class="w-10 text-center border-b-4 border-b-gray-500 text-black"
-                        @input="changeAmount(viewProduct.id, viewProduct.amount)"
-                        
-                    />
-                
-                </p>
-                
-            </div>
-        </div>
-    <div>
-        </div>
-            <div 
-                class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-gray-300 mt-2 mb-2 mr-2 "
-                :class="{
-                    'text-xl': textSize === 4,
-                    'text-2xl': textSize === 8,
-                    'text-3xl': textSize === 16,
-                    'm-auto': witdhScreen <= 1080
-                }">
-                
-                <div>
-                    <div>
-                        <div class="m-2 p-2">
-
-                            <label class="text-black" for="discount">Vendedor</label>
-                            <q-input 
-                                :placeholder="sellerData.name"
-                                disable
-                                id="discount"
-                                type="text"
-                                class="w-16"
-                            />
-=======
                         <div 
                             v-if="witdhScreen > 1366"
                             class="mr-16 mt-1"
@@ -319,22 +80,21 @@
                             <button 
                                 @click="showOptions" 
                                 class="p-1 mr-5 rounded-lg"
-                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                :style="`background-color: ${painelColor}; color: ${textColor}`"
                             >
                                 Configurações
                             </button>
                             <button 
                                 class="p-1 mr-5 rounded-lg"
-                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                :style="`background-color: ${painelColor}; color: ${textColor}`"
                             >
                                 <router-link to="/sale/list-pdv">Voltar para a listagem</router-link>
                             </button>
->>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
 
                             <button 
                                 @click="closeCashClosing(true)" 
                                 class="p-1 mr-5 rounded-lg"
-                                :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                :style="`background-color: ${painelColor}; color: ${textColor}`"
                             >
                                 Fechamento
                             </button>
@@ -342,103 +102,8 @@
                         </div>
                     </div>
 
-<<<<<<< HEAD
-                        <div class="p-4">
-                            <img 
-                                src="https://imgs.search.brave.com/MoYaYTNKcUf4WZ7AWmX_TQp1YL21SVA8qTSjj-_apNI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLnNk/ZS5nbG9iby5jb20v/bWVkaWEvb3JnYW5p/emF0aW9ucy8yMDE4/LzAzLzExL2ludGVy/bmFjaW9uYWwuc3Zn" 
-                                class="rounded-lg"
-                                height="236px"
-                                width="236px"
-                            />
-                        </div>
-
-                        <div class="m-4 p-4 bg-white"> 
-                            <div class="gap-4">
-                                <!-- Acréscimo -->
-                                <div class="flex items-center gap-4 mb-2">
-                                <label for="addition" class="text-gray-700 font-semibold w-32">Acréscimo R$</label>
-                                <input 
-                                    id="addition"
-                                    v-model.number="emitProducts.addition"
-                                    type="number"
-                                    class="w-32 px-3 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-right"
-                                />
-                                </div>
-
-                                <!-- Desconto -->
-                                <div class="flex items-center gap-4 mb-2">
-                                <label for="discount" class="text-gray-700 font-semibold w-32">Desconto R$</label>
-                                <input 
-                                    id="discount"
-                                    v-model.number="emitProducts.discount"
-                                    type="number"
-                                    class="w-32 px-3 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-right"
-                                />
-                                </div>
-
-                                <!-- Frete -->
-                                <div class="flex items-center gap-4">
-                                <label for="freight" class="text-gray-700 font-semibold w-32">Frete R$</label>
-                                <input 
-                                    id="freight"
-                                    v-model.number="emitProducts.freight"
-                                    type="number"
-                                    class="w-32 px-3 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-right"
-                                />
-                                </div>
-                            </div>
-                        </div>
-                    <div class="m-2 p-2 rounded-lg border border-gray-300" id="total">
-                        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Frete <span>R$ {{ calculateTotal.freight.toFixed(2) }}</span></p>
-                        <div class="mt-2">
-                            <span class="text-black rounded-md">
-                                Total: R$ {{ Math.max((calculateTotal.subtotal + calculateTotal.freight + calculateTotal.addition - calculateTotal.discount), 0).toFixed(2) }}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap items-center gap-2 p-2 ml-1 rounded-lg text-white">
-                        <!-- Cancelar venda -->
-                        <button
-                            :disabled="productsSeletion.length <= 0"
-                            @click="productsSeletion.length > 0 && cancelSale()"
-                            title="Cancelar venda"
-                            class="w-10 h-10 flex items-center justify-center bg-slate-600 rounded-md transition hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                            </svg>
-                        </button>
-
-                        <!-- Salvar venda -->
-                        <button
-                            :disabled="productsSeletion.length <= 0"
-                            @click="productsSeletion.length > 0 && saveSale()"
-                            title="Salvar venda"
-                            class="w-10 h-10 flex items-center justify-center bg-slate-600 rounded-md transition hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                            </svg>
-                        </button>
-
-                        <!-- Botão Finalizar -->
-                        <button
-                            v-if="configs.nmFinaly"
-                            @click="finalizeSale('nm')"
-                            class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-md text-sm font-medium transition">
-                            Finalizar
-                        </button>
-
-                        <!-- Botão Finalizar NFC-e -->
-                        <button
-                            @click="finalizeSale('nfce')"
-                            class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-sm font-medium transition">
-                            Finalizar e emitir NFC-e
-                        </button>
-=======
                 </div>
+
                 <div class="flex m-3 border border-black rounded-lg">
                     <div 
                         class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
@@ -451,87 +116,96 @@
 
                     </div>
                     
-                    <div class="mr-1">
+                    <div>
                         <ProductsSearchBar
                             v-if="showProductsSearch"
                             :witdhScreen="witdhScreen"
                             :locale="'pdv'"
-                            @update:selectProducts="updateProductsSeletion($event)"
+                            @update:selectProducts="updateProductsSeletion($event as IProducts)"
 
                         />
-                        <!--Busca de produto-->
-                    </div>
 
+                    </div>
                 </div>
     
                 <div 
-                    class="products-grid m-5 shadow-lg relative overflow-y-auto"
-                >
-                    <table class="block text-left rounded-t-xl rtl:text-right ">
-                        <thead class="uppercase shadow-lg sticky top-0 bg-white z-10">
-                            <tr class="">
-                                <th scope="col" class="px-6 py-3">Cód.</th>
-                                <th scope="col" class="px-6 py-3 text-left">Produto</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">CFOP</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">{{ csosncst }}</th>
+                    class="m-5 shadow-lg overflow-y-auto border border-black h-[48rem] max-w-[125vh]"  
+                >   
+                    <table>
+                        <thead 
+                            class="uppercase shadow-lg sticky top-0 z-10 w-auto"
+                        >
+                            <tr 
+                                :style="`background-color: ${painelColor}; color: ${textColor}`"
+                            >
+                                <th scope="col" class="pr-16 px-6 py-3">Cód.</th>
+                                <th scope="col" class="pr-16 px-6 py-3 text-left">Produto</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="pr-16 px-6 py-3 text-center">CFOP</th>
+                                <th v-if="witdhScreen > 1080" scope="col" class="pr-16 px-6 py-3 text-center">CSOSN</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
                                 <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
-                                <th scope="col" class="px-6 py-3">Ações</th>
+                                <th scope="col" class="px-2 py-4">Ações</th>
+                                
                             </tr>
                         </thead>
 
-                        <tbody v-for="(product, i) in productsSeletion">
-                            <tr
-                                
+                        <tbody>
+                            <tr 
+                                v-for="(product, i) in productsSeletion" 
+                                :key="product.id" 
                                 class="border border-black"
-                            >    
+                            >   
+                                <td class="pr-16 px-6 py-3" scope="row">{{ product.product_code }}</td>
+                                <td class="pr-16 px-6 py-3">{{ product.product}}</td>
 
-                                <td class="px-6" scope="row">{{ product.product_code }}</td>
-                                <td class="px-6 py-3">{{ product.product}}</td>
-
-                                <td v-if="witdhScreen > 1080"  class="px-6 py-3 text-center">
-                                    <input 
+                                <td v-if="witdhScreen > 1080" class="pr-16 px-6 py-3">
+                                    <q-input 
                                         v-model="product.cfop"
                                         :placeholder=String(product.cfop)
                                         type="text"
-                                        class="w-12 text-center border-b-4 border-b-gray-500"
+                                        inputClass="text-center"
+                                        class="w-12 border-b-4 border-b-gray-500"
                                         maxlength="4"
                                         minlength="4"
-                                        @input="changeCFOP(product.id, Number(product.cfop))"
-
+                                        borderless
+                                        dense
                                     />
                                 </td>
 
-                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
-                                    <input 
+                                <td v-if="witdhScreen > 1080" class="pl-9 px-6 py-3">
+                                    <q-input 
                                         v-model="product.csosncst"
                                         :placeholder=String(product.csosncst)
-                                        type="number"
-                                        :maxlength="maxlength(csosncst.toLowerCase())"
-                                        :minlength="maxlength(csosncst.toLowerCase())"
-                                        class="w-10 text-center border-b-4 border-b-gray-500"
-                                        id="csosnInput"
-                                        @input="changeCSOSN(product.id, Number(product.csosncst))"
+                                        inputClass="text-center"
+                                        type="text"
+                                        borderless
+                                        dense
+                                        class="w-10 border-b-4 border-b-gray-500"
 
                                     />
                                 </td>
 
                                 <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
-                                    <input 
+                                    <q-input 
                                         v-model="product.amount"
-                                        :placeholder="String(product.amount)"
+                                        :placeholder="String(product.amount).replace('.', ',')"
+                                        inputClass="text-center"
                                         type="text"
-                                        class="w-10 text-center border-b-4 border-b-gray-500 "
-                                        @input="changeAmount(product.id, Number(product.amount))"
-                                        
+                                        borderless
+                                        dense
+                                        class="w-10 border-b-4 border-b-gray-500"
+                                        @update:modelValue="changeAmount(product.product_code, product.amount)"
                                     />
                                 </td>
-                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ product.sale_price }}</td>
-                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ Math.round(product.sale_price * Number(product.amount)).toFixed(2) }}</td>
+
+                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ String(product.sale_price.toFixed(2)).replace('.', ',') }}</td>
+                                <!--td v-if="witdhScreen > 1080" class="text-center">R$ {{ String(Math.round(product.sale_price * Number(product.amount))).replace('.', ',') }}</td-->
+                                
+                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ String(Number(product.sale_price * product.amount).toFixed(2)).replace('.', ',') }}</td>
                                 <td class="text-center">
                                     <div class="m-auto">
-                                        <button @click="productOptions(product.id, i, 'delete')">
+                                        <button @click="productOptions(product.product, product.product_code, i, 'delete')">
                                             <svg 
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none" 
@@ -545,7 +219,10 @@
                                             </svg>
                                         </button>
 
-                                        <button @click="productOptions(product.id, i, 'options')">
+                                        <button 
+                                            @click="productOptions(product.product, product.product_code, i, 'options')"
+                                            
+                                        >
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 16 16" fill="currentColor"
@@ -556,7 +233,7 @@
                                             </svg>
                                         </button>
 
-                                        <button @click="productOptions(product.id, i, 'view')">
+                                        <button @click="productOptions(product.product, product.product_code, i, 'view')">
                                             <svg 
                                                 v-if="witdhScreen < 1080"
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -565,7 +242,8 @@
                                                 stroke-width="1.5" 
                                                 stroke="currentColor" 
                                                 class="size-4">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" 
+                                            />
                                                 view
                                                 
                                             </svg>
@@ -574,9 +252,7 @@
                                 </td>
                             </tr>
                         </tbody>
-                            
                     </table>                
-                    
                 </div>
             </div>
 
@@ -594,18 +270,19 @@
                             :placeholder=String(viewProduct.amount)
                             type="text"
                             class="w-10 text-center border-b-4 border-b-gray-500 text-black"
-                            @input="changeAmount(viewProduct.id, viewProduct.amount)"
+                            @input="changeAmount(viewProduct.id, 2)"
                             
                         />
                     
                     </p>
-                    
                 </div>
             </div>
         <div>
-            </div>
+            </div> <!--Deixa isso daqui como está.-->
+                <!-- Barra lateral direita -->
                 <div 
-                    class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg border border-black "
+                    class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg max-h-[100vh] border"
+
                     :class="{
                         'text-xl': textSize === 4,
                         'text-2xl': textSize === 8,
@@ -614,7 +291,7 @@
                     }"   
                 >
                     <div>
-                        <div>
+                        <div >
                             <div 
                                 class="m-2 p-2 rounded-lg border border-gray-700"
                             >
@@ -633,31 +310,59 @@
                                 <CustomerSearchBar
                                     @update:selectCustomer="updateCustomerSelection($event)"
                                     :pdv="true"
-
+                                    :disable="false"
                                 />
                                 <!-- COMPONENTE BUSCA DE CLIENTE -->                            
                             </div>
                         <div
-                            class="m-2 p-2 rounded-lg border border-gray-700" 
+                            class="m-2 p-1 rounded-lg border border-gray-700" 
                             
                         >
                             <p 
                                 class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
                             >
-                                Acréscimo R$: <input id="addition" v-model.number="emitProducts.addition" type="text" class="text-right"/>
+                                <span class="mt-auto mb-auto text-lg">Acréscimo R$</span>
+                                <q-input
+                                    v-model="emitProducts.addition"
+                                    inputClass="text-right"
+                                    type="text"
+                                    borderless
+                                    dense
+                                    maxlength="12"
+                                    :disable="productsSeletion.length <= 0"
+                                />
                             </p>
                             
                             <p 
                                 class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
                             >
-                                Desconto R$: <input id="discount" v-model.number="emitProducts.discount" type="text" class="text-right" />
+                                <span class="mt-auto mb-auto text-lg">Desconto R$</span>
+
+                                <q-input
+                                    v-model="emitProducts.discount"
+                                    inputClass="text-right"
+                                    type="text"
+                                    borderless
+                                    dense
+                                    maxlength="12"
+                                    :disable="productsSeletion.length <= 0"
+                                />
                             </p>
                                                     
                             <p 
                                 class="flex justify-between border p-2 rounded-lg"
                             >
-                                Frete R$:<input id="freight" v-model.number="emitProducts.freight" type="text" class="text-right focus:border-blue-400"/>
-                            
+                                <span class="mt-auto mb-auto text-lg">Frete R$</span>
+                                
+                                <q-input
+                                    v-model="emitProducts.freight"
+                                    inputClass="text-right"
+                                    type="text"
+                                    borderless
+                                    dense
+                                    maxlength="12"
+                                    :disable="productsSeletion.length <= 0"
+                                />                            
                             </p>
                         </div>
                     <div
@@ -665,43 +370,49 @@
                         id="total"
 
                     >
-                        <p class="flex justify-between">Subtotal <span>R$  {{ calculateTotal.subtotal.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Desconto <span>R$ {{ calculateTotal.discount.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Acréscimo <span>R$ {{ calculateTotal.addition.toFixed(2) }}</span></p>
-                        <p class="flex justify-between">Frete <span>R$ {{ calculateTotal.freight.toFixed(2) }}</span></p>
+                        <p class="flex justify-between">Subtotal <span>R$  {{ String(calculateTotal.subtotal.toFixed(2)).replace('.', ',') }}</span></p>
+                        <p class="flex justify-between">Desconto <span>R$ {{ String(calculateTotal.discount.toFixed(2)).replace('.', ',') }}</span></p>
+                        <p class="flex justify-between">Acréscimo <span>R$ {{ String(calculateTotal.addition.toFixed(2)).replace('.', ',') }}</span></p>
+                        <p class="flex justify-between">Frete <span>R$ {{ String(calculateTotal.freight.toFixed(2)).replace('.', ',') }}</span></p>
                     
                     </div>
                     
-                    <div class="">
+                    <div 
+                        class="flex border justify-center h-[250px]"
+                    >
                         <img 
-                            width="282px"
-                            height="412px"
-                            class="relative left-20 border"
-                            src="../../../../public/image/defaultLogo.png" 
-                            alt=""
+                            width="250px"                          
+                            class="cursor-pointer"
+                            :src="`http://192.168.1.106:8000${configs.img}`"
+                            alt="Logo não encontrada"
+                            @click="alterLogo"
+                            title="Altere sua logo aqui!"
+                            
                         />
                         
                     </div>
                     <!-- A imagem vai ter que ficar por aqui -->
-                        <div class="fixed bottom-4">
-                            <div class="flex m-2 p-2 mt-2 rounded-lg border border-gray-700">
+                        <div class="m-2">
+                            <div class="flex m-2 p-2 rounded-lg border border-gray-700">
                                 <button
                                     v-if="productsSeletion.length <= 0"
                                     disabled
                                     title="Sem vendas no momento"
-                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    class="mr-1 ml-2 rounded-md"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                     
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
                                 </button>
 
                                 <button
-                                    v-else @click="cancelSale()"
-                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    v-else @click="confirmOperation('cancelSale')"
+                                    class="mr-1 ml-2 rounded-md"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
                                 </button>
@@ -710,59 +421,60 @@
                                     v-if="productsSeletion.length <= 0"
                                     disabled
                                     title="Sem vendas no momento"
-                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    class="mr-1 ml-2 rounded-md"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#8A485E]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
                                     </svg>
                                 </button>
                                 <button 
-                                    class="mr-1 ml-2 bg-[#EDA8B3] rounded-md"
+                                    class="mr-1 ml-2 rounded-md"
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                     title="Salvar venda"
-                                    @click="saveSale()"
+                                    @click="confirmOperation('saveSale')"
                                     v-else
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
                                     </svg>
                                 </button>
 
                                 <div class="mb-auto ml-auto text-xl w-auto">
-                                    <span class="mr-1 text-white p-1 bg-[#BF3658] rounded-md">Total: R$ {{ Math.max((calculateTotal.total), 0).toFixed(2) }}</span>
+                                    <span class="mr-1 text-black p-1 rounded-md">Total: R$ {{ String(Math.max((calculateTotal.total), 0).toFixed(2)).replace('.', ',') }}</span>
                                 
                                 </div>
                             </div>
 
                             <div 
-                                class="flex text-white rounded-lg border border-gray-700 w-[26.2rem]"
+                                class="flex justify-between text-white rounded-lg border border-gray-700 w-[26.2rem] p-1"
                             
                             >
                                 <q-btn 
-                                    class="mr-1 p-1 rounded-md ml-14 border-none"                                
-                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                                    class="rounded-md border-none"                                
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                    :class="{
+                                        'ml-4': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
+                                    }" 
+
+                                    @click="finalizeSale('nm')"
+                                    v-if="configs.nmFinaly"
+                                    label="Finalizar veda"
+
+                                />
+                                    
+                                <q-btn  
+                                    class="rounded-md border-none"                                
+                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
                                     :class="{
                                         'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
                                     }" 
-
-                                    size="1rem"
-                                    @click="finalizeSale('nm')"
-                                    v-if="configs.nmFinaly"
-                                >
-                                    Finalizar
-                                </q-btn>
-                                <q-btn  
-                                    class="mr-4 p-1 rounded-md"
-                                    :style="`background-color: ${buttonColor}; color: ${textColor === '#ffffff' ? '#000' : '#ffffff'}`"
-                                    size="1rem"
+                                    label="Finalizar e emitir NFC-e"
                                     @click="finalizeSale('nfce')" 
                                     
-                                >
-                                    Finalizar e emitir NFC-e
-                                </q-btn>
-                                
+                                />
                             </div>
                         </div>
->>>>>>> 7512858c2fbbddbefbc4a429c066b8081e8b7c9e
                     </div>
                 </div>
             </div>
@@ -778,6 +490,21 @@
                 
             />
 
+            <OptionsProduct
+                v-if="isOption"
+                :productName="selectedProductName"
+                @apply="handleProductOptions($event)"
+                @close="isOption = !$event"
+
+            />
+
+            <ImportFiles 
+                v-if="importLogo"
+                :operation="'alterLogo'"
+                @close="importLogo = !$event"
+
+            />
+
             <!--<ProductsSelectionView
                 v-if="show"
                 :witdhScreen="witdhScreen"
@@ -790,8 +517,9 @@
 </template>
 
 <script setup lang="ts">
-    import PaymentsForm from 'src/components/PaymentsForm.vue';
     //import ProductsSelectionView from 'src/components/Products/ProductsSelectionView.vue';
+    import PaymentsForm from 'src/components/PaymentsForm.vue';
+    import ImportFiles from 'src/components/Files/ImportFiles.vue';
     import CashClosing from 'src/components/PDV/CashClosing/CashClosing.vue'
     import ConfigPDV from 'src/components/Config/ConfigPDV.vue';
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
@@ -799,8 +527,10 @@
     import ErrorsModal from 'src/components/PDV/Errors/ErrorsModal.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import SupervisorPasswordDeleteItem from 'src/components/SupervisorPassword/SupervisorPasswordDeleteItem.vue';
+    import OptionsProduct from 'src/components/Products/OptionsInSale/OptionsProduct.vue';
+    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
     import { api } from "src/boot/axios"
-    import { ref, computed, watch, defineProps, onMounted } from 'vue'   
+    import { ref, watch, computed, onMounted, onUnmounted } from 'vue'   
     import { useRoute, useRouter } from 'vue-router';
     import { useQuasar, LocalStorage } from 'quasar';
     import camelcaseKeys from 'camelcase-keys';
@@ -812,9 +542,31 @@
     const $q = useQuasar();
     const route = useRoute();
     const router = useRouter();
-    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
-    const textColor = ref<string>(LocalStorage.getItem("textColor"));
+    const issuer_id = ref<number>(LocalStorage.getItem("issuer_id"));
+    const painelColor = LocalStorage.getItem("painelColor");
+    const buttonColor = LocalStorage.getItem("buttonColor");
+    const textColor = LocalStorage.getItem("textColor");
 
+    const sellerData = ref<Iseller>({
+        id: 0,
+        name: ''
+    });
+
+    const customerData = ref<Icustomer>({
+        id: 1,
+        name: 'Consumidor Padrão'
+    });
+
+    const configs = ref<Tconfig>({
+        nmFinaly: false,
+        saleNegativeorReset: false,
+        supervisorPasswordCancelSale: false,
+        supervisorPasswordDeleteItem: false,
+        img: '/public/image/defaultLogo.png'
+
+    });
+
+    let isOption = ref<boolean>(false); // mudar para false
     let showPage = ref<boolean>(false);
     
     let productsSeletion = ref<IProducts[]>([]);
@@ -834,17 +586,6 @@
     });
 
     let crt = ref<number>(0);
-
-    const sellerData = ref<Iseller>({
-        id: 0,
-        name: ''
-    });
-
-    const customerData = ref<Icustomer>({
-        id: 1,
-        name: 'Consumidor Padrão'
-    });
-
     let totalOperation = ref<number>(0);
     let witdhScreen = ref<number>(0);
     let textSize = ref<number>(4);
@@ -868,27 +609,24 @@
     let typeOperation = ref<string>('');
     let csosncst = ref<string>('');
             
-    let configs = ref<Tconfig>({
-        nmFinaly: false,
-        saleNegativeorReset: false,
-        supervisorPasswordCancelSale: false,
-        supervisorPasswordDeleteItem: false
-    });
+    let selectedProductName = ref<string>('');
+    let selectedProductCode = ref<number>(0);
 
     let showSupervisorPassword = ref<boolean>(false);
-
+    let importLogo = ref<boolean>(false);
     let subTotal = ref<number>(0);
 
-    const issuer_id = ref<number>(LocalStorage.getItem("issuer_id"));
-    
+    let operation = ref<string>('');
+    let showConfirm = ref<boolean>(false);
+
     watch(
         () => route.fullPath,
         (to, from) => {
             if(to === '/sale/pdv') productsSeletion.value = [];
             return;
         }
-    );
-        
+    );    
+
     const calculateTotal = computed(() => {
         subTotal.value = 0;
 
@@ -896,9 +634,15 @@
             subTotal.value += p.sale_price * p.amount;
         });
 
-        const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
-        const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
-        const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
+        /*
+            const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
+            const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
+            const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
+        */
+
+        const addition = Number(String(emitProducts.value.addition).replace(/\D/g, '.'));
+        const discount = Number(String(emitProducts.value.discount).replace(/\D/g, '.'));
+        const freight = Number(String(emitProducts.value.freight).replace(/\D/g, '.'));
 
         return {
             total: subTotal.value + (addition + freight) - discount,
@@ -908,45 +652,6 @@
             freight: freight
         };
     });
-
-    const saveSale = async() => {
-        const saveSale = confirm('Deseja salvar a venda?');
-        if (saveSale) 
-        {
-            if(isOpenedPDV.value)
-            {
-                const response = await api.post('/ecommerce/pdv/save-sale', { 
-                    issuer_id:  issuer_id,
-                    products: productsSeletion, 
-                    user_id: sellerData.value.id,
-                    customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
-                    sub_total: calculateTotal.value.subtotal,
-                    total: calculateTotal.value.total,
-                    addition: calculateTotal.value.addition,
-                    discount: calculateTotal.value.discount,
-                    description: 'Venda guardada',
-                    is_nfce_nm: '',
-                    status: 'Em Aberto'
-                    
-                })
-
-                if(response.data.success === true)
-                {
-                    alert('Venda guardarda para enviar posteriormente!');
-                    productsSeletion.value = [];// Salva apenas a venda = [];
-
-                } else {
-                    console.log(response.data);
-                }
-
-            } else {
-                alert('Venda guardarda para enviar posteriormente!');
-                // Salva apenas a venda = []
-                router.push({ name: "PDV" });
-
-            };
-        };
-    };
     
     const finalizeSale = async (type: string) => 
     {
@@ -970,6 +675,7 @@
                     {
                         console.log('Nova venda!');
                         console.log('Total da venda R$', totalOperation.value);
+                        console.log(sellerData.value);
                         if(type)   
                         { 
                             const res = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
@@ -981,7 +687,7 @@
                                 total: calculateTotal.value.total,
                                 addition: calculateTotal.value.addition,
                                 discount: calculateTotal.value.discount,
-                                description: type === 'nm' ? 'Venda Nota Manual N°' : 'Venda NFC-e N°',
+                                description: '',
                                 is_nfce_nm: type,
                                 status: 'Finalizada'
                                 
@@ -1098,13 +804,6 @@
         
     };
     
-    const showGridEmit = () => 
-    {
-        showGrid.value = !showGrid.value
-        show.value = !show.value
-        
-    };  
-
     const closeConfig = (event: boolean) =>
     {
         showOptionsPDV.value = event
@@ -1112,22 +811,20 @@
 
     };
 
-    const changeAmount = (id: number, newAmount: number) =>
-    {};
+    const changeAmount = (productCode: number, amount: number) =>
+    {   
+        const newAmount = String(amount).replace(',', '.');
+        const product = productsSeletion.value.find(p => p.product_code === productCode);
+        product.amount = Number(newAmount);
 
-    const changeCFOP = (id: number, newCFOP: number) => 
-    { };
+    };
 
-    const changeCSOSN = (id: number, newCSOSN: number) =>
-    {};
-
-    const updateProductsSeletion = (selectedProducts) =>
+    const updateProductsSeletion = (selectedProducts: IProducts) =>
     {
-        console.log('Produto adicionado: ', selectedProducts,);
-        //productsSeletion.value = [...productsSeletion.value, selectedProducts]; // <- Qualquer coisa apagar o que está abaixo
-
-        const existingProduct = productsSeletion.value.find(p => 
-            p.product_code === selectedProducts.product_code || p.id === selectedProducts.id
+        const existingProduct = productsSeletion.value.find(
+            (p) => 
+                p.product_code === selectedProducts.product_code || 
+                p.id === selectedProducts.id
         );
 
         if(existingProduct)
@@ -1138,9 +835,6 @@
             productsSeletion.value = [...productsSeletion.value, {...selectedProducts}];
 
         };
-
-        console.log(productsSeletion.value);
-
     };
 
     const updateCustomerSelection = (client: Icustomer) => 
@@ -1157,22 +851,52 @@
 
     };
 
-    const productOptions = (product_id: number, i: number, action: string) => 
+    const handleProductOptions = (data: TReturnValues) =>
+    {
+        if(selectedProductCode.value !== 0)
+        {
+            console.log('ID do produto: ', selectedProductCode.value);
+            if(data.typeAddition === 'R$')
+            {   
+                let product = productsSeletion.value.find(p => p.product_code === selectedProductCode.value);
+                console.log(product);
+
+                product.sale_price = Number(
+                    (Number(product.sale_price) + data.addition - data.discount).toFixed(2)
+                );
+
+                isOption.value = false;
+
+            };
+        } else {
+            $q.notify({
+                color: 'red',
+                message: 'Código do produto incorreto',
+                position: 'top',
+                timeout: 1000
+
+            });
+        };
+    };
+
+    const productOptions = (productName: string, productID: number, i: number, action: string) => 
     {
         switch (action) {
             case 'delete':
-                console.log('product_id', product_id, ' i: ', i);
-                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_code !== product_id)]
+                console.log('product_id', productID, ' i: ', i);
+                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_code !== productID)]; 
                 
                 break;
                 
             case 'view':
                 
-                
                 break;
 
             case 'options':
-                
+                isOption.value = true;
+                selectedProductName.value = productName;
+                selectedProductCode.value = productID;
+
                 break;
         
             default:
@@ -1219,10 +943,10 @@
         };
     };
 
-    const cancelSale = () =>
+    const handleOperation = async (event: TEmit[]|boolean): Promise<void> =>
     {
-        const option = confirm('Deseja realmente cancelar a venda? ')
-        if (option === true) {
+        if(operation.value === 'cancelSale')
+        {
             emitProducts.value = {
                 subtotal: 0,
                 addition: 0,
@@ -1239,8 +963,51 @@
             {
                 router.push({ name: 'PDV' });
             };
-        }
-    }
+        } else {
+            console.log('isOpenedPDV.value ', isOpenedPDV.value);
+            if(!isOpenedPDV.value)
+            {
+                const res = await api.post('/ecommerce/pdv/save-sale', { 
+                    issuer_id:  issuer_id.value,
+                    products: productsSeletion.value, 
+                    user_id: sellerData.value.id,
+                    customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
+                    sub_total: calculateTotal.value.subtotal,
+                    total: calculateTotal.value.total,
+                    addition: calculateTotal.value.addition,
+                    discount: calculateTotal.value.discount,
+                    description: 'Venda guardada',
+                    is_nfce_nm: '',
+                    status: 'Em Aberto'
+                    
+                }, { headers : { 
+                    Accept: 'application/json'
+                }});
+                console.log(res.data);
+                if(res.data.success === true)
+                {
+                    $q.notify({
+                        color: 'green',
+                        message: 'Sua venda foi guardada para enviar posteriormente!',
+                        position: 'top'
+                    });
+                    productsSeletion.value = [];// Salva apenas a venda = [];
+
+                } else {
+                    console.log(res.data);
+                };
+
+            };
+        };
+
+        showConfirm.value = false;
+    };
+
+    const confirmOperation = (option: string) =>
+    {
+        operation.value = option;
+        showConfirm.value = true;
+    };
 
     const getUser = async () => 
     { 
@@ -1254,11 +1021,19 @@
     {
         const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
         const configsRes: Tconfig = camelcaseKeys(res.data.data.pdv, { deep: true });
+        
         console.log(configsRes)
 
         configs.value.nmFinaly = configsRes.nmFinaly;
         configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
         configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
+        configs.value.img = configsRes.img
+
+    };
+
+    const alterLogo = async () =>
+    {
+        importLogo.value = true;
 
     };
 
@@ -1267,9 +1042,6 @@
         getUser()
         getConfig();
         
-        console.log('pdvID: ', pdvID.value);
-        console.log('total: ', totalOperation.value);
-
         witdhScreen.value = screen.width;
         isOpenedPDV.value = history.state?.isOpenedPDV ?? false;
 
@@ -1296,8 +1068,10 @@
             
             } 
         });
-
     });
+    onUnmounted(() => {
+        console.log('PDV foi desmontado corretamente')
+    })
       
 </script>
 
@@ -1307,7 +1081,9 @@
     }
 
     #csosnInput::-webkit-outer-spin-button,
-    #csosnInput::-webkit-inner-spin-button{
+    #csosnInput::-webkit-inner-spin-button,
+    #addition
+    {
         margin: 0;
         -webkit-appearance: none !important; 
 
@@ -1348,7 +1124,8 @@
     }
 
     #pdv-view{
-        height: 97.3vh;
+        max-height: 100vh;
+        height: 100vh;
         
     }
 

@@ -1,0 +1,1 @@
+Reutiliar o componete para as DAVs com a finalidade de desconto ou acréscimo por item

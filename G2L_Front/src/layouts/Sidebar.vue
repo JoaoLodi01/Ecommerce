@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-screen">
+  <div class="h-screen">
     <!-- Sidebar com transição -->
     <div
         :class="{
@@ -10,13 +10,12 @@
         }"
         
         class="transition-transform duration-300 bg-[#2C363F] text-white text-base h-screen fixed top-0 left-0 z-40"
-        title="Sidebar"
       >
       
       <!-- Botão Sidebar-->
       <button 
         @click="toggleSidebar()"
-        class="absolute top-6 right-4 bg-gray-800 hover:text-blue-300 border-none rounded-lg cursor-pointer z-50 mt-6"
+        class="absolute top-6 right-4 bg-gray-800 z-50 mt-6"
         v-if="sidebarActive"
       >
         <div class="border border-white w-6 mb-1"></div>
@@ -32,9 +31,7 @@
         }" 
         v-if="!sidebarActive" 
       >
-        <div
-        
-        >
+        <div>
             <div class="border border-white w-6 mb-1"></div>
             <div class="border border-white w-6 mt-1"></div>
             <div class="border border-white w-6 mt-1"></div>
@@ -505,11 +502,10 @@
         </div>
     </div>
 
-    <div class="flex transition" id="q-app" :class="{
-        'top-10 left-0': widthScreen <= 1600,
+    <div :class="{
         'ml-52': widthScreen > 1080,
         'routerView': widthScreen <= 1600,
-        'transform -translate-x-24': !sidebarActive && widthScreen > 1080,
+        'ml-[4rem]': !sidebarActive && widthScreen > 1080,
         
     }">   
         <router-view/> <!-- Views -->
@@ -519,7 +515,7 @@
     </div>
 
     <ConfirmPage
-        v-if="showConfirm"
+        v-show="showConfirm"
         @confirm="handleOperation($event)"
         :operation="typeOperation"
 
@@ -530,9 +526,9 @@
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
-    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
     import { ref, onMounted } from 'vue';
     import { useRouter } from 'vue-router';
+    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
     
     const $q = useQuasar();
     const router = useRouter();
@@ -555,8 +551,6 @@
     let downRow3 = ref<boolean>(false);
     let widthScreen = ref<number>(0);
 
-    let keyForOpenPDV = ref<boolean>(false);
-
     const showConfirmFn = (operation: string) => 
     {
         showConfirm.value = true;
@@ -578,16 +572,8 @@
         {
             logout();
 
-        } else {
-            $q.notify({
-                color: 'yellow',
-                message: 'Operação não definida',
-                position: 'top',
-                timeout: 2000
-
-            });
         };
-
+        
         showConfirm.value = false;
     };
 
@@ -732,27 +718,30 @@
 
         document.addEventListener('keydown', (event: KeyboardEvent) => {
             const keyName = event.key;
+
             if(event.altKey && keyName.toLowerCase() === 'g')
             {
                 toggleSidebar();
 
             };
 
-            if(event.altKey && keyName.toLocaleLowerCase() === 'p')
+            if(event.shiftKey && keyName.toLocaleLowerCase() === 'p')
             {
                 router.push({ path: `/${issuerFirstName.value}/sale/pdv` });
 
-            }
+            };
+
+            if(event.shiftKey && keyName.toLocaleLowerCase() === 'f')
+            {
+                router.push({ path: `/${issuerFirstName.value}/financial/cash-register` });
+
+            };
         });
     });
 
 </script>
 
 <style>
-  * {
-    outline: none;
-  }
-
   .closeSideBar {
     position: relative;
     left: 4.7rem;

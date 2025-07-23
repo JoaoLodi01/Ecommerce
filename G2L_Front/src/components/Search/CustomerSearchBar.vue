@@ -44,7 +44,7 @@
 <script setup lang="ts">
     import { api } from 'src/boot/axios';
     import { LocalStorage } from 'quasar';
-    import { ref, onMounted, defineProps, defineEmits } from 'vue';
+    import { ref, onMounted } from 'vue';
     
     type TcustomersData = {
         id: number,

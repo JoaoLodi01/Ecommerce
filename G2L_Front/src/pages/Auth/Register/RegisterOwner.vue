@@ -1,7 +1,7 @@
 <template>
     <Transition name="slide-up">
         <div v-if="showContent" class="max-w-[28rem] bg-white rounded-md h-[36rem]">
-            <div class="p-12 mt-12">
+            <div class="p-12">
                 <h1 class="text-2xl ml-auto mr-autow-max text-center"><b>Bem vindo!</b></h1>
                 <h3 class="text-xl ml-auto mr-autow-max text-center ">Faça aqui o seu registro!</h3>
 
@@ -255,10 +255,10 @@
                     LocalStorage.set("owner_name", login.data.user.name);
                     LocalStorage.set("owner_cpf", login.data.user.cpf);
 
-                    LocalStorage.set("user_id", login.data.user.user_cod);
-                    LocalStorage.set("user_name", login.data.user.name);
-                    LocalStorage.set("uuse_id", login.data.uuse_id);
-
+                    LocalStorage.set("user_id", res.data.user.user_code);
+                    LocalStorage.set("user_name", res.data.user.name);
+                    LocalStorage.set("uuse_id", res.data.uuse_id);
+                    
                     const expire = today.add(8, 'hours');
 
                     LocalStorage.set("expire", expire.toISOString());

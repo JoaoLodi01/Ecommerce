@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('supervisor_password_cancel_sale', 1)->default(0);
             $table->boolean('supervisor_password_delete_item', 1)->default(0);
             $table->boolean('validate_gtin', 1)->default(0);
+            $table->string('img', 100)->nullable()->default(0);
             $table->boolean('active', 1)->default(1);
             $table->timestamps();
         });

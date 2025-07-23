@@ -61,4 +61,16 @@ class CustomerController extends Controller
         return apiSuccess('Arquivo recebido com sucesso!', $this->customerService->importCustomers($request->file('importFile'), $issuerID));
 
     }
+
+    public function downloadDefaultFile()
+    {
+        Log::debug('Vai fazer o download ');
+        $filePath = storage_path('files/default_file/Padrão_Importação_Clientes.xlsx');
+        $fileName = "Padrão_Importação_Clientes.xlsx";
+        
+        return response()->download($filePath, $fileName, [
+            'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+
+        ]);
+    }
 }

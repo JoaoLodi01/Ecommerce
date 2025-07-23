@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Repositories\Eloquent\EcommerceEloquent;
-setlocale(LC_TIME, 'ptb');
+setlocale(LC_TIME, 'pb-BR');
 
 use App\Models\EcommerceModels\{
     PDV,
@@ -40,8 +40,6 @@ class PDVRepository
         return PDV::where('issuer_id', $issuer_id)->get();
     }
 
-    public function update(array $data, int $id){ }
-    
     public function findByID(int $id, int $issuerID)
     {
         $pdv = PDV::where('pdv_code', $id)
@@ -146,21 +144,23 @@ class PDVRepository
         array $productsArray
         )
     {
-        Log::channel('pdv')->info('-- Iniciou o saveSale() line 172 -- ');
+        Log::channel('pdv')->info('-- Iniciou o saveSale() line 149 -- ');
+        Log::debug($details);
     
         $customer = $this->customerRepository->findByID($details['customer_id']);
         
         $customerName = $customer->company_name ? $customer->company_name : $customer->trade_name;
-        
+
         $user = $this->userRepository->findByID($details['user_id']); // "vendedor"
 
         $currentDate = new Carbon();
         $maxPDV = PDV::where('issuer_id', $details['issuer_id'])->max('pdv_code');
 
+        $pdvCode = $maxPDV ? $maxPDV + 1 : 1;
         $pdvData = array(
-            'pdv_code' => $maxPDV ? $maxPDV + 1 : 1,
+            'pdv_code' => $pdvCode,
             'issuer_id' => $details['issuer_id'],
-            'description' => $details['description'],
+            'description' => $details['is_nfce_nm'] === 'nm' ? "Venda Nota Manual N° {$pdvCode}" : "Venda NFC-e N° {$pdvCode}",
             'issue_date' => $currentDate->format('Y-m-d'),
             'customer_id' => $customer->customer_code,
             'customer' => $customerName,
@@ -174,7 +174,6 @@ class PDVRepository
         );
 
         Log::channel('pdv')->info('pdvData: ');
-        Log::info($pdvData);
         
         $pdv = PDV::create($pdvData);  
 
@@ -214,7 +213,6 @@ class PDVRepository
             int $id, 
             array $paymentsValues, 
             array $payMentsID, 
-            float $total, 
             int $issuerID, 
             int $userID
         )   
@@ -225,6 +223,7 @@ class PDVRepository
         $pdv = $this->findByID($id, $issuerID);
         
         $customer = $this->customerRepository->findByID($pdv->customer_id);
+        $user = $this->userRepository->findByID($userID);
         
         Log::channel('pdv')->info('Vai procurar a(s) formas de pagamento');
 
@@ -241,19 +240,19 @@ class PDVRepository
             'pdv', // Origem
             $pdv, // Corpo do PDV
             $issuerID, // ID do emitente
-            $userID // Usuário que fez a venda
+            $user // Usuário que fez a venda
             
         );
-        
-        return;
 
-        if ($payMentMethodService['success'] === true) {
+        Log::channel('pdv')->info('Retorno do pagamento: ' . $payMentMethodService);
+
+        if ($payMentMethodService) {
             Log::channel('pdv')->info('Pagamento bem sucessido, vai alterar o PDV: ' . $pdv);
             Log::channel('pdv')->info('$type ' . $type);
             Log::channel('pdv')->info('Tipo de venda: NFC-e/NM' . $pdv->is_nfce_nm);
 
             $pdv->update([
-                'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° $pdv->pdv_code" : "Venda Nota Manual N° $pdv->pdv_code",
+                'description' => $pdv->is_nfce_nm === 'nfce' ? "Venda NFC-e N° {$pdv->pdv_code}" : "Venda Nota Manual N° {$pdv->pdv_code}",
                 'is_nfce_nm' => $pdv->is_nfce_nm,
                 'status' => $pdv->is_nfce_nm === 'nfce' ? 'Autorizado uso da NF-e' : 'Venda Finalizada',
                 'finished' => 1
@@ -266,15 +265,14 @@ class PDVRepository
             for ($i=0; $i < count($products); $i++) { 
                 Log::channel('pdv')->info('Alteração dentro do for = ' . $pdv->pdv_code);
                 $product = $products[$i];
-                $this->productsRepository->decreaseQuantiy($product->product_code, $product->amount);
+                $this->productsRepository->decreaseQuantiy($product->product_code, $product->amount, $issuerID);
                 $product->update([
                     'is_nfce_nm' => $pdv->is_nfce_nm,
                     'finished' => 1
                 ]);
             }
-            //ord()
 
-            return 'Pagamento bem sucedido!';
+            return true;
         }
     }
 

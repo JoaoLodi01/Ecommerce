@@ -1,5 +1,15 @@
 <template>
-    <div class="container mx-auto mt-5 p-6 ml-16 bg-white rounded-lg shadow-lg">
+    <div v-if="!showPage">
+        <LoandingPage
+            @show-page="showPage = $event"
+            :text="'Carregando registros do receber ...'"
+                        
+        />
+
+    </div>
+
+
+    <div v-if="showPage" class="w-[165vh] h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>
             <div class="flex space-x-4">
@@ -20,13 +30,6 @@
                     label="Cadastrar"
                 />
 
-                <q-btn
-                    class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    @click="getRegister()"
-                    label="Atualizar receber"
-
-                />
             </div>
         </div>
 
@@ -136,12 +139,12 @@
 
             <div class="bg-white border border-gray-400 rounded-xl">
                 <RegisterReceive 
-                    @close="closeRegister($event)"
-                    :width-screen="withScreen"
-                    :receive-cod="selectedReceiveCod"
-                    :readonly="selectReadonly"
-                    :action="selectOperation"
                     :receives="receives"
+                    :action="selectOperation"
+                    :readonly="selectReadonly"
+                    :width-screen="withScreen"
+                    @close="closeRegister($event)"
+                    :receive-cod="selectedReceiveCod"
                     :selected-register="selectedRegister"
                 />
             </div>
@@ -152,9 +155,10 @@
 <script setup lang="ts">
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
-    import { ref, onMounted, watch, defineProps, computed } from "vue";
+    import { ref, onMounted, computed } from "vue";
     import { LocalStorage } from "quasar";
     import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
+    import LoandingPage from "src/components/Loanding/LoandingPage.vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     import camelcaseKeys from "camelcase-keys";
@@ -177,6 +181,7 @@
     let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
     let withScreen = ref<number>(0);
     let showReceiveClosing = ref<boolean>(false);
+    let showPage = ref<boolean>(false);
 
     const getRegister = async () => {
         loading.value = true;
@@ -230,7 +235,7 @@
         getRegister();
         withScreen.value = screen.width;
         console.log(selectedRegister);
-        
+        console.log(selectedReceiveCod);
     });
 
 </script>

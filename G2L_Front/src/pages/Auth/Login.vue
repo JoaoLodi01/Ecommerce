@@ -1,9 +1,9 @@
 <template>
     <Transition name="slide-up">
         <div v-if="showContent" class="max-w-[28rem] bg-white rounded-md h-[36rem]">
-            <div class=" p-12">
+            <div class="p-12">
                 <h1 class="text-2xl ml-auto mr-autow-max text-center"><b>Bem vindo de volta!</b></h1>
-                <h3 class="text-xl ml-auto mr-autow-max text-center ">Login</h3>
+                <h1 class="text-xl ml-auto mr-autow-max text-center">Login</h1>
                 
                 <q-form
                     @submit.prevent="login"
@@ -85,17 +85,22 @@
         showPassword.value = false;
         
         try {
-            const res = await api.post("/auth/owner", details);
+            const res = await api.post("/auth/owner", details, {
+                headers: {
+                    Accept: 'application/json'
+                }
+            });
             console.log(res.data);
 
             if(res.data.success)
             {
+                console.log(res.data.user);
                 loandingLogin.value = false;
                 LocalStorage.set("auth_token", res.data.token);
                 LocalStorage.set("owner_name", res.data.user.name);
                 LocalStorage.set("owner_cpf", res.data.user.cpf);
                 
-                LocalStorage.set("user_id", res.data.user.user_cod);
+                LocalStorage.set("user_id", res.data.user.user_code);
                 LocalStorage.set("user_name", res.data.user.name);
                 LocalStorage.set("uuse_id", res.data.uuse_id);
                 LocalStorage.set("call_color", true);

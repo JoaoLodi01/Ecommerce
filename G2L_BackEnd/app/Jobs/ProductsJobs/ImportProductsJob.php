@@ -20,26 +20,13 @@ class ImportProductsJob implements ShouldQueue
     public function __construct(
         public string $filePath, 
         public int $issuerID,
-        public string $extension
     ){}
 
     public function handle(ProductsRepository $productsRepository)
     {
         try {
             Log::debug('Caiu no job');
-            $reader = null;
-            if($this->extension === 'xlsx')
-            {
-                $reader = ReaderEntityFactory::createXLSXReader();
-                Log::debug('Reader = XLSX');
-
-            } else if ($this->extension === 'csv')
-            {
-                $reader = ReaderEntityFactory::createCSVReader();
-                Log::debug('Reader = CSV');
-
-            }
-            
+            $reader = ReaderEntityFactory::createXLSXReader();
             $reader->open($this->filePath);
 
             $firstRow = true;

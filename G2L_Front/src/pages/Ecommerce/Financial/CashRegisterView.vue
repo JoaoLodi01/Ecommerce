@@ -1,32 +1,33 @@
 <template>
-    <div class="container mx-auto mt-5 p-6 ml-16 bg-white rounded-lg shadow-lg">
+    <div v-if="!showPage">
+        <LoandingPage
+            @show-page="showPage = $event"
+            :text="'Carregando registros do caixa ...'"
+                        
+        />
+
+    </div>
+
+    <div v-if="showPage" class="w-[165vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-semibold">Caixa</h2>
             <div class="flex space-x-4">
                 <q-btn 
                     class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                 >
-
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
                     </svg>
+                    
                 </q-btn>
 
                 <q-btn
                     class="p-1 mr-5 rounded-lg"
                     :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                     @click="showRegister()"
-                    label="Cadastrar"
-                />
-
-                <q-btn
-                    class="p-1 mr-5 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    @click="getRegister()"
-                    label="Atualizar caixa"
-                />
-                
+                    label="Registrar movimento no caixa"
+                />                
             </div>
         </div>
         
@@ -54,20 +55,26 @@
                 />
             </div>
 
-            <div class="border border-black">
-                <div class="flex">
-                    <span class="h-4 w-4 bg-red-600 mr-2"></span>
-                    <span class="h-4 w-4 bg-red-600"></span>
+            <div class="border border-black ml-4">
+                <div class="">
+                    <div class="bg-green-500 w-4 h-4">
+                    </div>
+                    <span class="ml-1">Entrada</span>
+
+                    <div class="bg-red-500 w-4 h-4">
+                    </div>
+                    <span class="ml-1">Saída</span>
+
                 </div>
             </div>
         </div>
 
         <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
-            <div><p>Total de entrada: <span class="font-semibold">R${{ inputTotal }}</span></p></div>
+            <div><p>Total de entrada: <span class="font-semibold">R${{ String(inputTotal.toFixed(2)).replace('.', ',') }}</span></p></div>
 
-            <div><p>Total de saída: <span class="font-semibold">R${{ outputTotal }}</span></p></div>
+            <div><p>Total de saída: <span class="font-semibold">R${{ String(outputTotal.toFixed(2)).replace('.', ',') }}</span></p></div>
 
-            <div><p>Saldo total: <span class="font-semibold">R${{ total }}</span></p></div>
+            <div><p>Saldo total: <span class="font-semibold">R${{ String(total.toFixed(2)).replace('.', ',') }}</span></p></div>
             
         </div>
 
@@ -76,7 +83,7 @@
                 <thead class="font-semibold sticky top-0 z-10">
                     <tr 
                         class="text-white"
-                        :style="`background-color: ${painelColor}; color: ${textColor}}`"
+                        :style="`background-color: ${painelColor}; color: ${textColor ?? '#fff'}}`"
                     >
                         <th scope="col" class="text-center px-6 py-3">Código</th>
                         <th scope="col" class="text-center px-6 py-3">Documento</th>
@@ -101,9 +108,9 @@
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.cash_register_code }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.document }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.description }}</td>
-                        <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ register.input_value }}</td>
-                        <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ register.output_value }}</td>
-                        <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ register.real_balance }}</td>
+                        <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ String(register.input_value).replace('.', ',') }}</td>
+                        <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ String(register.output_value).replace('.', ',') }}</td>
+                        <td scope="row" class="text-center ml-4 px-6 py-3">R$ {{ String(register.real_balance).replace('.', ',') }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.name }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie_cod }}</td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">{{ register.especie }}</td>
@@ -119,15 +126,11 @@
                         </span>
                         </td>
                         <td scope="row" class="text-center ml-4 px-6 py-3">
-                            <q-btn @click="transferRegister()" class="text-blue-600 hover:text-blue-100">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="w-6 h-6 mx-auto">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332
-                                        A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18
-                                        M12 6.75h.008v.008H12V6.75Z" />
+                            <q-btn @click="transferRegister()">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                 </svg>
+
                             </q-btn>
                         </td>
                     </tr>
@@ -159,7 +162,8 @@
     import { ref, onMounted } from "vue";
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
-    import RegisterCash from "src/components/Register/Financial/Cash/RegisterCash.vue";
+    import RegisterCash from "src/components/Register/Financial/RegisterCash.vue";
+    import LoandingPage from "src/components/Loanding/LoandingPage.vue";
     import { LocalStorage } from 'quasar';
     
     dayjs.extend(isBetween);
@@ -178,7 +182,7 @@
     let showCashClosing = ref<boolean>(false);
     let startDate = today.startOf('month').format('YYYY-MM-DD');
     let endDate = today.endOf('month').format('YYYY-MM-DD');
-    let filteredCashs = [];
+    let showPage = ref<boolean>(false);
 
     const getRegister = async () =>
     {
@@ -221,14 +225,14 @@
     onMounted(async () => {
         await getRegister();
         withScreen.value = screen.width;
+
     });
 </script>
 
 <style scoped>
     .container {
         max-width: 85%;
-        width: 100%;
-        height: 95vh;
+        
     }
 
     table {

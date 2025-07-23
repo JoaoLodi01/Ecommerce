@@ -1,0 +1,7 @@
+[2025-07-23 10:36:15] local.INFO: data joaolodi01@gmail.com  
+[2025-07-23 10:36:15] local.INFO: user   
+[2025-07-23 10:36:44] local.INFO: data joaolodi01@gmail.com  
+[2025-07-23 10:36:44] local.INFO: user {"id":1,"user_code":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","password":"$2y$12$IUSPsSV6iuZDEW94tZdhAe8x7lBPUehbIigapEe3UzJHyEA67W2hG","access":null,"uuse_id":"n1zDFrOWwI","is_owner":0,"active":1,"created_at":"2025-07-23T10:36:44.000000Z","updated_at":"2025-07-23T10:36:44.000000Z"}  
+[2025-07-23 10:36:46] local.INFO: Passou o login, token: 1|J9wqKWjpccE4Fr1VxveRT0bSw28yY6r91VZESHBUf8bc1e06  
+[2025-07-23 10:37:01] local.INFO: data joaolodi01@gmail.com  
+[2025-07-23 10:37:01] local.INFO: user {"id":1,"user_code":1,"name":"Jo\u00e3o","surname":"Lodi","cpf":"11505315921","email":"joaolodi01@gmail.com","password":"$2y$12$IUSPsSV6iuZDEW94tZdhAe8x7lBPUehbIigapEe3UzJHyEA67W2hG","access":null,"uuse_id":"n1zDFrOWwI","is_owner":0,"active":1,"created_at":"2025-07-23T10:36:44.000000Z","updated_at":"2025-07-23T10:36:44.000000Z"}  
