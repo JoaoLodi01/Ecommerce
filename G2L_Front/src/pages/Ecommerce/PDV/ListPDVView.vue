@@ -90,55 +90,62 @@
                             :props="props"
                             :style="`color: ${textColor}`"
                         >
-                            {{ col.label }}
+                           {{ col.label }}
                         </q-th>
-                    </q-tr>
+                    </q-tr>                    
                 </template>
-
                 <template v-slot:no-data>
                     <div class="flex justify-center w-full">
                         Sem dados no momento ...
                     </div>
                 </template>
 
-                <template v-slot:body-cell-actions="props">
-                    <q-td :props="props" class="q-gutter-sm shadow-lg">
-                        <q-btn dense flat icon="more_vert">
-                            <q-menu>
-                                <q-list style="min-width: 120px;" class="text-xs">
-                                    <q-item clickable v-close-popup class=" bg-red-500" @click="showConfirmFn('cancel-pdv', props.row.pdv_code, props.row.issuer_id)">
-                                        <q-item-section>
-                                            <div class="flex">
-                                                <span class="mt-auto mb-auto text-white">Cancelar</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 ml-auto text-white">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                                                </svg>
+                <template v-slot:body="props">
+                    <q-tr
+                        :props="props"
+                        :class="{
+                            'bg-red-100': props.row.canceled === 1,
+                            'bg-green-50': props.row.canceled === 0
+                        }"
+                    >
+                        <q-td
+                            v-for="col in props.cols"
+                            :key="col.name"
+                            :props="props"
+                        >
+                        <!-- Verifica se é a coluna de ações -->
+                        <template v-if="col.name === 'actions'">
+                            <q-btn dense flat icon="more_vert">
+                                <q-menu>
+                                    <q-list style="min-width: 120px;" class="text-xs">
+                                        <q-item clickable v-close-popup class="bg-red-500" @click="showConfirmFn('cancel-pdv', props.row.pdv_code, props.row.issuer_id)">
+                                            <q-item-section>
+                                            <div class="flex items-center justify-between text-white">
+                                                <span>Cancelar</span>
+                                                <q-icon name="close" size="xs" />
                                             </div>
-                                        </q-item-section>
-                                    </q-item>
-                                    
-                                    <q-item clickable v-close-popup class=" bg-blue-500">
-                                        <q-item-section>
-                                            <div class="flex">
-                                                <span class="mt-auto mb-auto text-white">Visualizar</span>
-                                                 <svg 
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" 
-                                                    viewBox="0 0 24 24" 
-                                                    stroke-width="1.5" 
-                                                    stroke="currentColor" 
-                                                    class="size-5 ml-auto text-white"
-                                                >
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                                </svg>
-                                            </div>
-                                        </q-item-section>
-                                    </q-item>
-                                </q-list>
-                            </q-menu>
-                        </q-btn>
-                    </q-td>
+                                            </q-item-section>
+                                        </q-item>
+
+                                        <q-item clickable v-close-popup class="bg-blue-500">
+                                            <q-item-section>
+                                                <div class="flex items-center justify-between text-white">
+                                                    <span>Visualizar</span>
+                                                    <q-icon name="visibility" size="xs" />
+                                                </div>
+                                                </q-item-section>
+                                        </q-item>
+                                    </q-list>
+                                    </q-menu>
+                                </q-btn>
+                            </template>
+
+                            <!-- Demais colunas normalmente -->
+                            <template v-else>
+                                {{ col.value }}
+                            </template>
+                        </q-td>
+                    </q-tr>
                 </template>
             </q-table>
         </div>        
@@ -346,7 +353,7 @@
             try {
                 const res = await api.put(`ecommerce/pdv/${operation}/${issuerIDSelected.value}/${pdvCodeSelected.value}`);
 
-                console.log(res.data);
+                console.log(res.data.data);
 
                 if(res.data.succcess)
                 {

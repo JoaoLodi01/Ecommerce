@@ -12,6 +12,8 @@ readonly class CashRegisteDTO
         public int $pdv_code,
         public int|null $receive_code,
         public int|null $receive_document,
+        public int|null $to_pay_code,
+        public int|null $to_pay_document,
         public int $customer_code,
         public string $name,
         public int $especie_code,
