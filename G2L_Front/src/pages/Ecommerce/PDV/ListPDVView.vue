@@ -76,6 +76,7 @@
                 :rows="allPDVs"
                 :columns="columns"
                 class="my-sticky-column-table h-[74vh]"
+                row-key="pdv_code"
             >
 
                 <template v-slot:header="props">
@@ -105,7 +106,7 @@
                         <q-btn dense flat icon="more_vert">
                             <q-menu>
                                 <q-list style="min-width: 120px;" class="text-xs">
-                                    <q-item clickable v-close-popup class=" bg-red-500">
+                                    <q-item clickable v-close-popup class=" bg-red-500" @click="showConfirmFn('cancel-pdv', props.row.pdv_code, props.row.issuer_id)">
                                         <q-item-section>
                                             <div class="flex">
                                                 <span class="mt-auto mb-auto text-white">Cancelar</span>
@@ -148,6 +149,13 @@
             @close="closeReportErros($event)"
         />
     </div>
+
+    <ConfirmPage
+        v-show="showConfirm"
+        :operation="typeOperation"
+        @confirm="handleOptionsPDV($event)"
+
+    />
     
 </template>
 
@@ -158,6 +166,7 @@
     import { useRouter } from "vue-router";
     import dayjs from "dayjs";
     import ReportErros from "src/components/PDV/Errors/ReportErros.vue";
+    import ConfirmPage from "src/components/Confirm/ConfirmPage.vue";
     
     type TSearchFill = {
         all: boolean,
@@ -271,6 +280,11 @@
     const countErros = ref(0);
 
     let allPDVs = ref([]);
+    let showConfirm = ref<boolean>(false);
+    let typeOperation = ref<string>('');
+
+    let pdvCodeSelected = ref<number>(0);
+    let issuerIDSelected = ref<number>(0);
 
     function formatVal(val: number | string) 
     {    
@@ -304,6 +318,48 @@
     const closeReportErros = (event: any) => {
         showReportPDV.value = event;
         showListPDV.value = event;
+    };
+
+    const showConfirmFn = (operation: string, pdvCode: number, issuerID: number) => 
+    {
+        pdvCodeSelected.value = pdvCode;
+        issuerIDSelected.value = issuerID;
+        typeOperation.value = operation;
+        showConfirm.value = true;
+    
+    };
+
+    const handleOptionsPDV = async (event: TEmit[]|boolean) =>
+    {
+        console.log('Operação confirmada');
+
+        const operation = event[0]['operation'];
+        const value = event[0]['value'];
+
+        if(!value)
+        {
+            $q.notify({ color: 'red', message: 'Operação cancelada!', position: 'top', timeout: 2000 }); 
+            showConfirm.value = false;
+            return;
+
+        } else {
+            try {
+                const res = await api.put(`ecommerce/pdv/${operation}/${issuerIDSelected.value}/${pdvCodeSelected.value}`);
+
+                console.log(res.data);
+
+                if(res.data.succcess)
+                {
+                    showConfirm.value = false;
+                    pdvCodeSelected.value = 0;
+                    issuerIDSelected.value = 0;
+                       
+                };
+                
+            } catch (error) {
+                
+            };
+        };
     };
 
     onMounted(() => {

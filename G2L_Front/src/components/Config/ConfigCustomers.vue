@@ -4,7 +4,6 @@
     >
         <div class="bg-white p-8 rounded-md">
             <div>
-                
                 <div class="mb-2">
                     <h1 class="text-xl ml-2 mb-4 border-b w-max">Configurações</h1>
 
@@ -145,6 +144,8 @@
             validateCNPJ: options.value.validateCNPJ,
             validateCPF: options.value.validateCPF,
             validateAddres: options.value.validateAddres,
+            validateTradeName: options.value.validateTradeName,
+            validatePhone: options.value.validatePhone,
             editByButton: options.value.editByButton,
             lastFilter: lastFilter.value
 
@@ -169,8 +170,6 @@
         };
 
         lastFilter.value = data.lastFilter;
-
-        console.log(options.value)
     };
 
     onMounted(() => {

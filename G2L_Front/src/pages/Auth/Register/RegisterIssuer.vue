@@ -181,8 +181,6 @@
             const res = await api.get(`/registers/issuer/last-cnpj/${cnpj}`);
             const exists = res.data
 
-            console.log(exists.data);
-
             if(!exists.data)
             {
                 const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)

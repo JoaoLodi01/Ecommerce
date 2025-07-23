@@ -23,27 +23,11 @@ class CashRegisterService
     }
 
     public function findByID(int $id){
-        try {
-            return response()->json([
-                'success' => true,
-                'cash' => $this->cashRegisterRepository->findByID($id)
-            ]);
-            
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        
     }
 
     public function create(array $data){
-        try {
-            $this->cashRegisterRepository->create($data);
-            return response()->json([
-                'success' => true
-            ], 201);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        
     }
 
     public function update(array $data, int $id){

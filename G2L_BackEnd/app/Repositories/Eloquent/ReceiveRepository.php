@@ -49,7 +49,7 @@ class ReceiveRepository
                 'description' => $receiveRegister['description'],
                 'customer_code' => $customer->customer_code,
                 'name' => $nameCustomer,
-                'especie_cod' => $specie->payment_code,
+                'especie_code' => $specie->payment_code,
                 'especie' =>  $specie->especie,
                 'due_date' => date('Y-m-d', strtotime(str_replace('/', '-', $receiveRegister['dueDate']))),
                 'installment_amount' => $receiveRegisterCod ? $receiveRegisterCod + 1 : 1,

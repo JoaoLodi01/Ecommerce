@@ -279,7 +279,6 @@
             
             const res = await api.put(`issuer/complete-register/${LocalStorage.getItem("issuer_id")}`, issuer.value);
             const data = res.data;
-            console.log('Data: ', data);
 
             if(data.success)
             {
@@ -296,7 +295,6 @@
             };
             
         } catch (error) {
-            console.error('Error: ', error);
             
         } finally {
            showLoanding.value = false;
@@ -317,7 +315,6 @@
             });
 
             const res = await getCEPData(fomratedCEP);
-            console.log(res);
 
             if(typeof res === 'string')
             {

@@ -11,16 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('site_colors', function (Blueprint $table) {
+        Schema::create('chart_of_accounts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('chart_of_account_code')->index();
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
+
             $table->unsignedBigInteger('issuer_id');
-            $table->unsignedBigInteger('color_code');
-            
-            $table->string('button_color', 40)->default('#000000')->nullable();
-            $table->string('painel_color', 40)->default('#000000')->nullable();
-            $table->string('text_color', 40)->default('#ffffff')->nullable();
-            
+
+            $table->string('code', 20);
+            $table->string('name', 120);
+
+            $table->enum('type', ['ativo', 'passivo', 'receita', 'despesa', 'custo', 'resultado']);
+
+            $table->tinyInteger('level')->unsigned()->default(1);
+            $table->boolean('is_analytic')->default(true);
+            $table->boolean('is_active')->default(true);
+
             $table->timestamps();
         });
     }
@@ -30,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('site_colors');
+        Schema::dropIfExists('chart_of_accounts');
     }
 };

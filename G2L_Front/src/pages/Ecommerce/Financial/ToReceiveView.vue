@@ -9,7 +9,15 @@
     </div>
 
 
-    <div v-if="showPage" class="w-[165vh] h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg">
+    <div 
+        v-if="showPage" 
+        class="h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg"
+        :class="{
+            'mt-10 p-6 ml-16 mb-5 bg-white rounded-lg shadow-lg w-[150vh]': widthScreen > 1366,
+            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
+            
+        }"  
+    >
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>
             <div class="flex space-x-4">
@@ -140,7 +148,7 @@
             <div class="bg-white border border-gray-400 rounded-xl">
                 <RegisterReceive 
                     @close="closeRegister($event)"
-                    :width-screen="withScreen"
+                    :width-screen="widthScreen"
                     :receive-cod="selectedReceiveCod"
                     :readonly="selectReadonly"
                     :action="selectOperation"
@@ -176,7 +184,7 @@
     let receives = ref<IReceiveBody[]>([]);
     let startDate = ref<string>(today.startOf('month').format('YYYY-MM-DD'));
     let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
-    let withScreen = ref<number>(0);
+    let widthScreen = ref<number>(0);
     let showReceiveClosing = ref<boolean>(false);
     let showPage = ref<boolean>(false);
 
@@ -229,7 +237,7 @@
         
     onMounted(() => {
         getRegister();
-        withScreen.value = screen.width;
+        widthScreen.value = screen.width;
         
     });
 

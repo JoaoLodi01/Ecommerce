@@ -108,7 +108,6 @@
     {
         const res = await api.put(`/first-steps/${LocalStorage.getItem("issuer_id")}`)
         const data = res.data.data;
-        console.log(data);
 
         if(data.success && data.ignore)
         {

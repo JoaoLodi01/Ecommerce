@@ -1,0 +1,6 @@
+[2025-07-23 03:46:45] local.INFO: -- Inicio do registro no caixa, PayMentMethodService.php, linha 32 --  
+[2025-07-23 03:46:45] local.INFO: maxDocument:   
+[2025-07-23 03:46:45] local.INFO: Chamou o updateCurrentCash 
+  
+[2025-07-23 03:46:45] local.INFO: Last Cash box: {"id":1,"cash_register_code":1,"document":1,"issuer_id":1,"description":"Venda Nota Manual N\u00b0 1","pdv_code":1,"receive_code":null,"receive_document":null,"to_pay_code":null,"to_pay_document":null,"customer_code":1,"especie_code":1,"name":"Consumidor Padr\u00e3o","especie":"Dinheiro","date_register":"2025-07-23","input_value":"20.00","output_value":"0.00","real_balance":null,"origem":"pdv","user_id":1,"seller":"Gabriel","canceled":0,"created_at":"2025-07-23T03:46:45.000000Z","updated_at":"2025-07-23T03:46:45.000000Z"}  
+[2025-07-23 03:46:45] local.INFO: actual Cash Box:   

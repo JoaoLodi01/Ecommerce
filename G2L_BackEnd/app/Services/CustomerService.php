@@ -37,8 +37,9 @@ class CustomerService
         return $customer;
     }
 
-    public function findByID(int $id){
-        $customer = $this->customerRepository->findByID($id);
+    public function findByID(int $issuerID, int $id)
+    {
+        $customer = $this->customerRepository->findByID($id, $issuerID);
         
         if(!$customer)
         {

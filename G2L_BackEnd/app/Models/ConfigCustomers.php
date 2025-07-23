@@ -15,6 +15,7 @@ class ConfigCustomers extends Model
         'validate_cpf',
         'validate_addres',
         'validate_trade_name',
+        'validate_phone',
         'edit_by_button',
         'last_filter',
 
