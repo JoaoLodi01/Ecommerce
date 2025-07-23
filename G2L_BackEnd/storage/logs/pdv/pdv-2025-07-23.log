@@ -43,3 +43,4 @@
 [2025-07-23 03:46:45] local.INFO: Buscar e alterar os produtos, pdv_code = 1  
 [2025-07-23 03:46:45] local.INFO: Alteração dentro do for = 1  
 [2025-07-23 03:46:47] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
+[2025-07-23 03:48:15] local.INFO: Vai buscar todas as NFC-e ativas da table = PDV  
