@@ -81,7 +81,6 @@
                         class="text-white"
                         :style="`background-color: ${painelColor}; color: ${textColor}`"
                     >
-                        <th scope="col" class="text-center px-6 py-3">Código</th>
                         <th scope="col" class="text-center px-6 py-3">Documento</th>
                         <th class="px-6 py-3 text-center">Descrição</th>
                         <th class="px-6 py-3 text-center">Qtde Parcela</th>
@@ -95,7 +94,6 @@
                 </thead>
                 <tbody>
                     <tr v-for="(register, id) in receives" :key="register.receiveCod" class="border-t text-center">
-                        <td class="px-6 py-3 text-center">{{ register.receiveCod }}</td>
                         <td class="px-6 py-3 text-center">{{ register.document }}</td>
                         <td class="px-6 py-3 text-center">{{ register.description }}</td>
                         <td class="px-6 py-3 text-center">{{ register.installmentNumber }}</td>
