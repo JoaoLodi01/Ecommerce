@@ -10,5 +10,5 @@ interface IProducts
     csosncst: number,
     amount: number,
     sale_price: number
-
+    
 };

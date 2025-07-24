@@ -147,11 +147,13 @@
 
             <div class="bg-white border border-gray-400 rounded-xl">
                 <RegisterReceive 
+                    :receives="receives"
+                    :action="selectOperation"
+                    :readonly="selectReadonly"
                     @close="closeRegister($event)"
                     :width-screen="widthScreen"
                     :receive-cod="selectedReceiveCod"
-                    :readonly="selectReadonly"
-                    :action="selectOperation"
+                    :selected-register="selectedRegister"
                 />
             </div>
         </div>
@@ -181,6 +183,7 @@
     let selectOperation = ref<string>('');
     let selectReadonly = ref<boolean>(false);
     let selectedReceiveCod = ref<number>(0);
+    let selectedRegister = ref<IReceiveBody | null>(null);
     let receives = ref<IReceiveBody[]>([]);
     let startDate = ref<string>(today.startOf('month').format('YYYY-MM-DD'));
     let endDate = ref<string>(today.endOf('month').format('YYYY-MM-DD'));
@@ -207,6 +210,7 @@
         selectOperation.value = action;
         selectReadonly.value = readonly;
         showReceiveClosing.value = true;
+        selectedRegister.value = receives.value.find(r => r.receiveCod === receiveCod) || null;
     };
     
     const closeRegister = (event: boolean) =>

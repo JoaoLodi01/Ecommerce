@@ -3,6 +3,7 @@
 namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PDVRepository;
+use Exception;
 use Illuminate\Support\Facades\Log;
 
 class PDVService
@@ -81,6 +82,12 @@ class PDVService
     public function cancelPDV(int $issuerID, int $pdvCode)
     {
         $canceledPDV = $this->pdvRepository->cancelPDV($issuerID, $pdvCode);
+        Log::debug($canceledPDV);
+        if(!$canceledPDV)
+        {
+            throw new Exception("Erro ao cancelaer PDV {$pdvCode} ");
+
+        }
         
         return $canceledPDV;
     }

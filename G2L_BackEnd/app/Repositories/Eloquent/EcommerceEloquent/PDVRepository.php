@@ -279,17 +279,17 @@ class PDVRepository
 
     public function cancelPDV(int $issuerID, int $pdvCode)
     {
-        $pdv = PDV::where('issuer_id', $issuerID)->where('pdv_code', $pdvCode)->first();
-        $pdv->update([
-            'canceled' => 1
-
-        ]);
-    
         $currentDate = new Carbon();
 
+        $pdv = PDV::where('issuer_id', $issuerID)->where('pdv_code', $pdvCode)->first();
         $cashRegisters = $this->cashRegisterRepository->findByPDVCode($pdv->issuer_id, $pdv->pdv_code);
 
-        if(count($cashRegisters) === 1)
+        if(
+            $pdv &&
+            $cashRegisters &&
+            count($cashRegisters) === 1
+            
+        )
         {
             $cashRegisterDTo = new CashRegisteDTO(
                 cash_register_code: 1,
@@ -314,11 +314,55 @@ class PDVRepository
 
             );
 
-            $canceldPDV = $this->cashRegisterRepository->create($cashRegisterDTo);
+            $this->cashRegisterRepository->create($cashRegisterDTo);
 
-            return $canceldPDV;
-
+            $pdv->update([
+                'canceled' => 1
+            ]);
         };
+
+        if(
+            $pdv &&
+            $cashRegisters &&
+            count($cashRegisters) > 1
+            
+        )
+        {
+            foreach ($cashRegisters as $cashRegister) {
+                Log::debug($cashRegister);
+
+                $cashRegisterDTo = new CashRegisteDTO(
+                    cash_register_code: 1,
+                    issuer_id: $pdv->issuer_id,
+                    description: "Estorno da venda N° {$pdv->pdv_code}",
+                    document: 1,
+                    pdv_code: $pdv->pdv_code,
+                    receive_code: null,
+                    receive_document: null,
+                    to_pay_code: 1,
+                    to_pay_document: 1,
+                    customer_code: $pdv->customer_code,
+                    name: $pdv->customer,
+                    especie_code: $cashRegister->especie_code,
+                    especie: $cashRegister->especie,
+                    date_register: $currentDate->format('Y-m-d'),
+                    input_value: 0,
+                    output_value: $cashRegister->input_value,
+                    origem: 'pdv',
+                    user_id: $pdv->user_id,
+                    seller: $pdv->user
+
+                );
+
+                $this->cashRegisterRepository->create($cashRegisterDTo);
+            }
+
+            $pdv->update([
+                'canceled' => 1
+            ]);
+        }
+
+        return $pdv;
     }
 
     public function incrementNFCe(int $id)

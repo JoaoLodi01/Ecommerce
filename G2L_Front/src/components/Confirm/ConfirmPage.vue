@@ -49,7 +49,8 @@
         'logout': 'deslogar do sistema?',
 
         // List PDV
-        'cancel-pdv': 'cancelar essa venda?',
+        'cancel/pdv': 'cancelar essa venda?',
+        'exitPDV': ' sair da página de venda? Existe uma venda aberta!'
 
     });
 
@@ -75,6 +76,7 @@
 
     onMounted(() => {
         text.value = options[props.operation];
+        
     });
 
 </script>

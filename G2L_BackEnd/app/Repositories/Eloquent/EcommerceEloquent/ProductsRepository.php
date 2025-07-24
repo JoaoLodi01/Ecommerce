@@ -228,8 +228,9 @@ class ProductsRepository
     
     public function findLastCode(int $id)
     {
-        $lastBarCodeInternal = Products::where('issuer_id', $id)->first();
-        return $lastBarCodeInternal->barcode_internal;
+        $product = Products::where('issuer_id', $id)->get();
+
+        return $product;
     }
 
     public function decreaseQuantiy(int $productCode, float|int $quantiy, int $issuerID)

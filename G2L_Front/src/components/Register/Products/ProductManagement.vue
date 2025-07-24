@@ -29,28 +29,27 @@
                     <div class="w-52">
                         <q-input
                             v-model="productDetails.barcode"
-                            type="text"
                             label="Cód. Barras"
                             color="grey-7"
+                            type="text"
                             maxlength="14"
                             minlength="14"
                             class="m-2"
-                            :rules="[
-                                val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
-
-                            ]"
+                            @update:model-value="checkCodeBars"
+                            :rules="[checkCodeBars]"
                         />
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
                         <q-input
                             v-model="productDetails.barcodeInternal"
-                            type="text"
                             label="Cód. Barras Interno"
                             color="grey-7"
+                            type="text"
                             maxlength="16"
                             minlength="16"
                             class="m-2"
+                            :rules="[checkCodeBars]"
 
                         />
 
@@ -58,7 +57,7 @@
                             label="Gerar Cód."
                             class="h-4 w-28 mt-6 mb-auto"
                             :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                            @click="generateCode()"
+                            @click="generateCode"
                         />
                         
                     </div>
@@ -325,7 +324,7 @@
 
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar'
-    import { ref, onMounted, computed, defineProps } from 'vue'
+    import { ref, onMounted, computed } from 'vue'
     import { api } from 'src/boot/axios';
     import NCMSearch from 'src/components/Search/Tributs/NCMSearch.vue'
     import PISSearch from 'src/components/Search/Tributs/PISSearch.vue'
@@ -386,6 +385,11 @@
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
     const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
+    const configProducts = ref<IConfigProducts>({
+        defaultProfitPercentage: 0
+
+    });
+
     const origensICMS = ref<TOrigensICMS[]>([
         { label: '0 - NACIONAL', cod: 0 },
         { label: '1 - ESTRANGEIRA - IMPORTAÇÃO DIRETA', cod: 1 },
@@ -397,6 +401,7 @@
         { label: '7 - ESTRANGEIRA - INTERNA SEM SIMILAR NACIONAL', cod: 7 },
         { label: '8 - NACIONAL - CONTEÚDO DE IMPORTAÇÃO > 70%', cod: 8 }
     ]);
+
     const allGroup = ref<string[]>([]);
 
     const productDetails = ref<IProducts>({
@@ -430,6 +435,8 @@
         aliquotCofins: 0,
 
     });
+
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
     let loanding = ref<boolean>(false);
     let textField = ref<unknown>(null);
@@ -523,6 +530,18 @@
         productDetails.value.aliquotIpi = productDetails.value.aliquotIpi;
     };
 
+    const checkCodeBars = async (val: number) =>
+    {
+        if(val.toString().length === 14 || val.toString().length === 16)
+        {
+            const res = await api.get(`/ecommerce/products/last-bar_cod/${issuerID.value}/${val}`);
+            console.log(res.data.data);
+            const alreadyUsed = res.data.data;
+
+            return alreadyUsed ? 'Código de barras já utilizado!' : true;
+        };
+    };
+
     const generateCode = async () =>
     {  
         let randomCode: string = '';
@@ -537,7 +556,7 @@
             };
 
             try {
-                const res = await api.get(``);
+                const res = await api.get(`/ecommerce/products/last-bar_cod/${issuerID.value}/${randomCode}`);
 
                 const data = camelcaseKeys(res.data.data, { deep: true });
 
@@ -603,21 +622,19 @@
         };
     };
 
+    const getConfig = async () =>
+    {
+        const res = await api.get(`/configs/all-configs/${issuerID.value}`);
+        const data: IConfigProducts = camelcaseKeys(res.data.data.products, { deep: true });
+        
+        configProducts.value.defaultProfitPercentage = data.defaultProfitPercentage;
+        productDetails.value.profitPercentage = configProducts.value.defaultProfitPercentage;
+    };
+
     onMounted(async () => {
+        await getConfig();
         props.operation === 'update' ? await getProductData() : null;
-
-        document.addEventListener('keydown', (event: KeyboardEvent) => {
-            const keyName = event.key;
-            console.log('Tecla: ', keyName);
-
-            if(keyName === 'Escape')
-            {
-                emits('close', true);
-                
-            }
-        });
-
-    })
+    });
 </script>
 
 <style lang="scss">

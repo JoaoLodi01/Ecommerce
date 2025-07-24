@@ -54,7 +54,7 @@ class PDVController extends Controller
     public function cancelPDV(int $issuerID, int $pdvCode)
     {
 
-        return apiSuccess('Dados', $this->pdvService->cancelPDV($issuerID, $pdvCode));
+        return apiSuccess('Venda cancelada com sucesso!', $this->pdvService->cancelPDV($issuerID, $pdvCode));
 
     }
 
@@ -68,7 +68,7 @@ class PDVController extends Controller
 
         };
         
-        return apiSuccess($pdv);
+        return $pdv;
         
     }
     

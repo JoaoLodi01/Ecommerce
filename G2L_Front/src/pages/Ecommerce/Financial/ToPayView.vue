@@ -5,9 +5,7 @@
             :text="'Carregando registros do pagar ...'"
                         
         />
-
     </div>
-
 
     <div 
         v-if="showPage" 
@@ -18,9 +16,8 @@
             
         }"  
     >
-
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-semibold">Pagar</h1>
+            <h2 class="text-2xl font-semibold">Pagar</h2>
             <div class="flex space-x-4">
                 <q-btn 
                     class="p-2 rounded-lg"
@@ -41,29 +38,53 @@
             </div>
         </div>
 
-        <div class="flex justify-start mb-6 p-4 border border-gray-300 rounded-lg w-max">
-            <q-input
-                class="mr-10 cursor-text"
-                type="date"
-                @keydown="dateSearch()"
-                v-model="startDate"
-                label="Data Inicial"
-            />
+        <div class="inline-flex w-max">
+            <div class="flex mb-6 p-4 border border-gray-300 rounded-lg ">
+                <q-input
+                    class="mr-10 cursor-text"
+                    type="date"
+                    @keydown="dateSearch()"
+                    v-model="startDate"
+                    label="Data Inicial"
+                />
 
-            <q-input
-                class="cursor-pointer"
-                @keydown="dateSearch()"
-                type="date"
-                v-model="endDate"
-                label="Data Final"
-            />
+                <q-input
+                    class="cursor-pointer"
+                    @keydown="dateSearch()"
+                    type="date"
+                    v-model="endDate"
+                    label="Data Final"
+                />
 
-            <q-btn
-                class="text-white ml-5 h-max mb-auto mt-auto rounded-lg"
-                :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                label="Filtrar"
-                @click="dateSearch()"
-            />
+                <q-btn
+                    class="text-white ml-5 h-max mb-auto mt-auto rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                    label="Filtrar"
+                    @click="dateSearch()"
+                />
+            </div>
+
+            <div class="flex gap-2 border p-3 ml-12 rounded-lg h-[5.5rem]">
+                <div class="flex items-center gap-2 text-xs">
+                    <div class="bg-green-500 h-3 w-3 rounded-full"></div>
+                    <span>Quitadas</span>
+                </div>
+
+                <div class="flex items-center gap-2 text-xs">
+                    <div class="bg-blue-500 h-3 w-3 rounded-full"></div>
+                    <span>Quitada com atraso</span>
+                </div>
+
+                <div class="flex items-center gap-2 text-xs">
+                    <div class="bg-orange-500 h-3 w-3 rounded-full"></div>
+                    <span>Canceladas</span>
+                </div>
+                
+                <div class="flex items-center gap-2 text-xs">
+                    <div class="bg-red-500 h-3 w-3 rounded-full"></div>
+                    <span>Atrasadas</span>
+                </div>
+            </div>
         </div>
 
         <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">

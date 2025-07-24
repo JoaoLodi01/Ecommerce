@@ -86,7 +86,7 @@
     const getConfig = async () => {
         const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
         
-        const configs = res.data;
+        const configs = res.data.data.pdv;
         
         if (configs) {
             filter.value = configs.filter_search_customer;
@@ -100,13 +100,20 @@
 
     const selectClient = async () =>
     {
+        console.log('Chamou');
+        console.log(customersData.value.name);
+        console.log(registredCustomer.value);
+        console.log(filter.value);
         if (customersData.value.name.length > 0 && filter.value && registredCustomer.value) {
+            console.log('Vai fazero res');
             const res = await api.post('/customers/search', {
                 filter: filter.value,
                 search: customersData.value.name,
                 issuer_id: issuerID.value
 
             });
+
+            console.log(res);
 
             const customer: IFiltredCustomerData[] = res.data.data;
             console.log(customer)
@@ -166,7 +173,6 @@
                 return;
             };
         });
-
 
         getConfig();
     });

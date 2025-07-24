@@ -80,13 +80,13 @@
                             <button 
                                 @click="showOptions" 
                                 class="p-1 mr-5 rounded-lg"
-                                :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                :style="`background-color: ${buttonColor}; color: ${textColor}`"
                             >
                                 Configurações
                             </button>
                             <button 
                                 class="p-1 mr-5 rounded-lg"
-                                :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                :style="`background-color: ${buttonColor}; color: ${textColor}`"
                             >
                                 <router-link to="/sale/list-pdv">Voltar para a listagem</router-link>
                             </button>
@@ -94,7 +94,7 @@
                             <button 
                                 @click="closeCashClosing(true)" 
                                 class="p-1 mr-5 rounded-lg"
-                                :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                :style="`background-color: ${buttonColor}; color: ${textColor}`"
                             >
                                 Fechamento
                             </button>
@@ -131,128 +131,130 @@
                 <div 
                     class="m-5 shadow-lg overflow-y-auto border border-black h-[48rem] max-w-[125vh]"  
                 >   
-                    <table>
-                        <thead 
-                            class="uppercase shadow-lg sticky top-0 z-10 w-auto"
-                        >
-                            <tr 
+                    <q-table
+                        :rows="productsSeletion"
+                        :columns="columns"
+                        v-model:pagination="pagination"
+                        hideBottom
+
+                    >
+                        <template v-slot:header="props">
+                            <q-tr 
+                                :props="props"
                                 :style="`background-color: ${painelColor}; color: ${textColor}`"
                             >
-                                <th scope="col" class="pr-16 px-6 py-3">Cód.</th>
-                                <th scope="col" class="pr-16 px-6 py-3 text-left">Produto</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="pr-16 px-6 py-3 text-center">CFOP</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="pr-16 px-6 py-3 text-center">CSOSN</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Qtde</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3 text-center">Valor unitário</th>
-                                <th v-if="witdhScreen > 1080" scope="col" class="px-6 py-3">Valor líquido</th>
-                                <th scope="col" class="px-2 py-4">Ações</th>
-                                
-                            </tr>
-                        </thead>
+                                <q-th
+                                    v-for="col in props.cols"
+                                    :key="col.name"
+                                    :props="props"
+                                    :style="`color: ${textColor}`"
+                                >
+                                {{ col.label }}
+                                </q-th>
+                            </q-tr>                    
+                        </template>
 
-                        <tbody>
-                            <tr 
-                                v-for="(product, i) in productsSeletion" 
-                                :key="product.id" 
-                                class="border border-black"
-                            >   
-                                <td class="pr-16 px-6 py-3" scope="row">{{ product.product_code }}</td>
-                                <td class="pr-16 px-6 py-3">{{ product.product}}</td>
+                        <template v-slot:body="props">
+                            <q-tr
+                                :props="props"
+                            >
+                                <q-td
+                                    v-for="(col, i) in props.cols"
+                                    class="text-center"
+                                >
+                                    <template v-if="col.name === 'cfop'">
+                                        <q-input 
+                                            v-model="props.row.cfop"
+                                            type="text"
+                                            inputClass="text-center"
+                                            maxlength="4"
+                                            minlength="4"
+                                            borderless
+                                            dense
+                                        />
+                                    </template>
 
-                                <td v-if="witdhScreen > 1080" class="pr-16 px-6 py-3">
-                                    <q-input 
-                                        v-model="product.cfop"
-                                        :placeholder=String(product.cfop)
-                                        type="text"
-                                        inputClass="text-center"
-                                        class="w-12 border-b-4 border-b-gray-500"
-                                        maxlength="4"
-                                        minlength="4"
-                                        borderless
-                                        dense
-                                    />
-                                </td>
+                                    <template v-else-if="col.name === 'csosncst'">
+                                        <q-input 
+                                            v-model="props.row.csosncst"
+                                            type="text"
+                                            inputClass="text-center"
+                                            maxlength="4"
+                                            minlength="4"
+                                            borderless
+                                            dense
+                                        />
+                                    </template>
 
-                                <td v-if="witdhScreen > 1080" class="pl-9 px-6 py-3">
-                                    <q-input 
-                                        v-model="product.csosncst"
-                                        :placeholder=String(product.csosncst)
-                                        inputClass="text-center"
-                                        type="text"
-                                        borderless
-                                        dense
-                                        class="w-10 border-b-4 border-b-gray-500"
+                                    <template v-else-if="col.name === 'amount'">
+                                        <q-input 
+                                            v-model="props.row.amount"
+                                            inputClass="text-center"
+                                            type="number"
+                                            borderless
+                                            minlength="1"
+                                            dense
+                                            @update:modelValue="changeAmount(props.row.product_code, props.row.amount)"
+                                            class="amountInput"
+                                        />
+                                    </template>
+                                    
+                                    <template v-else-if="col.name === 'actions'">
+                                        <div class="m-auto">
+                                            <button @click="productOptions(props.row.product, props.row.product_code, i, 'delete')">
+                                                <svg 
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" 
+                                                    viewBox="0 0 24 24" 
+                                                    stroke-width="1.5" 
+                                                    stroke="currentColor" 
+                                                    class="size-4 text-red-500 mr-4">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" 
+                                                />
+                                                    delete
+                                                </svg>
+                                            </button>
 
-                                    />
-                                </td>
+                                            <button
+                                                 @click="productOptions(props.row.product, props.row.product_code, i, 'options')"
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 16 16" fill="currentColor"
+                                                    class="size-4 text-blue-600 mr-4">
+                                                    <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm6 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"
+                                                />
+                                                    options
+                                                </svg>
+                                            </button>
 
-                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">
-                                    <q-input 
-                                        v-model="product.amount"
-                                        :placeholder="String(product.amount).replace('.', ',')"
-                                        inputClass="text-center"
-                                        type="text"
-                                        borderless
-                                        dense
-                                        class="w-10 border-b-4 border-b-gray-500"
-                                        @update:modelValue="changeAmount(product.product_code, product.amount)"
-                                    />
-                                </td>
+                                            <button
+                                                @click="productOptions(props.row.product, props.row.product_code, i, 'delete')"
+                                            >
+                                                <svg 
+                                                    v-if="witdhScreen < 1080"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24" 
+                                                    stroke-width="1.5" 
+                                                    stroke="currentColor" 
+                                                    class="size-4">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" 
+                                                />
+                                                    view
+                                                    
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </template>
 
-                                <td v-if="witdhScreen > 1080" class="px-6 py-3 text-center">R$ {{ String(product.sale_price.toFixed(2)).replace('.', ',') }}</td>
-                                <!--td v-if="witdhScreen > 1080" class="text-center">R$ {{ String(Math.round(product.sale_price * Number(product.amount))).replace('.', ',') }}</td-->
-                                
-                                <td v-if="witdhScreen > 1080" class="text-center">R$ {{ String(Number(product.sale_price * product.amount).toFixed(2)).replace('.', ',') }}</td>
-                                <td class="text-center">
-                                    <div class="m-auto">
-                                        <button @click="productOptions(product.product, product.product_code, i, 'delete')">
-                                            <svg 
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" 
-                                                viewBox="0 0 24 24" 
-                                                stroke-width="1.5" 
-                                                stroke="currentColor" 
-                                                class="size-4 text-red-500 mr-4">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" 
-                                            />
-                                                delete
-                                            </svg>
-                                        </button>
-
-                                        <button 
-                                            @click="productOptions(product.product, product.product_code, i, 'options')"
-                                            
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 16 16" fill="currentColor"
-                                                class="size-4 text-blue-600 mr-4">
-                                                <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM8 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm6 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"
-                                            />
-                                                options
-                                            </svg>
-                                        </button>
-
-                                        <button @click="productOptions(product.product, product.product_code, i, 'view')">
-                                            <svg 
-                                                v-if="witdhScreen < 1080"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                viewBox="0 0 24 24" 
-                                                stroke-width="1.5" 
-                                                stroke="currentColor" 
-                                                class="size-4">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" 
-                                            />
-                                                view
-                                                
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>                
+                                    <template v-else>  
+                                        {{ col.value }}
+                                    </template>
+                                </q-td>
+                            </q-tr>
+                        </template>
+                    </q-table>               
                 </div>
             </div>
 
@@ -301,10 +303,9 @@
                                     disable
                                     type="text"
                                     v-model="sellerData.name"
+                                    class="mb-2"
 
                                 />
-
-                                <br>
 
                                 <span>Cliente</span>
                                 <CustomerSearchBar
@@ -323,7 +324,7 @@
                             >
                                 <span class="mt-auto mb-auto text-lg">Acréscimo R$</span>
                                 <q-input
-                                    v-model="emitProducts.addition"
+                                    v-model="formatAddition"
                                     inputClass="text-right"
                                     type="text"
                                     borderless
@@ -339,7 +340,7 @@
                                 <span class="mt-auto mb-auto text-lg">Desconto R$</span>
 
                                 <q-input
-                                    v-model="emitProducts.discount"
+                                    v-model="formatDiscount"
                                     inputClass="text-right"
                                     type="text"
                                     borderless
@@ -355,7 +356,7 @@
                                 <span class="mt-auto mb-auto text-lg">Frete R$</span>
                                 
                                 <q-input
-                                    v-model="emitProducts.freight"
+                                    v-model="formatFreight"
                                     inputClass="text-right"
                                     type="text"
                                     borderless
@@ -371,25 +372,30 @@
 
                     >
                         <p class="flex justify-between">Subtotal <span>R$  {{ String(calculateTotal.subtotal.toFixed(2)).replace('.', ',') }}</span></p>
-                        <p class="flex justify-between">Desconto <span>R$ {{ String(calculateTotal.discount.toFixed(2)).replace('.', ',') }}</span></p>
                         <p class="flex justify-between">Acréscimo <span>R$ {{ String(calculateTotal.addition.toFixed(2)).replace('.', ',') }}</span></p>
+                        <p class="flex justify-between">Desconto <span>R$ {{ String(calculateTotal.discount.toFixed(2)).replace('.', ',') }}</span></p>
                         <p class="flex justify-between">Frete <span>R$ {{ String(calculateTotal.freight.toFixed(2)).replace('.', ',') }}</span></p>
                     
                     </div>
                     
                     <div 
-                        class="flex border justify-center h-[250px]"
+                        class="flex border justify-center h-[250px] max-h-[250px] -z-10"
                     >
                         <img 
-                            width="250px"                          
-                            class="cursor-pointer"
-                            :src="`http://192.168.1.106:8000${configs.img}`"
-                            alt="Logo não encontrada"
+                            v-if="configs.img !== ''"
+                            class="cursor-pointer h-[249px] w-[250px] max-w-[250px]"
+                            :src="`${baseURL}${configs.img}`"
                             @click="alterLogo"
                             title="Altere sua logo aqui!"
                             
                         />
-                        
+                        <span
+                            v-if="configs.img === ''"
+                            class="mt-auto mb-auto text-blue-500 cursor-pointer"
+                            @click="alterLogo"
+                        >
+                            Clique aqui para selecionar sua logo!
+                        </span>
                     </div>
                     <!-- A imagem vai ter que ficar por aqui -->
                         <div class="m-2">
@@ -399,7 +405,7 @@
                                     disabled
                                     title="Sem vendas no momento"
                                     class="mr-1 ml-2 rounded-md"
-                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                                     
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -410,7 +416,7 @@
                                 <button
                                     v-else @click="confirmOperation('cancelSale')"
                                     class="mr-1 ml-2 rounded-md"
-                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
@@ -422,7 +428,7 @@
                                     disabled
                                     title="Sem vendas no momento"
                                     class="mr-1 ml-2 rounded-md"
-                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
@@ -430,7 +436,7 @@
                                 </button>
                                 <button 
                                     class="mr-1 ml-2 rounded-md"
-                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                                     title="Salvar venda"
                                     @click="confirmOperation('saveSale')"
                                     v-else
@@ -452,7 +458,7 @@
                             >
                                 <q-btn 
                                     class="rounded-md border-none"                                
-                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                                     :class="{
                                         'ml-4': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
                                     }" 
@@ -465,7 +471,7 @@
                                     
                                 <q-btn  
                                     class="rounded-md border-none"                                
-                                    :style="`background-color: ${painelColor}; color: ${textColor}`"
+                                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                                     :class="{
                                         'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
                                     }" 
@@ -531,12 +537,17 @@
     import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
     import { api } from "src/boot/axios"
     import { ref, watch, computed, onMounted, onUnmounted } from 'vue'   
-    import { useRoute, useRouter } from 'vue-router';
-    import { useQuasar, LocalStorage } from 'quasar';
+    import { useRoute, useRouter, onBeforeRouteLeave } from 'vue-router';
+    import { useQuasar, LocalStorage, QTableColumn } from 'quasar';
     import camelcaseKeys from 'camelcase-keys';
 
+    type TPagination = {
+        rowsPerPage: number
+    }
+
     const props = defineProps<{
-        idPDV?: number;
+        idPDV?: number
+
     }>();
 
     const $q = useQuasar();
@@ -546,6 +557,60 @@
     const painelColor = LocalStorage.getItem("painelColor");
     const buttonColor = LocalStorage.getItem("buttonColor");
     const textColor = LocalStorage.getItem("textColor");
+    const baseURL = process.env.API_BASE_URL;
+
+     const columns: QTableColumn[] = [
+        {
+            name: 'product_code',
+            label: 'Cód',
+            field: 'product_code',
+            align: 'center'
+        },
+        {
+            name: 'product',
+            label: 'Produto',
+            field: 'product',
+            align: 'center'
+        }, 
+        {
+            name: 'cfop',
+            label: 'CFOP',
+            field: 'cfop',
+            align: 'center'
+        },
+        {
+            name: 'sale_price',
+            label: 'Preço',
+            field: 'sale_price',
+            align: 'center',
+            format: (val: string) => `R$ ${String(Number(val).toFixed(2)).replace('.', ',')}`
+        },
+        {
+            name: 'csosncst',
+            label: 'CSOSN',
+            field: 'csosncst',
+            align: 'center'
+        }, 
+        {
+            name: 'amount',
+            label: 'Qtde',
+            field: 'amount',
+            align: 'center',
+        },
+        {
+            name: 'total',
+            label: 'Total',
+            field: (row: IProducts) => row.sale_price * row.amount,
+            align: 'center',
+            format: (val: string) => `R$ ${String(Number(val).toFixed(2)).replace('.', ',')}`
+        },
+        {
+            name: 'actions',
+            label: 'Ações',
+            field: 'actions',
+            align: 'center'
+        }
+    ];
 
     const sellerData = ref<Iseller>({
         id: 0,
@@ -619,6 +684,24 @@
     let operation = ref<string>('');
     let showConfirm = ref<boolean>(false);
 
+    let pagination = ref<TPagination>({
+        rowsPerPage: 0
+    });
+
+    let resolveLeave = ref<boolean>(false);
+
+    watch(productsSeletion, () => {
+        if(productsSeletion.value.length === 0)
+        {
+            emitProducts.value = {
+                addition: 0,
+                discount: 0,
+                freight: 0,
+                subtotal: 0
+            };
+        };
+    });
+
     watch(
         () => route.fullPath,
         (to, from) => {
@@ -627,18 +710,42 @@
         }
     );    
 
+    const formatAddition = computed({
+        get() {
+            return emitProducts.value.addition.toFixed(2);
+        },
+        set(val: string){
+            const num = parseFloat(val.replace(',', '.'));
+            emitProducts.value.addition = isNaN(num) ? 0 : num;
+        }
+    });
+    
+    const formatDiscount = computed({
+        get() {
+            return emitProducts.value.discount.toFixed(2);
+        },
+        set(val: string){
+            const num = parseFloat(val.replace(',', '.'));
+            emitProducts.value.discount = isNaN(num) ? 0 : num;
+        }
+    });
+
+    const formatFreight = computed({
+        get() {
+            return emitProducts.value.freight.toFixed(2);
+        },
+        set(val: string){
+            const num = parseFloat(val.replace(',', '.'));
+            emitProducts.value.freight = isNaN(num) ? 0 : num;
+        }
+    });
+    
     const calculateTotal = computed(() => {
         subTotal.value = 0;
 
         productsSeletion.value.map((p: IProducts) => {
             subTotal.value += p.sale_price * p.amount;
         });
-
-        /*
-            const addition: number = typeof emitProducts.value.addition === 'number' ? emitProducts.value.addition : 0;
-            const discount: number = typeof emitProducts.value.discount === 'number' ? emitProducts.value.discount : 0;
-            const freight: number = typeof emitProducts.value.freight === 'number' ? emitProducts.value.freight : 0;
-        */
 
         const addition = Number(String(emitProducts.value.addition).replace(/\D/g, '.'));
         const discount = Number(String(emitProducts.value.discount).replace(/\D/g, '.'));
@@ -651,6 +758,7 @@
             discount: discount,
             freight: freight
         };
+        
     });
     
     const finalizeSale = async (type: string) => 
@@ -814,9 +922,13 @@
     const changeAmount = (productCode: number, amount: number) =>
     {   
         const newAmount = String(amount).replace(',', '.');
-        const product = productsSeletion.value.find(p => p.product_code === productCode);
-        product.amount = Number(newAmount);
 
+        console.log('Produto alterado: ', productCode, ' nova qtde: ', newAmount);
+
+        const product = productsSeletion.value.find(p => p.product_code === productCode);
+        product.amount = Number(newAmount) === 0 ? Number(newAmount) + 1 : Number(newAmount);
+
+        console.table(product);
     };
 
     const updateProductsSeletion = (selectedProducts: IProducts) =>
@@ -855,7 +967,6 @@
     {
         if(selectedProductCode.value !== 0)
         {
-            console.log('ID do produto: ', selectedProductCode.value);
             if(data.typeAddition === 'R$')
             {   
                 let product = productsSeletion.value.find(p => p.product_code === selectedProductCode.value);
@@ -929,74 +1040,69 @@
         customerData.value.name = 'Consumidor Padrão';
         LocalStorage.remove("pdvID");
 
-        console.log('productsSeletion: ', productsSeletion.value);
-
-    };
-
-    const maxlength = (csosncst: string) =>
-    {
-        if(csosncst == 'csosn')
-        {
-            return 3;
-        } else if (csosncst == 'cst'){
-            return 2;
-        };
     };
 
     const handleOperation = async (event: TEmit[]|boolean): Promise<void> =>
     {
-        if(operation.value === 'cancelSale')
+        const data: TEmit = event[0];
+        
+        if(data.value)
         {
-            emitProducts.value = {
-                subtotal: 0,
-                addition: 0,
-                discount: 0,
-                freight: 0
-            };
-            
-            productsSeletion.value = [];
-            emitProducts.value.addition = 0;
-            emitProducts.value.discount = 0;
-            emitProducts.value.freight = 0;
-
-            if(props.idPDV)
+            if(operation.value === 'cancelSale')
             {
-                router.push({ name: 'PDV' });
-            };
-        } else {
-            console.log('isOpenedPDV.value ', isOpenedPDV.value);
-            if(!isOpenedPDV.value)
-            {
-                const res = await api.post('/ecommerce/pdv/save-sale', { 
-                    issuer_id:  issuer_id.value,
-                    products: productsSeletion.value, 
-                    user_id: sellerData.value.id,
-                    customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
-                    sub_total: calculateTotal.value.subtotal,
-                    total: calculateTotal.value.total,
-                    addition: calculateTotal.value.addition,
-                    discount: calculateTotal.value.discount,
-                    description: 'Venda guardada',
-                    is_nfce_nm: '',
-                    status: 'Em Aberto'
-                    
-                }, { headers : { 
-                    Accept: 'application/json'
-                }});
-                console.log(res.data);
-                if(res.data.success === true)
-                {
-                    $q.notify({
-                        color: 'green',
-                        message: 'Sua venda foi guardada para enviar posteriormente!',
-                        position: 'top'
-                    });
-                    productsSeletion.value = [];// Salva apenas a venda = [];
-
-                } else {
-                    console.log(res.data);
+                emitProducts.value = {
+                    subtotal: 0,
+                    addition: 0,
+                    discount: 0,
+                    freight: 0
                 };
+                
+                productsSeletion.value = [];
+                emitProducts.value.addition = 0;
+                emitProducts.value.discount = 0;
+                emitProducts.value.freight = 0;
 
+                if(props.idPDV)
+                {
+                    router.push({ name: 'PDV' });
+                };
+            } else if (operation.value === 'saveSale'){
+                console.log('isOpenedPDV.value ', isOpenedPDV.value);
+                if(!isOpenedPDV.value)
+                {
+                    const res = await api.post('/ecommerce/pdv/save-sale', { 
+                        issuer_id:  issuer_id.value,
+                        products: productsSeletion.value, 
+                        user_id: sellerData.value.id,
+                        customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
+                        sub_total: calculateTotal.value.subtotal,
+                        total: calculateTotal.value.total,
+                        addition: calculateTotal.value.addition,
+                        discount: calculateTotal.value.discount,
+                        description: 'Venda guardada',
+                        is_nfce_nm: '',
+                        status: 'Em Aberto'
+                        
+                    }, { headers : { 
+                        Accept: 'application/json'
+                    }});
+                    console.log(res.data);
+                    if(res.data.success === true)
+                    {
+                        $q.notify({
+                            color: 'green',
+                            message: 'Sua venda foi guardada para enviar posteriormente!',
+                            position: 'top'
+                        });
+                        productsSeletion.value = [];// Salva apenas a venda = [];
+
+                    } else {
+                        console.log(res.data);
+                    };
+                };
+            } else {
+                alert('caiu no: resolveLeave.value = true');
+                resolveLeave.value = true;
             };
         };
 
@@ -1022,8 +1128,6 @@
         const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
         const configsRes: Tconfig = camelcaseKeys(res.data.data.pdv, { deep: true });
         
-        console.log(configsRes)
-
         configs.value.nmFinaly = configsRes.nmFinaly;
         configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
         configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
@@ -1068,11 +1172,35 @@
             
             } 
         });
+
+        pagination.value = {
+            rowsPerPage: productsSeletion.value.length
+        };
+    });      
+
+    onBeforeRouteLeave((to, from, next) => {
+        if(productsSeletion.value.length > 0)
+        {
+            showConfirm.value = true;
+            if(resolveLeave.value)
+            {
+                $q.notify({
+                    color: 'green',
+                    message: 'Vai',
+                    position: 'top'
+                });
+
+                showConfirm.value = false;
+                next(true);
+            } else {
+                $q.notify({
+                    color: 'red',
+                    message: 'não vai redirecionar',
+                    position: 'top'
+                });
+            };
+        };
     });
-    onUnmounted(() => {
-        console.log('PDV foi desmontado corretamente')
-    })
-      
 </script>
 
 <style>
@@ -1127,6 +1255,12 @@
         max-height: 100vh;
         height: 100vh;
         
+    }
+
+    .q-input input[type=number]::-webkit-inner-spin-button, 
+    .q-input input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
 
 </style>

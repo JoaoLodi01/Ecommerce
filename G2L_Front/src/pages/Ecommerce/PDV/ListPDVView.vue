@@ -1,9 +1,39 @@
 <template>
     <div class="w-[145vh]  mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6" v-if="showListPDV">
-            <h1 class="text-2xl font-semibold mt-5">Listagem de vendas
+            <h1 
+                class="text-2xl font-semibold mt-5"
+            >
+                Listagem de vendas
                 <span class="text-sm">(NFC-e/Nota Manual)</span>
-            </h1>
+                
+                <div class="flex gap-4 mt-2 border p-3 rounded">
+                    <div class="flex items-center gap-2 text-xs">
+                        <div class="bg-orange-500 h-3 w-3 rounded-full"></div>
+                        <span>Canceladas</span>
+                    </div>
+
+                    <div class="flex items-center gap-2 text-xs">
+                        <div class="bg-green-500 h-3 w-3 rounded-full"></div>
+                        <span>Finalizadas</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 text-xs">
+                        <div class="bg-blue-500 h-3 w-3 rounded-full"></div>
+                        <span>Emitidas</span>
+                    </div>
+
+                    <div class="flex items-center gap-2 text-xs">
+                        <div class="bg-yellow-500 h-3 w-3 rounded-full"></div>
+                        <span>Erro</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 text-xs">
+                        <div class="bg-gray-500 h-3 w-3 rounded-full"></div>
+                        <span>Abertas</span>
+                    </div>
+                </div>
+            </h1>            
 
             <div class="flex space-x-4">
                 <q-btn-dropdown 
@@ -65,6 +95,7 @@
                 </q-btn-dropdown>
             </div>
         </div>
+        
         <q-separator color="grey" />
 
         <div 
@@ -82,7 +113,7 @@
                 <template v-slot:header="props">
                     <q-tr 
                         :props="props"
-                        :style="`background-color: ${buttonColor}; color: ${textColor}`"
+                        :style="`background-color: ${painelColor}; color: ${textColor}`"
                     >
                         <q-th
                             v-for="col in props.cols"
@@ -104,8 +135,8 @@
                     <q-tr
                         :props="props"
                         :class="{
-                            'bg-red-100': props.row.canceled === 1,
-                            'bg-green-50': props.row.canceled === 0
+                            'bg-orange-500 text-white': props.row.canceled === 1,
+                            'bg-green-400 text-white': props.row.canceled === 0
                         }"
                     >
                         <q-td
@@ -115,10 +146,16 @@
                         >
                         <!-- Verifica se é a coluna de ações -->
                         <template v-if="col.name === 'actions'">
-                            <q-btn dense flat icon="more_vert">
+                            <q-btn dense flat icon="more_vert" class="text-black">
                                 <q-menu>
                                     <q-list style="min-width: 120px;" class="text-xs">
-                                        <q-item clickable v-close-popup class="bg-red-500" @click="showConfirmFn('cancel-pdv', props.row.pdv_code, props.row.issuer_id)">
+                                        <q-item
+                                            clickable 
+                                            v-close-popup 
+                                            class="bg-red-500" 
+                                            @click.prevent="!props.row.canceled ? showConfirmFn('cancel/pdv', props.row.pdv_code, props.row.issuer_id) : notifyCanceledPDV()"
+
+                                        >
                                             <q-item-section>
                                             <div class="flex items-center justify-between text-white">
                                                 <span>Cancelar</span>
@@ -142,7 +179,10 @@
 
                             <!-- Demais colunas normalmente -->
                             <template v-else>
-                                {{ col.value }}
+                                <div class="text-xs">
+                                    {{ col.value }}
+
+                                </div>
                             </template>
                         </q-td>
                     </q-tr>
@@ -158,7 +198,7 @@
     </div>
 
     <ConfirmPage
-        v-show="showConfirm"
+        v-if="showConfirm"
         :operation="typeOperation"
         @confirm="handleOptionsPDV($event)"
 
@@ -211,7 +251,7 @@
         {name: 'pdv_code', label: 'Cód', field: 'pdv_code', align: 'center' },
         {name: 'description', label: 'Descrição', field: 'description', align: 'center' },
         {name: 'pdv_code', label: 'Nota N°', field: 'pdv_code', align: 'center' },
-        {name: 'customer_id', label: 'Cód cliente', field: 'customer_id', align: 'center' },
+        {name: 'customer_code', label: 'Cód cliente', field: 'customer_code', align: 'center' },
         {name: 'customer', label: 'Cliente', field: 'customer', align: 'center' },
         {name: 'pdv_code', label: 'Documento', field: 'pdv_code', align: 'center' },
         {
@@ -293,6 +333,17 @@
     let pdvCodeSelected = ref<number>(0);
     let issuerIDSelected = ref<number>(0);
 
+    const notifyCanceledPDV = () =>
+    {
+        $q.notify({
+            icon: 'warning',
+            color: 'yellow-14',
+            message: 'PDV já cancelado!',
+            position: 'top',
+            timeout: 1500
+        });
+    };
+
     function formatVal(val: number | string) 
     {    
         const num = typeof val === 'string' ? parseFloat(val) : val;
@@ -305,7 +356,6 @@
     const getAllPDVs = async () => {
         const res = await api.get(`/ecommerce/pdv/all/${LocalStorage.getItem("issuer_id")}`);
         allPDVs.value = res.data;
-        console.log('savedPDVs:', res.data);
     };
 
     const openPDV = (pdv: TPDV) => {
@@ -328,7 +378,7 @@
     };
 
     const showConfirmFn = (operation: string, pdvCode: number, issuerID: number) => 
-    {
+    {   
         pdvCodeSelected.value = pdvCode;
         issuerIDSelected.value = issuerID;
         typeOperation.value = operation;
@@ -338,8 +388,6 @@
 
     const handleOptionsPDV = async (event: TEmit[]|boolean) =>
     {
-        console.log('Operação confirmada');
-
         const operation = event[0]['operation'];
         const value = event[0]['value'];
 
@@ -353,14 +401,21 @@
             try {
                 const res = await api.put(`ecommerce/pdv/${operation}/${issuerIDSelected.value}/${pdvCodeSelected.value}`);
 
-                console.log(res.data.data);
+                const data = res.data;
 
-                if(res.data.succcess)
+                if(data.success)
                 {
                     showConfirm.value = false;
                     pdvCodeSelected.value = 0;
                     issuerIDSelected.value = 0;
                        
+                    $q.notify({
+                        color: 'green',
+                        message: data.message,
+                        position: 'top',
+                        timeout: 2000
+
+                    });
                 };
                 
             } catch (error) {

@@ -53,15 +53,25 @@ class ProductsService
     
     public function findLastCode(int $id, string|int $barCode)
     {
-        $product = $this->productsRepository->findLastCode($id);
-        if($product->barcode_internal === $barCode)
-        {
-            throw new Exception('Código interno já cadastrado');
-            
-        };
-
-        return $product;
-
+        $products = $this->productsRepository->findLastCode($id);
+        
+        foreach ($products as $product) {
+            if($product->barcode_internal === $barCode || $product->barcode === $barCode)
+            {
+                Log::info('Está sendo utilizado');
+                Log::info("Barras interna: {$product->barcode_internal}");
+                Log::info("Barras: {$product->barcode}");
+                Log::info("Informado: {$barCode}");
+                // Está sendo utilizado
+                return true;
+                
+            };
+        }
+        Log::info('Não está sendo utilizado');
+        Log::info("Barras interna: {$product->barcode_internal}");
+        Log::info("Barras: {$product->barcode}");
+        Log::info("Informado: {$barCode}");
+        return false;
     }
     
     public function create(array $data){

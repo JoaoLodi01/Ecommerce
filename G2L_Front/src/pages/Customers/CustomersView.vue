@@ -127,11 +127,11 @@
                 v-model:pagination="pagination"
                 row-key="customer_code"
                 hide-bottom
-             
+            
             >
                 <template v-slot:item="props">
                     <q-card
-                        class="q-ma-sm q-pa-md shadow-2 rounded-borders bg-white w-[22rem] h-[24rem] transition-transform hover:-translate-y-3 cursor-pointer"
+                        class="q-ma-sm q-pa-md shadow-2 rounded-borders bg-white w-[22rem] transition-transform hover:-translate-y-3 cursor-pointer"
                         :class="{
                             'active-shadow': props.row.active,
                             'disabled-shadow': !props.row.active,

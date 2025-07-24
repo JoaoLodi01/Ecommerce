@@ -3,6 +3,7 @@
 namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\ReceiveRepository;
+use Exception;
 
 class ReceiveService
 {
@@ -34,10 +35,12 @@ class ReceiveService
     }
 
     public function create(array $data){
-        try {
-            return $this->receiveRepository->create($data);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+        $receive = $this->receiveRepository->create($data);
+
+        if(!$receive)
+        {
+            throw new Exception();
+
         }
     }
 

@@ -39,7 +39,7 @@
             </div>
         </div>
         
-        <div class="filterDate inline-flex w-max">
+        <div class="inline-flex w-max">
             <div class="flex mb-6 p-4 border border-gray-300 rounded-lg ">
                 <q-input
                     class="mr-10 cursor-text"
@@ -63,16 +63,15 @@
                 />
             </div>
 
-            <div class="border border-black ml-4">
-                <div class="">
-                    <div class="bg-green-500 w-4 h-4">
-                    </div>
-                    <span class="ml-1">Entrada</span>
-
-                    <div class="bg-red-500 w-4 h-4">
-                    </div>
-                    <span class="ml-1">Saída</span>
-
+            <div class="flex gap-2 border p-3 ml-12 rounded-lg h-[5.5rem]">
+                <div class="flex items-center gap-2 text-xs">
+                    <div class="bg-green-500 h-3 w-3 rounded-full"></div>
+                    <span>Entrada</span>
+                </div>
+                
+                <div class="flex items-center gap-2 text-xs">
+                    <div class="bg-red-500 h-3 w-3 rounded-full"></div>
+                    <span>Saída</span>
                 </div>
             </div>
         </div>
@@ -87,7 +86,7 @@
         </div>
 
         <div class="cash-register-grid relative overflow-y-auto border rounded-lg shadow-lg">
-            <table class="table-auto border-collapse border border-gray-300 bg-white ">
+            <table class="table-auto border-collapse border border-gray-300 bg-white">
                 <thead class="font-semibold sticky top-0 z-10">
                     <tr 
                         class="text-white"
@@ -238,11 +237,6 @@
 </script>
 
 <style scoped>
-    .container {
-        max-width: 85%;
-        
-    }
-
     table {
         width: 100%;
         border-collapse: collapse;
@@ -287,7 +281,7 @@
     {
         .cash-register-grid
         {
-            height: 65vh;
+            height: 45vh;
             max-height: 90vh;
         }
     }
