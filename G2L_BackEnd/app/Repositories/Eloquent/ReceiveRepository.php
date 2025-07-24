@@ -39,11 +39,11 @@ class ReceiveRepository
         }
 
         $nameCustomer = $customer->company_name ?: $customer->trade_name;
-        $receiveRegisterCod = Receive::where('issuer_id', $receiveRegister['issuerId'])->max('receive_code');
         $document = Receive::where('issuer_id', $receiveRegister['issuerId'])->max('document');
+        $nextDocument = $document ? $document + 1 : 1;
 
-        $nextReceiveCod = $receiveRegisterCod ? $receiveRegisterCod + 1 : 1;
-        $nextDocument = isset($receiveRegister['document']) ? $receiveRegister['document'] : ($document ? $document + 1 : 1);
+        $lastReceiveCode = Receive::where('issuer_id', $receiveRegister['issuerId'])->max('receive_code');
+        $nextReceiveCode = $lastReceiveCode ? $lastReceiveCode + 1 : 1;
 
         if (!isset($receiveRegister['installments']) || !is_array($receiveRegister['installments'])){
             Log::info('Instalments Debug:', [
@@ -57,7 +57,7 @@ class ReceiveRepository
 
         foreach ($receiveRegister['installments'] as $installment) {
             Receive::create([
-                'receive_code' => $nextReceiveCod,
+                'receive_code' => $nextReceiveCode++,
                 'issuer_id' => $receiveRegister['issuerId'],
                 'document' => $nextDocument,
                 'description' => $receiveRegister['description'],
