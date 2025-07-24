@@ -13,24 +13,27 @@ class Receive extends Model
         'issuer_id',
         'document',
         'description',
+        'customer_code',
+        'especie_code',
+        'dav_code',
+        'pdv_code',
         'chart_of_account_code',
         'cost_center_code',
-        'customer_code',
-        'dav_code',
         'name',
-        'especie_code',
         'especie',
         'due_date',
-        'installment_amount', // qtde parcelas
-        'installment_number', // nmr parcela
-        'installment_value', // valor parcela
-        'type_interest', // Tipo de juros
-        'interest_value', // valor de juros
-        'total_amount', // Valor total
+        'installment_amount',   // Quantidade de parcelas
+        'installment_number',   // Número da parcela
+        'installment_value',    // Valor original
+        'installment_paid',     // Valor pago
+        'date_paid',
+        'installment_cod',
+        'type_interest',
+        'interest_value',
         'origem',
-        'canceled',
         'user_id',
         'user',
+        'canceled',
     ];
 
     protected $hidden = [

@@ -35,7 +35,7 @@
             </thead>
             <tbody>
                 <tr v-for="(installment, id) in installmentsData" :key="id" class="text-center border-t border-gray-300" :class="{ 'bg-green-100': installment.paid, 'bg-white': !installment.paid}">
-                    <td>{{ installment.numberInstallment }}</td>
+                    <td>{{ installment.installmentNumber }}</td>
                     <td>{{ installment.installmentAmount }}</td>
                     <td class="w-[150px]">
                         <q-input
@@ -86,7 +86,7 @@
 
 
     type TinstallmentsData = {
-        numberInstallment: number;
+        installmentNumber: number;
         installmentAmount: number;
         dueDate: string;
         valuePaid: number;
@@ -128,7 +128,7 @@
         for(let i = 1; i < receiveAmount + 1; i++)
         {
             installmentsData.value.push({
-                numberInstallment: i,
+                installmentNumber: i,
                 installmentAmount: receiveAmount,
                 valueOriginal: props.originalValue,
                 valuePaid: Number(String(originalValue).replace(',','.')) / receiveAmount,

@@ -44,8 +44,8 @@ return new class extends Migration
             $table->integer('installment_number');
             $table->decimal('installment_value', 16,2);
             $table->decimal('installment_paid', 16,2);
-            $table->date('date_paid');
-            $table->unsignedBigInteger('installment_cod');
+            $table->date('date_paid')->nullable();
+            $table->unsignedBigInteger('installment_cod')->nullable();
             $table->string('type_interest', 10);
             $table->decimal('interest_value', 16,2);
             $table->string('origem', 120);

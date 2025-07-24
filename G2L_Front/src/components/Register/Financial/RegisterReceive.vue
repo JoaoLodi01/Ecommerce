@@ -198,7 +198,7 @@
     import 'dayjs/locale/pt-br';
     import { api } from "src/boot/axios"
     import {LocalStorage, useQuasar} from "quasar";
-    import { ref, computed, watch, reactive, onMounted } from 'vue';
+    import { ref, computed, watch, reactive, onMounted, toRaw } from 'vue';
     import InstallmentsTable from "../Financial/InstallmentsTable.vue";
     import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
     import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
@@ -279,26 +279,32 @@
                 valueEntry: form.value.valueEntry,
                 valuePaid: form.value.valuePaid,
                 origem: form.value.origem,
-                installments: installments.value,
+                installments: toRaw(installments.value),
             };
 
-            const response = await api.post('ecommerce/receive/create', payload);
-
-            $q.notify({
-                color: 'green',position: 'top',
-                message: 'Recebimento registrado com sucesso!',
+            console.log("Dados enviados: ", payload);
+            const response = await api.post('ecommerce/receive/create', payload, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             });
 
-            emits('close', true);
+            if (response.data.success){
+                $q.notify({
+                    color: 'green',position: 'top',
+                    message: 'Recebimento registrado com sucesso!',
+                });
+
+                emits('close', true);
+            } else {
+                $q.notify({
+                    position: 'top',
+                    color: 'negative',
+                    message: 'Erro ao registrar recebimento!', 
+                });
+            }
 
         } catch (error) {
-            $q.notify({
-                position: 'top',
-                color: 'negative',
-                message: 'Erro ao registrar recebimento!',
-                
-            });
-            
             console.error("Erros da API:", error.response?.data?.errors);
         }
     };
@@ -328,6 +334,7 @@
     const createInstallments = (event) => 
     {
       installments.value = event;
+      console.log(installments.value);
     };
 
     const getSpecie = (event) => 

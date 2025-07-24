@@ -20,18 +20,18 @@ class ReceiveRepository
 
     public function create(array $receiveRegister)
     {
-        Log::info('Dados recebidos: '. $receiveRegister);
+        Log::info('Dados recebidos: ', $receiveRegister);
 
         $user = User::where('user_code', $receiveRegister['userId'])->first();
-        Log::info('Buscando usuário: '. ['user' => $user]);
+        Log::info('Buscando usuário: ', ['user' => $user]);
 
         $customer = Customer::where('issuer_id', $receiveRegister['issuerId'])->first();
-        Log::info('Buscando cliente: '. ['cliente' => $customer]);
+        Log::info('Buscando cliente: ', ['cliente' => $customer]);
 
         $specie = PaymentForms::where('issuer_id', $receiveRegister['issuerId'])
                             ->where('payment_code', $receiveRegister['especieId'])
                             ->first();
-        Log:info('Buscando espécie: '. ['especie' => $specie]);
+        Log::info('Buscando espécie: ', ['especie' => $specie]);
 
         if (!$user || !$customer || !$specie) {
             Log::error('Dados inválidos no registro de recebimento.');
@@ -39,38 +39,43 @@ class ReceiveRepository
         }
 
         $nameCustomer = $customer->company_name ?: $customer->trade_name;
-        $receiveRegisterCod = Receive::where('issuer_id', $receiveRegister['issuerId'])->max('receive_cod');
+        $receiveRegisterCod = Receive::where('issuer_id', $receiveRegister['issuerId'])->max('receive_code');
         $document = Receive::where('issuer_id', $receiveRegister['issuerId'])->max('document');
 
         $nextReceiveCod = $receiveRegisterCod ? $receiveRegisterCod + 1 : 1;
         $nextDocument = isset($receiveRegister['document']) ? $receiveRegister['document'] : ($document ? $document + 1 : 1);
 
+        if (!isset($receiveRegister['installments']) || !is_array($receiveRegister['installments'])){
+            Log::info('Instalments Debug:', [
+                'isset' => isset($receiveRegister['installments']),
+                'is_array' => is_array($receiveRegister['installments']),
+                'count' => isset($receiveRegister['installments']) && is_array($receiveRegister['installments']) ? count($receiveRegister['installments']) : 0,
+                'content' => $receiveRegister['installments'] ?? null,
+            ]);
+            throw new \Exception('Parcelas não enviadas corretamente.');
+        }
+
         foreach ($receiveRegister['installments'] as $installment) {
-            try {
-                Receive::create([
-                    'receive_cod' => $nextReceiveCod,
-                    'issuer_id' => $receiveRegister['issuerId'],
-                    'document' => $nextDocument,
-                    'description' => $receiveRegister['description'],
-                    'customer_code' => $customer->customer_code,
-                    'name' => $nameCustomer,
-                    'especie_code' => $specie->payment_code,
-                    'especie' =>  $specie->especie,
-                    'due_date' => $installment['dueDate'],
-                    'installment_amount' => $receiveRegister['installmentAmount'],
-                    'installment_number' => $installment['installmentNumber'],
-                    'installment_value' => $installment['installmentValue'],
-                    'installment_paid' => $installment['paid'] ?? false,
-                    'type_interest' => $receiveRegister['typeInterest'],
-                    'interest_value' => $receiveRegister['interestValue'],
-                    'origem' => $receiveRegister['origem'],
-                    'user_id' => $receiveRegister['userId'],
-                    'user' => $user->name,
-                ]);
-                
-            } catch (\Exception  $e) {
-                Log::error('Erro ao salvar recebimento: ' . $e->getMessage());
-            }
+            Receive::create([
+                'receive_code' => $nextReceiveCod,
+                'issuer_id' => $receiveRegister['issuerId'],
+                'document' => $nextDocument,
+                'description' => $receiveRegister['description'],
+                'customer_code' => $customer->customer_code,
+                'especie_code' => $specie->payment_code,
+                'especie' =>  $specie->especie,
+                'name' => $nameCustomer,
+                'due_date' => $installment['dueDate'],
+                'installment_amount' => $receiveRegister['installmentAmount'],
+                'installment_number' => $installment['installmentNumber'],
+                'installment_value' => $installment['valueOriginal'],
+                'installment_paid' => $installment['valuePaid'],
+                'type_interest' => $receiveRegister['typeInterest'],
+                'interest_value' => $receiveRegister['interestValue'],
+                'origem' => $receiveRegister['origem'],
+                'user_id' => $receiveRegister['userId'],
+                'user' => $user->name,
+            ]);
         }
     }
 

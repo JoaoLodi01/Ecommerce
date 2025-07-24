@@ -19,26 +19,33 @@ class ReceiveRequest extends FormRequest
      */
     public function rules(): array
     {
-    $required = $this->isMethod('POST') ? 'required' : 'sometimes';
-        return [
-            'issuerId' => [$required],
-            'userId' => [$required],
-            'description' => [$required, 'string', 'max:255'],
-            'document' => ['sometimes'],
-            'customerId' => [$required],
-            'especieId' => [$required],
-            'dueDate' => [$required],
-            'installmentAmount' => [$required, 'integer'],
-            'installmentNumber' => [$required, 'integer'],
-            'installmentValue' => [$required, 'numeric'],
-            'typeInterest' => [$required],
-            'interestValue' => [$required, 'numeric'],
-            'addition' => ['sometimes'],
-            'discount' => ['sometimes'],
-            'valueEntry' => ['sometimes'],
-            'valuePaid' => [$required, 'numeric'],
-            'origem' => ['nullable'],
-            
-        ];
+        $required = $this->isMethod('POST') ? 'required' : 'sometimes';
+            return [
+                'issuerId' => [$required],
+                'userId' => [$required],
+                'description' => [$required, 'string', 'max:255'],
+                'document' => ['sometimes'],
+                'customerId' => [$required],
+                'especieId' => [$required],
+                'dueDate' => [$required],
+                'installmentAmount' => [$required, 'integer'],
+                'installmentNumber' => [$required, 'integer'],
+                'installmentValue' => [$required, 'numeric'],
+                'typeInterest' => [$required],
+                'interestValue' => [$required, 'numeric'],
+                'addition' => ['sometimes'],
+                'discount' => ['sometimes'],
+                'valueEntry' => ['sometimes'],
+                'valuePaid' => [$required, 'numeric'],
+                'origem' => ['nullable'],
+
+                'installments' => [$required, 'array'],
+                'installments.*.installmentNumber' => ['required', 'integer'],
+                'installments.*.installmentAmount' => ['required', 'integer'],
+                'installments.*.valueOriginal' => ['required', 'numeric'],
+                'installments.*.valuePaid' => ['required', 'numeric'],
+                'installments.*.dueDate' => ['required', 'date'],
+                        
+            ];
     }
 }

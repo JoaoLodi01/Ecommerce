@@ -3,6 +3,7 @@
 namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\ReceiveRepository;
+use Exception;
 
 class ReceiveService
 {
@@ -22,55 +23,32 @@ class ReceiveService
     }
 
     public function findByID(int $id){
-        try {
-            return response()->json([
-                'success' => true,
-                'receive' => $this->receiveRepository->findByID($id)
-            ]);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        return response()->json([
+            'success' => true,
+            'receive' => $this->receiveRepository->findByID($id)
+        ]);
     }
 
     public function create(array $data){
-        try {
-            return $this->receiveRepository->create($data);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        $receive = $this->receiveRepository->create($data);
+
+        return response()->json([
+            'Dados' => $receive,
+            'success' => true,
+        ]);
     }
 
     public function update(array $data, int $id){
-        try {
-            $this->receiveRepository->update($data, $id);
-            return response()->json([
-                'success' => true,
-            ]);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+        $this->receiveRepository->update($data, $id);
+        return response()->json([
+            'success' => true,
+        ]);
     }
 
     public function delete(int $id){
-        try {
-            $this->receiveRepository->delete($id);
-            return response()->json([
-                'success' => true,
-            ]);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
-    }
-
-    public function returnResponse($th){
+        $this->receiveRepository->delete($id);
         return response()->json([
-            'success' => false,
-            'th' => $th->getMessage(),
-            'line' => $th->getLine(),
-            'file' => $th->getFile(),
+            'success' => true,
         ]);
     }
 }

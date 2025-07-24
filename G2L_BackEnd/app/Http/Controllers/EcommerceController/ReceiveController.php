@@ -19,9 +19,7 @@ class ReceiveController extends Controller
     }
 
     public function create(ReceiveRequest $request){
-        $data = $request->validated();
-        return $this->receiveService->create($data);
-        Log::info('Caiu no controller');
+        return apiSuccess('Cadastro: ', $this->receiveService->create($request->validated()));
     }
 
     public function findByID(int $id){
