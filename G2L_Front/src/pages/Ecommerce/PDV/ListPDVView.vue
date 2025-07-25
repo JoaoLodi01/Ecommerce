@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[145vh]  mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg">
+    <div class="w-[145vh]  mx-auto mt-5 p-6 ml-24 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6" v-if="showListPDV">
             <h1 
                 class="text-2xl font-semibold mt-5"
@@ -9,7 +9,7 @@
                 
                 <div class="flex gap-4 mt-2 border p-3 rounded">
                     <div class="flex items-center gap-2 text-xs">
-                        <div class="bg-orange-500 h-3 w-3 rounded-full"></div>
+                        <div class="bg-red-500 h-3 w-3 rounded-full"></div>
                         <span>Canceladas</span>
                     </div>
 
@@ -29,7 +29,7 @@
                     </div>
                     
                     <div class="flex items-center gap-2 text-xs">
-                        <div class="bg-gray-500 h-3 w-3 rounded-full"></div>
+                        <div class="bg-orange-400 h-3 w-3 rounded-full"></div>
                         <span>Abertas</span>
                     </div>
                 </div>
@@ -97,6 +97,37 @@
         </div>
         
         <q-separator color="grey" />
+        <div class="flex gap-4 border rounded p-3 mt-4 w-max">
+            <div>
+                <q-option-group
+                    v-model="filterTypeSales"
+                    type="radio"
+                    toggle
+                    class="flex text-xs"
+                    :options="[
+                        {label: 'Todas', value: 'all'},
+                        {label: 'NFC-e', value: 'nfce'},
+                        {label: 'Nota Manual', value: 'nm'},
+                    ]"
+                />    
+
+            </div>
+
+            <div>
+                <q-option-group
+                    v-model="searchFill"
+                    type="radio"
+                    toggle
+                    class="flex text-xs"
+                    :options="[
+                        {label: 'Todas', value: 'all'},
+                        {label: 'Finalizadas', value: 'finaly_'},
+                        {label: 'Abertas', value: 'noFinaly'},
+                    ]"
+                />    
+
+            </div>
+        </div>
 
         <div 
             class="mb-6 mt-5 bg-white h-[70vh]"
@@ -108,6 +139,8 @@
                 :columns="columns"
                 class="my-sticky-column-table h-[74vh]"
                 row-key="pdv_code"
+                v-model:pagination="pagination"
+
             >
 
                 <template v-slot:header="props">
@@ -134,47 +167,76 @@
                 <template v-slot:body="props">
                     <q-tr
                         :props="props"
-                        :class="{
-                            'bg-orange-500 text-white': props.row.canceled === 1,
-                            'bg-green-400 text-white': props.row.canceled === 0
-                        }"
+                        
                     >
                         <q-td
-                            v-for="col in props.cols"
+                            v-for="(col, i) in props.cols"
                             :key="col.name"
                             :props="props"
                         >
                         <!-- Verifica se é a coluna de ações -->
-                        <template v-if="col.name === 'actions'">
-                            <q-btn dense flat icon="more_vert" class="text-black">
-                                <q-menu>
-                                    <q-list style="min-width: 120px;" class="text-xs">
-                                        <q-item
-                                            clickable 
-                                            v-close-popup 
-                                            class="bg-red-500" 
-                                            @click.prevent="!props.row.canceled ? showConfirmFn('cancel/pdv', props.row.pdv_code, props.row.issuer_id) : notifyCanceledPDV()"
+                            <template v-if="col.name === 'actions'">
+                                <q-btn dense flat icon="more_vert" class="text-black">
+                                    <q-menu>
+                                        <q-list style="min-width: 120px;" class="text-xs">
+                                            <q-item
+                                                clickable 
+                                                v-close-popup 
+                                                :class="{
+                                                    'bg-red-500': !props.row.canceled,
+                                                    'bg-gray-500': props.row.canceled
+                                                }"
+                                                
+                                                @click.prevent="!props.row.canceled && props.row.finished ? showConfirmFn('cancel/pdv', props.row.pdv_code, props.row.issuer_id) : notifyCanceledPDV(props.row.finished)"
 
-                                        >
-                                            <q-item-section>
-                                            <div class="flex items-center justify-between text-white">
-                                                <span>Cancelar</span>
-                                                <q-icon name="close" size="xs" />
-                                            </div>
-                                            </q-item-section>
-                                        </q-item>
-
-                                        <q-item clickable v-close-popup class="bg-blue-500">
-                                            <q-item-section>
-                                                <div class="flex items-center justify-between text-white">
-                                                    <span>Visualizar</span>
-                                                    <q-icon name="visibility" size="xs" />
-                                                </div>
+                                            >
+                                                <q-item-section>
+                                                    <div class="flex items-center justify-between text-white">
+                                                        <span>Cancelar</span>
+                                                        <q-icon name="close" size="xs" />
+                                                    </div>
                                                 </q-item-section>
-                                        </q-item>
-                                    </q-list>
+                                            </q-item>
+
+                                            <q-item clickable v-close-popup class="bg-blue-500">
+                                                <q-item-section>
+                                                    <div class="flex items-center justify-between text-white">
+                                                        <span>Visualizar</span>
+                                                        <q-icon name="visibility" size="xs" />
+                                                    </div>
+                                                </q-item-section>
+                                            </q-item>
+
+                                            <q-item 
+                                                v-if="!props.row.finished"
+                                                clickable v-close-popup class="bg-green-500" 
+                                                @click="openPDV(props.row.pdv_code)"
+                                            >
+                                                <q-item-section>
+                                                    <div class="flex items-center justify-between text-white">
+                                                        <span>Reabrir</span>
+                                                        <q-icon name="replay" size="xs" />
+                                                    </div>
+                                                </q-item-section>
+                                            </q-item>
+                                        </q-list>
                                     </q-menu>
                                 </q-btn>
+
+                            </template>
+
+                            <template v-if="col.name === 'pdv_code'" >
+                                <span
+                                    class="p-4"
+                                    :class="{
+                                        'bg-red-500 text-white': props.row.canceled === 1 && props.row.finished === 1,
+                                        'bg-green-400 text-white': props.row.canceled === 0 && props.row.finished === 1,
+                                        'bg-orange-400 text-white': props.row.finished === 0
+                                    }"
+
+                                >
+                                    {{ col.value }}
+                                </span>
                             </template>
 
                             <!-- Demais colunas normalmente -->
@@ -209,22 +271,15 @@
 <script setup lang="ts">
     import { LocalStorage, QTableColumn, useQuasar } from "quasar";
     import { api } from "src/boot/axios";
-    import { onMounted, ref } from 'vue';
+    import { onMounted, ref, watch } from 'vue';
     import { useRouter } from "vue-router";
     import dayjs from "dayjs";
     import ReportErros from "src/components/PDV/Errors/ReportErros.vue";
-    import ConfirmPage from "src/components/Confirm/ConfirmPage.vue";
-    
-    type TSearchFill = {
-        all: boolean,
-        finaly_: boolean,
-        noFinaly: boolean
-        
-    };
+    import ConfirmPage from "src/components/Confirm/ConfirmPage.vue"; 
 
-    type TPDV = {
-        id: number
-    };  
+    type TPagination = {
+        rowsPerPage: number
+    }
 
     const $q = useQuasar()
     const today = dayjs();
@@ -235,11 +290,9 @@
     const painelColor = LocalStorage.getItem("painelColor");
     const textColor = LocalStorage.getItem("textColor");
     
-    const searchFill = ref<TSearchFill | null>({
-        all: true,
-        finaly_: false,
-        noFinaly: false
-    });
+    const filterTypeSales = ref<'all' | 'nfce' | 'nm'>('all');
+
+    const searchFill = ref<'all' | 'noFinaly' | 'finaly_'>('all');
 
     const columns: QTableColumn[] = [
         {
@@ -250,10 +303,9 @@
         },
         {name: 'pdv_code', label: 'Cód', field: 'pdv_code', align: 'center' },
         {name: 'description', label: 'Descrição', field: 'description', align: 'center' },
-        {name: 'pdv_code', label: 'Nota N°', field: 'pdv_code', align: 'center' },
+        {name: 'n_nfce', label: 'Nota N°', field: 'n_nfce', align: 'center' },
         {name: 'customer_code', label: 'Cód cliente', field: 'customer_code', align: 'center' },
         {name: 'customer', label: 'Cliente', field: 'customer', align: 'center' },
-        {name: 'pdv_code', label: 'Documento', field: 'pdv_code', align: 'center' },
         {
             name: 'gross_value', 
             label: 'Total bruto', 
@@ -299,7 +351,7 @@
             field: 'is_nfce_nm', 
             align: 'center',
             format(val: string){
-                return val.toUpperCase();
+                return val.toUpperCase() ;
             },
             
         },
@@ -326,22 +378,56 @@
 
     const countErros = ref(0);
 
-    let allPDVs = ref([]);
+    let allPDVs = ref<IListPDV[]>([]);
+    let pdvs = ref<IListPDV[]>([]);
     let showConfirm = ref<boolean>(false);
     let typeOperation = ref<string>('');
 
     let pdvCodeSelected = ref<number>(0);
     let issuerIDSelected = ref<number>(0);
 
-    const notifyCanceledPDV = () =>
+    let pagination = ref<TPagination>({
+        rowsPerPage: 0
+    });
+
+    watch(filterTypeSales, async(filter) =>{ 
+        if(filter === 'nfce')
+        {
+            allPDVs.value = allPDVs.value.filter(pdv => pdv.is_nfce_nm === 'nfce')
+
+        } else if (filter === 'nm'){
+            allPDVs.value = allPDVs.value.filter(pdv => pdv.is_nfce_nm === 'nm')
+
+        } else {
+            allPDVs.value = [...pdvs.value];
+        };
+    });
+    
+    watch(searchFill, async(filter) =>{ 
+        if(filter === 'finaly_')
+        {
+            allPDVs.value = allPDVs.value.filter(pdv => pdv.finished === 1)
+
+        } else if (filter === 'noFinaly'){
+            allPDVs.value = allPDVs.value.filter(pdv => pdv.finished === 0)
+
+        } else {
+            allPDVs.value = [...pdvs.value];
+        };
+    });
+
+    const notifyCanceledPDV = (finished?: boolean) =>
     {
-        $q.notify({
-            icon: 'warning',
-            color: 'yellow-14',
-            message: 'PDV já cancelado!',
-            position: 'top',
-            timeout: 1500
-        });
+        if(!finished)
+        {   
+            $q.notify({
+                icon: 'warning',
+                color: 'yellow-14',
+                message: 'Esse PDV não foi finalizado, finalize ou mesmo para fazer o cancelamento!',
+                position: 'top',
+                timeout: 1500
+            });
+        };
     };
 
     function formatVal(val: number | string) 
@@ -355,13 +441,24 @@
 
     const getAllPDVs = async () => {
         const res = await api.get(`/ecommerce/pdv/all/${LocalStorage.getItem("issuer_id")}`);
-        allPDVs.value = res.data;
+
+        pdvs.value = res.data;
+        allPDVs.value = pdvs.value;
+
+        pagination.value = {
+            rowsPerPage: allPDVs.value.length
+        };
     };
 
-    const openPDV = (pdv: TPDV) => {
+    const openPDV = (pdv: number) => {
+        console.log(pdv)
         router.push({
             name: 'PDVID',
-            params: { idPDV: pdv.id },
+            params: { 
+                salePrefix: 'sale',
+                idPDV: pdv
+            
+            },
             state: { isOpenedPDV: true }
         });
     };
@@ -434,6 +531,7 @@
 .my-sticky-column-table
   /* specifying max-width so the example can
     highlight the sticky column on any browser window */
+  overflow-x: auto;
   max-width: 160vh
 
   td:first-child
@@ -444,6 +542,4 @@
     position: sticky
     left: 0
     z-index: 1
-
-    
 </style>

@@ -55,19 +55,22 @@ class PDVRepository
 
     public function findSavePDV()
     {
+        /**
         Log::channel('pdv')->info('Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0');
+
         $pdvs = PDV::with('getItens')
                         ->where('is_nfce_nm', null)
                         ->get();
 
         return $pdvs;
+         */
     }
 
-    public function findSavePDVByID(int $id, int $issuerID)
+    public function findSavePDVByID(int $pdvCode, int $issuerID)
     {
         Log::channel('pdv')->info('Vai fazer a busca das vendas com campo: is_nfce_nm = null e canceled = 0');
         $pdvs = PDV::with('getItens')
-                        ->where('pdv_code', $id)
+                        ->where('pdv_code', $pdvCode)
                         ->where('issuer_id', $issuerID)
                         ->first();
 
@@ -147,21 +150,33 @@ class PDVRepository
     {
         Log::channel('pdv')->info('-- Iniciou o saveSale() line 149 -- ');
         Log::debug($details);
+        $currentDate = new Carbon();
     
         $customer = $this->customerRepository->findByID($details['issuer_id'], $details['customer_id']);
-        
         $customerName = $customer->company_name ? $customer->company_name : $customer->trade_name;
 
         $user = $this->userRepository->findByID($details['user_id']); // "vendedor"
-
-        $currentDate = new Carbon();
+        
         $maxPDV = PDV::where('issuer_id', $details['issuer_id'])->max('pdv_code');
-
         $pdvCode = $maxPDV ? $maxPDV + 1 : 1;
+
+        $description = match($details['is_nfce_nm']) {
+            'nfce' => "Venda NFC-e N° {$pdvCode}",
+            'nm' => "Venda Nota Manual N° {$pdvCode}",
+            default => 'Venda salva para envio posterior'
+
+        };
+
+        $isNFCeOrNM = match($details['is_nfce_nm']) {
+            'nfce' => 'nfce',
+            'nm' => 'nm',
+            default => '-'
+        };
+
         $pdvData = array(
-            'pdv_code' => $pdvCode,
+            'pdv_code' => $maxPDV ? $maxPDV + 1 : 1,
             'issuer_id' => $details['issuer_id'],
-            'description' => $details['is_nfce_nm'] === 'nm' ? "Venda Nota Manual N° {$pdvCode}" : "Venda NFC-e N° {$pdvCode}",
+            'description' => $description,
             'issue_date' => $currentDate->format('Y-m-d'),
             'customer_code' => $customer->customer_code,
             'customer' => $customerName,
@@ -171,7 +186,7 @@ class PDVRepository
             'discount' => $details['discount'],
             'user_id' => $user->id,
             'user' => $user->name, 
-            'is_nfce_nm' => $details['is_nfce_nm']
+            'is_nfce_nm' => $isNFCeOrNM
         );
 
         Log::channel('pdv')->info('pdvData: ');

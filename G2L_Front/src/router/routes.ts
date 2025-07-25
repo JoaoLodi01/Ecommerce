@@ -30,6 +30,11 @@ const routes = [
     component: () => import('src/pages/Tests/table/QTable - list-customers.vue')
   },
   {
+    path: '/teste/table/list-especeis',
+    name: 'e',
+    component: () => import('src/pages/Tests/table/QTable - especies.vue')
+  },
+  {
     path: '/',
     name: 'Home',
     component: () => import('src/pages/Home/HomePage.vue')

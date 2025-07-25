@@ -3,6 +3,7 @@
 namespace App\Services\EcommerceService;
 
 use App\Repositories\Eloquent\EcommerceEloquent\PaymentsRepository;
+use Exception;
 
 class PaymentsService
 {
@@ -10,27 +11,29 @@ class PaymentsService
         protected PaymentsRepository $paymentsRepository
     ) {}
 
-    public function getAll(int $issuer_id){
-        try {
-            return response()->json([
-                'success' => true,
-                'all' => $this->paymentsRepository->getAll($issuer_id)
-            ]);
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+    public function getAll(int $issuerID){
+        $paymentsRepository = $this->paymentsRepository->getAll($issuerID);
+
+        if(!$paymentsRepository)
+        {
+            throw new Exception('Erro ao buscar as espécies!');
         }
+        
+        return $paymentsRepository;
+
     }
 
-    public function findById(array $id){
-        try {
-            return response()->json([
-                'success' => true,
-                'especie' => $this->paymentsRepository->findById($id)
-            ]);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
+    public function findOneByID(int $issuerID, int $code)
+    {
+        $specie = $this->paymentsRepository->findOneByID($issuerID, $code);
+            
+        if(!$specie)
+        {
+            throw new Exception("Erro ao buscar espécie", 1);
+            
         }
+
+        return $specie;
     }
 
     public function findKey(int $issuer_id)
@@ -72,24 +75,14 @@ class PaymentsService
         }
     }
 
-    public function update(array $data, int $id){
-        try {
-            $this->paymentsRepository->update($data, $id);
-            return response()->json(true);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+    public function update(array $data, int $id)
+    {
+        
     }
 
-    public function delete(int $id){
-        try {
-            $this->paymentsRepository->delete($id);
-            return response()->json(true);
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
-        }
+    public function delete(int $id)
+    {
+        
     }
 
     public function returnResponse($th){

@@ -116,7 +116,7 @@ Route::prefix('v1')->group( function (){
                 Route::put('/cancel/pdv/{issuer_id}/{pdv_code}', [PDVController::class, 'cancelPDV']);
 
                 Route::get('/get-saved-sales', [PDVController::class, 'findSavePDV']);
-                Route::post('/get-saved-sale', [PDVController::class, 'findSavePDVByID']);
+                Route::get('/get-saved-sale/{id}/{pdvCode}', [PDVController::class, 'findSavePDVByID']);
 
                 Route::get('/get-all-errors', [ErrorsPDVController::class, 'all']);
 
@@ -126,7 +126,7 @@ Route::prefix('v1')->group( function (){
         Route::prefix('species')->group( function(){
             Route::get('/all/{issuer_id}', [PaymentsController::class, 'getAll']);
             Route::post('/create', [PaymentsController::class, 'create']);
-            Route::get('/{id}', [PaymentsController::class, 'findByID']);
+            Route::get('find/{id}/{code}', [PaymentsController::class, 'findOneByID']);
             Route::put('/{id}', [PaymentsController::class, 'update']);
             Route::put('/{id}/deactivate', [PaymentsController::class, 'delete']);
             Route::get('/find-key/{issuer_id}', [PaymentsController::class, 'findKey']);

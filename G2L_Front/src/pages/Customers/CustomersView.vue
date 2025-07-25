@@ -112,7 +112,7 @@
         </div>
 
         <div
-            class="customer-grid  mb-2" 
+            class="customer-grid mb-2" 
             :class="{
                 'ml-16 max-w-[165vh] w-[150vh]': widthScreen > 1366,
                 'ml-12': widthScreen <= 1366
@@ -461,6 +461,7 @@
                 return;
                 
             };
+            
         } else {
             console.log('Vai abrir o create');
             operation.value = action;

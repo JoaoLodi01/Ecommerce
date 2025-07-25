@@ -72,9 +72,9 @@ class PDVController extends Controller
         
     }
     
-    public function findSavePDVByID(Request $request)
+    public function findSavePDVByID(int $issuerID, int $pdvCode)
     {
-        return $this->pdvService->findSavePDVByID($request->input('pdv_id'), $request->input('issuer_id'));
+        return $this->pdvService->findSavePDVByID($pdvCode, $issuerID);
         
     }
 }

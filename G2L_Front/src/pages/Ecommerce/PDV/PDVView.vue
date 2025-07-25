@@ -192,10 +192,10 @@
                                             inputClass="text-center"
                                             type="number"
                                             borderless
-                                            minlength="1"
                                             dense
                                             @update:modelValue="changeAmount(props.row.product_code, props.row.amount)"
                                             class="amountInput"
+                                            
                                         />
                                     </template>
                                     
@@ -595,7 +595,7 @@
             name: 'amount',
             label: 'Qtde',
             field: 'amount',
-            align: 'center',
+            align: 'center'
         },
         {
             name: 'total',
@@ -870,29 +870,38 @@
         console.log('chooseErrors: ', choose);
         if(choose === 'after')
         {
-            productsSeletion.value = []
-            errorsOfSale.value.showErrosModal = false
-        } 
+            productsSeletion.value = [];
+            errorsOfSale.value.showErrosModal = false;
+
+        };
 
         if(choose === 'now')
         {
-            productsSeletion.value = []
-            router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` })
-        }
+            productsSeletion.value = [];
+            router.push({ path: `${LocalStorage.getItem("issuer_name")}/sale/list-pdv` });
 
+        };
     };
 
     const importSale = async () =>
     {
         try {
-            const response = await api.get(`/ecommerce/pdv/get-saved-sale/${props.idPDV}`)
-            console.log('importSale', response.data)
-            updateProductsSeletion(response.data.pdvs.get_itens)
+            const res = await api.get(`/ecommerce/pdv/get-saved-sale/${issuer_id.value}/${props.idPDV}`)
+            const itens: IProducts[] = res.data.get_itens;
+
+            console.log('importSale', res.data)
+            console.log('itens', res.data.get_itens[0])
+            for(let i = 0; i < itens.length; i++)
+            {
+                const iten = itens[i];
+                updateProductsSeletion(iten);
+
+            };
 
         } catch (error) {
             console.error('Erro importSale', error)
             
-        }
+        };
     };
 
     const showOptions = () => 
@@ -926,7 +935,7 @@
         console.log('Produto alterado: ', productCode, ' nova qtde: ', newAmount);
 
         const product = productsSeletion.value.find(p => p.product_code === productCode);
-        product.amount = Number(newAmount) === 0 ? Number(newAmount) + 1 : Number(newAmount);
+        product.amount = Number(newAmount) < 0 ? Number(newAmount) + 1 : Number(newAmount);
 
         console.table(product);
     };
@@ -941,10 +950,10 @@
 
         if(existingProduct)
         {
-            existingProduct.amount += selectedProducts.amount;
+            existingProduct.amount += selectedProducts.amount ;
 
         } else {
-            productsSeletion.value = [...productsSeletion.value, {...selectedProducts}];
+            productsSeletion.value = [...productsSeletion.value, {...selectedProducts, amount: 1}];
 
         };
     };
@@ -1061,6 +1070,7 @@
                 emitProducts.value.addition = 0;
                 emitProducts.value.discount = 0;
                 emitProducts.value.freight = 0;
+                isOpenedPDV.value = false;
 
                 if(props.idPDV)
                 {
@@ -1079,9 +1089,9 @@
                         total: calculateTotal.value.total,
                         addition: calculateTotal.value.addition,
                         discount: calculateTotal.value.discount,
-                        description: 'Venda guardada',
+                        description: '',
                         is_nfce_nm: '',
-                        status: 'Em Aberto'
+                        status: ''
                         
                     }, { headers : { 
                         Accept: 'application/json'
@@ -1099,6 +1109,8 @@
                     } else {
                         console.log(res.data);
                     };
+                } else {
+                    
                 };
             } else {
                 alert('caiu no: resolveLeave.value = true');
@@ -1178,7 +1190,7 @@
         };
     });      
 
-    onBeforeRouteLeave((to, from, next) => {
+    /*onBeforeRouteLeave((to, from, next) => {
         if(productsSeletion.value.length > 0)
         {
             showConfirm.value = true;
@@ -1201,6 +1213,7 @@
             };
         };
     });
+    */
 </script>
 
 <style>

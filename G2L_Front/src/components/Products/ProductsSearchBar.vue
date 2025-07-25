@@ -37,7 +37,7 @@
 <script setup lang="ts">
     import { api } from "src/boot/axios"
     import { LocalStorage, useQuasar } from "quasar";
-    import { ref, onMounted, defineProps, defineEmits } from "vue";
+    import { ref, onMounted } from "vue";
     import camelcaseKeys from "camelcase-keys";
 
     type TConfig = {

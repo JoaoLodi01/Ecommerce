@@ -25,9 +25,9 @@ class PDVService
         
     }
     
-    public function findSavePDVByID(int $id, int $issuerID)
+    public function findSavePDVByID(int $pdvCode, int $issuerID)
     {
-        $pdv = $this->pdvRepository->findSavePDVByID($id, $issuerID);
+        $pdv = $this->pdvRepository->findSavePDVByID($pdvCode, $issuerID);
         return $pdv;
         
     }

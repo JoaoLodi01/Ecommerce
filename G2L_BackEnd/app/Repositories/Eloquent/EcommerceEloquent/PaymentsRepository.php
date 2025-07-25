@@ -8,27 +8,20 @@ use Illuminate\Support\Facades\Log;
 
 class PaymentsRepository
 {
-    public function getAll(int $issuer_id){
-        Log::info("Iniciou getAll PaymentsRepository");
-        Log::info("Buscando por emitente");
-        $issuer = Issuer::where('id', $issuer_id)->first();
-
-        if(!$issuer){
-            return [
-                'success' => false,
-                'message' => 'Emitente não encontrado',
-            ];
-        }
-
-        Log::info('Cod. emitente: '. $issuer_id);
-        Log::info("Buscando espécies");
-        $species = PaymentForms::where('issuer_id', $issuer_id)->get();
-        Log::info("Terminou");
-
+    public function getAll(int $issuerID){
+        $species = PaymentForms::where('issuer_id', $issuerID)->get();
+    
         return $species;
     }
 
-    public function findByID(array $data){
+    public function findOneByID(int $issuerID, int $code)
+    {
+        $specie = PaymentForms::where('issuer_id', $issuerID)->where('payment_code', $code)->first();
+        return $specie;
+    }
+
+    public function findByID(array $data)
+    {
         Log::info("Buscando a espécie pelo ID.");
         Log::info($data);
         

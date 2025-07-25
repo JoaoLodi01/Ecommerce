@@ -14,13 +14,18 @@ class PaymentsController extends Controller
     )
     {}
 
-    public function getAll(int $issuer_id){
-        return $this->paymentsService->getAll($issuer_id);
+    public function getAll(int $issuerID){
+        return apiSuccess('Todas as espécies de pagamento!', $this->paymentsService->getAll($issuerID));
     }
 
     public function create(PayMentFormRequest $request){
         $data = $request->validated();
         return $this->paymentsService->create($data);
+    }
+
+    public function findOneByID(int $issuerID, int $code)
+    {
+        return apiSuccess('Espécie', $this->paymentsService->findOneByID($issuerID, $code));
     }
 
     public function findKey(int $issuer_id)
