@@ -197,18 +197,6 @@
                         {{ props.row.especie.toUpperCase() }}
                         </q-td>
 
-                        <q-td key="typeInterest" :props="props" class="text-center">
-                        {{ props.row.typeInterest.toUpperCase() }}
-                        </q-td>
-
-                        <q-td key="interestValue" :props="props" class="text-right">
-                        R$ {{ Number(props.row.interestValue).toFixed(2) }}
-                        </q-td>
-
-                        <q-td key="origem" :props="props" class="text-center">
-                        {{ props.row.origem.toUpperCase() }}
-                        </q-td>
-
                         <q-td key="status" :props="props" class="text-center">
                         <q-badge
                             :color="getStatusBadge(props.row).color"
@@ -324,9 +312,6 @@ import dayjs from 'dayjs';
         { name: 'name', label: 'Cliente', field: 'name', align: 'left' },
         { name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
         { name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },
-        { name: 'typeInterest', label: 'Tipo Juros', field: 'typeInterest', align: 'center' },
-        { name: 'interestValue', label: 'Valor Juros', field: 'interestValue', align: 'right' },
-        { name: 'origem', label: 'Origem', field: row => row.origem.toUpperCase(), align: 'center' },
         { name: 'status', label: 'Status', field: row => row.status.toUpperCase(), align: 'center' },
         { name: 'actions', label: 'Ações', field: 'actions', align: 'center' }
     ];
