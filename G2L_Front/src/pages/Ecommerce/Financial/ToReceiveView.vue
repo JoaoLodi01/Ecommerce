@@ -9,15 +9,12 @@
     </div>
 
 
-    <div 
-        v-if="showPage" 
-        class="h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg"
+    <div v-if="showPage"
+        class="mt-10 mb-5 p-6 bg-white rounded-lg shadow-lg mx-auto"
         :class="{
-            'mt-10 p-6 ml-16 mb-5 bg-white rounded-lg shadow-lg w-[150vh]': widthScreen > 1366,
-            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
-            
-        }"  
-    >
+            'w-[90%] max-w-[1400px]': true
+    }">
+
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Receber</h1>
             <div class="flex space-x-4">
@@ -64,81 +61,187 @@
                 label="Filtrar"
                 @click="dateSearch()"
             />
+
+            <div class="flex gap-4 border rounded p-3 w-max ml-10">
+                <div>
+                    <q-option-group
+                        v-model="filterTypeReceives"
+                        type="radio"
+                        toggle
+                        class="flex text-xs"
+                        :options="[
+                            {label: 'Todas', value: 'all'},
+                            {label: 'Em Aberto', value: 'aberto'},
+                            {label: 'Vencidas', value: 'vencidas'},
+                            {label: 'Quitadas', value: 'quitadas'},
+                            {label: 'Atrasadas', value: 'atrasadas'},
+                        ]"
+                    />    
+
+                </div>
+            </div>
         </div>
 
-        <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
-            <div><p>Total Quitadas: <span class="font-semibold">R${{ totalQuitadas }}</span></p></div>
+        <div class="flex flex-col md:flex-row md:justify-between gap-4 items-center border p-3 rounded-lg mb-4 mx-auto w-full">
+            <!-- Legenda  -->
+            <div class="flex gap-4">
+            <div class="flex items-center gap-2 text-xs">
+                <div class="bg-black h-3 w-3 rounded-full"></div>
+                <span>Em Aberto</span>
+            </div>
 
-            <div><p>Total Vencidas: <span class="font-semibold">R${{ totalVencidas }}</span></p></div>
+            <div class="flex items-center gap-2 text-xs">
+                <div class="bg-green-500 h-3 w-3 rounded-full"></div>
+                <span>Quitadas</span>
+            </div>
 
-            <div><p>Total Em aberto: <span class="font-semibold">R${{ totalEmAberto }}</span></p></div>
+            <div class="flex items-center gap-2 text-xs">
+                <div class="bg-blue-500 h-3 w-3 rounded-full"></div>
+                <span>Quitada com atraso</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-xs">
+                <div class="bg-orange-500 h-3 w-3 rounded-full"></div>
+                <span>Canceladas</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-xs">
+                <div class="bg-red-500 h-3 w-3 rounded-full"></div>
+                <span>Atrasadas</span>
+            </div>
+            </div>
+
+            <!-- Totalizadores -->
+            <div class="flex gap-4">
+            <span class="border rounded px-3 py-1 bg-green-200 text-green-900">
+                <q-icon name="check_circle" color="green-700" class="mr-2" />
+                Recebidas: R$ {{ totalQuitadas }}
+            </span>
+
+            <span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
+                <q-icon name="hourglass_empty" color="orange" />
+                Pendentes: R$ {{ totalEmAberto }}
+            </span>
+
+            <span class="border rounded px-3 py-1 bg-red-300 text-red-900">
+                <q-icon name="warning" color="red" />
+                Atrasadas ( + juros ): R$ {{ totalVencidas }}
+            </span>
+            </div>
         </div>
 
-        <div class="to-receive-register-grid relative overflow-y-auto border rounded-lg shadow-lg">
-            <table class="table-auto border-collapse border border-gray-300 bg-white ">
-                <thead class="font-semibold sticky top-0 z-10">
-                    <tr 
-                        class="text-white"
-                        :style="`background-color: ${painelColor}; color: ${textColor}`"
-                    >
-                        <th scope="col" class="text-center px-6 py-3">Documento</th>
-                        <th class="px-6 py-3 text-center">Descrição</th>
-                        <th class="px-6 py-3 text-center">Qtde Parcela</th>
-                        <th class="px-6 py-3 text-center">Valor</th>
-                        <th class="px-6 py-3 text-center">Cliente</th>
-                        <th class="px-6 py-3 text-center">Cód. Espécie</th>
-                        <th class="px-6 py-3 text-center">Espécie</th>
-                        <th class="px-6 py-3 text-center">Origem</th>
-                        <th class="px-6 py-3 text-center">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(register, id) in receives" :key="register.receiveCod" class="border-t text-center">
-                        <td class="px-6 py-3 text-center">{{ register.document }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.description }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.installmentNumber }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.installmentValue }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.name }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.especieID }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.especie.toUpperCase() }}</td>
-                        <td class="px-6 py-3 text-center">{{ register.origem.toUpperCase() }}</td>
-                        <td class="px-6 py-3 text-center">
-                            <q-btn
-                                @click="manageClick(register.receiveCod, 'update', false)"
-                                icon="edit"
-                                color="green"
-                                class="mr-1"
-                                size="sm"
-                            />
-                            
-                            <q-btn 
-                                @click="manageClick(register.receiveCod, 'view', true)"
-                                icon="visibility"
-                                color="blue"
-                                class="mr-1"
-                                size="sm"
-                            />
+        <div>
+            <q-table
+                :rows="receives"
+                :columns="columns"
+                row-key="receiveCod"
+                flat
+                bordered
+                class="q-mt-md shadow-lg rounded-lg"
+                >
 
-                            <q-btn icon="more_vert" size="sm">
-                                <q-menu>
-                                    <q-list style="min-width: 100px">
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section>Imprimir (A4)</q-item-section>
-                                        </q-item>
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section>Térmica (80mm)</q-item-section>
-                                        </q-item>
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section>Desfazer quitação</q-item-section>
-                                        </q-item>
-                                    </q-list>
-                                </q-menu>
-                            </q-btn>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <template v-slot:header="props">
+                    <q-tr :props="props" :style="`background-color: ${painelColor}; color: white;`">
+                    <q-th
+                        v-for="col in props.cols"
+                        :key="col.name"
+                        :props="props"
+                        :class="`text-${col.align}`">
+                        
+                        {{ col.label }}
+                    </q-th>
+                    </q-tr>
+                </template>
+
+                <template v-slot:body="props">
+                    <q-tr :props="props" :class="getColorReceive(props.row)">
+                        <q-td key="document" :props="props" class="text-left">
+                        {{ props.row.document }}
+                        </q-td>
+
+                        <q-td key="description" :props="props" class="text-left">
+                        {{ props.row.description }}
+                        </q-td>
+
+                        <q-td key="installmentAmount" :props="props" class="text-center">
+                        {{ props.row.installmentAmount }}
+                        </q-td>
+
+                        <q-td key="installmentNumber" :props="props" class="text-center">
+                        {{ props.row.installmentNumber }}
+                        </q-td>
+
+                        <q-td key="installmentValue" :props="props" class="text-right">
+                        R$ {{ Number(props.row.installmentValue).toFixed(2) }}
+                        </q-td>
+
+                        <q-td key="installmentPaid" :props="props" class="text-right">
+                        R$ {{ Number(props.row.installmentPaid).toFixed(2) }}
+                        </q-td>
+
+                        <q-td key="name" :props="props" class="text-left">
+                        {{ props.row.name }}
+                        </q-td>
+
+                        <q-td key="dueDate" :props="props" class="text-center">
+                        {{ props.row.dueDate }}
+                        </q-td>
+
+                        <q-td key="especie" :props="props" class="text-center">
+                        {{ props.row.especie.toUpperCase() }}
+                        </q-td>
+
+                        <q-td key="typeInterest" :props="props" class="text-center">
+                        {{ props.row.typeInterest.toUpperCase() }}
+                        </q-td>
+
+                        <q-td key="interestValue" :props="props" class="text-right">
+                        R$ {{ Number(props.row.interestValue).toFixed(2) }}
+                        </q-td>
+
+                        <q-td key="origem" :props="props" class="text-center">
+                        {{ props.row.origem.toUpperCase() }}
+                        </q-td>
+
+                        <q-td key="status" :props="props" class="text-center">
+                        <q-badge
+                            :color="getStatusBadge(props.row).color"
+                            text-color="white"
+                            class="text-xs"
+                            outline
+                            :label="getStatusBadge(props.row).label"
+                            :icon="getStatusBadge(props.row).icon"
+                        />
+                        </q-td>
+
+                        <q-td key="actions" :props="props" class="text-center">
+                        <q-btn
+                            @click="manageClick(props.row.receiveCod, 'update', false)"
+                            icon="edit"
+                            color="green"
+                            size="sm"
+                            class="q-mr-xs"
+                        />
+                        <q-btn
+                            @click="manageClick(props.row.receiveCod, 'view', true)"
+                            icon="visibility"
+                            color="blue"
+                            size="sm"
+                            class="q-mr-xs"
+                        />
+                        <q-btn icon="more_vert" size="sm">
+                            <q-menu>
+                            <q-list>
+                                <!-- ... opções do menu ... -->
+                            </q-list>
+                            </q-menu>
+                        </q-btn>
+                        </q-td>
+                    </q-tr>
+                    </template>
+            </q-table>
         </div>
+
         <div
             v-if="showReceiveClosing"
             class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
@@ -159,24 +262,26 @@
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs';
+    import { QTableColumn } from "quasar";
     import { api } from "src/boot/axios";
     import { useQuasar } from "quasar";
     import { ref, onMounted, computed } from "vue";
     import { LocalStorage } from "quasar";
-    import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
-    import LoandingPage from "src/components/Loanding/LoandingPage.vue";
-    import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     import camelcaseKeys from "camelcase-keys";
+    import LoandingPage from "src/components/Loanding/LoandingPage.vue";
+    import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
     dayjs.extend(isBetween);
 
     const today = dayjs();
     const $q = useQuasar();
     const loading = ref(false);
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
     const painelColor = ref<string>(LocalStorage.getItem("painelColor"));
-    const textColor = ref<string>(LocalStorage.getItem("textColor"));
+    const filterTypeReceives = ref<'all' | 'aberto' | 'vencidas' | 'quitadas' | 'atrasadas'>('all');
 
     let selectOperation = ref<string>('');
     let selectReadonly = ref<boolean>(false);
@@ -202,7 +307,55 @@
     }
     
     const dateSearch = () => {};
+    //#region Q-TABLE
+    const columns: QTableColumn[] = [
+        { name: 'document', label: 'Documento', field: 'document', align: 'left' },
+        { name: 'description', label: 'Descrição', field: 'description', align: 'left' },
+        { name: 'installmentAmount', label: 'Qtde Parcela', field: 'installmentAmount', align: 'center' },
+        { name: 'installmentNumber', label: 'Nº Parcela', field: 'installmentNumber', align: 'center' },
+        { name: 'installmentValue', label: 'Valor Bruto', field: row => `R$ ${row.installmentValue.toFixed(2)}`, align: 'right' },
+        { name: 'installmentPaid', label: 'Valor Líquido', field: row => `R$ ${row.installmentPaid.toFixed(2)}`, align: 'right' },
+        { name: 'name', label: 'Cliente', field: 'name', align: 'left' },
+        { name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
+        { name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },
+        { name: 'typeInterest', label: 'Tipo Juros', field: 'typeInterest', align: 'center' },
+        { name: 'interestValue', label: 'Valor Juros', field: 'interestValue', align: 'right' },
+        { name: 'origem', label: 'Origem', field: row => row.origem.toUpperCase(), align: 'center' },
+        { name: 'status', label: 'Status', field: row => row.status.toUpperCase(), align: 'center' },
+        { name: 'actions', label: 'Ações', field: 'actions', align: 'center' }
+    ];
 
+    const getStatusBadge = (row: IReceiveBody) => {
+        const isPaid = row.paid;
+        const isLatePayment = isPaid && isLate(row.dueDate);
+        const isVencida = !isPaid && isLate(row.dueDate);
+        const isCancelada = row.status === 'cancelada';
+
+        if (isCancelada) {
+            return { label: 'Cancelada', color: 'orange', icon: 'cancel' };
+        } else if (isPaid && isLatePayment) {
+            return { label: 'Quitada com atraso', color: 'blue', icon: 'schedule' };
+        } else if (isPaid) {
+            return { label: 'Quitada', color: 'green', icon: 'check_circle' };
+        } else if (isVencida) {
+            return { label: 'Atrasada', color: 'red', icon: 'warning' };
+        } else {
+            return { label: 'Em Aberto', color: 'grey', icon: 'hourglass_empty' };
+        }
+    };
+
+    const getColorReceive = (row: IReceiveBody): string => {
+        const isPaid = row.paid;
+        const isVencida = dayjs(row.dueDate).isBefore(dayjs(), 'day');
+        const isCancelada = row.status === 'cancelada';
+
+        if(isCancelada) return 'text-orange-600';
+        if(isPaid && isVencida) return 'text-blue-600';
+        if(isPaid && !isVencida) return 'texte-green-600';
+        if (!isPaid && isVencida) return 'text-red-600';
+        return 'text-black';
+    };
+    //#endregion
     const manageClick = (receiveCod: number, action: string, readonly: boolean) => {
         selectedReceiveCod.value = receiveCod;
         selectOperation.value = action;
@@ -225,18 +378,37 @@
 
     const totalVencidas = computed(() => 
         receives.value.reduce((acc, r) => {
-            const vencida = !r.paid && dayjs(r.dueDate).isBefore(dayjs());
+            const vencida = !r.paid && dayjs(r.dueDate).isBefore(dayjs(), 'day');
             return acc + (vencida ? r.installmentValue : 0);
         }, 0)
     );
 
-    const totalEmAberto = computed(() => 
-        receives.value.reduce((acc, r) => {
-            const emAberto = !r.paid && !dayjs(r.dueDate).isBefore(dayjs());
-            return acc + (emAberto ? r.installmentValue : 0);
-        }, 0)
-    );
-        
+    const totalEmAberto = computed(() => {
+        const total = receives.value
+            .filter(inst => !inst.paid && !isLate(inst.dueDate))
+            .reduce((sum, inst) => sum + Number(inst.installmentValue || 0), 0);
+
+        return total.toFixed(2);
+    });
+
+    const isLate = (dueDate: string): boolean => {
+        return dayjs(dueDate).isBefore(dayjs(), 'day');
+    };
+    
+    const parseCurrency = (value: number): number =>
+    {
+        if (!value) return 0;
+
+        return parseFloat(
+            value
+            .toString()
+            .replace(/\s/g, '')
+            .replace('R$', '')
+            .replace(/\./g, '')
+            .replace(',', '.')
+        ) || 0;
+    };
+
     onMounted(() => {
         getRegister();
         widthScreen.value = screen.width;
@@ -252,28 +424,6 @@
         height: 90vh;
     }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    thead {
-        background-color: #f3f4f6;
-    }
-
-    tbody tr:hover {
-        background-color: #f9fafb;
-    }
-
-    th, td {
-        padding: 0.75rem;
-        text-align: left;
-    }
-
-    th {
-        font-weight: bold;
-        text-transform: uppercase;
-    }
 
     button {
         transition: background-color 0.3s ease;

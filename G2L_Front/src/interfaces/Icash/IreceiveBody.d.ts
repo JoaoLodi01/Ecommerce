@@ -20,5 +20,6 @@ interface IReceiveBody {
     discount: number;
     valueEntry: number;
     valuePaid: number;
+    status: string;
     paid: boolean;
 }

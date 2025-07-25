@@ -20,6 +20,7 @@ class Receive extends Model
         'chart_of_account_code',
         'cost_center_code',
         'name',
+        'status',
         'especie',
         'due_date',
         'installment_amount',   // Quantidade de parcelas

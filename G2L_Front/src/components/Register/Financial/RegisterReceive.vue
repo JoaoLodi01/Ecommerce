@@ -255,6 +255,7 @@
         valueEntry: 0,
         valuePaid: 0,
         origem: 'Receber (Manual)',
+        status: 'Em aberto',
         paid: false,
 
     });
@@ -279,6 +280,7 @@
                 valueEntry: form.value.valueEntry,
                 valuePaid: form.value.valuePaid,
                 origem: form.value.origem,
+                status: form.value.status,
                 installments: toRaw(installments.value),
             };
 
