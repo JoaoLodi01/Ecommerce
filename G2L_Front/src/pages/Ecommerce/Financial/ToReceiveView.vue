@@ -31,6 +31,12 @@
                 <q-btn
                     class="p-2 rounded-lg"
                     :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+                    label="Relatórios"
+                />
+
+                <q-btn
+                    class="p-2 rounded-lg"
+                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
                     @click="manageClick(0, 'register', false)"
                     label="Cadastrar"
                 />
@@ -147,7 +153,7 @@
                         :key="col.name"
                         :props="props"
                         :class="`text-${col.align}`">
-                        
+
                         {{ col.label }}
                     </q-th>
                     </q-tr>
