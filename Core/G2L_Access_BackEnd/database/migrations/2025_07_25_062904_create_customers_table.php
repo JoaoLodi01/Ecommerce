@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('full_name', 120);
-            $table->string('email', 120);
-            $table->string('cpf', 11);
+            $table->string('email', 120)->unique();
+            $table->string('cpf', 11)->unique();
+            $table->timestamp('active_license');
             $table->boolean('pay')->default(0);
             $table->boolean('active')->default(1);
 

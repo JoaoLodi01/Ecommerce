@@ -58,7 +58,6 @@ export default boot(({ app, router }) => {
 
       ];
       
-      // Corrigido: verifica se a URL da requisição é pública
       const requestUrl = error.config?.url || '';
       const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
       console.error(error)

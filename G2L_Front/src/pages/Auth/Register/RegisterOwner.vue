@@ -159,6 +159,7 @@
     import PasswordIcon from 'src/components/Icons/PasswordIcon.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import dayjs from 'dayjs';
+import { createCustomerInAccess } from 'src/services/Access/AccessAdminService';
 
     interface IOwnerData
     {
@@ -174,6 +175,7 @@
         (e: 'isLogin', value: boolean)
     }>();
 
+    const access = process.env.API_ACCESS_URL;
     const $q = useQuasar();
     const router = useRouter();
     const today = dayjs();
@@ -222,67 +224,73 @@
     const createAccount = async () =>
     {
         showLoanding.value = true;
-        const res = await api.post('/registers/owner/create', {
-            name: form.value.name,
-            surname: form.value.surname,
-            cpf: form.value.cpf.replace(/\D/g, ''),
-            email: form.value.email.toLowerCase(),
-            password: form.value.password
-            
-        });
 
-        const data = res.data;
-        
         try {
-            if(data.success)
+            //http://192.168.1.105:8080/api/v1/access/customers/create
+            //http://192.168.1.105:8080/api/v1/access/customers/create
+            
+            const customerData: ICustomerData = {
+                fullName: form.value.name + ' ' + form.value.surname,
+                email: form.value.email,
+                cpf: form.value.cpf
+            };
+
+            const createAccess: boolean = await createCustomerInAccess(customerData);
+
+            if(createAccess)
             {
-                $q.notify({
-                    color: 'green',
-                    message: res.data.message,
-                    timeout: 1200,
-                    position: 'top'
-                
+                const res = await api.post('/registers/owner/create', {
+                    name: form.value.name,
+                    surname: form.value.surname,
+                    cpf: form.value.cpf.replace(/\D/g, ''),
+                    email: form.value.email.toLowerCase(),
+                    password: form.value.password
+                    
                 });
 
-                // 'Login'
-                const details = { email: data.data.email, password: form.value.password };
+                const data = res.data;
                 
-                const login = await api.post("/auth/owner", details);
-              
-                if(login.data.success)
+                if(data.success)
                 {
-                    console.log()
-                    LocalStorage.set("auth_token", login.data.token);
-                    LocalStorage.set("owner_name", login.data.user.name);
-                    LocalStorage.set("owner_cpf", login.data.user.cpf);
-
-                    LocalStorage.set("user_id", login.data.user.user_code);
-                    LocalStorage.set("user_name", login.data.user.name);
-                    LocalStorage.set("uuse_id", login.data.uuse_id);
+                    // 'Login'
+                    const details = { email: data.data.email, password: form.value.password };
                     
-                    const expire = today.add(8, 'hours');
+                    const login = await api.post("/auth/owner", details);
+                
+                    if(login.data.success)
+                    {
+                        LocalStorage.set("auth_token", login.data.token);
+                        LocalStorage.set("owner_name", login.data.user.name);
+                        LocalStorage.set("owner_cpf", login.data.user.cpf);
 
-                    LocalStorage.set("expire", expire.toISOString());
-
-                    $q.notify({
-                        color: 'green',
-                        message: 'Login bem sucedido!',
-                        position: 'top',
-                        timeout: 2000
+                        LocalStorage.set("user_id", login.data.user.user_code);
+                        LocalStorage.set("user_name", login.data.user.name);
+                        LocalStorage.set("uuse_id", login.data.uuse_id);
                         
-                    });
+                        const expire = today.add(8, 'hours');
 
-                    router.push('/companies')
+                        LocalStorage.set("expire", expire.toISOString());
 
-                } else {
-                    $q.notify({
-                        color: 'red',
-                        message: 'Erro no login',
-                        position: 'top',
-                        timeout: 2000
-                    })
+                        $q.notify({
+                            color: 'green',
+                            message: 'Login bem sucedido!',
+                            position: 'top',
+                            timeout: 2000
+                            
+                        });
+
+                        router.push('/companies')
+
+                    } else {
+                        $q.notify({
+                            color: 'red',
+                            message: 'Erro no login',
+                            position: 'top',
+                            timeout: 2000
+                        })
+                    };
                 };
-            } 
+            };
             
         } catch (error) {
             console.error('Erro na criação ou login: ', error)
@@ -322,6 +330,7 @@
         form.value.password = '',
         form.value.password_ = '',
         showContent.value = true;
+        console.log(`${access}/customers/create`);
     });
 </script>
 

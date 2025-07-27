@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Services\Users\UserService;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -30,6 +31,12 @@ class AuthController extends Controller
                 'token' => $token,
                 'user' => $user
             ]);
-        }
+            
+        } else if(!$user) {
+            throw new Exception('Usuário não encontrado!');
+
+        } else {
+            throw new Exception('Credencias incorretas do login!');
+        };
     }
 }
