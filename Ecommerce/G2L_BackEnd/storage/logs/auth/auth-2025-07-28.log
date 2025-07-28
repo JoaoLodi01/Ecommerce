@@ -1,0 +1,21 @@
+[2025-07-28 14:10:19] local.INFO: data gabikochem55@gmail.com  
+[2025-07-28 14:10:19] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem Ichazo","cpf":"08805166901","email":"gabikochem55@gmail.com","password":"$2y$12$eZReJzDMOMArVG.M9k\/OS.xCcBIQw2HyZpGd4ANxQcAAphKi0UA.K","access":null,"uuse_id":"ekzJns4sOx","is_owner":0,"active":1,"created_at":"2025-07-28T03:09:25.000000Z","updated_at":"2025-07-28T03:09:25.000000Z"}  
+[2025-07-28 14:10:20] local.INFO: Passou o login, token: 2|Pqzd0TGXhJDrsJysel19gtuFEUKEac5bHFXBLBfs294c535b  
+[2025-07-28 14:35:20] local.INFO: data a@a  
+[2025-07-28 14:35:20] local.INFO: user {"id":2,"user_code":2,"name":"Teste","surname":"dkfgdkfekfe","cpf":"11111111111","email":"a@a","password":"$2y$12$ni\/V6S0P06Q2CVQ\/Oc8ELeLnXIr3kDNVn\/gVxiFh0V4cjsABtGgxm","access":null,"uuse_id":"C0J0lTivTl","is_owner":0,"active":1,"created_at":"2025-07-28T14:35:20.000000Z","updated_at":"2025-07-28T14:35:20.000000Z"}  
+[2025-07-28 14:35:21] local.INFO: Passou o login, token: 3|VM6TmWYNKXj4xmNui7njaCwOZSBoqTQKwfLXpm188cf0a501  
+[2025-07-28 14:50:05] local.INFO: data b@b  
+[2025-07-28 14:50:05] local.INFO: user {"id":3,"user_code":3,"name":"aaaaaaaaaa","surname":"bbbbbbbbbbb","cpf":"22222222222","email":"b@b","password":"$2y$12$CA4fVcVmZEhUH1eS8bzH3eyqj1MjYLmzgwtHjvI4WMUX\/\/6qo82Q.","access":null,"uuse_id":"YiZEe6m0tl","is_owner":0,"active":1,"created_at":"2025-07-28T14:50:05.000000Z","updated_at":"2025-07-28T14:50:05.000000Z"}  
+[2025-07-28 14:50:05] local.INFO: Passou o login, token: 4|tsaA9yzMpubSfL9lzN4LMz24xbyL9cY2LPeoXJwU83237305  
+[2025-07-28 14:51:05] local.INFO: data c@c  
+[2025-07-28 14:51:05] local.INFO: user {"id":4,"user_code":4,"name":"ddddddd","surname":"dddddddddddd","cpf":"33333333333","email":"c@c","password":"$2y$12$CMZ6uQLyJIZcFJEWxP57JeI2\/xwuxUb1pKx0HvB9MDlXfvOSXj9ky","access":null,"uuse_id":"rvB47WfH6G","is_owner":0,"active":1,"created_at":"2025-07-28T14:51:04.000000Z","updated_at":"2025-07-28T14:51:04.000000Z"}  
+[2025-07-28 14:51:05] local.INFO: Passou o login, token: 5|UWWtya0oQcfmv9zQiAf3LKTCUcDxKjJ7Sr9RrTGP0a788351  
+[2025-07-28 14:53:12] local.INFO: data d@d  
+[2025-07-28 14:53:12] local.INFO: user {"id":5,"user_code":5,"name":"fffffffff","surname":"fffffffffffffffffff","cpf":"55555555555","email":"d@d","password":"$2y$12$dUJGDpblGp6bPZCbPOiGkO5L4r23RJVmTJ9oxIIc3AIxUyOk7HDRO","access":null,"uuse_id":"LZPFLHROL9","is_owner":0,"active":1,"created_at":"2025-07-28T14:53:12.000000Z","updated_at":"2025-07-28T14:53:12.000000Z"}  
+[2025-07-28 14:53:12] local.INFO: Passou o login, token: 6|BlOjxHaqZSVi3LcyZVFDmaxVFVO0m4Lwm7rwuh4tb8d5d3df  
+[2025-07-28 14:55:44] local.INFO: data 76@a  
+[2025-07-28 14:55:44] local.INFO: user {"id":6,"user_code":6,"name":"55556gyf","surname":"gfddfggfd","cpf":"88888888888","email":"76@a","password":"$2y$12$HyXilhmNA4HVAkDa5FqkYenR9VKxk07nXLwu7Z70ewPhBeOWA3q5.","access":null,"uuse_id":"JqBRrBJj1P","is_owner":0,"active":1,"created_at":"2025-07-28T14:55:44.000000Z","updated_at":"2025-07-28T14:55:44.000000Z"}  
+[2025-07-28 14:55:45] local.INFO: Passou o login, token: 7|5RyLDx9iuIBJt77minxkJ1qHpmTbZnYvUSq4LLQW8bb0b9c1  
+[2025-07-28 14:56:28] local.INFO: data gabikochem55@gmail.com  
+[2025-07-28 14:56:28] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem Ichazo","cpf":"08805166901","email":"gabikochem55@gmail.com","password":"$2y$12$eZReJzDMOMArVG.M9k\/OS.xCcBIQw2HyZpGd4ANxQcAAphKi0UA.K","access":null,"uuse_id":"ekzJns4sOx","is_owner":0,"active":1,"created_at":"2025-07-28T03:09:25.000000Z","updated_at":"2025-07-28T03:09:25.000000Z"}  
+[2025-07-28 14:56:28] local.INFO: Passou o login, token: 8|UgUYk9MsmScP66clMrZsBTSqrF231dolnkeQ9ses8d4c68f1  

@@ -7,6 +7,7 @@ use App\Models\Customer;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
+setlocale(LC_TIME, 'pt_BR.utf-8');
 class CustomerRepository implements CustomerContract
 {
     public function all()
@@ -16,11 +17,12 @@ class CustomerRepository implements CustomerContract
 
     public function create(array $data)
     {
-        $date = new Carbon();
+        $date = Carbon::now('America/Sao_Paulo');
+
         $customer = Customer::create([
             'full_name' => $data['fullName'],
             'email' => $data['email'],
-            'expire_license' => $date->addDays(30)->format('Y-m-d'),
+            'expire_license' => $date->addMonths(1),
             'cpf' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cpf'])
             
         ]);

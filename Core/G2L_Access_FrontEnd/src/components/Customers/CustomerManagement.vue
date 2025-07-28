@@ -129,19 +129,21 @@
 
                     <q-separator color="grey"/>
 
-                    <q-btn 
-                        class="mt-2"
-                        color="red"
-                        label="Desabilitar cliente" 
-                        
-                    />
+                    <div v-if="props.operation === 'update'">
+                        <q-btn 
+                            class="mt-2"
+                            color="red"
+                            label="Desabilitar cliente" 
+                            
+                        />
 
-                    <q-btn 
-                        class="mt-2 ml-4"
-                        color="grey"
-                        label="Congelar cliente" 
-                        
-                    />
+                        <q-btn 
+                            class="mt-2 ml-4"
+                            color="grey"
+                            label="Congelar cliente" 
+                            
+                        />
+                    </div>
                 </div>
 
                 <div v-if="props.operation === 'update'">
@@ -210,7 +212,7 @@
     {
         const res = await api.get(`/access/customers/find/${props.customerID}`);
         const count = await apiEcommerce.get(`/access/count-companies/${props.customerID}`);
-        
+
         countCompanies.value = count.data.data;
         
         const data: ICustomers = camelcaseKeys(res.data.data, { deep: true });

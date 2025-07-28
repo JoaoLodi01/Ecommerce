@@ -21,7 +21,7 @@ return new class extends Migration
             $table->float('monthly_fee', 16,2);
             $table->boolean('pay')->default(0);
             $table->boolean('hotel')->default(0);
-            $table->boolean('ecommerce')->default(0);
+            $table->boolean('ecommerce')->default(1);
             $table->boolean('site')->default(0);
             $table->boolean('active')->default(1);
 

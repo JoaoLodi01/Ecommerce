@@ -59,12 +59,12 @@
                             v-bind:mask="'###.###.###-##'"
                             maxlength="14"
                             outlined
+                            @update:model-value="checkCPF"
                             :rules="[
                                 val => {
                                     if(!val) return 'Preencha seu CPF!';
                                     return validateCPF(val) || 'CPF Inválido!';
-                                }
-                                        
+                                }        
                             ]"
 
                         />
@@ -159,7 +159,8 @@
     import PasswordIcon from 'src/components/Icons/PasswordIcon.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import dayjs from 'dayjs';
-import { createCustomerInAccess } from 'src/services/Access/AccessAdminService';
+    import { createCustomerInAccess } from 'src/services/Access/AccessAdminService';
+    import checkExistsCPF from 'src/services/CPF/checkExistsCPF';
 
     interface IOwnerData
     {
@@ -323,7 +324,13 @@ import { createCustomerInAccess } from 'src/services/Access/AccessAdminService';
         const isEqual = confirmPassword === password ? true : 'As senhas devem ser iguais!';
         return isEqual;
 
-    }
+    };
+
+    const checkCPF = async (cpf: string) =>
+    {
+        return await checkExistsCPF(cpf);
+    
+    };
 
     onMounted(() => {
         firstData.value = false;

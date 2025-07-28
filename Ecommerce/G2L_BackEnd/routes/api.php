@@ -232,11 +232,13 @@ Route::prefix('v1')->group( function (){
     });
 
     Route::prefix('registers')->group( function(){
+        Route::post('users/create', [UserController::class, 'create']);
         Route::post('owner/create', [RegisterUserController::class, 'create']);
+        Route::get('owner/last-cpf/{cpf}', [RegisterUserController::class, 'existsCPF']);
+
         Route::post('issuer/create', [RegisterIssuerController::class, 'create']);
         Route::get('issuer/last-cnpj/{cnpj}', [RegisterIssuerController::class, 'existsCNPJ']);
         Route::get('issuer/last-cpf/{cpf}', [RegisterIssuerController::class, 'existsCPF']);
-        Route::post('users/create', [UserController::class, 'create']);
     });
 
     Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('password.email');

@@ -22,4 +22,10 @@ class RegisterUserController extends Controller
     {
         return $this->registerUserService->find($id);
     }
+
+    public function existsCPF(int $cpf)
+    {
+        return apiSuccess('CPF não cadastrado', $this->registerUserService->existsCPF($cpf));
+
+    }
 }

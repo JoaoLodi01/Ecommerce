@@ -13,6 +13,8 @@
     "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
+      "pages/*": ["src/pages/*"],
+      "layouts/*": ["src/layouts/*"],
       "src/*": ["src/*"],
       "#q-app/*": ["src/*"]
 
@@ -22,6 +24,7 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.vue",
+    "src/*",
     "src/types"
   ]
 }

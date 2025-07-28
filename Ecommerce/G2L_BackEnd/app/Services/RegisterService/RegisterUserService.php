@@ -58,4 +58,10 @@ class RegisterUserService
         }
 
     }
+
+    public function existsCPF(int $cpf): bool
+    {
+        $exists = $this->registerUserRepository->existsCPF($cpf);
+        return $exists;
+    }
 }

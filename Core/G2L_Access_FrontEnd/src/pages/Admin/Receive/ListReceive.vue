@@ -1,19 +1,14 @@
 <template>
-    <div class="ml-14 mt-2">
+    <div class="ml-14">
         <div>
             <div class="flex">
-                <h1 class="text-2xl mb-6 mt-6 border-b w-max">Clientes</h1>
+                <h1 class="text-2xl mb-6 mt-6 border-b w-max">Recebimentos</h1>
 
                 <div class="flex gap-2 border ml-12 p-5 h-max mt-auto mb-auto rounded-lg">
                         
                     <div class="flex gap-2 text-xs">
                         <div class="bg-green-500 h-3 w-3 rounded-full mt-auto mb-auto"></div>
-                        <span>Liberados</span>
-                    </div>
-                    
-                    <div class="flex gap-2 text-xs">
-                        <div class="bg-blue-500 h-3 w-3 rounded-full mt-auto mb-auto"></div>
-                        <span>Período teste</span>
+                        <span>Pagos</span>
                     </div>
                     
                     <div class="flex gap-2 text-xs">
@@ -27,13 +22,13 @@
                     </div>
                     
                     <div class="flex gap-2 text-xs">
-                        <div class="bg-gray-500 h-3 w-3 rounded-full mt-auto mb-auto"></div>
-                        <span>Congelados</span>
+                        <div class="bg-blue-500 h-3 w-3 rounded-full mt-auto mb-auto"></div>
+                        <span>Pago com atraso</span>
                     </div>
                     
                     <div class="flex gap-2 text-xs">
                         <div class="bg-yellow-500 h-3 w-3 rounded-full mt-auto mb-auto"></div>
-                        <span>Desativados</span>
+                        <span>Atrasado</span>
                     </div>
                 </div>
 
@@ -67,8 +62,7 @@
                             :key="col.name"
                             :props="props"
                             :class="{
-                                'text-green-500': props.row.activeLicense === 'Liberado' && col.name !== 'actions', 
-                                'text-blue-500': col.name === 'actions'
+                                'text-green-500': props.row.activeLicense === 'Liberado', 
 
                             }"
                         >  
@@ -78,7 +72,7 @@
                                         <q-icon name="visibility" />
                                         
                                     </div>
-                                    
+                                                                        
                                     <div @click="management('update', props.row.id)" class="cursor-pointer rounded p-1 hover:bg-gray-100">
                                         <q-icon name="edit" />
                                         
@@ -95,6 +89,7 @@
                 </template>
             </q-table>
         </div>
+        
     </div>
     <q-dialog 
         v-model="showCustomerManagement" 
@@ -110,13 +105,12 @@
             
         </q-card>
     </q-dialog>
-    
 </template>
 
 <script setup lang="ts">
     import { QTableColumn, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
-    import { onMounted, proxyRefs, ref, watch } from 'vue';
+    import { onMounted, ref, watch } from 'vue';
     import { formatCPFField } from 'src/util/formatCPF';
     import camelcaseKeys from 'camelcase-keys';
     import CustomerManagement from 'src/components/Customers/CustomerManagement.vue';
@@ -215,14 +209,24 @@
         customers.value = [...allCustomers.value];
         
     };
-
+    
     const management = (operation: string, customerID: number) =>
     {
         typeOperation.value = operation;
-        showCustomerManagement.value = true;
-        selectedCustomerID.value = customerID;
-        console.log('selectedCustomerID.value: ', selectedCustomerID.value);
-        console.log('customerID: ', customerID);
+        if(customerID !== 0)
+        {
+            showCustomerManagement.value = true;
+            selectedCustomerID.value = customerID;
+
+        } else {
+            $q.notify({
+                color: 'red',
+                message: 'ID do cliente informado incorretamente',
+                position: 'top',
+                timeout: 1200
+
+            });
+        };
     };
 
     onMounted(() => {
