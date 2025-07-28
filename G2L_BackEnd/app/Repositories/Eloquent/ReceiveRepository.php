@@ -65,6 +65,7 @@ class ReceiveRepository
                 'especie_code' => $specie->payment_code,
                 'especie' =>  $specie->especie,
                 'name' => $nameCustomer,
+                'status' => $receiveRegister['status'],
                 'due_date' => $installment['dueDate'],
                 'installment_amount' => $receiveRegister['installmentAmount'],
                 'installment_number' => $installment['installmentNumber'],

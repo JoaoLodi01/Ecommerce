@@ -13,6 +13,7 @@ interface IReceiveBody {
     especieID: number;
     especie: string;
     dueDate: string;
+    paidDate: string;
     origem: string;
     typeInterest: string;
     interestValue: number;
@@ -22,4 +23,5 @@ interface IReceiveBody {
     valuePaid: number;
     status: string;
     paid: boolean;
+    installments: [];
 }

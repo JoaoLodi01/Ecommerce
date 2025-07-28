@@ -84,7 +84,6 @@
     import { ref, defineProps, defineEmits, computed, onMounted, watch } from 'vue';
     import dayjs from 'dayjs';
 
-
     type TinstallmentsData = {
         installmentNumber: number;
         installmentAmount: number;
@@ -95,15 +94,9 @@
         paymentDate?: string;
     };
 
-
-    const emits = defineEmits<{
-        (e: 'installmentsGenerated', value: TinstallmentsData[]),
-        (e: 'existsInstallments', value: boolean)
-
-    }>();
-
     const props = defineProps<{
         installments: TinstallmentsData[];
+        selectedRegister?: IReceiveBody | null;
         pdv?: boolean,
         amount: number,
         originalValue: number,
@@ -112,8 +105,15 @@
         action: string,
     }>();
 
-    let installmentsData = ref<TinstallmentsData[]>(props.installments || []);
-
+    
+    const emits = defineEmits<{
+        (e: 'installmentsGenerated', value: TinstallmentsData[]),
+        (e: 'existsInstallments', value: boolean)
+        
+    }>();
+    
+    const installmentsData = ref<TinstallmentsData[]>([]);
+    
     const generateInstallments = async () =>
     {
         let receiveAmount = props.amount;
@@ -125,6 +125,7 @@
             return;
         }
 
+        installmentsData.value = [];
         for(let i = 1; i < receiveAmount + 1; i++)
         {
             installmentsData.value.push({
@@ -172,11 +173,15 @@
         deleteInstallments,
     });
 
-    watch(
-        () => props.installments,
-        (newVal) => {
-            installmentsData.value = [...newVal];
+    onMounted(() => {
+        if ((props.action === 'view' || props.action === 'update') && props.selectedRegister) {
+            installmentsData.value = [...props.selectedRegister.installments];
         }
-    );
+    });
+
+    watch(() => props.installments, (newInstallments) => {
+        installmentsData.value = [...(newInstallments || [])];
+    }, { immediate: true });
+
 
 </script>
