@@ -1,26 +1,26 @@
 main() {
-    frontend_path_1="D:/Gabriel/Projetos/SGBR/1_G2L_DevHouse/G2L_Front"
-    api_path_1="D:/Gabriel/Projetos/SGBR/1_G2L_DevHouse/G2L_BackEnd"
+    frontend_path_1="D:/Gabriel/Projetos/G2L_DevHouse/Ecommerce/G2L_Front"
+    api_path_1="D:/Gabriel/Projetos/G2L_DevHouse/Ecommerce/G2L_BackEnd"
 
-    frontend_path_2="D:/Gabriel/Projetos/SGBR/1_G2L_DevHouse/Core/G2L_Access_FrontEnd"
-    api_path_2="D:/Gabriel/Projetos/SGBR/1_G2L_DevHouse/Core/G2L_Access_BackEnd"
+    frontend_path_2="D:/Gabriel/Projetos/G2L_DevHouse/Core/G2L_Access_FrontEnd"
+    api_path_2="D:/Gabriel/Projetos/G2L_DevHouse/Core/G2L_Access_BackEnd"
 
     # Tenta no C:
     if [ ! -d "$frontend_path_1" ]; then
-        frontend_path_1="C:/Gabriel/Projetos/SGBR/1_G2L_DevHouse/G2L_Front"
+        frontend_path_1="C:/Gabriel/Projetos/G2L_DevHouse/Ecommerce/G2L_Front"
     fi
 
     if [ ! -d "$api_path_1" ]; then
-        api_path_1="C:/Gabriel/Projetos/SGBR/1_G2L_DevHouse/G2L_BackEnd"
+        api_path_1="C:/Gabriel/Projetos/G2L_DevHouse/Ecommerce/G2L_BackEnd"
     fi
     #-----------------------------------------------------------------
 
     if [ ! -d "$frontend_path_2" ]; then
-        frontend_path_2="C:/Gabriel/Projetos/SGBR/1_G2L_DevHouse/Core/G2L_Access_FrontEnd"
+        frontend_path_2="C:/Gabriel/Projetos/G2L_DevHouse/Core/G2L_Access_FrontEnd"
     fi
 
     if [ ! -d "$api_path_2" ]; then
-        api_path_2="C:/Gabriel/Projetos/SGBR/1_G2L_DevHouse/Core/G2L_Access_BackEnd"
+        api_path_2="C:/Gabriel/Projetos/G2L_DevHouse/Core/G2L_Access_BackEnd"
     fi
     #-----------------------------------------------------------------
     

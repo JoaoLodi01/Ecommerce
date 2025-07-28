@@ -7,11 +7,15 @@
                 <div class="mb-12">
                     <span>Usuário logado</span>
                     <br>
-                    <span>A</span>
+                    <span>{{ LocalStorage.getItem("user") }}</span>
                 </div>
 
                 <div class="">
                     <span>Clientes</span>
+                </div>
+                
+                <div class="">
+                    <span>Recebimentos</span>
                 </div>
             </div>  
         </div>
@@ -24,7 +28,8 @@
 </template>
 
 <script setup lang="ts">
-    import { ref } from 'vue';
+    import { LocalStorage } from 'quasar';
+import { ref } from 'vue';
     
     
     const leftDrawerOpen = ref(false);

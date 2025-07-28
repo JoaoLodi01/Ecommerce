@@ -15,6 +15,7 @@ declare module 'vue' {
 // "export default () => {}" function below (which runs individually
 // for each client)
 const api = axios.create({ baseURL: process.env.API_URL });
+const apiEcommerce = axios.create({ baseURL: process.env.API_URL_ECOMMERCE });
 
 export default defineBoot(({ app, router }) => {
     api.interceptors.request.use(
@@ -31,7 +32,6 @@ export default defineBoot(({ app, router }) => {
 
             if(token)
             {
-                console.log(token);
                 config.headers.Authorization = `Bearer ${token}`;
             };
 
@@ -44,23 +44,36 @@ export default defineBoot(({ app, router }) => {
             return config;
         },
         (error) => {
-            console.error('Erro na API: ', error);
+            console.error('Erro na API: ', error.response.data.message);
             const errorMessage = error.response?.message || error.response?.data.message || 'Erro na API'
 
-            app.config.globalProperties.$q.notify({
-                color: 'red',
-                message: errorMessage,
-                position: 'top',
-                timeout: 2000
-            });
+            if(error.response.data.message === 'Unauthenticated.')
+            {
+                app.config.globalProperties.$q.notify({
+                    color: 'red',
+                    message: 'Usuário não autenticado!',
+                    position: 'top',
+                    timeout: 2000
+                });
+            };
+
+            if(error.response.data.message !== 'Unauthenticated.')
+            {
+                app.config.globalProperties.$q.notify({
+                    color: 'red',
+                    message: errorMessage,
+                    position: 'top',
+                    timeout: 2000
+                });
+            };
         }
     )
   
     app.config.globalProperties.$axios = axios;
     
-
     app.config.globalProperties.$api = api;
+    app.config.globalProperties.$apiEcommerce = apiEcommerce;
     
 });
 
-export { api };
+export { api, apiEcommerce };
