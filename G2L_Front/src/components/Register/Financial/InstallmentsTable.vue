@@ -95,6 +95,7 @@
     };
 
     const props = defineProps<{
+        receiveCode?: number;
         installments: TinstallmentsData[];
         selectedRegister?: IReceiveBody | null;
         pdv?: boolean,
@@ -145,6 +146,16 @@
         console.log(installmentsData);
     };
 
+    const getReceives = async (receiveCode: number) => {
+        try {
+            const res = await api.get(`/ecommerce/receive/installments/${receiveCode}`);
+            installmentsData.value = res.data || [];
+        } catch (error) {
+            console.error('Erro ao buscar parcelas: ', error);
+            installmentsData.value = [];
+        }
+    }
+
     const payOffIstallment = (installment) => {
         installment.paid = true;
         installment.paymentDate = dayjs().format('YYYY-MM-DD');
@@ -179,9 +190,11 @@
         }
     });
 
-    watch(() => props.installments, (newInstallments) => {
-        installmentsData.value = [...(newInstallments || [])];
+    watch(() => props.receiveCode, (newVal) => {
+    if (newVal) {
+        getReceives(newVal);
+    } else {
+        installmentsData.value = [];
+    }
     }, { immediate: true });
-
-
 </script>

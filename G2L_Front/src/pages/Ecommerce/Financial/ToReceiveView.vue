@@ -6,10 +6,8 @@
 		/>
 	</div>
 
-	<div
-		v-if="showPage"
-		class="mt-10 mb-5 p-6 bg-white rounded-lg shadow-lg mx-auto w-[90%] max-w-[1400px]"
-	>
+	<div v-if="showPage" class="mt-10 mb-5 p-6 bg-white rounded-lg shadow-lg mx-auto w-[90%] max-w-[1400px]">
+
 		<div class="flex justify-between items-center mb-6">
 			<h1 class="text-2xl font-semibold">Receber</h1>
 			<div class="flex space-x-4">
@@ -46,14 +44,137 @@
 			</div>
 		</div>
 
+		<div class="filterDate flex  gap-4 items-end mb-6 p-3 border border-gray-300 rounded-lg w-full md:w-max">
+			<div class="flex gap-2">
+				<q-input
+				class="cursor-text"
+				type="date"
+				v-model="startDate"
+				label="Data Inicial"
+				/>
+
+				<q-input
+				class="cursor-text"
+				type="date"
+				v-model="endDate"
+				label="Data Final"
+				/>
+			</div>
+
+				<q-btn-dropdown
+					class="h-10"
+					:label="getDateFilter"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+					flat
+					dropdown-icon="arrow_drop_down">
+
+					<q-list dense>
+						<q-item
+							v-for="option in dateFilterOptions"
+							:key="option.value"
+							clickable
+							v-close-popup
+							@click="dateFilterField = option.value">
+								<q-item-section>
+									{{ option.label }}
+								</q-item-section>
+						</q-item>
+					</q-list>
+				</q-btn-dropdown>
+
+				<q-btn-dropdown
+					class="h-10"
+					:label="getStatusLabel"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+					flat
+					dropdown-icon="arrow_drop_down">
+
+					<q-list dense>
+						<q-item
+							v-for="option in statusFilterOptions"
+							:key="option.value"
+							clickable
+							v-close-popup
+							@click="statusFilterField = option.value">
+								<q-item-section>
+									{{ option.label }}
+								</q-item-section>
+						</q-item>
+					</q-list>
+				</q-btn-dropdown>
+
+				<q-btn
+					class="transition text-white h-10"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+					label="Limpar"
+					@click="clearFilters"
+				/>
+
+				<q-btn
+					class="transition text-white h-10"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+					label="Filtrar"
+					@click="applyFilters"
+				/>
+				</div>
+
+		<div class="flex flex-col md:flex-row md:justify-between gap-4 items-center border p-3 rounded-lg mb-4 mx-auto w-full">
+
+			<!-- Legenda  -->
+			<div class="flex gap-4">
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-black h-3 w-3 rounded-full"></div>
+					<span>Em Aberto</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-green-500 h-3 w-3 rounded-full"></div>
+					<span>Quitadas</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-blue-500 h-3 w-3 rounded-full"></div>
+					<span>Quitada com atraso</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-orange-500 h-3 w-3 rounded-full"></div>
+					<span>Canceladas</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-red-500 h-3 w-3 rounded-full"></div>
+					<span>Atrasadas</span>
+				</div>
+			</div>
+
+			<!-- Totalizadores -->
+			<div class="flex gap-4">
+				<span class="border rounded px-3 py-1 bg-green-200 text-green-900">
+					<q-icon name="check_circle" color="green-700" class="mr-2 mb-1" />
+					Recebidas: R$ {{ totalQuitadas }}
+				</span>
+
+				<span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
+					<q-icon name="hourglass_empty" color="orange" class="mr-2 mb-1" />
+					Pendentes: R$ {{ totalEmAberto }}
+				</span>
+
+				<span class="border rounded px-3 py-1 bg-red-300 text-red-900">
+					<q-icon name="warning" color="red" class="mr-2 mb-1" />
+					Atrasadas ( + juros ): R$ {{ totalVencidas }}
+				</span>
+			</div>
+		</div>
+
 		<q-table
 			:rows="receives"
 			:columns="columns"
 			row-key="receiveCod"
 			flat
 			bordered
-			class="q-mt-md shadow-lg rounded-lg"
-		>
+			class="q-mt-md shadow-lg rounded-lg">
+
 			<template v-slot:header="props">
 				<q-tr :props="props" :style="`background-color: ${painelColor}; color: white;`">
 					<q-th v-for="col in props.cols" :key="col.name" :props="props" :class="`text-${col.align}`">
@@ -103,7 +224,6 @@
 					<q-td key="status" :props="props" class="text-center">
 						<q-badge
 							:color="getStatusBadge(props.row).color"
-							text-color="white"
 							class="text-xs"
 							outline
 							:label="getStatusBadge(props.row).label"
@@ -126,15 +246,42 @@
 							size="sm"
 							class="q-mr-xs"
 						/>
+
+						<q-btn-dropdown
+							size="sm"
+							:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+							flat
+							dropdown-icon="arrow_drop_down"
+						>
+							<q-list dense>
+								<q-item clickable v-close-popup @click="markAsPaid(props.row)">
+									<q-item-section avatar><q-icon name="check_circle" color="green" /></q-item-section>
+									<q-item-section>Quitar (Todas)</q-item-section>
+								</q-item>
+
+								<q-item clickable v-close-popup @click="cancelReceive(props.row)">
+									<q-item-section avatar><q-icon name="cancel" color="orange" /></q-item-section>
+									<q-item-section>Cancelar (Todas)</q-item-section>
+								</q-item>
+
+								<q-item clickable v-close-popup @click="generateBoleto(props.row)">
+									<q-item-section avatar><q-icon name="receipt_long" color="blue" /></q-item-section>
+									<q-item-section>Gerar Boleto</q-item-section>
+								</q-item>
+
+								<q-item clickable v-close-popup @click="viewHistory(props.row)">
+									<q-item-section avatar><q-icon name="history" color="grey" /></q-item-section>
+									<q-item-section>Histórico</q-item-section>
+								</q-item>
+							</q-list>
+						</q-btn-dropdown>
 					</q-td>
 				</q-tr>
 			</template>
 		</q-table>
 
-		<div
-			v-if="showReceiveClosing"
-			class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm"
-		>
+		<div v-if="showReceiveClosing" class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
+			
 			<div class="bg-white border border-gray-400 rounded-xl">
 				<RegisterReceive
 					:action="selectOperation"
@@ -149,6 +296,8 @@
 </template>
 
 <script setup lang="ts">
+//#region AMBIENTE
+
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import camelcaseKeys from "camelcase-keys";
@@ -158,6 +307,7 @@ import { LocalStorage } from "quasar";
 import { api } from "src/boot/axios";
 import LoandingPage from "src/components/Loanding/LoandingPage.vue";
 import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
+import { computed } from "@vue/reactivity";
 
 dayjs.extend(isBetween);
 
@@ -168,15 +318,25 @@ const textColor = ref<string>(LocalStorage.getItem("textColor"));
 const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
 const painelColor = ref<string>(LocalStorage.getItem("painelColor"));
 
+const endDate = ref('');
 const receives = ref([]);
+const startDate = ref('');
+const showPage = ref(false);
+const selectOperation = ref("");
+const originalReceives = ref([]);
 const selectedRegister = ref([]);
 const selectedReceiveCod = ref(0);
-const selectOperation = ref("");
 const selectReadonly = ref(false);
 const showReceiveClosing = ref(false);
-const showPage = ref(false);
 const widthScreen = ref(window.innerWidth);
+const dateFilterField = ref<'createdAt' | 'dueDate' | 'datePaid'>('createdAt');
+const statusFilterField = ref<'all' | 'open' | 'overdue' | 'paid' | 'canceled'>('all');
 
+type DateFilterValue = 'createdAt' | 'dueDate' | 'datePaid';
+type StatusFilterValue = 'all' | 'open' | 'paid' | 'overdue' | 'canceled';
+//#endregion
+
+//#region Q-TABLE
 const columns: QTableColumn[] = [
 		{ name: 'document', label: 'Documento', field: 'document', align: 'left' },
 		{ name: 'description', label: 'Descrição', field: 'description', align: 'left' },
@@ -201,7 +361,7 @@ const getStatusBadge = (row) => {
 	if (isLatePayment) return { label: "Pago com atraso", color: "red", icon: "close" };
 	if (isPaid) return { label: "Pago", color: "green", icon: "done" };
 	if (isVencida) return { label: "Vencida", color: "red", icon: "close" };
-	return { label: "Em aberto", color: "gray", icon: "hourglass_empty" };
+	return { label: "Em aberto", color: "grey", icon: "hourglass_empty" };
 };
 
 const isLate = (date) => {
@@ -216,24 +376,19 @@ const getColorReceive = (row) => {
 	return "";
 };
 
-const fetchReceives = async () => {
-	try {
-		const response = await api.get(`ecommerce/receive/all/${issuerID.value}`);
-		const camelCaseData = camelcaseKeys(response.data, { deep: true });
-		receives.value = camelCaseData;
-		showPage.value = true;
-	} catch (error) {
-		$q.notify({
-			type: "negative",
-			message: "Erro ao carregar registros de receber.",
-		});
-	}
+const getReceives = async () => {
+  try {
+    const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
+    originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
+    applyFilters(); // Aplica filtros ao carregar
+  } catch (error) {
+    $q.notify({ color: 'red', message: 'Erro ao carregar dados' });
+  }
 };
 
-onMounted(() => {
-	fetchReceives();
-});
+//#endregion
 
+//#region GERAIS
 const manageClick = (receiveCod, operation, readonly) => {
 	selectOperation.value = operation;
 	selectReadonly.value = readonly;
@@ -258,7 +413,134 @@ const closeRegister = () => {
 	showReceiveClosing.value = false;
 	selectedRegister.value = [];
 	selectedReceiveCod.value = 0;
-	fetchReceives();
+	getReceives();
 };
-</script>
 
+onMounted(() => {
+	getReceives();
+});
+//#endregion
+
+//#region OPTIONS ROWS
+
+const markAsPaid = (row) => {};
+
+const cancelReceive = (row) => {};
+
+const generateBoleto = (row) => {};
+
+const viewHistory = (row) => {};
+
+//#endregion
+
+//#region FILTROS
+const dateFilterOptions: { label: string; value: DateFilterValue }[] = [
+	{ label: 'Data de Cadastro', value: 'createdAt' },
+	{ label: 'Data de Pagamento', value: 'datePaid' },
+	{ label: 'Data de Vencimento', value: 'dueDate' },
+];
+
+const statusFilterOptions: { label: string; value: StatusFilterValue }[] = [
+	{ label: 'Todos', value: 'all' },
+	{ label: 'Em Aberto', value: 'open' },
+	{ label: 'Quitadas', value: 'paid' },
+	{ label: 'Vencidas', value: 'overdue' },
+	{ label: 'Canceladas', value: 'canceled' }
+];
+
+const getDateFilter = computed(() => {
+	const selected = dateFilterOptions.find(opt => opt.value === dateFilterField.value);
+	return selected ? selected.label : 'Selecionar Data';
+});
+
+const getStatusLabel = computed(() => {
+	const selected = statusFilterOptions.find(opt => opt.value === statusFilterField.value);
+	return selected ? selected.label : 'Selecionar Status';
+});
+
+const applyFilters = () => {
+let filtered = originalReceives.value;
+
+// Filtro por data
+if (startDate.value && endDate.value) {
+	const start = dayjs(startDate.value);
+	const end = dayjs(endDate.value);
+
+	filtered = filtered.filter(receive => {
+		const filterDate = dayjs(receive[dateFilterField.value]);
+		return filterDate.isValid() && filterDate.isBetween(start, end, null, '[]');
+	});
+}
+
+// Filtro por status
+if (statusFilterField.value !== 'all') {
+	filtered = filtered.filter(receive => {
+		switch (statusFilterField.value) {
+			case 'paid':
+				return receive.paid === true;
+
+			case 'overdue':
+				return !receive.paid && isLate(receive.dueDate);
+
+			case 'open':
+				return !receive.paid && !isLate(receive.dueDate);
+
+			case 'canceled':
+				return receive.status === 'cancelada';
+
+			default:
+				return true;
+		}
+	});
+}
+	receives.value = filtered;
+};
+
+const clearFilters = () => {
+	startDate.value = '';
+	endDate.value = '';
+	dateFilterField.value = 'dueDate';
+	statusFilterField.value = 'all';
+	receives.value = originalReceives.value;
+};
+//#endregion
+
+//#region TOTALIZADORES
+const totalQuitadas = computed(() => 
+        receives.value.reduce((acc, r) => acc + (r.paid ? r.installmentValue : 0), 0)
+    );
+
+    const totalVencidas = computed(() => 
+        receives.value.reduce((acc, r) => {
+            const vencida = !r.paid && dayjs(r.dueDate).isBefore(dayjs(), 'day');
+            return acc + (vencida ? r.installmentValue : 0);
+        }, 0)
+    );
+
+    const totalEmAberto = computed(() => {
+        const total = receives.value
+            .filter(inst => !inst.paid && !isLateDate(inst.dueDate))
+            .reduce((sum, inst) => sum + Number(inst.installmentValue || 0), 0);
+
+        return total.toFixed(2);
+    });
+
+    const isLateDate = (dueDate: string): boolean => {
+        return dayjs(dueDate).isBefore(dayjs(), 'day');
+    };
+    
+    const parseCurrency = (value: number): number =>
+    {
+        if (!value) return 0;
+
+        return parseFloat(
+            value
+            .toString()
+            .replace(/\s/g, '')
+            .replace('R$', '')
+            .replace(/\./g, '')
+            .replace(',', '.')
+        ) || 0;
+    };
+//#endregion
+</script>
