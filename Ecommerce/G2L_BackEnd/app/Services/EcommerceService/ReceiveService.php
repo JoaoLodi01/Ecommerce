@@ -11,6 +11,17 @@ class ReceiveService
         protected ReceiveRepository $receiveRepository
     ){}
 
+    public function getOne(int $document){
+        $one = $this->receiveRepository->getOne($document);
+        if(!$one)
+        {
+            throw new \App\Exceptions\EcommerceExceptions\ReceiveException("Erro ao buscar as primeiras parcelas do receber");
+
+        }
+
+        return $one;
+    }
+
     public function getAll(int $issuer_id){
         $all = $this->receiveRepository->getAll($issuer_id);
         if(!$all)
