@@ -14,6 +14,10 @@ class ReceiveController extends Controller
         protected ReceiveService $receiveService
     ){}
 
+    public function getOne(int $document){
+        return apiSuccess('Somente as primeiras parcelas', $this->receiveService->getOne($document));
+    }
+
     public function getAll(int $issuer_id){
         return apiSuccess('Todas as parcelas receber', $this->receiveService->getAll($issuer_id));
     }

@@ -143,7 +143,7 @@
 
       <InstallmentsTable
         :pdv="false"
-        :installments="installments"
+        :receiveCode="props.receiveCode"
         :number="form.installmentNumber"
         :amount="form.installmentAmount"
         :original-value="form.installmentValue"
@@ -213,7 +213,7 @@ import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
 const props = defineProps<{
   widthScreen: number;
   pdv?: boolean;
-  receiveCod?: number;
+  receiveCode?: number;
   readonly: boolean;
   action: string;
 }>();
@@ -253,7 +253,7 @@ const form = reactive<IReceiveBody>({
 const installments = ref<any[]>([]);
 
 onMounted(() => {
-  
+  console.log(props.receiveCode);
 });
 
 const submitForm = async () => {

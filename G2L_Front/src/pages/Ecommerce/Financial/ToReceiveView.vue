@@ -233,14 +233,14 @@
 
 					<q-td key="actions" :props="props" class="text-center">
 						<q-btn
-							@click="manageClick(props.row.receiveCod, 'update', false)"
+							@click="manageClick(props.row.receiveCode, 'update', false)"
 							icon="edit"
 							color="green"
 							size="sm"
 							class="q-mr-xs"
 						/>
 						<q-btn
-							@click="manageClick(props.row.receiveCod, 'view', true)"
+							@click="manageClick(props.row.receiveCode, 'view', true)"
 							icon="visibility"
 							color="blue"
 							size="sm"
@@ -296,251 +296,254 @@
 </template>
 
 <script setup lang="ts">
-//#region AMBIENTE
+	//#region AMBIENTE
 
-import dayjs from "dayjs";
-import isBetween from "dayjs/plugin/isBetween";
-import camelcaseKeys from "camelcase-keys";
-import { ref, onMounted } from "vue";
-import { QTableColumn, useQuasar } from "quasar";
-import { LocalStorage } from "quasar";
-import { api } from "src/boot/axios";
-import LoandingPage from "src/components/Loanding/LoandingPage.vue";
-import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
-import { computed } from "@vue/reactivity";
+	import dayjs from "dayjs";
+	import isBetween from "dayjs/plugin/isBetween";
+	import camelcaseKeys from "camelcase-keys";
+	import { ref, onMounted } from "vue";
+	import { QTableColumn, useQuasar } from "quasar";
+	import { LocalStorage } from "quasar";
+	import { api } from "src/boot/axios";
+	import LoandingPage from "src/components/Loanding/LoandingPage.vue";
+	import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
+	import { computed } from "@vue/reactivity";
 
-dayjs.extend(isBetween);
+	dayjs.extend(isBetween);
 
-const $q = useQuasar();
+	const $q = useQuasar();
+	const today = dayjs();
 
-const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
-const textColor = ref<string>(LocalStorage.getItem("textColor"));
-const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
-const painelColor = ref<string>(LocalStorage.getItem("painelColor"));
+	const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+	const textColor = ref<string>(LocalStorage.getItem("textColor"));
+	const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+	const painelColor = ref<string>(LocalStorage.getItem("painelColor"));
 
-const endDate = ref('');
-const receives = ref([]);
-const startDate = ref('');
-const showPage = ref(false);
-const selectOperation = ref("");
-const originalReceives = ref([]);
-const selectedRegister = ref([]);
-const selectedReceiveCod = ref(0);
-const selectReadonly = ref(false);
-const showReceiveClosing = ref(false);
-const widthScreen = ref(window.innerWidth);
-const dateFilterField = ref<'createdAt' | 'dueDate' | 'datePaid'>('createdAt');
-const statusFilterField = ref<'all' | 'open' | 'overdue' | 'paid' | 'canceled'>('all');
+	const startDate = ref(today.startOf('month').format('YYYY-MM-DD'));
+	const endDate = ref(today.endOf('month').format('YYYY-MM-DD'));
+	const receives = ref([]);
+	const showPage = ref(false);
+	const selectOperation = ref("");
+	const originalReceives = ref([]);
+	const selectedRegister = ref([]);
+	const selectedReceiveCod = ref(0);
+	const selectReadonly = ref(false);
+	const showReceiveClosing = ref(false);
+	const widthScreen = ref(window.innerWidth);
+	const dateFilterField = ref<DateFilterValue>('createdAt');
+	const statusFilterField = ref<StatusFilterValue>('all');
 
-type DateFilterValue = 'createdAt' | 'dueDate' | 'datePaid';
-type StatusFilterValue = 'all' | 'open' | 'paid' | 'overdue' | 'canceled';
-//#endregion
+	type DateFilterValue = 'createdAt' | 'dueDate' | 'datePaid';
+	type StatusFilterValue = 'all' | 'open' | 'paid' | 'overdue' | 'canceled';
+	//#endregion
 
-//#region Q-TABLE
-const columns: QTableColumn[] = [
-		{ name: 'document', label: 'Documento', field: 'document', align: 'left' },
-		{ name: 'description', label: 'Descrição', field: 'description', align: 'left' },
-		{ name: 'installmentAmount', label: 'Qtde Parcela', field: 'installmentAmount', align: 'center' },
-		{ name: 'installmentNumber', label: 'Nº Parcela', field: 'installmentNumber', align: 'center' },
-		{ name: 'installmentValue', label: 'Valor Bruto', field: row => `R$ ${row.installmentValue.toFixed(2)}`, align: 'right' },
-		{ name: 'installmentPaid', label: 'Valor Líquido', field: row => `R$ ${row.installmentPaid.toFixed(2)}`, align: 'right' },
-		{ name: 'name', label: 'Cliente', field: 'name', align: 'left' },
-		{ name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
-		{ name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },
-		{ name: 'status', label: 'Status', field: row => row.status.toUpperCase(), align: 'center' },
-		{ name: 'actions', label: 'Ações', field: 'actions', align: 'center' }
-];
+	//#region Q-TABLE
+	const columns: QTableColumn[] = [
+			{ name: 'document', label: 'Documento', field: 'document', align: 'left' },
+			{ name: 'description', label: 'Descrição', field: 'description', align: 'left' },
+			{ name: 'installmentAmount', label: 'Qtde Parcela', field: 'installmentAmount', align: 'center' },
+			{ name: 'installmentNumber', label: 'Nº Parcela', field: 'installmentNumber', align: 'center' },
+			{ name: 'installmentValue', label: 'Valor Bruto', field: row => `R$ ${row.installmentValue.toFixed(2)}`, align: 'right' },
+			{ name: 'installmentPaid', label: 'Valor Líquido', field: row => `R$ ${row.installmentPaid.toFixed(2)}`, align: 'right' },
+			{ name: 'name', label: 'Cliente', field: 'name', align: 'left' },
+			{ name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
+			{ name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },
+			{ name: 'status', label: 'Status', field: row => row.status.toUpperCase(), align: 'center' },
+			{ name: 'actions', label: 'Ações', field: 'actions', align: 'center' }
+	];
 
-const getStatusBadge = (row) => {
-	const isPaid = row.paid;
-	const isLatePayment = isPaid && isLate(row.dueDate);
-	const isVencida = !isPaid && isLate(row.dueDate);
-	const isCancelada = row.status === "cancelada";
+	const getStatusBadge = (row) => {
+		const isPaid = row.paid;
+		const isLatePayment = isPaid && isLate(row.dueDate);
+		const isVencida = !isPaid && isLate(row.dueDate);
+		const isCancelada = row.status === "cancelada";
 
-	if (isCancelada) return { label: "Cancelada", color: "orange", icon: "cancel" };
-	if (isLatePayment) return { label: "Pago com atraso", color: "red", icon: "close" };
-	if (isPaid) return { label: "Pago", color: "green", icon: "done" };
-	if (isVencida) return { label: "Vencida", color: "red", icon: "close" };
-	return { label: "Em aberto", color: "grey", icon: "hourglass_empty" };
-};
+		if (isCancelada) return { label: "Cancelada", color: "orange", icon: "cancel" };
+		if (isLatePayment) return { label: "Pago com atraso", color: "red", icon: "close" };
+		if (isPaid) return { label: "Pago", color: "green", icon: "done" };
+		if (isVencida) return { label: "Vencida", color: "red", icon: "close" };
+		return { label: "Em aberto", color: "grey", icon: "hourglass_empty" };
+	};
 
-const isLate = (date) => {
-	return dayjs().isAfter(dayjs(date), "day");
-};
+	const isLate = (date) => {
+		return dayjs().isAfter(dayjs(date), "day");
+	};
 
-const getColorReceive = (row) => {
-	if (row.status === "cancelada") return "bg-orange-300 text-white";
-	if (row.paid && isLate(row.dueDate)) return "bg-red-400 text-white";
-	if (row.paid) return "bg-green-400 text-white";
-	if (!row.paid && isLate(row.dueDate)) return "bg-red-300 text-white";
-	return "";
-};
+	const getColorReceive = (row) => {
+		if (row.status === "cancelada") return "bg-orange-300 text-white";
+		if (row.paid && isLate(row.dueDate)) return "bg-red-400 text-white";
+		if (row.paid) return "bg-green-400 text-white";
+		if (!row.paid && isLate(row.dueDate)) return "bg-red-300 text-white";
+		return "";
+	};
 
-const getReceives = async () => {
-  try {
-    const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
-    originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
-    applyFilters(); // Aplica filtros ao carregar
-  } catch (error) {
-    $q.notify({ color: 'red', message: 'Erro ao carregar dados' });
-  }
-};
+	const getReceives = async () => {
+	try {
+		const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
+		originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
+		applyFilters(); // Aplica filtros ao carregar
+	} catch (error) {
+		$q.notify({ color: 'red', message: 'Erro ao carregar dados' });
+	}
+	};
 
-//#endregion
+	//#endregion
 
-//#region GERAIS
-const manageClick = (receiveCod, operation, readonly) => {
-	selectOperation.value = operation;
-	selectReadonly.value = readonly;
+	//#region GERAIS
+	const manageClick = (receiveCode: number, operation: string, readonly) => {
+		selectOperation.value = operation;
+		selectReadonly.value = readonly;
 
-	if (operation === "register") {
-		selectedRegister.value = [];
-		selectedReceiveCod.value = 0;
-	} else {
-		const found = receives.value.find((r) => r.receiveCod === receiveCod);
-		if (found) {
-			selectedRegister.value = found.parcels || [];
-			selectedReceiveCod.value = receiveCod;
-		} else {
+		if (operation === "register") {
 			selectedRegister.value = [];
 			selectedReceiveCod.value = 0;
+		} else {
+			const found = receives.value.find((r) => r.receiveCode === receiveCode);
+			if (found) {
+				selectedRegister.value = found.parcels || [];
+				selectedReceiveCod.value = receiveCode;
+			} else {
+				selectedRegister.value = [];
+				selectedReceiveCod.value = 0;
+			}
 		}
-	}
-	showReceiveClosing.value = true;
-};
+		showReceiveClosing.value = true;
+	};
 
-const closeRegister = () => {
-	showReceiveClosing.value = false;
-	selectedRegister.value = [];
-	selectedReceiveCod.value = 0;
-	getReceives();
-};
+	const closeRegister = () => {
+		showReceiveClosing.value = false;
+		selectedRegister.value = [];
+		selectedReceiveCod.value = 0;
+		getReceives();
+	};
 
-onMounted(() => {
-	getReceives();
-});
-//#endregion
-
-//#region OPTIONS ROWS
-
-const markAsPaid = (row) => {};
-
-const cancelReceive = (row) => {};
-
-const generateBoleto = (row) => {};
-
-const viewHistory = (row) => {};
-
-//#endregion
-
-//#region FILTROS
-const dateFilterOptions: { label: string; value: DateFilterValue }[] = [
-	{ label: 'Data de Cadastro', value: 'createdAt' },
-	{ label: 'Data de Pagamento', value: 'datePaid' },
-	{ label: 'Data de Vencimento', value: 'dueDate' },
-];
-
-const statusFilterOptions: { label: string; value: StatusFilterValue }[] = [
-	{ label: 'Todos', value: 'all' },
-	{ label: 'Em Aberto', value: 'open' },
-	{ label: 'Quitadas', value: 'paid' },
-	{ label: 'Vencidas', value: 'overdue' },
-	{ label: 'Canceladas', value: 'canceled' }
-];
-
-const getDateFilter = computed(() => {
-	const selected = dateFilterOptions.find(opt => opt.value === dateFilterField.value);
-	return selected ? selected.label : 'Selecionar Data';
-});
-
-const getStatusLabel = computed(() => {
-	const selected = statusFilterOptions.find(opt => opt.value === statusFilterField.value);
-	return selected ? selected.label : 'Selecionar Status';
-});
-
-const applyFilters = () => {
-let filtered = originalReceives.value;
-
-// Filtro por data
-if (startDate.value && endDate.value) {
-	const start = dayjs(startDate.value);
-	const end = dayjs(endDate.value);
-
-	filtered = filtered.filter(receive => {
-		const filterDate = dayjs(receive[dateFilterField.value]);
-		return filterDate.isValid() && filterDate.isBetween(start, end, null, '[]');
+	onMounted(() => {
+		getReceives();
+		console.log(selectedReceiveCod.value);
 	});
-}
+	//#endregion
 
-// Filtro por status
-if (statusFilterField.value !== 'all') {
-	filtered = filtered.filter(receive => {
-		switch (statusFilterField.value) {
-			case 'paid':
-				return receive.paid === true;
+	//#region OPTIONS ROWS
 
-			case 'overdue':
-				return !receive.paid && isLate(receive.dueDate);
+	const markAsPaid = (row) => {};
 
-			case 'open':
-				return !receive.paid && !isLate(receive.dueDate);
+	const cancelReceive = (row) => {};
 
-			case 'canceled':
-				return receive.status === 'cancelada';
+	const generateBoleto = (row) => {};
 
-			default:
-				return true;
+	const viewHistory = (row) => {};
+
+	//#endregion
+
+	//#region FILTROS
+	const dateFilterOptions: { label: string; value: DateFilterValue }[] = [
+		{ label: 'Data de Cadastro', value: 'createdAt' },
+		{ label: 'Data de Pagamento', value: 'datePaid' },
+		{ label: 'Data de Vencimento', value: 'dueDate' },
+	];
+
+	const statusFilterOptions: { label: string; value: StatusFilterValue }[] = [
+		{ label: 'Todos', value: 'all' },
+		{ label: 'Em Aberto', value: 'open' },
+		{ label: 'Quitadas', value: 'paid' },
+		{ label: 'Vencidas', value: 'overdue' },
+		{ label: 'Canceladas', value: 'canceled' }
+	];
+
+	const getDateFilter = computed(() => {
+		const selected = dateFilterOptions.find(opt => opt.value === dateFilterField.value);
+		return selected ? selected.label : 'Selecionar Data';
+	});
+
+	const getStatusLabel = computed(() => {
+		const selected = statusFilterOptions.find(opt => opt.value === statusFilterField.value);
+		return selected ? selected.label : 'Selecionar Status';
+	});
+
+	const applyFilters = () => {
+		let filtered = originalReceives.value;
+
+		// Filtro por data
+		if (startDate.value && endDate.value) {
+			const start = dayjs(startDate.value);
+			const end = dayjs(endDate.value);
+
+			filtered = filtered.filter(receive => {
+				const filterDate = dayjs(receive[dateFilterField.value]);
+				return filterDate.isValid() && filterDate.isBetween(start, end, null, '[]');
+			});
 		}
-	});
-}
-	receives.value = filtered;
-};
 
-const clearFilters = () => {
-	startDate.value = '';
-	endDate.value = '';
-	dateFilterField.value = 'dueDate';
-	statusFilterField.value = 'all';
-	receives.value = originalReceives.value;
-};
-//#endregion
+		// Filtro por status
+		if (statusFilterField.value !== 'all') {
+			filtered = filtered.filter(receive => {
+				switch (statusFilterField.value) {
+					case 'paid':
+						return receive.paid === true;
 
-//#region TOTALIZADORES
-const totalQuitadas = computed(() => 
-        receives.value.reduce((acc, r) => acc + (r.paid ? r.installmentValue : 0), 0)
-    );
+					case 'overdue':
+						return !receive.paid && isLate(receive.dueDate);
 
-    const totalVencidas = computed(() => 
-        receives.value.reduce((acc, r) => {
-            const vencida = !r.paid && dayjs(r.dueDate).isBefore(dayjs(), 'day');
-            return acc + (vencida ? r.installmentValue : 0);
-        }, 0)
-    );
+					case 'open':
+						return !receive.paid && !isLate(receive.dueDate);
 
-    const totalEmAberto = computed(() => {
-        const total = receives.value
-            .filter(inst => !inst.paid && !isLateDate(inst.dueDate))
-            .reduce((sum, inst) => sum + Number(inst.installmentValue || 0), 0);
+					case 'canceled':
+						return receive.status === 'cancelada';
 
-        return total.toFixed(2);
-    });
+					default:
+						return true;
+				}
+			});
+		}
+		
+		receives.value = filtered;
+	};
 
-    const isLateDate = (dueDate: string): boolean => {
-        return dayjs(dueDate).isBefore(dayjs(), 'day');
-    };
-    
-    const parseCurrency = (value: number): number =>
-    {
-        if (!value) return 0;
+	const clearFilters = () => {
+		startDate.value = '';
+		endDate.value = '';
+		dateFilterField.value = 'dueDate';
+		statusFilterField.value = 'all';
+		receives.value = originalReceives.value;
+	};
+	//#endregion
 
-        return parseFloat(
-            value
-            .toString()
-            .replace(/\s/g, '')
-            .replace('R$', '')
-            .replace(/\./g, '')
-            .replace(',', '.')
-        ) || 0;
-    };
-//#endregion
+	//#region TOTALIZADORES
+	const totalQuitadas = computed(() => 
+			receives.value.reduce((acc, r) => acc + (r.paid ? r.installmentValue : 0), 0)
+		);
+
+		const totalVencidas = computed(() => 
+			receives.value.reduce((acc, r) => {
+				const vencida = !r.paid && dayjs(r.dueDate).isBefore(dayjs(), 'day');
+				return acc + (vencida ? r.installmentValue : 0);
+			}, 0)
+		);
+
+		const totalEmAberto = computed(() => {
+			const total = receives.value
+				.filter(inst => !inst.paid && !isLateDate(inst.dueDate))
+				.reduce((sum, inst) => sum + Number(inst.installmentValue || 0), 0);
+
+			return total.toFixed(2);
+		});
+
+		const isLateDate = (dueDate: string): boolean => {
+			return dayjs(dueDate).isBefore(dayjs(), 'day');
+		};
+		
+		const parseCurrency = (value: number): number =>
+		{
+			if (!value) return 0;
+
+			return parseFloat(
+				value
+				.toString()
+				.replace(/\s/g, '')
+				.replace('R$', '')
+				.replace(/\./g, '')
+				.replace(',', '.')
+			) || 0;
+		};
+	//#endregion
 </script>
