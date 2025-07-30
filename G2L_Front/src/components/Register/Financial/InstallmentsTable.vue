@@ -95,7 +95,7 @@
     };
 
     const props = defineProps<{
-        receiveCode?: number;
+        receiveDocument?: number;
         selectedRegister?: IReceiveBody | null;
         pdv?: boolean,
         amount: number,
@@ -145,9 +145,9 @@
         console.log(installmentsData);
     };
 
-    const getReceives = async (receiveCode: number) => {
+    const getReceives = async (receiveDocument: number) => {
         try {
-            const res = await api.get(`/ecommerce/receive/one/${receiveCode}`);
+            const res = await api.get(`/ecommerce/receive/one/${receiveDocument}`);
             installmentsData.value = res.data || [];
             console.log(res.data);
         } catch (error) {
@@ -189,14 +189,14 @@
             installmentsData.value = [...props.selectedRegister.installments];
         }
 
-        if (props.receiveCode) {
-            getReceives(props.receiveCode);
+        if (props.receiveDocument) {
+            getReceives(props.receiveDocument);
         }
 
-        console.log(props.receiveCode);
+        console.log(props.receiveDocument);
     });
 
-    watch(() => props.receiveCode, (newVal) => {
+    watch(() => props.receiveDocument, (newVal) => {
     if (newVal) {
         getReceives(newVal);
     } else {

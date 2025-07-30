@@ -233,14 +233,14 @@
 
 					<q-td key="actions" :props="props" class="text-center">
 						<q-btn
-							@click="manageClick(props.row.receiveCode, 'update', false)"
+							@click="manageClick(props.row.receiveDocument, 'update', false)"
 							icon="edit"
 							color="green"
 							size="sm"
 							class="q-mr-xs"
 						/>
 						<q-btn
-							@click="manageClick(props.row.receiveCode, 'view', true)"
+							@click="manageClick(props.row.document, 'view', true)"
 							icon="visibility"
 							color="blue"
 							size="sm"
@@ -288,7 +288,7 @@
 					:readonly="selectReadonly"
 					@close="closeRegister"
 					:widthScreen="widthScreen"
-					:receiveCod="selectedReceiveCod"
+					:receiveDocument="selectedReceiveDocument"
 				/>
 			</div>
 		</div>
@@ -326,7 +326,7 @@
 	const selectOperation = ref("");
 	const originalReceives = ref([]);
 	const selectedRegister = ref([]);
-	const selectedReceiveCod = ref(0);
+	const selectedReceiveDocument = ref<number>(0);
 	const selectReadonly = ref(false);
 	const showReceiveClosing = ref(false);
 	const widthScreen = ref(window.innerWidth);
@@ -390,36 +390,32 @@
 	//#endregion
 
 	//#region GERAIS
-	const manageClick = (receiveCode: number, operation: string, readonly) => {
+	const manageClick = (receiveDocument: number, operation: string, readonly: boolean) => {
 		selectOperation.value = operation;
 		selectReadonly.value = readonly;
 
+		console.log('Passando: ', receiveDocument);
+
 		if (operation === "register") {
 			selectedRegister.value = [];
-			selectedReceiveCod.value = 0;
+			selectedReceiveDocument.value = 0;
 		} else {
-			const found = receives.value.find((r) => r.receiveCode === receiveCode);
-			if (found) {
-				selectedRegister.value = found.parcels || [];
-				selectedReceiveCod.value = receiveCode;
-			} else {
-				selectedRegister.value = [];
-				selectedReceiveCod.value = 0;
-			}
+			selectedReceiveDocument.value = receiveDocument;
 		}
+		
 		showReceiveClosing.value = true;
 	};
 
 	const closeRegister = () => {
 		showReceiveClosing.value = false;
 		selectedRegister.value = [];
-		selectedReceiveCod.value = 0;
+		selectedReceiveDocument.value = 0;
 		getReceives();
 	};
 
 	onMounted(() => {
 		getReceives();
-		console.log(selectedReceiveCod.value);
+		console.log('Documento: ', selectedReceiveDocument.value);
 	});
 	//#endregion
 

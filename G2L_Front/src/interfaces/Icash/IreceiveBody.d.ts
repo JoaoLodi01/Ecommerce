@@ -1,6 +1,6 @@
 interface IReceiveBody {
     issuerID: number;
-    receiveCode?: number;
+    receiveDocument?: number;
     document: number | string;
     customerID: number;
     userID: number;
