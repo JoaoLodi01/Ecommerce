@@ -246,6 +246,7 @@
 
             if(createAccess.status)
             {
+                alert('Passou certo 1')
                 const res = await api.post('/registers/owner/create', {
                     name: form.value.name,
                     surname: form.value.surname,
@@ -259,6 +260,7 @@
                 
                 if(data.success)
                 {
+                    alert('Passou certo 2')
                     // 'Login'
                     const details = { email: data.data.email, password: form.value.password };
                     

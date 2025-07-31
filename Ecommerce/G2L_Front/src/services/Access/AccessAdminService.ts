@@ -29,7 +29,7 @@ export async function createCustomerInAccess(data: ICustomerData)
         const message: string = error.response?.message || error.response || error.response?.data?.message || 'Erro no acesso de admin';
 
         return {
-            status: true,
+            status: false,
             message: message
         };
     };
