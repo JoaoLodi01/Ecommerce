@@ -56,6 +56,18 @@ class ReceiveService
         ]);
     }
 
+    public function updateInstallment(array $data, int $id){
+        $installment = $this->receiveRepository->updateInstallment($id);
+
+        if (!$installment) {
+            throw new \Exception("Parcela não encontrada");
+        }
+
+        $installment->update($data);
+
+        return $installment;
+    }
+
     public function delete(int $id){
         $this->receiveRepository->delete($id);
         return response()->json([

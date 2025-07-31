@@ -95,7 +95,8 @@ Route::prefix('v1')->group( function (){
                 Route::get('/one/{receive_code}', [ReceiveController::class, 'getOne']);
                 Route::post('/create', [ReceiveController::class, 'create']);
                 Route::get('/{id}/{receiveCod}', [ReceiveController::class, 'findByID']);
-                Route::put('/{id}', [ReceiveController::class, 'update']);
+                Route::put('/update/{id}', [ReceiveController::class, 'update']);
+                Route::put('/installment/{id}', [ReceiveController::class, 'updateInstallment']);
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
             });
 

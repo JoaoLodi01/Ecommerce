@@ -83,8 +83,10 @@
     import { api } from "src/boot/axios";
     import { ref, defineProps, defineEmits, computed, onMounted, watch } from 'vue';
     import dayjs from 'dayjs';
+    import { useQuasar } from "quasar";
 
     type TinstallmentsData = {
+        installmentCode: number;
         installmentNumber: number;
         installmentAmount: number;
         dueDate: string;
@@ -113,6 +115,7 @@
     }>();
     
     const installmentsData = ref<TinstallmentsData[]>([]);
+    const $q = useQuasar();
     
     const generateInstallments = async () =>
     {
@@ -129,6 +132,7 @@
         for(let i = 1; i < receiveAmount + 1; i++)
         {
             installmentsData.value.push({
+                installmentCode: props.receiveDocument,
                 installmentNumber: i,
                 installmentAmount: receiveAmount,
                 valueOriginal: props.originalValue,
@@ -148,22 +152,73 @@
     const getReceives = async (receiveDocument: number) => {
         try {
             const res = await api.get(`/ecommerce/receive/one/${receiveDocument}`);
-            installmentsData.value = res.data || [];
-            console.log(res.data);
+                installmentsData.value = res.data.data || [];
+                console.log(res.data);
         } catch (error) {
+            $q.notify({
+                color: "negative",
+                position: "top",
+                message: "Erro ao buscar parcelas!",
+            });
             console.error('Erro ao buscar parcelas: ', error);
             installmentsData.value = [];
         }
     }
 
-    const payOffIstallment = (installment) => {
-        installment.paid = true;
-        installment.paymentDate = dayjs().format('YYYY-MM-DD');
+    const payOffIstallment = async (installment) => {
+        try {
+            const payload = {
+                paid: true,
+                paymentDate: dayjs().format('YYYY-MM-DD'),
+            };
+
+            await api.put(`/ecommerce/receive/update/${installment.id}`, payload);
+
+            installment.paid = true;
+            installment.paymentDate = payload.paymentDate;
+
+            $q.notify({
+                color: "positive",
+                position: "top",
+                message: "Parcela quitada com sucesso!",
+            });
+
+        } catch (error) {
+            $q.notify({
+                color: "negative",
+                position: "top",
+                message: "Erro ao quitar parcelas!",
+            });
+            console.error('Erro ao quitar parcelas: ', error);
+        }
     };
 
-    const undoPayOff = (installment) => {
-        installment.paid = false;
-        installment.paymentDate = undefined;
+    const undoPayOff =  async (installment) => {
+        try {
+            const payload = {
+                paid: false,
+                paymentDate: null,
+            };
+
+            await api.put(`/ecommerce/receive/installment/${installment.id}`, payload);
+
+            installment.paid = false;
+            installment.paymentDate = undefined;
+
+            $q.notify({
+                color: "warning",
+                position: "top",
+                message: "Quitação desfeita!",
+            });
+
+        } catch (error) {
+            $q.notify({
+                color: "negative",
+                position: "top",
+                message: "Erro ao desfazer quitação!",
+            });
+            console.error('Erro ao desfazer quitação: ', error);
+        }
     };
 
     const formatCurrency = (value: number) => {

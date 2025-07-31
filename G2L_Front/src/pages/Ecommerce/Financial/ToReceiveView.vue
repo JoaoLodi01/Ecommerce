@@ -528,18 +528,5 @@
 			return dayjs(dueDate).isBefore(dayjs(), 'day');
 		};
 		
-		const parseCurrency = (value: number): number =>
-		{
-			if (!value) return 0;
-
-			return parseFloat(
-				value
-				.toString()
-				.replace(/\s/g, '')
-				.replace('R$', '')
-				.replace(/\./g, '')
-				.replace(',', '.')
-			) || 0;
-		};
 	//#endregion
 </script>

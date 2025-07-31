@@ -88,6 +88,10 @@ class ReceiveRepository
         return Receive::where('id', $id)->update($receiveRegister);
     }
 
+    /*public function updateInstallment (array $data, int $id){
+        return $receive->save();
+    }*/
+
     public function delete (int $id){
         return Receive::where('id', $id)->update([
             'active' => 0,
