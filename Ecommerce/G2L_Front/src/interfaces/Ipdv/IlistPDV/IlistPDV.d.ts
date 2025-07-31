@@ -1,0 +1,22 @@
+interface IListPDV
+{
+    pdv_code: number,
+    issuer_id: number,
+    description: string,
+    issue_date: string,
+    n_nfce: number,
+    customer_code: number,
+    chart_of_account_code: number,
+    cost_center_code: number,
+    customer: string,
+    gross_value: number,
+    net_value: number,
+    discount: number,
+    addition: number,
+    user_id: number,
+    user: string,
+    finished: boolean|number,
+    canceled: boolean|number,
+    is_nfce_nm: string,
+    status: number,
+}

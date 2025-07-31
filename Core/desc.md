@@ -1,0 +1,1 @@
+<span style="text-align: center;">Acesso do fornecedor</span>
