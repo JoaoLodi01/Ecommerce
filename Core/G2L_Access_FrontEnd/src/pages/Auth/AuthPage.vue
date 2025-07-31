@@ -65,6 +65,14 @@
 
     const login = async () =>
     {
+        $q.notify({
+            color: 'green',
+            message: 'Validando dados ...',
+            position: 'top',
+            timeout: 2000
+            
+        });
+        
         const res = await api.post('/access/auth/login', loginForm.value, {
             headers: {
                 Accept: 'application/json'

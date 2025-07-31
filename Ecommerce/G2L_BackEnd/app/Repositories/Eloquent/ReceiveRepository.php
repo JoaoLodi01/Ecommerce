@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Log;
 
 class ReceiveRepository
 {
+    public function getOne(int $document){
+        return Receive::where('document', $document)->get();
+    }
+
     public function getAll(int $issuer_id){
         return Receive::where('issuer_id', $issuer_id)->where('installment_number', 1)->get();
     }
@@ -65,6 +69,7 @@ class ReceiveRepository
                 'especie_code' => $specie->payment_code,
                 'especie' =>  $specie->especie,
                 'name' => $nameCustomer,
+                'status' => $receiveRegister['status'],
                 'due_date' => $installment['dueDate'],
                 'installment_amount' => $receiveRegister['installmentAmount'],
                 'installment_number' => $installment['installmentNumber'],

@@ -82,6 +82,14 @@
         const details = { email: email.value, password: password.value }
         loandingLogin.value = true;
         
+        $q.notify({
+            color: 'green',
+            message: 'Validando dados ...',
+            position: 'top',
+            timeout: 2000
+            
+        });
+
         try {
             const res = await api.post("/auth/owner", details, {
                 headers: {

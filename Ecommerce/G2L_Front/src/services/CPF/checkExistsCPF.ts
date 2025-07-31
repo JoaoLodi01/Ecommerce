@@ -26,4 +26,4 @@ async function checkExistsCPF(cpf: string): Promise<boolean>
     };
 };
 
-export default checkExistsCPF
+export default checkExistsCPF;
