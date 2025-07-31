@@ -38,7 +38,7 @@ class ReceiveRequest extends FormRequest
                 'valueEntry' => ['sometimes'],
                 'valuePaid' => [$required, 'numeric'],
                 'origem' => ['nullable'],
-
+                'status' => [$required],
                 'installments' => [$required, 'array'],
                 'installments.*.installmentNumber' => ['required', 'integer'],
                 'installments.*.installmentAmount' => ['required', 'integer'],
