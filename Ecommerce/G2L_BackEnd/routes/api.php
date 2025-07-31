@@ -42,6 +42,13 @@ use App\Http\Controllers\Reports\PDV\ReportCashClosingPeriodController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group( function (){
+    Route::get('/healt', function () {
+        return response()->json([
+            'status' => 'Ok',
+            'success' => true
+        ]);
+    });
+
     Route::prefix('auth')->group( function (){
         Route::post('/owner', [AuthController::class, 'authOwner']);
         Route::post('/auth', [AuthController::class, 'auth']);

@@ -26,7 +26,7 @@
         <div class="flex flex-wrap gap-4">
           <SpeciesSearchBar
             @selectSpecie="getSpecie"
-            module_="receive"
+            :module_="'receive'"
             :disable="readonly"
           />
 

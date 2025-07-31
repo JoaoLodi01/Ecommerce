@@ -519,7 +519,7 @@
 
     <div :class="{
         'ml-52': widthScreen > 1080,
-        'routerView': widthScreen <= 1600,
+        'routerView ml-52': widthScreen <= 1600,
         'transition ml-[4rem]': !sidebarActive && widthScreen > 1080,
         
     }">   

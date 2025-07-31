@@ -320,7 +320,7 @@
 
     onMounted(async () => {
         await getCompanies();
-        await getLiberations(LocalStorage.getItem("user_id"));
+        await getLiberations(LocalStorage.getItem("user_id"));        
 
         showContent.value = true;
 

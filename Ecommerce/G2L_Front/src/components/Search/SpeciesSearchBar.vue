@@ -38,7 +38,9 @@
         console.log(this.speciesData.especie)
         try {
             const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
-            this.allSpecies = response.data.all
+            console.log(response.data.data)
+            this.allSpecies = response.data.data
+            
             if(response.data.success)
             {
                 this.fillterSpecies()
