@@ -381,7 +381,7 @@
 	try {
 		const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
 		originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
-		applyFilters(); // Aplica filtros ao carregar
+		applyFilters();
 	} catch (error) {
 		$q.notify({ color: 'red', message: 'Erro ao carregar dados' });
 	}
@@ -402,7 +402,7 @@
 		} else {
 			selectedReceiveDocument.value = receiveDocument;
 		}
-		
+
 		showReceiveClosing.value = true;
 	};
 
