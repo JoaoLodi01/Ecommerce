@@ -172,6 +172,12 @@
         password_: string
     };
 
+    type TaccessReturn = {
+        status: boolean,
+        message: string
+
+    };
+
     const emits = defineEmits<{
         (e: 'isLogin', value: boolean)
     }>();
@@ -236,9 +242,9 @@
                 cpf: form.value.cpf
             };
 
-            const createAccess: boolean = await createCustomerInAccess(customerData);
+            const createAccess: TaccessReturn = await createCustomerInAccess(customerData);
 
-            if(createAccess)
+            if(createAccess.status)
             {
                 const res = await api.post('/registers/owner/create', {
                     name: form.value.name,
@@ -294,7 +300,7 @@
             };
             
         } catch (error) {
-            console.error('Erro na criação ou login: ', error)
+            console.error('Erro na criação ou login: ', error);
             $q.notify({
                 color: 'red',
                 message: error.response ?? error.response.message,

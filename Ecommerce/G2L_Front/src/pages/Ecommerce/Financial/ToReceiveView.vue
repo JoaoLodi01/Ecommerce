@@ -380,6 +380,7 @@
 	const getReceives = async () => {
 	try {
 		const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
+		console.log(res.data.data)
 		originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
 		applyFilters(); // Aplica filtros ao carregar
 	} catch (error) {

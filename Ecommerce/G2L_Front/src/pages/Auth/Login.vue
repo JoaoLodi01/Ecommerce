@@ -16,6 +16,9 @@
                             label="E-mail" 
                             outlined
                             class="mb-5"
+                            :rules="[
+                                val => !!val || 'O e-mail necessário!'
+                            ]"
                         />
                     </div>
                     
@@ -26,6 +29,10 @@
                             label="Senha" 
                             outlined
                             class="mb-3"
+                            :rules="[
+                                val => !!val || 'A senha é necessária!'
+                            ]"
+
                         />
                         <span class="text-xs flex justify-end cursor-pointer">
                             Esqueceu sua senha?

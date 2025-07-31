@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useQuasar } from "quasar";
 
-export async function createCustomerInAccess(data: ICustomerData): Promise<boolean>
+export async function createCustomerInAccess(data: ICustomerData)
 {
-    const $q = useQuasar();
     const apiAccess = process.env.API_ACCESS_URL;
     try {
         const accessCreateRes = await axios.post(`${apiAccess}/customers/create`, {
@@ -20,18 +19,18 @@ export async function createCustomerInAccess(data: ICustomerData): Promise<boole
 
         console.log('in createCustomerInAccess: ', res);
         
-        if(res.success) return true;
+        if(res.success) return {
+            status: true,
+            message: 'success'
+        };
 
     } catch (error) {
-        const message: string = error.response?.message || error.response || 'Erro no acesso de admin';
-        $q.notify({
-            color: 'red',
-            message: message,
-            position: 'top',
-            timeout: 1500
+        console.error('Erro no AccessAdminService', error.response.message);
+        const message: string = error.response?.message || error.response || error.response?.data?.message || 'Erro no acesso de admin';
 
-        });
-
-        return false;
+        return {
+            status: true,
+            message: message
+        };
     };
 };
