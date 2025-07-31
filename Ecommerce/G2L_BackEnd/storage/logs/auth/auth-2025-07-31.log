@@ -1,0 +1,3 @@
+[2025-07-31 15:40:29] local.INFO: data gabikochem55@gmail.com  
+[2025-07-31 15:40:30] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","password":"$2y$12$.23uzKMPiOX\/vG0rH6mKsuiaVX1Sc9esczf6DTE5zi2UaFP4NksF.","access":null,"uuse_id":"GNFGeh3T4p","is_owner":0,"active":1,"created_at":"2025-07-31T15:40:27.000000Z","updated_at":"2025-07-31T15:40:27.000000Z"}  
+[2025-07-31 15:40:32] local.INFO: Passou o login, token: 1|8j5jM8c0nJgZ3HZTayG6tVYY7vghysUUqIEVRs9N7bd76613  

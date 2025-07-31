@@ -34,7 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(installment, id) in installmentsData" :key="id" class="text-center border-t border-gray-300" :class="{ 'bg-green-100': installment.paid, 'bg-white': !installment.paid}">
+                <tr v-for="(installment, i) in installmentsData" :key="i" class="text-center border-t border-gray-300" :class="{ 'bg-green-100': installment.paid, 'bg-white': !installment.paid}">
                     <td>{{ installment.installmentNumber }}</td>
                     <td>{{ installment.installmentAmount }}</td>
                     <td class="w-[150px]">
@@ -60,7 +60,7 @@
                             size="sm"
                             icon="check"
                             color="green"
-                            @click="payOffIstallment(installment)"
+                            @click="payOffIstallment(i)"
                             v-if="!installment.paid">
                             <q-tooltip>Quitar Parcela</q-tooltip>
                         </q-btn>
@@ -95,7 +95,7 @@
     };
 
     const props = defineProps<{
-        receiveCode?: number;
+        receiveDocument?: number;
         selectedRegister?: IReceiveBody | null;
         pdv?: boolean,
         amount: number,
@@ -145,9 +145,9 @@
         console.log(installmentsData);
     };
 
-    const getReceives = async (receiveCode: number) => {
+    const getReceives = async (receiveDocument: number) => {
         try {
-            const res = await api.get(`/ecommerce/receive/one/${receiveCode}`);
+            const res = await api.get(`/ecommerce/receive/one/${receiveDocument}`);
             installmentsData.value = res.data || [];
             console.log(res.data);
         } catch (error) {
@@ -156,9 +156,13 @@
         }
     }
 
-    const payOffIstallment = (installment) => {
-        installment.paid = true;
-        installment.paymentDate = dayjs().format('YYYY-MM-DD');
+    const payOffIstallment = (i) => {
+        //installment.paid = true;
+        //installment.paymentDate = dayjs().format('YYYY-MM-DD');
+
+        const installment = installmentsData.value.find(p => p.installmentNumber === i + 1)
+        
+        console.log(installment)
     };
 
     const undoPayOff = (installment) => {
@@ -189,14 +193,14 @@
             installmentsData.value = [...props.selectedRegister.installments];
         }
 
-        if (props.receiveCode) {
-            getReceives(props.receiveCode);
+        if (props.receiveDocument) {
+            getReceives(props.receiveDocument);
         }
 
-        console.log(props.receiveCode);
+        console.log(props.receiveDocument);
     });
 
-    watch(() => props.receiveCode, (newVal) => {
+    watch(() => props.receiveDocument, (newVal) => {
     if (newVal) {
         getReceives(newVal);
     } else {

@@ -320,7 +320,8 @@
 
     onMounted(async () => {
         await getCompanies();
-        await getLiberations(LocalStorage.getItem("user_id"));
+        //await getLiberations(LocalStorage.getItem("user_id"));
+        LocalStorage.set("liberationEcommerce", true)
 
         showContent.value = true;
 

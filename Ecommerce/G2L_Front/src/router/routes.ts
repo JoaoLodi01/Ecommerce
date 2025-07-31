@@ -152,14 +152,18 @@ const routes = [
         name: 'GeneralConfigs',
         component: () => import('src/pages/Config/GeneralConfigs.vue')
       },
-      {
-        path: '/:name/:catchAll(.*)*',
-        name: '404',
-        component: () => import('src/pages/ErrorNotFound.vue')
-      },
-      
     ]
   },
+  {
+    path: '/:name/:catchAll(.*)*',
+    name: '404',
+    component: () => import('src/pages/ErrorNotFound.vue')
+  },
+  {
+    path: '/:name/500',
+    name: '500',
+    component: () => import('src/pages/ErrorPages/500.vue')
+  }
 ]
 
 export default routes

@@ -26,7 +26,7 @@
         <div class="flex flex-wrap gap-4">
           <SpeciesSearchBar
             @selectSpecie="getSpecie"
-            module_="receive"
+            :module_="'receive'"
             :disable="readonly"
           />
 
@@ -143,7 +143,7 @@
 
       <InstallmentsTable
         :pdv="false"
-        :receiveCode="props.receiveCode"
+        :receiveDocument="props.receiveDocument"
         :number="form.installmentNumber"
         :amount="form.installmentAmount"
         :original-value="form.installmentValue"
@@ -213,7 +213,7 @@ import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
 const props = defineProps<{
   widthScreen: number;
   pdv?: boolean;
-  receiveCode?: number;
+  receiveDocument?: number;
   readonly: boolean;
   action: string;
 }>();
@@ -253,7 +253,7 @@ const form = reactive<IReceiveBody>({
 const installments = ref<any[]>([]);
 
 onMounted(() => {
-  console.log(props.receiveCode);
+  console.log(props.receiveDocument);
 });
 
 const submitForm = async () => {

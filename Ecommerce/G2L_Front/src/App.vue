@@ -11,6 +11,7 @@
     import { LocalStorage, useQuasar } from 'quasar';
     import dayjs from 'dayjs';
     import getColors from './services/getColors';
+import { api } from './boot/axios';
 
     const $q = useQuasar();
     const router = useRouter();
@@ -48,7 +49,26 @@
         };
     };
 
-   onMounted(() => {
+    const getHelth = async () =>
+    {
+        const healt = await api.get('/healt');
+        console.log(healt)
+        if(healt.data.status != 'Ok')
+        {
+            $q.notify({
+                color: 'red',
+                message: 'Erro interno!',
+                position: 'top',
+                timeout: 1200
+            });
+
+            router.push('error/500');
+        };
+    };
+    
+   onMounted(async () => {
+        console.log('AAAA');
+        getHelth();
         LocalStorage.removeItem("pdvID")
         emitter.on('global-error', showGlobalError);
 
@@ -74,7 +94,7 @@
         {
             clearInterval(intervalID.value);
             console.log('Vai parar de chamar o getColors');
-        }
+        };
 
         emitter.off('global-error', showGlobalError);
     });
