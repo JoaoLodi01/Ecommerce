@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\EcommerceController;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Services\EcommerceService\ReceiveService;
-use App\Http\Requests\ReceiveRequest;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Financial\Receive\UpdateInstallmentsRequest;
+use App\Http\Requests\Financial\Receive\ReceiveRequest;
+use App\Services\EcommerceService\ReceiveService;
 
 class ReceiveController extends Controller
 {
@@ -33,6 +34,11 @@ class ReceiveController extends Controller
     public function update(ReceiveRequest $request, int $id){
         $data = $request->validated();
         return $this->receiveService->update($data, $id);
+    }
+
+    public function updateInstallment(UpdateInstallmentsRequest $request, int $id){
+        $data = $request->validated();
+        return $this->receiveService->updateInstallment($data, $id);
     }
 
     public function delete(int $id){

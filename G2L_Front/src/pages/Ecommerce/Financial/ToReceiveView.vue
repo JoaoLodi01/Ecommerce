@@ -378,13 +378,13 @@
 	};
 
 	const getReceives = async () => {
-	try {
-		const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
-		originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
-		applyFilters();
-	} catch (error) {
-		$q.notify({ color: 'red', message: 'Erro ao carregar dados' });
-	}
+		try {
+			const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
+			originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
+			applyFilters();
+		} catch (error) {
+			$q.notify({ color: 'red', message: 'Erro ao carregar dados' });
+		}
 	};
 
 	//#endregion
@@ -528,18 +528,5 @@
 			return dayjs(dueDate).isBefore(dayjs(), 'day');
 		};
 		
-		const parseCurrency = (value: number): number =>
-		{
-			if (!value) return 0;
-
-			return parseFloat(
-				value
-				.toString()
-				.replace(/\s/g, '')
-				.replace('R$', '')
-				.replace(/\./g, '')
-				.replace(',', '.')
-			) || 0;
-		};
 	//#endregion
 </script>
