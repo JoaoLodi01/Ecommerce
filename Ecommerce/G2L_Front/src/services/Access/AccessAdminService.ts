@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useQuasar } from "quasar";
 
 export async function createCustomerInAccess(data: ICustomerData)
 {

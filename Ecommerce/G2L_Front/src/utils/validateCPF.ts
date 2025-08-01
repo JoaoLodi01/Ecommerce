@@ -1,5 +1,4 @@
-
-export default function validateCPF (cpf: string): boolean
+function validateCPF (cpf: string): boolean
 {
     cpf = cpf.replace(/\D/g, '');
     if(cpf.length !== 11)
@@ -36,3 +35,5 @@ export default function validateCPF (cpf: string): boolean
 
     };
 };
+
+export default validateCPF

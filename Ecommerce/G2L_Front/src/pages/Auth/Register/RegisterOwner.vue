@@ -59,7 +59,7 @@
                             v-bind:mask="'###.###.###-##'"
                             maxlength="14"
                             outlined
-                            @update:model-value="checkCPF"
+                            @update:model-value="handleCPF"
                             :rules="[
                                 val => {
                                     if(!val) return 'Preencha seu CPF!';
@@ -178,7 +178,7 @@
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import dayjs from 'dayjs';
     import { createCustomerInAccess } from 'src/services/Access/AccessAdminService';
-    import checkExistsCPF from 'src/services/CPF/checkExistsCPF';
+    import checks from 'src/services/Exists/checkExists' 
 
     interface IOwnerData
     {
@@ -234,6 +234,12 @@
         };
     });
 
+    
+    function formateCPF(cpf: string): string
+    {
+        return cpf.replace(/\D/g, '');    
+    };
+    
     function validateEmail(email: string): boolean
     {
         if(email.split('').includes('@'))
@@ -356,12 +362,33 @@
 
     };
 
-    const checkCPF = async (cpf: string) =>
+    const handleCPF = async (cpf: string) =>
     {
-        return await checkExistsCPF(cpf);
-    
-    };
+        const existis = await checks.checkExistsCPF(cpf);
+        const formatedCPF = formateCPF(cpf);
 
+        if(formatedCPF.length === 11) 
+        {
+            if(!existis)
+            {
+                $q.notify({
+                    color: 'red',
+                    message: 'CPF já cadastrado!',
+                    position: 'top',
+                    timeout: 1800
+                });
+                form.value.cpf = '';
+                
+            } else {
+                $q.notify({
+                    color: 'green',
+                    message: 'CPF dboa!',
+                    position: 'top',
+                    timeout: 1800
+                });
+            };
+        };
+    };
     onMounted(() => {
         firstData.value = false;
         form.value.password = '',

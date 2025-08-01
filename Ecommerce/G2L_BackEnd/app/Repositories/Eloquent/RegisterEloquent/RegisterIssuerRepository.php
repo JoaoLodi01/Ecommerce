@@ -313,10 +313,9 @@ class RegisterIssuerRepository implements RegisterIssuerContract
 
     }
 
-    public function existsCPF(int $cpf): bool
+    public function existsCPF(int $cpf)
     {
-        $exists = Issuer::where('cpf', $cpf)->first();
-        return $exists ? true : false;
+        return is_null(Issuer::where('cpf', $cpf)->first());
 
     }
 }

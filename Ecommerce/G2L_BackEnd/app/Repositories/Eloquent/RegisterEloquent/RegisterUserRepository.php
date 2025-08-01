@@ -45,8 +45,7 @@ class RegisterUserRepository implements RegisterUserContract
 
     public function existsCPF(int $cpf): bool
     {
-        $exists = User::where('cpf', $cpf)->first();
-        return $exists ? true : false;
+        return is_null(User::where('cpf', $cpf)->first());
 
     }
 }

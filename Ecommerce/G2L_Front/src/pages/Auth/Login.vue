@@ -107,7 +107,6 @@
 
             if(res.data.success)
             {
-                console.log(res.data.user);
                 loandingLogin.value = false;
                 LocalStorage.set("auth_token", res.data.token);
                 LocalStorage.set("owner_name", res.data.user.name);
@@ -142,7 +141,6 @@
             };
             
         } catch (error) {
-            console.error('Erro no login: ', error);
             loandingLogin.value = false;
 
         } finally {

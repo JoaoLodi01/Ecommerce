@@ -59,9 +59,10 @@
                     color="primary"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
-                    @update:model-value="checkCPF"
+                    @update:model-value="handleCPF"
                     :rules="[
-                        val => !val || validateCPF(val) || 'CPF inválido'
+                        val => validateCPF(val) || 'CPF inválido'
+                        
                     ]"
 
                 />
@@ -108,6 +109,7 @@
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import axios from 'axios';
     import validateCPF from 'src/utils/validateCPF';
+    import checks from 'src/services/Exists/checkExists' 
 
     interface IIsuerData
     {
@@ -138,33 +140,9 @@
 
     let showLoanding = ref<boolean>(false);
 
-    const checkCPF = async () =>
+    function formateCPF(cpf: string): string
     {
-        const cpf = form.value.cpf.replace(/\D/g, '')
-
-        if(cpf.length == 11) 
-        {
-            const res = await api.get(`/registers/issuer/last-cpf/${cpf}`);
-            const exists = res.data
-
-            if(!exists.data)
-            {
-                return;
-
-            } else {
-                $q.notify({
-                    color: 'red',
-                    message: 'CPF já cadastrado!',
-                    position: 'top',
-                    timeout: 1800
-                });
-
-                form.value.company_name = '';
-                form.value.trade_name = '';
-                form.value.cpf = '';
-
-            };
-        };
+        return cpf.replace(/\D/g, '');    
     };
     
     const getDataCNPJ = async () =>
@@ -259,6 +237,34 @@
         form.value.company_name = val.toUpperCase();
         form.value.trade_name = form.value.company_name;
 
-    }
+    };
+
+    const handleCPF = async (cpf: string) =>
+    {
+        const existis = await checks.checkIssuerExistsCPF(cpf);
+        const formatedCPF = formateCPF(cpf);
+
+        if(formatedCPF.length === 11) 
+        {
+            if(!existis)
+            {
+                $q.notify({
+                    color: 'red',
+                    message: 'CPF já cadastrado!',
+                    position: 'top',
+                    timeout: 1800
+                });
+                form.value.cpf = '';
+                
+            } else {
+                $q.notify({
+                    color: 'green',
+                    message: 'CPF dboa!',
+                    position: 'top',
+                    timeout: 1800
+                });
+            };
+        };
+    };
 
 </script>

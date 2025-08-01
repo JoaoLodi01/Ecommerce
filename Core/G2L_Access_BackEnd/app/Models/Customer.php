@@ -12,7 +12,6 @@ class Customer extends Model
         'full_name',
         'email',
         'cpf',
-        'active_license',
         'expire_license',
         'monthly_fee',
         'pay',

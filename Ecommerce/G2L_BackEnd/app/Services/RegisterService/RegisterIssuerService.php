@@ -85,7 +85,7 @@ class RegisterIssuerService
         return $exists;
     }
 
-    public function existsCPF(int $cpf): bool
+    public function existsCPF(int $cpf)
     {
         $exists = $this->registerIssuerRepository->existsCPF($cpf);
         return $exists;

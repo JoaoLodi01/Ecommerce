@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('full_name', 120);
             $table->string('email', 120)->unique();
             $table->string('cpf', 11)->unique();
-            $table->date('active_license');
             $table->date('expire_license');
             $table->float('monthly_fee', 16,2)->default(100.00);
             $table->boolean('pay')->default(0);
