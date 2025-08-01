@@ -71,7 +71,11 @@
                     </div>
 
                     <Transition name="slide-top">
-                        <div v-if="firstData" class="mt-10">
+                        <div v-if="firstData">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 mb-4 cursor-pointer" @click="firstData = !firstData ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                            </svg>
+
                             <q-input 
                                 label="Senha"
                                 class="mb-4"
@@ -120,12 +124,26 @@
 
                     <div class="text-center mt-4 mb-2">
                         <q-btn 
-                            :label="!firstData ? 'Continuar cadastro!' : 'Finalizar cadastro!'" 
-                            :type="firstData ? 'submit' : 'button'" 
+                            v-if="!firstData"
+                            label="Continuar cadastro!" 
+                            type="button" 
                             color="primary"
                             class="p-4 rounded-md w-72 mb-4"
                             outline 
                             unelevated 
+                            @click.firstData="firstData = !firstData"
+
+                        />
+
+                        <q-btn 
+                            v-if="firstData"
+                            label="Finalizar cadastro!" 
+                            type="submit" 
+                            color="primary"
+                            class="p-4 rounded-md w-72 mb-4"
+                            outline 
+                            unelevated 
+
                         />
                             <br>
 
@@ -182,7 +200,6 @@
         (e: 'isLogin', value: boolean)
     }>();
 
-    const access = process.env.API_ACCESS_URL;
     const $q = useQuasar();
     const router = useRouter();
     const today = dayjs();
@@ -246,7 +263,6 @@
 
             if(createAccess.status)
             {
-                alert('Passou certo 1')
                 const res = await api.post('/registers/owner/create', {
                     name: form.value.name,
                     surname: form.value.surname,
@@ -260,7 +276,6 @@
                 
                 if(data.success)
                 {
-                    alert('Passou certo 2')
                     // 'Login'
                     const details = { email: data.data.email, password: form.value.password };
                     
@@ -299,6 +314,13 @@
                         })
                     };
                 };
+            } else {
+                $q.notify({
+                    color: 'red',
+                    message: createAccess.message,
+                    position: 'top',
+                    timeout: 2000
+                });
             };
             
         } catch (error) {
@@ -345,7 +367,6 @@
         form.value.password = '',
         form.value.password_ = '',
         showContent.value = true;
-        console.log(`${access}/customers/create`);
     });
 </script>
 

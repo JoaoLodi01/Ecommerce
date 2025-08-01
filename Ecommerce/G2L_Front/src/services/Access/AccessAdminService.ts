@@ -25,12 +25,13 @@ export async function createCustomerInAccess(data: ICustomerData)
         };
 
     } catch (error) {
-        console.error('Erro no AccessAdminService', error.response.message);
-        const message: string = error.response?.message || error.response || error.response?.data?.message || 'Erro no acesso de admin';
+        console.error('Erro no AccessAdminService', error.response);
+        const message: string = error.response?.message || error.response || error.response?.data.message || 'Erro no acesso de admin';
 
         return {
             status: false,
             message: message
+            
         };
     };
 };

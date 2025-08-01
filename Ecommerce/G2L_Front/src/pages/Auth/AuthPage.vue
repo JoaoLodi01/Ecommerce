@@ -7,7 +7,7 @@
     >
         <div 
             :class="{
-                'p-6 flex w-[165vh]': witdhScreen > 1366,
+                'p-12 flex': witdhScreen > 1366,
                 
             }"
 
@@ -15,7 +15,7 @@
             <img 
                 class="rounded"
                 :class="{
-                    'w-[1032px]': witdhScreen >= 2560,
+                    'w-[1034px]': witdhScreen >= 2560,
                     'w-[860px]': witdhScreen >= 1920,
                     'w-[650px]': witdhScreen < 1920
                 }"
@@ -26,7 +26,7 @@
 
             >
                 
-            <div class="ml-auto">
+            <div class="ml-24">
                 <RegisterOwner
                     v-if="!isLogin"
                     @is-login="isLogin = $event"

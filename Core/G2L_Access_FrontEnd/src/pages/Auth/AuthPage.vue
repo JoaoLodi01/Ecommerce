@@ -79,9 +79,9 @@
             }
         });
 
-        const data = res.data;
-
         console.log(res.data.data);
+
+        const data = res.data;
 
         if(data.success)
         {

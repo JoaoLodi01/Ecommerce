@@ -21,6 +21,7 @@ class AuthController extends Controller
         $password = $request->input('password');
 
         $user = $this->userService->findEmail($email);
+        
         if($user && Hash::check($password, $user->password))
         {
             Auth::login($user);

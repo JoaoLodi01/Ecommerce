@@ -44,6 +44,7 @@ export default defineBoot(({ app, router }) => {
             return config;
         },
         (error) => {
+            console.error('Erro na API: ', error.response);
             console.error('Erro na API: ', error.response.data.message);
             const errorMessage = error.response?.message || error.response?.data.message || 'Erro na API'
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cpf', 11)->unique();
             $table->date('active_license');
             $table->date('expire_license');
-            $table->float('monthly_fee', 16,2);
+            $table->float('monthly_fee', 16,2)->default(100.00);
             $table->boolean('pay')->default(0);
             $table->boolean('hotel')->default(0);
             $table->boolean('ecommerce')->default(1);
