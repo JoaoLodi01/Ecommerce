@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\Customer;
 use App\Models\EcommerceModels\PaymentForms;
 use App\Models\EcommerceModels\Receive;
+use App\Models\EcommerceModels\CashRegister;
 use App\Models\Registers\User;
 use Illuminate\Support\Facades\Log;
 
@@ -88,9 +89,47 @@ class ReceiveRepository
         return Receive::where('id', $id)->update($receiveRegister);
     }
 
-    /*public function updateInstallment (array $data, int $id){
-        return $receive->save();
-    }*/
+    public function payInstallment (array $data, int $id){
+
+        Log::info('Dados recebidos: ', $data);
+
+        $installment = Receive::findOrFail($id);
+        $issuer = $data['issuerID'];
+        $origem = $data['origem'];
+        $specie = PaymentForms::where('issuer_id', $data['issuerID'])
+                            ->where('payment_code', $data['especieID'])
+                            ->first();
+        Log::info('Buscando espécie: ', $specie);
+
+        if (!$specie) {
+            throw new \Exception("Forma de pagamento não encontrada!");
+        }
+
+        $installment->update([
+            'status' => 'quitada',
+            'especieID' => $specie->id,
+            'date_paid' => $data['paymentDate'],
+            'installment_paid' => $data['installmentPaid'],
+        ]);
+
+        $this->registerInTheCash($installment, $specie, $origem, $issuer);
+
+        return $installment;
+    }
+
+    public function undoInstallment (array $data, int $id){
+        
+    }
+
+    public function registerInTheCash(array $installment, array $specie, string $origem, int $issuer){
+        if ($origem === 'RECEBER'){
+            CashRegister::create([
+                'issuer_id' => $issuer,
+                'description' => "Recebimento da parcela Nº {$installment->id}",
+                'document' => 
+            ]);
+        }
+    }
 
     public function delete (int $id){
         return Receive::where('id', $id)->update([

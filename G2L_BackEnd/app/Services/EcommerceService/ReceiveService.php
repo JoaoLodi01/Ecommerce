@@ -56,16 +56,36 @@ class ReceiveService
         ]);
     }
 
-    public function updateInstallment(array $data, int $id){
-        $installment = $this->receiveRepository->updateInstallment($id);
+    public function payInstallment(array $data, int $id){
+        $installment = $this->receiveRepository->findByID($id);
 
         if (!$installment) {
             throw new \Exception("Parcela não encontrada");
         }
 
-        $installment->update($data);
+        if ($installment->status === 'cancelada'){
+            throw new \Exception("Não é possível quitar uma parcela cancelada");
+        }
 
-        return $installment;
+        if ($installment->status === 'quitada') {
+            throw new \Exception("Parcela já está quitada");
+        }
+
+        return $this->receiveRepository->payInstallment($data, $id);
+    }
+
+    public function UndoInstallment(array $data, int $id){
+        $installment = $this->receiveRepository->findByID($id);
+
+        if (!$installment) {
+            throw new \Exception("Parcela não encontrada");
+        }
+
+        if ($installment->status !== 'quitada') {
+            throw new \Exception("A parcela não está quitada");
+        }
+
+        return $this->receiveRepository->undoInstallment($data, $id);
     }
 
     public function delete(int $id){
