@@ -940,8 +940,15 @@
         console.table(product);
     };
 
+    const playSound = () =>
+    {
+        const audio = new Audio('../../../public/sounds/passar_produto.wav');
+        audio.play();
+    };
+
     const updateProductsSeletion = (selectedProducts: IProducts) =>
     {
+        playSound()
         const existingProduct = productsSeletion.value.find(
             (p) => 
                 p.product_code === selectedProducts.product_code || 
