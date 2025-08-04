@@ -53,37 +53,38 @@ class PaymentsRepository
                 'message' => 'Chave PIX ausente'
             );
         }
+    }
 
+    public function setNull(string $field) 
+    {
+        if(empty($field))
+        {
+            return 'null';
+
+        } else {
+            return $field;
+        }
     }
 
     public function create(array $data){
-        if (!empty($data)){
-            Log::info("Criando espécie");
-            $paymentCod = PaymentForms::where('issuer_id', $data['issuer_id'])->max('payment_code');
-            $payment = PaymentForms::create([
-                'payment_code' => $paymentCod ? $paymentCod + 1 : 1,
-                'issuer_id' => $data['issuer_id'],
-                'especie' => $data['especie'],
-                'tipo_lancamento' => $data['tipo_lancamento'],
-                'payments_form_type' => $data['payments_form_type'],
-                'pix_key' => preg_replace('/[^a-zA-Z0-9]/', '', $data['pix_key']) ?? null,
-                'bank_key' => preg_replace('/[^a-zA-Z0-9]/', '', $data['bank_key']) ?? null,
-                'other_key' => preg_replace('/[^a-zA-Z0-9]/', '', $data['other_key']) ?? null,
-            ]);
-            if($payment)
-            {
-                return array(
-                    'status' => 201,
-                    'success' => true
-                );
-            }
+        $paymentCod = PaymentForms::where('issuer_id', $data['issuerID'])->max('payment_code');
+        
+        Log::debug(preg_replace('/[^a-zA-Z0-9]/', '', $data['pixKey']));
+        Log::debug(preg_replace('/[^a-zA-Z0-9]/', '', $data['bankKey']));
+        Log::debug(preg_replace('/[^a-zA-Z0-9]/', '', $data['otherKey']));
 
-        } else {
-            return response()->json([
-                'success' => false,
-                'error' => 'Campos necessários.',
-            ], 400);
-        }
+        $payment = PaymentForms::create([
+            'payment_code' => $paymentCod ? $paymentCod + 1 : 1,
+            'issuer_id' => $data['issuerID'],
+            'especie' => $data['especie'],
+            'tipo_lancamento' => $data['tipoLancamento'],
+            'payments_form_type' => $data['paymentsFormType'],
+            'pix_key' => preg_replace('/[^a-zA-Z0-9]/', '', $data['pixKey']),
+            'bank_key' => preg_replace('/[^a-zA-Z0-9]/', '', $data['bankKey']),
+            'other_key' => preg_replace('/[^a-zA-Z0-9]/', '', $data['otherKey']),
+        ]);
+
+        return $payment;
 
     }
 

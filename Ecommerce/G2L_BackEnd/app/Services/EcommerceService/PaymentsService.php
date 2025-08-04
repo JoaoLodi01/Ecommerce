@@ -58,21 +58,14 @@ class PaymentsService
     }
 
     public function create(array $data){
-        try {
-            $paymentForm = $this->paymentsRepository->create($data);
-            if($paymentForm['status'] === 201 && $paymentForm['success'])
-            {
-                return response()->json([
-                    'success' => $paymentForm['success'],
-                    'payMentForm' => $paymentForm
+        $paymentForm = $this->paymentsRepository->create($data);
+        if(!$paymentForm)
+        {
+            throw new Exception("Erro ao criar nova espécie de pagamento");
 
-                ], $paymentForm['status']);
-
-            }
-
-        } catch (\Throwable $th) {
-            return $this->returnResponse($th);
         }
+
+        return $paymentForm;
     }
 
     public function update(array $data, int $id)

@@ -1,9 +1,10 @@
 import { QrCodePix } from 'qrcode-pix';
 
 type Issuer = {
-    company_name: string,
+    companyName: string,
+    city: string,
     cep: string
-}
+};
 
 async function generatePIX(
         totalOperation: number, 
@@ -13,10 +14,10 @@ async function generatePIX(
     const qrCodePix = QrCodePix({
         version: '01',
         key: pix_key, 
-        name: issuer.company_name,
-        city: 'SAO PAULO',
+        name: issuer.companyName,
+        city: issuer.city,
         transactionId: 'TX123456789',
-        message: 'Isso ai',
+        message: 'Volte sempre!',
         cep: issuer.cep,
         value: totalOperation,
     });

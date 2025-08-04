@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\EcommerceService\PaymentsService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PayMentForm\PayMentFormRequest;
+use Illuminate\Support\Facades\Log;
 
 class PaymentsController extends Controller
 {
@@ -18,9 +19,11 @@ class PaymentsController extends Controller
         return apiSuccess('Todas as espécies de pagamento!', $this->paymentsService->getAll($issuerID));
     }
 
-    public function create(PayMentFormRequest $request){
-        $data = $request->validated();
-        return $this->paymentsService->create($data);
+    public function create(PayMentFormRequest $request)
+    {
+        Log::debug($request->all());
+        
+        return apiSuccess('Espécie criada com sucesso!', $this->paymentsService->create($request->validated()));
     }
 
     public function findOneByID(int $issuerID, int $code)

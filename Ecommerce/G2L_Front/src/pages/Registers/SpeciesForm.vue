@@ -78,6 +78,7 @@
             <SpeciesManagement
                 :operation="operation"
                 :species-code="speciesCodeSelected"
+                @close="resetManagement($event)"
 
             />
 
@@ -151,6 +152,13 @@
         operation.value = typeOperation;
         speciesCodeSelected.value = specieCode;
         showSpeciesManagement.value = true;
+
+    };
+
+    const resetManagement = (event: boolean) =>
+    {
+        speciesCodeSelected.value = 0;
+        showSpeciesManagement.value = !event
 
     };
 

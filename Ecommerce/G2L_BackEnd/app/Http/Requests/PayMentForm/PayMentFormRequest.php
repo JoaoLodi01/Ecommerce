@@ -21,15 +21,14 @@ class PayMentFormRequest extends FormRequest
     {
         $required = $this->isMethod('POST') ? 'required' : 'sometimes';
         return [
-            'issuer_id' => ['required'],
+            'issuerID' => ['required'],
             'especie' => [$required, 'string'],
-            'tipo_lancamento' => [$required, 'string'],
-            'payments_form_type' => [$required, 'string'],
-            'pix_key' => ['sometimes'],
-            'bank_key' => ['sometimes'],
-            'other_key' => ['sometimes'],
-        
+            'tipoLancamento' => [$required, 'string'],
+            'paymentsFormType' => [$required, 'string'],
+            'pixKey' => ['sometimes'],
+            'bankKey' => ['sometimes'],
+            'otherKey' => ['sometimes']
+
         ];
     }
-
 }

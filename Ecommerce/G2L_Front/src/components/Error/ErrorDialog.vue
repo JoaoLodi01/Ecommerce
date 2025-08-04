@@ -10,24 +10,34 @@
       </q-card-section>
 
       <q-card-actions align="right">
-        <q-btn flat label="Fechar" color="red" v-close-popup />
+        <q-btn id="closeButton" flat label="Fechar" color="red" v-close-popup />
       </q-card-actions>
     </q-card>
   </q-dialog>
 </template>
 
-<script setup>
-    import { ref, defineExpose } from 'vue';
+<script setup lang="ts">
+    import { ref, defineExpose, onMounted } from 'vue';
 
-    const visible = ref(false);
-    const message = ref('');
+    const visible = ref<boolean>(false);
+    const message = ref<string>('');
 
-    function showError(msg) 
+    function showError(msg: string) 
     {
         message.value = msg || 'Erro desconhecido';
         visible.value = true;
     };
 
     defineExpose({ showError });
+    
+    onMounted(() => {
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
+            console.log(event.key);
+            const keyName = event.key;
 
-</script>
+            if(keyName === ' ' || keyName === 'Escape') {
+                visible.value = false;
+            };
+        });
+    });
+</script>   

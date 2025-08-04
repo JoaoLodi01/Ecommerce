@@ -10,6 +10,9 @@
                 type="text" 
                 label="Descrição" 
                 color="grey-7"
+                :rules="[
+                    val => !!val || 'O nome da espécie é necessário!'
+                ]"
 
             />
 
@@ -35,6 +38,10 @@
                 label="Tipo da espécie" 
                 color="grey-7"
                 filled 
+                :rules="[
+                    val => !!val || 'O tipo da espécie é necessário!'
+                ]"
+
             />
 
             <div v-if="formData.paymentsFormType === 'PIX'">
@@ -100,9 +107,9 @@
 </template>
 
 <script setup lang="ts">
-    import { LocalStorage } from 'quasar';
+    import { useQuasar, LocalStorage, event } from 'quasar';
     import { api } from 'src/boot/axios';
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted, reactive } from 'vue';
     import validateCPF from 'src/utils/validateCPF';
     import camelcaseKeys from 'camelcase-keys'; 
 
@@ -123,6 +130,11 @@
 
     }>();
 
+    const emits = defineEmits<{
+        (e: 'close', value: true)
+
+    }>();
+
     const paymentsFormType = ref([
         'DINHEIRO',
         'PIX',
@@ -133,6 +145,8 @@
         'OUTROS',
 
     ]);
+
+    const $q = useQuasar();
 
     const keyPIXType_ = ref(null);
     const keyPIXType = ref([
@@ -145,11 +159,11 @@
         paymentCode: 0,
         issuerID: LocalStorage.getItem("issuer_id"),
         especie: '',
-        tipoLancamento: '',
+        tipoLancamento: 'Caixa',
         paymentsFormType: '',
-        pixKey: '',
-        bankKey: '',
-        otherKey: '',
+        pixKey: null,
+        bankKey: null,
+        otherKey: null,
                 
     });
 
@@ -158,12 +172,31 @@
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
     const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
+    const notifyMessage = reactive({
+        'create': 'Espécie cadastrada com sucesso!',
+        'update': 'Espécie alterada com sucesso!'
+
+    });
+
     const onSubmit = async () => {
-        const apiURL = props.operation === 'crate' ? `species/create` : `species/${props.speciesCode}`;
+        console.log(formData.value);
+        const apiURL = props.operation === 'create' ? `species/create` : `species/${props.speciesCode}`;
+        const res = props.operation === 'create' ? await api.post(apiURL, formData.value) : await api.put(apiURL, formData.value);
 
-        const res = props.operation === 'crate' ? await api.post(apiURL, formData.value) : await api.put(apiURL, formData.value);
-        console.log(res);
+        const data = res.data
 
+        if(data.success)
+        {
+            $q.notify({
+                color: 'green',
+                message: notifyMessage[props.operation],
+                position: 'top',
+                timeout: 2000,
+
+            });
+            emits('close', true);
+
+        };
     };
 
     const getData = async () => 
@@ -174,16 +207,18 @@
         formData.value = {
             paymentCode: data.paymentCode,
             issuerID: data.issuerID,
-            bankKey: data.bankKey,
             especie: data.especie,
-            otherKey: data.otherKey,
             paymentsFormType: data.paymentsFormType,
-            pixKey: data.pixKey,
             tipoLancamento: data.tipoLancamento,
+            bankKey: data.bankKey,
+            otherKey: data.otherKey,
+            pixKey: data.pixKey,
         };
     };
 
     onMounted(() => {
         props.operation === 'update' ? getData() : null;
+
+        document.addEventListener('keydown', (event: KeyboardEvent) => { if(event.key === 'Escape') emits('close', true); });
     });
 </script>

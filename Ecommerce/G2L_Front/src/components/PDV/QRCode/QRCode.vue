@@ -42,16 +42,18 @@
     import clipBoard from 'src/services/clipboard';
 
     type Issuer = {
-        company_name: string,
+        companyName: string,
+        city: string,
         cep: string
-    }
+    };
 
     let successClip: any = ref(null)
     let qrCode: any = ref(null)
     let payLoad: any = ref(null)
     let pix_key: any = ref(null)
     let issuer: any = ref<Issuer>({
-        company_name: '',
+        companyName: '',
+        city: '',
         cep: ''
     })
     
@@ -70,11 +72,14 @@
     const getKey = async () => {
         const res_key = await api.get(`/species/find-key/${LocalStorage.getItem("issuer_id")}`);
         const issuer_data = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`);
+
         issuer.value = issuer_data.data.issuer
+        
         console.log('issuer', issuer.value)
 
         pix_key.value = res_key.data.key
         console.log('pix_key.value: ', pix_key.value)
+
         if(pix_key.value && props.total_amount > 0)
         {
             getQRCode()

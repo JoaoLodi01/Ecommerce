@@ -380,12 +380,8 @@
                 form.value.cpf = '';
                 
             } else {
-                $q.notify({
-                    color: 'green',
-                    message: 'CPF dboa!',
-                    position: 'top',
-                    timeout: 1800
-                });
+                return;
+                
             };
         };
     };
