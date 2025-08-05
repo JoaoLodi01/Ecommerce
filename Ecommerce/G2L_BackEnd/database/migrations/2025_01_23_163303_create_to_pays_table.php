@@ -55,11 +55,14 @@ return new class extends Migration
             $table->string('user');
             $table->decimal('discount', 16,2)->nullable();
             $table->decimal('addition', 16,2)->nullable();
+            $table->decimal('amount_paid', 16,2)->nullable();
 
             $table->decimal('value_entry', 16,2);
             $table->decimal('value_to_pay', 16,2);
             $table->decimal('value_original', 16,2);
-
+            $table->string('status', 40)->default('Aberto');
+            $table->boolean('paid_off', 1)->default(0);
+            $table->boolean('status', 1)->default(0);
             $table->boolean('canceled', 1)->default(0);
             
             $table->timestamps();

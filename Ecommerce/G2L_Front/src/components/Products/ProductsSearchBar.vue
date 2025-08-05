@@ -14,8 +14,8 @@
     />        
     
     <ul 
-        v-if="filtredProducts.length > 0 && search.name !== '' && props.locale === 'pdv'" 
         class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
+        v-if="filtredProducts.length > 0 && search.name !== '' && props.locale === 'pdv'" 
     >
         <li
             v-for="product in filtredProducts"
@@ -31,7 +31,15 @@
 
         </li>
     </ul>
-    
+    <ul
+        class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
+        v-if="filtredProducts.length === 0 && search.name !== ''"
+    >
+        <li>
+            <span>Produto não encontrado!</span>
+            
+        </li>
+    </ul>
 </template>
 
 <script setup lang="ts">
@@ -187,7 +195,13 @@
 
     onMounted(() => {
         getConfig();
-
+        document.addEventListener('keydown', (event: KeyboardEvent) => {
+            if(event.key === 'Enter' && filtredProducts.value.length > 0)
+            {
+                setProduct(filtredProducts.value[0]);
+                
+            };
+        });
     });
                
 </script>

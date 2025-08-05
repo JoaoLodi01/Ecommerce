@@ -242,7 +242,7 @@
     
     function validateEmail(email: string): boolean
     {
-        if(email.split('').includes('@'))
+        if(email.split('').includes('@') && email.split('@')[1].length >= 4)
         {
             return true;
             
@@ -385,6 +385,7 @@
             };
         };
     };
+
     onMounted(() => {
         firstData.value = false;
         form.value.password = '',

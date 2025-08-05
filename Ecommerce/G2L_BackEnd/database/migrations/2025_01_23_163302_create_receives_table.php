@@ -38,7 +38,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cost_center_code')->nullable();
 
             $table->string('name', 120);
-            $table->string('status');
+            $table->string('status', 40);
             $table->string('especie', 120);
             $table->date('due_date');     
             $table->integer('installment_amount');

@@ -17,6 +17,7 @@ interface IPayBody
     installmentAmount?: number;
     installmentNumber: number,
     installmentValue: number,
+    amountPaid?: number,
     typeInterest?: string,
     interestValue?: number,
     totalAmount?: number,
@@ -27,5 +28,7 @@ interface IPayBody
     valueToPay: number,
     valueOriginal: number,
     canceld?: boolean
+    status?: string
+    paidOff?: boolean
 
 };
