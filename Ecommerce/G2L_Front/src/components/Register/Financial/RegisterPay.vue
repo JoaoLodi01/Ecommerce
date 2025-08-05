@@ -8,6 +8,7 @@
     >
     <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">
         {{ title }} pagamentos
+        
     </h2>
         <q-form
             class="grid gap-4 mx-auto"
