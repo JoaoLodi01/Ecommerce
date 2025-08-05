@@ -5,7 +5,7 @@ namespace App\Http\Requests\Financial\Receive;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class PayInstallmentsRequest extends FormRequest
+class PayInstallmentRequest extends FormRequest
 {
     public function authorize(): bool
     {

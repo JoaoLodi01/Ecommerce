@@ -12,6 +12,7 @@ class CashRegister extends Model
         'cash_register_code',
         'issuer_id',
         'description',
+        'status',
         'document',
         'pdv_code',
         'receive_code',

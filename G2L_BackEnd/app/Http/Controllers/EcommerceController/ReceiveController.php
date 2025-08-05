@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Financial\Receive\CreateReceiveRequest;
-use App\Http\Requests\Financial\Receive\PayInstallmentsRequest;
+use App\Http\Requests\Financial\Receive\PayInstallmentRequest;
 use App\Http\Requests\Financial\Receive\UndoInstallmentRequest;
 use App\Services\EcommerceService\ReceiveService;
 
@@ -37,7 +37,7 @@ class ReceiveController extends Controller
         return $this->receiveService->update($data, $id);
     }
 
-    public function payInstallment(PayInstallmentsRequest $request, int $id){
+    public function payInstallment(PayInstallmentRequest $request, int $id){
         $data = $request->validated();
         return $this->receiveService->payInstallment($data, $id);
     }

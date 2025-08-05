@@ -245,7 +245,7 @@ const form = reactive<IReceiveBody>({
   valueEntry: 0,
   valuePaid: 0,
   origem: "Receber (Manual)",
-  status: "Em aberto",
+  status: "Em aberto",	
   paid: false,
   installments: [],
 });
