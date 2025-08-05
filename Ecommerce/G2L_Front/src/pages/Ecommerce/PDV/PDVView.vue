@@ -465,7 +465,7 @@
 
                                     @click="finalizeSale('nm')"
                                     v-if="configs.nmFinaly"
-                                    label="Finalizar veda"
+                                    label="Finalizar venda"
 
                                 />
                                     

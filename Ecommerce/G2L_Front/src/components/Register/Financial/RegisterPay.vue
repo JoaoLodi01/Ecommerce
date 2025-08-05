@@ -1,218 +1,238 @@
 <template>
-  <div
-    class="mr-14 mt-5 mb-5 p-6 bg-white"
-    :class="{
-      'relative top-12 left-12': widthScreen <=1080,
-      'ml-14': widthScreen > 1080
-    }">
-
-    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">Cadastrar pagamentos</h2>
-
-    <form
-      @submit.prevent="submitForm"
-      @reset="onReset"
-      class="p-1"
+    <div
+        class="mr-14 mt-5 mb-5 p-6 bg-white"
         :class="{
-            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6': widthScreen > 1080
-        }">
-      <q-input
-          type="number" 
-          v-model="form.document" 
-          label="Nº Documento" 
-          color="grey-7" 
-      />
-      
-      <q-input
-        type="text"
-        v-model="form.description"
-        label="Descrição"
-        color="grey-7"
-      />
+            'relative top-12 left-12': widthScreen <= 1080,
+            'ml-14': widthScreen > 1080
+        }"
+    >
+    <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">
+        {{ title }} pagamentos
+    </h2>
+        <q-form
+            class="grid gap-4 mx-auto"
+            style="max-width: 1000px;"
+            :class="{
+                'grid-cols-1 lg:grid-cols-2': widthScreen > 1080,
+                'grid-cols-1': widthScreen <= 1080
+            }"
+        >
+            <div
+                class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto"
+            >
+                <div class="flex flex-wrap gap-4">
+                    <SpeciesSearchBar
+                        @selectSpecie="getSpecie"
+                        :module_="'installment'"
+                        :disable="false"
+                    />
 
-      <CustomerSearchBar
-        @updated:selectCustomer="getCustumer($event)"
-      />
+                    <CustomerSearchBar
+                        @updated:selectCustomer="getCustomer"
+                        :pdv="false"
+                        :disable="false"
+                    />
 
-      <q-input
-        type="text"
-        v-model="form.user"
-        label="Usuário"
-        color="grey-7"
-        readonly
-      />
+                    <q-input
+                        class="w-[100px]"
+                        type="number"
+                        label="Nº Doc"
+                        color="grey-7"
+                        v-model="toPay.document" 
+                    />
+                
+                    <q-input
+                        class="w-[200px]"
+                        type="text"
+                        label="Descrição"
+                        color="grey-7"
+                        v-model="toPay.description"
+                    />
+                </div>
+            </div>
 
-      <SpeciesSearchBar
-        @updated:selectSpecie="getSpecie($event)"
-      />
+            <div
+                class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto"
+            >
+                <div class="flex flex-wrap gap-4">
+                    <q-input
+                        type="text"
+                        v-model="toPay.user"
+                        label="Usuário"
+                        color="grey-7"
+                        class="w-[100px]"
+                        readonly
+                        disable
+                    />
 
-      <q-input
-        v-model="form.due_date"
-        label="Data de Vencimento"
-        mask="##/##/####">
+                    <q-input
+                        v-model="toPay.dueDate"
+                        label="Data de Vencimento"
+                        mask="##/##/####">
 
-        <template v-slot:append>
-          <q-icon name="event" class="cursor-pointer">
-            <q-popup-proxy>
-            <q-date v-model="form.due_date" mask="DD/MM/YYYY" />
-            </q-popup-proxy>
-          </q-icon>
-        </template>
-      </q-input>
+                        <template v-slot:append>
+                            <q-icon name="event" class="cursor-pointer">
+                                <q-popup-proxy>
+                                    <q-date v-model="toPay.dueDate" mask="DD/MM/YYYY" />
+                                </q-popup-proxy>
+                            </q-icon>
+                        </template>
+                    </q-input>
 
-      <q-input
-        type="number"
-        v-model="form.installment_number"
-        label="Nº Parcelas"
-        color="grey-7"
-      />
+                    <q-input
+                        type="number"
+                        v-model="toPay.installmentNumber"
+                        label="Nº Parcelas"
+                        color="grey-7"
+                        class="w-[100px]"
+                        :disable="!toPay.especieID"
+                    />
 
-      <q-input
-        type="number"
-        v-model="form.installment_value"
-        label="Valor Parcelas"
-        color="grey-7"
-      />
+                    <q-input
+                        type="number"
+                        v-model="toPay.installmentValue"
+                        label="Valor Parcelas"
+                        color="grey-7"
+                        class="w-[100px]"
+                        :disable="!toPay.especieID"
+                    />
 
-      <q-select
-        v-model="form.type_interest"
-        label="Tipo de Juros"
-        :options="[
-          { label: '%', value: 'Porcentagem' },
-          { label: 'R$', value: 'Valor'}
-        ]"
-        emit-value
-        map-options
-      />
+                    <q-select
+                        v-model="toPay.typeInterest"
+                        label="Tipo de Juros"
+                        class="w-[120px]"
+                        :options="[
+                            { label: '%', value: 'Porcentagem' },
+                            { label: 'R$', value: 'Valor'}
+                        ]"
+                        emit-value
+                        map-options
+                    />
 
-      <q-input
-        type="number"
-        v-model="form.interest_value"
-        label="Valor juros"
-        color="grey-7"
-      />
+                    <q-input
+                        type="number"
+                        class="w-[100px]"
+                        v-model="toPay.interestValue"
+                        label="Valor juros"
+                        color="grey-7"
+                    />
 
-      <q-input
-        type="number"
-        v-model="form.total_amount"
-        label="Valor total"
-        color="grey=7"
-      />
+                    <q-input
+                        type="number"
+                        class="w-[100px]"
+                        v-model="toPay.totalAmount"
+                        label="Valor total"
+                        color="grey=7"
+                    />
+                </div>
+            </div>
+             <div class="flex items-center">
+                <q-btn
+                    type="submit"
+                    label="Registrar"
+                    class="bg-blue-600 text-white"
+                    @click="submitForm"
 
-      <q-input
-        type="text"
-        readonly
-        label="Luiz que pediu"
-        color="grey=7"
-      />      
+                </q-btn>
 
-      <div class="flex items-center ">
-        <q-btn
-          type="submit"
-          label="Registrar"
-          class="bg-slate-600 text-white">
-        </q-btn>
-
-        <q-btn
-          @click="onReset()"
-          label="Limpar"
-          class="ml-5 bg-slate-600 text-white">
-        </q-btn>
-
-        <q-btn
-          @click="close()"
-          label="Voltar"
-          class="ml-5 bg-slate-600 text-white">
-        </q-btn>
-      </div>
-    </form>
-  </div>
+                <q-btn
+                    @click="emits('close', false)"
+                    label="Voltar"
+                    class="ml-5 bg-red-700 text-white"
+                />
+            </div>
+            <InstallmentsTable
+                :pdv="false"
+                :receiveDocument="1"
+                :number="toPay.installmentNumber"
+                :amount="toPay.installmentAmount"
+                :original-value="toPay.installmentValue"
+                :due-date="toPay.dueDate"
+                :readonly="true"
+                :action="action"
+                @exists-installments=""
+                @installments-generated=""
+            />
+        </q-form>
+    </div>
 </template>
 
-<script>
-  import { api } from "src/boot/axios"
-  import {LocalStorage} from "quasar";
-  import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
-  import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
+<script setup lang="ts">
+    import { api } from "src/boot/axios"
+    import { useQuasar, LocalStorage } from "quasar";
+    import { ref, reactive, onMounted } from 'vue';
+    import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
+    import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
+    import InstallmentsTable from "../Financial/InstallmentsTable.vue";
 
+    const props = defineProps<{
+        widthScreen: number;
+        pdv?: boolean;
+        toPayDocument?: number;
+        action: string;
+        readonly: boolean;
+        
+    }>();
 
-  export default {
-    props: {
-      widthScreen: {
-        required: true,
-        type: Number,
-      }
-    },
+    const emits = defineEmits<{
+        (e: 'close', value: boolean)
 
-    data() {
-      return {
-        form: {
-            description: "Registro Manual",
-            document: 1,
-            customer_id: 1,
-            user: LocalStorage.getItem("user_name"),
-            especie_id: 0,
-            due_date: "",
-            installment_number: "",
-            installment_value: "",
-            type_interest: "",
-            interest_value: "",
-            total_amount: ""
-            
-        },
-        api: process.env.VUE_APP_API_URL_ECOMMERCE,
-      };
-    },
-    methods: {
-      onReset(){
-            this.form = {
-                description: "",
-                name: "",
-                user: LocalStorage.getItem("user_name"),
-                especie: "",
-                due_date: "",
-                installment_number: "",
-                installment_value: "",
-                type_interest: "",
-                interest_value: "",
-                total_amount: ""
-            }
-        },
+    }>();
 
-        close(){
-          this.$emit('close', false)
-        },
+    const $q = useQuasar();
+    const titles = reactive({
+        view: "Visualizando ",
+        register: "Cadastrando ",
+        update: "Editando ",
 
-        getCustumer(event){
-          console.log('Chamou o getCustumer')
-          console.log(event)
-          this.form.name = event.name
-        },
+    });
 
-        getSpecie(event){
-            console.log("Chamou o getSpecie");
-            console.log(event);
-            this.form.especie = event.name;
-        },
-
-        async submitForm() {
-            try {
-                const response = await api.post(`${this.api}`, this.form); // Lembrar de criar rota e inserir aqui
-                this.onReset();
-                console.log('Dados enviados!', response.data)
-            } catch (error) {
-                alert("Ocorreu um erro ao cadastrar o registro")
-            }
-        },
-    },
-
-    components:{
-      CustomerSearchBar,
-      SpeciesSearchBar,
-    },
+    const title = ref<string>("");
     
-    emits:[
-      'close'
-    ],
+    const toPay = ref<IPayBody>({
+        issuerID: LocalStorage.getItem("issuer_id"),
+        document: 1,
+        description: 'Registro Manual Pagar',
+        chartOfAccountCode: 1,
+        costCenterCode: 1,
+        customerID: 0,
+        name: '',
+        especieID: 0,
+        especie: '',
+        userID: LocalStorage.getItem("user_id"),
+        user: LocalStorage.getItem("user_name"),
+        dueDate: '',
+        installmentAmount: 1,
+        installmentNumber: 1,
+        installmentValue: 0,
+        typeInterest: 'R$',
+        interestValue: 1,
+        totalAmount: 0,
+        origem: "Pagar (Manual)",
+        addition: 0,
+        discount: 0,
+        valueEntry: 0,
+        valueToPay: 0,
+        valueOriginal: 0,
+    });
 
-  };
+    const getSpecie = (event: any) => {
+        toPay.value.especieID = event.payment_code;
+        toPay.value.especie = event.name;
+    };    
+
+    const getCustomer = (event: any) => {
+        toPay.value.customerID = event.id;
+
+    };
+
+    const submitForm = async () => 
+    {
+
+    };
+
+    onMounted(() => {
+        title.value = titles[props.action];
+    });
+    
 </script>

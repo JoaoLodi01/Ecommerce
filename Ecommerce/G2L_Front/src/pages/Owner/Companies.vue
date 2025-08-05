@@ -215,7 +215,15 @@
             
             const completed = data.completeIssuer === 1 ? true : false;
 
-            getColors(LocalStorage.getItem("issuer_id"));
+            console.log('Aqui', LocalStorage.getItem("issuer_id"));
+            
+            if(LocalStorage.getItem("issuer_id"))
+            {
+                getColors(LocalStorage.getItem("issuer_id"));
+
+            } else {
+                return;
+            };
             
             if(!completed)
             {

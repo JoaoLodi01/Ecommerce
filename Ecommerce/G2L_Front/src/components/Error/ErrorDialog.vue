@@ -32,7 +32,6 @@
     
     onMounted(() => {
         document.addEventListener('keydown', (event: KeyboardEvent) => {
-            console.log(event.key);
             const keyName = event.key;
 
             if(keyName === ' ' || keyName === 'Escape') {

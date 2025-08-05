@@ -112,7 +112,7 @@
         </div>
 
         <div
-            class="customer-grid mb-2" 
+            class="mb-2" 
             :class="{
                 'ml-16 max-w-[165vh] w-[150vh]': widthScreen > 1366,
                 'ml-12': widthScreen <= 1366
@@ -131,7 +131,8 @@
             >
                 <template v-slot:item="props">
                     <q-card
-                        class="q-ma-sm q-pa-md shadow-2 rounded-borders bg-white w-[22rem] transition-transform hover:-translate-y-3 cursor-pointer"
+                        class="qCard q-ma-sm q-pa-md shadow-2 rounded bg-white transition-transform hover:-translate-y-3 cursor-pointer"
+
                         :class="{
                             'active-shadow': props.row.active,
                             'disabled-shadow': !props.row.active,
@@ -140,6 +141,7 @@
                     >
                         <div
                             @click.prevent="!editByButtonConfig ? customerManagement('update', props.row.active, props.row.customer_code,) : null "
+                            
                         >
                             <div class="text-lg">
                                 <span class="text-gray-500 text-base">Código</span>
@@ -554,6 +556,10 @@
 </script>
 
 <style>
+    .qCard {
+        height: auto !important;
+    }
+
     .div1 {
         width: 154%;
     }

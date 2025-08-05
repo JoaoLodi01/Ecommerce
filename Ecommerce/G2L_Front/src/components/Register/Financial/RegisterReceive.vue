@@ -1,159 +1,159 @@
 <template>
-  <div
-    class="mr-14 mt-5 mb-5 p-6 bg-white"
-    :class="{
-      'relative top-12 left-12': widthScreen <= 1080,
-      'ml-14': widthScreen > 1080
-    }"
-  >
+    <div
+        class="mr-14 mt-5 mb-5 p-6 bg-white"
+        :class="{
+            'relative top-12 left-12': widthScreen <= 1080,
+            'ml-14': widthScreen > 1080
+        }"
+    >
+
     <h2 class="border-b border-black text-xl font-semibold mb-4 w-max">
-      {{ title }} recebimentos
+        {{ title }} recebimentos
     </h2>
 
-    <form
-      @submit.prevent="submitForm"
-      class="grid gap-4 mx-auto"
-      style="max-width: 1000px;"
-      :class="{
-        'grid-cols-1 lg:grid-cols-2': widthScreen > 1080,
-        'grid-cols-1': widthScreen <= 1080
-      }"
-    >
-      <div
-        v-if="!readonly"
-        class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto"
-      >
-        <div class="flex flex-wrap gap-4">
-          <SpeciesSearchBar
-            @selectSpecie="getSpecie"
-            :module_="'receive'"
-            :disable="readonly"
-          />
+        <q-form
+            class="grid gap-4 mx-auto"
+            style="max-width: 1000px;"
+            :class="{
+                'grid-cols-1 lg:grid-cols-2': widthScreen > 1080,
+                'grid-cols-1': widthScreen <= 1080
+            }"
+        >
+            <div
+                v-if="!readonly"
+                class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto"
+                >
+                <div class="flex flex-wrap gap-4">
+                    <SpeciesSearchBar
+                    @selectSpecie="getSpecie"
+                    :module_="'installment'"
+                    :disable="readonly"
+                    />
 
-          <CustomerSearchBar
-            @updated:selectCustomer="getCustomer"
-            :pdv="false"
-            :disable="readonly"
-          />
+                    <CustomerSearchBar
+                    @updated:selectCustomer="getCustomer"
+                    :pdv="false"
+                    :disable="readonly"
+                    />
 
-          <q-input
-            class="w-[100px]"
-            type="number"
-            v-model="form.document"
-            label="Nº Doc"
-            color="grey-7"
-            :readonly="readonly"
-          />
+                    <q-input
+                    class="w-[100px]"
+                    type="number"
+                    v-model="form.document"
+                    label="Nº Doc"
+                    color="grey-7"
+                    :readonly="readonly"
+                    />
 
-          <q-input
-            class="w-[200px]"
-            type="text"
-            v-model="form.description"
-            label="Descrição"
-            color="grey-7"
-            :readonly="readonly"
-          />
-        </div>
-      </div>
+                    <q-input
+                    class="w-[200px]"
+                    type="text"
+                    v-model="form.description"
+                    label="Descrição"
+                    color="grey-7"
+                    :readonly="readonly"
+                    />
+                </div>
+            </div>
 
-      <div
-        v-if="!readonly"
-        class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto"
-      >
-        <div class="flex flex-wrap gap-4">
-          <q-input
-            class="w-[100px]"
-            type="number"
-            v-model.number="form.installmentAmount"
-            label="Nº Parcelas"
-            color="grey-7"
-            :disable="!form.especieID"
-            :readonly="readonly"
-          />
+            <div
+                v-if="!readonly"
+                class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto"
+                >
+                <div class="flex flex-wrap gap-4">
+                    <q-input
+                    class="w-[100px]"
+                    type="number"
+                    v-model.number="form.installmentAmount"
+                    label="Nº Parcelas"
+                    color="grey-7"
+                    :disable="!form.especieID"
+                    :readonly="readonly"
+                    />
 
-          <q-input
-            class="w-[150px]"
-            type="number"
-            v-model.number="form.installmentValue"
-            label="Valor Parcela"
-            color="grey-7"
-            :disable="!form.especieID"
-            :readonly="readonly"
-          />
+                    <q-input
+                    class="w-[150px]"
+                    type="number"
+                    v-model.number="form.installmentValue"
+                    label="Valor Parcela"
+                    color="grey-7"
+                    :disable="!form.especieID"
+                    :readonly="readonly"
+                    />
 
-          <q-input
-            class="w-[150px]"
-            type="date"
-            v-model="form.dueDate"
-            label="1º Vencimento"
-            color="grey-7"
-            :readonly="readonly"
-          />
+                    <q-input
+                    class="w-[150px]"
+                    type="date"
+                    v-model="form.dueDate"
+                    label="1º Vencimento"
+                    color="grey-7"
+                    :readonly="readonly"
+                    />
 
-          <q-select
-            class="w-[80px]"
-            v-model="form.typeInterest"
-            label="Tipo"
-            emit-value
-            map-options
-            :disable="readonly"
-            :options="[
-              { label: '%', value: '%' },
-              { label: 'R$', value: 'R$' }
-            ]"
-          />
+                    <q-select
+                    class="w-[80px]"
+                    v-model="form.typeInterest"
+                    label="Tipo"
+                    emit-value
+                    map-options
+                    :disable="readonly"
+                    :options="[
+                        { label: '%', value: '%' },
+                        { label: 'R$', value: 'R$' }
+                    ]"
+                    />
 
-          <q-input
-            class="w-[100px]"
-            type="number"
-            v-model.number="form.interestValue"
-            label="Juros"
-            color="grey-7"
-            :readonly="readonly"
-          />
+                    <q-input
+                    class="w-[100px]"
+                    type="number"
+                    v-model.number="form.interestValue"
+                    label="Juros"
+                    color="grey-7"
+                    :readonly="readonly"
+                    />
 
-          <q-input
-            class="w-[100px]"
-            type="number"
-            v-model.number="form.addition"
-            label="Acréscimo"
-            color="grey-7"
-            :readonly="readonly"
-          />
+                    <q-input
+                    class="w-[100px]"
+                    type="number"
+                    v-model.number="form.addition"
+                    label="Acréscimo"
+                    color="grey-7"
+                    :readonly="readonly"
+                    />
 
-          <q-input
-            class="w-[100px]"
-            type="number"
-            v-model.number="form.discount"
-            label="Desconto"
-            color="grey-7"
-            :readonly="readonly"
-          />
+                    <q-input
+                    class="w-[100px]"
+                    type="number"
+                    v-model.number="form.discount"
+                    label="Desconto"
+                    color="grey-7"
+                    :readonly="readonly"
+                    />
 
-          <q-input
-            class="w-[130px]"
-            type="number"
-            v-model.number="form.valueEntry"
-            label="Juros a pagar"
-            color="grey-7"
-            readonly
-          />
-        </div>
-      </div>
+                    <q-input
+                    class="w-[130px]"
+                    type="number"
+                    v-model.number="form.valueEntry"
+                    label="Juros a pagar"
+                    color="grey-7"
+                    readonly
+                    />
+                </div>
+            </div>
 
-      <InstallmentsTable
-        :pdv="false"
-        :receiveDocument="props.receiveDocument"
-        :number="form.installmentNumber"
-        :amount="form.installmentAmount"
-        :original-value="form.installmentValue"
-        :due-date="form.dueDate"
-        :readonly="readonly"
-        :action="action"
-        @exists-installments="exists"
-        @installments-generated="createInstallments"
-      />
-    </form>
+            <InstallmentsTable
+                :pdv="false"
+                :receiveDocument="props.receiveDocument"
+                :number="form.installmentNumber"
+                :amount="form.installmentAmount"
+                :original-value="form.installmentValue"
+                :due-date="form.dueDate"
+                :readonly="readonly"
+                :action="action"
+                @exists-installments="exists"
+                @installments-generated="createInstallments"
+            />
+        </q-form>
 
     <div
       v-if="readonly"
@@ -251,10 +251,6 @@ const form = reactive<IReceiveBody>({
 });
 
 const installments = ref<any[]>([]);
-
-onMounted(() => {
-  console.log(props.receiveDocument);
-});
 
 const submitForm = async () => {
   try {
@@ -384,4 +380,8 @@ const titles = {
 const close = (value: boolean) => {
   emits("close", value);
 };
+
+onMounted(() => {
+    title.value = titles[props.action];
+});
 </script>

@@ -22,6 +22,7 @@ class CustomerRepository implements CustomerContract
         $customer = Customer::create([
             'full_name' => $data['fullName'],
             'email' => $data['email'],
+            'monthly_fee' => 60.00,
             'cpf' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cpf']),
             'expire_license' => $date->addMonths(1),
             

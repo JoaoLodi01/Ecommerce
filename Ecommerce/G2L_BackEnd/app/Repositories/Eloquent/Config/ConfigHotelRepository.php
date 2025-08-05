@@ -4,12 +4,14 @@ namespace App\Repositories\Eloquent\Config;
 
 use App\Models\HotelModels\ConfigHotel;
 use App\Repositories\Contracts\ConfigContract\ConfigHotelContract;
+use Illuminate\Support\Facades\Log;
 
 class ConfigHotelRepository implements ConfigHotelContract
 {
     public function getConfigs(int $id)
     {
-        return ConfigHotel::all();
+        Log::debug('caiu aqui');
+        return ConfigHotel::where('issuer_id', $id)->first();
         
     }
 

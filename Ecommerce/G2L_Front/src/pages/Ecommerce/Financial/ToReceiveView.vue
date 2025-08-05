@@ -7,7 +7,6 @@
 	</div>
 
 	<div v-if="showPage" class="mt-10 mb-5 p-6 bg-white rounded-lg shadow-lg mx-auto w-[90%] max-w-[1400px]">
-
 		<div class="flex justify-between items-center mb-6">
 			<h1 class="text-2xl font-semibold">Receber</h1>
 			<div class="flex space-x-4">
@@ -44,82 +43,81 @@
 			</div>
 		</div>
 
-		<div class="filterDate flex  gap-4 items-end mb-6 p-3 border border-gray-300 rounded-lg w-full md:w-max">
+		<div class="filterDate flex  gap-4 items-end mb-6 p-3 border border-gray-300 rounded-lg w-full ">
 			<div class="flex gap-2">
 				<q-input
-				class="cursor-text"
-				type="date"
-				v-model="startDate"
-				label="Data Inicial"
+					class="cursor-text"
+					type="date"
+					v-model="startDate"
+					label="Data Inicial"
 				/>
 
 				<q-input
-				class="cursor-text"
-				type="date"
-				v-model="endDate"
-				label="Data Final"
+					class="cursor-text"
+					type="date"
+					v-model="endDate"
+					label="Data Final"
 				/>
 			</div>
 
-				<q-btn-dropdown
-					class="h-10"
-					:label="getDateFilter"
-					:style="`background-color: ${buttonColor}; color: ${textColor}`"
-					flat
-					dropdown-icon="arrow_drop_down">
+			<q-btn-dropdown
+				class="h-10"
+				:label="getDateFilter"
+				:style="`background-color: ${buttonColor}; color: ${textColor}`"
+				flat
+				dropdown-icon="arrow_drop_down">
 
-					<q-list dense>
-						<q-item
-							v-for="option in dateFilterOptions"
-							:key="option.value"
-							clickable
-							v-close-popup
-							@click="dateFilterField = option.value">
-								<q-item-section>
-									{{ option.label }}
-								</q-item-section>
-						</q-item>
-					</q-list>
-				</q-btn-dropdown>
+				<q-list dense>
+					<q-item
+						v-for="option in dateFilterOptions"
+						:key="option.value"
+						clickable
+						v-close-popup
+						@click="dateFilterField = option.value">
+							<q-item-section>
+								{{ option.label }}
+							</q-item-section>
+					</q-item>
+				</q-list>
+			</q-btn-dropdown>
 
-				<q-btn-dropdown
-					class="h-10"
-					:label="getStatusLabel"
-					:style="`background-color: ${buttonColor}; color: ${textColor}`"
-					flat
-					dropdown-icon="arrow_drop_down">
+			<q-btn-dropdown
+				class="h-10"
+				:label="getStatusLabel"
+				:style="`background-color: ${buttonColor}; color: ${textColor}`"
+				flat
+				dropdown-icon="arrow_drop_down">
 
-					<q-list dense>
-						<q-item
-							v-for="option in statusFilterOptions"
-							:key="option.value"
-							clickable
-							v-close-popup
-							@click="statusFilterField = option.value">
-								<q-item-section>
-									{{ option.label }}
-								</q-item-section>
-						</q-item>
-					</q-list>
-				</q-btn-dropdown>
+				<q-list dense>
+					<q-item
+						v-for="option in statusFilterOptions"
+						:key="option.value"
+						clickable
+						v-close-popup
+						@click="statusFilterField = option.value">
+							<q-item-section>
+								{{ option.label }}
+							</q-item-section>
+					</q-item>
+				</q-list>
+			</q-btn-dropdown>
 
-				<q-btn
-					class="transition text-white h-10"
-					:style="`background-color: ${buttonColor}; color: ${textColor}`"
-					label="Limpar"
-					@click="clearFilters"
-				/>
+			<q-btn
+				class="transition text-white h-10"
+				:style="`background-color: ${buttonColor}; color: ${textColor}`"
+				label="Limpar"
+				@click="clearFilters"
+			/>
 
-				<q-btn
-					class="transition text-white h-10"
-					:style="`background-color: ${buttonColor}; color: ${textColor}`"
-					label="Filtrar"
-					@click="applyFilters"
-				/>
-				</div>
+			<q-btn
+				class="transition text-white h-10"
+				:style="`background-color: ${buttonColor}; color: ${textColor}`"
+				label="Filtrar"
+				@click="applyFilters"
+			/>
+		</div>
 
 		<div class="flex flex-col md:flex-row md:justify-between gap-4 items-center border p-3 rounded-lg mb-4 mx-auto w-full">
-
 			<!-- Legenda  -->
 			<div class="flex gap-4">
 				<div class="flex items-center gap-2 text-xs">
@@ -152,17 +150,17 @@
 			<div class="flex gap-4">
 				<span class="border rounded px-3 py-1 bg-green-200 text-green-900">
 					<q-icon name="check_circle" color="green-700" class="mr-2 mb-1" />
-					Recebidas: R$ {{ totalQuitadas }}
+					Recebidas: R$ {{ String(Number(totalQuitadas).toFixed(2)).replace('.', ',') }}
 				</span>
 
 				<span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
 					<q-icon name="hourglass_empty" color="orange" class="mr-2 mb-1" />
-					Pendentes: R$ {{ totalEmAberto }}
+					Pendentes: R$ {{ String(Number(totalEmAberto).toFixed(2)).replace('.', ',') }}
 				</span>
 
 				<span class="border rounded px-3 py-1 bg-red-300 text-red-900">
 					<q-icon name="warning" color="red" class="mr-2 mb-1" />
-					Atrasadas ( + juros ): R$ {{ totalVencidas }}
+					Atrasadas ( + juros ): R$ {{ String(Number(totalVencidas).toFixed(2)).replace('.', ',') }}
 				</span>
 			</div>
 		</div>
@@ -297,12 +295,11 @@
 
 <script setup lang="ts">
 	//#region AMBIENTE
-
 	import dayjs from "dayjs";
 	import isBetween from "dayjs/plugin/isBetween";
 	import camelcaseKeys from "camelcase-keys";
 	import { ref, onMounted } from "vue";
-	import { QTableColumn, useQuasar } from "quasar";
+	import { format, QTableColumn, useQuasar } from "quasar";
 	import { LocalStorage } from "quasar";
 	import { api } from "src/boot/axios";
 	import LoandingPage from "src/components/Loanding/LoandingPage.vue";
@@ -327,7 +324,7 @@
 	const originalReceives = ref([]);
 	const selectedRegister = ref([]);
 	const selectedReceiveDocument = ref<number>(0);
-	const selectReadonly = ref(false);
+	const selectReadonly = ref<boolean>(false);
 	const showReceiveClosing = ref(false);
 	const widthScreen = ref(window.innerWidth);
 	const dateFilterField = ref<DateFilterValue>('createdAt');
@@ -344,7 +341,7 @@
 			{ name: 'installmentAmount', label: 'Qtde Parcela', field: 'installmentAmount', align: 'center' },
 			{ name: 'installmentNumber', label: 'Nº Parcela', field: 'installmentNumber', align: 'center' },
 			{ name: 'installmentValue', label: 'Valor Bruto', field: row => `R$ ${row.installmentValue.toFixed(2)}`, align: 'right' },
-			{ name: 'installmentPaid', label: 'Valor Líquido', field: row => `R$ ${row.installmentPaid.toFixed(2)}`, align: 'right' },
+			{ name: 'installmentPaid', label: 'Valor Líquido', field: row => `R$ ${row.installmentPaid.toFixed(2)}`, align: 'right', format: (val) => String(val).replace('.', ',') }, 
 			{ name: 'name', label: 'Cliente', field: 'name', align: 'left' },
 			{ name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
 			{ name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },

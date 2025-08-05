@@ -1,99 +1,147 @@
 <template>
-    <div v-if="!showPage">
-        <LoandingPage
-            @show-page="showPage = $event"
-            :text="'Carregando registros do pagar ...'"
-                        
-        />
-    </div>
+	<div v-if="!showPage">
+		<LoandingPage
+			@show-page="showPage = $event"
+			text="Carregando registros do receber ..."
+		/>
+	</div>
 
-    <div 
-        v-if="showPage" 
-        class="h-[95vh] mx-auto mt-5 p-6 ml-14 bg-white rounded-lg shadow-lg"
-        :class="{
-            'mt-10 p-6 ml-16 mb-5 bg-white rounded-lg shadow-lg w-[150vh]': widthScreen > 1366,
-            'mt-10 ml-14 mr-6 mb-5 bg-white rounded-lg shadow-lg w-[120vh]': widthScreen <= 1680
-            
-        }"  
-    >
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-semibold">Pagar</h2>
+	<div v-if="showPage" class="mt-10 mb-5 p-6 bg-white rounded-lg shadow-lg mx-auto w-[90%] max-w-[1400px]">
+		<div class="flex justify-between items-center mb-6">
+			<h1 class="text-2xl font-semibold">Pagar</h1>
             <div class="flex space-x-4">
-                <q-btn 
-                    class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+				<q-btn
+					class="p-2 rounded-lg"
+					:style="`background-color: ${buttonColor}; color: ${textColor}`"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 16 16"
+						fill="currentColor"
+						class="w-6 h-6"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</q-btn>
 
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-6 h-6">
-                        <path fill-rule="evenodd" d="M6.455 1.45A.5.5 0 0 1 6.952 1h2.096a.5.5 0 0 1 .497.45l.186 1.858a4.996 4.996 0 0 1 1.466.848l1.703-.769a.5.5 0 0 1 .639.206l1.047 1.814a.5.5 0 0 1-.14.656l-1.517 1.09a5.026 5.026 0 0 1 0 1.694l1.516 1.09a.5.5 0 0 1 .141.656l-1.047 1.814a.5.5 0 0 1-.639.206l-1.703-.768c-.433.36-.928.649-1.466.847l-.186 1.858a.5.5 0 0 1-.497.45H6.952a.5.5 0 0 1-.497-.45l-.186-1.858a4.993 4.993 0 0 1-1.466-.848l-1.703.769a.5.5 0 0 1-.639-.206l-1.047-1.814a.5.5 0 0 1 .14-.656l1.517-1.09a5.033 5.033 0 0 1 0-1.694l-1.516-1.09a.5.5 0 0 1-.141-.656L2.46 3.593a.5.5 0 0 1 .639-.206l1.703.769c.433-.36.928-.65 1.466-.848l.186-1.858Zm-.177 7.567-.022-.037a2 2 0 0 1 3.466-1.997l.022.037a2 2 0 0 1-3.466 1.997Z" clip-rule="evenodd" />
-                    </svg>
-                </q-btn>
+				<q-btn
+					class="p-2 rounded-lg"
+					:style="`background-color: ${buttonColor}; color: ${textColor}`"
+					label="Relatórios"
+				/>
 
-                <q-btn
-                    class="p-2 rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    @click="showRegister()"
-                    label="Cadastrar"
-                />
-            </div>
+				<q-btn
+					class="p-2 rounded-lg"
+					:style="`background-color: ${buttonColor}; color: ${textColor}`"
+					@click="manageClick(0, 'register', false)"
+					label="Cadastrar"
+				/>
+			</div>
         </div>
 
-        <div class="inline-flex w-max">
-            <div class="flex mb-6 p-4 border border-gray-300 rounded-lg ">
-                <q-input
-                    class="mr-10 cursor-text"
-                    type="date"
-                    @keydown="dateSearch()"
-                    v-model="startDate"
-                    label="Data Inicial"
-                />
+        <div class="filterDate flex  gap-4 items-end mb-6 p-3 border border-gray-300 rounded-lg w-full ">
+			<div class="flex gap-2">
+				<q-input
+					class="cursor-text"
+					type="date"
+					v-model="startDate"
+					label="Data Inicial"
+				/>
 
-                <q-input
-                    class="cursor-pointer"
-                    @keydown="dateSearch()"
-                    type="date"
-                    v-model="endDate"
-                    label="Data Final"
-                />
+				<q-input
+					class="cursor-text"
+					type="date"
+					v-model="endDate"
+					label="Data Final"
+				/>
+			</div>
 
-                <q-btn
-                    class="text-white ml-5 h-max mb-auto mt-auto rounded-lg"
-                    :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-                    label="Filtrar"
-                    @click="dateSearch()"
-                />
-            </div>
+			<q-btn-dropdown
+				class="h-10"
+				:style="`background-color: ${buttonColor}; color: ${textColor}`"
+				flat
+				dropdown-icon="arrow_drop_down">
 
-            <div class="flex gap-2 border p-3 ml-12 rounded-lg h-[5.5rem]">
-                <div class="flex items-center gap-2 text-xs">
-                    <div class="bg-green-500 h-3 w-3 rounded-full"></div>
-                    <span>Quitadas</span>
-                </div>
+				<q-list dense>
+					
+				</q-list>
+			</q-btn-dropdown>
 
-                <div class="flex items-center gap-2 text-xs">
-                    <div class="bg-blue-500 h-3 w-3 rounded-full"></div>
-                    <span>Quitada com atraso</span>
-                </div>
+			<q-btn-dropdown
+				class="h-10"
+				:style="`background-color: ${buttonColor}; color: ${textColor}`"
+				flat
+				dropdown-icon="arrow_drop_down">
 
-                <div class="flex items-center gap-2 text-xs">
-                    <div class="bg-orange-500 h-3 w-3 rounded-full"></div>
-                    <span>Canceladas</span>
-                </div>
-                
-                <div class="flex items-center gap-2 text-xs">
-                    <div class="bg-red-500 h-3 w-3 rounded-full"></div>
-                    <span>Atrasadas</span>
-                </div>
-            </div>
-        </div>
+				<q-list dense>
+					
+				</q-list>
+			</q-btn-dropdown>
 
-        <div class="flex justify-between mb-6 p-4 border border-gray-300 rounded-lg">
-            <div><p>Total Quitadas: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
+			<q-btn
+				class="transition text-white h-10"
+				:style="`background-color: ${buttonColor}; color: ${textColor}`"
+				label="Limpar"
+			/>
 
-            <div><p>Total Vencidas: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
+			<q-btn
+				class="transition text-white h-10"
+				:style="`background-color: ${buttonColor}; color: ${textColor}`"
+				label="Filtrar"
+			/>
+		</div>
 
-            <div><p>Total Em aberto: <span class="font-semibold">R${{ '0.00' }}</span></p></div>
-        </div>
+        <div class="flex flex-col md:flex-row md:justify-between gap-4 items-center border p-3 rounded-lg mb-4 mx-auto w-full">
+			<!-- Legenda  -->
+			<div class="flex gap-4">
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-black h-3 w-3 rounded-full"></div>
+					<span>Em Aberto</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-green-500 h-3 w-3 rounded-full"></div>
+					<span>Quitadas</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-blue-500 h-3 w-3 rounded-full"></div>
+					<span>Quitada com atraso</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-orange-500 h-3 w-3 rounded-full"></div>
+					<span>Canceladas</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-red-500 h-3 w-3 rounded-full"></div>
+					<span>Atrasadas</span>
+				</div>
+			</div>
+
+			<!-- Totalizadores -->
+			<div class="flex gap-4">
+				<span class="border rounded px-3 py-1 bg-green-200 text-green-900">
+					<q-icon name="check_circle" color="green-700" class="mr-2 mb-1" />
+					Recebidas: R$ {{ totalQuitadas }}
+				</span>
+
+				<span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
+					<q-icon name="hourglass_empty" color="orange" class="mr-2 mb-1" />
+					Pendentes: R$ {{ totalEmAberto }}
+				</span>
+
+				<span class="border rounded px-3 py-1 bg-red-300 text-red-900">
+					<q-icon name="warning" color="red" class="mr-2 mb-1" />
+					Atrasadas ( + juros ): R$ {{ totalVencidas }}
+				</span>
+			</div>
+		</div>
 
         <div class="overflow-x-auto">
             <table class="table-auto border-collapse border border-gray-300 bg-white ">
@@ -142,6 +190,9 @@
                 <RegisterPay 
                     @close="closeRegister($event)"
                     :width-screen="widthScreen"
+                    :action="'register'"
+                    :to-pay-document="0"
+                    :readonly="true"
                 />
             </div>
         </div>
@@ -156,6 +207,7 @@
     import dayjs from 'dayjs';
     import isBetween from 'dayjs/plugin/isBetween';
     import LoandingPage from "src/components/Loanding/LoandingPage.vue";
+    import RegisterPay from "src/components/Register/Financial/RegisterPay.vue";
     
     dayjs.extend(isBetween);
 
@@ -171,18 +223,15 @@
     let endDate = today.endOf('month').format('YYYY-MM-DD');
     let showPage = ref<boolean>(false);
     let showPayClosing = ref<boolean>(false);
-    let widthScreen = ref<number>(0);   
+    let widthScreen = ref<number>(0);
+    let selectOperation = ref<string>('');   
+    let selectReadonly = ref<boolean>(false);
+    let selectedToPayDocument = ref<number>(0);
     
     const getRegister = async() =>
     {
-        try {
-            const response = await api.get(`ecommerce/pay/all/${issuerID.value}`);
-            cashs.value = response.data.data;
-
-        } catch (error) {
-            console.error("Erro ao buscar registros:", error)
-            
-        }
+        const response = await api.get(`ecommerce/pay/all/${issuerID.value}`);
+        cashs.value = response.data.data;
     };
 
     const dateSearch = () =>
@@ -190,10 +239,21 @@
         
     };  
 
-    const showRegister = () =>
-    {
-        showPayClosing.value = true;
-    };
+    const manageClick = (receiveDocument: number, operation: string, readonly: boolean) => {
+		selectOperation.value = operation;
+		selectReadonly.value = readonly;
+
+		console.log('Passando: ', receiveDocument);
+
+		if (operation === "register") {
+			
+			selectedToPayDocument.value = 0;
+		} else {
+			selectedToPayDocument.value = receiveDocument;
+		}
+		
+		showPayClosing.value = true;
+	};
 
     const closeRegister = (event) =>
     { 

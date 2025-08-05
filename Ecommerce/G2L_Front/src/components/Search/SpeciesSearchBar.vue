@@ -64,7 +64,7 @@
 
             break;
             
-          case 'receive':
+          case 'installment':
             this.allSpecies.forEach((v, _) => {
 
               if(v.tipo_lancamento === 'Receber')

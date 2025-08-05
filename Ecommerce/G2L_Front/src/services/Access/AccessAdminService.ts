@@ -24,8 +24,9 @@ export async function createCustomerInAccess(data: ICustomerData)
         };
 
     } catch (error) {
-        console.error('Erro no AccessAdminService', error.response);
-        const message: string = error.response?.message || error.response || error.response?.data.message || 'Erro no acesso de admin';
+        console.error('Erro no AccessAdminService');
+        console.error('error.response?.data.message', error.response?.data.message || error.response?.data || 'Erro no acesso de admin');
+        const message: string = error.response?.data.message || error.response?.data || 'Erro no acesso de admin';
 
         return {
             status: false,

@@ -16,8 +16,8 @@ class ToPay extends Model
         'chart_of_account_code',
         'cost_center_code',
         'customer_code',
-        'dav_code',
         'name',
+        'dav_code',
         'especie_code',
         'especie',
         'due_date',
@@ -27,9 +27,15 @@ class ToPay extends Model
         'type_interest', // Tipo de juros
         'interest_value', // valor de juros
         'total_amount', // Valor total
+        'addition',
+        'discount',
+        'value_entry', 
+        'value_to_pay', 
+        'value_original', 
         'origem',
         'canceled',
         'user_id',
         'user',
+
     ];
 }

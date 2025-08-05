@@ -44,7 +44,6 @@ return new class extends Migration
             $table->date('due_date');     
             $table->integer('installment_amount');
             $table->integer('installment_number');
-            $table->decimal('original_installment_value', 16,2);
             $table->decimal('installment_value', 16,2);
             $table->unsignedBigInteger('installment_cod');
             $table->string('type_interest', 10);
@@ -54,6 +53,13 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('user');
+            $table->decimal('discount', 16,2)->nullable();
+            $table->decimal('addition', 16,2)->nullable();
+
+            $table->decimal('value_entry', 16,2);
+            $table->decimal('value_to_pay', 16,2);
+            $table->decimal('value_original', 16,2);
+
             $table->boolean('canceled', 1)->default(0);
             
             $table->timestamps();

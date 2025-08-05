@@ -5,7 +5,7 @@
     </div>
 
     <div class="flex justify-center">
-        <div class="login-form border border-black p-5 rounded-lg shadow-xl w-96">
+        <div class="login-form border border-black p-5 rounded-lg shadow-xl w-96 bg-white">
             <q-form
                 @submit.prevent="createIssuer()"
                 
@@ -32,7 +32,7 @@
                     outlined        
                     label="Nome Fantasia" 
                     stack-label
-                    class="mb-4"
+                    class="mb-6"
                     color="primary"
                     
                 />
@@ -42,7 +42,7 @@
                     outlined        
                     label="CNPJ" 
                     stack-label
-                    class="mb-4"
+                    class="mb-6"
                     color="primary"
                     v-bind:mask="'##.###.###/####-##'"
                     maxlength="18"
@@ -55,15 +55,12 @@
                     outlined        
                     label="CPF" 
                     stack-label
-                    class="mb-4"
+                    class="mb-2"
                     color="primary"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
                     @update:model-value="handleCPF"
-                    :rules="[
-                        val => validateCPF(val) || 'CPF inválido'
-                        
-                    ]"
+                    :rules="[cpfInput]"
 
                 />
 
@@ -256,15 +253,30 @@
                 });
                 form.value.cpf = '';
                 
-            } else {
-                $q.notify({
-                    color: 'green',
-                    message: 'CPF dboa!',
-                    position: 'top',
-                    timeout: 1800
-                });
             };
         };
+    };
+
+    const cpfInput = (val: string) =>
+    {
+        const cnpjFilled = !!form.value.cnpj;
+        const cpfFilled = !!val;
+
+        if(cnpjFilled)
+        {
+            return true;  
+        };
+        
+        if(!cpfFilled)
+        {
+            return 'Informe o CPF ou o CNPJ!';
+        };
+
+        if(!validateCPF(val))
+        {
+            return 'CPF inválido';
+        };
+        return true;  
     };
 
 </script>

@@ -23,21 +23,22 @@
 
             />
             
-        </div>    
-            <ul 
-                v-if="filteredClients.length > 0 && customersData.name !== ''" 
-                class="fixed z-50 p-3 bg-white border border-gray-300 mt-14"
-            >
-                <li
-                    v-for="client in filteredClients "
-                    :key="client.id"
-                    @click="setClient(client)"
-                    class="p-2 hover:bg-gray-200 cursor-pointer"
-                >
-                    {{client.id}} - {{ client.company_name ? client.company_name : client.trad_name }}
+        </div>  
 
-                </li>
-            </ul>
+        <ul 
+            v-if="filteredClients.length > 0 && customersData.name !== ''" 
+            class="fixed z-50 p-3 bg-white border border-gray-300 mt-14"
+        >
+            <li
+                v-for="client in filteredClients "
+                :key="client.id"
+                @click="setClient(client)"
+                class="p-2 hover:bg-gray-200 cursor-pointer"
+            >
+                {{client.id}} - {{ client.company_name ? client.company_name : client.trad_name }}
+
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -150,7 +151,6 @@
     };   
     
     onMounted(() => {
-        
         document.addEventListener('keydown', (event: KeyboardEvent) => {
             const keyName = event.key;
             
