@@ -48,6 +48,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('seller', 120)->nullable();
+
+            $table->string('status', 40)->default('Aberto');
             $table->boolean('canceled', 1)->default(0);
             $table->timestamps();
         });
