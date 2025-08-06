@@ -11,7 +11,7 @@ class ReceiveService
         protected ReceiveRepository $receiveRepository
     ){}
 
-    public function getOne(int $document){
+    public function getOne(string $document){
         $one = $this->receiveRepository->getOne($document);
         if(!$one)
         {

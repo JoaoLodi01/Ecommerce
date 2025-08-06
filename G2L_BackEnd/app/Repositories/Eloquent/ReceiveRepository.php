@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Log;
 
 class ReceiveRepository
 {
-    public function getOne(int $document){
-        return Receive::where('document', $document)->get();
-    }
-
     public function getAll(int $issuer_id){
         return Receive::where('issuer_id', $issuer_id)->where('installment_number', 1)->get();
+    }
+
+    public function getOne(string $document){
+        return Receive::where('document', $document)->get();
     }
 
     public function findByID(int $id){

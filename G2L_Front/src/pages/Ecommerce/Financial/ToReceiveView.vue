@@ -38,7 +38,7 @@
 				<q-btn
 					class="p-2 rounded-lg"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-					@click="manageClick(0, 'register', false)"
+					@click="manageClick('0', 'register', false)"
 					label="Cadastrar"
 				/>
 			</div>
@@ -326,7 +326,7 @@
 	const selectOperation = ref("");
 	const originalReceives = ref([]);
 	const selectedRegister = ref([]);
-	const selectedReceiveDocument = ref<number>(0);
+	const selectedReceiveDocument = ref<string>('0');
 	const selectReadonly = ref(false);
 	const showReceiveClosing = ref(false);
 	const widthScreen = ref(window.innerWidth);
@@ -390,7 +390,7 @@
 	//#endregion
 
 	//#region GERAIS
-	const manageClick = (receiveDocument: number, operation: string, readonly: boolean) => {
+	const manageClick = (receiveDocument: string, operation: string, readonly: boolean) => {
 		selectOperation.value = operation;
 		selectReadonly.value = readonly;
 
@@ -398,7 +398,7 @@
 
 		if (operation === "register") {
 			selectedRegister.value = [];
-			selectedReceiveDocument.value = 0;
+			selectedReceiveDocument.value = '0';
 		} else {
 			selectedReceiveDocument.value = receiveDocument;
 		}
@@ -409,7 +409,7 @@
 	const closeRegister = () => {
 		showReceiveClosing.value = false;
 		selectedRegister.value = [];
-		selectedReceiveDocument.value = 0;
+		selectedReceiveDocument.value = '0';
 		getReceives();
 	};
 
