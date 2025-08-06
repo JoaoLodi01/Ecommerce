@@ -196,7 +196,9 @@
 
 // ------------------ Mounted ------------------
     onMounted(() => {
-        getRegister();
+        if (props.action === 'view'){
+            getRegister();
+        }
         console.log('Documento: ', props.receiveDocument);
         console.log('Data: ', installmentsData.value);
     });
