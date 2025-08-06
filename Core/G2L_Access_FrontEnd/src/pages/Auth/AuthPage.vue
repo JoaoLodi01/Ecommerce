@@ -23,14 +23,23 @@
                 <div>
                     <q-input 
                         v-model="loginForm.password" 
-                        type="password" 
+                        :type="showConfirmPassword ? 'text' : 'password'"
                         label="Senha" 
                         outlined
                         class="mb-3"
                         :rules="[
                             val => !!val || 'Campo necessário!'
                         ]"
-                    />
+                    >
+                        <div 
+                            @click="showConfirmPassword = !showConfirmPassword"
+                        >
+                            <PasswordIcon
+                                :show="showConfirmPassword"
+                            />
+                        </div>
+
+                    </q-input>
                 </div>
 
                 <div class="text-center mt-4 mb-2">
@@ -54,9 +63,11 @@
     import { api } from 'src/boot/axios';
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
+    import PasswordIcon from 'src/components/Icons/PasswordIcon.vue';
 
     const $q = useQuasar();
     const router = useRouter();
+    let showConfirmPassword = ref<boolean>(false);
 
     const loginForm = ref<ILogin>({
         email: '',

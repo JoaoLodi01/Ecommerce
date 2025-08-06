@@ -19,7 +19,7 @@
     <div
         class="lg:col-span-2 overflow-y-auto border border-gray-400 rounded-md shadow-sm"
         :style="{ width: '1000px', height: readonly ? '400px' : '250px' }"
-        >
+    >
         <table class="min-w-full border-collapse bg-white text-sm">
             <thead class="sticky top-0 z-10 bg-blue-600 text-white">
                 <tr>
@@ -95,9 +95,9 @@
     };
 
     const props = defineProps<{
+        pdv?: boolean,
         receiveDocument?: number;
         selectedRegister?: IReceiveBody | null;
-        pdv?: boolean,
         amount: number,
         originalValue: number,
         dueDate: string,
@@ -116,6 +116,9 @@
     
     const generateInstallments = async () =>
     {
+        const originalValuee = props.originalValue.toString().replace(/\D/g, '');
+        console.log('Valor: ', originalValuee);
+        console.log('props.originalValue: ', props.originalValue);
         let receiveAmount = props.amount;
         let originalValue = props.originalValue;
         let dueDate = props.dueDate;
@@ -125,7 +128,6 @@
             return;
         }
 
-        installmentsData.value = [];
         for(let i = 1; i < receiveAmount + 1; i++)
         {
             installmentsData.value.push({

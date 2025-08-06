@@ -26,7 +26,7 @@
                     <q-btn
                         v-if="showCustomers"
                         @click="customerManagement('create', 0, 0)"
-                        :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                        :style="`background-color: ${buttonColor}; color: ${textColor}`"
 
                     >
                         <span>Novo cliente</span>
@@ -51,7 +51,7 @@
                 <q-btn 
                     title="Opções"
                     class="mr-5"
-                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     @click="showConfig = true"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -62,7 +62,7 @@
 
                 <q-btn
                     @click="showReportCustomer = !showReportCustomer"
-                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     title="Relatórios"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ">
@@ -71,7 +71,7 @@
                 </q-btn>
             
                 <q-btn 
-                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     class="ml-5"
                     @click="showImportFiles = true"
                 >
@@ -82,7 +82,7 @@
                 </q-btn>
 
                 <q-btn 
-                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     class="ml-5"
                     title="Baixa arquivo de importação"
                     @click="downloadDefaultFile"
@@ -93,17 +93,31 @@
                 </q-btn>
                 
                 <div 
-                    class="ml-auto"
+                    class="ml-auto flex"
                 >
                     <q-option-group
-                        v-model="searchFilter"
+                        v-model="filterByStatus"
                         type="radio"
                         toggle
-                        class="flex"
+                        class="flex mr-2"
                         :options="[
                             {label: 'Todos', value: 'all'},
                             {label: 'Ativos', value: 'active'},
                             {label: 'Inativos', value: 'disabled'},
+                        ]"
+                    />
+
+                    <q-separator vertical  />
+
+                    <q-option-group
+                        v-model="filterByClass"
+                        type="radio"
+                        toggle
+                        class="flex"
+                        :options="[
+                            {label: 'Clientes', value: 'is_customer'},
+                            {label: 'Motoristas', value: 'is_driver'},
+                            {label: 'Fornecedores', value: 'is_supplier'},
                         ]"
                     />
 
@@ -276,6 +290,9 @@
         
     };
 
+    type FiltredByStatus = 'all' | 'active' | 'disabled';
+    type FiltredByClass = 'is_customer' | 'is_driver' | 'is_supplier';
+
     type TPagination = {
         rowsPerPage: number
     }
@@ -288,9 +305,9 @@
     });
     
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
-    const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
     const columns: QTableColumn[] = [
         { 
@@ -321,6 +338,7 @@
             name: 'cnpj', 
             label: 'CNPJ', 
             field: 'cnpj', 
+            
             align: 'center'
         },
         {
@@ -330,6 +348,9 @@
             align: 'center'
         },
     ];
+    
+    const filterByStatus = ref<FiltredByStatus>('all');
+    const filterByClass = ref<FiltredByClass>('is_customer');
 
     let editByButtonConfig = ref<boolean>(false);
     let allCustomers = ref<ICustomer[]>([]);
@@ -350,19 +371,47 @@
         rowsPerPage: 0
     });
 
-    watch(searchFilter, async (newOption) =>
+    /*watch(filterByStatus, async (newOption) =>
     {
-        if(newOption === 'active')
-        {
-            customers.value = allCustomers.value.filter(c => c.active === 1);
-        } else if (newOption === 'disabled')
-        {
-            customers.value = allCustomers.value.filter(c => c.active === 0);
+        switch (newOption) {
+            case 'active':
+                customers.value = allCustomers.value.filter(c => c.active === 1);
+                break;
 
-        } else {
-            customers.value = [...allCustomers.value];
-        };
+            case 'disabled':
+                customers.value = allCustomers.value.filter(c => c.active === 0);
+                break;
+
+            case 'all':
+                customers.value = [...allCustomers.value];
+                break;
+        
+            default:
+                customers.value = [...allCustomers.value];
+                break;
+        }
     });
+
+    watch(filterByClass, async (newOption) =>
+    {
+        switch (newOption) {
+            case 'is_customer':
+                customers.value = allCustomers.value.filter(c => c.is_customer);
+                break;
+
+            case 'is_driver':
+                customers.value = allCustomers.value.filter(c => c.is_driver);
+                break;
+
+            case 'is_supplier':
+                customers.value = allCustomers.value.filter(c => c.is_supplier);
+                break;
+
+            default:
+                customers.value = [...allCustomers.value];
+                break;
+        }
+    });*/
 
     function formatField(val: string) 
     {
@@ -405,7 +454,7 @@
                 
             });
 
-            const customer = customers.value.find(c => c.customer_code === id);
+            const customer = customers.value.find(c => c.customerCode === id);
             if(customer)
             {
                 customer.active = action === 'active' ? 1 : 0;
@@ -508,7 +557,7 @@
 
         } else {
             editByButtonConfig.value = data.editByButton;
-            searchFilter.value = data.lastFilter as 'all' | 'active' | 'disabled';
+            filterByStatus.value = data.lastFilter as 'all' | 'active' | 'disabled';
             return;
         };
     };
