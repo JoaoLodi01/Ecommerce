@@ -20,7 +20,7 @@
         <table class="min-w-full border-collapse bg-white text-sm">
             <thead class="sticky top-0 z-10 bg-blue-600 text-white">
                 <tr>
-                    <th class="px-2 py-1">
+                    <th class="px-2 py-1" v-if="action === 'view'">
                         <q-checkbox
                             v-model="selectAll"
                             @update:model-value="toggleSelectAll"/>
@@ -38,7 +38,7 @@
 
             <tbody>
                 <tr v-for="(installment, i) in installmentsData" :key="i" class="text-center border-t border-gray-300" :class="{ 'bg-green-100': installment.paid }">
-                    <td>
+                    <td v-if="action === 'view'">
                         <q-checkbox v-model="installment.selected"/>
                     </td>
                     <td>{{ installment.installmentNumber }}</td>
