@@ -91,36 +91,55 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                     </svg>
                 </q-btn>
+            </div>
+        </div>
+
+        <div class="ml-16 mb-5 p-4 w-[150vh] inline-flex bg-white rounded-md shadow-lg">
+            <div class="mt-auto mb-auto w-max">
+                <CustomerSearchBar
+                    :pdv="'customers'"
+                    :disable="false"
+                    @return-code="filterBySearchBar($event)"
+                />
                 
-                <div 
-                    class="ml-auto flex"
-                >
+            </div>
+            <div class="flex justify-end ml-auto gap-2">
+                <div class="border flex w-[70vh] rounded-lg shadow-lg">
                     <q-option-group
                         v-model="filterByStatus"
                         type="radio"
                         toggle
-                        class="flex mr-2"
+                        inline
+                        class="mr-4 ml-4 mt-2"
                         :options="[
-                            {label: 'Todos', value: 'all'},
-                            {label: 'Ativos', value: 'active'},
-                            {label: 'Inativos', value: 'disabled'},
+                            { label: 'Todos', value: 'all' },
+                            { label: 'Ativos', value: 'active' },
+                            { label: 'Inativos', value: 'disabled' },
                         ]"
                     />
 
-                    <q-separator vertical  />
+                    <q-separator vertical inset />
 
-                    <q-option-group
-                        v-model="filterByClass"
-                        type="radio"
-                        toggle
-                        class="flex"
-                        :options="[
-                            {label: 'Clientes', value: 'is_customer'},
-                            {label: 'Motoristas', value: 'is_driver'},
-                            {label: 'Fornecedores', value: 'is_supplier'},
-                        ]"
-                    />
+                    <div class="flex m-auto">
+                        <div 
+                            class="ml-2 rounded-md cursor-pointer"
+                        >
+                            <q-btn :label="`Clientes: ${countCustomers.isCustomer}`" @click="filterByClass('is_customer')" :style="`background-color: ${buttonColor}; color: ${textColor}`"/>
+                        </div>
 
+                        <div     
+                            class="ml-2 text-white rounded-md cursor-pointer"
+                            
+                        >
+                            <q-btn :label="`Fornecedores: ${countCustomers.isDriver}`" @click="filterByClass('is_driver')" :style="`background-color: ${buttonColor}; color: ${textColor}`"/>
+                        </div>
+
+                        <div
+                            class="ml-2 rounded-md cursor-pointer"
+                        >
+                            <q-btn :label="`Motoristas: ${countCustomers.isSupplier}`" @click="filterByClass('is_supplier')" :style="`background-color: ${buttonColor}; color: ${textColor}`"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -276,8 +295,9 @@
 <script setup lang="ts">
     import { LocalStorage, useQuasar, QTableColumn } from 'quasar';
     import { api } from 'src/boot/axios';
-    import { ref, onMounted, watch, reactive } from 'vue';
-    import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';    
+    import { ref, onMounted, watch, reactive, computed, customRef } from 'vue';
+    import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
+    import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
     import CustomerManagement from 'src/components/Register/Customers/CustomerManagement.vue';
     import ViewCustomer from 'src/components/Register/Customers/ViewCustomer.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
@@ -290,8 +310,13 @@
         
     };
 
-    type FiltredByStatus = 'all' | 'active' | 'disabled';
-    type FiltredByClass = 'is_customer' | 'is_driver' | 'is_supplier';
+    type TFiltredByStatus = 'all' | 'active' | 'disabled';
+    type TFiltredByClass = 'is_customer' | 'is_driver' | 'is_supplier';
+    type TCountByClass = {
+        isCustomer: number,
+        isDriver: number,
+        isSupplier: number,
+    };
 
     type TPagination = {
         rowsPerPage: number
@@ -349,8 +374,12 @@
         },
     ];
     
-    const filterByStatus = ref<FiltredByStatus>('all');
-    const filterByClass = ref<FiltredByClass>('is_customer');
+    const filterByStatus = ref<TFiltredByStatus>('all');
+    const countCustomers = ref<TCountByClass>({
+        isCustomer: 0,
+        isDriver: 0,
+        isSupplier: 0,
+    });
 
     let editByButtonConfig = ref<boolean>(false);
     let allCustomers = ref<ICustomer[]>([]);
@@ -392,9 +421,33 @@
         }
     });
 
-    watch(filterByClass, async (newOption) =>
+    (, async (newOption) =>
     {
-        switch (newOption) {
+    */    
+
+    const countRegisters = () => {
+        customers.value.forEach(customer => {
+            if(customer.is_customer) countCustomers.value.isCustomer += 1;
+            if(customer.is_driver) countCustomers.value.isDriver += 1;
+            if(customer.is_supplier) countCustomers.value.isSupplier += 1;
+            
+        });
+
+        console.table(countCustomers.value)
+    };
+
+    function formatField(val: string) 
+    {
+        if(val)
+        {
+            return val.length === 14 ? val.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : val.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        } else {
+            return ``;
+        };
+    };
+
+    const filterByClass = (class_: TFiltredByClass) => {
+        switch (class_) {
             case 'is_customer':
                 customers.value = allCustomers.value.filter(c => c.is_customer);
                 break;
@@ -411,16 +464,6 @@
                 customers.value = [...allCustomers.value];
                 break;
         }
-    });*/
-
-    function formatField(val: string) 
-    {
-        if(val)
-        {
-            return val.length === 14 ? val.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : val.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-        } else {
-            return ``;
-        };
     };
 
     const showPage = (event: boolean) =>
@@ -539,7 +582,6 @@
 
     const getConfig = async (): Promise<TConfigCustomer> =>
     {
-        console.log(issuerID.value);
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
         const data: TConfigCustomer = camelcaseKeys(res.data.data.customers, { deep: true });
         
@@ -594,11 +636,18 @@
 
     };
 
+    const filterBySearchBar = (customersCode: number[]) =>
+    {
+        console.log(customersCode);
+        customers.value = allCustomers.value.filter((c: ICustomer) => customersCode.includes(c.customerCode))
+        console.log(customers.value);
+    };
+
     onMounted(() => {
         getCustomers();
         getConfig();
-        widthScreen.value = screen.width;
-        
+        countRegisters ();
+        widthScreen.value = screen.width;        
 
     });
 
