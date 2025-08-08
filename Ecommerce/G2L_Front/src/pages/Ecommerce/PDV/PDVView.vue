@@ -129,7 +129,7 @@
                 </div>
     
                 <div 
-                    class="m-5 shadow-lg overflow-y-auto border border-black h-[48rem] max-w-[125vh]"  
+                    class="m-5 shadow-lg overflow-y-auto border h-[48rem] max-w-[125vh]"  
                 >   
                     <q-table
                         :rows="productsSeletion"
@@ -310,7 +310,7 @@
                                 <span>Cliente</span>
                                 <CustomerSearchBar
                                     @update:selectCustomer="updateCustomerSelection($event)"
-                                    :pdv="true"
+                                    :pdv="'pdv'"
                                     :disable="false"
                                 />
                                 <!-- COMPONENTE BUSCA DE CLIENTE -->                            
@@ -618,7 +618,7 @@
     });
 
     const customerData = ref<Icustomer>({
-        id: 1,
+        customerCode: 1,
         name: 'Consumidor Padrão'
     });
 
@@ -790,7 +790,7 @@
                                 issuer_id: issuer_id.value,
                                 products: productsSeletion.value, // Produtos da 
                                 user_id: sellerData.value.id,
-                                customer_id: customerData.value.id != 1 ? customerData.value.id : 1,
+                                customer_id: customerData.value.customerCode != 1 ? customerData.value.customerCode : 1,
                                 sub_total: calculateTotal.value.subtotal,
                                 total: calculateTotal.value.total,
                                 addition: calculateTotal.value.addition,
@@ -827,7 +827,7 @@
                 };
                 
             } else {
-                console.log('Não deu, customerData.id: ', customerData.value.id, ' sellerData.id:', sellerData.value.id);
+                console.log('Não deu, customerData.id: ', customerData.value.customerCode, ' sellerData.id:', sellerData.value.id);
 
             };           
         } catch (error) {
@@ -968,7 +968,7 @@
     const updateCustomerSelection = (client: Icustomer) => 
     {  
         customerData.value = {
-            id: client.id,
+            customerCode: client.customerCode,
             name: client.name
         };
     };
@@ -1052,7 +1052,7 @@
         emitProducts.value.addition = 0;
         emitProducts.value.discount = 0;
         emitProducts.value.freight = 0;
-        customerData.value.id = 1;
+        customerData.value.customerCode = 1;
         customerData.value.name = 'Consumidor Padrão';
         LocalStorage.remove("pdvID");
 
@@ -1091,7 +1091,7 @@
                         issuer_id:  issuer_id.value,
                         products: productsSeletion.value, 
                         user_id: sellerData.value.id,
-                        customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
+                        customer_id: customerData.value.customerCode >= 1 ? customerData.value.customerCode : 1,
                         sub_total: calculateTotal.value.subtotal,
                         total: calculateTotal.value.total,
                         addition: calculateTotal.value.addition,

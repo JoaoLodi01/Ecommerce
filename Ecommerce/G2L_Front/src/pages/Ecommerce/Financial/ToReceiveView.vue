@@ -325,7 +325,7 @@
 	const selectedRegister = ref([]);
 	const selectedReceiveDocument = ref<number>(0);
 	const selectReadonly = ref<boolean>(false);
-	const showReceiveClosing = ref(false);
+	const showReceiveClosing = ref<boolean>(false);
 	const widthScreen = ref(window.innerWidth);
 	const dateFilterField = ref<DateFilterValue>('createdAt');
 	const statusFilterField = ref<StatusFilterValue>('all');

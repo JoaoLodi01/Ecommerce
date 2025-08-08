@@ -62,7 +62,6 @@ return new class extends Migration
             $table->decimal('value_original', 16,2);
             $table->string('status', 40)->default('Aberto');
             $table->boolean('paid_off', 1)->default(0);
-            $table->boolean('status', 1)->default(0);
             $table->boolean('canceled', 1)->default(0);
             
             $table->timestamps();

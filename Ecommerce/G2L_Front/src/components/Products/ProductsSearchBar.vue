@@ -33,7 +33,7 @@
     </ul>
     <ul
         class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
-        v-if="filtredProducts.length === 0 && search.name !== ''"
+        v-if="filtredProducts.length === 0 && search.name !== '' && props.locale === 'pdv'"
     >
         <li>
             <span>Produto não encontrado!</span>

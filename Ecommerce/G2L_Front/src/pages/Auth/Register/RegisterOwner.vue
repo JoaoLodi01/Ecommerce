@@ -371,13 +371,18 @@
         {
             if(!existis)
             {
+                firstData.value = false;
                 $q.notify({
                     color: 'red',
                     message: 'CPF já cadastrado!',
                     position: 'top',
                     timeout: 1800
                 });
+
                 form.value.cpf = '';
+                form.value.name = '';
+                form.value.surname = '';
+                form.value.email = '';
                 
             } else {
                 return;
