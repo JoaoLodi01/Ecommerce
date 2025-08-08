@@ -10,13 +10,11 @@
     import { useRouter } from 'vue-router';
     import { LocalStorage, useQuasar } from 'quasar';
     import dayjs from 'dayjs';
-    import getColors from './services/getColors';
     import { api } from './boot/axios';
 
     const $q = useQuasar();
     const router = useRouter();
     const errorDialog = ref(null);
-    const intervalID = ref<ReturnType<typeof setInterval> | null>(null);
     
     const showGlobalError = (msg: string) => 
     {
@@ -74,26 +72,9 @@
         checkLogin();
 
         setInterval(checkLogin, 30 * 1000);
-
-        if(LocalStorage.getItem("auth_token") && LocalStorage.getItem("call_color"))
-        {
-            console.warn('Vai chamar o get colors');
-
-            intervalID.value = setInterval(() => getColors(LocalStorage.getItem("issuer_id")), 40 * 100); 
-            
-        } else {
-            clearInterval(intervalID.value);
-            return;
-            
-        };
     });
 
     onBeforeUnmount(() => {
-        if(intervalID.value)
-        {
-            clearInterval(intervalID.value);
-            console.log('Vai parar de chamar o getColors');
-        };
 
         emitter.off('global-error', showGlobalError);
     });

@@ -16,9 +16,6 @@ async function getColors(issuerID: number)
             LocalStorage.set("textColor", data.textColor);
 
             
-        } else {
-            alert('Erro no getColors');
-            LocalStorage.set("call_color", false);
         };
     };
 };

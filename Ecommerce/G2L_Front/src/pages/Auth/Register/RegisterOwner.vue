@@ -171,7 +171,7 @@
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
-    import { watch, onMounted, ref } from 'vue';
+    import { ref, onMounted } from 'vue';
     import { useRouter } from 'vue-router';
     import validateCPF from 'src/utils/validateCPF';
     import PasswordIcon from 'src/components/Icons/PasswordIcon.vue';

@@ -541,17 +541,19 @@
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted, onBeforeMount } from 'vue';
     import { useRouter } from 'vue-router';
-    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
     import { getLiberations } from 'src/services/Access/getLiberations';    
+    import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
+    import getColors from 'src/services/getColors';
     
     const $q = useQuasar();
     const router = useRouter();
     const issuerFirstName = ref<string>(LocalStorage.getItem("first_name"));
     const issuerName = ref<string>(LocalStorage.getItem("issuer_name"));
-    const liberationHotel = ref<string>(LocalStorage.getItem("liberationHotel"));;
-    const liberationSite = ref<string>(LocalStorage.getItem("liberationSite"));;
+    const liberationHotel = ref<string>(LocalStorage.getItem("liberationHotel"));
+    const liberationSite = ref<string>(LocalStorage.getItem("liberationSite"));
+    const intervalID = ref<ReturnType<typeof setInterval> | null>(null);
 
     let showConfirm = ref<boolean>(false);
     let typeOperation = ref<string>('');
@@ -759,6 +761,27 @@
 
             };
         });
+
+        if(LocalStorage.getItem("auth_token") && LocalStorage.getItem("call_color"))
+        {
+            console.warn('Vai chamar o get colors');
+
+            intervalID.value = setInterval(() => getColors(LocalStorage.getItem("issuer_id")), 40 * 100); 
+            
+        } else {
+            clearInterval(intervalID.value);
+            return;
+            
+        };
+    });
+
+    onBeforeMount(() => {
+        if(intervalID.value)
+        {
+            clearInterval(intervalID.value);
+            console.log('Vai parar de chamar o getColors');
+        };
+
     });
 
 </script>

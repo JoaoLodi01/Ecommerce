@@ -36,7 +36,7 @@
                     <q-btn 
                         v-else
                         @click="closeRegister()"
-                        class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                        :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     >
                         <span>Voltar</span>
                         
@@ -94,23 +94,24 @@
             </div>
         </div>
 
-        <div class="ml-16 mb-5 p-4 w-[150vh] inline-flex bg-white rounded-md shadow-lg">
+        <div v-if="showCustomers" class="ml-16 mb-5 p-4 w-[150vh] inline-flex bg-white rounded-md shadow-lg">
             <div class="mt-auto mb-auto w-max">
                 <CustomerSearchBar
                     :pdv="'customers'"
                     :disable="false"
                     @return-code="filterBySearchBar($event)"
+
                 />
-                
             </div>
-            <div class="flex justify-end ml-auto gap-2">
-                <div class="border flex w-[70vh] rounded-lg shadow-lg">
+
+            <div class="flex justify-end ml-auto gap-2 max-w-[100vh]">
+                <div class="border flex w-full rounded-lg shadow-lg">
                     <q-option-group
                         v-model="filterByStatus"
                         type="radio"
-                        toggle
                         inline
-                        class="mr-4 ml-4 mt-2"
+                        :style="{ '--my-radio-color': textColor }"
+                        class="mr-4 ml-4 mt-2 custom-radio"
                         :options="[
                             { label: 'Todos', value: 'all' },
                             { label: 'Ativos', value: 'active' },
@@ -246,6 +247,7 @@
                             />
 
                             <q-btn 
+                                v-if="props.row.active"
                                 label="Visualizar"
                                 class="rounded-lg text-white bg-sky-500"
                                 @click="viewCustomer(props.row.customer_code)"
@@ -379,6 +381,7 @@
         isCustomer: 0,
         isDriver: 0,
         isSupplier: 0,
+        
     });
 
     let editByButtonConfig = ref<boolean>(false);
@@ -398,9 +401,10 @@
     
     let pagination = ref<TPagination>({
         rowsPerPage: 0
+
     });
 
-    /*watch(filterByStatus, async (newOption) =>
+    watch(filterByStatus, async (newOption) =>
     {
         switch (newOption) {
             case 'active':
@@ -419,22 +423,9 @@
                 customers.value = [...allCustomers.value];
                 break;
         }
-    });
+    });    
 
-    (, async (newOption) =>
-    {
-    */    
 
-    const countRegisters = () => {
-        customers.value.forEach(customer => {
-            if(customer.is_customer) countCustomers.value.isCustomer += 1;
-            if(customer.is_driver) countCustomers.value.isDriver += 1;
-            if(customer.is_supplier) countCustomers.value.isSupplier += 1;
-            
-        });
-
-        console.table(countCustomers.value)
-    };
 
     function formatField(val: string) 
     {
@@ -447,17 +438,20 @@
     };
 
     const filterByClass = (class_: TFiltredByClass) => {
+        const isAll = filterByStatus.value === 'all';
+        const status = !isAll && filterByStatus.value === 'active' ? 1 : 0;
+        
         switch (class_) {
             case 'is_customer':
-                customers.value = allCustomers.value.filter(c => c.is_customer);
+                customers.value = allCustomers.value.filter(c => isAll ? c.is_customer : c.is_customer && c.active === status) ;
                 break;
 
             case 'is_driver':
-                customers.value = allCustomers.value.filter(c => c.is_driver);
+                customers.value = allCustomers.value.filter(c => isAll ? c.is_driver : c.is_driver && c.active === status);
                 break;
 
             case 'is_supplier':
-                customers.value = allCustomers.value.filter(c => c.is_supplier);
+                customers.value = allCustomers.value.filter(c => isAll ? c.is_supplier : c.is_supplier && c.active === status);
                 break;
 
             default:
@@ -475,10 +469,17 @@
     const getCustomers = async () =>
     {
         const res = await api.get(`/customers/all/${issuerID.value}`);
+        console.log(res.data.data);
         allCustomers.value = res.data.data;
         pagination.value = {
             rowsPerPage: allCustomers.value.length
         };
+        
+        allCustomers.value.map(c => {
+            if(c.is_customer) countCustomers.value.isCustomer += 1;
+            if(c.is_driver) countCustomers.value.isDriver += 1;
+            if(c.is_supplier) countCustomers.value.isSupplier += 1;
+        })
         
         customers.value = [...allCustomers.value];
         
@@ -638,7 +639,6 @@
 
     const filterBySearchBar = (customersCode: number[]) =>
     {
-        console.log(customersCode);
         customers.value = allCustomers.value.filter((c: ICustomer) => customersCode.includes(c.customerCode))
         console.log(customers.value);
     };
@@ -646,7 +646,6 @@
     onMounted(() => {
         getCustomers();
         getConfig();
-        countRegisters ();
         widthScreen.value = screen.width;        
 
     });
@@ -691,5 +690,4 @@
         --tw-shadow: var(--tw-shadow-colored);
         box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     }
-
 </style>

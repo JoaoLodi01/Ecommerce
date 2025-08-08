@@ -30,7 +30,10 @@
         </header>
 
          <div v-if="!showContent">
-            <span class="loader"></span>
+            <LoandingPage
+                :text="`Carregando empresas...`"
+
+            />
         </div>
 
         <Transition name="slide-up">
