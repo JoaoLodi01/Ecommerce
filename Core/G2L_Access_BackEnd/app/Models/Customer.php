@@ -18,7 +18,8 @@ class Customer extends Model
         'active',
         'hotel',
         'ecommerce',
-        'site'
+        'site',
+        'whatsapp',
 
     ]; 
 }

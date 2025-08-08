@@ -111,7 +111,7 @@
                         
                     <q-input 
                         filled        
-                        label="Número *" 
+                        label="Número *"
                         v-model="issuer.number"
                         :rules="[ val => !!val || 'Preencha o número' ]"
                         class="mb-4"
@@ -371,8 +371,7 @@
     };
 
     onMounted(() => {
-        getIssuer();
-        color.value = '#E75A7C';
+        LocalStorage.getItem("_completed") ? getIssuer() : null;
         _completed.value = LocalStorage.getItem("_completed");
     })
 </script>

@@ -130,8 +130,8 @@
                             color="primary"
                             class="p-4 rounded-md w-72 mb-4"
                             outline 
-                            unelevated 
-                            @click.firstData="firstData = !firstData"
+                            unelevated
+                            @click.prevent="validateCPF(form.cpf) ? firstData = !firstData : notifyCPF()"
 
                         />
 
@@ -221,20 +221,6 @@
     
     let showLoanding = ref<boolean>(false);
 
-    watch(form.value, (_) => {
-        const data = form.value;
-
-        if(
-            data.name &&
-            data.surname &&
-            data.email &&
-            (data.cpf && data.cpf.length === 14)
-        ) {
-            firstData.value = true;
-        };
-    });
-
-    
     function formateCPF(cpf: string): string
     {
         return cpf.replace(/\D/g, '');    
@@ -361,6 +347,16 @@
         return isEqual;
 
     };
+
+    const notifyCPF = () =>
+    {
+        $q.notify({
+            color: 'red',
+            message: 'O campo do CPF está ausente ou inválido!',
+            position: 'top',
+            timeout: 1800
+        });
+    };  
 
     const handleCPF = async (cpf: string) =>
     {

@@ -29,7 +29,7 @@
         const now = dayjs();
         const expireStr = LocalStorage.getItem("expire");
 
-        if(expireStr && typeof expireStr === 'string')
+        if(LocalStorage.getItem("auth_token") && expireStr && typeof expireStr === 'string')
         {
             const expireDate = dayjs(expireStr);
             if(now.isAfter(expireDate))
