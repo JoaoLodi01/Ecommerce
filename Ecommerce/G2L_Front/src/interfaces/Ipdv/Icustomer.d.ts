@@ -1,5 +1,5 @@
 interface Icustomer 
 {
-    id: number,
+    customerCode: number,
     name: string
 };

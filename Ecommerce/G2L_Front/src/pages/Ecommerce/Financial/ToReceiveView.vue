@@ -171,10 +171,11 @@
 			row-key="receiveCod"
 			flat
 			bordered
-			class="q-mt-md shadow-lg rounded-lg">
+			class="q-mt-md shadow-lg rounded-lg"
+		>
 
 			<template v-slot:header="props">
-				<q-tr :props="props" :style="`background-color: ${painelColor}; color: white;`">
+				<q-tr :props="props" :style="`background-color: ${painelColor}; color: ${textColor};`">
 					<q-th v-for="col in props.cols" :key="col.name" :props="props" :class="`text-${col.align}`">
 						{{ col.label }}
 					</q-th>
@@ -299,8 +300,7 @@
 	import isBetween from "dayjs/plugin/isBetween";
 	import camelcaseKeys from "camelcase-keys";
 	import { ref, onMounted } from "vue";
-	import { format, QTableColumn, useQuasar } from "quasar";
-	import { LocalStorage } from "quasar";
+	import { LocalStorage, QTableColumn, useQuasar } from "quasar";
 	import { api } from "src/boot/axios";
 	import LoandingPage from "src/components/Loanding/LoandingPage.vue";
 	import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
@@ -325,7 +325,7 @@
 	const selectedRegister = ref([]);
 	const selectedReceiveDocument = ref<number>(0);
 	const selectReadonly = ref<boolean>(false);
-	const showReceiveClosing = ref(false);
+	const showReceiveClosing = ref<boolean>(false);
 	const widthScreen = ref(window.innerWidth);
 	const dateFilterField = ref<DateFilterValue>('createdAt');
 	const statusFilterField = ref<StatusFilterValue>('all');
@@ -375,14 +375,14 @@
 	};
 
 	const getReceives = async () => {
-	try {
-		const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
-		console.log(res.data.data)
-		originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
-		applyFilters(); // Aplica filtros ao carregar
-	} catch (error) {
-		$q.notify({ color: 'red', message: 'Erro ao carregar dados' });
-	}
+		try {
+			const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
+			console.log(res.data.data)
+			originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
+			applyFilters(); // Aplica filtros ao carregar
+		} catch (error) {
+			$q.notify({ color: 'red', message: 'Erro ao carregar dados' });
+		}
 	};
 
 	//#endregion
@@ -504,40 +504,40 @@
 
 	//#region TOTALIZADORES
 	const totalQuitadas = computed(() => 
-			receives.value.reduce((acc, r) => acc + (r.paid ? r.installmentValue : 0), 0)
-		);
+		receives.value.reduce((acc, r) => acc + (r.paid ? r.installmentValue : 0), 0)
+	);
 
-		const totalVencidas = computed(() => 
-			receives.value.reduce((acc, r) => {
-				const vencida = !r.paid && dayjs(r.dueDate).isBefore(dayjs(), 'day');
-				return acc + (vencida ? r.installmentValue : 0);
-			}, 0)
-		);
+	const totalVencidas = computed(() => 
+		receives.value.reduce((acc, r) => {
+			const vencida = !r.paid && dayjs(r.dueDate).isBefore(dayjs(), 'day');
+			return acc + (vencida ? r.installmentValue : 0);
+		}, 0)
+	);
 
-		const totalEmAberto = computed(() => {
-			const total = receives.value
-				.filter(inst => !inst.paid && !isLateDate(inst.dueDate))
-				.reduce((sum, inst) => sum + Number(inst.installmentValue || 0), 0);
+	const totalEmAberto = computed(() => {
+		const total = receives.value
+			.filter(inst => !inst.paid && !isLateDate(inst.dueDate))
+			.reduce((sum, inst) => sum + Number(inst.installmentValue || 0), 0);
 
-			return total.toFixed(2);
-		});
+		return total.toFixed(2);
+	});
 
-		const isLateDate = (dueDate: string): boolean => {
-			return dayjs(dueDate).isBefore(dayjs(), 'day');
-		};
-		
-		const parseCurrency = (value: number): number =>
-		{
-			if (!value) return 0;
+	const isLateDate = (dueDate: string): boolean => {
+		return dayjs(dueDate).isBefore(dayjs(), 'day');
+	};
+	
+	const parseCurrency = (value: number): number =>
+	{
+		if (!value) return 0;
 
-			return parseFloat(
-				value
-				.toString()
-				.replace(/\s/g, '')
-				.replace('R$', '')
-				.replace(/\./g, '')
-				.replace(',', '.')
-			) || 0;
-		};
+		return parseFloat(
+			value
+			.toString()
+			.replace(/\s/g, '')
+			.replace('R$', '')
+			.replace(/\./g, '')
+			.replace(',', '.')
+		) || 0;
+	};
 	//#endregion
 </script>

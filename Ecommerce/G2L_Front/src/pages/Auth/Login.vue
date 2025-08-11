@@ -25,7 +25,7 @@
                     <div>
                         <q-input 
                             v-model="password" 
-                            type="password" 
+                            :type="showConfirmPassword ? 'text' : 'password'"
                             label="Senha" 
                             outlined
                             class="mb-3"
@@ -33,7 +33,16 @@
                                 val => !!val || 'A senha é necessária!'
                             ]"
 
-                        />
+                        >
+                            <div 
+                                @click="showConfirmPassword = !showConfirmPassword"
+                            >
+                                <PasswordIcon
+                                    :show="showConfirmPassword"
+                                />
+                            </div>
+
+                        </q-input>
                         <span class="text-xs flex justify-end cursor-pointer">
                             Esqueceu sua senha?
                         </span>
@@ -70,6 +79,7 @@
     import { useQuasar, LocalStorage } from 'quasar';
     import { ref, onMounted, Transition } from "vue";
     import { useRouter } from 'vue-router'
+    import PasswordIcon from 'src/components/Icons/PasswordIcon.vue';
     import dayjs from 'dayjs';
 
     const emits = defineEmits<{
@@ -82,7 +92,7 @@
     const email = ref<string>('');
     const password = ref<string>('');
     const showContent = ref<boolean>(false);
-
+    let showConfirmPassword = ref<boolean>(false);
     let loandingLogin = ref<boolean>(false);
 
     const login = async () => {

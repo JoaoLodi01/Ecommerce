@@ -294,11 +294,9 @@
     let showReportProducts = ref<boolean>(false);
     let showImportFiles = ref<boolean>(false);
     let widthScreen = ref<number>(0);
-    let productName = ref<string>('');
     let showConfirm = ref<boolean>(false);
     let typeOperation = ref<string>('');
-    let productID = ref<number>(0);
-
+    
     watch(searchFilter, async(newOption) =>{
         if(newOption === 'active')
         {

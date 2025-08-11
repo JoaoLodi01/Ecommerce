@@ -130,8 +130,8 @@
                             color="primary"
                             class="p-4 rounded-md w-72 mb-4"
                             outline 
-                            unelevated 
-                            @click.firstData="firstData = !firstData"
+                            unelevated
+                            @click.prevent="validateCPF(form.cpf) ? firstData = !firstData : notifyCPF()"
 
                         />
 
@@ -171,7 +171,7 @@
 <script setup lang="ts">
     import { LocalStorage, useQuasar } from 'quasar';
     import { api } from 'src/boot/axios';
-    import { watch, onMounted, ref } from 'vue';
+    import { ref, onMounted } from 'vue';
     import { useRouter } from 'vue-router';
     import validateCPF from 'src/utils/validateCPF';
     import PasswordIcon from 'src/components/Icons/PasswordIcon.vue';
@@ -221,20 +221,6 @@
     
     let showLoanding = ref<boolean>(false);
 
-    watch(form.value, (_) => {
-        const data = form.value;
-
-        if(
-            data.name &&
-            data.surname &&
-            data.email &&
-            (data.cpf && data.cpf.length === 14)
-        ) {
-            firstData.value = true;
-        };
-    });
-
-    
     function formateCPF(cpf: string): string
     {
         return cpf.replace(/\D/g, '');    
@@ -242,7 +228,7 @@
     
     function validateEmail(email: string): boolean
     {
-        if(email.split('').includes('@'))
+        if(email.split('').includes('@') && email.split('@')[1].length >= 4)
         {
             return true;
             
@@ -362,6 +348,16 @@
 
     };
 
+    const notifyCPF = () =>
+    {
+        $q.notify({
+            color: 'red',
+            message: 'O campo do CPF está ausente ou inválido!',
+            position: 'top',
+            timeout: 1800
+        });
+    };  
+
     const handleCPF = async (cpf: string) =>
     {
         const existis = await checks.checkExistsCPF(cpf);
@@ -371,13 +367,18 @@
         {
             if(!existis)
             {
+                firstData.value = false;
                 $q.notify({
                     color: 'red',
                     message: 'CPF já cadastrado!',
                     position: 'top',
                     timeout: 1800
                 });
+
                 form.value.cpf = '';
+                form.value.name = '';
+                form.value.surname = '';
+                form.value.email = '';
                 
             } else {
                 return;
@@ -385,6 +386,7 @@
             };
         };
     };
+
     onMounted(() => {
         firstData.value = false;
         form.value.password = '',

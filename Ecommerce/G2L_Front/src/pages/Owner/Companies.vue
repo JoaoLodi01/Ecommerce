@@ -11,7 +11,6 @@
                 <router-link 
                     to="/" 
                     class="mt-auto mb-auto mr-6"
-                    v-if="witdhScreen >= 1366"
                 >
                     <span class="mt-0.5 ml-2 hover:text-slate-300 hover:border-b">Voltar ao início</span>
                 </router-link>
@@ -29,6 +28,13 @@
                 CPF: {{ String(owner_cpf).replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
             </div>
         </header>
+
+         <div v-if="!showContent">
+            <LoandingPage
+                :text="`Carregando empresas...`"
+
+            />
+        </div>
 
         <Transition name="slide-up">
             <div class="flex justify-center" v-if="showContent">
@@ -328,9 +334,11 @@
 
     onMounted(async () => {
         await getCompanies();
-        await getLiberations(LocalStorage.getItem("user_id"));        
+        const liberations = await getLiberations(LocalStorage.getItem("user_id"));        
 
-        showContent.value = true;
+        if(liberations){
+            showContent.value = true;
+        }
 
         const uuse_id = LocalStorage.getItem("uuse_id");
         

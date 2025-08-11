@@ -26,7 +26,7 @@
                     <q-btn
                         v-if="showCustomers"
                         @click="customerManagement('create', 0, 0)"
-                        :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                        :style="`background-color: ${buttonColor}; color: ${textColor}`"
 
                     >
                         <span>Novo cliente</span>
@@ -36,7 +36,7 @@
                     <q-btn 
                         v-else
                         @click="closeRegister()"
-                        class="bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-500 transition"
+                        :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     >
                         <span>Voltar</span>
                         
@@ -51,7 +51,7 @@
                 <q-btn 
                     title="Opções"
                     class="mr-5"
-                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     @click="showConfig = true"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -62,7 +62,7 @@
 
                 <q-btn
                     @click="showReportCustomer = !showReportCustomer"
-                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     title="Relatórios"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ">
@@ -71,7 +71,7 @@
                 </q-btn>
             
                 <q-btn 
-                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     class="ml-5"
                     @click="showImportFiles = true"
                 >
@@ -82,7 +82,7 @@
                 </q-btn>
 
                 <q-btn 
-                    :style="`background-color: ${buttonColor}; color: ${buttonColor === '#ffffff' ? '#000' : '#ffffff'}`"
+                    :style="`background-color: ${buttonColor}; color: ${textColor}`"
                     class="ml-5"
                     title="Baixa arquivo de importação"
                     @click="downloadDefaultFile"
@@ -91,22 +91,56 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                     </svg>
                 </q-btn>
-                
-                <div 
-                    class="ml-auto"
-                >
+            </div>
+        </div>
+
+        <div v-if="showCustomers" class="ml-16 mb-5 p-4 w-[150vh] inline-flex bg-white rounded-md shadow-lg">
+            <div class="mt-auto mb-auto w-max">
+                <CustomerSearchBar
+                    :pdv="'customers'"
+                    :disable="false"
+                    @return-code="filterBySearchBar($event)"
+
+                />
+            </div>
+
+            <div class="flex justify-end ml-auto gap-2 max-w-[100vh]">
+                <div class="border flex w-full rounded-lg shadow-lg">
                     <q-option-group
-                        v-model="searchFilter"
+                        v-model="filterByStatus"
                         type="radio"
-                        toggle
-                        class="flex"
+                        inline
+                        :style="{ '--my-radio-color': textColor }"
+                        class="mr-4 ml-4 mt-2 custom-radio"
                         :options="[
-                            {label: 'Todos', value: 'all'},
-                            {label: 'Ativos', value: 'active'},
-                            {label: 'Inativos', value: 'disabled'},
+                            { label: 'Todos', value: 'all' },
+                            { label: 'Ativos', value: 'active' },
+                            { label: 'Inativos', value: 'disabled' },
                         ]"
                     />
 
+                    <q-separator vertical inset />
+
+                    <div class="flex m-auto">
+                        <div 
+                            class="ml-2 rounded-md cursor-pointer"
+                        >
+                            <q-btn :label="`Clientes: ${countCustomers.isCustomer}`" @click="filterByClass('is_customer')" :style="`background-color: ${buttonColor}; color: ${textColor}`"/>
+                        </div>
+
+                        <div     
+                            class="ml-2 text-white rounded-md cursor-pointer"
+                            
+                        >
+                            <q-btn :label="`Fornecedores: ${countCustomers.isDriver}`" @click="filterByClass('is_driver')" :style="`background-color: ${buttonColor}; color: ${textColor}`"/>
+                        </div>
+
+                        <div
+                            class="ml-2 rounded-md cursor-pointer"
+                        >
+                            <q-btn :label="`Motoristas: ${countCustomers.isSupplier}`" @click="filterByClass('is_supplier')" :style="`background-color: ${buttonColor}; color: ${textColor}`"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -213,6 +247,7 @@
                             />
 
                             <q-btn 
+                                v-if="props.row.active"
                                 label="Visualizar"
                                 class="rounded-lg text-white bg-sky-500"
                                 @click="viewCustomer(props.row.customer_code)"
@@ -262,8 +297,9 @@
 <script setup lang="ts">
     import { LocalStorage, useQuasar, QTableColumn } from 'quasar';
     import { api } from 'src/boot/axios';
-    import { ref, onMounted, watch, reactive } from 'vue';
-    import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';    
+    import { ref, onMounted, watch, reactive, computed, customRef } from 'vue';
+    import ConfigCustomers from 'src/components/Config/ConfigCustomers.vue';
+    import CustomerSearchBar from 'src/components/Search/CustomerSearchBar.vue';
     import CustomerManagement from 'src/components/Register/Customers/CustomerManagement.vue';
     import ViewCustomer from 'src/components/Register/Customers/ViewCustomer.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
@@ -274,6 +310,14 @@
         lastFilter: string,
         editByButton: boolean,
         
+    };
+
+    type TFiltredByStatus = 'all' | 'active' | 'disabled';
+    type TFiltredByClass = 'is_customer' | 'is_driver' | 'is_supplier';
+    type TCountByClass = {
+        isCustomer: number,
+        isDriver: number,
+        isSupplier: number,
     };
 
     type TPagination = {
@@ -288,9 +332,9 @@
     });
     
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
-    const searchFilter = ref<'all' | 'active' | 'disabled' >('all');
 
     const columns: QTableColumn[] = [
         { 
@@ -321,6 +365,7 @@
             name: 'cnpj', 
             label: 'CNPJ', 
             field: 'cnpj', 
+            
             align: 'center'
         },
         {
@@ -330,6 +375,14 @@
             align: 'center'
         },
     ];
+    
+    const filterByStatus = ref<TFiltredByStatus>('all');
+    const countCustomers = ref<TCountByClass>({
+        isCustomer: 0,
+        isDriver: 0,
+        isSupplier: 0,
+        
+    });
 
     let editByButtonConfig = ref<boolean>(false);
     let allCustomers = ref<ICustomer[]>([]);
@@ -348,21 +401,31 @@
     
     let pagination = ref<TPagination>({
         rowsPerPage: 0
+
     });
 
-    watch(searchFilter, async (newOption) =>
+    watch(filterByStatus, async (newOption) =>
     {
-        if(newOption === 'active')
-        {
-            customers.value = allCustomers.value.filter(c => c.active === 1);
-        } else if (newOption === 'disabled')
-        {
-            customers.value = allCustomers.value.filter(c => c.active === 0);
+        switch (newOption) {
+            case 'active':
+                customers.value = allCustomers.value.filter(c => c.active === 1);
+                break;
 
-        } else {
-            customers.value = [...allCustomers.value];
-        };
-    });
+            case 'disabled':
+                customers.value = allCustomers.value.filter(c => c.active === 0);
+                break;
+
+            case 'all':
+                customers.value = [...allCustomers.value];
+                break;
+        
+            default:
+                customers.value = [...allCustomers.value];
+                break;
+        }
+    });    
+
+
 
     function formatField(val: string) 
     {
@@ -374,6 +437,29 @@
         };
     };
 
+    const filterByClass = (class_: TFiltredByClass) => {
+        const isAll = filterByStatus.value === 'all';
+        const status = !isAll && filterByStatus.value === 'active' ? 1 : 0;
+        
+        switch (class_) {
+            case 'is_customer':
+                customers.value = allCustomers.value.filter(c => isAll ? c.is_customer : c.is_customer && c.active === status) ;
+                break;
+
+            case 'is_driver':
+                customers.value = allCustomers.value.filter(c => isAll ? c.is_driver : c.is_driver && c.active === status);
+                break;
+
+            case 'is_supplier':
+                customers.value = allCustomers.value.filter(c => isAll ? c.is_supplier : c.is_supplier && c.active === status);
+                break;
+
+            default:
+                customers.value = [...allCustomers.value];
+                break;
+        }
+    };
+
     const showPage = (event: boolean) =>
     {
         showCustomers.value = event;
@@ -383,10 +469,17 @@
     const getCustomers = async () =>
     {
         const res = await api.get(`/customers/all/${issuerID.value}`);
+        console.log(res.data.data);
         allCustomers.value = res.data.data;
         pagination.value = {
             rowsPerPage: allCustomers.value.length
         };
+        
+        allCustomers.value.map(c => {
+            if(c.is_customer) countCustomers.value.isCustomer += 1;
+            if(c.is_driver) countCustomers.value.isDriver += 1;
+            if(c.is_supplier) countCustomers.value.isSupplier += 1;
+        })
         
         customers.value = [...allCustomers.value];
         
@@ -405,7 +498,7 @@
                 
             });
 
-            const customer = customers.value.find(c => c.customer_code === id);
+            const customer = customers.value.find(c => c.customerCode === id);
             if(customer)
             {
                 customer.active = action === 'active' ? 1 : 0;
@@ -490,7 +583,6 @@
 
     const getConfig = async (): Promise<TConfigCustomer> =>
     {
-        console.log(issuerID.value);
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
         const data: TConfigCustomer = camelcaseKeys(res.data.data.customers, { deep: true });
         
@@ -508,7 +600,7 @@
 
         } else {
             editByButtonConfig.value = data.editByButton;
-            searchFilter.value = data.lastFilter as 'all' | 'active' | 'disabled';
+            filterByStatus.value = data.lastFilter as 'all' | 'active' | 'disabled';
             return;
         };
     };
@@ -545,11 +637,16 @@
 
     };
 
+    const filterBySearchBar = (customersCode: number[]) =>
+    {
+        customers.value = allCustomers.value.filter((c: ICustomer) => customersCode.includes(c.customerCode))
+        console.log(customers.value);
+    };
+
     onMounted(() => {
         getCustomers();
         getConfig();
-        widthScreen.value = screen.width;
-        
+        widthScreen.value = screen.width;        
 
     });
 
@@ -593,5 +690,4 @@
         --tw-shadow: var(--tw-shadow-colored);
         box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     }
-
 </style>

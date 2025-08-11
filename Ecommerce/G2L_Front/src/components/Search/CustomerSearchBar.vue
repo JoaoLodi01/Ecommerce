@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
         <div>
-            <div class="text-sm" v-if="props.pdv">
+            <div class="text-sm" v-if="props.pdv === 'pdv'">
                 <q-checkbox
                     size="1.6rem"
                     label="Cliente cadastrado - F4"
@@ -19,7 +19,7 @@
                 @update:model-value="selectClient()"
                 class="w-96"
                 color="grey"
-                :disabled="disable"
+                :disabled="setDisabled"
 
             />
             
@@ -31,11 +31,11 @@
         >
             <li
                 v-for="client in filteredClients "
-                :key="client.id"
+                :key="client.customerCode"
                 @click="setClient(client)"
                 class="p-2 hover:bg-gray-200 cursor-pointer"
             >
-                {{client.id}} - {{ client.company_name ? client.company_name : client.trad_name }}
+                {{client.customerCode}} - {{ client.company_name ? client.company_name : client.trad_name }}
 
             </li>
         </ul>
@@ -46,33 +46,36 @@
     import { api } from 'src/boot/axios';
     import { LocalStorage } from 'quasar';
     import { ref, onMounted } from 'vue';
+    import camelcaseKeys from 'camelcase-keys';
     
     type TcustomersData = {
-        id: number,
+        customerCode: number,
         name: string
     };
 
     interface IFiltredCustomerData
     {
-        readonly id: number,
+        readonly customerCode: number,
         company_name: string,
         trad_name: string
     }
 
     const emits = defineEmits<{
-        (e: 'update:selectCustomer', value: TcustomersData)
+        (e: 'update:selectCustomer', value: TcustomersData),
+        (e: 'returnCode', value: number[])
 
     }>();
 
     const props = defineProps<{
-        pdv: boolean,
+        pdv: string,
         disable: boolean
     }>();
     
     const customer = ref<any>(null);
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
 
     let customersData = ref<TcustomersData>({
-        id: 1,
+        customerCode: 1,
         name: 'Consumidor Padrão'
 
     });
@@ -82,7 +85,15 @@
     let registredCustomer = ref<boolean>(false);
     let filter = ref<string>('');
 
-    let issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+    const setDisabled = () =>
+    {
+        if(props.disable || !registredCustomer.value)
+        {
+            return true;
+        } else {
+            return false;
+        };
+    }
 
     const getConfig = async () => {
         const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
@@ -101,11 +112,10 @@
 
     const selectClient = async () =>
     {
-        console.log('Chamou');
-        console.log(customersData.value.name);
-        console.log(registredCustomer.value);
-        console.log(filter.value);
-        if (customersData.value.name.length > 0 && filter.value && registredCustomer.value) {
+        console.log('R');
+        const isPDV = props.pdv === 'pdv';
+        if (customersData.value.name.length > 0 && filter.value ) 
+        {
             console.log('Vai fazero res');
             const res = await api.post('/customers/search', {
                 filter: filter.value,
@@ -116,9 +126,12 @@
 
             console.log(res);
 
-            const customer: IFiltredCustomerData[] = res.data.data;
-            console.log(customer)
-            filterClients(customer);
+            const customer = camelcaseKeys(res.data.data, { deep: true });
+
+            console.log('isPDV', isPDV);
+            console.log(customer.map((c: TcustomersData) => { return c.customerCode }));
+            return isPDV ? filterClients(customer) : emits('returnCode', customer.map((c: TcustomersData) => { return c.customerCode }));
+
         };
     };
 
@@ -142,7 +155,7 @@
 
     const setClient = (client: IFiltredCustomerData): void => 
     {
-        customersData.value.id = client.id;
+        customersData.value.customerCode = client.customerCode;
         customersData.value.name = client.company_name ? client.company_name : client.trad_name;
 
         emits('update:selectCustomer', customersData.value);
@@ -173,6 +186,7 @@
                 return;
             };
         });
+        
 
         getConfig();
     });
