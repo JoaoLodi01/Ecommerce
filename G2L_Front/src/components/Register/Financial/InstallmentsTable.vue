@@ -338,15 +338,11 @@
         }
     };
 
-    const formatCurrency = (value?: number) => {
-        const parsed = typeof value === 'number' ? value : 0;
-
-        return parsed.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-            minimumFractionDigits: 2,
-        });
-    };
+    const formatCurrency = (value: number) =>
+        new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+    }).format(value || 0);
 
     function getStatusColor(status: string) {
         switch (status.toLowerCase()) {

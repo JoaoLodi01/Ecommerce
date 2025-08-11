@@ -178,7 +178,7 @@
 			:loading="loading"
 			dense
 		>
-
+			:style="`background-color: ${painelColor}; color: ${textColor ?? '#fff'}`"
 			<template v-slot:body="props">
 				<q-tr :props="props" :class="getColorReceive(props.row)">
 					<q-td key="check" class="text-center">
@@ -296,7 +296,6 @@
 	const receives = ref([]);
 	const loading = ref(false);
 	const showPage = ref(false);
-	const selectAll = ref(false);
 	const selectOperation = ref("");
 	const originalReceives = ref([]);
 	const selectedRegister = ref([]);
@@ -323,8 +322,8 @@
 		{ name: 'document', label: 'Documento', field: 'document', align: 'center' },
 		{ name: 'description', label: 'Descrição', field: 'description', align: 'left' },
 		{ name: 'installmentAmount', label: 'Qtde. Parcelas', field: 'installmentAmount', align: 'center' },
-		{ name: 'installmentValue', label: 'Valor Bruto', field: row => `R$ ${Number(row.installmentValue || 0).toFixed(2)}`, align: 'center' },
-		{ name: 'installmentPaid', label: 'Valor Líquido', field: row => `R$ ${Number(row.installmentPaid || 0).toFixed(2)}`, align: 'center' },
+		{ name: 'installmentValue', label: 'Valor Bruto', field: row => formatCurrency(row.installmentValue) , align: 'center' },
+		{ name: 'installmentPaid', label: 'Valor Líquido', field: row => formatCurrency(row.installmentPaid), align: 'center' },
 		{ name: 'name', label: 'Cliente', field: 'name', align: 'left' },
 		{ name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
 		{ name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },
