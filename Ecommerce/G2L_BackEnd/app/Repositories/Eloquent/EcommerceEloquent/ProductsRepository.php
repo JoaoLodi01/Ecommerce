@@ -8,7 +8,7 @@ use App\Models\Registers\FirstSteps;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
 use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
-class ProductsRepository 
+class ProductsRepository
 {
     protected $cacheKeyPrefix = 'products';
     protected $cacheDurration = 10;
@@ -27,7 +27,7 @@ class ProductsRepository
         });
 
         return $products;
-        
+
     }
 
     public function search(array $data)
@@ -37,21 +37,21 @@ class ProductsRepository
         $products = null;
         $search = $data['search'];
         $issuerID = $data['issuer_id'];
-        
+
         switch ($data['filter']) {
             case 'Cód barras interno':
                 $products = Products::where('active', 1)
                     ->where(function($query) use ($search, $issuerID){
                         $query->where('barcode_internal', $search)
                               ->where('issuer_id', $issuerID);
-                        
+
 
                     })->get();
                 break;
-            
+
             case 'Cód barras':
                 $products = Products::where('active', 1)
-                    
+
                     ->where(function($query) use ($search, $issuerID){
                         $query->where('barcode', $search)
                                ->where('issuer_id', $issuerID);
@@ -69,7 +69,7 @@ class ProductsRepository
 
                     })->get();
                 break;
-    
+
             case 'Padrão (nome do produto, cód.barras ou cód.produto)':
                 $products = Products::where('active', 1)
                     ->where(function($query) use ($search, $issuerID){
@@ -87,7 +87,7 @@ class ProductsRepository
                 # code...
                 break;
         }
-        
+
         return $products;
     }
 
@@ -111,7 +111,7 @@ class ProductsRepository
             'complete_products' => 1
         ]);
         $stpes->save();
-        
+
         return Products::create([
             'product_code' => $maxCod ? $maxCod + 1 : 1,
             'issuer_id' => $issuer_id,
@@ -126,12 +126,12 @@ class ProductsRepository
             'sale_price' => $this->formatField($data['salePrice']),
             'profit_percentage' => $this->formatField($data['profitPercentage']),
             'unit' => $data['unit'],
-            
+
 
             // Tributs
             'ncm' => $data['ncm'],
             'cest' => $data['cest'],
-            'cfop' => $data['cfop'],    
+            'cfop' => $data['cfop'],
             'csosncst' => $data['csosncst'],
             'cod_origem_icms' => $data['codOrigemIcms'],
             'origem_icms' => $data['origemIcms'],
@@ -165,11 +165,11 @@ class ProductsRepository
             'sale_price' => $this->formatField($data['salePrice']),
             'profit_percentage' => $this->formatField($data['profitPercentage']),
             'unit' => $data['unit'],
-            
+
             // Tributs
             'ncm' => $data['ncm'],
             'cest' => $data['cest'],
-            'cfop' => $data['cfop'],    
+            'cfop' => $data['cfop'],
             'csosncst' => $data['csosncst'],
             'cod_origem_icms' => $data['codOrigemIcms'],
             'origem_icms' => $data['origemIcms'],
@@ -210,7 +210,7 @@ class ProductsRepository
                             ->where('product_code', $productCod)
                             ->first();
 
-        
+
         Log::debug($product);
         $product->update([
             'active' => 0
@@ -220,12 +220,12 @@ class ProductsRepository
         return $product->product;
 
     }
-    
+
     public function findByID(int $issuerID, int $productCod){
         return Products::where('issuer_id', $issuerID)->where('product_code', $productCod)->first();
-        
+
     }
-    
+
     public function findLastCode(int $id)
     {
         $product = Products::where('issuer_id', $id)->get();
@@ -243,7 +243,7 @@ class ProductsRepository
             $product->update([
                 'amount' => $product->amount - $quantiy
             ]);
-            
+
         }
 
         Log::info('-- Fim decreaseQuantiy, linha 62 --');
@@ -267,5 +267,5 @@ class ProductsRepository
             'csosncst' => $dto->csosncst
 
         ]);
-    } 
+    }
 }
