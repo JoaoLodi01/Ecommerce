@@ -7,9 +7,9 @@ type Issuer = {
 };
 
 async function generatePIX(
-        totalOperation: number, 
-        pix_key: string,
-        issuer: Issuer
+    totalOperation: number, 
+    pix_key: string,
+    issuer: Issuer
 ) {
     const qrCodePix = QrCodePix({
         version: '01',

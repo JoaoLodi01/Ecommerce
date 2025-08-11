@@ -5,9 +5,14 @@ const salePrefix = 'sale';
 
 const routes = [
   {
-    path: '/teste/qr',
+    path: '/teste/qr-pix',
     name: 'TestsAreaQR',
-    component: () => import('src/pages/Tests/QRCode.vue')
+    component: () => import('src/pages/Tests/QRCode/PIX/QRCode.vue')
+  },
+  {
+    path: '/teste/qr',
+    name: 'QRWhast',
+    component: () => import('src/pages/Tests/QRCode/Whats/QRCodeWhats.vue')
   },
   {
     path: '/teste/clip',
