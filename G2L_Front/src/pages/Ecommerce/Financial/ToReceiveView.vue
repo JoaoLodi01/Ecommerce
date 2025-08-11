@@ -152,17 +152,17 @@
 			<div class="flex gap-4">
 				<span class="border rounded px-3 py-1 bg-green-200 text-green-900">
 					<q-icon name="check_circle" color="green-700" class="mr-2 mb-1" />
-					Recebidas: R$ {{ totalQuitadas }}
+					Recebidas: {{ formatCurrency(totalQuitadas) }}
 				</span>
 
 				<span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
 					<q-icon name="hourglass_empty" color="orange" class="mr-2 mb-1" />
-					Pendentes: R$ {{ totalEmAberto }}
+					Pendentes: {{ formatCurrency(totalEmAberto) }}
 				</span>
 
 				<span class="border rounded px-3 py-1 bg-red-300 text-red-900">
 					<q-icon name="warning" color="red" class="mr-2 mb-1" />
-					Atrasadas ( + juros ): R$ {{ totalVencidas }}
+					Atrasadas ( + juros ): {{ formatCurrency(totalVencidas) }}
 				</span>
 			</div>
 		</div>
@@ -529,5 +529,10 @@
 			return dayjs(dueDate).isBefore(dayjs(), 'day');
 		};
 		
+		const formatCurrency = (value: number) =>
+			new Intl.NumberFormat("pt-BR", {
+				style: "currency",
+				currency: "BRL"
+		}).format(value || 0);
 	//#endregion
 </script>
