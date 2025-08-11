@@ -17,6 +17,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/qr-code", func(w http.ResponseWriter, r *http.Request) {
+		log.Println("Passou pela rota /qr-code")
 		if r.Method != http.MethodGet {
 			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 			return
