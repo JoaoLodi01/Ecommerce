@@ -16,7 +16,7 @@
     import QRCode from 'qrcode'
     import axios from 'axios';
 
-    const url = ref<string>("http://localhost:3000/qr-code");
+    const url = ref<string>("http://localhost:3000/api/v1/whats/qr-code");
     let qr = ref<string>('');
     let qrImage = ref<string>('');
 
