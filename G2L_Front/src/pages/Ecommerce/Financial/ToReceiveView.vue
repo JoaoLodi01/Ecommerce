@@ -12,7 +12,7 @@
 			<h1 class="text-2xl font-semibold">Receber</h1>
 			<div class="flex space-x-4">
 				<q-btn
-					class="p-2 rounded-lg"
+					class="p-2 rounded-lg hover:opacity-80"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 				>
 					<svg
@@ -30,13 +30,13 @@
 				</q-btn>
 
 				<q-btn
-					class="p-2 rounded-lg"
+					class="p-2 rounded-lg hover:opacity-80"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					label="Relatórios"
 				/>
 
 				<q-btn
-					class="p-2 rounded-lg"
+					class="p-2 rounded-lg hover:opacity-80"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					@click="manageClick('0', 'register', false)"
 					label="Cadastrar"
@@ -47,22 +47,22 @@
 		<div class="filterDate flex  gap-4 items-end mb-6 p-3 border border-gray-300 rounded-lg w-full md:w-max">
 			<div class="flex gap-2">
 				<q-input
-				class="cursor-text"
-				type="date"
-				v-model="startDate"
-				label="Data Inicial"
+					class="cursor-text"
+					type="date"
+					v-model="startDate"
+					label="Data Inicial"
 				/>
 
 				<q-input
-				class="cursor-text"
-				type="date"
-				v-model="endDate"
-				label="Data Final"
+					class="cursor-text"
+					type="date"
+					v-model="endDate"
+					label="Data Final"
 				/>
 			</div>
 
 				<q-btn-dropdown
-					class="h-10"
+					class="h-10 hover:opacity-80"
 					:label="getDateFilter"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					flat
@@ -83,7 +83,7 @@
 				</q-btn-dropdown>
 
 				<q-btn-dropdown
-					class="h-10"
+					class="h-10 hover:opacity-80"
 					:label="getStatusLabel"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					flat
@@ -104,14 +104,14 @@
 				</q-btn-dropdown>
 
 				<q-btn
-					class="transition text-white h-10"
+					class="transition text-white h-10 hover:opacity-80"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					label="Limpar"
 					@click="clearFilters"
 				/>
 
 				<q-btn
-					class="transition text-white h-10"
+					class="transition text-white h-10 hover:opacity-80"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					label="Filtrar"
 					@click="applyFilters"
@@ -171,22 +171,13 @@
 			:rows="receives"
 			:columns="columns"
 			row-key="document"
+			selection="multiple"
+            v-model:selected="selectedRows"
+            :pagination="{ rowsPerPage: 10}"
 			flat
 			:loading="loading"
+			dense
 		>
-			<template v-slot:header="props">
-				<q-tr :props="props">
-					<q-th key="check" class="text-center">
-						<q-checkbox
-							:model-value="selectedRows.length === receives.length"
-							@update:model-value="toggleAllSelection"
-						/>
-					</q-th>
-					<q-th v-for="col in props.cols" :key="col.name" class="text-center">
-						{{ col.label }}
-					</q-th>
-				</q-tr>
-			</template>
 
 			<template v-slot:body="props">
 				<q-tr :props="props" :class="getColorReceive(props.row)">
@@ -205,10 +196,9 @@
 					>
 						<template v-if="col.name === 'status'">
 							<q-badge
-								:color="getStatusBadge(props.row).color"
-								:text-color="getStatusBadge(props.row).textColor ?? 'white'"
-								:label="getStatusBadge(props.row).label"
-								class="text-xs"
+								v-bind="getStatusBadge(props.row)"
+								class="text-xs rounded"
+								outlined
 							/>
 						</template>
 
@@ -223,7 +213,7 @@
 							icon="edit"
 							color="green"
 							size="sm"
-							class="q-mr-xs"
+							class="q-mr-xs "
 						/>
 						<q-btn
 							@click="manageClick(props.row.document, 'view', true)"
@@ -338,7 +328,7 @@
 		{ name: 'name', label: 'Cliente', field: 'name', align: 'left' },
 		{ name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
 		{ name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },
-		{ name: 'status', label: 'Status', field: row => row.status.toUpperCase(), align: 'center' },
+		{ name: 'status', label: 'Status', field: 'status', align: 'center' },
 		{ name: 'actions', label: 'Ações', field: 'actions', align: 'center', sortable: false }
 	];
 
@@ -380,11 +370,8 @@
 
 	const getColorReceive = (row) => {
 		if (row.status === "cancelada") return "text-orange-600";
-		if (row.paid && isLate(row.dueDate)) return "text-blue-600";
-		if (row.paid) return "text-green-600"; // Quitada
-		if (!row.paid && isLate(row.dueDate)) return "text-red-600";
-
-		return "text-gray-800";
+		if (row.paid) return isLate(row.dueDate) ? "text-blue-600" : "text-green-600";
+		return isLate(row.dueDate) ? "text-red-600" : "text-gray-800";
 	};
 
 	const getReceives = async () => {

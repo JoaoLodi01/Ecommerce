@@ -16,99 +16,74 @@
         />
     </div>
 
-    <div class="lg:col-span-2 overflow-y-auto border border-gray-400 rounded-md shadow-sm" :style="{ width: '1000px', height: readonly ? '400px' : '250px' }">
-        <table class="min-w-full border-collapse bg-white text-sm">
-            <thead class="sticky top-0 z-10 bg-blue-600 text-white">
-                <tr>
-                    <th class="px-2 py-1" v-if="action === 'view'">
-                        <q-checkbox
-                            v-model="selectAll"
-                            @update:model-value="toggleSelectAll"/>
-                    </th>
-                    <th class="px-2 py-1">Nº Parcela</th>
-                    <th class="px-2 py-1">Qtde. Parcelas</th>
-                    <th class="px-2 py-1">Data Vencimento</th>
-                    <th class="px-2 py-1">Valor Original</th>
-                    <th class="px-2 py-1">Valor à pagar</th>
-                    <th class="px-2 py-1" v-if="action === 'view'">Data Pagamento</th>
-                    <th class="px-2 py-1" v-if="action === 'view'">Status</th>
-                    <th class="px-2 py-1" v-if="!readonly">Ações</th>
-                </tr>
-            </thead>
+    <div class="flex justify items-center">
+        <q-table
+            :rows="installmentsData"
+            :columns="columns"
+            row-key="installmentNumber"
+            selection="multiple"
+            v-model:selected="selectedRows"
+            :pagination="{ rowsPerPage: 10}"
+            flat
+            bordered
+            :loading="loading"
+            class="shadow-sm rounded bg-white"
+        >
 
-            <tbody>
-                <tr v-for="(installment, i) in installmentsData" :key="i" class="text-center border-t border-gray-300" :class="{ 'bg-green-100': installment.paid }">
-                    <td v-if="action === 'view'">
-                        <q-checkbox v-model="installment.selected"/>
-                    </td>
-                    <td>{{ installment.installmentNumber }}</td>
-                    <td>{{ installment.installmentAmount }}</td>
-                    <td class="w-[150px]">
+            <template #body-cell-status="props">
+                <q-td :props="props">
+                    <q-badge :color="getStatusColor(props.row.status)">
+                        {{ props.row.status }}
+                    </q-badge>
+                </q-td>
+            </template>
+
+            <template #body-cell-dueDate="props">
+                <q-td :props="props" class="w-[150px]">
+                    <template v-if="action !== 'view'">
                         <q-input
-                        type="date"
-                        v-model="installment.dueDate"
-                        dense
-                        outlined
-                        color="primary"
-                        :readonly="action === 'view'"
-                        v-if="action === 'view'"
+                            type="date"
+                            v-model="props.row.dueDate"
+                            dense
+                            outlined
+                            color="primary"
                         />
-                    </td>
-                    <td>
-                        {{ formatCurrency(installment.valueOriginal) }}
-                    </td>
-                    <td>
-                        <q-input
-                        type="number"
-                        v-model.number="installment.paidAmountEditable"
-                        :max="installment.valueOriginal - installment.valuePaid"
-                        :min="0.01"
-                        prefix="R$"
-                        dense
-                        outlined
-                        />
-                    </td>
-                    <td v-if="action === 'view'">{{ installment.paymentDate }}</td>
-                    <td>
-                        <span
-                        :class="{
-                            'text-green-600': installment.paid,
-                            'text-yellow-600': !installment.paid && installment.valuePaid > 0,
-                            'text-red-600': installment.valuePaid === 0,
-                        }"
-                        >
-                        {{
-                            installment.paid
-                            ? 'Quitada'
-                            : installment.valuePaid > 0
-                            ? 'Parcial'
-                            : 'Em aberto'
-                        }}
-                        </span>
-                    </td>
-                    <td v-if="!readonly">
-                        <q-btn
+                    </template>
+                    <template v-else>
+                        {{ dayjs(props.row.dueDate).format('DD/MM/YYYY') }}
+                    </template>
+                </q-td>
+            </template>
+
+            <template #body-cell-actions="props">
+                <q-td :props="props">
+                    <q-btn
                         size="sm"
                         icon="check"
                         color="green"
-                        @click="openPaymentDialog(installment)"
-                        v-if="!installment.paid"
-                        >
+                        class="bg-gray-300"
+                        flat
+                        round
+                        @click="openPaymentDialog(props.row)"
+                        v-if="!props.row.paid"
+                    >
                         <q-tooltip>Quitar Parcela</q-tooltip>
-                        </q-btn>
-                        <q-btn
+                    </q-btn>
+
+                    <q-btn
                         size="sm"
                         icon="undo"
                         color="warning"
-                        @click="undoPayOff(installment)"
-                        v-if="installment.paid"
-                        >
-                        <q-tooltip>Desfazer Quitação</q-tooltip>
-                        </q-btn>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        flat
+                        round
+                        @click="undoPayOff(props.row)"
+                        v-if="props.row.paid"
+                    >
+                        <q-tooltip>Estornar valor</q-tooltip>
+                    </q-btn>
+                </q-td>
+            </template>
+        </q-table>
     </div>
 
     <!-- Diálogo de Pagamento -->
@@ -142,7 +117,7 @@
 <script setup lang="ts">
     import { ref, computed , onMounted, watch} from 'vue';
     import dayjs from 'dayjs';
-    import { useQuasar, LocalStorage } from 'quasar';
+    import { useQuasar, LocalStorage, QTableColumn } from 'quasar';
     import { api } from 'src/boot/axios';
 
 // ------------------ Props & Emits ------------------
@@ -173,12 +148,14 @@
         paid: boolean;
         paymentDate?: string;
         paidAmountEditable?: number;
-        selected?: boolean;
         status?: 'quitada' | 'parcial' | 'em aberto';
     };
 
 // ------------------ Variáveis ------------------
     const $q = useQuasar();
+    const filter = ref(null);
+    const loading = ref(false);
+    const selectedRows = ref([]);
     const paymentAmount = ref(0);
     const paymentDialog = ref(false);
     const selectAll = ref<boolean>(false);
@@ -190,10 +167,6 @@
         selectedInstallment.value ? selectedInstallment.value.valueOriginal - selectedInstallment.value.valuePaid : 0
     );
 
-    const selectedInstallments = computed(() =>
-        installmentsData.value.filter(i => i.selected)
-    );
-
 // ------------------ Mounted ------------------
     onMounted(() => {
         if (props.action === 'view'){
@@ -203,14 +176,36 @@
         console.log('Data: ', installmentsData.value);
     });
 
+// ------------------ Q-Table ------------------
+    const columns: QTableColumn[] = [
+        { name: 'installmentNumber', label: 'Nº Parcela', field: 'installmentNumber', align: 'center' },
+        { name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
+        { name: 'valueOriginal', label: 'Valor Original', field: 'valueOriginal', align: 'center', format: val => formatCurrency(val) },
+        { name: 'valuePay', label: 'Valor à pagar', field: row => row.valueOriginal - row.valuePaid, align: 'center', format: val => formatCurrency(val) },
+        { name: 'paymentDate', label: 'Data Pagamento', field: 'paymentDate', align: 'center' },
+        { name: 'status', label: 'Status', field: 'status', align: 'center' },
+        { name: 'actions', label: 'Ações', field: 'actions', align: 'center', sortable: false },
+    ];
+
+
 // ------------------ Methods ------------------
     const getRegister = async () => {
         try {
             const res = await api.get(`/ecommerce/receive/one/${props.receiveDocument}`);
-            installmentsData.value = res.data.data || [];
+            const rawData = res.data.data || [];
 
-            console.log('Dados get: ', res.data);
-            
+            installmentsData.value = rawData.map(item => ({
+                installmentCode: item.installment_cod || item.document || String(item.id), // fallback caso null
+                installmentNumber: item.installment_number,
+                installmentAmount: item.installment_amount,
+                valueOriginal: Number(item.installment_value),
+                valuePaid: Number(item.installment_paid),
+                dueDate: item.due_date,
+                paid: Number(item.installment_paid) >= Number(item.installment_value),
+                paymentDate: item.date_paid,
+                status: item.status.toLowerCase() === 'em aberto' ? 'em aberto' : item.status.toLowerCase(), // normaliza
+            }));
+
         } catch (error) {
             $q.notify({
                 color: 'negative',
@@ -245,7 +240,6 @@
             dueDate: dayjs(props.dueDate).add(i - 1, 'month').format('YYYY-MM-DD'),
             paid: false,
             paidAmountEditable: 0,
-            selected: false,
             status: 'em aberto',
             });
         }
@@ -344,12 +338,6 @@
         }
     };
 
-    const toggleSelectAll = (val: boolean) => {
-        installmentsData.value.forEach(i => {
-            i.selected = val;
-        });
-    };
-
     const formatCurrency = (value?: number) => {
         const parsed = typeof value === 'number' ? value : 0;
 
@@ -360,12 +348,19 @@
         });
     };
 
-    watch(
-    () => installmentsData.value.map(i => i.selected),
-        (newValues) => {
-            const allSelected = newValues.every(Boolean);
-            selectAll.value = allSelected;
-        },{ deep: true }
-    );
+    function getStatusColor(status: string) {
+        switch (status.toLowerCase()) {
+            case 'quitada':
+                return 'green';
+            case 'parcial':
+                return 'blue';
+            case 'cancelada':
+                return 'orange';
+            case 'atrasada':
+                return 'red';
+            default:
+                return 'grey';
+        }
+    }
 
 </script>
