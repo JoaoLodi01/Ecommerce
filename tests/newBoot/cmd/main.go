@@ -15,8 +15,7 @@ import (
 
 type Proc struct {
 	Name string
-	Cmd *exec.Cmd
-
+	Cmd  *exec.Cmd
 }
 
 const (
@@ -25,7 +24,7 @@ const (
 
 func dirExists(p string) bool {
 	if p == "" {
-		return  false
+		return false
 	}
 	info, err := os.Stat(p)
 	return err == nil && info.IsDir()
@@ -36,7 +35,7 @@ func resolvePath(primary, fallback string) (string, error) {
 	switch {
 	case dirExists(primary):
 		return primary, nil
-	
+
 	case dirExists(fallback):
 		return fallback, nil
 
@@ -87,5 +86,5 @@ func runBackground(ctx context.Context, name, workdir, exe string, args ...strin
 }
 
 func main() {
-	
+
 }
