@@ -166,7 +166,7 @@
 				</span>
 			</div>
 		</div>
-
+		<!-- cu -->
 		<q-table
 			:rows="receives"
 			:columns="columns"
