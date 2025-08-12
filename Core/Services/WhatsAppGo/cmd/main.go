@@ -17,12 +17,14 @@ type qrResponse struct {
 func main() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("api/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Whats home")
+
 	})
 
-	mux.HandleFunc("/qr-code", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("api/v1/whats/qr-code", func(w http.ResponseWriter, r *http.Request) {
 		log.Println("Passou pela rota /qr-code")
+
 		if r.Method != http.MethodGet {
 			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 			return
