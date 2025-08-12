@@ -16,7 +16,7 @@
         />
     </div>
 
-    <div class="flex justify items-center">
+    <div class="ml-28 flex mx-auto w-[90%] max-w-[1400px]">
         <q-table
             :rows="installmentsData"
             :columns="columns"
@@ -35,6 +35,12 @@
                     <q-badge :color="getStatusColor(props.row.status)">
                         {{ props.row.status }}
                     </q-badge>
+                </q-td>
+            </template>
+
+            <template #body-cell-paymentDate="props">
+                <q-td :props="props">
+
                 </q-td>
             </template>
 
@@ -148,7 +154,7 @@
         paid: boolean;
         paymentDate?: string;
         paidAmountEditable?: number;
-        status?: 'quitada' | 'parcial' | 'em aberto';
+        status?: 'quitada' | 'parcial' | 'em aberto' | 'atrasada' | 'cancelada';
     };
 
 // ------------------ Variáveis ------------------
@@ -322,7 +328,7 @@
                 installment.paidAmountEditable = 0;
 
             $q.notify({
-                color: 'warning',
+                color: 'green',
                 message: 'Quitação desfeita com sucesso.',
                 position: 'top',
             });
@@ -357,6 +363,6 @@
             default:
                 return 'grey';
         }
-    }
+    }; 
 
 </script>

@@ -177,8 +177,9 @@
 			flat
 			:loading="loading"
 			dense
+			
 		>
-			:style="`background-color: ${painelColor}; color: ${textColor ?? '#fff'}`"
+			
 			<template v-slot:body="props">
 				<q-tr :props="props" :class="getColorReceive(props.row)">
 					<q-td key="check" class="text-center">
@@ -421,9 +422,63 @@
 
 	//#region OPTIONS ROWS
 
-	const markAsPaid = (row) => {};
+	const markAsPaid = async (row) => {
+		$q.dialog({
+			title: 'Confirmação',
+			message: `Realmente deseja quitar o documento ${row.document}?`,
+			cancel: true,
+			persistent: true
+		}).onOk(async () => {
+			try {
+				loading.value = true;
+				await api.put(`/ecommerce/receive/markPaid/$(row.receiveDocument)`);
 
-	const cancelReceive = (row) => {};
+				$q.notify({
+					color: 'green',
+					message: 'Recebimento quitado com sucesso!',
+				});
+
+				await getReceives();
+			} catch (error) {
+				$q.notify({ 
+					color: 'red',
+					message: 'Erro ao marcar como quitado.'
+				});
+			} finally {
+				loading.value = false;
+			}
+		});
+	};
+
+	const cancelReceive = async (row) => {
+		$q.dialog({
+			title: 'Cancelar Recebimento',
+			message: `Deseja realmente cancelar o documento ${row.document}?`,
+			cancel: true,
+			persistent: true
+		}).onOk(async () => {
+			try {
+				loading.value = true;
+				await api.put(`/ecommerce/receive/cancel/${row.receiveDocument}`);
+
+				$q.notify({
+					color: 'red',
+					message: 'Recebimento cancelado com sucesso.'
+				});
+
+				await getReceives();
+
+			} catch (error) {
+				$q.notify({
+					color: 'red',
+					message: 'Erro ao cancelar recebimento.'
+				});
+
+			} finally {
+				loading.value = false;
+			}
+		});
+	};
 
 	const generateBoleto = (row) => {};
 
