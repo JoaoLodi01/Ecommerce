@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -15,6 +16,10 @@ type qrResponse struct {
 
 func main() {
 	mux := http.NewServeMux()
+
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("Whats home")
+	})
 
 	mux.HandleFunc("/qr-code", func(w http.ResponseWriter, r *http.Request) {
 		log.Println("Passou pela rota /qr-code")
