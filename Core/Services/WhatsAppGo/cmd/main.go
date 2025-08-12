@@ -17,12 +17,17 @@ type qrResponse struct {
 func main() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("api/", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("Home")
+
+	})
+
+	mux.HandleFunc("/api/home", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Whats home")
 
 	})
 
-	mux.HandleFunc("api/v1/whats/qr-code", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/api/v1/whats/qr-code", func(w http.ResponseWriter, r *http.Request) {
 		log.Println("Passou pela rota /qr-code")
 
 		if r.Method != http.MethodGet {
@@ -36,6 +41,7 @@ func main() {
 			w.Header().Set("Content-Type", "application/json; charset=utf-8")
 			w.WriteHeader(http.StatusInternalServerError)
 			json.NewEncoder(w).Encode(map[string]string{"error": err.Error()})
+			log.Println("[❌] Erro durante a execução")
 			return
 		}
 
@@ -47,7 +53,7 @@ func main() {
 	handler := cors.WithCORS(mux)
 
 	addr := ":3000"
-	log.Println("HTTP rodando em", addr)
+	log.Println("HTTP rodando na porta", addr)
 	log.Fatal(http.ListenAndServe(addr, handler))
 
 }
