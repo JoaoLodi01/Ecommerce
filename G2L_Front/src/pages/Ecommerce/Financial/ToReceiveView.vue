@@ -44,8 +44,8 @@
 			</div>
 		</div>
 
-		<div class="filterDate flex  gap-4 items-end mb-6 p-3 border border-gray-300 rounded-lg w-full md:w-max">
-			<div class="flex gap-2">
+		<div class="filterDate flex  gap-4 items-end mb-5 p-3 border border-gray-300 rounded-lg w-full md:w-max">
+			<div class="flex items-center gap-2">
 				<q-input
 					class="cursor-text"
 					type="date"
@@ -62,7 +62,7 @@
 			</div>
 
 				<q-btn-dropdown
-					class="h-10 hover:opacity-80"
+					class="h-8 hover:opacity-80"
 					:label="getDateFilter"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					flat
@@ -83,7 +83,7 @@
 				</q-btn-dropdown>
 
 				<q-btn-dropdown
-					class="h-10 hover:opacity-80"
+					class="h-8 hover:opacity-80"
 					:label="getStatusLabel"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					flat
@@ -104,14 +104,14 @@
 				</q-btn-dropdown>
 
 				<q-btn
-					class="transition text-white h-10 hover:opacity-80"
+					class="transition text-white h-8 hover:opacity-80"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					label="Limpar"
 					@click="clearFilters"
 				/>
 
 				<q-btn
-					class="transition text-white h-10 hover:opacity-80"
+					class="transition text-white h-8 hover:opacity-80"
 					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					label="Filtrar"
 					@click="applyFilters"
@@ -129,7 +129,12 @@
 
 				<div class="flex items-center gap-2 text-xs">
 					<div class="bg-green-600 h-3 w-3 rounded-full"></div>
-					<span>Quitadas</span>
+					<span>Quitada</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-yellow-400 h-3 w-3 rounded-full"></div>
+					<span>Quitada parcialmente</span>
 				</div>
 
 				<div class="flex items-center gap-2 text-xs">
@@ -139,12 +144,12 @@
 
 				<div class="flex items-center gap-2 text-xs">
 					<div class="bg-orange-600 h-3 w-3 rounded-full"></div>
-					<span>Canceladas</span>
+					<span>Cancelada</span>
 				</div>
 
 				<div class="flex items-center gap-2 text-xs">
 					<div class="bg-red-600 h-3 w-3 rounded-full"></div>
-					<span>Atrasadas</span>
+					<span>Atrasada</span>
 				</div>
 			</div>
 
@@ -166,98 +171,87 @@
 				</span>
 			</div>
 		</div>
-		<!-- cu -->
+
 		<q-table
 			:rows="receives"
 			:columns="columns"
 			row-key="document"
 			selection="multiple"
-            v-model:selected="selectedRows"
-            :pagination="{ rowsPerPage: 10}"
-			flat
+			v-model:selected="selectedRows"
+			:pagination="{ rowsPerPage: 10 }"
 			:loading="loading"
 			dense
-			
-		>
-			
-			<template v-slot:body="props">
-				<q-tr :props="props" :class="getColorReceive(props.row)">
-					<q-td key="check" class="text-center">
-						<q-checkbox
-							:model-value="rowSelected(props.row)"
-							@update:model-value="val => toggleRowSelection(props.row, val)"
-						/>
-					</q-td>
+			class="shadow-sm rounded bg-white">
 
-					<q-td
-						v-for="col in props.cols"
-						:key="col?.name"
-						:props="props"
-						class="text-center"
+			<!-- Status -->
+			<template #body-cell-status="props">
+				<q-td :props="props" class="text-center">
+					<q-badge
+						v-bind="getStatusBadge(props.row)"
+						class="text-xs rounded"
+						outlined
+					/>
+				</q-td>
+			</template>
+
+			<!-- Ações -->
+			<template #body-cell-actions="props">
+				<q-td :props="props" class="text-center">
+					<q-btn
+						@click="manageClick(props.row.receiveDocument, 'update', false)"
+						icon="edit"
+						color="green"
+						size="sm"
+						class="q-mr-xs"
+					/>
+					<q-btn
+						@click="manageClick(props.row.document, 'view', true)"
+						icon="visibility"
+						color="blue"
+						size="sm"
+						class="q-mr-xs"
+					/>
+					<q-btn-dropdown
+						size="sm"
+						:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+						flat
+						dropdown-icon="arrow_drop_down"
 					>
-						<template v-if="col.name === 'status'">
-							<q-badge
-								v-bind="getStatusBadge(props.row)"
-								class="text-xs rounded"
-								outlined
-							/>
-						</template>
+						<q-list dense>
+							<q-item clickable v-close-popup @click="markAsPaid(props.row)">
+								<q-item-section avatar>
+									<q-icon name="check_circle" color="green" />
+								</q-item-section>
 
-						<template v-else>
-							{{ typeof col.field === 'function' ? col.field(props.row) : props.row[col.field] }}
-						</template>
-					</q-td>
+								<q-item-section>Quitar (Todas)</q-item-section>
+							</q-item>
 
-					<q-td key="actions" class="text-center">
-						<q-btn
-							@click="manageClick(props.row.receiveDocument, 'update', false)"
-							icon="edit"
-							color="green"
-							size="sm"
-							class="q-mr-xs "
-						/>
-						<q-btn
-							@click="manageClick(props.row.document, 'view', true)"
-							icon="visibility"
-							color="blue"
-							size="sm"
-							class="q-mr-xs"
-						/>
-						<q-btn-dropdown
-							size="sm"
-							:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
-							flat
-							dropdown-icon="arrow_drop_down"
-						>
-							<q-list dense>
-								<q-item clickable v-close-popup @click="markAsPaid(props.row)">
-									<q-item-section avatar>
-										<q-icon name="check_circle" color="green" />
-									</q-item-section>
-									<q-item-section>Quitar (Todas)</q-item-section>
-								</q-item>
-								<q-item clickable v-close-popup @click="cancelReceive(props.row)">
-									<q-item-section avatar>
-										<q-icon name="cancel" color="orange" />
-									</q-item-section>
-									<q-item-section>Cancelar (Todas)</q-item-section>
-								</q-item>
-								<q-item clickable v-close-popup @click="generateBoleto(props.row)">
-									<q-item-section avatar>
-										<q-icon name="receipt_long" color="blue" />
-									</q-item-section>
-									<q-item-section>Visualizar</q-item-section>
-								</q-item>
-								<q-item clickable v-close-popup @click="viewHistory(props.row)">
-									<q-item-section avatar>
-										<q-icon name="history" color="grey" />
-									</q-item-section>
-									<q-item-section>Histórico</q-item-section>
-								</q-item>
-							</q-list>
-						</q-btn-dropdown>
-					</q-td>
-				</q-tr>
+							<q-item clickable v-close-popup @click="cancelReceive(props.row)">
+								<q-item-section avatar>
+									<q-icon name="cancel" color="orange" />
+								</q-item-section>
+
+								<q-item-section>Cancelar (Todas)</q-item-section>
+							</q-item>
+
+							<q-item clickable v-close-popup @click="generateBoleto(props.row)">
+								<q-item-section avatar>
+									<q-icon name="receipt_long" color="blue" />
+								</q-item-section>
+
+								<q-item-section>Visualizar</q-item-section>
+							</q-item>
+
+							<q-item clickable v-close-popup @click="viewHistory(props.row)">
+								<q-item-section avatar>
+									<q-icon name="history" color="grey" />
+								</q-item-section>
+
+								<q-item-section>Histórico</q-item-section>
+							</q-item>
+						</q-list>
+					</q-btn-dropdown>
+				</q-td>
 			</template>
 		</q-table>
 
@@ -321,11 +315,11 @@
 	//#region Q-TABLE
 	const columns: QTableColumn[] = [
 		{ name: 'document', label: 'Documento', field: 'document', align: 'center' },
-		{ name: 'description', label: 'Descrição', field: 'description', align: 'left' },
+		{ name: 'description', label: 'Descrição', field: 'description', align: 'center' },
 		{ name: 'installmentAmount', label: 'Qtde. Parcelas', field: 'installmentAmount', align: 'center' },
 		{ name: 'installmentValue', label: 'Valor Bruto', field: row => formatCurrency(row.installmentValue) , align: 'center' },
 		{ name: 'installmentPaid', label: 'Valor Líquido', field: row => formatCurrency(row.installmentPaid), align: 'center' },
-		{ name: 'name', label: 'Cliente', field: 'name', align: 'left' },
+		{ name: 'name', label: 'Cliente', field: 'name', align: 'center' },
 		{ name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
 		{ name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },
 		{ name: 'status', label: 'Status', field: 'status', align: 'center' },
@@ -350,30 +344,6 @@
 		return dayjs().isAfter(dayjs(date), "day");
 	};
 
-	const toggleAllSelection = (val: boolean) => {
-		selectedRows.value = val ? receives.value.slice() : [];
-	};
-
-	const selectedDocsSet = computed(() => new Set(selectedRows.value.map(r => r.document)));
-
-	const rowSelected = (row) => {
-		return selectedDocsSet.value.has(row.document);
-	};
-
-	const toggleRowSelection = (row, isSelected) => {
-		if (isSelected) {
-			selectedRows.value.push(row);
-		} else {
-			selectedRows.value = selectedRows.value.filter(r => r.document !== row.document);
-		}
-	}
-
-	const getColorReceive = (row) => {
-		if (row.status === "cancelada") return "text-orange-600";
-		if (row.paid) return isLate(row.dueDate) ? "text-blue-600" : "text-green-600";
-		return isLate(row.dueDate) ? "text-red-600" : "text-gray-800";
-	};
-
 	const getReceives = async () => {
 		loading.value = true;
 		try {
@@ -394,8 +364,6 @@
 	const manageClick = (receiveDocument: string, operation: string, readonly: boolean) => {
 		selectOperation.value = operation;
 		selectReadonly.value = readonly;
-
-		console.log('Passando: ', receiveDocument);
 
 		if (operation === "register") {
 			selectedRegister.value = [];
@@ -452,7 +420,7 @@
 
 	const cancelReceive = async (row) => {
 		$q.dialog({
-			title: 'Cancelar Recebimento',
+			title: 'Cancelar recebimento',
 			message: `Deseja realmente cancelar o documento ${row.document}?`,
 			cancel: true,
 			persistent: true

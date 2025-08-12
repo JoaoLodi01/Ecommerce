@@ -1,89 +1,62 @@
 <template>
     <div class="container flex">
-      <q-select
-        v-model="speciesData"
-        :options="filteredSpecies"
-        option-label="especie"
-        option-value="id"
-        label="Espécie"
-        :emit-value="false"
-        map-options
-        class="w-96"
-        color="grey"
-        @update:model-value="setSpecies"
-        :disable="disable"
-
-      />
+        <q-select
+            v-model="speciesData"
+            :options="filteredSpecies"
+            option-label="especie"
+            option-value="id"
+            label="Espécie"
+            :emit-value="false"
+            map-options
+            class="w-96"
+            color="grey"
+            @update:model-value="setSpecies"
+            :disable="disable"
+            outlined
+            dense
+        />
     </div>
-  </template>
+</template>
   
-  <script>
-  import { LocalStorage } from 'quasar'
-  import { api } from 'src/boot/axios'
+<script>
+    import { LocalStorage } from 'quasar'
+    import { api } from 'src/boot/axios'
   
-  export default {
+    export default {
     data() {
-      return {
-        filteredSpecies: [],
-        allSpecies: [],
-        speciesData: { 
-          id: null,
-          especie: 'Escolher...'
-        },
-      }
+        return {
+            filteredSpecies: [],
+            allSpecies: [],
+            speciesData: null,
+        }
     },
   
     methods: {
-      async selectSpecies() {
-        console.log(this.speciesData.especie)
-        try {
-            const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
-            this.allSpecies = response.data.all
-            if(response.data.success)
-            {
-                this.fillterSpecies()
+        async selectSpecies() {
+            try {
+                const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
+                this.allSpecies = response.data.all
+                    if (response.data.success) {
+                        this.fillterSpecies()
+                        console.log(response.data)
+                    }
+            } catch (error) {
+                console.error('Erro ao carregar espécies:', error)
             }
-        } catch (error) {
-          console.error('Erro ao carregar espécies:', error)
-        }
-      },
+        },
 
-      fillterSpecies()
-      {
-        switch (this.module_) {
-          case 'cash':
-            this.allSpecies.forEach((v, _) => {
-
-                if(v.tipo_lancamento === 'Caixa')
-                {
-                  this.filteredSpecies.push(v)
-                }
-            })
-
-            break;
-            
-          case 'receive':
-            this.allSpecies.forEach((v, _) => {
-
-              if(v.tipo_lancamento === 'Receber')
-              {
-                this.filteredSpecies.push(v)
-              }
-            })
-
-            break;
-            
-          default:
-            break;
-        }
-      },
-  
-      setSpecies(specie){
-        this.speciesData.payment_code = specie.payment_code;
-        this.speciesData.especie = specie.especie;
-        this.$emit('selectSpecie', this.speciesData)
-      },
-
+        fillterSpecies() {
+            this.filteredSpecies = this.allSpecies.filter(v => {
+                if (this.module_ === 'cash') return v.tipo_lancamento === 'Caixa';
+                if (this.module_ === 'receive') return v.tipo_lancamento === 'Receber';
+                return false;
+            });
+        },
+    
+        setSpecies(specie){
+            this.speciesData = specie;
+            this.$emit('selectSpecie', specie);
+        },
     },
 
     props: {
