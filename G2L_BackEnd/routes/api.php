@@ -96,8 +96,9 @@ Route::prefix('v1')->group( function (){
                 Route::post('/create', [ReceiveController::class, 'create']);
                 Route::get('/{id}/{receiveCod}', [ReceiveController::class, 'findByID']);
                 Route::put('/update/{id}', [ReceiveController::class, 'update']);
-                Route::put('/payInstallment/{id}', [ReceiveController::class, 'payInstallment']);
-                Route::put('/undoInstallment/{id}', [ReceiveController::class, 'undoInstallment']);
+                Route::put('/undoInstallment/{receive_code}', [ReceiveController::class, 'undoInstallment']);
+                Route::put('/payInstallment/{receive_code}', [ReceiveController::class, 'payInstallment']);
+                Route::put('/cancelInstallments/{receive_code}', [ReceiveController::class, 'cancelInstallments']);
                 Route::delete('/{id}/deactivate', [ReceiveController::class, 'delete']);
             });
 
