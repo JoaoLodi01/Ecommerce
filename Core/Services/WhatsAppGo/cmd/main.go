@@ -1,10 +1,12 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"g2l.whatsapp.com/core"
 	"g2l.whatsapp.com/cors"
@@ -14,10 +16,15 @@ type qrResponse struct {
 	QR string `json:"qr"`
 }
 
+type sendMessages struct {
+	Msg string `json:"msg"`
+	To  string `json:"to"`
+}
+
 func main() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/api/home", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/api/v1/home", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Whats home")
 
 	})
@@ -45,10 +52,57 @@ func main() {
 
 	})
 
+	mux.HandleFunc("/api/v1/whats/send-message", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			json.NewEncoder(w).Encode(map[string]string{
+				"error":  "método não suportado",
+				"status": string(http.StatusMethodNotAllowed),
+			})
+			return
+		}
+
+		var req sendMessages
+
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+			//http.Error(w, "JSON inválido")
+			json.NewEncoder(w).Encode(map[string]string{
+				"error":  "JSON inválido",
+				"status": string(http.StatusBadRequest),
+			})
+		}
+
+		if !core.IsConnected() {
+			http.Error(w, "Cliente não conectado", http.StatusServiceUnavailable)
+			return
+		}
+
+		ctx, cancel := context.WithTimeout(r.Context(), 10*time.Second)
+		defer cancel()
+
+		msgID, err := core.SendText(ctx, req.To, req.Msg)
+		if err != nil {
+			json.NewEncoder(w).Encode(map[string]string{
+				"message": "Falha no envio",
+				"error":   err.Error(),
+				"status":  string(http.StatusInternalServerError),
+			})
+			return
+
+		}
+
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		json.NewEncoder(w).Encode(map[string]any{
+			"status":     "resent",
+			"to":         req.To,
+			"message_id": msgID,
+		})
+
+	})
+
 	handler := cors.WithCORS(mux)
 
 	addr := ":3000"
-	log.Println("HTTP rodando na porta", addr)
+	log.Println("Servidor do whats rodando em localhost:", addr)
 	log.Fatal(http.ListenAndServe(addr, handler))
 
 }

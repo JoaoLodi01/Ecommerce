@@ -6,7 +6,26 @@
     <div v-else>
         <pre>{{ qr }}</pre>
         <img :src="qrImage" alt="erro image">
+
+        <q-input 
+            v-model="msg" 
+            type="text" 
+            label="Mensagem para envio"
+        />
         
+        <q-input 
+            v-model="tel" 
+            type="tel" 
+            label="Destino" 
+        />
+
+        <q-btn 
+            color="primary" 
+            icon="check" 
+            label="OK" 
+            @click="sendMessage()" 
+
+        />
     </div>
 
 </template>
@@ -20,7 +39,33 @@
     let qr = ref<string>('');
     let qrImage = ref<string>('');
 
+    let msg = ref<string>('');
+    let tel = ref<string>('');
     let errorMsg = ref<string>('');
+
+    const sendMessage = async () => {
+        if (msg.value === '' || tel.value === '')
+        {
+            alert('Dados ausentes')    
+        } else {
+            try {   
+                const send = await axios.post('', {
+                    msg: msg.value,
+                    to: tel.value
+                    
+                }, {
+                    headers: {
+                        Accept: 'application/json' 
+                    }
+                });
+
+                console.log(send)
+                
+            } catch (error) {
+                errorMsg.value = error;  
+            };
+        }; 
+    };  
 
     onMounted(async () => {
         //http://localhost:3000/qr-code
@@ -42,4 +87,5 @@
             errorMsg.value = error   
         };
     });
+
 </script>
