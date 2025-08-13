@@ -14,7 +14,7 @@ return new class extends Migration
             $table->unique(['issuer_id', 'product_code']);
             $table->unique(['issuer_id', 'barcode']);
             $table->unique(['issuer_id', 'barcode_internal']);
-            
+
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->string('product', 120)->nullable();
@@ -33,27 +33,57 @@ return new class extends Migration
             $table->string('cest', 7)->nullable();
             $table->string('unit', 4)->default('UN');
 
-            // tributs
-            $table->string('csosncst', 3)->nullable();
-            $table->string('cod_origem_icms', 2)->nullable();
-            $table->string('origem_icms', 120)->nullable();
-            $table->float('icms_ecf', 16,2)->nullable();
-            
-            $table->float('taxable_amount', 16,2)->nullable();
-            $table->string('taxable_unit', 4)->nullable();
-            $table->string('tax_benefit', 50)->nullable();
 
-            $table->string('cod_ipi', 3)->nullable();
-            $table->float('aliquot_ipi', 16,2)->nullable();
+            // XML Base -> Imposto Group
+            $table->decimal('tot_trib', 15, 2)->nullable();
 
-            $table->string('cod_pis', 3)->nullable();
-            $table->float('aliquot_pis', 16,2)->nullable();
+            // XML Base -> Icms Group
+            $table->decimal('orig', 15, 2)->nullable();
+            $table->string('cst', 3)->nullable();
+            $table->decimal('mod_bc', 15, 2)->nullable();
+            $table->decimal('bc', 15, 2)->nullable();
+            $table->decimal('p_icms', 15, 4)->nullable();
+            $table->decimal('icms', 15, 2)->nullable();
 
-            $table->string('cod_cofins', 3)->nullable();
-            $table->float('aliquot_cofins', 16,2)->nullable();
+            // XML Base -> Ipi Group
+            $table->string('cst', 3)->nullable();
+            $table->decimal('c', 15, 2)->nullable();
+            $table->decimal('p_ipi', 15, 4)->nullable();
+            $table->decimal('ipi', 15, 2)->nullable();
 
-            $table->string('cod_use_type', 3)->nullable();
-            $table->string('use_type', 30)->nullable();
+
+            // XML Base -> Cofins Group
+            $table->string('cst', 3)->nullable();
+            $table->decimal('bc', 15, 2)->nullable();
+            $table->decimal('p_cofins', 15, 4)->nullable();
+            $table->decimal('cofins', 15, 2)->nullable();
+
+
+            // XML Base -> Total Group
+            $table->decimal('bc', 15, 2)->nullable();
+            $table->decimal('icms', 15, 2)->nullable();
+            $table->decimal('icms_deson', 15, 2)->nullable();
+            $table->decimal('fcp', 15, 2)->nullable();
+            $table->decimal('bcst', 15, 2)->nullable();
+            $table->decimal('st', 15, 2)->nullable();
+            $table->decimal('fcpst', 15, 2)->nullable();
+            $table->decimal('fcpst_ret', 15, 2)->nullable();
+            $table->decimal('prod', 15, 2)->nullable();
+            $table->decimal('frete', 15, 2)->nullable();
+            $table->decimal('seg', 15, 2)->nullable();
+            $table->decimal('desc', 15, 2)->nullable();
+            $table->decimal('ii', 15, 2)->nullable();
+            $table->decimal('ipi', 15, 2)->nullable();
+            $table->decimal('ipi_devol', 15, 2)->nullable();
+            $table->decimal('pis', 15, 2)->nullable();
+            $table->decimal('cofins', 15, 2)->nullable();
+            $table->decimal('outro', 15, 2)->nullable();
+            $table->decimal('nf', 15, 2)->nullable();
+            $table->decimal('tot_trib', 15, 2)->nullable();
+
+
+
+
 
             $table->boolean('active')->default(1);
             $table->timestamps();
