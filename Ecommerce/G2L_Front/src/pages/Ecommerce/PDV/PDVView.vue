@@ -3,7 +3,7 @@
         <LoandingPage
             @show-page="showPage = $event"
             :text="'Carregando PDV ...'"
-                        
+
         />
 
     </div>
@@ -13,14 +13,14 @@
             v-if="showConfirm"
             :operation="operation"
             @confirm="handleOperation($event)"
-        />  
+        />
 
         <PaymentsForm
             v-if="showPaymentsForm && typeOperation && pdvID"
             :witdhScreen="witdhScreen"
             :typeOperation=typeOperation
             :totalOperation=totalOperation
-            :pdvID=pdvID 
+            :pdvID=pdvID
             :room-i-d="0"
             @resetTotal="totalOperation = $event"
             @resetPDVID="pdvID = $event"
@@ -44,55 +44,55 @@
             }"
         />
     </div>
-    
-    <div 
+
+    <div
         v-if="showPage"
 
     > <!-- SHOW PAGE -->
         <div
-            class="mx-auto rounded-lg mt-3 bg-white w-max border border-black" 
+            class="mx-auto rounded-lg mt-3 bg-white w-max border border-black"
             v-if="showGrid"
             :class="{
                 'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,
                 'relative left-10': witdhScreen <= 1080,
-                
+
                 'text-xl': textSize === 4,
                 'text-2xl': textSize === 8,
                 'text-3xl': textSize === 16,
-                
-            }"   
-        >   
+
+            }"
+        >
             <div class="max-h-auto">
-                <div 
+                <div
                     class="m-3 border border-black rounded-lg"
                     :class="{
                         'w-14': witdhScreen <= 1080,
-                        
+
                     }"
                 >
-                    <div 
+                    <div
                         class="inline-flex p-3"
                     >
-                        <div 
+                        <div
                             v-if="witdhScreen > 1366"
                             class="mr-16 mt-1"
                         >
-                            <button 
-                                @click="showOptions" 
+                            <button
+                                @click="showOptions"
                                 class="p-1 mr-5 rounded-lg"
                                 :style="`background-color: ${buttonColor}; color: ${textColor}`"
                             >
                                 Configurações
                             </button>
-                            <button 
+                            <button
                                 class="p-1 mr-5 rounded-lg"
                                 :style="`background-color: ${buttonColor}; color: ${textColor}`"
                             >
                                 <router-link to="/sale/list-pdv">Voltar para a listagem</router-link>
                             </button>
 
-                            <button 
-                                @click="closeCashClosing(true)" 
+                            <button
+                                @click="closeCashClosing(true)"
                                 class="p-1 mr-5 rounded-lg"
                                 :style="`background-color: ${buttonColor}; color: ${textColor}`"
                             >
@@ -105,17 +105,17 @@
                 </div>
 
                 <div class="flex m-3 border border-black rounded-lg">
-                    <div 
+                    <div
                         class="ml-3 mt-4 mb-auto mr-5 cursor-pointer"
                         @click="showProductsSelection()"
-                        
+
                     >
                         <div class="border border-red-500 w-6 mb-1"></div>
                         <div class="border border-black w-5 mb-1"></div>
-                        <div class="border border-gray-500 w-4 mb-1"></div>        
+                        <div class="border border-gray-500 w-4 mb-1"></div>
 
                     </div>
-                    
+
                     <div>
                         <ProductsSearchBar
                             v-if="showProductsSearch"
@@ -127,10 +127,10 @@
 
                     </div>
                 </div>
-    
-                <div 
-                    class="m-5 shadow-lg overflow-y-auto border border-black h-[48rem] max-w-[125vh]"  
-                >   
+
+                <div
+                    class="m-5 shadow-lg overflow-y-auto border border-black h-[48rem] max-w-[125vh]"
+                >
                     <q-table
                         :rows="productsSeletion"
                         :columns="columns"
@@ -139,7 +139,7 @@
 
                     >
                         <template v-slot:header="props">
-                            <q-tr 
+                            <q-tr
                                 :props="props"
                                 :style="`background-color: ${painelColor}; color: ${textColor}`"
                             >
@@ -151,7 +151,7 @@
                                 >
                                 {{ col.label }}
                                 </q-th>
-                            </q-tr>                    
+                            </q-tr>
                         </template>
 
                         <template v-slot:body="props">
@@ -163,7 +163,7 @@
                                     class="text-center"
                                 >
                                     <template v-if="col.name === 'cfop'">
-                                        <q-input 
+                                        <q-input
                                             v-model="props.row.cfop"
                                             type="text"
                                             inputClass="text-center"
@@ -175,7 +175,7 @@
                                     </template>
 
                                     <template v-else-if="col.name === 'csosncst'">
-                                        <q-input 
+                                        <q-input
                                             v-model="props.row.csosncst"
                                             type="text"
                                             inputClass="text-center"
@@ -187,7 +187,7 @@
                                     </template>
 
                                     <template v-else-if="col.name === 'amount'">
-                                        <q-input 
+                                        <q-input
                                             v-model="props.row.amount"
                                             inputClass="text-center"
                                             type="number"
@@ -195,21 +195,21 @@
                                             dense
                                             @update:modelValue="changeAmount(props.row.product_code, props.row.amount)"
                                             class="amountInput"
-                                            
+
                                         />
                                     </template>
-                                    
+
                                     <template v-else-if="col.name === 'actions'">
                                         <div class="m-auto">
                                             <button @click="productOptions(props.row.product, props.row.product_code, i, 'delete')">
-                                                <svg 
+                                                <svg
                                                     xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" 
-                                                    viewBox="0 0 24 24" 
-                                                    stroke-width="1.5" 
-                                                    stroke="currentColor" 
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke-width="1.5"
+                                                    stroke="currentColor"
                                                     class="size-4 text-red-500 mr-4">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" 
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
                                                 />
                                                     delete
                                                 </svg>
@@ -231,30 +231,30 @@
                                             <button
                                                 @click="productOptions(props.row.product, props.row.product_code, i, 'delete')"
                                             >
-                                                <svg 
+                                                <svg
                                                     v-if="witdhScreen < 1080"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
-                                                    viewBox="0 0 24 24" 
-                                                    stroke-width="1.5" 
-                                                    stroke="currentColor" 
+                                                    viewBox="0 0 24 24"
+                                                    stroke-width="1.5"
+                                                    stroke="currentColor"
                                                     class="size-4">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" 
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
                                                 />
                                                     view
-                                                    
+
                                                 </svg>
                                             </button>
                                         </div>
                                     </template>
 
-                                    <template v-else>  
+                                    <template v-else>
                                         {{ col.value }}
                                     </template>
                                 </q-td>
                             </q-tr>
                         </template>
-                    </q-table>               
+                    </q-table>
                 </div>
             </div>
 
@@ -267,22 +267,22 @@
                     <p><span>Cód: {{ viewProduct.id }}</span></p>
                     <p><span>Preço unitário: R${{ viewProduct.salePrice }}</span></p>
                     <p>
-                        <input 
+                        <input
                             v-model="viewProduct.amount"
                             :placeholder=String(viewProduct.amount)
                             type="text"
                             class="w-10 text-center border-b-4 border-b-gray-500 text-black"
                             @input="changeAmount(viewProduct.id, 2)"
-                            
+
                         />
-                    
+
                     </p>
                 </div>
             </div>
         <div>
             </div> <!--Deixa isso daqui como está.-->
                 <!-- Barra lateral direita -->
-                <div 
+                <div
                     class="flex max-w-max text-3xl rounded-t-lg rounded-b-lg max-h-[100vh] border"
 
                     :class="{
@@ -290,15 +290,15 @@
                         'text-2xl': textSize === 8,
                         'text-3xl': textSize === 16,
                         'm-auto': witdhScreen <= 1080
-                    }"   
+                    }"
                 >
                     <div>
                         <div >
-                            <div 
+                            <div
                                 class="m-2 p-2 rounded-lg border border-gray-700"
                             >
                                 <label class="text-black">Vendedor</label>
-                                <q-input 
+                                <q-input
                                     :placeholder="sellerData.name"
                                     disable
                                     type="text"
@@ -313,13 +313,13 @@
                                     :pdv="true"
                                     :disable="false"
                                 />
-                                <!-- COMPONENTE BUSCA DE CLIENTE -->                            
+                                <!-- COMPONENTE BUSCA DE CLIENTE -->
                             </div>
                         <div
-                            class="m-2 p-1 rounded-lg border border-gray-700" 
-                            
+                            class="m-2 p-1 rounded-lg border border-gray-700"
+
                         >
-                            <p 
+                            <p
                                 class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
                             >
                                 <span class="mt-auto mb-auto text-lg">Acréscimo R$</span>
@@ -333,8 +333,8 @@
                                     :disable="productsSeletion.length <= 0"
                                 />
                             </p>
-                            
-                            <p 
+
+                            <p
                                 class="flex justify-between border mt-2 mb-2 p-2 rounded-lg"
                             >
                                 <span class="mt-auto mb-auto text-lg">Desconto R$</span>
@@ -349,12 +349,12 @@
                                     :disable="productsSeletion.length <= 0"
                                 />
                             </p>
-                                                    
-                            <p 
+
+                            <p
                                 class="flex justify-between border p-2 rounded-lg"
                             >
                                 <span class="mt-auto mb-auto text-lg">Frete R$</span>
-                                
+
                                 <q-input
                                     v-model="formatFreight"
                                     inputClass="text-right"
@@ -363,7 +363,7 @@
                                     dense
                                     maxlength="12"
                                     :disable="productsSeletion.length <= 0"
-                                />                            
+                                />
                             </p>
                         </div>
                     <div
@@ -375,19 +375,19 @@
                         <p class="flex justify-between">Acréscimo <span>R$ {{ String(calculateTotal.addition.toFixed(2)).replace('.', ',') }}</span></p>
                         <p class="flex justify-between">Desconto <span>R$ {{ String(calculateTotal.discount.toFixed(2)).replace('.', ',') }}</span></p>
                         <p class="flex justify-between">Frete <span>R$ {{ String(calculateTotal.freight.toFixed(2)).replace('.', ',') }}</span></p>
-                    
+
                     </div>
-                    
-                    <div 
+
+                    <div
                         class="flex border justify-center h-[250px] max-h-[250px] -z-10"
                     >
-                        <img 
+                        <img
                             v-if="configs.img !== ''"
                             class="cursor-pointer h-[249px] w-[250px] max-w-[250px]"
                             :src="`${baseURL}${configs.img}`"
                             @click="alterLogo"
                             title="Altere sua logo aqui!"
-                            
+
                         />
                         <span
                             v-if="configs.img === ''"
@@ -406,7 +406,7 @@
                                     title="Sem vendas no momento"
                                     class="mr-1 ml-2 rounded-md"
                                     :style="`background-color: ${buttonColor}; color: ${textColor}`"
-                                    
+
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
@@ -434,7 +434,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
                                     </svg>
                                 </button>
-                                <button 
+                                <button
                                     class="mr-1 ml-2 rounded-md"
                                     :style="`background-color: ${buttonColor}; color: ${textColor}`"
                                     title="Salvar venda"
@@ -448,36 +448,36 @@
 
                                 <div class="mb-auto ml-auto text-xl w-auto">
                                     <span class="mr-1 text-black p-1 rounded-md">Total: R$ {{ String(Math.max((calculateTotal.total), 0).toFixed(2)).replace('.', ',') }}</span>
-                                
+
                                 </div>
                             </div>
 
-                            <div 
+                            <div
                                 class="flex justify-between text-white rounded-lg border border-gray-700 w-[26.2rem] p-1"
-                            
+
                             >
-                                <q-btn 
-                                    class="rounded-md border-none"                                
+                                <q-btn
+                                    class="rounded-md border-none"
                                     :style="`background-color: ${buttonColor}; color: ${textColor}`"
                                     :class="{
                                         'ml-4': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
-                                    }" 
+                                    }"
 
                                     @click="finalizeSale('nm')"
                                     v-if="configs.nmFinaly"
                                     label="Finalizar venda"
 
                                 />
-                                    
-                                <q-btn  
-                                    class="rounded-md border-none"                                
+
+                                <q-btn
+                                    class="rounded-md border-none"
                                     :style="`background-color: ${buttonColor}; color: ${textColor}`"
                                     :class="{
                                         'ml-8': witdhScreen > 1080 && witdhScreen <= 1920 && configs.nmFinaly
-                                    }" 
+                                    }"
                                     label="Finalizar e emitir NFC-e"
-                                    @click="finalizeSale('nfce')" 
-                                    
+                                    @click="finalizeSale('nfce')"
+
                                 />
                             </div>
                         </div>
@@ -493,7 +493,7 @@
 
             <SupervisorPasswordDeleteItem
                 v-if="showSupervisorPassword"
-                
+
             />
 
             <OptionsProduct
@@ -504,7 +504,7 @@
 
             />
 
-            <ImportFiles 
+            <ImportFiles
                 v-if="importLogo"
                 :operation="'alterLogo'"
                 @close="importLogo = !$event"
@@ -535,8 +535,8 @@
     import SupervisorPasswordDeleteItem from 'src/components/SupervisorPassword/SupervisorPasswordDeleteItem.vue';
     import OptionsProduct from 'src/components/Products/OptionsInSale/OptionsProduct.vue';
     import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
-    import { api } from "src/boot/axios"
-    import { ref, watch, computed, onMounted, onUnmounted } from 'vue'   
+    import { api } from "src/boot/axios";
+    import { ref, watch, computed, onMounted, onUnmounted } from 'vue'
     import { useRoute, useRouter, onBeforeRouteLeave } from 'vue-router';
     import { useQuasar, LocalStorage, QTableColumn } from 'quasar';
     import camelcaseKeys from 'camelcase-keys';
@@ -571,7 +571,7 @@
             label: 'Produto',
             field: 'product',
             align: 'center'
-        }, 
+        },
         {
             name: 'cfop',
             label: 'CFOP',
@@ -590,7 +590,7 @@
             label: 'CSOSN',
             field: 'csosncst',
             align: 'center'
-        }, 
+        },
         {
             name: 'amount',
             label: 'Qtde',
@@ -633,7 +633,7 @@
 
     let isOption = ref<boolean>(false); // mudar para false
     let showPage = ref<boolean>(false);
-    
+
     let productsSeletion = ref<IProducts[]>([]);
 
     let errorsOfSale = ref<TErrorsOfSale>({
@@ -641,13 +641,13 @@
         erros: []
 
     });
-            
+
     let emitProducts = ref<IEmitProducts>({
         subtotal: 0,
         addition: 0,
         discount: 0,
         freight: 0
-        
+
     });
 
     let crt = ref<number>(0);
@@ -660,9 +660,9 @@
     let showPaymentsForm = ref<boolean>(false);
     let showProductsSearch = ref<boolean>(true);
     let showCashClosing = ref<boolean>(false);
-    
+
     let showOptionsPDV = ref<boolean>(false);
-    
+
     let viewProduct = ref<TViewProduct>({
         show: false,
         id: 0,
@@ -673,7 +673,7 @@
     let isOpenedPDV = ref<boolean>(false);
     let typeOperation = ref<string>('');
     let csosncst = ref<string>('');
-            
+
     let selectedProductName = ref<string>('');
     let selectedProductCode = ref<number>(0);
 
@@ -708,7 +708,7 @@
             if(to === '/sale/pdv') productsSeletion.value = [];
             return;
         }
-    );    
+    );
 
     const formatAddition = computed({
         get() {
@@ -719,7 +719,7 @@
             emitProducts.value.addition = isNaN(num) ? 0 : num;
         }
     });
-    
+
     const formatDiscount = computed({
         get() {
             return emitProducts.value.discount.toFixed(2);
@@ -739,7 +739,7 @@
             emitProducts.value.freight = isNaN(num) ? 0 : num;
         }
     });
-    
+
     const calculateTotal = computed(() => {
         subTotal.value = 0;
 
@@ -758,10 +758,10 @@
             discount: discount,
             freight: freight
         };
-        
+
     });
-    
-    const finalizeSale = async (type: string) => 
+
+    const finalizeSale = async (type: string) =>
     {
         console.log('total: ', totalOperation.value)
         try {
@@ -775,7 +775,7 @@
                     typeOperation.value = type;
                     showPaymentsForm.value = !showPaymentsForm.value;
                     pdvID.value = Number(props.idPDV);
-                
+
                 } else {
                     let importedPDV = LocalStorage.getItem("pdvID");
 
@@ -784,11 +784,11 @@
                         console.log('Nova venda!');
                         console.log('Total da venda R$', totalOperation.value);
                         console.log(sellerData.value);
-                        if(type)   
-                        { 
+                        if(type)
+                        {
                             const res = await api.post('/ecommerce/pdv/save-sale', { // Salva apenas a venda
                                 issuer_id: issuer_id.value,
-                                products: productsSeletion.value, // Produtos da 
+                                products: productsSeletion.value, // Produtos da
                                 user_id: sellerData.value.id,
                                 customer_id: customerData.value.id != 1 ? customerData.value.id : 1,
                                 sub_total: calculateTotal.value.subtotal,
@@ -798,7 +798,7 @@
                                 description: '',
                                 is_nfce_nm: type,
                                 status: 'Finalizada'
-                                
+
                             });
 
                             const data = res.data.data;
@@ -816,7 +816,7 @@
 
                             };
                         };
-                        
+
                     } else {
                         console.log('Não é uma nova venda!');
                         console.log('Essa venda não foi finalizada, ID: ', LocalStorage.getItem("pdvID"));
@@ -825,18 +825,18 @@
 
                     };
                 };
-                
+
             } else {
                 console.log('Não deu, customerData.id: ', customerData.value.id, ' sellerData.id:', sellerData.value.id);
 
-            };           
+            };
         } catch (error) {
             console.error('Erro finalizeSale', error);
-            
+
         };
     };
 
-    const getCRT = async() => 
+    const getCRT = async() =>
     {
         try {
             const response = await api.get(`/issuer/companie/${LocalStorage.getItem("issuer_id")}`);
@@ -860,12 +860,12 @@
             if(error.response.data.message === 'Hotel não encontrado')
             {
                 router.push('/hotel/create');
-                
+
             };
         };
     };
 
-    const chooseErrors = (choose: string) => 
+    const chooseErrors = (choose: string) =>
     {
         console.log('chooseErrors: ', choose);
         if(choose === 'after')
@@ -900,27 +900,27 @@
 
         } catch (error) {
             console.error('Erro importSale', error)
-            
+
         };
     };
 
-    const showOptions = () => 
+    const showOptions = () =>
     {
         showOptionsPDV.value = true
         showPaymentsForm.value = false
         showGrid.value = false
         show.value = false
-        
+
     };
 
-    const showProductsSelection = () => 
+    const showProductsSelection = () =>
     {
         showPaymentsForm.value = false
         showGrid.value = !showGrid.value
         show.value = !show.value
-        
+
     };
-    
+
     const closeConfig = (event: boolean) =>
     {
         showOptionsPDV.value = event
@@ -929,7 +929,7 @@
     };
 
     const changeAmount = (productCode: number, amount: number) =>
-    {   
+    {
         const newAmount = String(amount).replace(',', '.');
 
         console.log('Produto alterado: ', productCode, ' nova qtde: ', newAmount);
@@ -950,8 +950,8 @@
     {
         playSound()
         const existingProduct = productsSeletion.value.find(
-            (p) => 
-                p.product_code === selectedProducts.product_code || 
+            (p) =>
+                p.product_code === selectedProducts.product_code ||
                 p.id === selectedProducts.id
         );
 
@@ -965,15 +965,15 @@
         };
     };
 
-    const updateCustomerSelection = (client: Icustomer) => 
-    {  
+    const updateCustomerSelection = (client: Icustomer) =>
+    {
         customerData.value = {
             id: client.id,
             name: client.name
         };
     };
 
-    const cancelOperation = () => 
+    const cancelOperation = () =>
     {
         showPaymentsForm.value = false;
 
@@ -984,7 +984,7 @@
         if(selectedProductCode.value !== 0)
         {
             if(data.typeAddition === 'R$')
-            {   
+            {
                 let product = productsSeletion.value.find(p => p.product_code === selectedProductCode.value);
                 console.log(product);
 
@@ -1006,17 +1006,17 @@
         };
     };
 
-    const productOptions = (productName: string, productID: number, i: number, action: string) => 
+    const productOptions = (productName: string, productID: number, i: number, action: string) =>
     {
         switch (action) {
             case 'delete':
                 console.log('product_id', productID, ' i: ', i);
-                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_code !== productID)]; 
-                
+                productsSeletion.value = [...productsSeletion.value.filter(p => p.product_code !== productID)];
+
                 break;
-                
+
             case 'view':
-                
+
                 break;
 
             case 'options':
@@ -1025,7 +1025,7 @@
                 selectedProductCode.value = productID;
 
                 break;
-        
+
             default:
                 break;
         }
@@ -1043,7 +1043,7 @@
             addition: 0,
             discount: 0,
             freight: 0,
-            
+
         };
 
         typeOperation.value = '';
@@ -1061,7 +1061,7 @@
     const handleOperation = async (event: TEmit[]|boolean): Promise<void> =>
     {
         const data: TEmit = event[0];
-        
+
         if(data.value)
         {
             if(operation.value === 'cancelSale')
@@ -1072,7 +1072,7 @@
                     discount: 0,
                     freight: 0
                 };
-                
+
                 productsSeletion.value = [];
                 emitProducts.value.addition = 0;
                 emitProducts.value.discount = 0;
@@ -1087,9 +1087,9 @@
                 console.log('isOpenedPDV.value ', isOpenedPDV.value);
                 if(!isOpenedPDV.value)
                 {
-                    const res = await api.post('/ecommerce/pdv/save-sale', { 
+                    const res = await api.post('/ecommerce/pdv/save-sale', {
                         issuer_id:  issuer_id.value,
-                        products: productsSeletion.value, 
+                        products: productsSeletion.value,
                         user_id: sellerData.value.id,
                         customer_id: customerData.value.id >= 1 ? customerData.value.id : 1,
                         sub_total: calculateTotal.value.subtotal,
@@ -1099,8 +1099,8 @@
                         description: '',
                         is_nfce_nm: '',
                         status: ''
-                        
-                    }, { headers : { 
+
+                    }, { headers : {
                         Accept: 'application/json'
                     }});
                     console.log(res.data);
@@ -1117,7 +1117,7 @@
                         console.log(res.data);
                     };
                 } else {
-                    
+
                 };
             } else {
                 alert('caiu no: resolveLeave.value = true');
@@ -1134,19 +1134,19 @@
         showConfirm.value = true;
     };
 
-    const getUser = async () => 
-    { 
-        sellerData.value ={ 
+    const getUser = async () =>
+    {
+        sellerData.value ={
             id: LocalStorage.getItem("user_id"),
             name: LocalStorage.getItem("user_name")
         };
     };
 
-    const getConfig = async () => 
+    const getConfig = async () =>
     {
         const res = await api.get(`/configs/all-configs/${LocalStorage.getItem("issuer_id")}`);
         const configsRes: Tconfig = camelcaseKeys(res.data.data.pdv, { deep: true });
-        
+
         configs.value.nmFinaly = configsRes.nmFinaly;
         configs.value.supervisorPasswordCancelSale = configsRes.supervisorPasswordCancelSale;
         configs.value.supervisorPasswordDeleteItem = configsRes.supervisorPasswordDeleteItem;
@@ -1164,19 +1164,19 @@
         getCRT();
         getUser()
         getConfig();
-        
+
         witdhScreen.value = screen.width;
         isOpenedPDV.value = history.state?.isOpenedPDV ?? false;
 
         if(props.idPDV)
         {
             importSale();
-                
+
         };
 
         document.addEventListener('keydown', (event: KeyboardEvent) => {
             const keyName = event.key
-                
+
             if(keyName === 'F2')
             {
                 showOptions()
@@ -1188,14 +1188,14 @@
             } else if (keyName === 'F9')
             {
                 finalizeSale('nfce')
-            
-            } 
+
+            }
         });
 
         pagination.value = {
             rowsPerPage: productsSeletion.value.length
         };
-    });      
+    });
 
     /*onBeforeRouteLeave((to, from, next) => {
         if(productsSeletion.value.length > 0)
@@ -1233,16 +1233,16 @@
     #addition
     {
         margin: 0;
-        -webkit-appearance: none !important; 
+        -webkit-appearance: none !important;
 
     }
-    
+
     @media (max-width: 1366px) {
         #pdv-view {
-            margin-left: 5rem; 
-            
+            margin-left: 5rem;
+
         }
-        
+
         .payMentForm{
             position: absolute;
             left: 90rem;
@@ -1251,20 +1251,20 @@
 
     @media (max-width: 1080px) {
         #pdv-view {
-            margin-left: 5rem;   
-            
+            margin-left: 5rem;
+
         }
 
         * {
             position: relative;
-            
+
         }
-        
+
         .payMentForm{
             position: absolute;
             left: 90rem;
         }
-        
+
     }
 
     #pdv-view .products-grid table{
@@ -1274,10 +1274,10 @@
     #pdv-view{
         max-height: 100vh;
         height: 100vh;
-        
+
     }
 
-    .q-input input[type=number]::-webkit-inner-spin-button, 
+    .q-input input[type=number]::-webkit-inner-spin-button,
     .q-input input[type=number]::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
