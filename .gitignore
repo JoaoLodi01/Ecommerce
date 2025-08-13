@@ -1,3 +1,5 @@
+../payment
+ApiPaymentBiometry.cpp
 boot.sh
 ./boot.sh
 *.sh
