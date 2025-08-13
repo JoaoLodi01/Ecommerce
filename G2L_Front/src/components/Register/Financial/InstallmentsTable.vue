@@ -23,10 +23,8 @@
             row-key="installmentNumber"
             selection="multiple"
             v-model:selected="selectedRows"
-            :pagination="{ rowsPerPage: 10}"
-            flat
+            :pagination="{ rowsPerPage: 5}"
             bordered
-            hiddenBottom
             :loading="loading"
             class="shadow-sm rounded bg-white">
             
@@ -150,8 +148,9 @@
                     />
 
                     <SpeciesSearchBar
+                        v-if="paymentDialog"
                         @selectSpecie="getSpecie($event)"
-                        :module_="'installment'"
+                        :module_="'receive'"
                     />
 
                 </div>
@@ -171,14 +170,13 @@
             </q-card-actions>
         </q-card>
     </q-dialog>
-
     
 </template>
 
 <script setup lang="ts">
     import dayjs from 'dayjs';
     import { api } from 'src/boot/axios';
-    import { ref, computed , onMounted, watch} from 'vue';
+    import { ref, computed , onMounted, watch, toRaw } from 'vue';
     import { useQuasar, LocalStorage, QTableColumn } from 'quasar';
     import SpeciesSearchBar from 'src/components/Search/SpeciesSearchBar.vue';
 
@@ -219,10 +217,10 @@
     const loading = ref(false);
     const selectedRows = ref([]);
     const paymentDialog = ref(false);
+    const paymentSpecie = ref(null);
     const paymentAmount = ref(0);
     const installmentsData = ref<TinstallmentsData[]>([]);
     const selectedInstallment = ref<TinstallmentsData | null>(null);
-    const specieSelected = ref(null);
 
 // ------------------ Computed ------------------
     const remaining = computed(() =>
@@ -243,7 +241,7 @@
         { name: 'installmentNumber', label: 'Nº Parcela', field: 'installmentNumber', align: 'center' },
         { name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
         { name: 'valueOriginal', label: 'Valor Original', field: 'valueOriginal', align: 'center', format: val => formatCurrency(val) },
-        { name: 'valuePay', label: 'Valor à pagar', field: row => row.valueOriginal - row.valuePaid, align: 'center', format: val => formatCurrency(val) },
+        { name: 'valuePay', label: 'Valor à pagar', field: row => row.valuePaid, align: 'center', format: val => formatCurrency(val) },
         { name: 'addition', label: 'Acréscimo', field: 'addition', align: 'center' },
         { name: 'discount', label: 'Desconto', field: 'discount', align: 'center' },
         { name: 'paymentDate', label: 'Data Pagamento', field: 'paymentDate', align: 'center' },
@@ -312,32 +310,24 @@
         emits('installmentsGenerated', installmentsData.value);
     };
 
-    const openAdvancePayment = () => {
-        paymentDialog.value = true;
-    };
-
-    const advanceInstallments = () => {
-
-    };
-
     const deleteInstallments = () => {
         installmentsData.value = [];
     };
 
     const getSpecie = (specie) => {
-        specieSelected.value = specie;
+        paymentSpecie.value = specie;
     };
 
     const openPaymentDialog = (installment: TinstallmentsData) => {
         selectedInstallment.value = installment;
-        paymentAmount.value = installment.valueOriginal - installment.valuePaid;
+        paymentAmount.value = installment.valuePaid;
         paymentDialog.value = true;
     };
 
     const confirmInstallmentPayment = async () => {
         if (!selectedInstallment.value || paymentAmount.value <= 0) return;
 
-        if (!specieSelected.value) {
+        if (!paymentSpecie.value) {
             $q.notify({
                 color: 'negative',
                 message: 'Selecione uma espécie antes de confirmar o pagamento.',
@@ -355,27 +345,18 @@
             return;
         };
 
-        if (paymentAmount.value < remaining.value) {
-            $q.dialog({
-                title: 'Confirmação',
-                message: `Você está quitando apenas (R$ ${paymentAmount.value.toFixed(2)}) de: (R$ ${remaining.value.toFixed(2)}). Deseja continuar e criar outra parcela com valor faltante?`,
-                cancel: true,
-                persistent: true
-            }).onOk(async () => {
-                await processPartialPayment();
-            });
-        } else {
-            processPartialPayment();
-        }
+        processPartialPayment();
     };
 
     const processPartialPayment = async () => {
         try {
+            console.log('Espécie', paymentSpecie);
             const payload = {
+                installmenteNumber: selectedInstallment.value.installmentNumber,
                 issuerId: LocalStorage.getItem('issuer_id'),
-                specie: specieSelected.value,
-                paymentDate: dayjs().format('DD-MM-YYYY'),
                 installmentPaid: paymentAmount.value,
+                paymentDate: dayjs().format('YYYY-MM-DD'),
+                especieId: paymentSpecie.value.payment_code,
             };
 
             await api.put(`/ecommerce/receive/payInstallment/${selectedInstallment.value!.installmentCode}`, payload);
@@ -391,7 +372,8 @@
                 selectedInstallment.value!.paidAmountEditable = paymentAmount.value;
             }
 
-            specieSelected.value = null;
+            paymentSpecie.value = null;
+            paymentAmount.value = 0;
             paymentDialog.value = false;
 
             $q.notify({
@@ -462,6 +444,7 @@
     };
 
     watch(selectedRows, (newVal) => {
+        console.log(newVal);
         emits('update:selectedInstallments', newVal);
     });
 

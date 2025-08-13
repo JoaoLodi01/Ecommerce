@@ -255,18 +255,17 @@
 			</template>
 		</q-table>
 
-		<div v-if="showReceiveClosing" class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
-			
-			<div class="bg-white border border-gray-400 rounded-xl">
+		<q-dialog v-model="showReceiveClosing" persistent>
+			<q-card class="q-pa-md" style="min-width: 20; max-width: 1200px; overflow-x: hidden;">
 				<RegisterReceive
 					:action="selectOperation"
 					:readonly="selectReadonly"
-					@close="closeRegister"
 					:widthScreen="widthScreen"
 					:receiveDocument="selectedReceiveDocument"
+					@close="closeRegister"
 				/>
-			</div>
-		</div>
+			</q-card>
+		</q-dialog>
 	</div>
 </template>
 

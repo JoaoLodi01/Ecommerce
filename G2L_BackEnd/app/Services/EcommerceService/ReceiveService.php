@@ -63,14 +63,6 @@ class ReceiveService
             throw new \Exception("Parcela não encontrada");
         }
 
-        if ($installment->status === 'cancelada'){
-            throw new \Exception("Não é possível quitar uma parcela cancelada");
-        }
-
-        if ($installment->status === 'quitada') {
-            throw new \Exception("Parcela já está quitada");
-        }
-
         return $this->receiveRepository->payInstallment($data, $id);
     }
 

@@ -104,8 +104,7 @@ class ReceiveRepository
 
         return DB::transaction(function () use ($data, $id) {
             $installment = Receive::findOrFail($id);
-            $issuer = $data['issuerID'];
-            $origem = $data['origem'];
+            $issuer = $data['issuerId'];
 
             $specie = PaymentForms::where('issuer_id', $issuer)
                                 ->where('payment_code', $data['especieId'])
@@ -118,13 +117,13 @@ class ReceiveRepository
             }
 
             $installment->update([
-                'status' => 'quitada',
+                'status' => 'Quitada',
                 'especie_code' => $specie->payment_code,
                 'date_paid' => $data['paymentDate'],
                 'installment_paid' => $data['installmentPaid'],
             ]);
 
-            $this->registerInTheCash($installment, $specie, $origem, $issuer);
+            $this->registerInTheCash($installment, $specie, $issuer, $id);
 
             return $installment;
         });
@@ -143,19 +142,26 @@ class ReceiveRepository
         return $installment;
     }
 
-    public function registerInTheCash(Receive $installment, PaymentForms $specie, string $origem, int $issuer){
+    public function registerInTheCash(Receive $installment, PaymentForms $specie, int $issuer, int $id){
 
-        if ($origem === 'RECEBER'){
-            CashRegister::create([
-                'issuer_id' => $issuer,
-                'description' => "Recebimento da parcela Nº {$installment->receive_code}",
-                'status' => "Pagamento efetuado Nº {$installment->receive_code}",
-                'document' => $installment->receive_code,
-                'receive_code' => $installment->id,
-                'receive_document' => $installment->receive_code,
-                'customer_code' =>  '',
-            ]);
-        }
+        $customer = Receive::where('issuer_id', $issuer)
+                            ->where('')
+                            ->first();
+
+        $lastCashCode = Receive::where('issuer_id', $issuer)->max('receive_code');
+        $nextCashCode = $lastCashCode ? $lastCashCode + 1 : 1;
+
+        CashRegister::create([
+            'issuer_id' => $issuer,
+            'cash_register_code' => $nextCashCode++,
+            'especie_code' => $specie->payment_code,
+            'description' => "Recebimento da parcela Nº {$installment->receive_code}",
+            'status' => "Pagamento efetuado Nº {$installment->receive_code}",
+            'document' => $installment->receive_code,
+            'receive_code' => $installment->id,
+            'receive_document' => $installment->receive_code,
+            'customer_code' =>  $customer->id,
+        ]);
     }
 
     public function delete (int $id){

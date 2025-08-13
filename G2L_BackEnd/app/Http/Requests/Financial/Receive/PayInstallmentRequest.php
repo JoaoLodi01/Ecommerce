@@ -20,13 +20,12 @@ class PayInstallmentRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'document' => ['required'],
+            'installmentNumber' => ['required'],
             'issuerId' => ['required'],
-            'status' => ['required', 'string'],
             'installmentPaid' => ['required'],
             'paymentDate' => ['nullable', 'date'],
-            'especieId' => ['required', 'number'],
-            'customerID' => ['required'],
-            'origem' => ['required'],
+            'especieId' => ['required'],
         ];
     }
 }

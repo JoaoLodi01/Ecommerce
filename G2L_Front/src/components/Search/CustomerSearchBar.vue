@@ -20,7 +20,8 @@
                 class="w-96"
                 color="grey"
                 :disabled="disable"
-
+                outlined
+                dense
             />
             
         </div>    

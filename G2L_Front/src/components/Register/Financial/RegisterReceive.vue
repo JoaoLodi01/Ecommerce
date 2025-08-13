@@ -1,244 +1,268 @@
 <template>
-    <div class="mr-14 mt-2 mb-5 p-6 bg-white" :class="{
-        'relative top-12 left-12': widthScreen <= 1080,
-        'ml-1 mr-1': widthScreen > 1080
-    }">
+    <q-card class="q-pa-md" style="max-height: 90vh; overflow-y: auto; width: 95vw; max-width: 1200px;">
+        <div class="mr-14 mt-2 mb-5 p-6 bg-white" :class="{
+            'relative top-12 left-12': widthScreen <= 1080,
+            'ml-1 mr-1': widthScreen > 1080
+        }">
 
-        <h2 class="border-b border-black text-2xl font-semibold mb-8 w-max">
-            {{ title }} recebimentos
-        </h2>
+            <h2 class="border-b border-black text-2xl font-semibold mb-8 w-max">
+                {{ title }} recebimentos
+            </h2>
 
-        <q-form
-            class="grid gap-4 mx-auto"
-            style="max-width: 1000px;"
-            :class="{
-                'grid-cols-1 lg:grid-cols-2': widthScreen > 1080,
-                'grid-cols-1': widthScreen <= 1080}">
+            <q-form
+                class="grid gap-4 mx-auto"
+                style="max-width: 1000px;"
+                :class="{
+                    'grid-cols-1 lg:grid-cols-2': widthScreen > 1080,
+                    'grid-cols-1': widthScreen <= 1080}">
 
-            <div v-if="!readonly"
-                class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto">
+                <div v-if="!readonly"
+                    class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto">
 
-                <div class="flex flex-wrap gap-4">
-                    <SpeciesSearchBar
-                        @selectSpecie="getSpecie"
-                        :module_="'installment'"
-                        :disable="readonly"
-                    />
+                    <div class="flex flex-wrap gap-4">
+                        <SpeciesSearchBar
+                            @selectSpecie="getSpecie"
+                            :module_="'receive'"
+                            :disable="readonly"
+                        />
 
-                    <CustomerSearchBar
-                        @updated:selectCustomer="getCustomer"
-                        :pdv="false"
-                        :disable="readonly"
-                    />
+                        <CustomerSearchBar
+                            @updated:selectCustomer="getCustomer"
+                            :pdv="false"
+                            :disable="readonly"
+                        />
 
-                    <q-input
-                        class="w-[100px]"
-                        type="number"
-                        v-model="form.document"
-                        label="Nº Doc"
-                        color="grey-7"
-                        :readonly="readonly"
-                    />
+                        <q-input
+                            class="w-[100px]"
+                            type="number"
+                            v-model="form.document"
+                            label="Nº Doc"
+                            color="grey-7"
+                            :readonly="readonly"
+                            outlined
+                            dense
+                        />
 
-                    <q-input
-                        class="w-[200px]"
-                        type="text"
-                        v-model="form.description"
-                        label="Descrição"
-                        color="grey-7"
-                        :readonly="readonly"
-                    />
+                        <q-input
+                            class="w-[350px]"
+                            type="text"
+                            v-model="form.description"
+                            label="Descrição"
+                            color="grey-7"
+                            :readonly="readonly"
+                            outlined
+                            dense
+                        />
+                    </div>
                 </div>
+
+                <div v-if="!readonly" class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto">
+                    <div class="flex flex-wrap gap-4">
+                        <q-input
+                            class="w-[100px]"
+                            type="number"
+                            v-model.number="form.installmentAmount"
+                            label="Nº Parcelas"
+                            color="grey-7"
+                            :disable="!form.especieID" :readonly="readonly"
+                            outlined
+                            dense
+                        />
+
+                        <q-input
+                            class="w-[150px]"
+                            type="text"
+                            v-model.number="form.installmentValue"
+                            label="Valor Total" color="grey-7"
+                            :disable="!form.especieID"
+                            :readonly="readonly"
+                            outlined
+                            dense
+                        />
+
+                        <q-input
+                            class="w-[150px]"
+                            type="date"
+                            v-model="form.dueDate"
+                            label="1º Vencimento"
+                            color="grey-7"
+                            :readonly="readonly"
+                            outlined
+                            dense
+                        />
+
+                        <q-select
+                            class="w-[80px]"
+                            v-model="form.typeInterest"
+                            label="Tipo"
+                            emit-value map-options
+                            outlined
+                            dense
+                            :disable="readonly" :options="[
+                                { label: '%', value: '%' },
+                                { label: 'R$', value: 'R$' }
+                            ]"
+                        />
+                            
+                        <q-input
+                            class="w-[100px]"
+                            type="number"
+                            v-model.number="form.interestValue"
+                            label="Juros"
+                            color="grey-7"
+                            :readonly="readonly"
+                            outlined
+                            dense
+                        />
+
+                        <q-input
+                            class="w-[100px]"
+                            type="number"
+                            v-model.number="form.addition"
+                            label="Acréscimo"
+                            color="grey-7"
+                            :readonly="readonly"
+                            outlined
+                            dense
+                        />
+
+                        <q-input
+                            class="w-[100px]"
+                            type="number"
+                            v-model.number="form.discount"
+                            label="Desconto"
+                            color="grey-7"
+                            :readonly="readonly"
+                            outlined
+                            dense
+                        />
+
+                        <q-input
+                            class="w-[130px]"
+                            type="number"
+                            v-model.number="form.valueEntry"
+                            label="Juros a pagar"
+                            color="grey-7"
+                            readonly
+                            outlined
+                            dense
+                        />
+                    </div>
+                </div>
+
+                <InstallmentsTable  
+                    :pdv="false" 
+                    :receiveDocument="props.receiveDocument" 
+                    :number="form.installmentNumber"
+                    :amount="form.installmentAmount" 
+                    :original-value="Number(form.installmentValue)" 
+                    :due-date="form.dueDate"
+                    :readonly="readonly" 
+                    :action="action" 
+                    @exists-installments="exists"
+                    @installments-generated="createInstallments" 
+                    v-model:selectedInstallments="selectedInstallments"
+                />
+            </q-form>
+
+            <div v-if="readonly" class="text-base font-medium flex justify-between items-center gap-4 p-3 rounded mt-2">
+                <span class="border rounded px-3 py-1 bg-green-200 text-green-900">
+                    <q-icon
+                        name="check_circle"
+                        color="green-700"
+                        class="mr-2"
+                    />
+                        Recebidas: R$ {{ totalRecebidas }}
+                </span>
+
+                <span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
+                    <q-icon
+                        name="hourglass_empty"
+                        color="orange"
+                    />
+                        Pendentes: R$ {{ totalPendentes }}
+                </span>
+
+                <span class="border rounded px-3 py-1 bg-red-300 text-red-900">
+                    <q-icon
+                        name="warning"
+                        color="red"
+                    />
+                        Atrasadas ( + juros ): R$ {{ totalAtrasadas }}
+                </span>
             </div>
 
-            <div v-if="!readonly" class="border border-gray-200 rounded-md p-3 max-h-[230px] w-auto overflow-auto">
-                <div class="flex flex-wrap gap-4">
-                    <q-input
-                        class="w-[100px]"
-                        type="number"
-                        v-model.number="form.installmentAmount"
-                        label="Nº Parcelas"
-                        color="grey-7"
-                        :disable="!form.especieID" :readonly="readonly"
-                    />
-
-                    <q-input
-                        class="w-[150px]"
-                        type="text"
-                        v-model.number="form.installmentValue"
-                        label="Valor Parcela" color="grey-7"
-                        :disable="!form.especieID"
-                        :readonly="readonly"
-                    />
-
-                    <q-input
-                        class="w-[150px]"
-                        type="date"
-                        v-model="form.dueDate"
-                        label="1º Vencimento"
-                        color="grey-7"
-                        :readonly="readonly"
-                    />
-
-                    <q-select
-                        class="w-[80px]"
-                        v-model="form.typeInterest"
-                        label="Tipo"
-                        emit-value map-options
-                        :disable="readonly" :options="[
-                            { label: '%', value: '%' },
-                            { label: 'R$', value: 'R$' }
-                        ]" />
-
-                    <q-input
-                        class="w-[100px]"
-                        type="number"
-                        v-model.number="form.interestValue"
-                        label="Juros"
-                        color="grey-7"
-                        :readonly="readonly"
-                    />
-
-                    <q-input
-                        class="w-[100px]"
-                        type="number"
-                        v-model.number="form.addition"
-                        label="Acréscimo"
-                        color="grey-7"
-                        :readonly="readonly"
-                    />
-
-                    <q-input
-                        class="w-[100px]"
-                        type="number"
-                        v-model.number="form.discount"
-                        label="Desconto"
-                        color="grey-7"
-                        :readonly="readonly"
-                    />
-
-                    <q-input
-                        class="w-[130px]"
-                        type="number"
-                        v-model.number="form.valueEntry"
-                        label="Juros a pagar"
-                        color="grey-7"
-                        readonly
-                    />
-                </div>
+            <!-- Buttons -->
+            <div class="mt-10">
+                <q-btn
+                    v-if="!readonly"
+                    @click="submitForm()"
+                    type="submit"
+                    label="Registrar"
+                    class="bg-blue-600 text-white"
+                />
+                <q-btn 
+                    v-if="action === 'view'"
+                    @click="print()"
+                    label="Imprimir"
+                    class="bg-blue-600 text-white"
+                />
+                <q-btn
+                    @click="close(false)"
+                    label="Voltar"
+                    class="ml-5 bg-slate-600 text-white"
+                />
+                <q-btn
+                    v-if="selectedInstallments.length > 1"
+                    @click="openAdvanceInstallments()"
+                    label="Adiantar Parcelas"
+                    color="green"
+                    class="ml-5"
+                />
             </div>
-
-            <InstallmentsTable  
-                :pdv="false" 
-                :receiveDocument="props.receiveDocument" 
-                :number="form.installmentNumber"
-                :amount="form.installmentAmount" 
-                :original-value="Number(form.installmentValue)" 
-                :due-date="form.dueDate"
-                :readonly="readonly" 
-                :action="action" 
-                @exists-installments="exists"
-                @installments-generated="createInstallments" 
-                @update:selectedInstallments="val => selectedInstallments = val"
-            />
-        </q-form>
-
-        <div v-if="readonly" class="text-base font-medium flex justify-between items-center gap-4 p-3 rounded mt-2">
-            <span class="border rounded px-3 py-1 bg-green-200 text-green-900">
-                <q-icon
-                    name="check_circle"
-                    color="green-700"
-                    class="mr-2"
-                />
-                    Recebidas: R$ {{ totalRecebidas }}
-            </span>
-
-            <span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
-                <q-icon
-                    name="hourglass_empty"
-                    color="orange"
-                />
-                    Pendentes: R$ {{ totalPendentes }}
-            </span>
-
-            <span class="border rounded px-3 py-1 bg-red-300 text-red-900">
-                <q-icon
-                    name="warning"
-                    color="red"
-                />
-                    Atrasadas ( + juros ): R$ {{ totalAtrasadas }}
-            </span>
         </div>
 
-        <!-- Buttons -->
-        <div class="mt-4">
-            <q-btn
-                v-if="!readonly"
-                @click="submitForm()"
-                type="submit"
-                label="Registrar"
-                class="bg-blue-600 text-white"
-            />
-            <q-btn 
-                v-if="action === 'view'"
-                @click="print()"
-                label="Imprimir"
-                class="bg-blue-600 text-white"
-            />
-            <q-btn
-                @click="close(false)"
-                label="Voltar"
-                class="ml-5 bg-slate-600 text-white"
-            />
-            <q-btn
-                v-if="selectedInstallments.length > 1"
-                @click="openAdvanceInstallments()"
-                label="Adiantar Parcelas"
-                color="green"
-                class="ml-5"
-            />
-        </div>
-    </div>
+        <q-dialog v-model="advanceDialog">
+            <q-card>
+                <q-card-section>
+                    <div class="text-h6 text-center">
+                        <span class="text-2xl">Adiantar parcelas selecionadas</span>
+                    </div>
+                    <div class="q-mt-sm">
+                        <q-input
+                            v-model="advanceAmount"
+                            type="number"
+                            label="Inserir valor"
+                            :rules="[val => val > 0 || 'Informe um valor válido']"
+                            prefix="R$"
+                            outlined
+                            dense
+                        />
 
-    <q-dialog v-model="advanceDialog">
-        <q-card>
-            <q-card-section>
-                <div class="text-h6 text-center">
-                    <span class="text-2xl">Adiantar parcelas selecionadas</span>
-                </div>
-                <div class="q-mt-sm">
-                    <q-input
-                        v-model.number="advanceAmount"
-                        type="number"
-                        label="Inserir valor"
-                        :rules="[val => val > 0 || 'Informe um valor válido']"
-                        prefix="R$"
-                        outlined
-                        dense
+                        <SpeciesSearchBar
+                            v-if="advanceDialog"
+                            @selectSpecie="(event) => advanceSpecie.value = event"
+                            :module_="'receive'"
+                        />
+
+                    </div>
+                </q-card-section>
+
+                <q-card-actions align="right">
+                    <q-btn
+                        flat
+                        label="Cancelar"
+                        v-close-popup
                     />
-
-                    <SpeciesSearchBar
-                        @selectSpecie="getSpecie($event)"
-                        :module_="'installment'"
+                    <q-btn
+                        color="primary"
+                        label="Confirmar"
+                        @click="confirmAdvanceInstallments()"
                     />
-
-                </div>
-            </q-card-section>
-
-            <q-card-actions align="right">
-                <q-btn
-                    flat
-                    label="Cancelar"
-                    v-close-popup
-                />
-                <q-btn
-                    color="primary"
-                    label="Confirmar"
-                    @click="confirmAdvanceInstallments()"
-                />
-            </q-card-actions>
-        </q-card>
-    </q-dialog>
+                </q-card-actions>
+            </q-card>
+        </q-dialog>
+    </q-card>
 </template>
 
 <script setup lang="ts">
@@ -246,7 +270,7 @@
     import "dayjs/locale/pt-br";
     import { api } from "src/boot/axios";
     import { LocalStorage, useQuasar } from "quasar";
-    import { ref, computed, reactive, onMounted, toRaw } from "vue";
+    import { ref, computed, reactive, onMounted, toRaw, watch } from "vue";
     import InstallmentsTable from "../Financial/InstallmentsTable.vue";
     import SpeciesSearchBar from "src/components/Search/SpeciesSearchBar.vue";
     import CustomerSearchBar from "src/components/Search/CustomerSearchBar.vue";
@@ -267,8 +291,9 @@
     const $q = useQuasar();
     const installments = ref<any[]>([]);
     const selectedInstallments = ref<any[]>([]);
-    const advanceDialog = ref(false);
-    const advanceAmount = ref(0);
+    const advanceDialog = ref<boolean>(false);
+    const advanceAmount = ref<number>(0);
+    const advanceSpecie = ref(null);
 
     const form = reactive<IReceiveBody>({
         issuerID: LocalStorage.getItem("issuer_id"),
@@ -366,24 +391,31 @@
         
         const totalPaid = selectedInstallments.value.reduce((acc, installment) => {
             return acc + (installment.valuePaid || 0);
-        });
+        }, 0);
 
         advanceAmount.value = totalPaid;
-        console.log(advanceAmount.value)
+        console.log('Aqui:', advanceAmount.value)
     };
 
     const confirmAdvanceInstallments = async () => {
-        if (advanceAmount.value <= 0 || !form.especieID) {
+        if (advanceAmount.value <= 0 || !advanceSpecie.value) {
             $q.notify({
-            color: 'negative',
-            message: 'Informe um valor válido e selecione uma espécie.',
-            });
-            return;
+                color: 'negative',
+                message: 'Informe um valor válido e selecione uma espécie.',
+            }); return;
         }
 
-        // Falta inserir a lógica aqui
+        const payload = {
+            issuerId: LocalStorage.getItem('issuer_id'),
+            installmentPaid: advanceAmount.value,
+            paymentDate: dayjs().format('DD-MM-YYYY'),
+            especieId: advanceSpecie.value?.payment_code || null,
+        };
+
+        await api.put(`ecommerce/receive/payInstallment/`, payload);
 
         advanceAmount.value = 0;
+        advanceSpecie.value = null;
         advanceDialog.value = false;
 
         $q.notify({
@@ -458,5 +490,9 @@
 
     onMounted(() => {
         title.value = titles[props.action];
+    });
+
+    watch(selectedInstallments, (val) => {
+        console.log('Parcelas selecionadas RegisterReceive:', toRaw(val));
     });
 </script>

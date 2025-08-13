@@ -1,7 +1,7 @@
 <template>
     <div class="container flex">
         <q-select
-            v-model="speciesData"
+            v-model="speciesData.name"
             :options="filteredSpecies"
             option-label="especie"
             option-value="id"
@@ -27,7 +27,10 @@
         return {
             filteredSpecies: [],
             allSpecies: [],
-            speciesData: null,
+            speciesData: {
+                id: 0,
+                name: 'Selecionar..',
+            },
         }
     },
   
