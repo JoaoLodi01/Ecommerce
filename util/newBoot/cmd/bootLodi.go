@@ -1,0 +1,94 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"net"
+	"os"
+	"os/exec"
+	"os/signal"
+	"syscall"
+)
+
+func validateIsDir(p string) bool {
+	if p == "" {
+		return false
+	}
+
+	info, err := os.Stat(p)
+	return err == nil && info.IsDir()
+}
+
+func validatePath(primary, fallback string) (string, error) {
+	switch {
+	case validateIsDir(primary):
+		return primary, nil
+
+	case validateIsDir(fallback):
+		return fallback, nil
+
+	default:
+		return "", fmt.Errorf("erro ao acessar os caminhos: '%s' e '%s'", primary, fallback)
+
+	}
+}
+
+func GetLocalIP() net.IP {
+	conn, err := net.Dial("udp", "8.8.8.8:80")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer conn.Close()
+
+	localAddress := conn.LocalAddr().(*net.UDPAddr)
+
+	return localAddress.IP
+}
+
+func StartServers(ip net.IP) {
+	log.Printf("Subindo servidores, IP: %s ...", ip)
+
+	ecommerceFrontPath, err := validatePath(
+		`D:/Code/G2L_DevHouse/G2L_Front`,
+		`C:/Code/G2L_DevHouse/G2L_Front`,
+	)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	cmdFront := exec.Command("quasar", "dev")
+	cmdFront.Dir = ecommerceFrontPath
+	cmdFront.Stdout = os.Stdout
+	cmdFront.Stderr = os.Stderr
+	cmdFront.Start()
+
+	ecommerceBackPath, err := validatePath(
+		`C:/Code/G2L_DevHouse/G2L_BackEnd`,
+		`D:/Code/G2L_DevHouse/G2L_BackEnd`,
+	)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	host := fmt.Sprintf("--host=%s", ip)
+	cmdBack := exec.Command("php", "artisan", "serve", host)
+	cmdBack.Dir = ecommerceBackPath
+	cmdBack.Stdout = os.Stdout
+	cmdBack.Stderr = os.Stderr
+	cmdBack.Start()
+
+}
+
+func main() {
+	ip := GetLocalIP()
+	StartServers(ip)
+
+	sig := make(chan os.Signal, 1)
+	signal.Notify(sig, os.Interrupt, syscall.SIGTERM)
+	<-sig
+
+}

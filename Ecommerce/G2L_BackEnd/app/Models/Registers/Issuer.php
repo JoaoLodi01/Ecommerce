@@ -3,7 +3,6 @@
 namespace App\Models\Registers;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Issuer extends Model
 {
     protected $table = 'issuers';
