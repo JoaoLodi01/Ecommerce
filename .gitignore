@@ -1,6 +1,4 @@
-boot.sh
-./boot.sh
-*.sh
-./tests
-
 ./tests/*
+
+./bootKochem.exe
+bootKochem.exe

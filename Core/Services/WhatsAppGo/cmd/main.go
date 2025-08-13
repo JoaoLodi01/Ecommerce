@@ -17,11 +17,6 @@ type qrResponse struct {
 func main() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("Home")
-
-	})
-
 	mux.HandleFunc("/api/home", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Whats home")
 
