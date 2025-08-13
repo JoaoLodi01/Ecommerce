@@ -28,7 +28,7 @@ func validatePath(primary, fallback string) (string, error) {
 		return fallback, nil
 
 	default:
-		return "", fmt.Errorf("Erro ao acessar os caminhos: '%s' e '%s'", primary, fallback)
+		return "", fmt.Errorf("erro ao acessar os caminhos: '%s' e '%s'", primary, fallback)
 
 	}
 }
@@ -109,7 +109,7 @@ func StartServers(ip net.IP) {
 
 	host2 := fmt.Sprintf("--host=%s", ip)
 
-	cmdCoreBack := exec.Command("php", "artisan", "serve", host2, "--port=8000")
+	cmdCoreBack := exec.Command("php", "artisan", "serve", host2, "--port=8080")
 	cmdCoreBack.Dir = coreBackPath
 	cmdCoreBack.Stdout = os.Stdout
 	cmdCoreBack.Stderr = os.Stderr
