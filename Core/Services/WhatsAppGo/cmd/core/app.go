@@ -3,6 +3,8 @@ package core
 import (
 	"context"
 	"errors"
+	"regexp"
+	"strings"
 	"sync"
 
 	_ "github.com/mattn/go-sqlite3" //
@@ -75,6 +77,28 @@ func IsConnected() bool {
 
 }
 
+func normalizeMSISDN(raw string) (string, error) {
+	reDigits := regexp.MustCompile(`\D`)
+
+	num := reDigits.ReplaceAllString(raw, "")
+
+	if num == "" {
+		return "", errors.New("número vazio")
+
+	}
+
+	if !strings.HasPrefix(num, "55") {
+		num = "55" + num
+	}
+
+	if len(num) < 12 || len(num) > 15 {
+		return "", errors.New("número inválido")
+
+	}
+
+	return num, nil
+}
+
 func SendText(ctx context.Context, toJID string, text string) (string, error) {
 	clientMu.RLock()
 	c := client
@@ -88,19 +112,21 @@ func SendText(ctx context.Context, toJID string, text string) (string, error) {
 		return "", errors.New("cliente não conectado")
 	}
 
-	jid, err := types.ParseJID(toJID)
+	num, err := normalizeMSISDN(toJID)
 	if err != nil {
 		return "", err
 	}
+
+	jid := types.NewJID(num, types.DefaultUserServer)
 
 	msg := &waProto.Message{
 		Conversation: proto.String(text),
 	}
 
-	msgID, err := c.SendMessage(ctx, jid, msg)
+	resp, err := c.SendMessage(ctx, jid, msg)
 	if err != nil {
 		return "", err
 	}
 
-	return msgID.ID, nil
+	return resp.ID, nil
 }

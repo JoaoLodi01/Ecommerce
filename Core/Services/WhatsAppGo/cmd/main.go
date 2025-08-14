@@ -54,9 +54,9 @@ func main() {
 
 	mux.HandleFunc("/api/v1/whats/send-message", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
-			json.NewEncoder(w).Encode(map[string]string{
+			json.NewEncoder(w).Encode(map[string]any{
 				"error":  "método não suportado",
-				"status": string(http.StatusMethodNotAllowed),
+				"status": http.StatusMethodNotAllowed,
 			})
 			return
 		}
@@ -65,9 +65,9 @@ func main() {
 
 		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 			//http.Error(w, "JSON inválido")
-			json.NewEncoder(w).Encode(map[string]string{
+			json.NewEncoder(w).Encode(map[string]any{
 				"error":  "JSON inválido",
-				"status": string(http.StatusBadRequest),
+				"status": http.StatusBadRequest,
 			})
 		}
 
@@ -81,10 +81,10 @@ func main() {
 
 		msgID, err := core.SendText(ctx, req.To, req.Msg)
 		if err != nil {
-			json.NewEncoder(w).Encode(map[string]string{
+			json.NewEncoder(w).Encode(map[string]any{
 				"message": "Falha no envio",
 				"error":   err.Error(),
-				"status":  string(http.StatusInternalServerError),
+				"status":  http.StatusInternalServerError,
 			})
 			return
 
