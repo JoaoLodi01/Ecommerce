@@ -42,7 +42,12 @@ func main() {
 		if err != nil {
 			w.Header().Set("Content-Type", "application/json; charset=utf-8")
 			w.WriteHeader(http.StatusInternalServerError)
-			json.NewEncoder(w).Encode(map[string]string{"error": err.Error()})
+			json.NewEncoder(w).Encode(map[string]any{
+				"success": false,
+				"error":   err.Error(),
+				"status":  "erro",
+			})
+
 			log.Println("[❌] Erro durante a execução")
 			return
 		}
@@ -53,6 +58,7 @@ func main() {
 	})
 
 	mux.HandleFunc("/api/v1/whats/send-message", func(w http.ResponseWriter, r *http.Request) {
+		log.Println("Enviando mensagem ... ↗")
 		if r.Method != http.MethodPost {
 			json.NewEncoder(w).Encode(map[string]any{
 				"error":  "método não suportado",
@@ -102,7 +108,7 @@ func main() {
 	handler := cors.WithCORS(mux)
 
 	addr := ":3000"
-	log.Println("Servidor do whats rodando em localhost:", addr)
+	log.Printf("Servidor do whats rodando em localhost%s", addr)
 	log.Fatal(http.ListenAndServe(addr, handler))
 
 }

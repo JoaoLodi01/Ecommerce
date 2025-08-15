@@ -116,8 +116,8 @@ func StartServers(ip net.IP) {
 	cmdCoreBack.Start()
 
 	whatsPath, err := validatePath(
-		`D:/Gabriel/Projetos/G2L_DevHouse/Core/Services/WhatsAppGo/cmd`,
-		`C:/Gabriel/Projetos/G2L_DevHouse/Core/Services/WhatsAppGo/cmd`,
+		`D:/Gabriel/Projetos/G2L_DevHouse/Services/WhatsAppGo/cmd`,
+		`C:/Gabriel/Projetos/G2L_DevHouse/Services/WhatsAppGo/cmd`,
 	)
 
 	if err != nil {

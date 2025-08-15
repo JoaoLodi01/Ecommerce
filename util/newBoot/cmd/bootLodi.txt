@@ -1,4 +1,4 @@
-package main
+package bootLodi
 
 import (
 	"fmt"
@@ -6,8 +6,6 @@ import (
 	"net"
 	"os"
 	"os/exec"
-	"os/signal"
-	"syscall"
 )
 
 func validateIsDir(p string) bool {
@@ -80,15 +78,5 @@ func StartServers(ip net.IP) {
 	cmdBack.Stdout = os.Stdout
 	cmdBack.Stderr = os.Stderr
 	cmdBack.Start()
-
-}
-
-func main() {
-	ip := GetLocalIP()
-	StartServers(ip)
-
-	sig := make(chan os.Signal, 1)
-	signal.Notify(sig, os.Interrupt, syscall.SIGTERM)
-	<-sig
 
 }
