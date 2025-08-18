@@ -3,6 +3,11 @@ ESTRUTURA -> ⇩
     Fluxo: Requisição de geração -> Cors -> Auth -> Service -> Calcs -> Model ->
     
 
+
+PACOTES -> 
+ GIN -> https://gin-gonic.com/
+ ECHO -> https://echo.labstack.com/
+ GMAIL -> GITHUB
             
 
 
