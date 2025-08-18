@@ -10,9 +10,34 @@
     </div>
     <div class="ml-16 text-2xl" v-if="showPage">
         <h1>Configurações gerais</h1>
+
+        <div class="bg-white p-4 mb-4 rounded shadow-sm w-[99%]">
+            <q-btn 
+                :style="`background-color: ${showConfigs.showColorsConfig ? 'green' : colorOptions.buttonColor}; color: ${colorOptions.textColor}`" 
+                label="Cores"
+                @click="manageShowConfig('color')"
+                class="mr-4"
+            />
+
+            <q-btn 
+                :style="`background-color: ${showConfigs.showIssuanceConfig ? 'green' : colorOptions.buttonColor}; color: ${colorOptions.textColor}`" 
+                label="Emissão"
+                @click="manageShowConfig('issuance')"
+                class="mr-4"
+
+            />
+
+            <q-btn 
+                :style="`background-color: ${showConfigs.showStockConfig ? 'green' : colorOptions.buttonColor}; color: ${colorOptions.textColor}`" 
+                label="Estoque"
+                @click="manageShowConfig('stock')"
+                class="mr-4"
+                
+            />
+        </div>
         
-        <div class="">
-            <div class="border border-black p-3 rounded-lg bg-white">
+        <div v-if="showConfigs.showColorsConfig" class="w-[99%] flex gap-4 p-4 bg-white">
+            <div class="border border-black p-3 rounded-lg ">
                 <h3>
                     Cor dos botões
                     
@@ -40,7 +65,7 @@
                 </div>
             </div>
             
-            <div class="mt-5 border border-black p-3 rounded-lg bg-white">
+            <div class="border border-black p-3 rounded-lg bg-white">
                 <h3>Cor dos painéis</h3>
                 <q-color    
                     v-model="colorOptions.painelColor" 
@@ -66,22 +91,23 @@
 
                 </div>
             </div>
-
             <div class="mt-4">
                 <q-btn 
                     color="primary" 
                     icon="check" 
+                    class="mr-4"
                     label="Salvar cor" 
                     @click="saveMyColor()" 
                 />
 
-            </div>
-        </div>        
-        <q-btn 
-            color="primary"
-            label="Exportar cores"
-            @click="exportColors()" 
-        />
+                <q-btn 
+                    color="primary"
+                    label="Exportar cores"
+                    @click="exportColors()" 
+                />
+
+            </div> 
+        </div>       
     </div>
 
     <ImportFiles
@@ -97,12 +123,20 @@
     import ImportFiles from 'src/components/Files/ImportFiles.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import camelcaseKeys from 'camelcase-keys';
+
+    type TShowConfigs = {
+        showColorsConfig: boolean,
+        showIssuanceConfig: boolean,
+        showStockConfig: boolean,
+
+    }
     
     const $q = useQuasar();
 
     const colorOptions = ref<TColorOptions>({
         buttonColor: '',
-        painelColor: ''
+        painelColor: '',
+        textColor: ''
 
     });
 
@@ -110,6 +144,45 @@
 
     let showPage = ref<boolean>(false);
     let showImportFiles = ref<boolean>(false);
+
+    let showConfigs = ref<TShowConfigs>({
+        showColorsConfig: false,
+        showIssuanceConfig: false,
+        showStockConfig: false,
+
+    });
+
+    const manageShowConfig = (config: string): void => 
+    {
+        switch (config) {
+            case 'color':
+                showConfigs.value.showColorsConfig = !showConfigs.value.showColorsConfig;
+                showConfigs.value.showIssuanceConfig = false;
+                showConfigs.value.showStockConfig = false;
+                break;
+        
+            case 'issuance':
+                showConfigs.value.showIssuanceConfig = !showConfigs.value.showIssuanceConfig;
+                showConfigs.value.showColorsConfig = false;
+                showConfigs.value.showStockConfig = false;
+                break;
+
+            case 'stock':
+                showConfigs.value.showStockConfig = !showConfigs.value.showStockConfig;
+                showConfigs.value.showIssuanceConfig = false;
+                showConfigs.value.showColorsConfig = false;
+
+                break;
+            
+            default:
+                showConfigs.value = {
+                    showColorsConfig: false,
+                    showIssuanceConfig: false,
+                    showStockConfig: false,
+                };
+                break;
+        }
+    }
 
     const getConfigs = async () => 
     {
@@ -121,6 +194,7 @@
         {
             colorOptions.value.buttonColor = data.buttonColor;
             colorOptions.value.painelColor = data.painelColor;
+            colorOptions.value.textColor = data.textColor;
             
         };
     };
