@@ -13,14 +13,15 @@
 
         <div class="bg-white p-4 mb-4 rounded shadow-sm w-[99%]">
             <q-btn 
-                :style="`background-color: ${showConfigs.showColorsConfig ? 'green' : colorOptions.buttonColor}; color: ${colorOptions.textColor}`" 
+                :style="`background-color: ${showConfigs.showColorsConfig ? 'green' : buttonColor}; color: ${textColor}`" 
                 label="Cores"
                 @click="manageShowConfig('color')"
                 class="mr-4"
+
             />
 
             <q-btn 
-                :style="`background-color: ${showConfigs.showIssuanceConfig ? 'green' : colorOptions.buttonColor}; color: ${colorOptions.textColor}`" 
+                :style="`background-color: ${showConfigs.showIssuanceConfig ? 'green' : buttonColor}; color: ${textColor}`" 
                 label="Emissão"
                 @click="manageShowConfig('issuance')"
                 class="mr-4"
@@ -28,7 +29,7 @@
             />
 
             <q-btn 
-                :style="`background-color: ${showConfigs.showStockConfig ? 'green' : colorOptions.buttonColor}; color: ${colorOptions.textColor}`" 
+                :style="`background-color: ${showConfigs.showStockConfig ? 'green' : buttonColor}; color: ${textColor}`" 
                 label="Estoque"
                 @click="manageShowConfig('stock')"
                 class="mr-4"
@@ -38,10 +39,8 @@
         
         <div v-if="showConfigs.showColorsConfig" class="w-[99%] flex gap-4 p-4 bg-white">
             <div class="border border-black p-3 rounded-lg ">
-                <h3>
-                    Cor dos botões
-                    
-                </h3>
+                <h3>Cor dos botões</h3>
+                
                 <q-color    
                     v-model="colorOptions.buttonColor" 
                     :default-value="colorOptions.buttonColor"
@@ -141,6 +140,8 @@
     });
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+    const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
+    const textColor = ref<string>(LocalStorage.getItem("textColor"));
 
     let showPage = ref<boolean>(false);
     let showImportFiles = ref<boolean>(false);

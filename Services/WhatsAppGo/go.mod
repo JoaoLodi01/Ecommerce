@@ -3,7 +3,7 @@ module g2l.whatsapp.com
 go 1.24.5
 
 require (
-	github.com/mattn/go-sqlite3 v1.14.30
+	github.com/go-sql-driver/mysql v1.9.3
 	go.mau.fi/whatsmeow v0.0.0-20250807072145-72ce90b82194
 	google.golang.org/protobuf v1.36.6
 )
@@ -14,6 +14,8 @@ require (
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
+	github.com/mattn/go-sqlite3 v1.14.30 // indirect
+	github.com/pbribeiro/whatsmeow-mysql v0.0.0-20250329033839-9e224a328947 // indirect
 	github.com/petermattis/goid v0.0.0-20250508124226-395b08cebbdb // indirect
 	github.com/rs/zerolog v1.34.0 // indirect
 	go.mau.fi/libsignal v0.2.0 // indirect

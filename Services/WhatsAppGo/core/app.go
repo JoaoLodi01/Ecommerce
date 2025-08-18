@@ -27,7 +27,13 @@ func Login() (string, error) {
 	dbLog := waLog.Stdout("DataBase", "DEBUG", true)
 	ctx := context.Background()
 
-	container, err := sqlstore.New(ctx, "sqlite3", "file:session.db?_foreign_keys=on", dbLog)
+	container, err := sqlstore.New(
+		ctx,
+		"sqlite3",
+		"file:session.db?_foreign_keys=on",
+		dbLog,
+	)
+
 	if err != nil {
 		return "", err
 	}

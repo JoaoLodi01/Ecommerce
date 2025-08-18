@@ -4,9 +4,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"os"
-	"os/exec"
-	"time"
 
 	"g2l.email/api"
 	"g2l.email/cors"
@@ -14,19 +11,13 @@ import (
 )
 
 func main() {
-	cmd := exec.Command("clear")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	cmd.Start()
-	time.Sleep(1 * time.Second)
-	// Limpa o terminal anterior apenas para ficar visualmente mais leve
-
 	mux := http.NewServeMux() // Novo servidor para uso do cors
 
 	// Rota principal, apenas verificar se está ok o "servidor"
 	mux.HandleFunc("/api/v1/email/home", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		log.Println("Passou pelo /api/v1/email/home")
+
 		if r.Method != http.MethodGet {
 			w.WriteHeader(http.StatusInternalServerError)
 
@@ -42,6 +33,7 @@ func main() {
 		json.NewEncoder(w).Encode(map[string]any{
 			"success": true,
 			"status":  "ok",
+			"message": "Serviço em operação",
 		})
 	})
 
