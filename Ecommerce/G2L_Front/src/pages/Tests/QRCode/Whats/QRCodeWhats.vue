@@ -32,9 +32,11 @@
 
 <script setup lang="ts">
     import { onMounted, ref } from 'vue'
+    import { useQuasar } from 'quasar'
     import QRCode from 'qrcode'
     import axios from 'axios';
 
+    const $q = useQuasar();
     const url = ref<string>("http://localhost:3000/api/v1");
     let qr = ref<string>('');
     let qrImage = ref<string>('');
@@ -59,7 +61,17 @@
                     }
                 });
 
-                console.log(send)
+                const data = send.data.status;
+                if(data === 'enviado') {
+                    $q.notify({
+                        color: 'green',
+                        position: 'top',
+                        message: 'Mensagem enviada com sucesso!',
+                        timeout: 2000
+                    });
+                };
+
+                console.log(send.data);
                 
             } catch (error) {
                 console.error('Erro ao enviar msg: ', error)

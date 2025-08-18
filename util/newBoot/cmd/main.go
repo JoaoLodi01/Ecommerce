@@ -129,6 +129,22 @@ func StartServers(ip net.IP) {
 	cmdGoWhats.Stdout = os.Stdout
 	cmdGoWhats.Stderr = os.Stderr
 	cmdGoWhats.Start()
+
+	emailPath, err := validatePath(
+		`D:/Gabriel/Projetos/G2L_DevHouse/Services/EmailService/cmd`,
+		`C:/Gabriel/Projetos/G2L_DevHouse/Services/EmailService/cmd`,
+	)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	cmdGoEmail := exec.Command("go", "run", "main.go")
+	cmdGoEmail.Dir = emailPath
+	cmdGoEmail.Stdout = os.Stdout
+	cmdGoEmail.Stderr = os.Stderr
+	cmdGoEmail.Start()
+
 }
 
 func main() {

@@ -4,34 +4,153 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
+	"os/exec"
+	"time"
 
-	"g2l.email.com/cors"
+	"g2l.email/api"
+	"g2l.email/cors"
+	"g2l.email/internal"
 )
 
 func main() {
-	mx := http.NewServeMux()
+	cmd := exec.Command("clear")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Start()
+	time.Sleep(1 * time.Second)
+	// Limpa o terminal anterior apenas para ficar visualmente mais leve
 
-	mx.HandleFunc("/api/v1/email/home", func(w http.ResponseWriter, r *http.Request) {
+	mux := http.NewServeMux() // Novo servidor para uso do cors
 
-		if r.Method == http.MethodGet {
+	// Rota principal, apenas verificar se está ok o "servidor"
+	mux.HandleFunc("/api/v1/email/home", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		log.Println("Passou pelo /api/v1/email/home")
+		if r.Method != http.MethodGet {
+			w.WriteHeader(http.StatusInternalServerError)
+
 			json.NewEncoder(w).Encode(map[string]any{
 				"success": false,
 				"status":  http.StatusMethodNotAllowed,
-				"message": "método não suportado",
+				"message": "Método não suportado",
+			})
+			return
+
+		}
+
+		json.NewEncoder(w).Encode(map[string]any{
+			"success": true,
+			"status":  "ok",
+		})
+	})
+
+	//Rota para o envio do e-mail, esperando o type dialType
+
+	mux.HandleFunc("/api/v1/email/send-message", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		log.Println("Passou pelo /api/v1/email/send-message")
+
+		if r.Method != http.MethodPost {
+			w.WriteHeader(http.StatusInternalServerError)
+
+			json.NewEncoder(w).Encode(map[string]any{
+				"success": false,
+				"status":  http.StatusMethodNotAllowed,
+				"message": "Método não suportado",
 			})
 			return
 		}
 
-		log.Println("Passou no home")
+		var dial internal.Dial
+
+		if err := json.NewDecoder(r.Body).Decode(&dial); err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			log.Println("JSON Inválido")
+			json.NewEncoder(w).Encode(map[string]any{
+				"success": false,
+				"status":  http.StatusBadRequest,
+				"error":   err,
+				"message": "JSON Inválido",
+			})
+			return
+		}
+
+		msg, err := api.SendMessage(dial)
+
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			log.Println("Erro no envio do e-mail")
+			json.NewEncoder(w).Encode(map[string]any{
+				"success": false,
+				"status":  http.StatusBadRequest,
+				"error":   err,
+				"message": err,
+			})
+			return
+		}
+
 		json.NewEncoder(w).Encode(map[string]any{
-			"status":  "ok",
 			"success": true,
-			"message": "Serviço ok",
+			"status":  http.StatusOK,
+			"message": msg,
 		})
 	})
 
-	handler := cors.WithCORS(mx)
+	mux.HandleFunc("/api/v1/email/html/send-message", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		log.Println("Passou pelo /api/v1/email/send-message")
 
-	log.Println("URL: localhost:3030/api/v1/email/")
-	log.Fatal(http.ListenAndServe(":3030", handler))
+		if r.Method != http.MethodPost {
+			w.WriteHeader(http.StatusInternalServerError)
+
+			json.NewEncoder(w).Encode(map[string]any{
+				"success": false,
+				"status":  http.StatusMethodNotAllowed,
+				"message": "Método não suportado",
+			})
+			return
+		}
+
+		var dial internal.Dial
+
+		if err := json.NewDecoder(r.Body).Decode(&dial); err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			log.Println("JSON Inválido")
+			json.NewEncoder(w).Encode(map[string]any{
+				"success": false,
+				"status":  http.StatusBadRequest,
+				"error":   err,
+				"message": "JSON Inválido",
+			})
+			return
+		}
+
+		msg, err := api.SendMessageHTML(dial)
+
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			log.Println("Erro no envio do e-mail")
+			json.NewEncoder(w).Encode(map[string]any{
+				"success": false,
+				"status":  http.StatusBadRequest,
+				"error":   err,
+				"message": err,
+			})
+			return
+		}
+
+		json.NewEncoder(w).Encode(map[string]any{
+			"success": true,
+			"status":  http.StatusOK,
+			"message": msg,
+		})
+	})
+
+	handler := cors.WithCORS(mux)
+	addr := ":3030"
+
+	log.Println("Servidor rodando em: localhost:3030")
+	log.Println("Rota home: localhost:3030/api/v1/email/home")
+	log.Fatal(http.ListenAndServe(addr, handler))
 }
