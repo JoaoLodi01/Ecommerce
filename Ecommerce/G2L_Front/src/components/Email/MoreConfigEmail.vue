@@ -1,8 +1,8 @@
 <template>
     <q-dialog v-model="show" persistent>
-        <q-card>
-            <q-card-section class="h-auto overflow-hidden">
-                <div class="w-96 ml-4">
+        <q-card class="h-[20rem]">
+            <q-card-section>
+                <div class="w-52 ml-4">
                     <span class="border-b text-lg">E-mails adicioneis</span>
                     <div class="flex mt-2">
                         <div class="mt-2">
@@ -12,6 +12,9 @@
                                 label="Endereço de e-mail" 
                                 class="border-b"
                                 borderless
+                                :rules="[
+                                    val => !!val || 'O e-mail precisa ser preenchido!'
+                                ]"
                             />
                         </div>
 
@@ -164,5 +167,22 @@
     onMounted(async() => {
         getEmails();
 
+    });
+
+    document.addEventListener('keydown', (event: KeyboardEvent) => {
+        const keyName = event.key;
+        console.log(keyName);
+        switch (keyName) {
+            case 'Escape':
+                close();           
+                break;
+        
+            case 'Enter':
+                appendEmail();
+                break;
+
+            default:
+                break;
+        };
     });
 </script>

@@ -49,7 +49,7 @@
                                     <q-btn 
                                         @click="openReportErros()"
                                         :style="`background-color: ${buttonColor}; color: ${textColor}`"
-                                        label="Conferir relatórios de erros"
+                                        label="Conferir relatórios de rejeições (NFC-epay)"
 
                                     /> 
                                     <span 
@@ -71,7 +71,7 @@
                                 <q-item-label>
                                     <q-btn 
                                         :style="`background-color: ${buttonColor}; color: ${textColor}`"
-                                        label="Envio de e-mail - XML"
+                                        label="Envio relatório de vendas - XML"
                                         @click=""
 
                                     /> 

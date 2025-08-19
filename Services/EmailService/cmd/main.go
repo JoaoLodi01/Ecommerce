@@ -32,7 +32,7 @@ func main() {
 
 		json.NewEncoder(w).Encode(map[string]any{
 			"success": true,
-			"status":  "ok",
+			"status":  http.StatusOK,
 			"message": "Serviço em operação",
 		})
 	})

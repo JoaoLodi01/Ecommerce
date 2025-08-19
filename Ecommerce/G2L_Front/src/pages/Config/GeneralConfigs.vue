@@ -114,15 +114,30 @@
                <div class="mt-4 p-3 border rounded">
                     <div class="flex">
                         <h3>E-mail</h3>
-                        <span class="mb-auto ml-1 mt-[1.1rem] text-gray-400 text-sm">G-mail</span>
-
+                        <svg 
+                            @click="showInformationsOfMail = !showInformationsOfMail"
+                            xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke-width="1.5" 
+                            stroke="currentColor" 
+                            class="size-6 mb-auto mt-auto ml-1 cursor-pointer"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                        </svg>
                     </div>
+                    
+                    <DialogMoreInformation
+                        :show-informations-of-mail="showInformationsOfMail"
+                        @close="showInformationsOfMail = !$event"
+                    />
 
                     <div class="box_ flex gap-3">
                         <q-input 
                             v-model="emailData.host"
                             type="text"
                             label="SMTP" 
+                            @update:model-value="fixLowerCase"
                             :rules="[
                                 val => !!val || 'Esse campo é obrigatório'
                             ]"
@@ -133,8 +148,9 @@
                             v-model="emailData.port"
                             type="text"
                             label="Porta"
+                            maxlength="5"
                             :rules="[
-                                val => !!val || 'Esse campo é obrigatório'
+                                val => !isNaN(Number(val)) || 'Esse campo precisa ser um número'
                             ]"
 
                         />
@@ -163,6 +179,7 @@
                             v-model="emailData.useTLS" 
                             :options="['no']" 
                             label="usar TLS"
+                            class="w-32"
                             filled 
                             :rules="[
                                 val => !!val || 'Esse campo é obrigatório'
@@ -174,6 +191,7 @@
                             v-model="emailData.useSSL" 
                             :options="['no']" 
                             label="usar SSL"
+                            class="w-32"
                             filled 
                             :rules="[
                                 val => !!val || 'Esse campo é obrigatório'
@@ -188,10 +206,10 @@
                                 class="w-max mt-auto mb-auto ml-2  text-white rounded-lg p-1 cursor-pointer" 
                                 :class="{
                                     'bg-green-400': blockSendMailTest,
-                                    'bg-gray-400': !blockSendMailTest,
+                                    'bg-gray-400': !blockSendMailTest || emailData.host === '',
                                 }"
                                 title="Enviar e-mail teste" 
-                                @click.prevent="blockSendMailTest && sendEmailTest()" 
+                                @click.prevent="blockSendMailTest && emailData.host !== '' && sendEmailTest()" 
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-6">
@@ -274,6 +292,7 @@
     import ImportFiles from 'src/components/Files/ImportFiles.vue';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import MoreConfigEmail from 'src/components/Email/MoreConfigEmail.vue';
+    import DialogMoreInformation from 'src/components/Email/DialogMoreInformation.vue';
     import camelcaseKeys from 'camelcase-keys';
 
     type TShowConfigs = {
@@ -326,6 +345,7 @@
     let showImportFiles = ref<boolean>(false);
     let isConnected = ref<boolean>(false);
     let showMoreConfigEmail = ref<boolean>(false);
+    let showInformationsOfMail = ref<boolean>(false);
     let blockSendMailTest = ref<boolean>(true);
 
     const getConfigs = async () => 
@@ -345,7 +365,6 @@
 
             // Mail
             const mailData: IEmail = camelcaseKeys(res.data.data.emails, { deep: true });
-            console.log('Mail: ', mailData);
             emailData.value = {
                 host: mailData.host,
                 port: mailData.port,
@@ -402,11 +421,18 @@
     // E-mail
     const saveEmailData = async () =>
     {
+        $q.notify({
+            position: 'top',
+            color: 'yellow',
+            message: 'Processando dados...',
+            timeout: 1200
+
+        });
         const mail = emailData.value;
         const payLoad = {
             'host': mail.host,
             'port': mail.port,
-            'username': mail.userName,
+            'userName': mail.userName,
             'password': mail.password,
             'useTLS': mail.useTLS,
             'useSSL': mail.useSSL
@@ -430,7 +456,14 @@
 
     const sendEmailTest = async () =>
     {
-        console.log('Vai fazer o envio');
+        $q.notify({
+            position: 'top',
+            color: 'yellow',
+            message: 'Processando dados...',
+            timeout: 1200
+
+        });
+
         blockSendMailTest.value = false;
         const mail = emailData.value;
         const payLoad = {
@@ -455,8 +488,13 @@
         if(data.success)
         {
             $q.notify({
+                position: 'top',
+                color: 'green',
+                message: data.message,
+                timeout: 1200
 
             });
+
             blockSendMailTest.value = true;
         };
     };
@@ -483,6 +521,11 @@
         link.click();
         document.body.removeChild(link);
 
+    };
+
+    const fixLowerCase = (val: string) =>
+    {
+        emailData.value.host = val.toLocaleLowerCase();
     };
 
     const manageShowConfig = (config: string): void => 

@@ -357,12 +357,14 @@
     const getPayments = async () =>
     {
         const res = await api.get(`/species/all/${issuerID.value}`);
-        paymentsForms.value = res.data.all // Chama as formas de pagamento;
+        console.log('getPayments', res.data)
+        paymentsForms.value = res.data.data // Chama as formas de pagamento;
 
     };
 
     onMounted(() => {
         console.log('Total a ser pago: ', props.totalOperation);
+        console.log(paymentsForms.value);
         getPayments();
         
     })
