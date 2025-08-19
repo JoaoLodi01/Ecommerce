@@ -26,8 +26,10 @@ class ConfigEmailRepository
         $config = ConfigEmail::where('issuer_id', $id)->update([
             'host' => $data['host'],
             'port' => $data['port'],
-            'username' => $data['username'],
-            'password' => $data['password']
+            'user_name' => $data['userName'],
+            'password' => $data['password'],
+            'use_tls' => $data['useTLS'],
+            'use_ssl' => $data['useSSL']
         ]);
         
         return $config;

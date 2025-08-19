@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use App\Services\Config\ConfigService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Config\ConfigColor;
+use App\Http\Requests\Config\ConfigEmailRequest;
 use App\Http\Requests\Customers\Config\ConfigCustomerRequest;
 use App\Http\Requests\HotelRequest\Config\ConfigHotelRequest;
 use App\Http\Requests\PDV\Config\AlterPDVLogoRequest;
@@ -109,8 +110,8 @@ class ConfigController extends Controller
     }
     // ----------------------------------------------------------------------------------------- \\
 
-    public function updateEmail(array $data, int $issuerID)
+    public function updateEmail(ConfigEmailRequest $data, int $issuerID)
     {
-        return apiSuccess('E-mail alterado com sucesso!', $this->configService->updateEmail($data, $issuerID));
+        return apiSuccess('E-mail alterado com sucesso!', $this->configService->updateEmail($data->validated(), $issuerID));
     }
 }

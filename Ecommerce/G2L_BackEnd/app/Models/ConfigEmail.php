@@ -13,8 +13,10 @@ class ConfigEmail extends Model
         'config_email_code',
         'host',
         'port',
-        'username',
-        'password'
+        'user_name',
+        'password',
+        'use_tls',
+        'use_ssl'
     ];    
 
     public function additionalEmails() {

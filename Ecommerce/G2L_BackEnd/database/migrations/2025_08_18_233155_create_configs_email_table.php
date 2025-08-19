@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('port', 5)->default('');
             $table->string('user_name', 80)->default('');
             $table->string('password', 80)->default('');
+            $table->string('use_tls', 3)->default('no');
+            $table->string('use_ssl', 3)->default('no');
             $table->timestamps();
         });
     }

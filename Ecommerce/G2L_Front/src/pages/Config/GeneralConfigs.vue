@@ -112,13 +112,20 @@
                <h2 class="border-b">Configurações</h2>
 
                <div class="mt-4 p-3 border rounded">
-                    <h3>E-mail</h3>
+                    <div class="flex">
+                        <h3>E-mail</h3>
+                        <span class="mb-auto ml-1 mt-[1.1rem] text-gray-400 text-sm">G-mail</span>
 
-                    <div class="box_ flex gap-4">
+                    </div>
+
+                    <div class="box_ flex gap-3">
                         <q-input 
                             v-model="emailData.host"
                             type="text"
                             label="SMTP" 
+                            :rules="[
+                                val => !!val || 'Esse campo é obrigatório'
+                            ]"
 
                         />
 
@@ -126,20 +133,51 @@
                             v-model="emailData.port"
                             type="text"
                             label="Porta"
+                            :rules="[
+                                val => !!val || 'Esse campo é obrigatório'
+                            ]"
 
                         />
                         
                         <q-input 
-                            v-model="emailData.username"
+                            v-model="emailData.userName"
                             type="text"
                             label="E-mail" 
+                            :rules="[
+                                val => !!val || 'Esse campo é obrigatório'
+                            ]"
 
                         />
                         
                         <q-input 
                             v-model="emailData.password"
                             type="password"
-                            label="Senha" 
+                            label="Senha de app" 
+                            :rules="[
+                                val => !!val || 'Esse campo é obrigatório'
+                            ]"
+
+                        />
+
+                        <q-select 
+                            v-model="emailData.useTLS" 
+                            :options="['no']" 
+                            label="usar TLS"
+                            filled 
+                            :rules="[
+                                val => !!val || 'Esse campo é obrigatório'
+                            ]"
+
+                        />
+
+                        <q-select 
+                            v-model="emailData.useSSL" 
+                            :options="['no']" 
+                            label="usar SSL"
+                            filled 
+                            :rules="[
+                                val => !!val || 'Esse campo é obrigatório'
+                            ]"
 
                         />
                     </div>
@@ -147,12 +185,16 @@
                     <div class="mt-4">
                         <div class="flex">
                             <div 
-                                class="w-max mt-auto mb-auto ml-2 bg-green-400 text-white rounded-lg p-1 cursor-pointer" 
+                                class="w-max mt-auto mb-auto ml-2  text-white rounded-lg p-1 cursor-pointer" 
+                                :class="{
+                                    'bg-green-400': blockSendMailTest,
+                                    'bg-gray-400': !blockSendMailTest,
+                                }"
                                 title="Enviar e-mail teste" 
-                                @click="sendEmailTest" 
-
+                                @click.prevent="blockSendMailTest && sendEmailTest()" 
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-6">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-6">
                                     <path d="M8.75 2.75a.75.75 0 0 0-1.5 0v3.69l-.72-.72a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.06 0l2-2a.75.75 0 1 0-1.06-1.06l-.72.72V2.75Z" />
                                     <path d="M4.784 4.5a.75.75 0 0 0-.701.483L2.553 9h2.412a1 1 0 0 1 .832.445l.406.61a1 1 0 0 0 .832.445h1.93a1 1 0 0 0 .832-.445l.406-.61A1 1 0 0 1 11.035 9h2.412l-1.53-4.017a.75.75 0 0 0-.7-.483h-.467a.75.75 0 0 1 0-1.5h.466c.934 0 1.77.577 2.103 1.449l1.534 4.026c.097.256.147.527.147.801v1.474A2.25 2.25 0 0 1 12.75 13h-9.5A2.25 2.25 0 0 1 1 10.75V9.276c0-.274.05-.545.147-.801l1.534-4.026A2.25 2.25 0 0 1 4.784 3h.466a.75.75 0 0 1 0 1.5h-.466Z" />
                                 </svg>
@@ -244,8 +286,10 @@
     interface IEmail {
         host: string,
         port: number|any,
-        username: string,
-        password: string
+        userName: string,
+        password: string,
+        useTLS: string,
+        useSSL: string
     }
     
     const $q = useQuasar();
@@ -264,8 +308,10 @@
     const emailData = ref<IEmail>({
         host: '',
         port: null,
-        username: '',
-        password: ''
+        userName: '',
+        password: '',
+        useTLS: 'no',
+        useSSL: 'no'
 
     });
 
@@ -280,18 +326,35 @@
     let showImportFiles = ref<boolean>(false);
     let isConnected = ref<boolean>(false);
     let showMoreConfigEmail = ref<boolean>(false);
+    let blockSendMailTest = ref<boolean>(true);
 
     const getConfigs = async () => 
     {
         const res = await api.get(`/configs/all-configs/${issuerID.value}`);
-        const data: TColorOptions = camelcaseKeys(res.data.data.color, { deep: true });
+        console.log(res.data.data)
 
         if(res.data.success)
         {
-            colorOptions.value.buttonColor = data.buttonColor;
-            colorOptions.value.painelColor = data.painelColor;
-            colorOptions.value.textColor = data.textColor;
-            
+            // Colors
+            const colorData: TColorOptions = camelcaseKeys(res.data.data.color, { deep: true });
+            colorOptions.value.buttonColor = colorData.buttonColor;
+            colorOptions.value.painelColor = colorData.painelColor;
+            colorOptions.value.textColor = colorData.textColor;
+
+            //
+
+            // Mail
+            const mailData: IEmail = camelcaseKeys(res.data.data.emails, { deep: true });
+            console.log('Mail: ', mailData);
+            emailData.value = {
+                host: mailData.host,
+                port: mailData.port,
+                userName: mailData.userName,
+                password: mailData.password,
+                useTLS: mailData.useTLS,
+                useSSL: mailData.useSSL                
+            };
+            //
         };
     };
 
@@ -339,19 +402,44 @@
     // E-mail
     const saveEmailData = async () =>
     {
-
-    };
-
-    const sendEmailTest = async () =>
-    {
         const mail = emailData.value;
         const payLoad = {
             'host': mail.host,
             'port': mail.port,
-            'userName': mail.username,
+            'username': mail.userName,
             'password': mail.password,
-            'from': mail.username,
-            'to': mail.username,
+            'useTLS': mail.useTLS,
+            'useSSL': mail.useSSL
+        
+        };
+
+        const res = await api.put(`/configs/email/update-email/${issuerID.value}`, payLoad);
+        console.log(res.data);
+        const data = res.data;
+
+        if(data.success)
+        {
+            $q.notify({
+                position: 'top',
+                color: 'green',
+                message: data.message,
+                timeout: 1200
+            });
+        };
+    };
+
+    const sendEmailTest = async () =>
+    {
+        console.log('Vai fazer o envio');
+        blockSendMailTest.value = false;
+        const mail = emailData.value;
+        const payLoad = {
+            'host': mail.host,
+            'port': Number(mail.port),
+            'userName': mail.userName,
+            'password': mail.password,
+            'from': mail.userName,
+            'to': mail.userName,
             'subject': `Teste de envio`,
             'message': `Teste de envio`,
         };
@@ -361,7 +449,16 @@
                 "Content-Type": "application/json"
             }
         });
-        console.log(res.data);
+        const data = res.data;
+
+        console.log(data);
+        if(data.success)
+        {
+            $q.notify({
+
+            });
+            blockSendMailTest.value = true;
+        };
     };
     //
     
