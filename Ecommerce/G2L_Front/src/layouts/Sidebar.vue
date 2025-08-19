@@ -779,9 +779,7 @@
         if(intervalID.value)
         {
             clearInterval(intervalID.value);
-            console.log('Vai parar de chamar o getColors');
         };
-
     });
 
 </script>

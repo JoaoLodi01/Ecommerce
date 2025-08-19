@@ -18,9 +18,10 @@ class ProductsController extends Controller
         protected ProductsService $productsService
     ){}
 
-    public function getAll(int $issuer_id)
+    public function getAll(int $issuerID)
     {
-        return apiSuccess('Todos os produtos', $this->productsService->getAll($issuer_id));
+        Log::debug($issuerID);
+        return apiSuccess('Todos os produtos', $this->productsService->getAll($issuerID));
     }
 
     public function search(SearchProducts $request)

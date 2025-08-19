@@ -10,7 +10,6 @@ class ConfigHotelRepository implements ConfigHotelContract
 {
     public function getConfigs(int $id)
     {
-        Log::debug('caiu aqui');
         return ConfigHotel::where('issuer_id', $id)->first();
         
     }

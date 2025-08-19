@@ -108,4 +108,9 @@ class ConfigController extends Controller
         ]);
     }
     // ----------------------------------------------------------------------------------------- \\
+
+    public function updateEmail(array $data, int $issuerID)
+    {
+        return apiSuccess('E-mail alterado com sucesso!', $this->configService->updateEmail($data, $issuerID));
+    }
 }

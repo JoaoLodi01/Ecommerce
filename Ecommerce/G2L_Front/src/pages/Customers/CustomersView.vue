@@ -159,7 +159,7 @@
                 :rows="customers"
                 :columns="columns"
                 v-model:pagination="pagination"
-                row-key="customer_code"
+                row-key="customerCode"
                 hide-bottom
             
             >
@@ -174,13 +174,13 @@
                         }"
                     >
                         <div
-                            @click.prevent="!editByButtonConfig ? customerManagement('update', props.row.active, props.row.customer_code,) : null "
+                            @click.prevent="!editByButtonConfig ? customerManagement('update', props.row.active, props.row.customerCode,) : null "
                             
                         >
                             <div class="text-lg">
                                 <span class="text-gray-500 text-base">Código</span>
                                 <br>
-                                <span class="font-semibold text-lg">{{ props.row.customer_code }}</span>
+                                <span class="font-semibold text-lg">{{ props.row.customerCode }}</span>
                                 
                             </div>
                             <div class="text-lg">
@@ -211,9 +211,9 @@
                             </div>
                         </div>
 
-                        <div class="slashed-zero flex space-x-2 mt-5" v-if="props.row.customer_code !== 1">
+                        <div class="slashed-zero flex space-x-2 mt-5" v-if="props.row.customerCode !== 1">
                             <q-btn
-                                @click="customerManagement('update', props.row.active, props.row.customer_code)"
+                                @click="customerManagement('update', props.row.active, props.row.customerCode)"
                                 class="px-4 py-2 rounded-lg transition"
                                 label="Editar"
                                 :disabled=!props.row.active
@@ -224,7 +224,7 @@
                             />
 
                             <q-btn
-                                @click="deleteOrActive('disable', props.row.customer_code)"
+                                @click="deleteOrActive('disable', props.row.customerCode)"
                                 class="px-4 py-2 rounded-lg transition"
                                 :disabled=!props.row.active
                                 :class="{
@@ -237,7 +237,7 @@
                                 
                             
                             <q-btn
-                                @click="deleteOrActive('active', props.row.customer_code)"
+                                @click="deleteOrActive('active', props.row.customerCode)"
                                 v-else
                                 class="px-4 py-2 rounded-lg transition"
                                 label="Ativar"
@@ -250,7 +250,7 @@
                                 v-if="props.row.active"
                                 label="Visualizar"
                                 class="rounded-lg text-white bg-sky-500"
-                                @click="viewCustomer(props.row.customer_code)"
+                                @click="viewCustomer(props.row.customerCode)"
                             />
                         </div>
                     </q-card>
@@ -338,9 +338,9 @@
 
     const columns: QTableColumn[] = [
         { 
-            name: 'customer_code', 
+            name: 'customerCode', 
             label: 'Código', 
-            field: 'customer_code', 
+            field: 'customerCode', 
             align: 'center' 
         },
         { 
@@ -443,15 +443,15 @@
         
         switch (class_) {
             case 'is_customer':
-                customers.value = allCustomers.value.filter(c => isAll ? c.is_customer : c.is_customer && c.active === status) ;
+                customers.value = allCustomers.value.filter(c => isAll ? c.isCustomer : c.isCustomer && c.active === status) ;
                 break;
 
             case 'is_driver':
-                customers.value = allCustomers.value.filter(c => isAll ? c.is_driver : c.is_driver && c.active === status);
+                customers.value = allCustomers.value.filter(c => isAll ? c.isDriver : c.isDriver && c.active === status);
                 break;
 
             case 'is_supplier':
-                customers.value = allCustomers.value.filter(c => isAll ? c.is_supplier : c.is_supplier && c.active === status);
+                customers.value = allCustomers.value.filter(c => isAll ? c.isSupplier : c.isSupplier && c.active === status);
                 break;
 
             default:
@@ -469,16 +469,17 @@
     const getCustomers = async () =>
     {
         const res = await api.get(`/customers/all/${issuerID.value}`);
-        console.log(res.data.data);
-        allCustomers.value = res.data.data;
+        
+        allCustomers.value = camelcaseKeys(res.data.data, { deep: true });
+        
         pagination.value = {
             rowsPerPage: allCustomers.value.length
         };
         
         allCustomers.value.map(c => {
-            if(c.is_customer) countCustomers.value.isCustomer += 1;
-            if(c.is_driver) countCustomers.value.isDriver += 1;
-            if(c.is_supplier) countCustomers.value.isSupplier += 1;
+            if(c.isCustomer) countCustomers.value.isCustomer += 1;
+            if(c.isDriver) countCustomers.value.isDriver += 1;
+            if(c.isSupplier) countCustomers.value.isSupplier += 1;
         })
         
         customers.value = [...allCustomers.value];
@@ -488,7 +489,10 @@
     const deleteOrActive = async (action: string, id: number) =>
     {
         const res = action === 'disable' ? await api.put(`customers/${id}/${action}`) : await api.put(`customers/${id}/${action}`);
-        if(res.data.success)
+
+        const customer = customers.value.find(c => c.customerCode === id);
+
+        if(res.data.success && customer)
         {
             $q.notify({
                 color: `green`,
@@ -497,13 +501,8 @@
                 position: 'top'
                 
             });
-
-            const customer = customers.value.find(c => c.customerCode === id);
-            if(customer)
-            {
-                customer.active = action === 'active' ? 1 : 0;
-                
-            };
+            
+            customer.active = action === 'disable' ? 0 : 1;
         };
     };
 
@@ -517,10 +516,8 @@
 
     const customerManagement = (action: string, active: number, customerCod: number) =>
     {
-        console.log(action);
         if(action === 'update')
         {
-            console.log('Foi update');
             if(active !== 1)
             {
                 $q.notify({
@@ -547,7 +544,6 @@
 
             if(active === 1)
             {
-                console.log('Vai abrir o update');
                 operation.value = action;
                 showCustomers.value = false;
                 showCustomerManagement.value = true;
@@ -558,7 +554,6 @@
             };
             
         } else {
-            console.log('Vai abrir o create');
             operation.value = action;
             showCustomers.value = false;
             showCustomerManagement.value = true;
@@ -612,8 +607,6 @@
 
         });
 
-        console.log(res);
-
         const url = window.URL.createObjectURL(
             new Blob([res.data], { 
                 type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
@@ -640,7 +633,6 @@
     const filterBySearchBar = (customersCode: number[]) =>
     {
         customers.value = allCustomers.value.filter((c: ICustomer) => customersCode.includes(c.customerCode))
-        console.log(customers.value);
     };
 
     onMounted(() => {

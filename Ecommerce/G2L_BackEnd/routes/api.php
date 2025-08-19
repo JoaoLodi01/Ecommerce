@@ -28,7 +28,7 @@ use App\Http\Controllers\Auth\{
     AuthController,
     ForgotPasswordController
 };
-
+use App\Http\Controllers\Config\ConfigEmailController;
 use App\Http\Controllers\FirstSteps\FirstStepsController;
 use App\Http\Controllers\TributsController\TributsController;
 
@@ -180,6 +180,13 @@ Route::prefix('v1')->group( function (){
                 Route::post('/import-color/{issuer_id}', [ConfigController::class, 'importColors']);
 
                 Route::put('/update-config/{issuer_id}', [ConfigController::class, 'updateColor']);
+            });
+
+            Route::prefix('email')->group(function() {
+                Route::put('/update-email/{issuer_id}', [ConfigController::class, 'updateEmail']);
+                Route::get('/all/aditional/{id}', [ConfigEmailController::class, 'getAll']);
+                Route::post('/create/aditional', [ConfigEmailController::class, 'create']);
+                Route::put('/delete/aditional', [ConfigEmailController::class, 'delete']);
             });
         });
 

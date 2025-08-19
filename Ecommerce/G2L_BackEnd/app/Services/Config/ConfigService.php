@@ -7,6 +7,7 @@ use App\Repositories\Eloquent\Config\{
     ConfigCustomersRepository,
     ConfigPDVRepository,
     ConfigColorRepository,
+    ConfigEmailRepository,
     ConfigProductsRepostiry
 };
 use Exception;
@@ -21,7 +22,8 @@ class ConfigService
         protected ConfigPDVRepository $configPDVRepository,
         protected ConfigCustomersRepository $configCustomersRepository,
         protected ConfigColorRepository $configColorRepository,
-        protected ConfigProductsRepostiry $configProductsRepostiry
+        protected ConfigProductsRepostiry $configProductsRepostiry,
+        protected ConfigEmailRepository $configEmailRepository
 
     ) {}
 
@@ -32,17 +34,22 @@ class ConfigService
             'pdv' => $this->configPDVRepository->getConfigs($issuer_id),
             'customers' => $this->configCustomersRepository->getConfigs($issuer_id),
             'color' => $this->configColorRepository->getConfigs($issuer_id),
-            'products' => $this->configProductsRepostiry->getConfigs($issuer_id)
+            'products' => $this->configProductsRepostiry->getConfigs($issuer_id),
+            'emails' => $this->configEmailRepository->getConfigs($issuer_id),
             
         ];
     }
 
+    // Hotel
     public function updateHotel(array $data, int $issuer_id)
     {
         $config = $this->configHotelRepository->update($data, $issuer_id);
         return $config;
 
     }
+    //
+
+    // PDV
 
     public function updatePDV(array $data, int $id)
     {
@@ -58,10 +65,8 @@ class ConfigService
 
         $path = $file->storeAs($destiny, $fileName, 'public');
 
-        // Gera caminho web acessível
         $url = "/storage/{$path}";
 
-        // Salva no banco
         $this->configPDVRepository->updatePDVLogo($url, $id);
 
         return $url;
@@ -73,12 +78,16 @@ class ConfigService
 
         return $url;
     }
+    //
     
+    // Customer
     public function updateCustomer(array $data, int $issuer_id)
     {
         $config = $this->configCustomersRepository->update($data, $issuer_id);
         return $config;
     }
+
+    //
 
     // Colors
     public function updateColor(array $data, int $issuer_id)
@@ -99,6 +108,20 @@ class ConfigService
         
         return $configs;
 
+    }
+    //
+
+    // E-mail
+    public function updateEmail(array $data, int $issuerID)
+    {
+        $configs = $this->configEmailRepository->update($data, $issuerID);
+        if(!$configs)
+        {
+            throw new Exception('Erro ao alterar o e-mail');
+
+        }
+
+        return $configs;
     }
     //
 }

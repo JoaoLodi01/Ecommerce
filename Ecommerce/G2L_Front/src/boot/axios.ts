@@ -7,6 +7,7 @@ axios.defaults.withCredentials = false;
 
 const api = axios.create({ baseURL: process.env.API_URL });
 const apiAccess = axios.create({ baseURL: process.env.API_ACCESS_URL });
+const apiEmail = axios.create({ baseURL: process.env.API_EMAIL });
 
 export default boot(({ app, router }) => {
   api.interceptors.request.use(
@@ -61,7 +62,7 @@ export default boot(({ app, router }) => {
       const isPublic = publicAPIRoutes.some(route => requestUrl.includes(route));
       console.error(error)
       
-      if(!isPublic && error.response.status === 401 )
+      if(!isPublic && error?.response?.status === 401)
       {
         console.log('Vai pro login');
         const msg =
@@ -95,7 +96,8 @@ export default boot(({ app, router }) => {
 
   app.config.globalProperties.$api = api;
   app.config.globalProperties.$apiAccess = apiAccess;
+  app.config.globalProperties.$apiEmail = apiEmail;
   app.config.globalProperties.$bus = emitter;
 });
 
-export { api, apiAccess };
+export { api, apiAccess, apiEmail };

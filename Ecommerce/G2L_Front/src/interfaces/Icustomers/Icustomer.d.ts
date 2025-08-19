@@ -13,9 +13,9 @@ interface ICustomer
     address: string,
     number: string,
     email: string,
-    is_customer: boolean,
-    is_driver: boolean,
-    is_supplier: boolean,
+    isCustomer: boolean,
+    isDriver: boolean,
+    isSupplier: boolean,
     phone: string,
     active: number
 
