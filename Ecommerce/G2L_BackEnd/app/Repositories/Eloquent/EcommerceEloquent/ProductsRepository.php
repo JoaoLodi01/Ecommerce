@@ -5,16 +5,18 @@ namespace App\Repositories\Eloquent\EcommerceEloquent;
 use App\DTO\Products\ProductsDTO;
 use App\Models\EcommerceModels\Products;
 use App\Models\Registers\FirstSteps;
+use App\Repositories\Eloquent\Config\ConfigPDVRepository;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
-use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 class ProductsRepository 
 {
     protected $cacheKeyPrefix = 'products';
     protected $cacheDurration = 10;
 
     public function __construct(
-        protected GroupRepository $groupRepository
+        protected GroupRepository $groupRepository,
+        protected ConfigPDVRepository $configPDVRepository
+        
     ) {}
 
     public function getAll(int $issuer_id)
@@ -236,14 +238,29 @@ class ProductsRepository
     public function decreaseQuantiy(int $productCode, float|int $quantiy, int $issuerID)
     {
         Log::info('-- Inicio decreaseQuantiy, linha 50 --');
+
+        $configs = $this->configPDVRepository->getConfigs($issuerID);
         $product = $this->findByID($issuerID, $productCode);
         if($product)
         {
             Log::info('Produto encontrado ' . $product->product_code . ' produto: ' . $product);
-            $product->update([
-                'amount' => $product->amount - $quantiy
-            ]);
-            
+            Log::info('Tem que conferir se a opção para permitir a venda com estoque negativo está ativa: ' . $configs->sale_negative_or_reset);
+
+            if($configs->sale_negative_or_reset)
+            {
+                Log::info('Opção para permitir a venda com estoque negativo está ativa');
+                $product->update([
+                    'amount' => $product->amount - $quantiy
+                ]); 
+
+            } else {
+                Log::info('Opção para permitir a venda com estoque negativo não está ativa');
+                if($product->amount - $quantiy <= 0)
+                {
+                    return false;
+
+                }
+            }
         }
 
         Log::info('-- Fim decreaseQuantiy, linha 62 --');

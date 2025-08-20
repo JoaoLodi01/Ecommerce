@@ -89,7 +89,7 @@ func main() {
 		})
 	})
 
-	mux.HandleFunc("/api/v1/email/html/send-message", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/api/v1/email/send-message/test", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		log.Println("Passou pelo /api/v1/email/send-message")
 

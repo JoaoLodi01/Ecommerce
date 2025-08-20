@@ -77,7 +77,7 @@ class PDVRepository
         return $pdvs;
     }
 
-    public function saveProducts(array $products, int $pdvID, object $user, string|null $type)
+    public function saveProducts(array $products, int $pdvID, object $user, string $type)
     {
         Log::channel('pdv')->info('-- Iniciou o saveProducts() line 90 -- ');     
         $errors = [];
@@ -281,7 +281,9 @@ class PDVRepository
             for ($i=0; $i < count($products); $i++) { 
                 Log::channel('pdv')->info('Alteração dentro do for = ' . $pdv->pdv_code);
                 $product = $products[$i];
+                
                 $this->productsRepository->decreaseQuantiy($product->product_code, $product->amount, $issuerID);
+
                 $product->update([
                     'is_nfce_nm' => $pdv->is_nfce_nm,
                     'finished' => 1

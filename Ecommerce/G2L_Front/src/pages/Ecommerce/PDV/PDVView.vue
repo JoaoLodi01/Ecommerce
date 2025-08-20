@@ -50,7 +50,7 @@
 
     > <!-- SHOW PAGE -->
         <div
-            class="mx-auto rounded-lg mt-3 bg-white w-max border border-black" 
+            class="mx-auto rounded-lg mt-3 bg-white w-max border" 
             v-if="showGrid"
             :class="{
                 'flex ml-16': witdhScreen > 1080 && witdhScreen >= 1472,

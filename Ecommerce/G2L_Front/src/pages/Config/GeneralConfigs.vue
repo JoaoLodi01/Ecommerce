@@ -7,8 +7,8 @@
         />
 
     </div>
-    <div class="ml-16 text-2xl" v-if="showPage">
-        <h1>Configurações gerais</h1>
+    <div class="ml-16 text-1xl" v-if="showPage">
+        <h1 class="text-xl mt-8 mb-8 bg-white p-4 rounded">Configurações gerais</h1>
 
         <div class="bg-white p-4 mb-4 rounded shadow-sm w-[99%]">
             <q-btn 
@@ -109,11 +109,9 @@
 
         <div v-if="showConfigs.showCommunicationConfig" class="w-[99%] flex gap-4 p-4 bg-white">
             <div class="p-3 rounded-lg">
-               <h2 class="border-b">Configurações</h2>
-
-               <div class="mt-4 p-3 border rounded">
+               <div class="p-3 border rounded">
                     <div class="flex">
-                        <h3>E-mail</h3>
+                        <h3 class="text-xl">E-mail</h3>
                         <svg 
                             @click="showInformationsOfMail = !showInformationsOfMail"
                             xmlns="http://www.w3.org/2000/svg" 
@@ -477,24 +475,38 @@
             'message': `Teste de envio`,
         };
 
-        const res = await apiEmail.post('/api/v1/email/send-message', payLoad, {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-        const data = res.data;
 
-        console.log(data);
-        if(data.success)
-        {
+        try {
+            const res = await apiEmail.post('/api/v1/email/send-message/test', payLoad, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const data = res.data;
+
+            console.log(data);
+            if(data.success)
+            {
+                $q.notify({
+                    position: 'top',
+                    color: 'green',
+                    message: data.message,
+                    timeout: 1200
+
+                });
+            };
+            
+        } catch (e) {
+            console.error(e.response.data)
             $q.notify({
                 position: 'top',
-                color: 'green',
-                message: data.message,
+                color: 'red',
+                message: e.response.data.error.Msg,
                 timeout: 1200
 
             });
-
+        } finally {
             blockSendMailTest.value = true;
         };
     };

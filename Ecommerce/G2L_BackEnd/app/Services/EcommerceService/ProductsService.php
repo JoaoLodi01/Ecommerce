@@ -20,16 +20,10 @@ class ProductsService
         protected RegisterIssuerRepository $registerIssuerRepository
     ) {}
     
-    public function getAll(int $issuer_id){
-        $issuer = $this->registerIssuerRepository->find($issuer_id);
-
-        if(!$issuer)
-        {
-            throw new IssuerNotFound("Emitente não encontrado faça login novamente");
-
-        }
-
+    public function getAll(int $issuer_id)
+    {
         return $this->productsRepository->getAll($issuer_id);;
+        
     }
 
     public function search(array $data)

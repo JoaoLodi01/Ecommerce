@@ -115,7 +115,7 @@
     </div>
 
     <div
-        class="ml-16 p-1 mb-2 flex"
+        class="ml-16 p-1 mb-2 flex justify-between w-[150vh]"
         v-if="showProducts"
     >
         <ProductsSearchBar
@@ -129,17 +129,16 @@
     
         <q-select 
             v-model="searchBarFilter" 
-            :options="searchOptionProducts" 
-            color="amber-8"
+            :options="searchOptionProducts"
             label="Filtro de busca" 
-            class="p-1.5 ml-2 bg-white rounded-md"
+            class="p-1.5 ml-2 bg-white rounded"
         />
     </div>
   
     <div 
         class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-2" 
         :class="{
-            'ml-16 w-[160vh]': widthScreen > 1366,
+            'ml-16 w-[150vh]': widthScreen > 1366,
             'ml-12': widthScreen <= 1366
         }"    
     >
