@@ -258,13 +258,21 @@
             @close="closeReportErros($event)"
         />
     </div>
+    
+    <div v-if="showConfirm">
+        <ConfirmPage
+            :operation="typeOperation"
+            @confirm="handleOptionsPDV($event)"
 
-    <ConfirmPage
-        v-if="showConfirm"
-        :operation="typeOperation"
-        @confirm="handleOptionsPDV($event)"
+        />
+    </div>
 
-    />
+    <div class="">
+        <DialogSendByModule
+            
+        />
+        
+    </div>
     
 </template>
 
@@ -276,6 +284,7 @@
     import dayjs from "dayjs";
     import ReportErros from "src/components/PDV/Errors/ReportErros.vue";
     import ConfirmPage from "src/components/Confirm/ConfirmPage.vue"; 
+    import DialogSendByModule from "src/components/PDV/SendReportByEmail/DialogSendByModule.vue";
 
     type TPagination = {
         rowsPerPage: number

@@ -1,8 +1,12 @@
 package api
 
 import (
+	"errors"
 	"fmt"
 	"log"
+	"os"
+	"path/filepath"
+	"runtime"
 
 	"g2l.email/internal"
 	gomail "gopkg.in/mail.v2"
@@ -32,13 +36,13 @@ func SendMessage(dialData internal.Dial) (string, error) {
 
 func SendMessageHTML(dialData internal.Dial) (string, error) {
 	log.Println("Vai fazer o envio em HTML...")
-	message := gomail.NewMessage()
+	m := gomail.NewMessage()
 
-	message.SetHeader("From", dialData.From)
-	message.SetHeader("To", dialData.To)
-	message.SetHeader("Subject", dialData.Subject)
+	m.SetHeader("From", dialData.From)
+	m.SetHeader("To", dialData.To)
+	m.SetHeader("Subject", dialData.Subject)
 
-	message.SetBody("text/plain", dialData.Message)
+	m.SetBody("text/plain", "Teste")
 
 	htmlBody := fmt.Sprintln(`
 		<html>
@@ -91,11 +95,33 @@ func SendMessageHTML(dialData internal.Dial) (string, error) {
 		</html>
 	`)
 
-	message.AddAlternative("text/html", htmlBody)
+	_, thisFile, _, ok := runtime.Caller(0)
+
+	if !ok {
+		return "", errors.New("erro ao encontrar o caminho atual")
+	}
+
+	thisDir := filepath.Dir(thisFile)
+
+	log.Println("Buscando arquivos em thisFile ...", thisFile)
+	log.Println("Buscando arquivos em ...", thisDir)
+
+	attachPath := filepath.Join(thisDir, "files", "teste.xls")
+
+	log.Println("Caminho do arquivo final: ", attachPath)
+
+	if _, err := os.Stat(attachPath); err != nil {
+		return "", errors.New("arquivo não encontrado")
+
+	}
+
+	m.Attach(attachPath)
+
+	m.AddAlternative("text/html", htmlBody)
 
 	dialer := gomail.NewDialer(dialData.Host, dialData.Port, dialData.Username, dialData.Password)
 
-	if err := dialer.DialAndSend(message); err != nil {
+	if err := dialer.DialAndSend(m); err != nil {
 		log.Println("Erro:", err)
 		return "", err
 
@@ -103,4 +129,9 @@ func SendMessageHTML(dialData internal.Dial) (string, error) {
 		log.Println("Envio com sucesso!")
 		return "Envio com sucesso!", nil
 	}
+}
+
+func SendReportMessage(dialData internal.Dial) (string, error) {
+
+	return "Envio com sucesso!", nil
 }
