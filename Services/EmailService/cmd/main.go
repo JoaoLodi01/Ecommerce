@@ -144,5 +144,8 @@ func main() {
 
 	log.Println("Servidor rodando em: localhost:3030")
 	log.Println("Rota home: localhost:3030/api/v1/email/home")
+
+	api.SendReportMessage()
+
 	log.Fatal(http.ListenAndServe(addr, handler))
 }
