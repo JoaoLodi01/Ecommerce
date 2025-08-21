@@ -8,9 +8,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"g2l.email/pkg/models/dial"
+	models "g2l.email/pkg/models/dial"
 	gomail "gopkg.in/mail.v2"
-
 )
 
 func SendMessage(dialData models.Dial) (string, error) {
@@ -135,7 +134,6 @@ func SendMessageHTML(dialData models.Dial) (string, error) {
 
 // dialData models.Dial
 func SendReportMessage(reportType string) (string, error) {
-	report, err := BuildReport(reportType)
 
 	return "", nil
 }

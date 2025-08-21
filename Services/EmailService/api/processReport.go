@@ -23,10 +23,9 @@ func BuildReport(reportFormat string) (string, error) {
 
 	}
 
-	pdf, err := reportPDF.BuildPDFReport(issuer, pdvData) 
-	
+	s, err := reportPDF.BuildPDFReport(issuer, pdvData)
 
-	return pdf, nil
+	return s, nil
 }
 
 func buildIssuerData() issuer.Issuer {

@@ -306,8 +306,11 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (string
 		log.Println("Erro ao salvar arquivo PDF: ", err)
 		return "", err
 	}
-	
-	return "Arquivo gerado com sucesso, preparando envio!", nil
+	// Aqui apenas salva o arquivo
+	// Precisa retornar o caminho do arquivo para que no sendMessage pegue e faça o Attaceh
+	// Services/EmailService/internal/build/files/pdf_teste.pdf
+
+	return "Services/EmailService/internal/build/files/pdf_teste.pdf", nil
 }
 
 /*
