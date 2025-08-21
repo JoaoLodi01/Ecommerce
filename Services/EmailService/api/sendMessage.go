@@ -134,7 +134,8 @@ func SendMessageHTML(dialData models.Dial) (string, error) {
 }
 
 // dialData models.Dial
-func SendReportMessage() (string, error) {
-	
+func SendReportMessage(reportType string) (string, error) {
+	report, err := BuildReport(reportType)
+
 	return "", nil
 }

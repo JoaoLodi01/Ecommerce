@@ -7,13 +7,26 @@ import (
 	"path/filepath"
 
 	"g2l.email/db/conn"
-	"g2l.email/pkg/models/pdv"
 	"g2l.email/pkg/models/issuer"
+	models "g2l.email/pkg/models/pdv"
 	_ "github.com/go-sql-driver/mysql"
+
+	reportPDF "g2l.email/internal/build/pdf"
 )
 
-func BuildReport(reportFormat string) {
+func BuildReport(reportFormat string) (string, error) {
+	issuer := buildIssuerData()
+	pdvData, err := processReport()
 
+	if err != nil {
+		log.Fatal("erro ao processar o relatório: ", err)
+
+	}
+
+	pdf, err := reportPDF.BuildPDFReport(issuer, pdvData) 
+	
+
+	return pdf, nil
 }
 
 func buildIssuerData() issuer.Issuer {

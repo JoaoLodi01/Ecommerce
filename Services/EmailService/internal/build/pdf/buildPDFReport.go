@@ -1,19 +1,39 @@
-// package pdf
-package main
+package reportPDF
 
 import (
 	"fmt"
 	"log"
+	"strings"
 
 	"g2l.email/pkg/models/issuer"
 	models "g2l.email/pkg/models/pdv"
 
-	_ "github.com/divrhino/fruitful-pdf/data"
 	"github.com/johnfercher/maroto/pkg/color"
 	"github.com/johnfercher/maroto/pkg/consts"
 	"github.com/johnfercher/maroto/pkg/pdf"
 	"github.com/johnfercher/maroto/pkg/props"
 )
+
+func formatValues(v float64) (value string) {
+	old := fmt.Sprintf("R$%.2f", v)
+	value = strings.ReplaceAll(old, ".", ",")
+	return value
+}
+
+func formatTypeNote(v string) (newValue string) {
+	switch strings.ToLower(v) {
+	case "nm":
+		newValue = "Venda nota manual"
+
+	case "nfce":
+		newValue = "Venda NFC-e"
+
+	default:
+		newValue = "Venda não especificada"
+	}
+
+	return newValue
+}
 
 func buildHeader(m pdf.Maroto, issuerData issuer.Issuer) {
 	nameLine := fmt.Sprintf(
@@ -124,16 +144,18 @@ func buildHeader(m pdf.Maroto, issuerData issuer.Issuer) {
 }
 
 func buildTable(m pdf.Maroto) {
+	black := color.Color{
+		Red:   0,
+		Blue:  0,
+		Green: 0,
+	}
 
 	m.Row(10, func() {
 		m.Col(12, func() {
 			m.Text("Vendas", props.Text{
-				Top:    2,
-				Size:   12,
-				Color:  color.NewWhite(),
+				Color:  black,
 				Family: consts.Courier,
 				Style:  consts.Bold,
-				Align:  consts.Center,
 			})
 		})
 	})
@@ -141,58 +163,118 @@ func buildTable(m pdf.Maroto) {
 	m.SetBackgroundColor(getTealColor())
 }
 
-func buildDataTable(m pdf.Maroto, pdvsData []models.PDVRows) {
-	m.Row(10, func() {
-		m.Col(2, func() {
-			m.Text("Cód venda", props.Text{
+func buildDataTable(m pdf.Maroto, pdvsData []models.PDVRows) (total float64) {
+	m.Row(8, func() {
+		m.Col(1, func() {
+			m.Text("Cód", props.Text{
+				Color: color.NewWhite(),
 				Style: consts.Bold,
+				Align: consts.Center,
 			})
 		})
 
-		m.Col(2, func() {
+		m.Col(3, func() {
 			m.Text("Tipo", props.Text{
+				Color: color.NewWhite(),
 				Style: consts.Bold,
+				Align: consts.Center,
 			})
 		})
 
-		m.Col(2, func() {
+		m.Col(3, func() {
 			m.Text("Descrição", props.Text{
+				Color: color.NewWhite(),
 				Style: consts.Bold,
+				Align: consts.Center,
 			})
 		})
 
 		m.Col(2, func() {
-			m.Text("Valor líquido", props.Text{
+			m.Text("Data de emissão", props.Text{
+				Color: color.NewWhite(),
 				Style: consts.Bold,
-				Align: consts.Right,
+				Align: consts.Center,
+			})
+		})
+
+		m.Col(2, func() {
+			m.Text("Cliente", props.Text{
+				Color: color.NewWhite(),
+				Style: consts.Bold,
+				Align: consts.Center,
+			})
+		})
+
+		m.Col(1, func() {
+			m.Text("Valor líquido", props.Text{
+				Color: color.NewWhite(),
+				Style: consts.Bold,
+				Align: consts.Center,
 			})
 		})
 	})
 
 	for _, v := range pdvsData {
-		val := fmt.Sprintf("R$ %.2f", v.NetValue)
+		total += v.NetValue
 
-		m.Row(9, func() {
-			m.Col(2, func() {
-				m.Text(fmt.Sprintf("%d", v.PDVCode), props.Text{})
+		m.Row(10, func() {
+			m.Col(1, func() {
+				m.Text(fmt.Sprintf("%d", v.PDVCode), props.Text{
+					Color: color.NewWhite(),
+					Align: consts.Center,
+				})
+			})
+
+			m.Col(3, func() {
+				m.Text(formatTypeNote(v.IsFfceNm), props.Text{
+					Color: color.NewWhite(),
+					Align: consts.Center,
+				})
+			})
+
+			m.Col(3, func() {
+				m.Text(v.Description, props.Text{
+					Color: color.NewWhite(),
+					Align: consts.Center,
+				})
 			})
 
 			m.Col(2, func() {
-				m.Text(v.IsFfceNm, props.Text{})
+				m.Text(v.EmitDate, props.Text{
+					Color: color.NewWhite(),
+					Align: consts.Center,
+				})
 			})
 
 			m.Col(2, func() {
-				m.Text(v.Description, props.Text{})
+				m.Text(v.Customer, props.Text{
+					Color: color.NewWhite(),
+					Align: consts.Center,
+				})
 			})
 
-			m.Col(2, func() {
-				m.Text(val, props.Text{
-					Align: consts.Right,
+			m.Col(1, func() {
+				m.Text(formatValues(v.NetValue), props.Text{
+					Color: color.NewWhite(),
+					Align: consts.Center,
 				})
 			})
 		})
-
 	}
+	return total
+}
+
+func buildFooter(m pdf.Maroto, totalValue float64) {
+	totalText := fmt.Sprintf("Total líquido de vendas: %s", formatValues(totalValue))
+	m.RegisterFooter(func() {
+		m.Row(10, func() {
+			m.Col(10, func() {
+				m.Text(totalText, props.Text{
+					Color: color.NewWhite(),
+				})
+			})
+		})
+	})
 }
 
 func getTealColor() color.Color {
@@ -211,20 +293,24 @@ func getDarkPurpleColor() color.Color {
 	}
 }
 
-func BuildPDF(issuerData issuer.Issuer, pdvsData []models.PDVRows) {
+func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (string, error) {
 	m := pdf.NewMaroto(consts.Portrait, consts.A4) // Cria um novo documento com a orientação e tamanho
-	m.SetPageMargins(20, 10, 20)                   // Define algumas margens
+	m.SetPageMargins(12, 10, 12)                   // Define algumas margens
 
 	buildHeader(m, issuerData)
 	buildTable(m)
-	buildDataTable(m, pdvsData)
+	total := buildDataTable(m, pdvsData)
+	buildFooter(m, total)
 
 	if err := m.OutputFileAndClose("../files/pdf_teste.pdf"); err != nil {
 		log.Println("Erro ao salvar arquivo PDF: ", err)
+		return "", err
 	}
-
+	
+	return "Arquivo gerado com sucesso, preparando envio!", nil
 }
 
+/*
 func main() {
 	var pdvData models.PDVRows
 	var pdvsData []models.PDVRows
@@ -232,11 +318,13 @@ func main() {
 	pdvData.PDVCode = 1
 	pdvData.IsFfceNm = "nm"
 	pdvData.Description = "Venda nota manual N° 1"
+	pdvData.EmitDate = "01/01/2025"
+	pdvData.Customer = "Cliente teste"
 	pdvData.NetValue = 12.00
 
 	pdvsData = append(pdvsData, pdvData)
 
-	BuildPDF(issuer.Issuer{
+	BuildPDFReport(issuer.Issuer{
 		Name:          "Teste",
 		CnpjCpf:       "088.051.669-01",
 		Address:       "Teste",
@@ -247,3 +335,4 @@ func main() {
 		pdvsData,
 	)
 }
+*/
