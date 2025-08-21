@@ -1210,7 +1210,23 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
+<<<<<<< HEAD:api/composer.lock
+<<<<<<< HEAD
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/inertiajs/inertia-laravel.git",
+                "reference": "248e815cf8d41307cbfb735efaa514c118e2f3b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/248e815cf8d41307cbfb735efaa514c118e2f3b4",
+                "reference": "248e815cf8d41307cbfb735efaa514c118e2f3b4",
+=======
+            "version": "v2.0.3",
+=======
             "version": "v2.0.4",
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
@@ -1218,8 +1234,14 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD:api/composer.lock
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/b732a5cc33423b2c2366fea38b17dc637d2a0b4f",
+                "reference": "b732a5cc33423b2c2366fea38b17dc637d2a0b4f",
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
+=======
                 "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/bab0c0c992aa36e63d800903288d490d6b774d97",
                 "reference": "bab0c0c992aa36e63d800903288d490d6b774d97",
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
                 "shasum": ""
             },
             "require": {
@@ -1273,9 +1295,21 @@
             ],
             "support": {
                 "issues": "https://github.com/inertiajs/inertia-laravel/issues",
+<<<<<<< HEAD:api/composer.lock
+<<<<<<< HEAD
+                "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.2"
+            },
+            "time": "2025-04-10T15:08:36+00:00"
+=======
+                "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.3"
+            },
+            "time": "2025-06-20T07:38:21+00:00"
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
+=======
                 "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.4"
             },
             "time": "2025-07-15T08:08:04+00:00"
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
         },
         {
             "name": "laravel/framework",
@@ -2583,6 +2617,18 @@
         },
         {
             "name": "nesbot/carbon",
+<<<<<<< HEAD
+            "version": "3.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CarbonPHP/carbon.git",
+                "reference": "c1397390dd0a7e0f11660f0ae20f753d88c1f3d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/c1397390dd0a7e0f11660f0ae20f753d88c1f3d9",
+                "reference": "c1397390dd0a7e0f11660f0ae20f753d88c1f3d9",
+=======
             "version": "3.10.1",
             "source": {
                 "type": "git",
@@ -2593,6 +2639,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/1fd1935b2d90aef2f093c5e35f7ae1257c448d00",
                 "reference": "1fd1935b2d90aef2f093c5e35f7ae1257c448d00",
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
                 "shasum": ""
             },
             "require": {
@@ -2684,7 +2731,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
+            "time": "2025-06-12T10:24:28+00:00"
+=======
             "time": "2025-06-21T15:19:35+00:00"
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
         },
         {
             "name": "nette/schema",
@@ -2981,7 +3032,23 @@
         },
         {
             "name": "phpoffice/phpspreadsheet",
+<<<<<<< HEAD:api/composer.lock
+<<<<<<< HEAD
+            "version": "4.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
+                "reference": "d0ac70d610fb62ccad38c2696569ae1ad42acc70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/d0ac70d610fb62ccad38c2696569ae1ad42acc70",
+                "reference": "d0ac70d610fb62ccad38c2696569ae1ad42acc70",
+=======
+            "version": "4.4.0",
+=======
             "version": "4.5.0",
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
@@ -2989,8 +3056,14 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD:api/composer.lock
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/747ccd1b443e85e0cfc0d52acf50e4d15ef959eb",
+                "reference": "747ccd1b443e85e0cfc0d52acf50e4d15ef959eb",
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
+=======
                 "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/2ea9786632e6fac1aee601b6e426bcc723d8ce13",
                 "reference": "2ea9786632e6fac1aee601b6e426bcc723d8ce13",
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
                 "shasum": ""
             },
             "require": {
@@ -3081,9 +3154,21 @@
             ],
             "support": {
                 "issues": "https://github.com/PHPOffice/PhpSpreadsheet/issues",
+<<<<<<< HEAD:api/composer.lock
+<<<<<<< HEAD
+                "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/4.3.1"
+            },
+            "time": "2025-05-26T18:51:08+00:00"
+=======
+                "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/4.4.0"
+            },
+            "time": "2025-06-23T01:23:23+00:00"
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
+=======
                 "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/4.5.0"
             },
             "time": "2025-07-24T05:15:59+00:00"
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
         },
         {
             "name": "phpoption/phpoption",
@@ -7518,7 +7603,23 @@
         },
         {
             "name": "phpunit/phpunit",
+<<<<<<< HEAD:api/composer.lock
+<<<<<<< HEAD
+            "version": "11.5.23",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
+                "reference": "86ebcd8a3dbcd1857d88505109b2a2b376501cde"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/86ebcd8a3dbcd1857d88505109b2a2b376501cde",
+                "reference": "86ebcd8a3dbcd1857d88505109b2a2b376501cde",
+=======
+            "version": "11.5.24",
+=======
             "version": "11.5.27",
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
@@ -7526,8 +7627,14 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD:api/composer.lock
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6b07ab1047155cf38f82dd691787a277782271dd",
+                "reference": "6b07ab1047155cf38f82dd691787a277782271dd",
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
+=======
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/446d43867314781df7e9adf79c3ec7464956fd8f",
                 "reference": "446d43867314781df7e9adf79c3ec7464956fd8f",
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
                 "shasum": ""
             },
             "require": {
@@ -7599,7 +7706,15 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
+<<<<<<< HEAD:api/composer.lock
+<<<<<<< HEAD
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.23"
+=======
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.24"
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
+=======
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.27"
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
             },
             "funding": [
                 {
@@ -7623,7 +7738,15 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD:api/composer.lock
+<<<<<<< HEAD
+            "time": "2025-06-13T05:47:49+00:00"
+=======
+            "time": "2025-06-20T11:31:02+00:00"
+>>>>>>> 39f123e0ecf90363e4f6b55c04ece729ee52fe1e
+=======
             "time": "2025-07-11T04:10:06+00:00"
+>>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
         },
         {
             "name": "sebastian/cli-parser",
