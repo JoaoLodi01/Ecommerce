@@ -8,7 +8,7 @@ import (
 
 	"g2l.email/api"
 	"g2l.email/internal/cors"
-	"g2l.email/internal"
+	models "g2l.email/pkg/models/dial"
 )
 
 func main() {
@@ -55,7 +55,7 @@ func main() {
 			return
 		}
 
-		var dial internal.Dial
+		var dial models.Dial
 
 		if err := json.NewDecoder(r.Body).Decode(&dial); err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
@@ -105,7 +105,7 @@ func main() {
 			return
 		}
 
-		var dial internal.Dial
+		var dial models.Dial
 
 		if err := json.NewDecoder(r.Body).Decode(&dial); err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
