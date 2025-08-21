@@ -2,11 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 
 	"g2l.email/api"
-	"g2l.email/cors"
+	"g2l.email/internal/cors"
 	"g2l.email/internal"
 )
 
@@ -140,12 +141,12 @@ func main() {
 	})
 
 	handler := cors.WithCORS(mux)
-	addr := ":3030"
+	addr := ":3031"
 
 	log.Println("Servidor rodando em: localhost:3030")
 	log.Println("Rota home: localhost:3030/api/v1/email/home")
 
-	api.SendReportMessage()
+	fmt.Println(api.SendReportMessage())
 
 	log.Fatal(http.ListenAndServe(addr, handler))
 }

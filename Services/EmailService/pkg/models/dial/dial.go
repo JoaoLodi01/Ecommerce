@@ -1,4 +1,4 @@
-package internal
+package models
 
 type Dial struct {
 	Host     string `json:"host"`

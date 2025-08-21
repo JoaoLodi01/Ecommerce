@@ -1,7 +1,6 @@
 package api
 
 import (
-	"context"
 	"errors"
 	"fmt"
 	"log"
@@ -9,17 +8,12 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"g2l.email/internal"
+	"g2l.email/pkg/models/dial"
 	gomail "gopkg.in/mail.v2"
 
-	"database/sql"
-
-	_ "github.com/go-sql-driver/mysql"
-
-	"github.com/joho/godotenv"
 )
 
-func SendMessage(dialData internal.Dial) (string, error) {
+func SendMessage(dialData models.Dial) (string, error) {
 	log.Println("Vai fazer o envio...")
 	message := gomail.NewMessage()
 
@@ -41,7 +35,7 @@ func SendMessage(dialData internal.Dial) (string, error) {
 	}
 }
 
-func SendMessageHTML(dialData internal.Dial) (string, error) {
+func SendMessageHTML(dialData models.Dial) (string, error) {
 	log.Println("Vai fazer o envio em HTML...")
 	m := gomail.NewMessage()
 
@@ -135,47 +129,12 @@ func SendMessageHTML(dialData internal.Dial) (string, error) {
 	} else {
 		log.Println("Envio com sucesso!")
 		return "Envio com sucesso!", nil
+
 	}
 }
 
-// dialData internal.Dial
+// dialData models.Dial
 func SendReportMessage() (string, error) {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Erro ao carregar .env")
-
-	}
-
-	dbConfig := fmt.Sprintf(
-		// username:password@tcp(host:port)/dbname?charset=utf8mb4&parseTime=True&loc=Local
-		"%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		os.Getenv("DB_USERNAME"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_HOST"), os.Getenv("DB_PORT"), os.Getenv("DB_DATABASE"),
-	)
-
-	db, _ := sql.Open("mysql", dbConfig)
-
-	stringQuery, _ := os.ReadFile("Services/EmailService/db/queryReportSales/query.sql")
-
-	defer db.Close()
-
-	query := string(stringQuery)
-
-	ctx := context.Background()
-
-	rows, _ := db.QueryContext(ctx, query)
-
-	defer rows.Close()
-
-	for rows.Next() {
-		var n_note int
-		var sale string
-		var description string
-		var net_value float32
-
-		if err := rows.Scan(&n_note, &sale, &description, &net_value); err != nil {
-			fmt.Println(n_note, sale, description, net_value)
-		}
-	}
-
-	return "Envio bem sucedido!", nil
+	
+	return "", nil
 }
