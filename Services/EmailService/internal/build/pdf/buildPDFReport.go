@@ -3,6 +3,8 @@ package reportPDF
 import (
 	"fmt"
 	"log"
+	"path/filepath"
+	"runtime"
 	"strings"
 
 	"g2l.email/pkg/models/issuer"
@@ -69,7 +71,14 @@ func buildHeader(m pdf.Maroto, issuerData issuer.Issuer) {
 	m.RegisterHeader(func() {
 		m.Row(50, func() {
 			m.Col(12, func() {
-				if err := m.FileImage("../images/logo.png", props.Rect{
+				_, thisFile, _, _ := runtime.Caller(0)
+				thisDir := filepath.Dir(filepath.Dir(thisFile))
+
+				imagePath := filepath.Join(thisDir, "images", "logo.png")
+
+				log.Println("Caminho da imagem:", imagePath)
+
+				if err := m.FileImage(imagePath, props.Rect{
 					Center:  false,
 					Percent: 75,
 				}); err != nil {
@@ -261,7 +270,9 @@ func buildDataTable(m pdf.Maroto, pdvsData []models.PDVRows) (total float64) {
 			})
 		})
 	}
+
 	return total
+
 }
 
 func buildFooter(m pdf.Maroto, totalValue float64) {
@@ -302,7 +313,19 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (string
 	total := buildDataTable(m, pdvsData)
 	buildFooter(m, total)
 
-	if err := m.OutputFileAndClose("../files/pdf_teste.pdf"); err != nil {
+	_, thisFile, _, _ := runtime.Caller(0)
+
+	log.Println(thisFile)
+
+	thisDir := filepath.Dir(thisFile)
+
+	log.Println(thisDir)
+
+	upOne := filepath.Dir(thisDir)
+
+	newPath := filepath.Join(upOne, "files", "pdf_teste.pdf")
+
+	if err := m.OutputFileAndClose(newPath); err != nil {
 		log.Println("Erro ao salvar arquivo PDF: ", err)
 		return "", err
 	}
@@ -310,7 +333,7 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (string
 	// Precisa retornar o caminho do arquivo para que no sendMessage pegue e faça o Attaceh
 	// Services/EmailService/internal/build/files/pdf_teste.pdf
 
-	return "Services/EmailService/internal/build/files/pdf_teste.pdf", nil
+	return newPath, nil
 }
 
 /*

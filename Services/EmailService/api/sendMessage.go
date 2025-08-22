@@ -9,6 +9,7 @@ import (
 	"runtime"
 
 	models "g2l.email/pkg/models/dial"
+	reportModel "g2l.email/pkg/models/report"
 	gomail "gopkg.in/mail.v2"
 )
 
@@ -133,7 +134,29 @@ func SendMessageHTML(dialData models.Dial) (string, error) {
 }
 
 // dialData models.Dial
-func SendReportMessage(reportType string) (string, error) {
+func SendReportMessage(r reportModel.ReportSale) (string, error) {
+	reportPath, err := BuildReport(r.TypeReport)
+	m := gomail.NewMessage()
 
-	return "", nil
+	if err != nil {
+		log.Fatal("Erro ao gerar o relatório: ", err)
+		return "", err
+
+	}
+
+	log.Println("Caminho do arquivo in SendReportMessage: ", reportPath)
+
+	dial := gomail.NewDialer("smtp.gmail.com", 587, "gabikochem55@gmail.com", "cslz hbjx plgi tjcm")
+
+	m.SetHeader("From", "gabikochem55@gmail.com")
+	m.SetHeader("To", "gabikochem55@gmail.com")
+	m.SetHeader("Subject", "Relatório de vendas")
+	m.Attach(reportPath)
+
+	if err := dial.DialAndSend(m); err != nil {
+		log.Fatal("Erro ao enviar no e-mail: ", err)
+
+	}
+
+	return "Enviando relatório", nil
 }

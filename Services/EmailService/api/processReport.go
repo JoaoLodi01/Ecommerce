@@ -20,10 +20,15 @@ func BuildReport(reportFormat string) (string, error) {
 
 	if err != nil {
 		log.Fatal("erro ao processar o relatório: ", err)
-
+		return "", err
 	}
 
 	s, err := reportPDF.BuildPDFReport(issuer, pdvData)
+
+	if err != nil {
+		log.Fatal("erro ao processar o relatório: ", err)
+		return "", err
+	}
 
 	return s, nil
 }
@@ -31,8 +36,7 @@ func BuildReport(reportFormat string) (string, error) {
 func buildIssuerData() issuer.Issuer {
 	var i issuer.Issuer
 	db := conn.ConnDB()
-
-	_ = i
+	defer db.Close()
 
 	attachPath := filepath.Join("db", "querys", "issuer", "select.sql")
 	sqlByte, err := os.ReadFile(attachPath)
@@ -44,7 +48,7 @@ func buildIssuerData() issuer.Issuer {
 	rows, err := db.Query(string(sqlByte))
 
 	if err != nil {
-		log.Fatal("Erro na consulta:", err)
+		log.Fatal("Erro na consulta buildIssuerData:", err)
 
 	}
 
@@ -79,7 +83,7 @@ func processReport() ([]models.PDVRows, error) {
 	sqlByte, err := os.ReadFile(attachPath)
 
 	if err != nil {
-		return nil, fmt.Errorf("erro ao ler query.sql: %w", err)
+		return nil, fmt.Errorf("erro ao ler o query.sql: %w", err)
 	}
 
 	rows, err := db.Query(string(sqlByte))
@@ -94,7 +98,7 @@ func processReport() ([]models.PDVRows, error) {
 	for rows.Next() {
 		var r models.PDVRows
 
-		if err := rows.Scan(&r.PDVCode, &r.IsFfceNm, &r.Description, &r.NetValue); err != nil {
+		if err := rows.Scan(&r.PDVCode, &r.IsFfceNm, &r.Customer, &r.EmitDate, &r.Description, &r.NetValue); err != nil {
 			log.Println("Erro ao fazer a leitura dos dados da query:", err)
 			return nil, err
 

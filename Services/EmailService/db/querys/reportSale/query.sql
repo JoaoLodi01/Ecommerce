@@ -1,6 +1,8 @@
 SELECT
     pdv.pdv_code,
     pdv.is_nfce_nm,
+    pdv.customer,
+    pdv.created_at,
     pdv.description,
     pdv.net_value
 

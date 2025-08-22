@@ -29,6 +29,5 @@ func ConnDB() *sql.DB {
 		return nil
 	}
 
-	defer db.Close()
 	return db
 }

@@ -11,5 +11,3 @@ SELECT
 FROM
     issuers `issuer`
     
-WHERE
-    `issuer`.id = ?
