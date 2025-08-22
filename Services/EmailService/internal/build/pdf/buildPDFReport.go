@@ -9,6 +9,7 @@ import (
 
 	"g2l.email/pkg/models/issuer"
 	models "g2l.email/pkg/models/pdv"
+	"g2l.email/pkg/store"
 
 	"github.com/johnfercher/maroto/pkg/color"
 	"github.com/johnfercher/maroto/pkg/consts"
@@ -75,8 +76,6 @@ func buildHeader(m pdf.Maroto, issuerData issuer.Issuer) {
 				thisDir := filepath.Dir(filepath.Dir(thisFile))
 
 				imagePath := filepath.Join(thisDir, "images", "logo.png")
-
-				log.Println("Caminho da imagem:", imagePath)
 
 				if err := m.FileImage(imagePath, props.Rect{
 					Center:  false,
@@ -304,7 +303,7 @@ func getDarkPurpleColor() color.Color {
 	}
 }
 
-func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (string, error) {
+func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (filePath string, err error) {
 	m := pdf.NewMaroto(consts.Portrait, consts.A4) // Cria um novo documento com a orientação e tamanho
 	m.SetPageMargins(12, 10, 12)                   // Define algumas margens
 
@@ -313,27 +312,22 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (string
 	total := buildDataTable(m, pdvsData)
 	buildFooter(m, total)
 
-	_, thisFile, _, _ := runtime.Caller(0)
+	_, thisFile, _, _ := runtime.Caller(0) // Caminho do arquivo atual, buildPDFReport.go
 
-	log.Println(thisFile)
+	filePath, err = store.SaveFiles("", thisFile, "pdf", 1)
 
-	thisDir := filepath.Dir(thisFile)
+	if err != nil {
+		log.Println("Erro no processo para salvar arquivos - line 331:", err)
+		return "", err
+	}
 
-	log.Println(thisDir)
-
-	upOne := filepath.Dir(thisDir)
-
-	newPath := filepath.Join(upOne, "files", "pdf_teste.pdf")
-
-	if err := m.OutputFileAndClose(newPath); err != nil {
+	if err := m.OutputFileAndClose(filePath); err != nil { // Salva o PDF
 		log.Println("Erro ao salvar arquivo PDF: ", err)
 		return "", err
 	}
-	// Aqui apenas salva o arquivo
 	// Precisa retornar o caminho do arquivo para que no sendMessage pegue e faça o Attaceh
-	// Services/EmailService/internal/build/files/pdf_teste.pdf
 
-	return newPath, nil
+	return filePath, nil
 }
 
 /*

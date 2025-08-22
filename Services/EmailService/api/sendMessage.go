@@ -10,6 +10,7 @@ import (
 
 	models "g2l.email/pkg/models/dial"
 	reportModel "g2l.email/pkg/models/report"
+	removeFile "g2l.email/pkg/store"
 	gomail "gopkg.in/mail.v2"
 )
 
@@ -135,11 +136,11 @@ func SendMessageHTML(dialData models.Dial) (string, error) {
 
 // dialData models.Dial
 func SendReportMessage(r reportModel.ReportSale) (string, error) {
-	reportPath, err := BuildReport(r.TypeReport)
+	reportPath, err := BuildReport(r.TypeReport, r.IssuerID)
 	m := gomail.NewMessage()
 
 	if err != nil {
-		log.Fatal("Erro ao gerar o relatório: ", err)
+		log.Println("Erro ao gerar o relatório: ", err)
 		return "", err
 
 	}
@@ -154,8 +155,19 @@ func SendReportMessage(r reportModel.ReportSale) (string, error) {
 	m.Attach(reportPath)
 
 	if err := dial.DialAndSend(m); err != nil {
-		log.Fatal("Erro ao enviar no e-mail: ", err)
+		log.Println("Erro ao enviar no e-mail: ", err)
+		return "", err
 
+	} else {
+		log.Println("Envio bem sucedido! - Vai chamar o método para excluir")
+
+		if err := removeFile.DeleteAfterSend(reportPath, r.IssuerID); err != nil {
+			log.Println("Erro no DeleteAfterSend: ", err)
+			return "", err
+
+		}
+
+		log.Println("Arquivo enviado e excluído do path")
 	}
 
 	return "Enviando relatório", nil

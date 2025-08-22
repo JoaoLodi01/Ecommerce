@@ -142,7 +142,7 @@ func main() {
 
 	mux.HandleFunc("/api/v1/email/send-report/pdv", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
-		log.Println("Passou pelo /api/v1/email/send-message")
+		log.Println("Passou pelo /api/v1/email/send-report/pdv")
 
 		if r.Method != http.MethodPost {
 			w.WriteHeader(http.StatusInternalServerError)

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreign('issuer_id')->references('id')->on('issuers')->onDelete('cascade');
             $table->unsignedBigInteger('issuer_id');
             $table->unsignedBigInteger('config_email_code');
-            $table->unique(['issuer_id', 'config_email_code']);
             $table->string('host', 14)->default('');
             $table->string('port', 5)->default('');
             $table->string('user_name', 80)->default('');

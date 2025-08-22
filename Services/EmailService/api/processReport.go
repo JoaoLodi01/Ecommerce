@@ -14,27 +14,32 @@ import (
 	reportPDF "g2l.email/internal/build/pdf"
 )
 
-func BuildReport(reportFormat string) (string, error) {
-	issuer := buildIssuerData()
+func BuildReport(reportFormat string, issuerID int) (string, error) {
+	issuer, err := buildIssuerData()
+
+	if err != nil {
+		log.Println("Erro ao construir os dados issuer: ", err)
+		return "", err
+	}
+
 	pdvData, err := processReport()
 
 	if err != nil {
-		log.Fatal("erro ao processar o relatório: ", err)
+		log.Println("erro ao processar o relatório: ", err)
 		return "", err
 	}
 
 	s, err := reportPDF.BuildPDFReport(issuer, pdvData)
 
 	if err != nil {
-		log.Fatal("erro ao processar o relatório: ", err)
+		log.Println("erro ao processar o relatório: ", err)
 		return "", err
 	}
 
 	return s, nil
 }
 
-func buildIssuerData() issuer.Issuer {
-	var i issuer.Issuer
+func buildIssuerData() (issuer.Issuer, error) {
 	db := conn.ConnDB()
 	defer db.Close()
 
@@ -42,15 +47,17 @@ func buildIssuerData() issuer.Issuer {
 	sqlByte, err := os.ReadFile(attachPath)
 
 	if err != nil {
-		log.Fatal("erro ao ler query.sql: %w", err)
+		log.Println("erro ao ler query.sql: %w", err)
 	}
 
 	rows, err := db.Query(string(sqlByte))
 
 	if err != nil {
-		log.Fatal("Erro na consulta buildIssuerData:", err)
+		log.Println("Erro na consulta buildIssuerData:", err)
 
 	}
+
+	var i issuer.Issuer
 
 	for rows.Next() {
 		var r issuer.Issuer
@@ -64,13 +71,13 @@ func buildIssuerData() issuer.Issuer {
 			&r.City,
 			&r.Cep,
 		); err != nil {
-			log.Fatal("Erro ao ler os dados:", err)
+			log.Println("Erro ao ler os dados:", err)
 		}
 
 		i = r
 	}
 
-	return i
+	return i, nil
 }
 
 func processReport() ([]models.PDVRows, error) {
