@@ -90,6 +90,47 @@ INICÍO - DD/MM/AAAA
 #REGISTROS E SUAS RESPECTIVAS TABELAS NO DB PARA INSTRUMENTALIZAÇÃO E DEBUG DE ERROS FUTUROS
 
 
+-------------
+Obrigatórios conforme suas operações/documentos:
+
+50 (notas quanto ao ICMS – modelos 01/1-A, 04, 06, 21, 22; alguns estados também aceitam 55) – se existir 50, normalmente haverá 54 (itens). 
+Documentação Senior
+Maxiprod
+
+51 (notas quanto ao IPI – quando houver IPI nas NF do tipo 50). 
+DevMedia
+bdc.gdoor.com.br
+
+53 (Substituição Tributária – quando houver ST/antecipação). 
+Documentação Senior
+
+54 (itens das notas relacionadas ao 50). 
+SEFaz Maranhão
+
+60 e subtipos 60M, 60A, 60D, 60I, 60R (ECF/PDV/cupom fiscal) – exigência por UF; via de regra 60M/60A/60D/60R são exigidos, 60I pode ser obrigatório ao menos na geração. 
+Alterdata Ajuda
+LegisWeb
+
+61/61R (NF consumidor modelo 2 e produtor quando não emitidas por ECF). 
+Tributa.Net
+
+70 (nota/CT-e de transporte) e 71 (detalhe da carga quando houver 70). 
+Maxiprod
+Secretaria da Fazenda de Minas Gerais
+
+74 (inventário) – quando houver inventário no período (muitos estados pedem em dezembro). 
+Tributa.Net
+
+75 (cadastro de produtos/serviços) – obrigatório se você gerar 54, 60R, 61R, 74 ou 77. 
+Tributa.Net
+Documentação Senior
+
+76 e 77 (comunicação/telecom – modelos 21/22). 
+Secretaria da Fazenda de Minas Gerais
+
+85 e 86 (exportação – para comerciais exportadoras/trading).
+
+
 
 
 SPED FISCAL ----
