@@ -1,13 +1,15 @@
 -- Active: 1753726163326@@localhost@3345@hoteldb
 SELECT
-    `issuer`.id,
-    COALESCE(`issuer`.company_name, `issuer`.trade_name),
-    COALESCE(`issuer`.cnpj, `issuer`.cpf),
-    `issuer`.`address`,
-    `issuer`.`number`,
-    `issuer`.city,
-    `issuer`.cep
+    isu.id,
+    COALESCE(isu.company_name, isu.trade_name),
+    COALESCE(isu.cnpj, isu.cpf),
+    isu.`address`,
+    isu.`number`,
+    isu.city,
+    isu.cep
 
 FROM
-    issuers `issuer`
+    issuers isu
     
+WHERE
+    isu.id = ?

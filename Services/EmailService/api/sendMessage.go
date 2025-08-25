@@ -136,26 +136,27 @@ func SendMessageHTML(dialData models.Dial) (string, error) {
 
 // dialData models.Dial
 func SendReportMessage(r reportModel.ReportSale) (string, error) {
-	reportPath, err := BuildReport(r.TypeReport, r.IssuerID)
-	m := gomail.NewMessage()
-
+	log.Println("ISSUER ID: ", r.IssuerID)
+	reportPath, err := BuildReport(r)
 	if err != nil {
-		log.Println("Erro ao gerar o relatório: ", err)
+		log.Println("Erro ao gerar o relatório - line 142: ", err)
 		return "", err
 
 	}
+
+	m := gomail.NewMessage()
 
 	log.Println("Caminho do arquivo in SendReportMessage: ", reportPath)
 
 	dial := gomail.NewDialer("smtp.gmail.com", 587, "gabikochem55@gmail.com", "cslz hbjx plgi tjcm")
 
-	m.SetHeader("From", "gabikochem55@gmail.com")
-	m.SetHeader("To", "gabikochem55@gmail.com")
+	m.SetHeader("From", r.From)
+	m.SetHeader("To", r.To)
 	m.SetHeader("Subject", "Relatório de vendas")
 	m.Attach(reportPath)
 
 	if err := dial.DialAndSend(m); err != nil {
-		log.Println("Erro ao enviar no e-mail: ", err)
+		log.Println("Erro ao enviar o e-mail - line 159: ", err)
 		return "", err
 
 	} else {
@@ -170,5 +171,5 @@ func SendReportMessage(r reportModel.ReportSale) (string, error) {
 		log.Println("Arquivo enviado e excluído do path")
 	}
 
-	return "Enviando relatório", nil
+	return "Envio do relatóio com sucesso!", nil
 }

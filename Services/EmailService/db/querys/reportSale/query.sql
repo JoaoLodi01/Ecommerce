@@ -11,4 +11,5 @@ FROM
 
 WHERE
     pdv.finished = 1 AND
-    pdv.canceled <> 1
+    pdv.canceled <> 1 AND
+    pdv.issuer_id = ?

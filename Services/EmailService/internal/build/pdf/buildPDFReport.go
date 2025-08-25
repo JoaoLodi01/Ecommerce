@@ -304,6 +304,7 @@ func getDarkPurpleColor() color.Color {
 }
 
 func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (filePath string, err error) {
+	log.Printf("Construindo dados do ISSUER: %s ID: %d", issuerData.Name, issuerData.Id)
 	m := pdf.NewMaroto(consts.Portrait, consts.A4) // Cria um novo documento com a orientação e tamanho
 	m.SetPageMargins(12, 10, 12)                   // Define algumas margens
 
@@ -314,10 +315,10 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (filePa
 
 	_, thisFile, _, _ := runtime.Caller(0) // Caminho do arquivo atual, buildPDFReport.go
 
-	filePath, err = store.SaveFiles("", thisFile, "pdf", 1)
+	filePath, err = store.SaveFiles("", thisFile, "pdf", issuerData.Id)
 
 	if err != nil {
-		log.Println("Erro no processo para salvar arquivos - line 331:", err)
+		log.Println("Erro no processo para salvar arquivos - line 320:", err)
 		return "", err
 	}
 

@@ -173,12 +173,11 @@ func main() {
 
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
-			log.Println("Erro no envio do e-mail")
 			json.NewEncoder(w).Encode(map[string]any{
 				"success": false,
 				"status":  http.StatusBadRequest,
 				"error":   err,
-				"message": err,
+				"message": "Erro no envio do e-mail",
 			})
 			return
 		}

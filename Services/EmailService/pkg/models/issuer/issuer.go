@@ -1,7 +1,7 @@
 package issuer
 
 type Issuer struct {
-	Id            string
+	Id            int
 	Name          string
 	CnpjCpf       string
 	Address       string
