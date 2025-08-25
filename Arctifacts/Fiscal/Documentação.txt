@@ -31,6 +31,35 @@ func main() {
     })
   })
 
+------POSTGRE -- golang-migrate
+
+
+
+-Criação de tabela
+CREATE TABLE produtos (
+  id SERIAL PRIMARY KEY,
+  descricao VARCHAR(255) NOT NULL
+);
+
+-Alteração de tabela
+.up.sql - aplicação
+ALTER TABLE notas_fiscais ADD COLUMN icms_base NUMERIC(15,2);
+.down.sql - reversão
+ALTER TABLE notas_fiscais DROP COLUMN icms_base;
+
+
+-Criação de indicie
+.up.sql
+CREATE INDEX idx_produtos_codigo ON produtos (codigo);
+.down.sql
+DROP INDEX IF EXISTS idx_produtos_codigo;
+
+-Renomear coluna
+.up.sql
+ALTER TABLE itens_notas RENAME COLUMN valor TO valor_total;
+.down.sql
+ALTER TABLE itens_notas RENAME COLUMN valor_total TO valor;
+
 
 
 
