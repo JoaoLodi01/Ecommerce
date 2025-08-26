@@ -61,7 +61,12 @@ ALTER TABLE itens_notas RENAME COLUMN valor TO valor_total;
 ALTER TABLE itens_notas RENAME COLUMN valor_total TO valor;
 
 
+Impostos da nova reforma tributária
+CBS (Contribuição sobre Bens e Serviços) — federal
 
+IBS (Imposto sobre Bens e Serviços) — estadual/municipal
+
+CST/CSOSN - CFOP de ST se mantem
 
 SINTEGRA ----
 
@@ -134,6 +139,19 @@ Secretaria da Fazenda de Minas Gerais
 
 
 SPED FISCAL ----
+
+
+Blocos obrigatórios para o SPED FISCAL, mesmo que sem a emissão de notas
+
+
+
+
+
+
+
+
+
+
 
 -FILTRO DE DATAS
 INICÍO - DD/MM/AAAA
