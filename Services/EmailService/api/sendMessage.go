@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"runtime"
 
+	"g2l.email/db/conn"
 	models "g2l.email/pkg/models/dial"
 	reportModel "g2l.email/pkg/models/report"
 	removeFile "g2l.email/pkg/store"
@@ -136,8 +137,18 @@ func SendMessageHTML(dialData models.Dial) (string, error) {
 
 // dialData models.Dial
 func SendReportMessage(r reportModel.ReportSale) (string, error) {
-	log.Println("ISSUER ID: ", r.IssuerID)
+	var dialData models.Dial
+	db := conn.ConnDB()
+	defer db.Close()
+
+	_, thisFile, _, _ := runtime.Caller(0)
+	upOnes := filepath.Dir(thisFile)
+	sqlByte := filepath.Join(upOnes, "db", "querys", "dial", "dial.sql")
+
+	dialData := db.Query(string(sqlByte), r.IssuerID)
+
 	reportPath, err := BuildReport(r)
+
 	if err != nil {
 		log.Println("Erro ao gerar o relatório - line 142: ", err)
 		return "", err
@@ -148,7 +159,7 @@ func SendReportMessage(r reportModel.ReportSale) (string, error) {
 
 	log.Println("Caminho do arquivo in SendReportMessage: ", reportPath)
 
-	dial := gomail.NewDialer("smtp.gmail.com", 587, "gabikochem55@gmail.com", "cslz hbjx plgi tjcm")
+	dial := gomail.NewDialer(dialData.Host, dialData.Port, dialData.Username, dialData.Password)
 
 	m.SetHeader("From", r.From)
 	m.SetHeader("To", r.To)

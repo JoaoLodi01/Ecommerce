@@ -6,3 +6,6 @@ SELECT
     
 FROM
     configs_email mail
+
+WHERE
+    mail.issuer_id = ?
