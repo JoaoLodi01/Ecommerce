@@ -127,8 +127,8 @@ func main() {
 			json.NewEncoder(w).Encode(map[string]any{
 				"success": false,
 				"status":  http.StatusBadRequest,
-				"error":   err,
-				"message": err,
+				"error":   err.Error(),
+				"message": "Erro no envio do e-mail teste",
 			})
 			return
 		}
@@ -159,24 +159,22 @@ func main() {
 
 		if err := json.NewDecoder(r.Body).Decode(&report); err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
-			log.Println("JSON Inválido")
+			log.Println("Dados do relatório inválido")
 			json.NewEncoder(w).Encode(map[string]any{
 				"success": false,
 				"status":  http.StatusBadRequest,
-				"error":   err,
-				"message": "JSON Inválido",
+				"message": "Dados do relatório inválido",
 			})
 			return
 		}
 
-		msg, err := api.SendReportMessage(report)
-
-		if err != nil {
+		if err := api.SendReportMessage(report); err != nil {
+			log.Println("Erro - line 172 - main: ", err)
 			w.WriteHeader(http.StatusInternalServerError)
 			json.NewEncoder(w).Encode(map[string]any{
 				"success": false,
 				"status":  http.StatusBadRequest,
-				"error":   err,
+				"error":   err.Error(),
 				"message": "Erro no envio do e-mail",
 			})
 			return
@@ -185,7 +183,7 @@ func main() {
 		json.NewEncoder(w).Encode(map[string]any{
 			"success": true,
 			"status":  http.StatusOK,
-			"message": msg,
+			"message": "Mensagem enviada com sucesso!",
 		})
 	})
 
