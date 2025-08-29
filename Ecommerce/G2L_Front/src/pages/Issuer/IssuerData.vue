@@ -372,6 +372,7 @@
 
     onMounted(() => {
         LocalStorage.getItem("_completed") ? getIssuer() : null;
+        getIssuer()
         _completed.value = LocalStorage.getItem("_completed");
-    })
+    });
 </script>

@@ -138,6 +138,7 @@ func SendMessageHTML(dialData models.Dial) (string, error) {
 // dialData models.Dial
 func SendReportMessage(r reportModel.ReportSale) (string, error) {
 	var dialData models.Dial
+
 	db := conn.ConnDB()
 	defer db.Close()
 
@@ -145,7 +146,34 @@ func SendReportMessage(r reportModel.ReportSale) (string, error) {
 	upOnes := filepath.Dir(thisFile)
 	sqlByte := filepath.Join(upOnes, "db", "querys", "dial", "dial.sql")
 
-	dialData := db.Query(string(sqlByte), r.IssuerID)
+	log.Println("Query a ser usada:", sqlByte)
+
+	rows, err := db.Query(string(sqlByte), r.IssuerID)
+
+	if err != nil {
+		log.Println("Erro ao executar a query", err)
+		return "", err
+
+	}
+
+	defer rows.Close()
+
+	for rows.Next() {
+		var dialData models.Dial
+
+		if err := rows.Scan(
+			&dialData.Host,
+			&dialData.Port,
+			&dialData.Username,
+			&dialData.Password,
+			&dialData.From,
+			&dialData.To,
+			&dialData.Subject,
+			&dialData.Message,
+		); err != nil {
+			log.Println("Erro ao ler a query - line 174:", err)
+		}
+	}
 
 	reportPath, err := BuildReport(r)
 
