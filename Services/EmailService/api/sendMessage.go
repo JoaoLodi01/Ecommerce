@@ -9,25 +9,25 @@ import (
 	"runtime"
 
 	"g2l.email/db/conn"
-	models "g2l.email/pkg/models/dial"
+	dialModel "g2l.email/pkg/models/dial"
 	reportModel "g2l.email/pkg/models/report"
 	removeFile "g2l.email/pkg/store"
 	gomail "gopkg.in/mail.v2"
 )
 
-func SendMessage(dialData models.Dial) (string, error) {
+func SendMessage(dialData dialModel.Dial) (string, error) {
 	log.Println("Vai fazer o envio...")
-	message := gomail.NewMessage()
+	m := gomail.NewMessage()
 
-	message.SetHeader("From", dialData.From)
-	message.SetHeader("To", dialData.To)
-	message.SetHeader("Subject", dialData.Subject)
+	m.SetHeader("From", dialData.Username)
+	m.SetHeader("To", dialData.Username)
+	m.SetHeader("Subject", "Teste de envio")
 
-	message.SetBody("text/plain", dialData.Message)
+	m.SetBody("text/plain", "Teste de envio")
 
-	dialer := gomail.NewDialer(dialData.Host, dialData.Port, dialData.Username, dialData.Password)
+	dialer := gomail.NewDialer(dialData.Host, int(dialData.Port), dialData.Username, dialData.Password)
 
-	if err := dialer.DialAndSend(message); err != nil {
+	if err := dialer.DialAndSend(m); err != nil {
 		log.Println("Erro:", err)
 		return "", err
 
@@ -37,13 +37,13 @@ func SendMessage(dialData models.Dial) (string, error) {
 	}
 }
 
-func SendMessageHTML(dialData models.Dial) (string, error) {
+func SendMessageHTML(dialData dialModel.Dial) (string, error) {
 	log.Println("Vai fazer o envio em HTML...")
 	m := gomail.NewMessage()
 
-	m.SetHeader("From", dialData.From)
-	m.SetHeader("To", dialData.To)
-	m.SetHeader("Subject", dialData.Subject)
+	m.SetHeader("From", dialData.Username)
+	m.SetHeader("To", dialData.Username)
+	m.SetHeader("Subject", "Teste de envio")
 
 	m.SetBody("text/plain", "Teste")
 
@@ -122,7 +122,7 @@ func SendMessageHTML(dialData models.Dial) (string, error) {
 
 	m.AddAlternative("text/html", htmlBody)
 
-	dialer := gomail.NewDialer(dialData.Host, dialData.Port, dialData.Username, dialData.Password)
+	dialer := gomail.NewDialer(dialData.Host, int(dialData.Port), dialData.Username, dialData.Password)
 
 	if err := dialer.DialAndSend(m); err != nil {
 		log.Println("Erro:", err)
@@ -136,58 +136,26 @@ func SendMessageHTML(dialData models.Dial) (string, error) {
 }
 
 // dialData models.Dial
-func SendReportMessage(r reportModel.ReportSale) (string, error) {
-	var dialData models.Dial
-
-	db := conn.ConnDB()
-	defer db.Close()
-
-	_, thisFile, _, _ := runtime.Caller(0)
-	upOnes := filepath.Dir(thisFile)
-	sqlByte := filepath.Join(upOnes, "db", "querys", "dial", "dial.sql")
-
-	log.Println("Query a ser usada:", sqlByte)
-
-	rows, err := db.Query(string(sqlByte), r.IssuerID)
-
+func SendReportMessage(r reportModel.ReportSale) error {
+	d, err := buildDial(r.IssuerID)
 	if err != nil {
-		log.Println("Erro ao executar a query", err)
-		return "", err
-
-	}
-
-	defer rows.Close()
-
-	for rows.Next() {
-		var dialData models.Dial
-
-		if err := rows.Scan(
-			&dialData.Host,
-			&dialData.Port,
-			&dialData.Username,
-			&dialData.Password,
-			&dialData.From,
-			&dialData.To,
-			&dialData.Subject,
-			&dialData.Message,
-		); err != nil {
-			log.Println("Erro ao ler a query - line 174:", err)
-		}
+		log.Println("Erro buildDial:", err)
+		return err
 	}
 
 	reportPath, err := BuildReport(r)
 
 	if err != nil {
-		log.Println("Erro ao gerar o relatório - line 142: ", err)
-		return "", err
-
+		log.Println("Erro buildReport:", err)
+		return err
 	}
 
 	m := gomail.NewMessage()
 
 	log.Println("Caminho do arquivo in SendReportMessage: ", reportPath)
+	log.Println("Dados dial: ", d)
 
-	dial := gomail.NewDialer(dialData.Host, dialData.Port, dialData.Username, dialData.Password)
+	dial := gomail.NewDialer(d.Host, int(d.Port), d.Username, d.Password)
 
 	m.SetHeader("From", r.From)
 	m.SetHeader("To", r.To)
@@ -196,19 +164,68 @@ func SendReportMessage(r reportModel.ReportSale) (string, error) {
 
 	if err := dial.DialAndSend(m); err != nil {
 		log.Println("Erro ao enviar o e-mail - line 159: ", err)
-		return "", err
+		return err
 
 	} else {
 		log.Println("Envio bem sucedido! - Vai chamar o método para excluir")
 
 		if err := removeFile.DeleteAfterSend(reportPath, r.IssuerID); err != nil {
 			log.Println("Erro no DeleteAfterSend: ", err)
-			return "", err
+			return err
 
 		}
 
 		log.Println("Arquivo enviado e excluído do path")
 	}
 
-	return "Envio do relatóio com sucesso!", nil
+	return nil
+}
+
+func buildDial(issuerID int) (dialModel.Dial, error) {
+	log.Println(issuerID)
+
+	var d dialModel.Dial
+
+	db := conn.ConnDB()
+	defer db.Close()
+	_, thisFile, _, _ := runtime.Caller(0)
+
+	upOne := filepath.Dir(filepath.Dir(thisFile))
+
+	sqlByte := filepath.Join(upOne, "db", "querys", "dial", "dial.sql")
+	sqlStr, err := os.ReadFile(sqlByte)
+
+	if err != nil {
+		log.Println("Erro ao ler o arquivo dial.sql:", err)
+		return dialModel.Dial{}, err
+	}
+
+	rows, err := db.Query(string(sqlStr), issuerID)
+
+	if err != nil {
+		log.Println("Erro ao executar o dial.sql - line 206 buildDial")
+		return dialModel.Dial{}, err
+	}
+
+	defer rows.Close()
+
+	for rows.Next() {
+		if err := rows.Scan(
+			&d.Host,
+			&d.Username,
+			&d.Password,
+			&d.Port,
+		); err != nil {
+			log.Println("Erro ao ler os dados do dial - line 215 buildDial: ", err)
+			return dialModel.Dial{}, err
+		}
+	}
+
+	if d.Host == "" || d.Password == "" {
+		log.Println(d)
+		return dialModel.Dial{}, errors.New("e-mail não configurado, por favor confirme seus dados nas configurações")
+
+	}
+
+	return d, nil
 }

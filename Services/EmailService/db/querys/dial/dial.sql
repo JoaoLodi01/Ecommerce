@@ -1,12 +1,8 @@
 SELECT
-    mail.host,
-    mail.user_name,
-    mail.password,
-    mail.port,
-    '' AS `from`,
-    '' AS `to`,
-    '' AS `subject`,
-    '' AS `message`
+    mail.host, 
+    mail.user_name, 
+    mail.password, 
+    mail.port
 
 FROM 
     configs_email mail

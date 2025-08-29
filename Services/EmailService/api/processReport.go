@@ -154,7 +154,7 @@ func buildIssuerData(issuerID int) (issuer.Issuer, error) {
 			&r.City,
 			&r.Cep,
 		); err != nil {
-			log.Println("Erro ao ler os dados:", err)
+			log.Println("Erro ao ler os dados - line 157 - buildIssuerData:", err)
 		}
 
 		i = r
