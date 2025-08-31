@@ -12,7 +12,7 @@ import (
 func ConnDB() *sql.DB {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Erro ao carregar .env")
+		log.Println("Erro ao carregar o .env", err)
 		return nil
 	}
 

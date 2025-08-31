@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"log"
+	"net"
 	"net/http"
 
 	"g2l.email/api"
@@ -190,7 +191,16 @@ func main() {
 	handler := cors.WithCORS(mux)
 	addr := ":3030"
 
-	log.Println("Servidor rodando em: localhost:3030")
+	conn, err := net.Dial("udp", "8.8.8.8:80")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer conn.Close()
+
+	localAddress := conn.LocalAddr().(*net.UDPAddr)
+
+	log.Printf("Servidor rodando em: %d:3030", localAddress.IP)
 	log.Println("Rota home: localhost:3030/api/v1/email/home")
 
 	log.Fatal(http.ListenAndServe(addr, handler))

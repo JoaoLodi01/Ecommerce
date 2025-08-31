@@ -218,6 +218,7 @@ func buildDial(issuerID int) (dialModel.Dial, error) {
 		); err != nil {
 			log.Println("Erro ao ler os dados do dial - line 215 buildDial: ", err)
 			return dialModel.Dial{}, err
+
 		}
 	}
 
