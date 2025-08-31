@@ -45,18 +45,17 @@ func setDir(mainPath, fallback string) (string, error) {
 func Start(
 	mainPath,
 	fallback string,
-	tarefas <-chan string,
-	resultados <-chan string,
-
-) {
-	msg, err := setDir(
+) (string, error) {
+	dir, err := setDir(
 		mainPath,
 		fallback,
 	)
 
 	if err != nil {
 		log.Println("Erro ao acessar os caminhos:", err)
+		return "", err
 	}
 
-	log.Println("Caminho usado:", msg)
+	log.Println("Caminho usado:", dir)
+	return dir, nil
 }
