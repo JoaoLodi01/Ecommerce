@@ -42,7 +42,13 @@ func setDir(mainPath, fallback string) (string, error) {
 	}
 }
 
-func Start(mainPath, fallback string) {
+func Start(
+	mainPath,
+	fallback string,
+	tarefas <-chan string,
+	resultados <-chan string,
+
+) {
 	msg, err := setDir(
 		mainPath,
 		fallback,
