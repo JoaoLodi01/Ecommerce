@@ -56,6 +56,5 @@ func Start(
 		return "", err
 	}
 
-	log.Println("Caminho usado:", dir)
 	return dir, nil
 }

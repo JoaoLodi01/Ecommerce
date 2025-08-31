@@ -1,6 +1,7 @@
 package pkg
 
 import (
+	"fmt"
 	"log"
 	"net"
 	"os"
@@ -8,24 +9,40 @@ import (
 )
 
 func ExecuteCommand(path, local string, ip net.IP) error {
-	log.Println("Path a ser executado: ", path)
 	switch local {
-	case "ecoG2LFront":
+	case "ecommerceFront":
 		cmd := exec.Command("npm", "run", "dev")
 		cmd.Dir = path
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 
-		if err := cmd.Run(); err != nil {
+		if err := cmd.Start(); err != nil {
 			log.Println("Erro ao executaro o comando:", err)
 			return err
+
 		}
 
 		return nil
 
-	case "ecoG2LBack":
-		
-	}
+	case "ecommerceBack":
+		sIP := fmt.Sprintf("--host=%s", ip.String())
 
+		log.Println("Log sIP:", sIP)
+
+		cmd := exec.Command("php", "artisan", "serve", sIP)
+		cmd.Dir = path
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+
+		if err := cmd.Start(); err != nil {
+			log.Println("Erro ao executaro o comando:", err)
+			return err
+
+		}
+
+		log.Println("Vai executar o ecommerceBack")
+		return nil
+
+	}
 	return nil
 }
