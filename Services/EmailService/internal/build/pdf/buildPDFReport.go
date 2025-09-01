@@ -174,6 +174,8 @@ func buildTable(m pdf.Maroto) {
 }
 
 func buildDataTable(m pdf.Maroto, pdvsData []pdv.PDVRows) {
+	m.SetBackgroundColor(getTealColor())
+
 	var total float64
 	m.Row(8, func() {
 		m.Col(1, func() {
@@ -223,6 +225,7 @@ func buildDataTable(m pdf.Maroto, pdvsData []pdv.PDVRows) {
 				Align: consts.Center,
 			})
 		})
+
 	})
 
 	for _, v := range pdvsData {
@@ -271,11 +274,12 @@ func buildDataTable(m pdf.Maroto, pdvsData []pdv.PDVRows) {
 				})
 			})
 		})
+
+		m.Row(5, func() { m.Col(12, func() { m.Signature("") }) })
+
+		buildFooter(m, total)
+
 	}
-
-	m.Row(5, func() { m.Col(12, func() { m.Signature("") }) })
-
-	buildFooter(m, total)
 }
 
 func buildFooter(m pdf.Maroto, totalValue float64) {
@@ -283,13 +287,16 @@ func buildFooter(m pdf.Maroto, totalValue float64) {
 	totalText := fmt.Sprintf("Total líquido de vendas: %s", formatValues(totalValue))
 	m.RegisterFooter(func() {
 		m.Row(10, func() {
-			m.Col(4, func() {
+			m.Col(7, func() {}) // "Margem"
+			
+			m.Col(5, func() {
 				m.Text(totalText, props.Text{
 					Color: color.NewWhite(),
 					Top:   2,
-					Align: consts.Middle,
+					Align: consts.Right,
 				})
 			})
+			//m.Col(1, func() {})
 		})
 	})
 }
@@ -316,7 +323,7 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []pdv.PDVRows) (filePath 
 	m.SetPageMargins(12, 10, 12)                   // Define algumas margens
 
 	buildHeader(m, issuerData)
-	buildTable(m)
+	//buildTable(m)
 	buildDataTable(m, pdvsData)
 
 	_, thisFile, _, _ := runtime.Caller(0) // Caminho do arquivo atual, buildPDFReport.go
