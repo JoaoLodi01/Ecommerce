@@ -11,16 +11,17 @@ import (
 	"time"
 
 	"g2l.email/db/conn"
-	"g2l.email/pkg/models/issuer"
 
-	models "g2l.email/pkg/models/pdv"
-	reportModel "g2l.email/pkg/models/report"
-	_ "github.com/go-sql-driver/mysql"
+	issuer "g2l.email/pkg/models/issuer"
+	pdv "g2l.email/pkg/models/pdv"
 
 	reportPDF "g2l.email/internal/build/pdf"
+	reportModel "g2l.email/pkg/models/report"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
-func defineTypeReport(reportType string, pdvData []models.PDVRows, issuer issuer.Issuer) (reportPath string, err error) {
+func defineTypeReport(reportType string, pdvData []pdv.PDVRows, issuer issuer.Issuer) (reportPath string, err error) {
 	switch strings.ToLower(reportType) {
 	case "pdf":
 		rPath, err := reportPDF.BuildPDFReport(issuer, pdvData)
@@ -163,8 +164,8 @@ func buildIssuerData(issuerID int) (issuer.Issuer, error) {
 	return i, nil
 }
 
-func processReport(issuerID int) ([]models.PDVRows, error) {
-	var result []models.PDVRows
+func processReport(issuerID int) ([]pdv.PDVRows, error) {
+	var result []pdv.PDVRows
 	db := conn.ConnDB()
 
 	attachPath := filepath.Join("db", "querys", "reportSale", "query.sql")
@@ -186,7 +187,7 @@ func processReport(issuerID int) ([]models.PDVRows, error) {
 	defer rows.Close()
 
 	for rows.Next() {
-		var r models.PDVRows
+		var r pdv.PDVRows
 
 		if err := rows.Scan(&r.PDVCode, &r.IsFfceNm, &r.Customer, &r.EmitDate, &r.Description, &r.NetValue); err != nil {
 			log.Println("Erro ao fazer a leitura dos dados da query:", err)

@@ -1,4 +1,5 @@
-package reportPDF
+// package reportPDF
+package main
 
 import (
 	"fmt"
@@ -7,8 +8,8 @@ import (
 	"runtime"
 	"strings"
 
-	"g2l.email/pkg/models/issuer"
-	models "g2l.email/pkg/models/pdv"
+	issuer "g2l.email/pkg/models/issuer"
+	pdv "g2l.email/pkg/models/pdv"
 	"g2l.email/pkg/store"
 
 	"github.com/johnfercher/maroto/pkg/color"
@@ -169,9 +170,11 @@ func buildTable(m pdf.Maroto) {
 	})
 
 	m.SetBackgroundColor(getTealColor())
+
 }
 
-func buildDataTable(m pdf.Maroto, pdvsData []models.PDVRows) (total float64) {
+func buildDataTable(m pdf.Maroto, pdvsData []pdv.PDVRows) {
+	var total float64
 	m.Row(8, func() {
 		m.Col(1, func() {
 			m.Text("Cód", props.Text{
@@ -270,17 +273,21 @@ func buildDataTable(m pdf.Maroto, pdvsData []models.PDVRows) (total float64) {
 		})
 	}
 
-	return total
+	m.Row(5, func() { m.Col(12, func() { m.Signature("") }) })
 
+	buildFooter(m, total)
 }
 
 func buildFooter(m pdf.Maroto, totalValue float64) {
+	// Totalizador
 	totalText := fmt.Sprintf("Total líquido de vendas: %s", formatValues(totalValue))
 	m.RegisterFooter(func() {
 		m.Row(10, func() {
-			m.Col(10, func() {
+			m.Col(4, func() {
 				m.Text(totalText, props.Text{
 					Color: color.NewWhite(),
+					Top:   2,
+					Align: consts.Middle,
 				})
 			})
 		})
@@ -303,15 +310,14 @@ func getDarkPurpleColor() color.Color {
 	}
 }
 
-func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (filePath string, err error) {
+func BuildPDFReport(issuerData issuer.Issuer, pdvsData []pdv.PDVRows) (filePath string, err error) {
 	log.Printf("Construindo dados do ISSUER: %s ID: %d", issuerData.Name, issuerData.Id)
 	m := pdf.NewMaroto(consts.Portrait, consts.A4) // Cria um novo documento com a orientação e tamanho
 	m.SetPageMargins(12, 10, 12)                   // Define algumas margens
 
 	buildHeader(m, issuerData)
 	buildTable(m)
-	total := buildDataTable(m, pdvsData)
-	buildFooter(m, total)
+	buildDataTable(m, pdvsData)
 
 	_, thisFile, _, _ := runtime.Caller(0) // Caminho do arquivo atual, buildPDFReport.go
 
@@ -331,10 +337,9 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []models.PDVRows) (filePa
 	return filePath, nil
 }
 
-/*
 func main() {
-	var pdvData models.PDVRows
-	var pdvsData []models.PDVRows
+	var pdvData pdv.PDVRows
+	var pdvsData []pdv.PDVRows
 
 	pdvData.PDVCode = 1
 	pdvData.IsFfceNm = "nm"
@@ -356,4 +361,3 @@ func main() {
 		pdvsData,
 	)
 }
-*/
