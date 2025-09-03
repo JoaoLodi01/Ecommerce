@@ -43,6 +43,24 @@ func ExecuteCommand(path, local string, ip net.IP) error {
 		log.Println("Vai executar o ecommerceBack")
 		return nil
 
+	case "coreFront":
+		port := fmt.Sprintln("-p 9090")
+		cmd := exec.Command("npm", "run", "dev", port)
+
+		cmd.Dir = path
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+
+		if err := cmd.Start(); err != nil {
+			log.Println("Erro ao executaro o comando:", err)
+			return err
+
+		}
+
+		log.Println("Vai executar o ecommerceBack")
+		return nil
+
 	}
+
 	return nil
 }

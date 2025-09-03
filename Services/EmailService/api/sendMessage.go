@@ -163,11 +163,11 @@ func SendReportMessage(r reportModel.ReportSale) error {
 	m.Attach(reportPath)
 
 	if err := dial.DialAndSend(m); err != nil {
-		log.Println("Erro ao enviar o e-mail - line 159: ", err)
+		log.Println("Erro ao enviar o e-mail - line 166: ", err)
 		return err
 
 	} else {
-		log.Println("Envio bem sucedido! - Vai chamar o método para excluir")
+		log.Println("Envio bem sucedido! - Vai chamar a função para excluir")
 
 		if err := removeFile.DeleteAfterSend(reportPath, r.IssuerID); err != nil {
 			log.Println("Erro no DeleteAfterSend: ", err)

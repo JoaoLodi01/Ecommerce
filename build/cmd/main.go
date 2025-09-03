@@ -37,4 +37,17 @@ func main() {
 	log.Println("Caminho a ser usado:", backEcommerce)
 	pkg.ExecuteCommand(backEcommerce, "ecommerceBack", ip)
 
+	frontCore, err := pkg.Start(
+		"D:/Gabriel/Projetos/G2L_DevHouse/Core/G2L_Access_FrontEnd",
+		"C:/Gabriel/Projetos/G2L_DevHouse/Core/G2L_Access_FrontEnd",
+	)
+
+	if err != nil {
+		log.Println("Erro ao retornar o caminho", err)
+
+	}
+
+	log.Println("Caminho a ser usado:", frontCore)
+	pkg.ExecuteCommand(frontCore, "coreFront", ip)
+
 }

@@ -313,7 +313,7 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []pdv.PDVRows) (filePath 
 
 	_, thisFile, _, _ := runtime.Caller(0) // Caminho do arquivo atual, buildPDFReport.go
 
-	if err := store.SaveLogFiles("Chamou a função para salvar o arquivo .pdf", "pdfReport", thisFile); err != nil {
+	if err := store.SaveLogFiles("pdfReport", thisFile, "Chamou a função para o .pdf"); err != nil {
 		log.Println("Erro ao salvar a log:", err)
 		return "", err
 	} // O store.SaveLogFiles vai criar e armazenar o arquivo da log
