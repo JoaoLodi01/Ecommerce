@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strconv"
 )
@@ -35,4 +36,32 @@ func DeleteAfterSend(reportPath string, issuerID int) error {
 	log.Println("Exclusão de:", reportPath)
 
 	return os.RemoveAll(reportPath)
+}
+
+func SaveLogFiles(contextLog, local, currentDir string) error {
+	f, err := os.Create("log.log")
+
+	if err != nil {
+		log.Println("Erro ao criar o arquivo:", err)
+		return err
+
+	}
+
+	defer f.Close()
+	upOne := filepath.Dir(currentDir)
+	fileName := fmt.Sprintf("%s/*.log", upOne)
+
+	newPath := "C:\\Services\\EmailService\\logs"
+
+	cmd := exec.Command("mv", fileName, newPath)
+	log.Println("CMD:", cmd)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	if err := cmd.Start(); err != nil {
+		log.Println("Erro ao executar o move:", err)
+	}
+
+	return nil
+
 }

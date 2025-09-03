@@ -2,6 +2,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"path/filepath"
@@ -152,27 +153,6 @@ func buildHeader(m pdf.Maroto, issuerData issuer.Issuer) {
 	})
 }
 
-func buildTable(m pdf.Maroto) {
-	black := color.Color{
-		Red:   0,
-		Blue:  0,
-		Green: 0,
-	}
-
-	m.Row(10, func() {
-		m.Col(12, func() {
-			m.Text("Vendas", props.Text{
-				Color:  black,
-				Family: consts.Courier,
-				Style:  consts.Bold,
-			})
-		})
-	})
-
-	m.SetBackgroundColor(getTealColor())
-
-}
-
 func buildDataTable(m pdf.Maroto, pdvsData []pdv.PDVRows) {
 	m.SetBackgroundColor(getTealColor())
 
@@ -288,7 +268,7 @@ func buildFooter(m pdf.Maroto, totalValue float64) {
 	m.RegisterFooter(func() {
 		m.Row(10, func() {
 			m.Col(7, func() {}) // "Margem"
-			
+
 			m.Col(5, func() {
 				m.Text(totalText, props.Text{
 					Color: color.NewWhite(),
@@ -318,21 +298,32 @@ func getDarkPurpleColor() color.Color {
 }
 
 func BuildPDFReport(issuerData issuer.Issuer, pdvsData []pdv.PDVRows) (filePath string, err error) {
-	log.Printf("Construindo dados do ISSUER: %s ID: %d", issuerData.Name, issuerData.Id)
+	if len(pdvsData) == 0 {
+		errorMsg := fmt.Sprintln("Sem vendas no período")
+		return "", errors.New(errorMsg)
+
+	}
+
+	log.Printf("Construindo dados do ISSUER: %s - %d", issuerData.Name, issuerData.Id)
 	m := pdf.NewMaroto(consts.Portrait, consts.A4) // Cria um novo documento com a orientação e tamanho
 	m.SetPageMargins(12, 10, 12)                   // Define algumas margens
 
 	buildHeader(m, issuerData)
-	//buildTable(m)
 	buildDataTable(m, pdvsData)
 
 	_, thisFile, _, _ := runtime.Caller(0) // Caminho do arquivo atual, buildPDFReport.go
+
+	if err := store.SaveLogFiles("Chamou a função para salvar o arquivo .pdf", "pdfReport", thisFile); err != nil {
+		log.Println("Erro ao salvar a log:", err)
+		return "", err
+	} // O store.SaveLogFiles vai criar e armazenar o arquivo da log
 
 	filePath, err = store.SaveFiles("", thisFile, "pdf", issuerData.Id)
 
 	if err != nil {
 		log.Println("Erro no processo para salvar arquivos - line 320:", err)
 		return "", err
+
 	}
 
 	if err := m.OutputFileAndClose(filePath); err != nil { // Salva o PDF
