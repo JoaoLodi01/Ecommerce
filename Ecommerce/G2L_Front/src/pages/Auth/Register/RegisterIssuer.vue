@@ -112,13 +112,23 @@
     {
         companyName: string,
         tradeName: string,
+        dateOfFoundation: string,
         cnpj: string,
         cpf: string,
-        dateOfFoundation: string,
-        codCrt: string,
-        codCnae: string,
-        mainActivity: string
-
+        cep: string,
+        uf: string,
+        codIbge: number,
+        city: string,
+        address: string,
+        number: number,
+        codCrt: number,
+        crt: string,
+        codCnae: number,
+        cnae: string,
+        ie: string,
+        im: string,
+        mainActivity: string,
+        uuse_id: number
     };
 
     const $q = useQuasar();
@@ -127,12 +137,23 @@
     const form = ref<IIsuerData>({
         companyName: '',
         tradeName: '',
+        dateOfFoundation: '',
         cnpj: '',
         cpf: '',
-        dateOfFoundation: '',
-        codCrt: '',
-        codCnae: '',
-        mainActivity: ''
+        cep: '',
+        uf: '',
+        codIbge: 0,
+        city: '',
+        address: '',
+        number: 0,
+        codCrt: 0,
+        crt: '',
+        codCnae: 0,
+        cnae: '',
+        ie: '',
+        im: '',
+        mainActivity: '',
+        uuse_id: 0,
 
     });
 
@@ -159,27 +180,47 @@
             if(!exists.data)
             {
                 const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
-                
-                form.value.companyName = data.data.alias;
-                form.value.tradeName = data.data.alias;
-                form.value.dateOfFoundation = data.data.founded;
-                form.value.codCnae = data.data.mainActivity.id;
-                form.value.mainActivity = data.data.mainActivity.text;
-
+                console.log(data);
                 // zip = cep
                 // municipality = cod IBGE
                 // street = bairro
                 if (
-                    data.data.address !== "" && 
                     data.data.zip !== "" &&
+                    data.data.state !== "" && 
                     data.data.municipality !== "" &&
+                    data.data.city !== "" &&
+                    data.data.address !== "" && 
                     data.data.street !== "" &&
                     data.data.number !== "" &&
                     data.data.district !== "" &&
-                    data.data.city !== "" &&
-                    data.data.state !== "" 
+                    data.data.mainActivity.id !== "" &&
+                    data.data.mainActivity.text !== ""
                 ) {
+                    console.log('Tem essa caralhada de coisa');
+                    
+                    form.value = {
+                        companyName: data.data.alias,
+                        tradeName: data.data.alias,
+                        dateOfFoundation: data.data.founded,
+                        cnpj: form.value.cnpj,
+                        cpf: form.value.cpf,
+                        cep: data.data.address.zip,
+                        uf: data.data.address.state,
+                        codIbge: data.data.address.municipality,
+                        city: data.data.address.city,
+                        address: data.data.address.street,
+                        number: data.data.address.number,
+                        cnae: data.data.mainActivity.text,
+                        codCrt: 0,
+                        codCnae: data.data.mainActivity.id,
+                        mainActivity: data.data.mainActivity.text,    
+                        crt: '',
+                        ie: '',
+                        im: '',
+                        uuse_id: LocalStorage.getItem("uuse_id")
 
+                    };
+                    LocalStorage.set("_completed", true)
                 };
                 
             } else {
@@ -203,18 +244,8 @@
     {
         showLoanding.value = true;
         try {
-            const res = await api.post('/registers/issuer/create', {
-                companyName: form.value.companyName,
-                tradeName: form.value.tradeName,
-                cpf: form.value.cpf.replace(/\D/g, ''),
-                cnpj: form.value.cnpj.replace(/\D/g, ''),
-                dateOfFoundation: form.value.dateOfFoundation,
-                codCrt: form.value.codCrt,
-                codCnae: form.value.codCnae,
-                mainActivity: form.value.mainActivity,
-                uuse_id: LocalStorage.getItem("uuse_id"),
-                
-            });
+            console.log('Dados de envio:', form.value);
+            const res = await api.post('/registers/issuer/create', form.value);
 
             if(res.data.success)
             {

@@ -47,6 +47,7 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         
         if($owner)
         {
+            $ibge = $this->getIBGECodService->getData($data['city']);
             $issuer = Issuer::create([
                 'company_name' => $data['companyName'],
                 'trade_name' => $data['tradeName'],
@@ -56,6 +57,15 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                 'cod_cnae' => $data['codCnae'],
                 'cnae' => $data['mainActivity'],
                 'user_code' => $owner->id,
+                'cep' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cep']),
+                'uf' => $data['uf'],
+                'cod_ibge' => $data['codIbge'] ?? $ibge, 
+                'city' => $data['city'],
+                'address' => $data['address'],
+                'number' => $data['number'],
+                'main_activity' => $data['mainActivity'],
+                'ie' => $data['ie'],
+                'im' => $data['im'],       
             ]);
 
             Log::info('--- Criação das espécies padrão ---');
@@ -167,17 +177,17 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         $issuer->update([
             'cep' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cep']),
             'uf' => $data['uf'],
-            'cod_ibge' => $data['cod_ibge'] ?? $ibge, 
+            'cod_ibge' => $data['codIbge'] ?? $ibge, 
             'city' => $data['city'],
             'address' => $data['address'],
             'number' => $data['number'],
-            'cod_crt' => $data['cod_crt'],
+            'cod_crt' => $data['codCrt'],
             'crt' => $data['crt'],
-            'cod_cnae' => $data['cod_cnae'],
+            'cod_cnae' => $data['codCnae'],
             'cnae' => $data['cnae'],
             'main_activity' => $data['cnae'],
             'ie' => $data['ie'],
-            'im' => $data['im'],            
+            'im' => $data['im'],           
 
         ]);
 

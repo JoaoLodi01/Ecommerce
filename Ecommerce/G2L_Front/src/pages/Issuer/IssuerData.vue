@@ -205,7 +205,7 @@
     import { useRouter } from 'vue-router';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import getCEPData from 'src/services/getData/getCEPData';
-import camelcaseKeys from 'camelcase-keys';
+    import camelcaseKeys from 'camelcase-keys';
 
     type TIssuer = {
         companyName: string,
@@ -215,7 +215,7 @@ import camelcaseKeys from 'camelcase-keys';
         cpf: string,
         cep: string,
         uf: string,
-        cod_ibg: string,
+        codIbge: number,
         city: string,
         address: string,
         number: number,
@@ -224,7 +224,8 @@ import camelcaseKeys from 'camelcase-keys';
         codCnae: number,
         cnae: string,
         ie: string,
-        im: string
+        im: string,
+        mainActivity: string
     }
 
     const crtOptions = ref([
@@ -246,7 +247,7 @@ import camelcaseKeys from 'camelcase-keys';
         cpf: '',
         cep: '',
         uf: '',
-        cod_ibg: '',
+        codIbge: 0,
         city: '',
         address: '',
         number: 0,
@@ -255,12 +256,13 @@ import camelcaseKeys from 'camelcase-keys';
         codCnae: 0,
         cnae: '',
         ie: '',
-        im: ''
+        im: '',
+        mainActivity: ''
     });
 
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
     const router = useRouter();
-    const _completed = ref<boolean>(false);
+    const _completed = ref<boolean>(LocalStorage.getItem("_completed"));
 
     let showLoanding = ref<boolean>(false);
 
@@ -270,7 +272,24 @@ import camelcaseKeys from 'camelcase-keys';
         console.log(data);
 
         issuer.value = {
-
+            companyName: data.companyName,
+            tradeName: data.tradeName,
+            dateOfFoundation: data.dateOfFoundation,
+            cnpj: formatField(data.cnpj),
+            cpf: formatField(data.cpf),
+            cep: data.cep,
+            uf: data.uf,
+            codIbge: data.codIbge,
+            city: data.city,
+            address: data.address,
+            number: data.number,
+            codCrt: data.codCrt,
+            crt: data.crt,
+            codCnae: data.codCnae,
+            cnae: data.cnae,
+            ie: data.ie,
+            im: data.im,
+            mainActivity: data.mainActivity 
         };
     };
 
@@ -347,12 +366,13 @@ import camelcaseKeys from 'camelcase-keys';
                 cnae: issuer.value.cnae,
                 codCnae: issuer.value.codCnae,
                 codCrt: issuer.value.codCrt,
-                cod_ibg: issuer.value.cod_ibg,
+                codIbge: issuer.value.codIbge,
                 crt: issuer.value.crt,
                 dateOfFoundation: issuer.value.dateOfFoundation,
                 ie: issuer.value.ie,
                 im: issuer.value.im,
-                uf: res.uf
+                uf: res.uf,
+                mainActivity: issuer.value.mainActivity
 
             };
 
