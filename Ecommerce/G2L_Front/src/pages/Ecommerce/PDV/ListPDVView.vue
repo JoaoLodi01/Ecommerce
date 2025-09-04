@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[145vh]  mx-auto mt-5 p-6 ml-24 bg-white rounded-lg shadow-lg">
+    <div class="w-[140vh] mx-auto mt-5 p-6 ml-24 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-6" v-if="showListPDV">
             <h1 
                 class="text-2xl font-semibold mt-5"
