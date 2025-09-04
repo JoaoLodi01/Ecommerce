@@ -1,11 +1,11 @@
-<?php
+Merge branch 'Lodi' of https://github.com/JoaoLodi01/Ecommerce into Kochem<?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Financial\Receive;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class ReceiveRequest extends FormRequest
+class CreateReceiveRequest extends FormRequest
 {
     public function authorize(): bool
     {

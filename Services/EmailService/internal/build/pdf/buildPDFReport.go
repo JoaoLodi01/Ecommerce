@@ -1,10 +1,12 @@
-// package reportPDF
-package main
+package reportPDF
+
+//package main
 
 import (
 	"errors"
 	"fmt"
 	"log"
+	"os"
 	"path/filepath"
 	"runtime"
 	"strings"
@@ -17,6 +19,15 @@ import (
 	"github.com/johnfercher/maroto/pkg/consts"
 	"github.com/johnfercher/maroto/pkg/pdf"
 	"github.com/johnfercher/maroto/pkg/props"
+)
+
+const (
+	flags = log.Ldate | log.Lshortfile
+)
+
+var (
+	infoLogger  = log.New(os.Stdout, "INFO:", flags)
+	errorLogger = log.New(os.Stdout, "ERROR:", flags)
 )
 
 func formatValues(v float64) (value string) {
@@ -83,7 +94,7 @@ func buildHeader(m pdf.Maroto, issuerData issuer.Issuer) {
 					Center:  false,
 					Percent: 75,
 				}); err != nil {
-					log.Fatal("Erro ao carregar a logo:", err)
+					errorLogger.Println("Erro ao carregar a logo:", err)
 
 				}
 
@@ -255,11 +266,10 @@ func buildDataTable(m pdf.Maroto, pdvsData []pdv.PDVRows) {
 			})
 		})
 
-		m.Row(5, func() { m.Col(12, func() { m.Signature("") }) })
-
-		buildFooter(m, total)
-
 	}
+
+	m.Row(5, func() { m.Col(12, func() { m.Signature("") }) })
+	buildFooter(m, total)
 }
 
 func buildFooter(m pdf.Maroto, totalValue float64) {
@@ -304,7 +314,7 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []pdv.PDVRows) (filePath 
 
 	}
 
-	log.Printf("Construindo dados do ISSUER: %s - %d", issuerData.Name, issuerData.Id)
+	infoLogger.Printf("Construindo dados do ISSUER: %s - %d", issuerData.Name, issuerData.Id)
 	m := pdf.NewMaroto(consts.Portrait, consts.A4) // Cria um novo documento com a orientação e tamanho
 	m.SetPageMargins(12, 10, 12)                   // Define algumas margens
 
@@ -313,21 +323,21 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []pdv.PDVRows) (filePath 
 
 	_, thisFile, _, _ := runtime.Caller(0) // Caminho do arquivo atual, buildPDFReport.go
 
-	if err := store.SaveLogFiles("pdfReport", thisFile, "Chamou a função para o .pdf"); err != nil {
-		log.Println("Erro ao salvar a log:", err)
+	if err := store.SaveLogFiles("pdfReport", thisFile, "Chamou a função para o .pdf 2"); err != nil {
+		errorLogger.Println("Erro ao salvar a log:", err)
 		return "", err
 	} // O store.SaveLogFiles vai criar e armazenar o arquivo da log
 
 	filePath, err = store.SaveFiles("", thisFile, "pdf", issuerData.Id)
 
 	if err != nil {
-		log.Println("Erro no processo para salvar arquivos - line 320:", err)
+		errorLogger.Println("Erro no processo para salvar arquivos - line 320:", err)
 		return "", err
 
 	}
 
 	if err := m.OutputFileAndClose(filePath); err != nil { // Salva o PDF
-		log.Println("Erro ao salvar arquivo PDF: ", err)
+		errorLogger.Println("Erro ao salvar arquivo PDF: ", err)
 		return "", err
 	}
 	// Precisa retornar o caminho do arquivo para que no sendMessage pegue e faça o Attaceh
@@ -335,18 +345,21 @@ func BuildPDFReport(issuerData issuer.Issuer, pdvsData []pdv.PDVRows) (filePath 
 	return filePath, nil
 }
 
+/*
 func main() {
 	var pdvData pdv.PDVRows
 	var pdvsData []pdv.PDVRows
 
-	pdvData.PDVCode = 1
-	pdvData.IsFfceNm = "nm"
-	pdvData.Description = "Venda nota manual N° 1"
-	pdvData.EmitDate = "01/01/2025"
-	pdvData.Customer = "Cliente teste"
-	pdvData.NetValue = 12.00
+	for i := 1; i <= 4; i++ {
+		pdvData.PDVCode = i
+		pdvData.IsFfceNm = "nm"
+		pdvData.Description = fmt.Sprintf("Venda nota manual N° %d", i)
+		pdvData.EmitDate = "01/01/2025"
+		pdvData.Customer = "Cliente teste"
+		pdvData.NetValue = 12.00
 
-	pdvsData = append(pdvsData, pdvData)
+		pdvsData = append(pdvsData, pdvData)
+	}
 
 	BuildPDFReport(issuer.Issuer{
 		Name:          "Teste",
@@ -359,3 +372,4 @@ func main() {
 		pdvsData,
 	)
 }
+*/

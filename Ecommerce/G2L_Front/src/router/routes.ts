@@ -35,9 +35,9 @@ const routes = [
     component: () => import('src/pages/Tests/table/QTable - list-customers.vue')
   },
   {
-    path: '/teste/table/list-especeis',
+    path: '/teste/table/list-customers',
     name: 'e',
-    component: () => import('src/pages/Tests/table/QTable - especies.vue')
+    component: () => import('src/pages/Tests/table/QTable - list-customers.vue')
   },
   {
     path: '/',

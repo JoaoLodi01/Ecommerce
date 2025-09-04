@@ -11,8 +11,8 @@
 			<h1 class="text-2xl font-semibold">Receber</h1>
 			<div class="flex space-x-4">
 				<q-btn
-					class="p-2 rounded-lg"
-					:style="`background-color: ${buttonColor}; color: ${textColor}`"
+					class="p-2 rounded-lg hover:opacity-80"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -29,22 +29,22 @@
 				</q-btn>
 
 				<q-btn
-					class="p-2 rounded-lg"
-					:style="`background-color: ${buttonColor}; color: ${textColor}`"
+					class="p-2 rounded-lg hover:opacity-80"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
 					label="Relatórios"
 				/>
 
 				<q-btn
-					class="p-2 rounded-lg"
-					:style="`background-color: ${buttonColor}; color: ${textColor}`"
-					@click="manageClick(0, 'register', false)"
+					class="p-2 rounded-lg hover:opacity-80"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+					@click="manageClick('0', 'register', false)"
 					label="Cadastrar"
 				/>
 			</div>
 		</div>
 
-		<div class="filterDate flex  gap-4 items-end mb-6 p-3 border border-gray-300 rounded-lg w-full ">
-			<div class="flex gap-2">
+		<div class="filterDate flex  gap-4 items-end mb-5 p-3 border border-gray-300 rounded-lg w-full md:w-max">
+			<div class="flex items-center gap-2">
 				<q-input
 					class="cursor-text"
 					type="date"
@@ -60,12 +60,12 @@
 				/>
 			</div>
 
-			<q-btn-dropdown
-				class="h-10"
-				:label="getDateFilter"
-				:style="`background-color: ${buttonColor}; color: ${textColor}`"
-				flat
-				dropdown-icon="arrow_drop_down">
+				<q-btn-dropdown
+					class="h-8 hover:opacity-80"
+					:label="getDateFilter"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+					flat
+					dropdown-icon="arrow_drop_down">
 
 				<q-list dense>
 					<q-item
@@ -81,12 +81,12 @@
 				</q-list>
 			</q-btn-dropdown>
 
-			<q-btn-dropdown
-				class="h-10"
-				:label="getStatusLabel"
-				:style="`background-color: ${buttonColor}; color: ${textColor}`"
-				flat
-				dropdown-icon="arrow_drop_down">
+				<q-btn-dropdown
+					class="h-8 hover:opacity-80"
+					:label="getStatusLabel"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+					flat
+					dropdown-icon="arrow_drop_down">
 
 				<q-list dense>
 					<q-item
@@ -102,20 +102,20 @@
 				</q-list>
 			</q-btn-dropdown>
 
-			<q-btn
-				class="transition text-white h-10"
-				:style="`background-color: ${buttonColor}; color: ${textColor}`"
-				label="Limpar"
-				@click="clearFilters"
-			/>
+				<q-btn
+					class="transition text-white h-8 hover:opacity-80"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+					label="Limpar"
+					@click="clearFilters"
+				/>
 
-			<q-btn
-				class="transition text-white h-10"
-				:style="`background-color: ${buttonColor}; color: ${textColor}`"
-				label="Filtrar"
-				@click="applyFilters"
-			/>
-		</div>
+				<q-btn
+					class="transition text-white h-8 hover:opacity-80"
+					:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+					label="Filtrar"
+					@click="applyFilters"
+				/>
+				</div>
 
 		<div class="flex flex-col md:flex-row md:justify-between gap-4 items-center border p-3 rounded-lg mb-4 mx-auto w-full">
 			<!-- Legenda  -->
@@ -126,23 +126,28 @@
 				</div>
 
 				<div class="flex items-center gap-2 text-xs">
-					<div class="bg-green-500 h-3 w-3 rounded-full"></div>
-					<span>Quitadas</span>
+					<div class="bg-green-600 h-3 w-3 rounded-full"></div>
+					<span>Quitada</span>
 				</div>
 
 				<div class="flex items-center gap-2 text-xs">
-					<div class="bg-blue-500 h-3 w-3 rounded-full"></div>
+					<div class="bg-yellow-400 h-3 w-3 rounded-full"></div>
+					<span>Quitada parcialmente</span>
+				</div>
+
+				<div class="flex items-center gap-2 text-xs">
+					<div class="bg-blue-600 h-3 w-3 rounded-full"></div>
 					<span>Quitada com atraso</span>
 				</div>
 
 				<div class="flex items-center gap-2 text-xs">
-					<div class="bg-orange-500 h-3 w-3 rounded-full"></div>
-					<span>Canceladas</span>
+					<div class="bg-orange-600 h-3 w-3 rounded-full"></div>
+					<span>Cancelada</span>
 				</div>
 
 				<div class="flex items-center gap-2 text-xs">
-					<div class="bg-red-500 h-3 w-3 rounded-full"></div>
-					<span>Atrasadas</span>
+					<div class="bg-red-600 h-3 w-3 rounded-full"></div>
+					<span>Atrasada</span>
 				</div>
 			</div>
 
@@ -150,17 +155,17 @@
 			<div class="flex gap-4">
 				<span class="border rounded px-3 py-1 bg-green-200 text-green-900">
 					<q-icon name="check_circle" color="green-700" class="mr-2 mb-1" />
-					Recebidas: R$ {{ String(Number(totalQuitadas).toFixed(2)).replace('.', ',') }}
+					Recebidas: {{ formatCurrency(totalQuitadas) }}
 				</span>
 
 				<span class="border rounded px-3 py-1 bg-yellow-200 text-yellow-900">
 					<q-icon name="hourglass_empty" color="orange" class="mr-2 mb-1" />
-					Pendentes: R$ {{ String(Number(totalEmAberto).toFixed(2)).replace('.', ',') }}
+					Pendentes: {{ formatCurrency(totalEmAberto) }}
 				</span>
 
 				<span class="border rounded px-3 py-1 bg-red-300 text-red-900">
 					<q-icon name="warning" color="red" class="mr-2 mb-1" />
-					Atrasadas ( + juros ): R$ {{ String(Number(totalVencidas).toFixed(2)).replace('.', ',') }}
+					Atrasadas ( + juros ): {{ formatCurrency(totalVencidas) }}
 				</span>
 			</div>
 		</div>
@@ -168,167 +173,136 @@
 		<q-table
 			:rows="receives"
 			:columns="columns"
-			row-key="receiveCod"
-			flat
-			bordered
-			class="q-mt-md shadow-lg rounded-lg"
-		>
+			row-key="document"
+			selection="multiple"
+			v-model:selected="selectedRows"
+			:pagination="{ rowsPerPage: 10 }"
+			:loading="loading"
+			dense
+			class="shadow-sm rounded bg-white">
 
-			<template v-slot:header="props">
-				<q-tr :props="props" :style="`background-color: ${painelColor}; color: ${textColor};`">
-					<q-th v-for="col in props.cols" :key="col.name" :props="props" :class="`text-${col.align}`">
-						{{ col.label }}
-					</q-th>
-				</q-tr>
+			<!-- Status -->
+			<template #body-cell-status="props">
+				<q-td :props="props" class="text-center">
+					<q-badge
+						v-bind="getStatusBadge(props.row)"
+						class="text-xs rounded"
+						outlined
+					/>
+				</q-td>
 			</template>
 
-			<template v-slot:body="props">
-				<q-tr :props="props" :class="getColorReceive(props.row)">
-					<q-td key="document" :props="props" class="text-left">
-						{{ props.row.document }}
-					</q-td>
+			<!-- Ações -->
+			<template #body-cell-actions="props">
+				<q-td :props="props" class="text-center">
+					<q-btn
+						@click="manageClick(props.row.receiveDocument, 'update', false)"
+						icon="edit"
+						color="green"
+						size="sm"
+						class="q-mr-xs"
+					/>
+					<q-btn
+						@click="manageClick(props.row.document, 'view', true)"
+						icon="visibility"
+						color="blue"
+						size="sm"
+						class="q-mr-xs"
+					/>
+					<q-btn-dropdown
+						size="sm"
+						:style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+						flat
+						dropdown-icon="arrow_drop_down"
+					>
+						<q-list dense>
+							<q-item clickable v-close-popup @click="markAsPaid(props.row)">
+								<q-item-section avatar>
+									<q-icon name="check_circle" color="green" />
+								</q-item-section>
 
-					<q-td key="description" :props="props" class="text-left">
-						{{ props.row.description }}
-					</q-td>
+								<q-item-section>Quitar (Todas)</q-item-section>
+							</q-item>
 
-					<q-td key="installmentAmount" :props="props" class="text-center">
-						{{ props.row.installmentAmount }}
-					</q-td>
+							<q-item clickable v-close-popup @click="cancelReceive(props.row)">
+								<q-item-section avatar>
+									<q-icon name="cancel" color="orange" />
+								</q-item-section>
 
-					<q-td key="installmentNumber" :props="props" class="text-center">
-						{{ props.row.installmentNumber }}
-					</q-td>
+								<q-item-section>Cancelar (Todas)</q-item-section>
+							</q-item>
 
-					<q-td key="installmentValue" :props="props" class="text-right">
-						R$ {{ Number(props.row.installmentValue).toFixed(2) }}
-					</q-td>
+							<q-item clickable v-close-popup @click="generateBoleto(props.row)">
+								<q-item-section avatar>
+									<q-icon name="receipt_long" color="blue" />
+								</q-item-section>
 
-					<q-td key="installmentPaid" :props="props" class="text-right">
-						R$ {{ Number(props.row.installmentPaid).toFixed(2) }}
-					</q-td>
+								<q-item-section>Visualizar</q-item-section>
+							</q-item>
 
-					<q-td key="name" :props="props" class="text-left">
-						{{ props.row.name }}
-					</q-td>
+							<q-item clickable v-close-popup @click="viewHistory(props.row)">
+								<q-item-section avatar>
+									<q-icon name="history" color="grey" />
+								</q-item-section>
 
-					<q-td key="dueDate" :props="props" class="text-center">
-						{{ props.row.dueDate }}
-					</q-td>
-
-					<q-td key="especie" :props="props" class="text-center">
-						{{ props.row.especie.toUpperCase() }}
-					</q-td>
-
-					<q-td key="status" :props="props" class="text-center">
-						<q-badge
-							:color="getStatusBadge(props.row).color"
-							class="text-xs"
-							outline
-							:label="getStatusBadge(props.row).label"
-							:icon="getStatusBadge(props.row).icon"
-						/>
-					</q-td>
-
-					<q-td key="actions" :props="props" class="text-center">
-						<q-btn
-							@click="manageClick(props.row.receiveDocument, 'update', false)"
-							icon="edit"
-							color="green"
-							size="sm"
-							class="q-mr-xs"
-						/>
-						<q-btn
-							@click="manageClick(props.row.document, 'view', true)"
-							icon="visibility"
-							color="blue"
-							size="sm"
-							class="q-mr-xs"
-						/>
-
-						<q-btn-dropdown
-							size="sm"
-							:style="`background-color: ${buttonColor}; color: ${textColor}`"
-							flat
-							dropdown-icon="arrow_drop_down"
-						>
-							<q-list dense>
-								<q-item clickable v-close-popup @click="markAsPaid(props.row)">
-									<q-item-section avatar><q-icon name="check_circle" color="green" /></q-item-section>
-									<q-item-section>Quitar (Todas)</q-item-section>
-								</q-item>
-
-								<q-item clickable v-close-popup @click="cancelReceive(props.row)">
-									<q-item-section avatar><q-icon name="cancel" color="orange" /></q-item-section>
-									<q-item-section>Cancelar (Todas)</q-item-section>
-								</q-item>
-
-								<q-item clickable v-close-popup @click="generateBoleto(props.row)">
-									<q-item-section avatar><q-icon name="receipt_long" color="blue" /></q-item-section>
-									<q-item-section>Gerar Boleto</q-item-section>
-								</q-item>
-
-								<q-item clickable v-close-popup @click="viewHistory(props.row)">
-									<q-item-section avatar><q-icon name="history" color="grey" /></q-item-section>
-									<q-item-section>Histórico</q-item-section>
-								</q-item>
-							</q-list>
-						</q-btn-dropdown>
-					</q-td>
-				</q-tr>
+								<q-item-section>Histórico</q-item-section>
+							</q-item>
+						</q-list>
+					</q-btn-dropdown>
+				</q-td>
 			</template>
 		</q-table>
 
-		<div v-if="showReceiveClosing" class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-40 backdrop-blur-sm">
-			
-			<div class="bg-white border border-gray-400 rounded-xl">
+		<q-dialog v-model="showReceiveClosing" persistent>
+			<q-card class="q-pa-md" style="min-width: 20; max-width: 1200px; overflow-x: hidden;">
 				<RegisterReceive
 					:action="selectOperation"
 					:readonly="selectReadonly"
-					@close="closeRegister"
 					:widthScreen="widthScreen"
 					:receiveDocument="selectedReceiveDocument"
+					@close="closeRegister"
 				/>
-			</div>
-		</div>
+			</q-card>
+		</q-dialog>
 	</div>
 </template>
 
 <script setup lang="ts">
 	//#region AMBIENTE
 	import dayjs from "dayjs";
-	import isBetween from "dayjs/plugin/isBetween";
-	import camelcaseKeys from "camelcase-keys";
 	import { ref, onMounted } from "vue";
-	import { LocalStorage, QTableColumn, useQuasar } from "quasar";
 	import { api } from "src/boot/axios";
+	import { LocalStorage } from "quasar";
+	import camelcaseKeys from "camelcase-keys";
+	import { computed } from "@vue/reactivity";
+	import isBetween from "dayjs/plugin/isBetween";
+	import { QTableColumn, useQuasar } from "quasar";
 	import LoandingPage from "src/components/Loanding/LoandingPage.vue";
 	import RegisterReceive from "src/components/Register/Financial/RegisterReceive.vue";
-	import { computed } from "@vue/reactivity";
 
 	dayjs.extend(isBetween);
 
-	const $q = useQuasar();
 	const today = dayjs();
-
-	const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
-	const textColor = ref<string>(LocalStorage.getItem("textColor"));
-	const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
-	const painelColor = ref<string>(LocalStorage.getItem("painelColor"));
-
-	const startDate = ref(today.startOf('month').format('YYYY-MM-DD'));
-	const endDate = ref(today.endOf('month').format('YYYY-MM-DD'));
+	const $q = useQuasar();
 	const receives = ref([]);
+	const loading = ref(false);
 	const showPage = ref(false);
 	const selectOperation = ref("");
 	const originalReceives = ref([]);
 	const selectedRegister = ref([]);
-	const selectedReceiveDocument = ref<number>(0);
-	const selectReadonly = ref<boolean>(false);
-	const showReceiveClosing = ref<boolean>(false);
+	const selectReadonly = ref(false);
+	const selectedRows = ref<any[]>([]);
+	const showReceiveClosing = ref(false);
 	const widthScreen = ref(window.innerWidth);
-	const dateFilterField = ref<DateFilterValue>('createdAt');
+	const selectedReceiveDocument = ref<string>('0');
 	const statusFilterField = ref<StatusFilterValue>('all');
+	const dateFilterField = ref<DateFilterValue>('createdAt');
+	const endDate = ref(today.endOf('month').format('YYYY-MM-DD'));
+	const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+	const textColor = ref<string>(LocalStorage.getItem("textColor"));
+	const startDate = ref(today.startOf('month').format('YYYY-MM-DD'));
+	const painelColor = ref<string>(LocalStorage.getItem("painelColor"));
+	const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
 
 	type DateFilterValue = 'createdAt' | 'dueDate' | 'datePaid';
 	type StatusFilterValue = 'all' | 'open' | 'paid' | 'overdue' | 'canceled';
@@ -336,17 +310,16 @@
 
 	//#region Q-TABLE
 	const columns: QTableColumn[] = [
-			{ name: 'document', label: 'Documento', field: 'document', align: 'left' },
-			{ name: 'description', label: 'Descrição', field: 'description', align: 'left' },
-			{ name: 'installmentAmount', label: 'Qtde Parcela', field: 'installmentAmount', align: 'center' },
-			{ name: 'installmentNumber', label: 'Nº Parcela', field: 'installmentNumber', align: 'center' },
-			{ name: 'installmentValue', label: 'Valor Bruto', field: row => `R$ ${row.installmentValue.toFixed(2)}`, align: 'right' },
-			{ name: 'installmentPaid', label: 'Valor Líquido', field: row => `R$ ${row.installmentPaid.toFixed(2)}`, align: 'right', format: (val) => String(val).replace('.', ',') }, 
-			{ name: 'name', label: 'Cliente', field: 'name', align: 'left' },
-			{ name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
-			{ name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },
-			{ name: 'status', label: 'Status', field: row => row.status.toUpperCase(), align: 'center' },
-			{ name: 'actions', label: 'Ações', field: 'actions', align: 'center' }
+		{ name: 'document', label: 'Documento', field: 'document', align: 'center' },
+		{ name: 'description', label: 'Descrição', field: 'description', align: 'center' },
+		{ name: 'installmentAmount', label: 'Qtde. Parcelas', field: 'installmentAmount', align: 'center' },
+		{ name: 'installmentValue', label: 'Valor Bruto', field: row => formatCurrency(row.installmentValue) , align: 'center' },
+		{ name: 'installmentPaid', label: 'Valor Líquido', field: row => formatCurrency(row.installmentPaid), align: 'center' },
+		{ name: 'name', label: 'Cliente', field: 'name', align: 'center' },
+		{ name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
+		{ name: 'especie', label: 'Espécie', field: row => row.especie.toUpperCase(), align: 'center' },
+		{ name: 'status', label: 'Status', field: 'status', align: 'center' },
+		{ name: 'actions', label: 'Ações', field: 'actions', align: 'center', sortable: false }
 	];
 
 	const getStatusBadge = (row) => {
@@ -355,59 +328,53 @@
 		const isVencida = !isPaid && isLate(row.dueDate);
 		const isCancelada = row.status === "cancelada";
 
-		if (isCancelada) return { label: "Cancelada", color: "orange", icon: "cancel" };
-		if (isLatePayment) return { label: "Pago com atraso", color: "red", icon: "close" };
-		if (isPaid) return { label: "Pago", color: "green", icon: "done" };
-		if (isVencida) return { label: "Vencida", color: "red", icon: "close" };
-		return { label: "Em aberto", color: "grey", icon: "hourglass_empty" };
+		if (isCancelada) return { label: "Cancelada", color: "orange", textColor: 'white'  };
+		if (isLatePayment) return { label: "Pago com atraso", color: "blue", textColor: 'white' };
+		if (isPaid) return { label: "Pago", color: "green", textColor: 'white' };
+		if (isVencida) return { label: "Vencida", color: "red", textColor: 'white' };
+
+		return { label: "Em aberto", color: "grey" };
 	};
 
-	const isLate = (date) => {
+	const isLate = (date: string) => {
 		return dayjs().isAfter(dayjs(date), "day");
 	};
 
-	const getColorReceive = (row) => {
-		if (row.status === "cancelada") return "bg-orange-300 text-white";
-		if (row.paid && isLate(row.dueDate)) return "bg-red-400 text-white";
-		if (row.paid) return "bg-green-400 text-white";
-		if (!row.paid && isLate(row.dueDate)) return "bg-red-300 text-white";
-		return "";
-	};
-
 	const getReceives = async () => {
+		loading.value = true;
 		try {
 			const res = await api.get(`/ecommerce/receive/all/${issuerID.value}`);
-			console.log(res.data.data)
 			originalReceives.value = camelcaseKeys(res.data.data, { deep: true });
-			applyFilters(); // Aplica filtros ao carregar
+			applyFilters();
+			showPage.value = true;
 		} catch (error) {
 			$q.notify({ color: 'red', message: 'Erro ao carregar dados' });
+		} finally {
+			loading.value = false;
 		}
 	};
 
 	//#endregion
 
 	//#region GERAIS
-	const manageClick = (receiveDocument: number, operation: string, readonly: boolean) => {
+	const manageClick = (receiveDocument: string, operation: string, readonly: boolean) => {
 		selectOperation.value = operation;
 		selectReadonly.value = readonly;
 
-		console.log('Passando: ', receiveDocument);
-
 		if (operation === "register") {
 			selectedRegister.value = [];
-			selectedReceiveDocument.value = 0;
+			selectedReceiveDocument.value = '0';
 		} else {
 			selectedReceiveDocument.value = receiveDocument;
 		}
-		
+
 		showReceiveClosing.value = true;
 	};
 
 	const closeRegister = () => {
 		showReceiveClosing.value = false;
 		selectedRegister.value = [];
-		selectedReceiveDocument.value = 0;
+		selectedReceiveDocument.value = '0';
 		getReceives();
 	};
 
@@ -419,9 +386,63 @@
 
 	//#region OPTIONS ROWS
 
-	const markAsPaid = (row) => {};
+	const markAsPaid = async (row) => {
+		$q.dialog({
+			title: 'Confirmação',
+			message: `Realmente deseja quitar o documento ${row.document}?`,
+			cancel: true,
+			persistent: true
+		}).onOk(async () => {
+			try {
+				loading.value = true;
+				await api.put(`/ecommerce/receive/markPaid/$(row.receiveDocument)`);
 
-	const cancelReceive = (row) => {};
+				$q.notify({
+					color: 'green',
+					message: 'Recebimento quitado com sucesso!',
+				});
+
+				await getReceives();
+			} catch (error) {
+				$q.notify({ 
+					color: 'red',
+					message: 'Erro ao marcar como quitado.'
+				});
+			} finally {
+				loading.value = false;
+			}
+		});
+	};
+
+	const cancelReceive = async (row) => {
+		$q.dialog({
+			title: 'Cancelar recebimento',
+			message: `Deseja realmente cancelar o documento ${row.document}?`,
+			cancel: true,
+			persistent: true
+		}).onOk(async () => {
+			try {
+				loading.value = true;
+				await api.put(`/ecommerce/receive/cancel/${row.receiveDocument}`);
+
+				$q.notify({
+					color: 'red',
+					message: 'Recebimento cancelado com sucesso.'
+				});
+
+				await getReceives();
+
+			} catch (error) {
+				$q.notify({
+					color: 'red',
+					message: 'Erro ao cancelar recebimento.'
+				});
+
+			} finally {
+				loading.value = false;
+			}
+		});
+	};
 
 	const generateBoleto = (row) => {};
 
@@ -504,8 +525,8 @@
 
 	//#region TOTALIZADORES
 	const totalQuitadas = computed(() => 
-		receives.value.reduce((acc, r) => acc + (r.paid ? r.installmentValue : 0), 0)
-	);
+			receives.value.reduce((acc, r) => acc + (r.paid ? Number(r.installmentValue) : 0), 0)
+		);
 
 	const totalVencidas = computed(() => 
 		receives.value.reduce((acc, r) => {
@@ -522,22 +543,14 @@
 		return total.toFixed(2);
 	});
 
-	const isLateDate = (dueDate: string): boolean => {
-		return dayjs(dueDate).isBefore(dayjs(), 'day');
-	};
-	
-	const parseCurrency = (value: number): number =>
-	{
-		if (!value) return 0;
-
-		return parseFloat(
-			value
-			.toString()
-			.replace(/\s/g, '')
-			.replace('R$', '')
-			.replace(/\./g, '')
-			.replace(',', '.')
-		) || 0;
-	};
+		const isLateDate = (dueDate: string): boolean => {
+			return dayjs(dueDate).isBefore(dayjs(), 'day');
+		};
+		
+		const formatCurrency = (value: number) =>
+			new Intl.NumberFormat("pt-BR", {
+				style: "currency",
+				currency: "BRL"
+		}).format(value || 0);
 	//#endregion
 </script>

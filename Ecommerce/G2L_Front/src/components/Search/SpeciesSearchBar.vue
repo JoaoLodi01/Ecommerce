@@ -1,91 +1,91 @@
 <template>
     <div class="container flex">
-      <q-select
-        v-model="speciesData"
-        :options="filteredSpecies"
-        option-label="especie"
-        option-value="id"
-        label="Espécie"
-        :emit-value="false"
-        map-options
-        class="w-96"
-        color="grey"
-        @update:model-value="setSpecies"
-        :disable="disable"
-
-      />
+        <q-select
+            v-model="speciesData"
+            :options="filteredSpecies"
+            option-label="especie"
+            option-value="id"
+            label="Espécie"
+            :emit-value="false"
+            map-options
+            class="w-96"
+            color="grey"
+            @update:model-value="setSpecies"
+            :disable="disable"
+            outlined
+            dense
+        />
     </div>
-  </template>
+</template>
+
+<script lang="ts">
+    import { LocalStorage } from 'quasar'
+    import { api } from 'src/boot/axios'
+    import { onMounted, ref } from 'vue';
+
+    interface ISpecieField {
+        id: number,
+        name: string
+
+    };
+
+    const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
+
+    let speciesData = ref<ISpecieField>({
+        id: 0,
+        name: 'Selecionar..'
+        
+    });
+    
+    let filteredSpecies = ref<ISpecieField[]>([]);
+    let allSpecies = ref<ISpecieField[]>([]);
+
+    const selectSpecies = async () =>{ 
+        const res = await api.get(`/species/all/${issuerID}`);
+        console.log('Aqui:', res.data);
+
+    };
+
+    onMounted(() => {
+        selectSpecies();
+    });
+</script>
+
   
-  <script>
-  import { LocalStorage } from 'quasar'
-  import { api } from 'src/boot/axios'
-  
-  export default {
+<!--script>  
+    export default {
     data() {
-      return {
-        filteredSpecies: [],
-        allSpecies: [],
-        speciesData: { 
-          id: null,
-          especie: 'Escolher...'
-        },
-      }
+        return {
+        
+        }
     },
   
     methods: {
-      async selectSpecies() {
-        console.log(this.speciesData.especie)
-        try {
-            const response = await api.get(`/species/all/${parseInt(LocalStorage.getItem("issuer_id"))}`)
-            console.log(response.data.data)
-            this.allSpecies = response.data.data
-            
-            if(response.data.success)
-            {
-                this.fillterSpecies()
+        async selectSpecies() {
+            try {
+                const response = await 
+                this.allSpecies = response.data.all
+                    if (response.data.success) {
+                        this.fillterSpecies()
+                        console.log(response.data)
+                    }
+            } catch (error) {
+                console.error('Erro ao carregar espécies:', error)
             }
-        } catch (error) {
-          console.error('Erro ao carregar espécies:', error)
-        }
-      },
+        },
 
-      fillterSpecies()
-      {
-        switch (this.module_) {
-          case 'cash':
-            this.allSpecies.forEach((v, _) => {
-
-                if(v.tipo_lancamento === 'Caixa')
-                {
-                  this.filteredSpecies.push(v)
-                }
-            })
-
-            break;
-            
-          case 'installment':
-            this.allSpecies.forEach((v, _) => {
-
-              if(v.tipo_lancamento === 'Receber')
-              {
-                this.filteredSpecies.push(v)
-              }
-            })
-
-            break;
-            
-          default:
-            break;
-        }
-      },
-  
-      setSpecies(specie){
-        this.speciesData.payment_code = specie.payment_code;
-        this.speciesData.especie = specie.especie;
-        this.$emit('selectSpecie', this.speciesData)
-      },
-
+        fillterSpecies() {
+            this.filteredSpecies = this.allSpecies.filter(v => {
+                if (this.module_ === 'cash') return v.tipo_lancamento === 'Caixa';
+                if (this.module_ === 'receive') return v.tipo_lancamento === 'Receber';
+                return false;
+            });
+        },
+    
+        setSpecies(specie){
+            this.speciesData = specie;
+            this.$emit('selectSpecie', specie);
+        },
     },
 
     props: {
@@ -104,5 +104,5 @@
     },
 
   }
-  </script>
+</script-->
   

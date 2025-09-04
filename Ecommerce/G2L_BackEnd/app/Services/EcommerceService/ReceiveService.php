@@ -11,7 +11,7 @@ class ReceiveService
         protected ReceiveRepository $receiveRepository
     ){}
 
-    public function getOne(int $document){
+    public function getOne(string $document){
         $one = $this->receiveRepository->getOne($document);
         if(!$one)
         {
@@ -54,6 +54,30 @@ class ReceiveService
         return response()->json([
             'success' => true,
         ]);
+    }
+
+    public function payInstallment(array $data, int $id){
+        $installment = $this->receiveRepository->findByID($id);
+
+        if (!$installment) {
+            throw new \Exception("Parcela não encontrada");
+        }
+
+        return $this->receiveRepository->payInstallment($data, $id);
+    }
+
+    public function UndoInstallment(array $data, int $id){
+        $installment = $this->receiveRepository->findByID($id);
+
+        if (!$installment) {
+            throw new \Exception("Parcela não encontrada");
+        }
+
+        if ($installment->status !== 'quitada') {
+            throw new \Exception("A parcela não está quitada");
+        }
+
+        return $this->receiveRepository->undoInstallment($data, $id);
     }
 
     public function delete(int $id){

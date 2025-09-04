@@ -1210,6 +1210,7 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
+<<<<<<< HEAD:Ecommerce/G2L_BackEnd/composer.lock
 <<<<<<< HEAD:api/composer.lock
 <<<<<<< HEAD
             "version": "v2.0.2",
@@ -1242,6 +1243,18 @@
                 "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/bab0c0c992aa36e63d800903288d490d6b774d97",
                 "reference": "bab0c0c992aa36e63d800903288d490d6b774d97",
 >>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
+=======
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/inertiajs/inertia-laravel.git",
+                "reference": "bab0c0c992aa36e63d800903288d490d6b774d97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/bab0c0c992aa36e63d800903288d490d6b774d97",
+                "reference": "bab0c0c992aa36e63d800903288d490d6b774d97",
+>>>>>>> 1207fcd0c612b73e18049ccd83213974da4a0f7b:G2L_BackEnd/composer.lock
                 "shasum": ""
             },
             "require": {
@@ -1295,6 +1308,7 @@
             ],
             "support": {
                 "issues": "https://github.com/inertiajs/inertia-laravel/issues",
+<<<<<<< HEAD:Ecommerce/G2L_BackEnd/composer.lock
 <<<<<<< HEAD:api/composer.lock
 <<<<<<< HEAD
                 "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.2"
@@ -1310,6 +1324,11 @@
             },
             "time": "2025-07-15T08:08:04+00:00"
 >>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
+=======
+                "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.4"
+            },
+            "time": "2025-07-15T08:08:04+00:00"
+>>>>>>> 1207fcd0c612b73e18049ccd83213974da4a0f7b:G2L_BackEnd/composer.lock
         },
         {
             "name": "laravel/framework",
@@ -2887,16 +2906,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.5.0",
+            "version": "v5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9"
+                "reference": "221b0d0fdf1369c71047ad1d18bb5880017bbc56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ae59794362fe85e051a58ad36b289443f57be7a9",
-                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/221b0d0fdf1369c71047ad1d18bb5880017bbc56",
+                "reference": "221b0d0fdf1369c71047ad1d18bb5880017bbc56",
                 "shasum": ""
             },
             "require": {
@@ -2939,9 +2958,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.5.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.6.0"
             },
-            "time": "2025-05-31T08:24:38+00:00"
+            "time": "2025-07-27T20:03:57+00:00"
         },
         {
             "name": "nunomaduro/termwind",
@@ -3032,6 +3051,7 @@
         },
         {
             "name": "phpoffice/phpspreadsheet",
+<<<<<<< HEAD:Ecommerce/G2L_BackEnd/composer.lock
 <<<<<<< HEAD:api/composer.lock
 <<<<<<< HEAD
             "version": "4.3.1",
@@ -3064,6 +3084,18 @@
                 "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/2ea9786632e6fac1aee601b6e426bcc723d8ce13",
                 "reference": "2ea9786632e6fac1aee601b6e426bcc723d8ce13",
 >>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
+=======
+            "version": "4.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
+                "reference": "2ea9786632e6fac1aee601b6e426bcc723d8ce13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/2ea9786632e6fac1aee601b6e426bcc723d8ce13",
+                "reference": "2ea9786632e6fac1aee601b6e426bcc723d8ce13",
+>>>>>>> 1207fcd0c612b73e18049ccd83213974da4a0f7b:G2L_BackEnd/composer.lock
                 "shasum": ""
             },
             "require": {
@@ -3154,6 +3186,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHPOffice/PhpSpreadsheet/issues",
+<<<<<<< HEAD:Ecommerce/G2L_BackEnd/composer.lock
 <<<<<<< HEAD:api/composer.lock
 <<<<<<< HEAD
                 "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/4.3.1"
@@ -3169,6 +3202,11 @@
             },
             "time": "2025-07-24T05:15:59+00:00"
 >>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
+=======
+                "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/4.5.0"
+            },
+            "time": "2025-07-24T05:15:59+00:00"
+>>>>>>> 1207fcd0c612b73e18049ccd83213974da4a0f7b:G2L_BackEnd/composer.lock
         },
         {
             "name": "phpoption/phpoption",
@@ -6905,6 +6943,72 @@
                 "source": "https://github.com/laravel/pint"
             },
             "time": "2025-07-10T18:09:32+00:00"
+<<<<<<< HEAD:Ecommerce/G2L_BackEnd/composer.lock
+=======
+        },
+        {
+            "name": "laravel/sail",
+            "version": "v1.44.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/sail.git",
+                "reference": "a09097bd2a8a38e23ac472fa6a6cf5b0d1c1d3fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/a09097bd2a8a38e23ac472fa6a6cf5b0d1c1d3fe",
+                "reference": "a09097bd2a8a38e23ac472fa6a6cf5b0d1c1d3fe",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^9.52.16|^10.0|^11.0|^12.0",
+                "illuminate/contracts": "^9.52.16|^10.0|^11.0|^12.0",
+                "illuminate/support": "^9.52.16|^10.0|^11.0|^12.0",
+                "php": "^8.0",
+                "symfony/console": "^6.0|^7.0",
+                "symfony/yaml": "^6.0|^7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
+                "phpstan/phpstan": "^1.10"
+            },
+            "bin": [
+                "bin/sail"
+            ],
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Sail\\SailServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Sail\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Docker files for running a basic Laravel application.",
+            "keywords": [
+                "docker",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/sail/issues",
+                "source": "https://github.com/laravel/sail"
+            },
+            "time": "2025-07-04T16:17:06+00:00"
+>>>>>>> 1207fcd0c612b73e18049ccd83213974da4a0f7b:G2L_BackEnd/composer.lock
         },
         {
             "name": "mockery/mockery",
@@ -7603,6 +7707,7 @@
         },
         {
             "name": "phpunit/phpunit",
+<<<<<<< HEAD:Ecommerce/G2L_BackEnd/composer.lock
 <<<<<<< HEAD:api/composer.lock
 <<<<<<< HEAD
             "version": "11.5.23",
@@ -7635,6 +7740,18 @@
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/446d43867314781df7e9adf79c3ec7464956fd8f",
                 "reference": "446d43867314781df7e9adf79c3ec7464956fd8f",
 >>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
+=======
+            "version": "11.5.27",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
+                "reference": "446d43867314781df7e9adf79c3ec7464956fd8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/446d43867314781df7e9adf79c3ec7464956fd8f",
+                "reference": "446d43867314781df7e9adf79c3ec7464956fd8f",
+>>>>>>> 1207fcd0c612b73e18049ccd83213974da4a0f7b:G2L_BackEnd/composer.lock
                 "shasum": ""
             },
             "require": {
@@ -7706,6 +7823,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
+<<<<<<< HEAD:Ecommerce/G2L_BackEnd/composer.lock
 <<<<<<< HEAD:api/composer.lock
 <<<<<<< HEAD
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.23"
@@ -7715,6 +7833,9 @@
 =======
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.27"
 >>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
+=======
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.27"
+>>>>>>> 1207fcd0c612b73e18049ccd83213974da4a0f7b:G2L_BackEnd/composer.lock
             },
             "funding": [
                 {
@@ -7738,6 +7859,7 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD:Ecommerce/G2L_BackEnd/composer.lock
 <<<<<<< HEAD:api/composer.lock
 <<<<<<< HEAD
             "time": "2025-06-13T05:47:49+00:00"
@@ -7747,6 +7869,9 @@
 =======
             "time": "2025-07-11T04:10:06+00:00"
 >>>>>>> 84c9a7318d5e2f7dfb74b340376b354a4f112a16:Ecommerce/G2L_BackEnd/composer.lock
+=======
+            "time": "2025-07-11T04:10:06+00:00"
+>>>>>>> 1207fcd0c612b73e18049ccd83213974da4a0f7b:G2L_BackEnd/composer.lock
         },
         {
             "name": "sebastian/cli-parser",

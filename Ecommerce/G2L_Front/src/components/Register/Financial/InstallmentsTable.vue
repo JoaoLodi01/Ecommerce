@@ -4,7 +4,7 @@
             label="Gerar Parcelas"
             color="primary"
             class="mb-2"
-            @click="generateInstallments()"
+            @click="generateInstallments"
             :disable="originalValue <= 0"
         />
 
@@ -12,79 +12,195 @@
             label="Excluir Parcelas"
             color="negative"
             class="mb-2"
-            @click="deleteInstallments()"
+            @click="deleteInstallments"
         />
     </div>
 
-    <div
-        class="lg:col-span-2 overflow-y-auto border border-gray-400 rounded-md shadow-sm"
-        :style="{ width: '1000px', height: readonly ? '400px' : '250px' }"
-    >
-        <table class="min-w-full border-collapse bg-white text-sm">
-            <thead class="sticky top-0 z-10 bg-blue-600 text-white">
-                <tr>
-                    <th class="px-2 py-1">Nº Parcela</th>
-                    <th class="px-2 py-1">Qtde. Parcelas</th>
-                    <th class="px-2 py-1">Data Vencimento</th>
-                    <th class="px-2 py-1">Valor à pagar</th>
-                    <th class="px-2 py-1">Valor Original</th>
-                    <th class="px-2 py-1" v-if="action === 'view'">Data Pagamento</th>
-                    <th class="px-2 py-1" v-if="action === 'view'">Status</th>
-                    <th class="px-2 py-1" v-if="readonly">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(installment, i) in installmentsData" :key="i" class="text-center border-t border-gray-300" :class="{ 'bg-green-100': installment.paid, 'bg-white': !installment.paid}">
-                    <td>{{ installment.installmentNumber }}</td>
-                    <td>{{ installment.installmentAmount }}</td>
-                    <td class="w-[150px]">
+    <div class="flex">
+        <q-table
+            :rows="installmentsData"
+            :columns="columns"
+            row-key="installmentNumber"
+            selection="multiple"
+            v-model:selected="selectedRows"
+            :pagination="{ rowsPerPage: 5}"
+            bordered
+            :loading="loading"
+            class="shadow-sm rounded bg-white">
+            
+        
+            <template #body-cell-dueDate="props">
+                <q-td :props="props" class="w-[150px]">
+                    <template v-if="action !== 'view'">
                         <q-input
-                            type="date"
-                            v-model="installment.dueDate"
-                            dense
-                            outlined
-                            color="primary"
-                            :readonly="action === 'view'"
+                        type="date"
+                        v-model="props.row.dueDate"
+                        dense
+                        outlined
+                        color="primary"
                         />
-                    </td>
-                    <td>{{ formatCurrency(installment.valuePaid) }}</td>
-                    <td>{{ formatCurrency(installment.valueOriginal) }}</td>
-                    <td v-if="action === 'view'">{{ installment.paymentDate }}</td>
-                    <td v-if="action === 'view'">
-                        <span :class="installment.paid ? 'text-green-600' : 'text-red-600'">
-                            {{ installment.paid ? 'Quitada' : 'Em aberto' }}
-                        </span>
-                    </td>
-                    <td v-if="action === 'view'">
-                        <q-btn
-                            size="sm"
-                            icon="check"
-                            color="green"
-                            @click="payOffIstallment(i)"
-                            v-if="!installment.paid">
-                            <q-tooltip>Quitar Parcela</q-tooltip>
-                        </q-btn>
-                        <q-btn
-                            size="sm"
-                            icon="undo"
-                            color="warning"
-                            @click="undoPayOff(installment)"
-                            v-if="installment.paid">
-                            <q-tooltip>Desfazer Quitação</q-tooltip>
-                        </q-btn>
-                    </td>
-                </tr>
-            </tbody>
-        </table> 
+                    </template>
+                    <template v-else>
+                        {{ dayjs(props.row.dueDate).format('DD/MM/YYYY') }}
+                    </template>
+                </q-td>
+            </template>
+
+            <template #body-cell-addition="props">
+                <q-td :props="props">
+                    <template v-if="props.row.addition">
+                        {{ props.row.addition }}
+                    </template>
+                    <template v-else>
+                        -
+                    </template>
+                </q-td>
+            </template>
+
+            <template #body-cell-discount="props">
+                <q-td :props="props">
+                    <template v-if="props.row.discount">
+                        {{ props.row.discount }}
+                    </template>
+                    <template v-else>
+                        -
+                    </template>
+                </q-td>
+            </template>
+
+            <template #body-cell-paymentDate="props">
+                <q-td :props="props">
+                    <template v-if="['quitada', 'parcial'].includes(props.row.status) && props.row.paymentDate">
+                        {{ dayjs(props.row.paymentDate).format('DD/MM/YYYY') }}
+                    </template>
+                    <template v-else>
+                        -
+                    </template>
+                </q-td>
+            </template>
+
+            <template #body-cell-paymentMethod="props">
+                <q-td :props="props">
+                    <template v-if="props.row.paymentMethod">
+                        {{ props.row.paymentMethod }}
+                    </template>
+                    <template v-else>
+                        -
+                    </template>
+                </q-td>
+            </template>
+
+            <template #body-cell-status="props">
+                <q-td :props="props">
+                    <q-badge :color="getStatusColor(props.row.status)">
+                        {{ props.row.status }}
+                    </q-badge>
+                </q-td>
+            </template>
+
+            <template #body-cell-actions="props">
+                <q-td :props="props">
+                    <q-btn
+                        size="sm"
+                        icon="check"
+                        color="white"
+                        class="bg-green-700"
+                        flat
+                        round
+                        @click="openPaymentDialog(props.row)"
+                        v-if="!props.row.paid"
+                    >
+                        <q-tooltip>Quitar Parcela</q-tooltip>
+                    </q-btn>
+
+                    <q-btn
+                        size="sm"
+                        icon="undo"
+                        color="warning"
+                        flat
+                        round
+                        @click="undoPayOff(props.row)"
+                        v-if="props.row.paid"
+                    >
+                        <q-tooltip>Estornar valor</q-tooltip>
+                    </q-btn>
+                </q-td>
+            </template>
+        </q-table>
     </div>
+
+    <!-- Diálogo de Pagamento -->
+    <q-dialog v-model="paymentDialog">
+        <q-card>
+            <q-card-section>
+                <div class="text-h6 text-center">
+                    <span class="text-2xl">Quitar parcela Nº: {{ selectedInstallment?.installmentNumber }}</span>
+                </div>
+                <div class="q-mt-sm">
+                    <q-input
+                        v-model.number="paymentAmount"
+                        type="number"
+                        label="Valor à Pagar"
+                        :rules="[val => val > 0 || 'Informe um valor válido']"
+                        prefix="R$"
+                        outlined
+                        dense
+                    />
+
+                    <SpeciesSearchBar
+                        v-if="paymentDialog"
+                        @selectSpecie="getSpecie($event)"
+                        :module_="'receive'"
+                    />
+
+                </div>
+            </q-card-section>
+
+            <q-card-actions align="right">
+                <q-btn
+                    flat
+                    label="Cancelar"
+                    v-close-popup
+                />
+                <q-btn
+                    color="primary"
+                    label="Confirmar"
+                    @click="confirmInstallmentPayment"
+                />
+            </q-card-actions>
+        </q-card>
+    </q-dialog>
+    
 </template>
 
 <script setup lang="ts">
-    import { api } from "src/boot/axios";
-    import { ref, computed, onMounted, watch } from 'vue';
     import dayjs from 'dayjs';
+    import { api } from 'src/boot/axios';
+    import { ref, computed , onMounted, watch, toRaw } from 'vue';
+    import { useQuasar, LocalStorage, QTableColumn } from 'quasar';
+    import SpeciesSearchBar from 'src/components/Search/SpeciesSearchBar.vue';
 
+// ------------------ Props & Emits ------------------
+    const props = defineProps<{
+        receiveDocument?: string;
+        selectedRegister?: IReceiveBody | null;
+        pdv?: boolean;
+        amount: number;
+        originalValue: number;
+        dueDate: string;
+        readonly: boolean;
+        action: string;
+    }>();
+
+    const emits = defineEmits<{
+        (e: 'installmentsGenerated', value: TinstallmentsData[]);
+        (e: 'existsInstallments', value: boolean);
+        (e: 'update:selectedInstallments', value: TinstallmentsData[]): void;
+    }>();
+
+// ------------------ Types ------------------
     type TinstallmentsData = {
+        installmentCode: string;
         installmentNumber: number;
         installmentAmount: number;
         dueDate: string;
@@ -92,121 +208,244 @@
         valueOriginal: number;
         paid: boolean;
         paymentDate?: string;
+        paidAmountEditable?: number;
+        status?: 'Quitada' | 'Parcial' | 'Em aberto' | 'Atrasada' | 'Cancelada';
     };
 
-    const props = defineProps<{
-        pdv?: boolean,
-        receiveDocument?: number;
-        selectedRegister?: IReceiveBody | null;
-        amount: number,
-        originalValue: number,
-        dueDate: string,
-        readonly: boolean,
-        action: string,
-    }>();
-
-    
-    const emits = defineEmits<{
-        (e: 'installmentsGenerated', value: TinstallmentsData[]),
-        (e: 'existsInstallments', value: boolean)
-        
-    }>();
-    
+// ------------------ Variáveis ------------------
+    const $q = useQuasar();
+    const loading = ref(false);
+    const selectedRows = ref([]);
+    const paymentDialog = ref(false);
+    const paymentSpecie = ref(null);
+    const paymentAmount = ref(0);
     const installmentsData = ref<TinstallmentsData[]>([]);
-    
-    const generateInstallments = async () =>
-    {
-        const originalValuee = props.originalValue.toString().replace(/\D/g, '');
-        console.log('Valor: ', originalValuee);
-        console.log('props.originalValue: ', props.originalValue);
-        let receiveAmount = props.amount;
-        let originalValue = props.originalValue;
-        let dueDate = props.dueDate;
+    const selectedInstallment = ref<TinstallmentsData | null>(null);
 
+// ------------------ Computed ------------------
+    const remaining = computed(() =>
+        selectedInstallment.value ? selectedInstallment.value.valueOriginal - selectedInstallment.value.valuePaid : 0
+    );
+
+// ------------------ Mounted ------------------
+    onMounted(() => {
+        if (props.action === 'view'){
+            getRegister();
+        }
+        console.log('Documento: ', props.receiveDocument);
+        console.log('Data: ', installmentsData.value);
+    });
+
+// ------------------ Q-Table ------------------
+    const columns: QTableColumn[] = [
+        { name: 'installmentNumber', label: 'Nº Parcela', field: 'installmentNumber', align: 'center' },
+        { name: 'dueDate', label: 'Data Vencimento', field: 'dueDate', align: 'center' },
+        { name: 'valueOriginal', label: 'Valor Original', field: 'valueOriginal', align: 'center', format: val => formatCurrency(val) },
+        { name: 'valuePay', label: 'Valor à pagar', field: row => row.valuePaid, align: 'center', format: val => formatCurrency(val) },
+        { name: 'addition', label: 'Acréscimo', field: 'addition', align: 'center' },
+        { name: 'discount', label: 'Desconto', field: 'discount', align: 'center' },
+        { name: 'paymentDate', label: 'Data Pagamento', field: 'paymentDate', align: 'center' },
+        { name: 'paymentMethod', label: 'Espécie', field: 'paymentMethod', align: 'center' },
+        { name: 'status', label: 'Status', field: 'status', align: 'center' },
+        { name: 'actions', label: 'Ações', field: 'actions', align: 'center', sortable: false },
+    ];
+
+
+// ------------------ Methods ------------------
+    const getRegister = async () => {
+        try {
+            const res = await api.get(`/ecommerce/receive/one/${props.receiveDocument}`);
+            const rawData = res.data.data || [];
+
+            installmentsData.value = rawData.map(item => ({
+                installmentCode: item.installment_cod || item.document || String(item.id), // fallback caso null
+                installmentNumber: item.installment_number,
+                installmentAmount: item.installment_amount,
+                valueOriginal: Number(item.installment_value),
+                valuePaid: Number(item.installment_paid),
+                dueDate: item.due_date,
+                paid: Number(item.installment_paid) >= Number(item.installment_value),
+                paymentDate: item.date_paid,
+                status: item.status.toLowerCase() === 'em aberto' ? 'em aberto' : item.status.toLowerCase(), // normaliza
+            }));
+
+        } catch (error) {
+            $q.notify({
+                color: 'negative',
+                message: 'Erro ao buscar parcelas.',
+                position: 'top',
+            });
+
+            console.error(error);
+        }
+    };
+
+    const generateInstallments = () => {
         if (installmentsData.value.length > 1) {
             emits('existsInstallments', true);
             return;
         }
 
-        for(let i = 1; i < receiveAmount + 1; i++)
-        {
+        if (props.amount <= 0 || props.originalValue <= 0) {
+            $q.notify({ color: 'negative', message: 'Valores inválidos!', position: 'top' });
+            return;
+        }
+
+        installmentsData.value = [];
+
+        for (let i = 1; i <= props.amount; i++) {
             installmentsData.value.push({
-                installmentNumber: i,
-                installmentAmount: receiveAmount,
-                valueOriginal: props.originalValue,
-                valuePaid: originalValue / receiveAmount,
-                dueDate: dayjs(dueDate).add(i - 1, 'month').format('YYYY-MM-DD'),
-                paid: false,
-            }); 
+            installmentCode: props.receiveDocument || '0',
+            installmentNumber: i,
+            installmentAmount: props.amount,
+            valueOriginal: props.originalValue / props.amount,
+            valuePaid: 0,
+            dueDate: dayjs(props.dueDate).add(i - 1, 'month').format('YYYY-MM-DD'),
+            paid: false,
+            paidAmountEditable: 0,
+            status: 'Em aberto',
+            });
+        }
+
+        emits('installmentsGenerated', installmentsData.value);
+    };
+
+    const deleteInstallments = () => {
+        installmentsData.value = [];
+    };
+
+    const getSpecie = (specie) => {
+        paymentSpecie.value = specie;
+    };
+
+    const openPaymentDialog = (installment: TinstallmentsData) => {
+        selectedInstallment.value = installment;
+        paymentAmount.value = installment.valuePaid;
+        paymentDialog.value = true;
+    };
+
+    const confirmInstallmentPayment = async () => {
+        if (!selectedInstallment.value || paymentAmount.value <= 0) return;
+
+        if (!paymentSpecie.value) {
+            $q.notify({
+                color: 'negative',
+                message: 'Selecione uma espécie antes de confirmar o pagamento.',
+                position: 'top',
+            });
+            return;
+        }
+
+        if (paymentAmount.value > remaining.value) {
+            $q.notify({
+                color: 'negative',
+                message: `O valor excede o saldo da parcela (R$ ${remaining.value.toFixed(2)}).`,
+                position: 'top',
+            });
+            return;
         };
 
-        if (installmentsData.value.length === receiveAmount) {
-            emits('installmentsGenerated', installmentsData.value);
-        }
-
-        console.log(installmentsData);
+        processPartialPayment();
     };
 
-    const getReceives = async (receiveDocument: number) => {
+    const processPartialPayment = async () => {
         try {
-            const res = await api.get(`/ecommerce/receive/one/${receiveDocument}`);
-            installmentsData.value = res.data || [];
-            console.log(res.data);
+            console.log('Espécie', paymentSpecie);
+            const payload = {
+                installmenteNumber: selectedInstallment.value.installmentNumber,
+                issuerId: LocalStorage.getItem('issuer_id'),
+                installmentPaid: paymentAmount.value,
+                paymentDate: dayjs().format('YYYY-MM-DD'),
+                especieId: paymentSpecie.value.payment_code,
+            };
+
+            await api.put(`/ecommerce/receive/payInstallment/${selectedInstallment.value!.installmentCode}`, payload);
+
+            selectedInstallment.value!.valuePaid += paymentAmount.value;
+
+            if (selectedInstallment.value!.valuePaid >= selectedInstallment.value!.valueOriginal) {
+                selectedInstallment.value!.paid = true;
+                selectedInstallment.value!.status = 'Quitada';
+                selectedInstallment.value!.paymentDate = dayjs().format('YYYY-MM-DD');
+            } else {
+                selectedInstallment.value!.status = 'Parcial';
+                selectedInstallment.value!.paidAmountEditable = paymentAmount.value;
+            }
+
+            paymentSpecie.value = null;
+            paymentAmount.value = 0;
+            paymentDialog.value = false;
+
+            $q.notify({
+                color: 'positive',
+                message: 'Pagamento registrado com sucesso!',
+                position: 'top',
+            });
+
         } catch (error) {
-            console.error('Erro ao buscar parcelas: ', error);
-            installmentsData.value = [];
+            $q.notify({
+                color: 'negative',
+                message: 'Erro ao registrar pagamento.',
+                position: 'top',
+            });
+            
+            console.error(error);
         }
-    }
-
-    const payOffIstallment = (i) => {
-        //installment.paid = true;
-        //installment.paymentDate = dayjs().format('YYYY-MM-DD');
-
-        const installment = installmentsData.value.find(p => p.installmentNumber === i + 1)
-        
-        console.log(installment)
     };
 
-    const undoPayOff = (installment) => {
-        installment.paid = false;
-        installment.paymentDate = undefined;
+    const undoPayOff = async (installment: TinstallmentsData) => {
+        try {
+            await api.put(`/ecommerce/receive/undoPayInstallment/${installment.installmentCode}`, {
+                issuerId: LocalStorage.getItem('issuer_id'),
+            });
+
+                installment.valuePaid = 0;
+                installment.paid = false;
+                installment.paymentDate = '';
+                installment.status = 'Em aberto';
+                installment.paidAmountEditable = 0;
+
+            $q.notify({
+                color: 'green',
+                message: 'Quitação desfeita com sucesso.',
+                position: 'top',
+            });
+
+        } catch (error) {
+            $q.notify({
+                color: 'negative',
+                message: 'Erro ao desfazer quitação.',
+                position: 'top',
+            });
+
+            console.error(error);
+        }
     };
 
-    const formatCurrency = (value: number) => {
-        return new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-        }).format(value);
+    const formatCurrency = (value: number) =>
+        new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+    }).format(value || 0);
+
+    function getStatusColor(status: string) {
+        switch (status.toLowerCase()) {
+            case 'Quitada':
+                return 'green';
+            case 'Parcial':
+                return 'blue';
+            case 'Cancelada':
+                return 'orange';
+            case 'Atrasada':
+                return 'red';
+            default:
+                return 'grey';
+        }
     };
 
-    const deleteInstallments = () => 
-    {
-        installmentsData.value = [];
-        console.log(installmentsData)
-    };
-
-    defineExpose({
-        generateInstallments,
-        deleteInstallments,
+    watch(selectedRows, (newVal) => {
+        console.log(newVal);
+        emits('update:selectedInstallments', newVal);
     });
 
-    onMounted(() => {
-        if ((props.action === 'view' || props.action === 'update') && props.selectedRegister) {
-            installmentsData.value = [...props.selectedRegister.installments];
-        }
-
-        if (props.receiveDocument) {
-            getReceives(props.receiveDocument);
-        }
-
-        console.log(props.receiveDocument);
-    });
-
-    watch(() => props.receiveDocument, (newVal) => {
-    if (newVal) {
-        getReceives(newVal);
-    } else {
-        installmentsData.value = [];
-    }
-    }, { immediate: true });
 </script>

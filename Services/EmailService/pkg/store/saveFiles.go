@@ -9,6 +9,10 @@ import (
 	"strconv"
 )
 
+const flags = log.Ldate | log.Lshortfile
+
+var errorLogger = log.New(os.Stdout, "ERROR:", flags)
+
 func SaveFiles(currentDir, currentFile, reportType string, issuerID int) (filePath string, err error) {
 	log.Printf("Salvando arquivos do issuerID: %d - SaveFiles - line 12", issuerID)
 
@@ -36,85 +40,42 @@ func DeleteAfterSend(reportPath string, issuerID int) error {
 	log.Println("Exclusão de:", reportPath)
 
 	return os.RemoveAll(reportPath)
+
 }
+
 func SaveLogFiles(local, currentDir, contextLog string) error {
-	logName := fmt.Sprintf("[%s].log", local)
+	logName := fmt.Sprintf("%s.log", local)
 
 	f, err := os.OpenFile(logName, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
 	if err != nil {
-		log.Println("Erro ao salvar a log:", err)
+		errorLogger.Println("Erro ao salvar a log:", err)
 		return err
 	}
 	defer f.Close()
 
-	// ---- write melhorado (sem SetOutput) ----
 	newLine := fmt.Sprintf("[%s] - %s\n", local, contextLog)
+
 	if _, err := f.WriteString(newLine); err != nil {
-		log.Println("Erro ao escrever no arquivo:", err)
+		errorLogger.Println("Erro ao escrever no arquivo:", err)
 		return err
 	}
-	// garante que a linha foi persistida
+
 	if err := f.Sync(); err != nil {
-		log.Println("Erro ao sincronizar a escrita:", err)
+		errorLogger.Println("Erro ao sincronizar a escrita:", err)
 	}
-	// -----------------------------------------
 
 	upOne := filepath.Dir(currentDir)
 	fileName := fmt.Sprintf("%s/*.log", upOne)
 
-	newPath := "C:\\Gabriel\\Projetos\\G2L_DevHouse\\Services\\EmailService\\logs"
+	newPath := "D:\\Gabriel\\Projetos\\G2L_DevHouse\\Services\\EmailService\\logs"
 
 	cmd := exec.Command("mv", fileName, newPath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
 	if err := cmd.Start(); err != nil {
-		log.Println("Erro ao executar o move:", err)
+		errorLogger.Println("Erro ao executar o move:", err)
 	}
 
 	return nil
 }
-
-/*
-func SaveLogFiles(local, currentDir, contextLog string) error {
-	logName := fmt.Sprintf("[%s].log", local)
-
-	f, err := os.OpenFile(logName, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
-	if err != nil {
-		log.Println("Erro ao salvar a log:", err)
-		return err
-	}
-
-	defer f.Close()
-
-	log.SetOutput(f)
-
-	newLine := fmt.Sprintf("[%s] - %s\n", local, contextLog)
-	if _, err := f.WriteString(newLine); err != nil {
-		log.Println("Erro ao escrever no arquivo de log:", err)
-		return err
-	}
-
-	if err := f.Sync(); err != nil {
-		log.Println("Erro ao sync a escrita:", err)
-		return err
-	}
-
-	upOne := filepath.Dir(currentDir)
-	fileName := fmt.Sprintf("%s/*.log", upOne)
-
-	newPath := "C:\\Gabriel\\Projetos\\G2L_DevHouse\\Services\\EmailService\\logs"
-
-	cmd := exec.Command("mv", fileName, newPath)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-
-	if err := cmd.Start(); err != nil {
-		log.Println("Erro ao executar o move:", err)
-		return err
-	}
-
-	return nil
-
-}
-*/

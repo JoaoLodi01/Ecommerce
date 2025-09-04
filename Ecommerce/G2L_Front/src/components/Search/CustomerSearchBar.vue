@@ -19,8 +19,9 @@
                 @update:model-value="selectClient()"
                 class="w-96"
                 color="grey"
-                :disabled="setDisabled"
-
+                :disabled="disable"
+                outlined
+                dense
             />
             
         </div>  
