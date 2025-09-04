@@ -15,8 +15,6 @@ export async function createCustomerInAccess(data: ICustomerData)
         });
 
         const res = accessCreateRes.data;
-
-        console.log('in createCustomerInAccess: ', res);
         
         if(res.success) return {
             status: true,
@@ -25,8 +23,14 @@ export async function createCustomerInAccess(data: ICustomerData)
 
     } catch (error) {
         console.error('Erro no AccessAdminService');
-        console.error('error.response?.data.message', error.response?.data.message || error.response?.data || 'Erro no acesso de admin');
-        const message: string = error.response?.data.message || error.response?.data || 'Erro no acesso de admin';
+        console.table('error.response?.data.message', error.response?.data.message || error.response?.data || 'Erro no acesso de admin');
+        console.table('error.response?.data', error.response?.data);
+
+        const sqlMsg = 'SQLSTATE[23000]'
+        const isSQLSTATE23000 = String(error.response?.data.message).split('').some(char => sqlMsg.includes(char))
+        // Se tiver SQLSTATE[23000] - Vai estar true
+
+        const message: string = isSQLSTATE23000 ? 'Erro interno, por favor contate o suporte técnico!' : error.response?.data.message || error.response?.data || 'Erro no acesso de admin';
 
         return {
             status: false,

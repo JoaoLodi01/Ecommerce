@@ -48,13 +48,13 @@ class RegisterIssuerRepository implements RegisterIssuerContract
         if($owner)
         {
             $issuer = Issuer::create([
-                'company_name' => $data['company_name'],
-                'trade_name' => $data['trade_name'],
+                'company_name' => $data['companyName'],
+                'trade_name' => $data['tradeName'],
                 'cnpj' => $data['cnpj'] ? preg_replace('/[^a-zA-Z0-9]/', '', $data['cnpj']) : null,
                 'cpf' => $data['cpf'] ? preg_replace('/[^a-zA-Z0-9]/', '', $data['cpf']) : null,
-                'date_of_foundation' => $data['date_of_foundation'],
-                'cod_cnae' => $data['cod_cnae'],
-                'cnae' => $data['main_activity'],
+                'date_of_foundation' => $data['dateOfFoundation'],
+                'cod_cnae' => $data['codCnae'],
+                'cnae' => $data['mainActivity'],
                 'user_code' => $owner->id,
             ]);
 

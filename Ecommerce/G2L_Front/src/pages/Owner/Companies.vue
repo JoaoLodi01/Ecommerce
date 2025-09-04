@@ -56,7 +56,7 @@
                                                             
                             </div>
 
-                            <div class="text-h6 text-center mt-5">Adicionar uma nova empresa</div>
+                            <div class="text-h6 text-center mt-5">Clique aqui para adicionar uma empresa!</div>
 
                         </q-card-section>
                     </router-link>

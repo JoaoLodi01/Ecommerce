@@ -16,8 +16,8 @@ class RegisterIssuerRequest extends FormRequest
         $required = $this->isMethod('PUT') ? 'required' : 'sometimes';
 
         return [
-            'company_name' => ['required', 'string'],
-            'trade_name' => ['required', 'string'],
+            'companyName' => ['required', 'string'],
+            'tradeName' => ['required', 'string'],
             'cnpj' => ['nullable', 'string', 'required_without:cpf'],
             'cpf' => ['nullable', 'string', 'required_without:cnpj'],
             'uf' => [$required, 'string'],
@@ -28,12 +28,12 @@ class RegisterIssuerRequest extends FormRequest
             'cep' => [$required, 'integer'],
             'ie' => ['sometimes', 'string'],
             'im' => ['sometimes', 'string'],
-            'main_activity' => ['sometimes'],
-            'cod_cnae' => [$required],
+            'mainActivity' => ['sometimes'],
+            'codCnae' => [$required],
             'cnae' => [$required, 'string'],
-            'cod_crt' => [$required],
+            'codCrt' => [$required],
             'crt' => [$required, 'string'],
-            'date_of_foundation' => ['sometimes', 'date'],
+            'dateOfFoundation' => ['sometimes', 'date'],
             'uuse_id' => ['required']
             
         ];

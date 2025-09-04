@@ -12,7 +12,7 @@
             >
                 <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Registrar Emitente</h1>
                 <q-input 
-                    v-model="form.company_name"
+                    v-model="form.companyName"
                     @update:model-value="handleInput"
                     type="text" 
                     outlined
@@ -27,7 +27,7 @@
                 />
 
                 <q-input 
-                    v-model="form.trade_name"
+                    v-model="form.tradeName"
                     type="text" 
                     outlined        
                     label="Nome Fantasia" 
@@ -65,7 +65,7 @@
                 />
 
                 <q-input 
-                    v-model="form.date_of_foundation"
+                    v-model="form.dateOfFoundation"
                     outlined        
                     type="date"
                     label="Data de fundação" 
@@ -110,28 +110,29 @@
 
     interface IIsuerData
     {
-        company_name: string,
-        trade_name: string,
+        companyName: string,
+        tradeName: string,
         cnpj: string,
         cpf: string,
-        date_of_foundation: string,
-        cod_crt: string,
-        cod_cnae: string,
-        main_activity: string
+        dateOfFoundation: string,
+        codCrt: string,
+        codCnae: string,
+        mainActivity: string
+
     };
 
     const $q = useQuasar();
     const router = useRouter();
     
     const form = ref<IIsuerData>({
-        company_name: '',
-        trade_name: '',
+        companyName: '',
+        tradeName: '',
         cnpj: '',
         cpf: '',
-        date_of_foundation: '',
-        cod_crt: '',
-        cod_cnae: '',
-        main_activity: ''
+        dateOfFoundation: '',
+        codCrt: '',
+        codCnae: '',
+        mainActivity: ''
 
     });
 
@@ -148,22 +149,38 @@
 
         if(
             cnpj.length == 14 && 
-            form.value.company_name == '' && 
-            form.value.trade_name == ''
+            form.value.companyName == '' && 
+            form.value.tradeName == ''
         )
         {
             const res = await api.get(`/registers/issuer/last-cnpj/${cnpj}`);
             const exists = res.data
-
+''
             if(!exists.data)
             {
                 const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
                 
-                form.value.company_name = data.data.alias
-                form.value.trade_name = data.data.alias
-                form.value.date_of_foundation = data.data.founded
-                form.value.cod_cnae = data.data.mainActivity.id
-                form.value.main_activity = data.data.mainActivity.text
+                form.value.companyName = data.data.alias;
+                form.value.tradeName = data.data.alias;
+                form.value.dateOfFoundation = data.data.founded;
+                form.value.codCnae = data.data.mainActivity.id;
+                form.value.mainActivity = data.data.mainActivity.text;
+
+                // zip = cep
+                // municipality = cod IBGE
+                // street = bairro
+                if (
+                    data.data.address !== "" && 
+                    data.data.zip !== "" &&
+                    data.data.municipality !== "" &&
+                    data.data.street !== "" &&
+                    data.data.number !== "" &&
+                    data.data.district !== "" &&
+                    data.data.city !== "" &&
+                    data.data.state !== "" 
+                ) {
+
+                };
                 
             } else {
                 $q.notify({
@@ -173,9 +190,11 @@
                     timeout: 1800
                 });
                 
-                form.value.company_name = '';
-                form.value.trade_name = '';
+                form.value.companyName = '';
+                form.value.tradeName = '';
                 form.value.cnpj = '';
+                form.value.dateOfFoundation = '';
+
             };
         };
     };
@@ -185,14 +204,14 @@
         showLoanding.value = true;
         try {
             const res = await api.post('/registers/issuer/create', {
-                company_name: form.value.company_name,
-                trade_name: form.value.trade_name,
+                companyName: form.value.companyName,
+                tradeName: form.value.tradeName,
                 cpf: form.value.cpf.replace(/\D/g, ''),
                 cnpj: form.value.cnpj.replace(/\D/g, ''),
-                date_of_foundation: form.value.date_of_foundation,
-                cod_crt: form.value.cod_crt,
-                cod_cnae: form.value.cod_cnae,
-                main_activity: form.value.main_activity,              
+                dateOfFoundation: form.value.dateOfFoundation,
+                codCrt: form.value.codCrt,
+                codCnae: form.value.codCnae,
+                mainActivity: form.value.mainActivity,
                 uuse_id: LocalStorage.getItem("uuse_id"),
                 
             });
@@ -231,8 +250,8 @@
 
     const handleInput = (val: string) =>
     {
-        form.value.company_name = val.toUpperCase();
-        form.value.trade_name = form.value.company_name;
+        form.value.companyName = val.toUpperCase();
+        form.value.tradeName = form.value.companyName;
 
     };
 
