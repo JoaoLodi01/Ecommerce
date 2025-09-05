@@ -19,7 +19,7 @@
                         class="w-max"
                         label="CNPJ/CPF"
                         v-if="issuer.cnpj"
-                        v-model="issuer.cnpj"
+                        v-model="issuer.cnpj" 
                         type="text" 
                         disable
                         
@@ -38,19 +38,19 @@
                     <q-input  
                         class="w-max text-base ml-5"
                         label="Razão social:"
-                        v-model="issuer.companyName"
+                        v-model="issuer.company_name"
                     />
 
                     <q-input  
                         class="w-max text-base ml-5"
                         label="Nome fantasia:"
-                        v-model="issuer.tradeName"
+                        v-model="issuer.trade_name"
                     />
 
                     <q-input 
                         class="w-max ml-5"
                         label="Fundação"
-                        v-model="issuer.dateOfFoundation" 
+                        v-model="issuer.date_of_foundation" 
                         type="date" 
                                
                     />
@@ -138,7 +138,7 @@
                 <q-input 
                     filled        
                     label="Cód. CNAE *" 
-                    v-model="issuer.codCnae"
+                    v-model="issuer.cod_cnae"
                     :rules="[ val => !!val || 'Preencha o Cód. CNAE' ]"
                     class="mb-4"
                     color="grey"
@@ -205,27 +205,25 @@
     import { useRouter } from 'vue-router';
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import getCEPData from 'src/services/getData/getCEPData';
-    import camelcaseKeys from 'camelcase-keys';
 
-    type TIssuer = {
-        companyName: string,
-        tradeName: string,
-        dateOfFoundation: string,
+    type Issuer = {
+        company_name: string,
+        trade_name: string,
+        date_of_foundation: string,
         cnpj: string,
         cpf: string,
         cep: string,
         uf: string,
-        codIbge: number,
+        cod_ibg: string,
         city: string,
         address: string,
         number: number,
-        codCrt: number,
+        cod_crt: number,
         crt: string,
-        codCnae: number,
+        cod_cnae: number,
         cnae: string,
         ie: string,
-        im: string,
-        mainActivity: string
+        im: string
     }
 
     const crtOptions = ref([
@@ -239,63 +237,45 @@
 
     const $q = useQuasar();
     
-    const issuer = ref<TIssuer | null>({
-        companyName: '',
-        tradeName: '',
-        dateOfFoundation: '',
+    const issuer = ref<Issuer | null>({
+        company_name: '',
+        trade_name: '',
+        date_of_foundation: '',
         cnpj: '',
         cpf: '',
         cep: '',
         uf: '',
-        codIbge: 0,
+        cod_ibg: '',
         city: '',
         address: '',
         number: 0,
-        codCrt: 0,
+        cod_crt: 0,
         crt: '',
-        codCnae: 0,
+        cod_cnae: 0,
         cnae: '',
         ie: '',
-        im: '',
-        mainActivity: ''
+        im: ''
     });
 
+    const color = ref<string>('');
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
     const router = useRouter();
-    const _completed = ref<boolean>(LocalStorage.getItem("_completed"));
+    const _completed = ref<boolean>(false);
 
     let showLoanding = ref<boolean>(false);
 
     const getIssuer = async () => {
         const res = await api.get(`/issuer/companie/${issuerID.value}`)
-        const data = camelcaseKeys(res.data.data, { deep: true });
-        console.log(data);
+        console.log(res.data.data);
+        issuer.value = res.data.data;
+        issuer.value.cnpj = formatField(issuer.value.cnpj)
+        issuer.value.cpf = formatField(issuer.value.cpf)
 
-        issuer.value = {
-            companyName: data.companyName,
-            tradeName: data.tradeName,
-            dateOfFoundation: data.dateOfFoundation,
-            cnpj: formatField(data.cnpj),
-            cpf: formatField(data.cpf),
-            cep: data.cep,
-            uf: data.uf,
-            codIbge: data.codIbge,
-            city: data.city,
-            address: data.address,
-            number: data.number,
-            codCrt: data.codCrt,
-            crt: data.crt,
-            codCnae: data.codCnae,
-            cnae: data.cnae,
-            ie: data.ie,
-            im: data.im,
-            mainActivity: data.mainActivity 
-        };
     };
 
     const completeIssuer = async () => 
     {
-        issuer.value.codCrt = crtOptions.value.indexOf(issuer.value.crt) + 1;
+        issuer.value.cod_crt = crtOptions.value.indexOf(issuer.value.crt) + 1;
         showLoanding.value = true;
 
         try {
@@ -318,17 +298,15 @@
             };
             
         } catch (error) {
-           
+            
         } finally {
            showLoanding.value = false;
-
         };
     };
     
     const getDataCEP = async () => 
     {
         const fomratedCEP = issuer.value.cep.replace(/\D/g, '');
-
         if(fomratedCEP.length === 8)
         {
             $q.notify({
@@ -355,8 +333,8 @@
             };
 
             issuer.value = {
-                companyName: issuer.value.companyName, // Mantem padrão
-                tradeName: issuer.value.tradeName, // Mantem padrão
+                company_name: issuer.value.company_name, // Mantem padrão
+                trade_name: issuer.value.trade_name, // Mantem padrão
                 cpf: issuer.value.cpf, // Mantem padrão
                 cnpj: issuer.value.cnpj, // Mantem padrão
                 cep: issuer.value.cep,
@@ -364,15 +342,14 @@
                 number: issuer.value.number, // Mantem padrão   
                 city: res.city,
                 cnae: issuer.value.cnae,
-                codCnae: issuer.value.codCnae,
-                codCrt: issuer.value.codCrt,
-                codIbge: issuer.value.codIbge,
+                cod_cnae: issuer.value.cod_cnae,
+                cod_crt: issuer.value.cod_crt,
+                cod_ibg: issuer.value.cod_ibg,
                 crt: issuer.value.crt,
-                dateOfFoundation: issuer.value.dateOfFoundation,
+                date_of_foundation: issuer.value.date_of_foundation,
                 ie: issuer.value.ie,
                 im: issuer.value.im,
-                uf: res.uf,
-                mainActivity: issuer.value.mainActivity
+                uf: res.uf
 
             };
 
@@ -383,7 +360,6 @@
     const validateUF = (val: string) =>
     {
         const issuerUF = val.toUpperCase();
-
         const ufs = [
             'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES',
             'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR',
@@ -398,7 +374,6 @@
 
     function formatField(val: string) 
     {
-        console.log(val)
         if(val)
         {
             return val.length === 14 ? val.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5') : val.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
@@ -409,8 +384,7 @@
 
     onMounted(() => {
         LocalStorage.getItem("_completed") ? getIssuer() : null;
-        getIssuer();
+        getIssuer()
         _completed.value = LocalStorage.getItem("_completed");
-
     });
 </script>
