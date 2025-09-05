@@ -115,9 +115,19 @@
     </div>
 
     <div
-        class="ml-16 p-1 mb-2 flex justify-between w-[150vh]"
+        class="p-1 mb-2 flex justify-end"
         v-if="showProducts"
     >
+        <div 
+            class="mb-auto mt-auto mr-4 p-2 rounded cursor-pointer"
+            :style="`background-color: ${buttonColor}; color: ${textColor ?? '#fff'}`"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path fill-rule="evenodd" d="M3.792 2.938A49.069 49.069 0 0 1 12 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 0 1 1.541 1.836v1.044a3 3 0 0 1-.879 2.121l-6.182 6.182a1.5 1.5 0 0 0-.439 1.061v2.927a3 3 0 0 1-1.658 2.684l-1.757.878A.75.75 0 0 1 9.75 21v-5.818a1.5 1.5 0 0 0-.44-1.06L3.13 7.938a3 3 0 0 1-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836Z" clip-rule="evenodd" />
+            </svg>
+
+        </div>
+
         <ProductsSearchBar
             :witdh-screen=widthScreen
             :locale="'products'"
@@ -125,13 +135,6 @@
             @return-cod="filterProducts($event)"
             @get-all="getProducts()"
             
-        />
-    
-        <q-select 
-            v-model="searchBarFilter" 
-            :options="searchOptionProducts"
-            label="Filtro de busca" 
-            class="p-1.5 ml-2 bg-white rounded"
         />
     </div>
   

@@ -1,17 +1,22 @@
 <template>
-    <input
-        v-model="search.name"
-        @input="getProducts()"
-        placeholder="Buscar..." 
-        class="outline-none rounded-md mt-1 mb-1 p-1.5"
-        :class="{
-            'w-[100vh]': props.locale === 'pdv',
-            'w-[120vh]': props.locale !== 'pdv'
-        }"
-        id="searchBar"
-        :disabled="!configs.filter"
-
-    />        
+    <div class="mr-[5.4rem]">
+        <q-input
+            id="searchBar"
+            v-model="search.name"
+            :dense="true"
+            borderless
+            class="bg-white rounded p-2 border-b-white"
+            placeholder="Pesquisar produto ..."
+            :class="{
+                'w-[95vh]': props.locale === 'pdv',
+                '': props.locale !== 'pdv'
+            }"
+        >
+            <template v-slot:append v-if="props.locale !== 'pdv'">
+                <q-icon name="search" />
+            </template>
+        </q-input>
+    </div>
     
     <ul 
         class="fixed z-50 p-3 bg-white border border-gray-300 mt-1 transition-transform"
@@ -207,8 +212,8 @@
 </script>
 
 <style>
-    #searchBar{ 
-        width: 100vh;
+    #searchBar {
+        outline: none !important;
+        
     }
-
 </style>

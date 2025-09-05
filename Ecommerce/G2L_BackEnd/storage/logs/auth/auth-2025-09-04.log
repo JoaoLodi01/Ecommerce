@@ -12,3 +12,6 @@
 [2025-09-04 16:38:39] local.INFO: data gabikochem55@gmail.com  
 [2025-09-04 16:38:39] local.INFO: user {"id":1,"user_code":1,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","password":"$2y$12$oZqxufCQuIVeeSV.NGLRzuqy9ymNCYJ3.FoDmO6akahc1sIozYiBe","access":null,"uuse_id":"SE7BzlknvR","is_owner":0,"active":1,"created_at":"2025-08-05T09:49:52.000000Z","updated_at":"2025-08-05T09:49:52.000000Z"}  
 [2025-09-04 16:38:39] local.INFO: Passou o login, token: 6|VtjMHMXnR0g5rPDF10VFULxasKp561Kgtx2otCXwe6611ed4  
+[2025-09-04 22:24:19] local.INFO: data gabikochem55@gmail.com  
+[2025-09-04 22:24:19] local.INFO: user {"id":2,"user_code":2,"name":"Gabriel","surname":"Kochem","cpf":"08805166901","email":"gabikochem55@gmail.com","password":"$2y$12$DEg046.SzgNnjH\/nYOn.Q.iMf2r3m7rdYC0O\/PtgGi3vPI5OcC4nW","access":null,"uuse_id":"aDjDUvi3fp","is_owner":0,"active":1,"created_at":"2025-08-08T01:44:35.000000Z","updated_at":"2025-08-08T01:44:35.000000Z"}  
+[2025-09-04 22:24:22] local.INFO: Passou o login, token: 12|zOeS0saNkTKWSfL2aPCABTZ0kFrWtIgCCakDSll035b54e0c  
