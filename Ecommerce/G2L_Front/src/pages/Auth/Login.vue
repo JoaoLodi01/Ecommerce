@@ -1,13 +1,13 @@
 <template>
-    <Transition name="slide-up">
-        <div v-if="showContent" class="max-w-[28rem] bg-white rounded-md h-[36rem]">
-            <div class="p-12">
-                <h1 class="text-2xl ml-auto mr-autow-max text-center"><b>Bem vindo de volta!</b></h1>
-                <h1 class="text-xl ml-auto mr-autow-max text-center">Login</h1>
+    <Transition name="slide-up" appear>
+        <div v-if="showContent" class="login rounded-md shadow-lg">
+            <div class="q-pa-lg q-pa-xl-md">
+                <h1 class="text-2xl ml-auto q-mx-auto text-center"><b>Bem vindo de volta!</b></h1>
+                <h1 class="text-xl ml-auto q-mx-auto text-center">Login</h1>
                 
                 <q-form
                     @submit.prevent="login"
-                    class="p-5 mt-5"
+                    class="q-pt-md"
                 >
                     <div>
                         <q-input 
@@ -15,7 +15,7 @@
                             type="text" 
                             label="E-mail" 
                             outlined
-                            class="mb-5"
+                            class="q-mb-md"
                             :rules="[
                                 val => !!val || 'O e-mail necessário!'
                             ]"
@@ -28,7 +28,7 @@
                             :type="showConfirmPassword ? 'text' : 'password'"
                             label="Senha" 
                             outlined
-                            class="mb-3"
+                            class="q-mb-xs"
                             :rules="[
                                 val => !!val || 'A senha é necessária!'
                             ]"
@@ -43,6 +43,7 @@
                             </div>
 
                         </q-input>
+                        
                         <span class="text-xs flex justify-end cursor-pointer">
                             Esqueceu sua senha?
                         </span>
@@ -58,7 +59,7 @@
                             unelevated 
                         />
 
-                        <span class="text-center">
+                        <div class="text-center">
                             Não tem uma conta?
                             <span 
                                 class="text-blue-400 cursor-pointer"
@@ -66,7 +67,7 @@
                             >
                                 Se registre agora!
                             </span>
-                        </span>
+                        </div>
                     </div>
                 </q-form>                
             </div>
@@ -167,6 +168,13 @@
 </script>
 
 <style>
+    .login {
+        background-color: #fff;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
     .slide-up-enter-from {
         opacity: 0;
         transform: translateY(50px);

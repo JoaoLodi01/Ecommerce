@@ -18,7 +18,7 @@
                     outlined
                     label="Razão Social" 
                     stack-label
-                    class="mb-4"
+                    
                     color="primary"
                     :rules="[
                         val => !!val || 'Campo obrigatório'
@@ -32,7 +32,7 @@
                     outlined        
                     label="Nome Fantasia" 
                     stack-label
-                    class="mb-6"
+                    class="mb-4"
                     color="primary"
                     
                 />
@@ -42,7 +42,7 @@
                     outlined        
                     label="CNPJ" 
                     stack-label
-                    class="mb-6"
+                    class="mb-4"
                     color="primary"
                     v-bind:mask="'##.###.###/####-##'"
                     maxlength="18"
@@ -55,7 +55,6 @@
                     outlined        
                     label="CPF" 
                     stack-label
-                    class="mb-2"
                     color="primary"
                     v-bind:mask="'###.###.###-##'"
                     maxlength="14"
@@ -70,7 +69,7 @@
                     type="date"
                     label="Data de fundação" 
                     stack-label
-                    class="mb-4"
+                    class="mb-2"
                     color="primary"
                     :rules="[
                         val => !!val || 'Campo obrigatório'
@@ -177,7 +176,7 @@
         {
             const res = await api.get(`/registers/issuer/last-cnpj/${cnpj}`);
             const exists = res.data
-''
+
             if(!exists.data)
             {
                 const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
