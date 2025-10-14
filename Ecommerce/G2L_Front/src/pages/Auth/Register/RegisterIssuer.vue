@@ -153,7 +153,7 @@
         ie: '',
         im: '',
         mainActivity: '',
-        uuse_id: 0,
+        uuse_id: LocalStorage.getItem("uuse_id")
 
     });
 
@@ -221,6 +221,29 @@
 
                     };
                     LocalStorage.set("_completed", true)
+                } else {
+                    form.value = {
+                        companyName: form.value.companyName,
+                        tradeName: form.value.tradeName,
+                        dateOfFoundation: form.value.dateOfFoundation,
+                        cnpj: form.value.cnpj,
+                        cpf: form.value.cpf,
+                        cep: form.value.cep,
+                        uf: form.value.uf,
+                        codIbge: form.value.codIbge,
+                        city: form.value.city,
+                        address: form.value.address,
+                        number: form.value.number,
+                        cnae: form.value.cnae,
+                        codCrt: 0,
+                        codCnae: form.value.codCnae,
+                        mainActivity: form.value.cnae,
+                        crt: '',
+                        ie: '',
+                        im: '',
+                        uuse_id: LocalStorage.getItem("uuse_id")
+
+                    };
                 };
                 
             } else {
