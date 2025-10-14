@@ -1,15 +1,15 @@
 <template>
-    <div class="mr-[5.4rem]">
+    <div class="">
         <q-input
             id="searchBar"
             v-model="search.name"
             :dense="true"
             borderless
-            class="bg-white rounded p-2 border-b-white"
+            class="bg-white rounded-lg p-2 border-b-white"
             placeholder="Pesquisar produto ..."
             :class="{
                 'w-[95vh]': props.locale === 'pdv',
-                '': props.locale !== 'pdv'
+                'mr-[5.4rem]': props.locale === 'pdv'
             }"
         >
             <template v-slot:append v-if="props.locale !== 'pdv'">

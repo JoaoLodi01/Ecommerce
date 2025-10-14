@@ -480,7 +480,7 @@
             if(c.isCustomer) countCustomers.value.isCustomer += 1;
             if(c.isDriver) countCustomers.value.isDriver += 1;
             if(c.isSupplier) countCustomers.value.isSupplier += 1;
-        })
+        });
         
         customers.value = [...allCustomers.value];
         
@@ -521,7 +521,7 @@
             if(active !== 1)
             {
                 $q.notify({
-                    color: 'red-4',
+                    color: 'red',
                     message: 'Impossível alterar cliente desativado!',
                     timeout: 2000,
                     position: 'top'
@@ -533,7 +533,7 @@
             if(customerCod === 1)
             {
                 $q.notify({
-                    color: 'red-4',
+                    color: 'red',
                     message: 'Impossível alterar cliente padrão!',
                     timeout: 2000,
                     position: 'top'

@@ -12,7 +12,7 @@
             >
                 <h1 class="text-xl ml-auto mr-auto border-b border-black w-max mb-4">Registrar Emitente</h1>
                 <q-input 
-                    v-model="form.company_name"
+                    v-model="form.companyName"
                     @update:model-value="handleInput"
                     type="text" 
                     outlined
@@ -27,7 +27,7 @@
                 />
 
                 <q-input 
-                    v-model="form.trade_name"
+                    v-model="form.tradeName"
                     type="text" 
                     outlined        
                     label="Nome Fantasia" 
@@ -65,7 +65,7 @@
                 />
 
                 <q-input 
-                    v-model="form.date_of_foundation"
+                    v-model="form.dateOfFoundation"
                     outlined        
                     type="date"
                     label="Data de fundação" 
@@ -110,28 +110,51 @@
 
     interface IIsuerData
     {
-        company_name: string,
-        trade_name: string,
+        companyName: string,
+        tradeName: string,
+        dateOfFoundation: string,
         cnpj: string,
         cpf: string,
-        date_of_foundation: string,
-        cod_crt: string,
-        cod_cnae: string,
-        main_activity: string
+        cep: string,
+        uf: string,
+        codIbge: number,
+        city: string,
+        address: string,
+        number: number,
+        codCrt: number,
+        crt: string,
+        codCnae: number,
+        cnae: string,
+        ie: string,
+        im: string,
+        mainActivity: string,
+        uuse_id: number
+        
     };
 
     const $q = useQuasar();
     const router = useRouter();
     
     const form = ref<IIsuerData>({
-        company_name: '',
-        trade_name: '',
+        companyName: '',
+        tradeName: '',
+        dateOfFoundation: '',
         cnpj: '',
         cpf: '',
-        date_of_foundation: '',
-        cod_crt: '',
-        cod_cnae: '',
-        main_activity: ''
+        cep: '',
+        uf: '',
+        codIbge: 0,
+        city: '',
+        address: '',
+        number: 0,
+        codCrt: 0,
+        crt: '',
+        codCnae: 0,
+        cnae: '',
+        ie: '',
+        im: '',
+        mainActivity: '',
+        uuse_id: 0,
 
     });
 
@@ -148,22 +171,58 @@
 
         if(
             cnpj.length == 14 && 
-            form.value.company_name == '' && 
-            form.value.trade_name == ''
+            form.value.companyName == '' && 
+            form.value.tradeName == ''
         )
         {
             const res = await api.get(`/registers/issuer/last-cnpj/${cnpj}`);
             const exists = res.data
-
+''
             if(!exists.data)
             {
                 const data = await axios.get(`${process.env.API_CNPJ}/${cnpj}`)
-                
-                form.value.company_name = data.data.alias
-                form.value.trade_name = data.data.alias
-                form.value.date_of_foundation = data.data.founded
-                form.value.cod_cnae = data.data.mainActivity.id
-                form.value.main_activity = data.data.mainActivity.text
+                console.log(data);
+                // zip = cep
+                // municipality = cod IBGE
+                // street = bairro
+                if (
+                    data.data.zip !== "" &&
+                    data.data.state !== "" && 
+                    data.data.municipality !== "" &&
+                    data.data.city !== "" &&
+                    data.data.address !== "" && 
+                    data.data.street !== "" &&
+                    data.data.number !== "" &&
+                    data.data.district !== "" &&
+                    data.data.mainActivity.id !== "" &&
+                    data.data.mainActivity.text !== ""
+                ) {
+                    console.log('Tem essa caralhada de coisa');
+                    
+                    form.value = {
+                        companyName: data.data.alias,
+                        tradeName: data.data.alias,
+                        dateOfFoundation: data.data.founded,
+                        cnpj: form.value.cnpj,
+                        cpf: form.value.cpf,
+                        cep: data.data.address.zip,
+                        uf: data.data.address.state,
+                        codIbge: data.data.address.municipality,
+                        city: data.data.address.city,
+                        address: data.data.address.street,
+                        number: data.data.address.number,
+                        cnae: data.data.mainActivity.text,
+                        codCrt: 0,
+                        codCnae: data.data.mainActivity.id,
+                        mainActivity: data.data.mainActivity.text,    
+                        crt: '',
+                        ie: '',
+                        im: '',
+                        uuse_id: LocalStorage.getItem("uuse_id")
+
+                    };
+                    LocalStorage.set("_completed", true)
+                };
                 
             } else {
                 $q.notify({
@@ -173,9 +232,11 @@
                     timeout: 1800
                 });
                 
-                form.value.company_name = '';
-                form.value.trade_name = '';
+                form.value.companyName = '';
+                form.value.tradeName = '';
                 form.value.cnpj = '';
+                form.value.dateOfFoundation = '';
+
             };
         };
     };
@@ -184,18 +245,8 @@
     {
         showLoanding.value = true;
         try {
-            const res = await api.post('/registers/issuer/create', {
-                company_name: form.value.company_name,
-                trade_name: form.value.trade_name,
-                cpf: form.value.cpf.replace(/\D/g, ''),
-                cnpj: form.value.cnpj.replace(/\D/g, ''),
-                date_of_foundation: form.value.date_of_foundation,
-                cod_crt: form.value.cod_crt,
-                cod_cnae: form.value.cod_cnae,
-                main_activity: form.value.main_activity,              
-                uuse_id: LocalStorage.getItem("uuse_id"),
-                
-            });
+            console.log('Dados de envio:', form.value);
+            const res = await api.post('/registers/issuer/create', form.value);
 
             if(res.data.success)
             {
@@ -231,8 +282,8 @@
 
     const handleInput = (val: string) =>
     {
-        form.value.company_name = val.toUpperCase();
-        form.value.trade_name = form.value.company_name;
+        form.value.companyName = val.toUpperCase();
+        form.value.tradeName = form.value.companyName;
 
     };
 

@@ -115,7 +115,7 @@
     </div>
 
     <div
-        class="p-1 mb-2 flex justify-end"
+        class="p-1 ml-16 mb-2 flex justify-end w-[150vh]"
         v-if="showProducts"
     >
         <div 
@@ -125,7 +125,28 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                 <path fill-rule="evenodd" d="M3.792 2.938A49.069 49.069 0 0 1 12 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 0 1 1.541 1.836v1.044a3 3 0 0 1-.879 2.121l-6.182 6.182a1.5 1.5 0 0 0-.439 1.061v2.927a3 3 0 0 1-1.658 2.684l-1.757.878A.75.75 0 0 1 9.75 21v-5.818a1.5 1.5 0 0 0-.44-1.06L3.13 7.938a3 3 0 0 1-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836Z" clip-rule="evenodd" />
             </svg>
+        </div>
 
+        <div class="flex gap-2 rounded-lg mr-4 bg-white p-2">
+            <div class="flex items-center gap-2 text-xs">
+                <div class="bg-green-500 h-3 w-3 rounded-full"></div>
+                <span>Positivos: {{ countProducts().countPositives }}</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-xs">
+                <div class="bg-blue-500 h-3 w-3 rounded-full"></div>
+                <span>Zerados: {{ countProducts().countZeros }}</span>
+            </div>
+            
+            <div class="flex items-center gap-2 text-xs">
+                <div class="bg-red-500 h-3 w-3 rounded-full"></div>
+                <span>Negativos: {{ countProducts().countNegatives }}</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-xs">
+                <div class="bg-gray-500 h-3 w-3 rounded-full"></div>
+                <span>Inativos: {{ countProducts().countInactives }}</span>
+            </div>
         </div>
 
         <ProductsSearchBar
@@ -261,6 +282,20 @@
     import ProductsSearchBar from 'src/components/Products/ProductsSearchBar.vue';
     import ConfirmPage from 'src/components/Confirm/ConfirmPage.vue';
     import ImportFiles from 'src/components/Files/ImportFiles.vue';
+
+    type TCountProducts = {
+        countPositives: number,
+        countZeros: number,
+        countNegatives: number,
+        countInactives: number,
+    };
+
+    const countProduct = ref<TCountProducts>({
+        countInactives: 0,
+        countNegatives: 0,
+        countPositives: 0,
+        countZeros: 0
+    });
 
     const $q = useQuasar();
     const buttonColor = ref<string>(LocalStorage.getItem("buttonColor"));
@@ -459,6 +494,22 @@
         link.click();
         document.body.removeChild(link);
 
+    };
+
+    const countProducts = (): TCountProducts => {
+        allProducts.value.map(p => {
+            if(p.active !== 1) countProduct.value.countInactives += 1;
+            if(p.amount === 0) countProduct.value.countZeros += 1;
+            if(p.amount < 0) countProduct.value.countNegatives += 1;
+            if(p.amount > 0) countProduct.value.countPositives += 1;
+        });
+        
+        return {
+            countInactives: countProduct.value.countInactives,
+            countNegatives: countProduct.value.countNegatives,
+            countPositives: countProduct.value.countPositives,
+            countZeros: countProduct.value.countZeros
+        };
     };
 
     onMounted(() => {

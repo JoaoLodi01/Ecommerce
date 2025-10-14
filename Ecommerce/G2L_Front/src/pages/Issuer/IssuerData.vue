@@ -38,19 +38,19 @@
                     <q-input  
                         class="w-max text-base ml-5"
                         label="Razão social:"
-                        v-model="issuer.company_name"
+                        v-model="issuer.companyName"
                     />
 
                     <q-input  
                         class="w-max text-base ml-5"
                         label="Nome fantasia:"
-                        v-model="issuer.trade_name"
+                        v-model="issuer.tradeName"
                     />
 
                     <q-input 
                         class="w-max ml-5"
                         label="Fundação"
-                        v-model="issuer.date_of_foundation" 
+                        v-model="issuer.dateOfFoundation" 
                         type="date" 
                                
                     />
@@ -138,7 +138,7 @@
                 <q-input 
                     filled        
                     label="Cód. CNAE *" 
-                    v-model="issuer.cod_cnae"
+                    v-model="issuer.codCnae"
                     :rules="[ val => !!val || 'Preencha o Cód. CNAE' ]"
                     class="mb-4"
                     color="grey"
@@ -206,25 +206,29 @@
     import LoandingPage from 'src/components/Loanding/LoandingPage.vue';
     import getCEPData from 'src/services/getData/getCEPData';
 
-    type Issuer = {
-        company_name: string,
-        trade_name: string,
-        date_of_foundation: string,
+    interface IIsuerData
+    {
+        companyName: string,
+        tradeName: string,
+        dateOfFoundation: string,
         cnpj: string,
         cpf: string,
         cep: string,
         uf: string,
-        cod_ibg: string,
+        codIbge: number,
         city: string,
         address: string,
         number: number,
-        cod_crt: number,
+        codCrt: number,
         crt: string,
-        cod_cnae: number,
+        codCnae: number,
         cnae: string,
         ie: string,
-        im: string
-    }
+        im: string,
+        mainActivity: string,
+        uuse_id: number
+        
+    };
 
     const crtOptions = ref([
         'Simples Nacional',
@@ -237,25 +241,29 @@
 
     const $q = useQuasar();
     
-    const issuer = ref<Issuer | null>({
-        company_name: '',
-        trade_name: '',
-        date_of_foundation: '',
+    const issuer = ref<IIsuerData>({
+        companyName: '',
+        tradeName: '',
+        dateOfFoundation: '',
         cnpj: '',
         cpf: '',
         cep: '',
         uf: '',
-        cod_ibg: '',
+        codIbge: 0,
         city: '',
         address: '',
         number: 0,
-        cod_crt: 0,
+        codCrt: 0,
         crt: '',
-        cod_cnae: 0,
+        codCnae: 0,
         cnae: '',
         ie: '',
-        im: ''
+        im: '',
+        mainActivity: '',
+        uuse_id: LocalStorage.getItem("uuse_id"),
+
     });
+
 
     const color = ref<string>('');
     const issuerID = ref<number>(LocalStorage.getItem("issuer_id"));
@@ -275,7 +283,7 @@
 
     const completeIssuer = async () => 
     {
-        issuer.value.cod_crt = crtOptions.value.indexOf(issuer.value.crt) + 1;
+        issuer.value.codCrt = crtOptions.value.indexOf(issuer.value.crt) + 1;
         showLoanding.value = true;
 
         try {
@@ -333,8 +341,8 @@
             };
 
             issuer.value = {
-                company_name: issuer.value.company_name, // Mantem padrão
-                trade_name: issuer.value.trade_name, // Mantem padrão
+                companyName: issuer.value.companyName, // Mantem padrão
+                tradeName: issuer.value.tradeName, // Mantem padrão
                 cpf: issuer.value.cpf, // Mantem padrão
                 cnpj: issuer.value.cnpj, // Mantem padrão
                 cep: issuer.value.cep,
@@ -342,14 +350,16 @@
                 number: issuer.value.number, // Mantem padrão   
                 city: res.city,
                 cnae: issuer.value.cnae,
-                cod_cnae: issuer.value.cod_cnae,
-                cod_crt: issuer.value.cod_crt,
-                cod_ibg: issuer.value.cod_ibg,
+                codCnae: issuer.value.codCnae,
+                codCrt: issuer.value.codCrt,
+                codIbge: issuer.value.codIbge,
                 crt: issuer.value.crt,
-                date_of_foundation: issuer.value.date_of_foundation,
+                dateOfFoundation: issuer.value.dateOfFoundation,
                 ie: issuer.value.ie,
                 im: issuer.value.im,
-                uf: res.uf
+                uf: res.uf,
+                mainActivity: issuer.value.mainActivity,
+                uuse_id: issuer.value.uuse_id
 
             };
 
