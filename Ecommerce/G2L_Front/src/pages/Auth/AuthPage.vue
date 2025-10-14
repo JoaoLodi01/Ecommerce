@@ -1,45 +1,17 @@
 <template>
-    <div 
-        :class="{
-            'max-w-[500vh] relative top-10 ml-auto mr-auto bg-indigo-500 rounded-md w-max': witdhScreen >= 1680,
-            
-        }"
-    >
-        <div 
-            :class="{
-                'p-12 flex': witdhScreen > 1366,
-                
-            }"
+    <div class="auth-page">
+        <RegisterOwner
+            v-if="!isLogin"
+            @is-login="isLogin = $event"
+            class="auth-card"
+        />
 
-        >
-            <img 
-                class="rounded"
-                :class="{
-                    'w-[1034px]': witdhScreen >= 2560,
-                    'w-[860px]': witdhScreen >= 1920,
-                    'w-[650px]': witdhScreen < 1920
-                }"
-                
-                src="public/image/background_3.jpg"
-                v-if="witdhScreen > 1440"
-                :height="witdhScreen > 1366 ? '1024px' : '520px'"
+        <Login
+            v-if="isLogin"
+            @is-login="isLogin = $event"
+            class="auth-card"
+        />
 
-            >
-                
-            <div class="ml-24">
-                <RegisterOwner
-                    v-if="!isLogin"
-                    @is-login="isLogin = $event"
-
-                />
-
-                <Login
-                    v-if="isLogin"
-                    @is-login="isLogin = $event"
-                />
-
-            </div>
-        </div>
     </div>
 </template>
 
@@ -56,3 +28,27 @@
         witdhScreen.value = screen.width;
     });
 </script>
+
+<style lang="scss">
+    .auth-page {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        background-color: #f7f7f8;
+    }
+
+    .auth-card {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    @media (min-width: 768px) {
+        .auth-card { max-width: 520px; }
+    }
+
+    @media (min-width: 1024px) {
+        .auth-card { max-width: 640px; }
+    }
+</style>

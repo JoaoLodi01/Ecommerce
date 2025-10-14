@@ -13,25 +13,23 @@ class RegisterIssuerRequest extends FormRequest
 
     public function rules(): array
     {
-        $required = $this->isMethod('PUT') ? 'required' : 'sometimes';
-
         return [
             'companyName' => ['required', 'string'],
             'tradeName' => ['required', 'string'],
             'cnpj' => ['nullable', 'string', 'required_without:cpf'],
             'cpf' => ['nullable', 'string', 'required_without:cnpj'],
-            'uf' => [$required, 'string'],
+            'uf' => ['sometimes'],
             'codIbge' => ['sometimes'],
-            'city' => [$required, 'string'],
-            'address' => [$required, 'string'],
-            'number' => [$required, 'string'],
-            'cep' => [$required, 'integer'],
+            'city' => ['sometimes'],
+            'address' => ['sometimes'],
+            'number' => ['sometimes'],
+            'cep' => ['sometimes'],
             'ie' => ['sometimes'],
             'im' => ['sometimes'],
             'mainActivity' => ['sometimes'],
-            'codCnae' => [$required],
-            'cnae' => [$required, 'string'],
-            'codCrt' => [$required],
+            'codCnae' => ['sometimes'],
+            'cnae' => ['sometimes'],
+            'codCrt' => ['sometimes'],
             'crt' => ['sometimes'],
             'dateOfFoundation' => ['sometimes', 'date'],
             'uuse_id' => ['required']

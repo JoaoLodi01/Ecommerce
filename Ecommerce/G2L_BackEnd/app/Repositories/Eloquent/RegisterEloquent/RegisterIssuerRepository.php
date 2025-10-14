@@ -43,26 +43,28 @@ class RegisterIssuerRepository implements RegisterIssuerContract
     }
 
     public function create(array $data)
-    {        
-        $e = DB::transaction(function() use ($data){
-            Log::info('Entrando no DB::transaction');
+    {    
+        Log::debug("começo a criar");
+        Log::debug($data);
+        return DB::transaction(function() use ($data) {
             $owner = User::where('uuse_id', $data['uuse_id'])->first();
             
             if($owner)
             {
-                $ibge = $this->getIBGECodService->getData($data['city']);
+                $data['city'] ? $ibge = $this->getIBGECodService->getData($data['city']) : '';
+
                 $issuer = Issuer::create([
                     'company_name' => $data['companyName'],
                     'trade_name' => $data['tradeName'],
                     'cnpj' => $data['cnpj'] ? preg_replace('/[^a-zA-Z0-9]/', '', $data['cnpj']) : null,
                     'cpf' => $data['cpf'] ? preg_replace('/[^a-zA-Z0-9]/', '', $data['cpf']) : null,
                     'date_of_foundation' => $data['dateOfFoundation'],
-                    'cod_cnae' => $data['codCnae'],
-                    'cnae' => $data['mainActivity'],
+                    'cod_cnae' => $data['codCnae'] ?? '',
+                    'cnae' => $data['mainActivity'] ?? '',
                     'user_code' => $owner->id,
                     'cep' => preg_replace('/[^a-zA-Z0-9]/', '', $data['cep']),
                     'uf' => $data['uf'],
-                    'cod_ibge' => $data['codIbge'] ?? $ibge, 
+                    'cod_ibge' => $data['codIbge'] ?? $ibge ?? '', 
                     'city' => $data['city'],
                     'address' => $data['address'],
                     'number' => $data['number'],
@@ -151,16 +153,13 @@ class RegisterIssuerRepository implements RegisterIssuerContract
                     'issuer' => $issuer
                 );
 
-            } else if (empty($owner))
-            {
+            } else {
                 return array(
                     'success' => false,
                     'message' => 'Proprietário não cadastrado'
                 );
-            }  
+            }   
         });
-
-        return $e;
     }
 
     public function find(int $id)

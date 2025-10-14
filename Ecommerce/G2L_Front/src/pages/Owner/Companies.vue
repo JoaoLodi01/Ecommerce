@@ -1,6 +1,6 @@
 <template>
     <div class="text-center h-96">
-        <header class="head flex justify-between bg-slate-600 text-white text-xl p-5 mb-8">
+        <header class="head flex justify-between bg-[#274690] text-white text-xl p-5 mb-8">
             <div class="inline-flex">
                 <h3 
                     class="ml-5 mr-5"
@@ -12,20 +12,22 @@
                     to="/" 
                     class="mt-auto mb-auto mr-6"
                 >
-                    <span class="mt-0.5 ml-2 hover:text-slate-300 hover:border-b">Voltar ao início</span>
+                    <span class="mt-0.5 ml-2 ">Voltar ao início</span>
                 </router-link>
 
                 <div 
                     class="cursor-pointer mt-auto mb-auto" 
                     @click="showConfirmFn(0, 'logout')"
                 >
-                    <span class="mt-0.5 ml-2 hover:text-slate-300 hover:border-b">Sair</span>
+                    <span class="mt-0.5 ml-2">Sair</span>
                 </div>
 
             </div>
-            <div class="mt-auto mb-auto border-b">
-                Usuário: {{ owner_name }} |
+
+            <div class="mt-auto mb-auto flex">
+                Usuário: {{ owner_name }} - 
                 CPF: {{ String(owner_cpf).replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+                
             </div>
         </header>
 

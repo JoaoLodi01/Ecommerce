@@ -1,7 +1,7 @@
 <template>
-    <Transition name="slide-up">
-        <div v-if="showContent" class="max-w-[28rem] bg-white rounded-md h-[36rem]">
-            <div class="p-12">
+    <Transition name="slide-up" appear>
+        <div v-if="showContent" class="register rounded-md shadow-lg">
+            <div class="q-pa-lg q-pa-xl-md">
                 <h1 class="text-2xl ml-auto mr-autow-max text-center"><b>Bem vindo!</b></h1>
                 <h3 class="text-xl ml-auto mr-autow-max text-center ">Faça aqui o seu registro!</h3>
 
@@ -396,6 +396,13 @@
 </script>
 
 <style>
+    .register {
+        background-color: #fff;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
     .slide-up-enter-from {
         opacity: 0;
         transform: translateY(50px);

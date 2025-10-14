@@ -136,28 +136,33 @@ return [
             'driver' => 'daily',
             'path' => storage_path('logs/auth/auth.log'),
             'level' => 'info',
-            'days' => 1
         ],
 
         'payment' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/payments/payment.log'),
-            'level' => 'info',
-            'days' => 1
+            'path'   => storage_path('logs/payments/payment.log'),
+            'level'  => 'info',
+            
         ],
         
         'pdv' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/pdv/pdv.log'),
-            'level' => 'debug',
-            'days' => 1
+            'path'   => storage_path('logs/pdv/pdv.log'),
+            'level'  => 'debug',
+            
         ],
 
         'uf_code' => [
             'driver' => 'daily',
             'path' => storage_path('logs/uf/debug.log'),
             'level' => 'debug',
-            'days' => 1
-        ]
+        ],
+        
+        'register' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/register/register.log'),
+            'level' => 'debug',
+        ],
+
     ],
 ];
